@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#06111f">
-<meta name="jarvis-version" content="v7-jarvis">
+<meta name="jarvis-version" content="v8-jarvis">
 <title>JARVIS · Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Roboto+Condensed:wght@700&family=Orbitron:wght@700&family=Share+Tech+Mono&family=Rajdhani:wght@600;700&family=Audiowide&family=Teko:wght@500&family=Oxanium:wght@700&display=swap" rel="stylesheet">
@@ -132,6 +132,21 @@ ul.tasks{list-style:none;margin:0;padding:0}
 .toast.show{opacity:1}
 .citylist{margin-top:8px}
 .citylist button{display:block;width:100%;text-align:left;margin-bottom:6px;border-radius:10px}
+.ctab .dot{background:var(--tc,#3fd8ff);box-shadow:0 0 6px var(--tc,#3fd8ff)}
+.ctab .lbl .lt{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ctab .lbl .lt::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--tc,#3fd8ff);box-shadow:0 0 6px var(--tc,#3fd8ff);margin-right:9px;vertical-align:1px}
+.hb{flex:none;width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:rgba(20,60,90,.35);color:var(--cyan2);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;font-size:15px;line-height:1}
+.hb svg{width:15px;height:15px}
+.hb.del{color:#ff8a8a}
+.lbl .hgrp{display:flex;gap:6px;flex:none}
+.barbtns .btn{white-space:nowrap}
+.barbtns .btn.newtab{color:var(--cyan2);border-style:dashed}
+@media (max-width:440px){.bar{padding-left:8px;padding-right:8px}.barin{gap:8px;padding:10px 10px}.eq{width:32px;gap:2px}.eq i{width:3.5px}.barbtns{gap:6px}.barbtns .btn{font-size:14.5px;padding:10px 11px}}
+@media (max-width:370px){.barbtns .btn{font-size:13.5px;padding:10px 9px}.eq{width:26px}.eq i{width:3px}}
+.tcolors{display:flex;gap:10px;flex-wrap:wrap}
+.tcolors .sw{width:32px;height:32px}
+.tcolors .sw.none{background:none;border:2px dashed var(--line);color:var(--mut);font-size:12px}
+.tcolors .sw.sel{border-color:#fff;box-shadow:0 0 8px rgba(255,255,255,.4)}
 </style>
 </head>
 <body>
@@ -162,11 +177,12 @@ ul.tasks{list-style:none;margin:0;padding:0}
   <form class="add" id="fShop"><input id="iShop" placeholder="Spune sau scrie un produs" autocomplete="off">
    <button type="button" class="btn mic" id="bMicShop" title="Scrie sau dictează cu tastatura" aria-label="Deschide tastatura"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4"/></svg></button>
    <button class="btn" type="submit">Adaugă</button></form></section>
+ <div id="customCards"></div>
 </div>
 
 <div class="bar"><div class="barin">
  <div class="eq" id="eq"><i></i><i></i><i></i><i></i><i></i></div>
- <div class="barbtns"><button class="btn" id="bRead">Citește</button><button class="btn" id="bHi">Salut</button></div>
+ <div class="barbtns"><button class="btn newtab" id="bNewTab" aria-label="Tab nou">+ Tab nou</button><button class="btn" id="bRead">Citește</button><button class="btn" id="bHi">Salut</button></div>
 </div></div>
 
 <div class="modal" id="modal"><div class="card"><div class="lbl"><span>Setări</span></div>
@@ -189,6 +205,11 @@ ul.tasks{list-style:none;margin:0;padding:0}
  <div class="field"><label for="sSize">Mărime <span class="val" id="vSize"></span></label><input type="range" id="sSize" min="30" max="72" step="1"></div>
 
  <div class="mrow"><button class="btn" id="sCancel">Anulează</button><button class="btn" id="sSave">Salvează</button></div>
+</div></div>
+<div class="modal" id="tabModal"><div class="card"><div class="lbl"><span id="tmTitle">Tab nou</span></div>
+ <form id="tmForm"><div class="field"><label for="tmName">Nume (obligatoriu)</label><input id="tmName" maxlength="40" placeholder="ex. Farmacie, Mașină, Idei" autocomplete="off" enterkeyhint="done"></div>
+ <div class="field"><label>Culoare (opțional)</label><div class="tcolors" id="tmColors"></div></div>
+ <div class="mrow"><button type="button" class="btn" id="tmCancel">Anulează</button><button type="submit" class="btn" id="tmSave">Creează</button></div></form>
 </div></div>
 <div class="toast" id="toast"></div>
 <script>
@@ -422,7 +443,7 @@ if(document.fonts){if(document.fonts.ready)document.fonts.ready.then(reflowBars)
 var lastDay=dkey();
 function tick(){var d=new Date();$('clock').textContent=pad(d.getHours())+'.'+pad(d.getMinutes());
  if(d.getSeconds()===0||!tick.done){if(!speaking)renderGreet();tick.done=1}
- if(dkey()!==lastDay){lastDay=dkey();renderTasks();renderShop()}}
+ if(dkey()!==lastDay){lastDay=dkey();renderTasks();renderShop();renderTabs()}}
 
 /* ---------- karaoke core ---------- */
 /* A segment = a piece of text shown in a DOM element; every word becomes a span, and the element gets its own glowing bar. */
@@ -570,6 +591,71 @@ function addShop(txt){txt=(txt||'').trim();if(!txt)return false;txt=txt.charAt(0
 $('fShop').addEventListener('submit',function(e){e.preventDefault();if(addShop($('iShop').value)){$('iShop').value='';toast('Produs adăugat')}});
 $('bMicShop').onclick=function(){var i=$('iShop');i.focus();try{i.click()}catch(e){}};
 
+
+/* ---------- custom tabs (list cards like Cumpărături; open items carry over, done ones vanish after their day; deleted tab/items = hidden, kept in storage) ---------- */
+var tabs=LS.get('jv_tabs',[]),TCOL=['#3fd8ff','#4ade80','#facc15','#ffb547','#ff6b6b','#f472b6','#c084fc','#94a3b8'];
+var MIC_SVG='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4"/></svg>';
+var SPK_SVG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4z" fill="currentColor"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>';
+var TRASH_SVG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14M10 11v6M14 11v6"/></svg>';
+function uid(){return Date.now()+'_'+Math.random().toString(36).slice(2,6)}
+function saveTabs(){LS.set('jv_tabs',tabs)}
+function visTabs(){return tabs.filter(function(t){return !t.hidden})}
+function findTab(id){for(var i=0;i<tabs.length;i++)if(tabs[i].id===id)return tabs[i];return null}
+function findTI(tab,id){for(var i=0;i<tab.items.length;i++)if(tab.items[i].id===id)return tab.items[i];return null}
+function tiVisible(x){return !x.hidden&&(!x.done||x.doneDate===dkey())}
+function tabList(tab){return tab.items.filter(tiVisible)}
+function renderTabItems(tab){var ul=document.querySelector('#ct_'+tab.id+' ul');if(!ul)return;var list=tabList(tab);ul.innerHTML=list.length?'':'<li class="empty">Lista e goală.</li>';
+ list.forEach(function(s){var li=document.createElement('li');li.className='task'+(s.done?' done':'');li.dataset.id=s.id;
+  li.innerHTML='<span class="dot"></span><span class="t kw">'+esc(s.text)+'</span><span class="st">'+(s.done?'Gata':'Deschis')+(s.date<dkey()?'<small>'+shortDate(s.date)+'</small>':'')+'</span><button class="ed" aria-label="Editează">✎</button><button class="x" aria-label="Ascunde">×</button>';
+  ul.appendChild(li)})}
+function renderTabs(){var box=$('customCards');if(!box)return;box.innerHTML='';
+ visTabs().forEach(function(tab){var c=document.createElement('section');c.className='card ctab';c.id='ct_'+tab.id;c.dataset.tab=tab.id;
+  if(tab.color)c.style.setProperty('--tc',tab.color);
+  c.innerHTML='<div class="lbl"><span class="lt kw">'+esc(tab.name)+'</span><span class="hgrp"><button class="hb ren" aria-label="Redenumește tabul">✎</button><button class="hb del" aria-label="Șterge tabul">'+TRASH_SVG+'</button><button class="spk" data-read="tab:'+tab.id+'" aria-label="Citește">'+SPK_SVG+'</button></span></div><ul class="tasks ctl"></ul>'+
+   '<form class="add"><input placeholder="Scrie un element" autocomplete="off" aria-label="Element nou"><button type="button" class="btn mic tmic" title="Scrie sau dictează cu tastatura" aria-label="Deschide tastatura">'+MIC_SVG+'</button><button class="btn" type="submit">Adaugă</button></form>';
+  box.appendChild(c);renderTabItems(tab)});
+ if(typeof updEq==='function')updEq()}
+function hideTI(tab,id){var s=findTI(tab,id);if(!s)return;if(confirm('Scoți „'+s.text+'" din listă?')){s.hidden=new Date().toISOString();saveTabs();renderTabItems(tab)}}
+function addTI(tab,txt){txt=(txt||'').trim();if(!txt)return false;txt=txt.charAt(0).toUpperCase()+txt.slice(1);
+ tab.items.push({id:uid(),text:txt,date:dkey(),done:false,doneDate:null,created:new Date().toISOString()});saveTabs();renderTabItems(tab);return true}
+function delTab(tab){if(!confirm('Ștergi tabul „'+tab.name+'"? Elementele lui nu mai apar (datele rămân salvate în telefon).'))return;
+ if(speaking&&speakKey==='tab:'+tab.id)stopSpeaking();tab.hidden=new Date().toISOString();saveTabs();renderTabs();toast('Tab șters')}
+(function(){var box=$('customCards'),timer=null,longFired=false,sx=0,sy=0;
+ function ctx(e){var c=e.target.closest('.ctab');return c?findTab(c.dataset.tab):null}
+ box.addEventListener('click',function(e){var tab=ctx(e);if(!tab)return;
+  if(e.target.closest('.spk')){readCard('tab:'+tab.id);return}
+  if(e.target.closest('.ren')){openTabModal(tab);return}
+  if(e.target.closest('.del')){delTab(tab);return}
+  if(e.target.closest('.tmic')){var i=e.target.closest('form').querySelector('input');i.focus();try{i.click()}catch(_){}return}
+  var li=e.target.closest('.task');if(!li||li.classList.contains('editing')||!li.dataset.id)return;
+  if(e.target.closest('.ed')){var s=findTI(tab,li.dataset.id);if(s)startEdit(li,s,saveTabs,function(){renderTabItems(tab)});return}
+  if(e.target.classList.contains('x')){hideTI(tab,li.dataset.id);return}
+  if(longFired){longFired=false;return}
+  var s=findTI(tab,li.dataset.id);if(!s)return;s.done=!s.done;s.doneDate=s.done?dkey():null;s.doneAt=s.done?new Date().toISOString():null;saveTabs();renderTabItems(tab)});
+ box.addEventListener('submit',function(e){e.preventDefault();var tab=ctx(e);if(!tab)return;var i=e.target.querySelector('input');if(addTI(tab,i.value)){i.value='';toast('Adăugat în '+tab.name)}});
+ box.addEventListener('pointerdown',function(e){var li=e.target.closest('.task');if(!li||!li.dataset.id||li.classList.contains('editing')||e.target.classList.contains('x')||e.target.closest('.ed'))return;var tab=ctx(e);if(!tab)return;longFired=false;sx=e.clientX;sy=e.clientY;
+  timer=setTimeout(function(){longFired=true;if(navigator.vibrate)navigator.vibrate(30);hideTI(tab,li.dataset.id)},650)});
+ box.addEventListener('pointermove',function(e){if(timer&&(Math.abs(e.clientX-sx)>10||Math.abs(e.clientY-sy)>10)){clearTimeout(timer);timer=null}});
+ ['pointerup','pointercancel','pointerleave'].forEach(function(ev){box.addEventListener(ev,function(){clearTimeout(timer);timer=null})});
+ box.addEventListener('contextmenu',function(e){if(e.target.closest('.task'))e.preventDefault()})})();
+/* create / rename modal */
+var tmTab=null,tmColor='';
+function buildTabColors(){var row=$('tmColors');row.innerHTML='';
+ [''].concat(TCOL).forEach(function(c){var b=document.createElement('button');b.type='button';b.className='sw'+(c?'':' none')+(c===tmColor?' sel':'');
+  if(c)b.style.background=c;else b.textContent='—';b.setAttribute('aria-label',c?'Culoare '+c:'Fără culoare');b.dataset.c=c;
+  b.onclick=function(){tmColor=c;buildTabColors()};row.appendChild(b)})}
+function openTabModal(tab){tmTab=tab||null;tmColor=tab?(tab.color||''):'';$('tmTitle').textContent=tab?'Redenumește tabul':'Tab nou';$('tmSave').textContent=tab?'Salvează':'Creează';
+ $('tmName').value=tab?tab.name:'';buildTabColors();$('tabModal').classList.add('show');setTimeout(function(){$('tmName').focus()},30)}
+function closeTabModal(){$('tabModal').classList.remove('show');tmTab=null}
+$('bNewTab').onclick=function(){openTabModal(null)};
+$('tmCancel').onclick=closeTabModal;
+$('tabModal').addEventListener('click',function(e){if(e.target===this)closeTabModal()});
+$('tmName').addEventListener('keydown',function(e){if(e.key==='Escape')closeTabModal()});
+$('tmForm').addEventListener('submit',function(e){e.preventDefault();var n=$('tmName').value.replace(/\s+/g,' ').trim();
+ if(!n){toast('Numele tabului e obligatoriu');$('tmName').focus();return}
+ if(tmTab){tmTab.name=n;tmTab.color=tmColor;tmTab.editedAt=new Date().toISOString();saveTabs();renderTabs();closeTabModal();toast('Tab redenumit');return}
+ var t={id:uid(),name:n,color:tmColor,created:new Date().toISOString(),items:[]};tabs.push(t);saveTabs();renderTabs();closeTabModal();
+ var c=$('ct_'+t.id);if(c){c.scrollIntoView({behavior:'smooth',block:'center'})}toast('Tab „'+n+'" creat')});
 /* ---------- speech output ---------- */
 var speaking=false,listening=false,kGen=0,speakKey=null;
 function updEq(){$('eq').classList.toggle('on',speaking||listening);$('orb').classList.toggle('active',speaking||listening);
@@ -685,9 +771,13 @@ function segsTasks(which){var lt=which==='old'?$('ltOld'):$('ltNew'),title=which
 function segsShop(){var s=[prepSeg($('ltShop'),'Cumpărături')],open=shopList().filter(function(x){return !x.bought});
  if(!open.length){s.push(prepSeg(null,'Lista de cumpărături e goală.'));return s}
  open.forEach(function(x){var el=document.querySelector('#lShop li[data-id="'+x.id+'"] .t');s.push(prepSeg(el,x.text))});return s}
+function segsTab(tab){var c=$('ct_'+tab.id),s=[prepSeg(c&&c.querySelector('.lt'),tab.name)],open=tabList(tab).filter(function(x){return !x.done});
+ if(!open.length){s.push(prepSeg(null,'Lista e goală.'));return s}
+ open.forEach(function(x){var el=document.querySelector('#ct_'+tab.id+' li[data-id="'+x.id+'"] .t');s.push(prepSeg(el,x.text))});return s}
 function readCard(key){if(speaking&&speakKey===key){stopSpeaking();return}
+ if(/^tab:/.test(key)){var tb=findTab(key.slice(4));if(!tb)return;return speak(segsTab(tb),key)}
  var segs=key==='voice'?segsVoice():key==='wx'?segsWx():key==='old'?segsTasks('old'):key==='new'?segsTasks('new'):key==='shop'?segsShop():
-  segsWx().concat(segsTasks('old'),segsTasks('new'),segsShop()); /* bottom Citește: weather + tasks only */
+  segsWx().concat(segsTasks('old'),segsTasks('new'),segsShop(),[].concat.apply([],visTabs().map(segsTab))); /* bottom Citește: weather + tasks only */
  return speak(segs,key)}
 function say(text){greetBusy=true;clearTimeout(greetRestoreT);var seg=prepSeg($('greet'),text);
  return speak([seg],'voice').then(function(){greetRestoreT=setTimeout(function(){greetBusy=false;if(!speaking)renderGreet()},10000)})}
@@ -798,7 +888,7 @@ $('bShare').onclick=function(){var url=blankURL(),text='JARVIS Command Center �
 
 /* ---------- boot ---------- */
 if(wx&&wx.city!==cfg.city)wx=null;
-renderTasks();renderShop();renderWx();tick();setInterval(tick,1000);
+renderTasks();renderShop();renderTabs();renderWx();tick();setInterval(tick,1000);
 loadWx();setInterval(loadWx,15*60*1000);
 document.addEventListener('visibilitychange',function(){if(!document.hidden&&(!wx||Date.now()-wx.ts>15*60*1000))loadWx()});
 bootVoice();
