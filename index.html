@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#06111f">
-<meta name="jarvis-version" content="v5-jarvis">
+<meta name="jarvis-version" content="v6-jarvis">
 <title>JARVIS · Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Roboto+Condensed:wght@700&family=Orbitron:wght@700&family=Share+Tech+Mono&family=Rajdhani:wght@600;700&family=Audiowide&family=Teko:wght@500&family=Oxanium:wght@700&display=swap" rel="stylesheet">
@@ -165,9 +165,10 @@ ul.tasks{list-style:none;margin:0;padding:0}
  <div class="field"><label for="sCity">Oraș</label><input id="sCity" placeholder="ex. Gherla"><div class="citylist" id="cityList"></div></div>
 
  <div class="sec">Voce</div>
- <div class="field"><label for="sEngine">Motor voce</label><select id="sEngine"><option value="piper">Mihai (Piper) – masculină, offline</option><option value="browser">Vocea telefonului</option></select></div>
+ <div class="field"><label for="sEngine">Motor voce</label><select id="sEngine"></select></div>
  <div class="field" id="fPiper"><div class="prow"><span class="ptxt" id="pState">…</span><button type="button" class="btn" id="pDl">Descarcă</button><button type="button" class="btn" id="pDel">Șterge</button></div>
-  <div class="hint">Se descarcă o singură dată (≈<span id="pMB">88</span> MB) și rămâne salvată în browser pentru folosire offline.</div></div>
+  <div class="hint">Se descarcă o singură dată (≈<span id="pMB">88</span> MB) și rămâne salvată în browser pentru folosire offline. <span id="pNote"></span></div></div>
+ <div class="field" id="fTone"><label for="sTone">Ton <span class="val" id="vTone"></span></label><input type="range" id="sTone" min="0.7" max="1.3" step="0.01"><div class="hint">Stânga = voce mai groasă (aceeași viteză).</div></div>
  <div class="field" id="fVoice"><label for="sVoice">Voce telefon</label><select id="sVoice"></select></div>
  <div class="field"><label for="sRate">Viteză <span class="val" id="vRate"></span></label><input type="range" id="sRate" min="0.8" max="2" step="0.05"></div>
  <div class="field" id="fPitch"><label for="sPitch">Ton (doar vocea telefonului) <span class="val" id="vPitch"></span></label><input type="range" id="sPitch" min="0.5" max="1.5" step="0.05"></div>
@@ -182,112 +183,176 @@ ul.tasks{list-style:none;margin:0;padding:0}
 </div></div>
 <div class="toast" id="toast"></div>
 <script>
-/* ===== Piper TTS (ro_RO-mihai-medium) in-browser: onnxruntime-web + piper_phonemize WASM, run inside a Web Worker ===== */
-var PiperTTS=(function(){
+/* ===== Neural TTS in-browser (no API keys): Piper Mihai, Supertonic-3 (male styles M1–M5, q4), MMS-TTS ron. One Web Worker, onnxruntime-web 1.18 WASM. ===== */
+var TTS=(function(){
  'use strict';
- var VOICE='ro_RO-mihai-medium';
- var HF='https://huggingface.co/rhasspy/piper-voices/resolve/main/ro/ro_RO/mihai/medium/';
  var ORT='https://cdn.jsdelivr.net/npm/onnxruntime-web@1.18.0/dist/';
  var PH='https://cdn.jsdelivr.net/npm/@diffusionstudio/piper-wasm@1.0.0/build/piper_phonemize';
- var CACHE='jarvis-piper-v1';
+ var HFP='https://huggingface.co/rhasspy/piper-voices/resolve/main/ro/ro_RO/mihai/medium/ro_RO-mihai-medium';
+ var HFS='https://huggingface.co/nadare/supertonic-3-onnx-q4/resolve/main/onnx/';
+ var HFSV='https://huggingface.co/Supertone/supertonic-3/resolve/main/voice_styles/';
+ var HFM='https://huggingface.co/Xenova/mms-tts-ron/resolve/main/';
+ var CACHE='jarvis-piper-v1'; /* same cache as v3–v5, so Mihai is not downloaded again */
  function simdOK(){try{return WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,0,0,1,5,1,96,0,1,123,3,2,1,0,10,10,1,8,0,65,0,253,15,253,98,11]))}catch(e){return false}}
  var SIMD=typeof WebAssembly==='object'&&simdOK();
  var ORTWASM=SIMD?'ort-wasm-simd.wasm':'ort-wasm.wasm';
- var FILES=[
-  {k:'cfg',url:HF+VOICE+'.onnx.json',size:5000},
-  {k:'ortjs',url:ORT+'ort.wasm.min.js',size:142930},
-  {k:'ortwasm',url:ORT+ORTWASM,size:SIMD?10595041:9758086},
-  {k:'phjs',url:PH+'.js',size:120714},
-  {k:'phwasm',url:PH+'.wasm',size:635212},
-  {k:'phdata',url:PH+'.data',size:18077249},
-  {k:'model',url:HF+VOICE+'.onnx',size:63201294}
- ];
- var TOTAL=FILES.reduce(function(a,f){return a+f.size},0);
+ var BASE=[{k:'ortjs',url:ORT+'ort.wasm.min.js',size:142930},{k:'ortwasm',url:ORT+ORTWASM,size:SIMD?10595041:9758086}];
+ var ENG={
+  piper:{name:'Mihai',files:BASE.concat([
+   {k:'cfg',url:HFP+'.onnx.json',size:5000},{k:'phjs',url:PH+'.js',size:120714},{k:'phwasm',url:PH+'.wasm',size:635212},
+   {k:'phdata',url:PH+'.data',size:18077249},{k:'model',url:HFP+'.onnx',size:63201294}])},
+  st:{name:'Supertonic',files:BASE.concat([
+   {k:'cfg',url:HFS+'tts.json',size:8253},{k:'idx',url:HFS+'unicode_indexer.json',size:277676},
+   {k:'dp',url:HFS+'duration_predictor.onnx',size:3700147},{k:'te',url:HFS+'text_encoder.onnx',size:36416150},
+   {k:'ve',url:HFS+'vector_estimator.onnx',size:51663166},{k:'voc',url:HFS+'vocoder.onnx',size:40688430}].concat(
+   ['M1','M2','M3','M4','M5'].map(function(m){return {k:'s'+m,url:HFSV+m+'.json',size:291800}})))},
+  mms:{name:'MMS',files:BASE.concat([{k:'vocab',url:HFM+'vocab.json',size:374},{k:'model',url:HFM+'onnx/model_quantized.onnx',size:38360875}])}
+ };
+ var VOICES=[
+  {id:'mihai',engine:'piper',short:'Mihai',label:'Mihai (Piper) – implicit, rapidă'},
+  {id:'st-M1',engine:'st',style:'M1',short:'Bărbat 1',label:'Supertonic – Bărbat 1 (mai înalt)'},
+  {id:'st-M2',engine:'st',style:'M2',short:'Bărbat 2',label:'Supertonic – Bărbat 2 (grav)'},
+  {id:'st-M3',engine:'st',style:'M3',short:'Bărbat 3',label:'Supertonic – Bărbat 3'},
+  {id:'st-M4',engine:'st',style:'M4',short:'Bărbat 4',label:'Supertonic – Bărbat 4'},
+  {id:'st-M5',engine:'st',style:'M5',short:'Bărbat 5',label:'Supertonic – Bărbat 5 (foarte grav)'},
+  {id:'mms',engine:'mms',short:'MMS',label:'MMS Română (Meta)'}];
+ function voice(id){for(var i=0;i<VOICES.length;i++)if(VOICES[i].id===id)return VOICES[i];return null}
+ function total(e){return ENG[e].files.reduce(function(a,f){return a+f.size},0)}
  var hasCache=typeof caches!=='undefined';
  function openCache(){return hasCache?caches.open(CACHE).catch(function(){hasCache=false;return null}):Promise.resolve(null)}
  function getFile(f,onBytes){
   return openCache().then(function(c){
    return (c?c.match(f.url):Promise.resolve(null)).then(function(hit){
-    if(hit)return hit.arrayBuffer().then(function(b){onBytes(f,b.byteLength,true);return b});
+    if(hit)return hit.arrayBuffer().then(function(b){onBytes(f,b.byteLength);return b});
     return fetch(f.url,{mode:'cors'}).then(function(r){
-     if(!r.ok)throw new Error('HTTP '+r.status+' '+f.url);
-     var total=+r.headers.get('Content-Length')||f.size,got=0,chunks=[];
+     if(!r.ok)throw new Error('HTTP '+r.status+' '+f.url.split('/').pop());
+     var got=0,chunks=[];
      if(!r.body||!r.body.getReader)return r.arrayBuffer().then(function(b){onBytes(f,b.byteLength);return b});
      var rd=r.body.getReader();
      return (function pump(){return rd.read().then(function(x){
       if(x.done){var u=new Uint8Array(got),o=0;chunks.forEach(function(ch){u.set(ch,o);o+=ch.length});return u.buffer}
       chunks.push(x.value);got+=x.value.length;onBytes(f,got);return pump()})})();
     }).then(function(buf){
-     if(c)return c.put(f.url,new Response(buf.slice(0),{headers:{'Content-Type':'application/octet-stream','Content-Length':String(buf.byteLength)}})).then(function(){return buf},function(){return buf});
+     if(c)return c.put(f.url,new Response(buf.slice(0),{headers:{'Content-Type':'application/octet-stream'}})).then(function(){return buf},function(){return buf});
      return buf})})})}
- function isDownloaded(){return openCache().then(function(c){if(!c)return false;
-  return Promise.all(FILES.map(function(f){return c.match(f.url)})).then(function(r){return r.every(Boolean)})}).catch(function(){return false})}
- function remove(){reset();return hasCache?caches.delete(CACHE):Promise.resolve(false)}
+ function isDownloaded(e){return openCache().then(function(c){if(!c)return false;
+  return Promise.all(ENG[e].files.map(function(f){return c.match(f.url)})).then(function(r){return r.every(Boolean)})}).catch(function(){return false})}
+ function remove(e){release(e);return openCache().then(function(c){if(!c)return;
+  return Promise.all(ENG[e].files.filter(function(f){return BASE.indexOf(f)<0}).map(function(f){return c.delete(f.url)}))})}
 
- /* worker source (runs ORT + phonemizer off the main thread) */
+ /* ----- worker ----- */
  var WORKER=function(){
-  var ort,session,cfg,phMod=null,phWasm,phData,phResolve=null;
-  function getPh(){if(phMod)return Promise.resolve(phMod);
+  var ort=null,P=null,S=null,M=null;
+  function ensureOrt(m){if(ort)return;importScripts(m.ortURL);ort=self.ort;
+   ort.env.wasm.numThreads=1;ort.env.wasm.simd=m.simd;ort.env.wasm.proxy=false;ort.env.wasm.wasmPaths=m.wasmPaths}
+  function sess(buf){return ort.InferenceSession.create(new Uint8Array(buf),{executionProviders:['wasm'],graphOptimizationLevel:'all'})}
+  function I64(a){return BigInt64Array.from(a,function(x){return BigInt(x)})}
+  /* Piper */
+  var phResolve=null;
+  function getPh(){if(P.ph)return Promise.resolve(P.ph);
    return createPiperPhonemize({print:function(d){if(phResolve){var r=phResolve;phResolve=null;try{r(JSON.parse(d).phoneme_ids)}catch(e){}}},printErr:function(){},
-    wasmBinary:phWasm,getPreloadedPackage:function(){return phData.slice(0)},locateFile:function(u){return u},noInitialRun:true}).then(function(m){phMod=m;return m})}
+    wasmBinary:P.phWasm,getPreloadedPackage:function(){return P.phData.slice(0)},locateFile:function(u){return u},noInitialRun:true}).then(function(m){P.ph=m;return m})}
   function phonemize(text){return getPh().then(function(m){return new Promise(function(res,rej){
    var done=false;phResolve=function(ids){done=true;res(ids)};
-   try{m.callMain(['-l',cfg.espeak.voice,'--input',JSON.stringify([{text:text}]),'--espeak_data','/espeak-ng-data'])}catch(e){if(!done){phMod=null;phResolve=null;rej(e);return}}
-   if(!done){phMod=null;phResolve=null;rej(new Error('phonemizer returned nothing'))}})})}
-  onmessage=function(e){var m=e.data;
-   (async function(){
-    if(m.type==='init'){
-     importScripts(m.ortURL,m.phURL);ort=self.ort;
-     ort.env.wasm.numThreads=1;ort.env.wasm.simd=m.simd;ort.env.wasm.proxy=false;ort.env.wasm.wasmPaths=m.wasmPaths;
-     cfg=m.cfg;phWasm=m.phWasm;phData=m.phData;
-     session=await ort.InferenceSession.create(new Uint8Array(m.model),{executionProviders:['wasm'],graphOptimizationLevel:'all'});
-     await phonemize('test');
-     return {ok:true}}
-    if(m.type==='synth'){
-     var t0=Date.now(),ids;
-     try{ids=await phonemize(m.text)}catch(err){phMod=null;ids=await phonemize(m.text)} /* retry with a fresh module */
-     var I64=function(a){return BigInt64Array.from(a.map(function(x){return BigInt(x)}))};
+   try{m.callMain(['-l',P.cfg.espeak.voice,'--input',JSON.stringify([{text:text}]),'--espeak_data','/espeak-ng-data'])}catch(e){if(!done){P.ph=null;phResolve=null;rej(e);return}}
+   if(!done){P.ph=null;phResolve=null;rej(new Error('phonemizer returned nothing'))}})})}
+  /* Supertonic text prep (from supertone-inc/supertonic web helper, MIT) */
+  function stPrep(text){text=text.normalize('NFKD').replace(/[–‑—]/g,'-').replace(/[_\[\]|\/#→←]/g,' ').replace(/[\u201C\u201D]/g,'"').replace(/[\u2018\u2019´`]/g,"'")
+   .replace(/[♥☆♡©\\]/g,'').replace(/ ([,.!?;:'])/g,'$1').replace(/\s+/g,' ').trim();
+   if(!/[.!?;:,'"')\]}…]$/.test(text))text+='.';return '<ro>'+text+'</ro>'}
+  function gauss(n){var a=new Float32Array(n);for(var i=0;i<n;i+=2){var u1=Math.max(1e-4,Math.random()),u2=Math.random(),r=Math.sqrt(-2*Math.log(u1));a[i]=r*Math.cos(2*Math.PI*u2);if(i+1<n)a[i+1]=r*Math.sin(2*Math.PI*u2)}return a}
+  async function stSynth(text,style,speed,steps){
+   var t=stPrep(text),L=t.length,ids=new Array(L);for(var j=0;j<L;j++){var cp=t.codePointAt(j);ids[j]=cp<S.idx.length?S.idx[cp]:-1}
+   var tid=new ort.Tensor('int64',I64(ids),[1,L]),tmask=new ort.Tensor('float32',new Float32Array(L).fill(1),[1,1,L]),st=S.styles[style];
+   var dur=(await S.dp.run({text_ids:tid,style_dp:st.dp,text_mask:tmask})).duration.data[0]/speed;
+   var emb=(await S.te.run({text_ids:tid,style_ttl:st.ttl,text_mask:tmask})).text_emb;
+   var sr=S.cfg.ae.sample_rate,chunk=S.cfg.ae.base_chunk_size*S.cfg.ttl.chunk_compress_factor,wavLen=Math.floor(dur*sr);
+   var LL=Math.max(1,Math.ceil(wavLen/chunk)),D=S.cfg.ttl.latent_dim*S.cfg.ttl.chunk_compress_factor,xt=gauss(D*LL);
+   var lmask=new ort.Tensor('float32',new Float32Array(LL).fill(1),[1,1,LL]),tot=new ort.Tensor('float32',Float32Array.of(steps),[1]);
+   for(var s=0;s<steps;s++){var o=await S.ve.run({noisy_latent:new ort.Tensor('float32',xt,[1,D,LL]),text_emb:emb,style_ttl:st.ttl,latent_mask:lmask,text_mask:tmask,
+     current_step:new ort.Tensor('float32',Float32Array.of(s),[1]),total_step:tot});xt=new Float32Array(o.denoised_latent.data)}
+   var w=(await S.voc.run({latent:new ort.Tensor('float32',xt,[1,D,LL])})).wav_tts.data;
+   return {pcm:new Float32Array(w.subarray?w.subarray(0,Math.min(w.length,wavLen)):w.slice(0,wavLen)),sr:sr}}
+  /* MMS */
+  async function mmsSynth(text){var t=text.toLowerCase().replace(/ț/g,'ţ').replace(/ş/g,'ș').replace(/k/g,'c').replace(/w/g,'v').replace(/y/g,'i')
+    .replace(/[.,;:!?…"()]+/g,' ').replace(/\s+/g,' ').trim(),ids=[0];
+   for(var i=0;i<t.length;i++){var v=M.vocab[t[i]];if(v!==undefined)ids.push(v,0)}
+   var a=new ort.Tensor('int64',I64(ids),[1,ids.length]),m=new ort.Tensor('int64',I64(ids.map(function(){return 1})),[1,ids.length]);
+   var o=await M.s.run({input_ids:a,attention_mask:m});return {pcm:new Float32Array(o.waveform.data),sr:16000}}
+  function J(buf){return JSON.parse(new TextDecoder().decode(buf))}
+  async function release(e){var x=e==='piper'?P:e==='st'?S:M;if(!x)return;
+   for(var k in x)if(x[k]&&x[k].release)try{await x[k].release()}catch(_){};if(e==='piper')P=null;else if(e==='st')S=null;else M=null}
+  onmessage=function(ev){var m=ev.data;(async function(){
+   if(m.type==='init'){ensureOrt(m);var B=m.bufs;
+    if(m.engine==='piper'){importScripts(m.phURL);P={cfg:J(B.cfg),phWasm:B.phwasm,phData:B.phdata};P.s=await sess(B.model);await phonemize('test')}
+    else if(m.engine==='st'){S={cfg:J(B.cfg),idx:J(B.idx),styles:{}};S.dp=await sess(B.dp);S.te=await sess(B.te);S.ve=await sess(B.ve);S.voc=await sess(B.voc);
+     ['M1','M2','M3','M4','M5'].forEach(function(k){var j=J(B['s'+k]);S.styles[k]={ttl:new ort.Tensor('float32',Float32Array.from(j.style_ttl.data.flat(Infinity)),j.style_ttl.dims),
+      dp:new ort.Tensor('float32',Float32Array.from(j.style_dp.data.flat(Infinity)),j.style_dp.dims)}})}
+    else if(m.engine==='mms'){M={vocab:J(B.vocab)};M.s=await sess(B.model)}
+    return {ok:true}}
+   if(m.type==='release'){await release(m.engine);return {ok:true}}
+   if(m.type==='synth'){var t0=Date.now(),r;
+    if(m.engine==='piper'){var ids;try{ids=await phonemize(m.text)}catch(err){P.ph=null;ids=await phonemize(m.text)}
      var feeds={input:new ort.Tensor('int64',I64(ids),[1,ids.length]),input_lengths:new ort.Tensor('int64',I64([ids.length]),[1]),
-      scales:new ort.Tensor('float32',Float32Array.from([cfg.inference.noise_scale,m.lengthScale,cfg.inference.noise_w]),[3])};
-     if(cfg.num_speakers>1)feeds.sid=new ort.Tensor('int64',I64([0]),[1]);
-     var out=await session.run(feeds);var pcm=new Float32Array(out.output.data);
-     return {ok:true,pcm:pcm,sr:cfg.audio.sample_rate,ms:Date.now()-t0,transfer:[pcm.buffer]}}
-   })().then(function(r){var tr=r.transfer;delete r.transfer;r.id=m.id;postMessage(r,tr||[])},function(err){postMessage({id:m.id,ok:false,error:String(err&&err.message||err)})})}
+      scales:new ort.Tensor('float32',Float32Array.from([P.cfg.inference.noise_scale,1/m.speed,P.cfg.inference.noise_w]),[3])};
+     var out=await P.s.run(feeds);r={pcm:new Float32Array(out.output.data),sr:P.cfg.audio.sample_rate}}
+    else if(m.engine==='st')r=await stSynth(m.text,m.style,m.speed,m.steps||6);
+    else r=await mmsSynth(m.text);
+    r.ok=true;r.ms=Date.now()-t0;r.transfer=[r.pcm.buffer];return r}
+  })().then(function(r){var tr=r.transfer;delete r.transfer;r.id=m.id;postMessage(r,tr||[])},function(err){postMessage({id:m.id,ok:false,error:String(err&&err.message||err)})})}
  };
 
- var worker=null,ready=null,seq=0,cbs={},state='idle',progress=0;
- function reset(){if(worker)worker.terminate();worker=null;ready=null;state='idle'}
- function call(msg,transfer){return new Promise(function(res,rej){msg.id=++seq;cbs[msg.id]={res:res,rej:rej};worker.postMessage(msg,transfer||[])})}
+ var worker=null,seq=0,cbs={},st={},prog={},ready={},baseURLs=null;
+ Object.keys(ENG).forEach(function(e){st[e]='idle';prog[e]=0});
  function blobURL(buf,type){return URL.createObjectURL(new Blob([buf],{type:type}))}
- /* onProgress(fraction 0..1, phase) */
- function init(onProgress){
-  if(ready)return ready;
-  onProgress=onProgress||function(){};
-  var loaded={};state='loading';
-  function onBytes(f,n){loaded[f.k]=Math.min(n,f.size*1.05);var s=0;for(var k in loaded)s+=loaded[k];progress=Math.min(.99,s/TOTAL);onProgress(progress,'download')}
-  ready=Promise.all(FILES.map(function(f){return getFile(f,onBytes)})).then(function(bufs){
-   var B={};FILES.forEach(function(f,i){B[f.k]=bufs[i]});
-   onProgress(.99,'init');
-   var src='('+WORKER.toString()+')()';
-   worker=new Worker(blobURL(src,'text/javascript'));
-   worker.onmessage=function(e){var d=e.data,c=cbs[d.id];if(!c)return;delete cbs[d.id];d.ok?c.res(d):c.rej(new Error(d.error))};
-   worker.onerror=function(e){for(var id in cbs){cbs[id].rej(new Error(e.message||'worker error'));delete cbs[id]}};
-   var wp={};wp[ORTWASM]=blobURL(B.ortwasm,'application/wasm');
-   var cfg=JSON.parse(new TextDecoder().decode(B.cfg));
-   return call({type:'init',ortURL:blobURL(B.ortjs,'text/javascript'),phURL:blobURL(B.phjs,'text/javascript'),wasmPaths:wp,simd:SIMD,
-    cfg:cfg,phWasm:B.phwasm,phData:B.phdata,model:B.model},[B.model,B.phwasm,B.phdata]);
-  }).then(function(){state='ready';progress=1;onProgress(1,'ready');if(navigator.storage&&navigator.storage.persist)navigator.storage.persist().catch(function(){})},
-   function(err){state='error';ready=null;if(worker){worker.terminate();worker=null}throw err});
-  return ready}
- /* returns {pcm:Float32Array, sr:Number, ms:Number} */
- function synth(text,lengthScale){return init().then(function(){return call({type:'synth',text:text,lengthScale:lengthScale||1})})}
+ function getWorker(){if(worker)return worker;
+  worker=new Worker(blobURL('('+WORKER.toString()+')()','text/javascript'));
+  worker.onmessage=function(e){var d=e.data,c=cbs[d.id];if(!c)return;delete cbs[d.id];d.ok?c.res(d):c.rej(new Error(d.error))};
+  worker.onerror=function(e){for(var id in cbs){cbs[id].rej(new Error(e.message||'worker error'));delete cbs[id]}};return worker}
+ function call(msg,transfer){return new Promise(function(res,rej){msg.id=++seq;cbs[msg.id]={res:res,rej:rej};getWorker().postMessage(msg,transfer||[])})}
+ function release(e){if(st[e]==='ready'){call({type:'release',engine:e}).catch(function(){})}st[e]='idle';ready[e]=null}
+ /* only one neural engine kept in memory (phones have little RAM) */
+ function init(e,onProgress){if(ready[e])return ready[e];onProgress=onProgress||function(){};
+  Object.keys(ENG).forEach(function(o){if(o!==e&&st[o]==='ready')release(o)});
+  var files=ENG[e].files,T=total(e),loaded={};st[e]='loading';prog[e]=0;
+  function onBytes(f,n){loaded[f.k]=Math.min(n,f.size*1.05);var s=0;for(var k in loaded)s+=loaded[k];prog[e]=Math.min(.99,s/T);onProgress(prog[e],'download')}
+  ready[e]=Promise.all(files.map(function(f){return getFile(f,onBytes)})).then(function(bufs){
+   var B={};files.forEach(function(f,i){B[f.k]=bufs[i]});onProgress(.99,'init');
+   if(!baseURLs){var wp={};wp[ORTWASM]=blobURL(B.ortwasm,'application/wasm');baseURLs={ortURL:blobURL(B.ortjs,'text/javascript'),wasmPaths:wp}}
+   delete B.ortjs;delete B.ortwasm;var tr=[];for(var k in B)if(B[k]&&B[k].byteLength>100000)tr.push(B[k]);
+   return call({type:'init',engine:e,ortURL:baseURLs.ortURL,wasmPaths:baseURLs.wasmPaths,simd:SIMD,phURL:B.phjs?blobURL(B.phjs,'text/javascript'):null,bufs:B},tr)
+  }).then(function(){st[e]='ready';prog[e]=1;onProgress(1,'ready');if(navigator.storage&&navigator.storage.persist)navigator.storage.persist().catch(function(){})},
+   function(err){st[e]='error';ready[e]=null;throw err});
+  return ready[e]}
+ /* opts: {speed} -> {pcm:Float32Array, sr} */
+ function synth(voiceId,text,opts){var v=voice(voiceId);opts=opts||{};
+  return init(v.engine).then(function(){return call({type:'synth',engine:v.engine,style:v.style,text:prepText(v.engine,text),speed:opts.speed||1,steps:opts.steps})})}
+ /* numbers -> Romanian words for engines that can't read digits */
+ var U=['zero','unu','două','trei','patru','cinci','șase','șapte','opt','nouă'],T10=['zece','unsprezece','douăsprezece','treisprezece','paisprezece','cincisprezece','șaisprezece','șaptesprezece','optsprezece','nouăsprezece'];
+ var TENS=['','','douăzeci','treizeci','patruzeci','cincizeci','șaizeci','șaptezeci','optzeci','nouăzeci'];
+ function num(n){if(n<10)return U[n];if(n<20)return T10[n-10];if(n<100)return TENS[Math.floor(n/10)]+(n%10?' și '+U[n%10]:'');
+  if(n<1000){var h=Math.floor(n/100);return (h===1?'o sută':(h===2?'două':U[h])+' sute')+(n%100?' '+num(n%100):'')}
+  if(n<1000000){var k=Math.floor(n/1000);return (k===1?'o mie':num(k)+(k%100>=20||k%100===0?' de':'')+' mii')+(n%1000?' '+num(n%1000):'')}return String(n)}
+ function prepText(e,t){if(e==='piper')return t;
+  return t.replace(/(-?)(\d+)\s*%/g,function(_,m,d){return (m?'minus ':'')+num(+d)+' la sută'}).replace(/-(\d+)/g,function(_,d){return 'minus '+num(+d)}).replace(/\d+/g,function(d){return num(+d)})}
  function pcmToWav(pcm,sr){var b=new ArrayBuffer(44+pcm.length*2),v=new DataView(b);
   function w(o,s){for(var i=0;i<s.length;i++)v.setUint8(o+i,s.charCodeAt(i))}
   w(0,'RIFF');v.setUint32(4,36+pcm.length*2,true);w(8,'WAVE');w(12,'fmt ');v.setUint32(16,16,true);v.setUint16(20,1,true);v.setUint16(22,1,true);
   v.setUint32(24,sr,true);v.setUint32(28,sr*2,true);v.setUint16(32,2,true);v.setUint16(34,16,true);w(36,'data');v.setUint32(40,pcm.length*2,true);
   for(var i=0;i<pcm.length;i++){var s=Math.max(-1,Math.min(1,pcm[i]));v.setInt16(44+i*2,s<0?s*32768:s*32767,true)}return b}
- return {init:init,synth:synth,isDownloaded:isDownloaded,remove:remove,pcmToWav:pcmToWav,
-  get state(){return state},get progress(){return progress},TOTAL_MB:Math.round(TOTAL/1048576),voice:VOICE}
+ /* WSOLA time-stretch + resampling: tempo (>1 faster) and pitch factor (<1 deeper), keeps the other one */
+ function wsola(x,tempo,sr){if(Math.abs(tempo-1)<.01)return x;
+  var N=Math.round(sr*.03),Hs=N>>1,Ha=Hs*tempo,tol=Math.round(sr*.008),win=new Float32Array(N);for(var i=0;i<N;i++)win[i]=.5-.5*Math.cos(2*Math.PI*i/(N-1));
+  var outLen=Math.ceil(x.length/tempo)+N,y=new Float32Array(outLen),ws=new Float32Array(outLen),prev=0,out=0,step=Math.max(1,Math.round(sr/8000)),dstep=Math.max(1,step>>1);
+  for(var k=0;;k++,out+=Hs){var ideal=Math.round(k*Ha);if(ideal+N+tol>=x.length||out+N>=outLen)break;var best=ideal;
+   if(k>0){var ref=prev+Hs,bc=-Infinity;if(ref+N<x.length)for(var d=-tol;d<=tol;d+=dstep){var p=ideal+d;if(p<0)continue;var c=0;for(var j=0;j<N;j+=step)c+=x[p+j]*x[ref+j];if(c>bc){bc=c;best=p}}}
+   for(i=0;i<N;i++){y[out+i]+=x[best+i]*win[i];ws[out+i]+=win[i]}prev=best}
+  var end=out+N;for(i=0;i<end;i++)if(ws[i]>1e-3)y[i]/=ws[i];return y.subarray(0,end)}
+ function resample(x,factor){var n=Math.floor(x.length/factor),y=new Float32Array(n);for(var i=0;i<n;i++){var p=i*factor,k=Math.floor(p),f=p-k;y[i]=(x[k]||0)*(1-f)+(x[k+1]||0)*f}return y}
+ function fx(pcm,sr,tempo,pitch){tempo=tempo||1;pitch=pitch||1;if(Math.abs(tempo-1)<.01&&Math.abs(pitch-1)<.01)return pcm;
+  var z=wsola(pcm,tempo/pitch,sr);return Math.abs(pitch-1)<.01?z:resample(z,pitch)}
+ return {VOICES:VOICES,voice:voice,init:init,synth:synth,isDownloaded:isDownloaded,remove:remove,release:release,pcmToWav:pcmToWav,fx:fx,
+  state:function(e){return st[e]},progress:function(e){return prog[e]},sizeMB:function(e){return Math.round(total(e)/1048576)},engineName:function(e){return ENG[e].name}};
 })();
 </script>
 <script>
@@ -309,9 +374,9 @@ function setStatus(m,err){var s=$('vstatus');s.textContent=m||(cfg&&!cfg.name?'S
 /* ---------- settings ---------- */
 var cfg=null;cfg=Object.assign({name:BLANK?'':'Iosif',city:'Gherla',lat:47.03,lon:23.91,tz:'Europe/Bucharest',engine:'piper',rate:1.25,pitch:null,voiceURI:null,
  clockFont:'condensed',clockColor:'#3fd8ff',clockSize:56},LS.get('jv_cfg',{}));
-if(cfg.engine!=='browser')cfg.engine='piper';
+if(cfg.engine==='piper'||!cfg.engine||(cfg.engine!=='browser'&&!TTS.voice(cfg.engine)))cfg.engine='mihai';if(cfg.tone==null)cfg.tone=1;
 if(!LS.get('jv_v4',false)){cfg.clockFont='condensed';cfg.clockSize=56;cfg.clockColor='#3fd8ff';LS.set('jv_v4',true);LS.set('jv_cfg',cfg)}
-if(!LS.get('jv_v3',false)){cfg.engine='piper';if(cfg.rate==null||cfg.rate===1.3)cfg.rate=1.25;LS.set('jv_v3',true);LS.set('jv_cfg',cfg)}
+if(!LS.get('jv_v3',false)){cfg.engine='mihai';if(cfg.rate==null||cfg.rate===1.3)cfg.rate=1.25;LS.set('jv_v3',true);LS.set('jv_cfg',cfg)}
 function saveCfg(){LS.set('jv_cfg',cfg)}
 
 /* ---------- clock ---------- */
@@ -524,11 +589,13 @@ function chunkTimes(ch,pcm,sr){var win=Math.max(1,Math.round(sr*.01)),n=Math.flo
  var ws=[],tot=0;for(var k=ch.a;k<ch.b;k++){var w=ch.seg.words[k].w,x=spokenLen(w)+1.5+(k<ch.b-1?pauseW(w):0);ws.push(x);tot+=x}
  var times=[],c=0;ws.forEach(function(x){times.push(t0+(t1-t0)*c/tot);c+=x});return times}
 function waitUntil(t,gen){return new Promise(function(res){(function chk(){if(gen!==kGen||!actx||actx.currentTime>=t)res();else setTimeout(chk,40)})()})}
-function speakPiper(segs,gen){
+function selVoice(){return cfg.engine==='browser'?null:(TTS.voice(cfg.engine)||TTS.voice('mihai'))}
+function speakNeural(segs,gen,v){
  var chunks=buildChunks(segs);if(!chunks.length)return Promise.resolve();
  unlockAudio();if(!actx)return Promise.reject(new Error('AudioContext indisponibil'));
- var ls=Math.max(.4,Math.min(1.6,1/curRate())),proms=[],timeline=[],cursor=0;
- function get(i){if(!proms[i])proms[i]=PiperTTS.synth(chunks[i].text,ls);return proms[i]}
+ var rate=curRate(),tone=+cfg.tone||1,proms=[],timeline=[],cursor=0;
+ var nat=v.engine==='mms'?1:v.engine==='st'?rate*.9:rate,post=v.engine==='mms'?rate*.9:1;   /* MMS has no speed input: WSOLA time-stretch instead */
+ function get(i){if(!proms[i])proms[i]=TTS.synth(v.id,chunks[i].text,{speed:nat,steps:5}).then(function(r){return {pcm:TTS.fx(r.pcm,r.sr,post,tone),sr:r.sr}});return proms[i]}
  function lat(){return (actx.outputLatency||0)+(actx.baseLatency||0)}
  (function anim(){if(gen!==kGen)return;var now=actx.currentTime-lat();
   for(var j=timeline.length-1;j>=0;j--){var e=timeline[j];if(now>=e.start){var rel=now-e.start,k=0;while(k+1<e.times.length&&rel>=e.times[k+1])k++;hl(e.c.seg,e.c.a+k);break}}
@@ -570,12 +637,12 @@ function stopSpeaking(){kGen++;sources.forEach(function(s){try{s.stop()}catch(e)
  if(window.speechSynthesis)speechSynthesis.cancel();clearActive();speaking=false;speakKey=null;updEq()}
 function speak(segs,key){
  stopSpeaking();var gen=++kGen;speaking=true;speakKey=key||null;updEq();unlockAudio();
- var usePiper=cfg.engine==='piper'&&PiperTTS.state==='ready';
- if(cfg.engine==='piper'&&!usePiper){ensurePiper();
-  toast(PiperTTS.state==='loading'?'Vocea Mihai se pregătește ('+Math.round(PiperTTS.progress*100)+'%). Până atunci folosesc vocea telefonului.':'Vocea Mihai nu e disponibilă. Folosesc vocea telefonului.')}
- setStatus(usePiper?'Vorbesc (Mihai)…':'Vorbesc…');
- var p=usePiper?speakPiper(segs,gen).catch(function(err){console.warn(err);if(gen!==kGen)return;
-   setStatus('Eroare voce Mihai: '+(err&&err.message||err)+'. Folosesc vocea telefonului.',true);return speakBrowser(segs,gen)}):speakBrowser(segs,gen);
+ var v=selVoice(),e=v&&v.engine,useN=!!v&&TTS.state(e)==='ready';
+ if(v&&!useN){ensureVoice().catch(function(){});
+  toast(TTS.state(e)==='loading'?'Vocea '+v.short+' se pregătește ('+Math.round(TTS.progress(e)*100)+'%). Până atunci folosesc vocea telefonului.':'Vocea '+v.short+' nu e disponibilă. Folosesc vocea telefonului.')}
+ setStatus(useN?'Vorbesc ('+v.short+')…':'Vorbesc…');
+ var p=useN?speakNeural(segs,gen,v).catch(function(err){console.warn(err);if(gen!==kGen)return;
+   setStatus('Eroare voce '+v.short+': '+(err&&err.message||err)+'. Folosesc vocea telefonului.',true);return speakBrowser(segs,gen)}):speakBrowser(segs,gen);
  function fin(){if(gen!==kGen)return;speaking=false;speakKey=null;updEq();clearActive();setStatus();if(!greetBusy)renderGreet(true)}
  return p.then(fin,fin)}
 
@@ -600,19 +667,20 @@ document.querySelectorAll('.spk').forEach(function(b){b.innerHTML='<svg viewBox=
 $('bRead').onclick=function(){readCard('all')};
 $('bHi').onclick=function(){if(speaking&&speakKey==='voice'){stopSpeaking();return}readCard('voice')};
 
-/* ---------- Piper download / init with progress in the voice card ---------- */
-function showProg(frac,phase){var p=$('vprog');
+/* ---------- neural voice download / init with progress in the voice card ---------- */
+function showProg(frac,phase,v){var p=$('vprog');
  if(phase==='ready'||frac>=1){p.classList.remove('show');return}
- p.classList.add('show');var mb=PiperTTS.TOTAL_MB;
- $('vprogTxt').textContent=phase==='init'?'Pregătesc vocea Mihai…':'Descarc vocea Mihai… '+Math.round(frac*100)+'% ('+Math.round(frac*mb)+'/'+mb+' MB)';
- $('vprogBar').style.width=Math.round(frac*100)+'%';if($('modal').classList.contains('show'))updPiperRow()}
-function ensurePiper(){if(PiperTTS.state==='ready'||PiperTTS.state==='loading')return PiperTTS.init();
- return PiperTTS.init(showProg).then(function(){showProg(1,'ready');if(!speaking){setStatus('Vocea Mihai e gata (funcționează și offline).');setTimeout(function(){if(!speaking)setStatus()},4000)}updPiperRow()},
-  function(err){$('vprog').classList.remove('show');console.warn(err);if(!speaking)setStatus('Nu am putut încărca vocea Mihai ('+(err&&err.message||err)+'). Folosesc vocea telefonului.',true);updPiperRow();throw err})}
-function bootPiper(){if(cfg.engine!=='piper')return;
- PiperTTS.isDownloaded().then(function(have){var c=navigator.connection;
-  if(have||!(c&&c.saveData))ensurePiper().catch(function(){});
-  else{setStatus('Economisire date activă: atinge Setări → Descarcă pentru vocea Mihai.',true)}})}
+ p.classList.add('show');var mb=TTS.sizeMB(v.engine);
+ $('vprogTxt').textContent=phase==='init'?'Pregătesc vocea '+v.short+'…':'Descarc vocea '+v.short+'… '+Math.round(frac*100)+'% ('+Math.round(frac*mb)+'/'+mb+' MB)';
+ $('vprogBar').style.width=Math.round(frac*100)+'%';if($('modal').classList.contains('show'))updVoiceRow()}
+function ensureVoice(id){var v=TTS.voice(id||cfg.engine)||TTS.voice('mihai'),e=v.engine;
+ if(TTS.state(e)==='ready'||TTS.state(e)==='loading')return TTS.init(e);
+ return TTS.init(e,function(f,ph){showProg(f,ph,v)}).then(function(){showProg(1,'ready',v);if(!speaking){setStatus('Vocea '+v.short+' e gata (funcționează și offline).');setTimeout(function(){if(!speaking)setStatus()},4000)}updVoiceRow()},
+  function(err){$('vprog').classList.remove('show');console.warn(err);if(!speaking)setStatus('Nu am putut încărca vocea '+v.short+' ('+(err&&err.message||err)+'). Folosesc vocea telefonului.',true);updVoiceRow();throw err})}
+function bootVoice(){var v=selVoice();if(!v)return;
+ TTS.isDownloaded(v.engine).then(function(have){var c=navigator.connection;
+  if(have||(v.engine==='piper'&&!(c&&c.saveData)))ensureVoice().catch(function(){});
+  else setStatus('Vocea '+v.short+' nu e descărcată: Setări → Descarcă.',true)})}
 
 /* ---------- task input: just open the keyboard (dictate with the keyboard's own mic) ---------- */
 $('bMic').onclick=function(){var i=$('iTask');i.focus();try{i.click()}catch(e){}};
@@ -625,12 +693,20 @@ function fillVoiceSelect(){var sel=$('sVoice'),cur=sel.value||cfg.voiceURI||'';s
  function grp(label,list){if(!list.length)return;var g=document.createElement('optgroup');g.label=label;
   list.forEach(function(v){var op=document.createElement('option');op.value=v.voiceURI;op.textContent=v.name+' ('+v.lang+')'+(v.default?' ★':'');g.appendChild(op)});sel.appendChild(g)}
  grp('Română',ro);grp('Toate vocile',rest);sel.value=cur;if(sel.value!==cur)sel.value=''}
-function updPiperRow(){var st=PiperTTS.state,el=$('pState');if(!el)return;$('pMB').textContent=PiperTTS.TOTAL_MB;
- if(st==='ready'){el.textContent='✓ Vocea Mihai e descărcată și gata.';$('pDl').style.display='none';$('pDel').style.display=''}
- else if(st==='loading'){el.textContent='Se descarcă… '+Math.round(PiperTTS.progress*100)+'%';$('pDl').style.display='none';$('pDel').style.display='none'}
- else PiperTTS.isDownloaded().then(function(h){el.textContent=h?'Descărcată (se încarcă la nevoie).':(st==='error'?'Eroare la descărcare. Reîncearcă.':'Nedescărcată.');$('pDl').style.display='';$('pDl').textContent=h?'Încarcă':'Descarcă';$('pDel').style.display=h?'':'none'})}
-function updEngineUI(){var b=$('sEngine').value==='browser';$('fVoice').style.display=b?'':'none';$('fPitch').style.display=b?'':'none';$('fPiper').style.display=b?'none':''}
-function showVals(){$('vRate').textContent=(+$('sRate').value).toFixed(2)+'×';$('vPitch').textContent=(+$('sPitch').value).toFixed(2);$('vSize').textContent=$('sSize').value+' px'}
+function fillEngineSelect(){var sel=$('sEngine');if(sel.options.length)return;
+ TTS.VOICES.forEach(function(v){var o=document.createElement('option');o.value=v.id;o.textContent=v.label+' · ~'+TTS.sizeMB(v.engine)+' MB';sel.appendChild(o)});
+ var o=document.createElement('option');o.value='browser';o.textContent='Vocea telefonului';sel.appendChild(o)}
+var NOTES={piper:'Rapidă. Se descarcă o singură dată și merge offline.',
+ st:'Supertonic 3 (licență OpenRAIL-M): un singur pachet pentru toți cei 5 bărbați. Mai lentă decât Mihai: pe telefon prima propoziție poate întârzia câteva secunde.',
+ mms:'Meta MMS (licență CC-BY-NC 4.0, uz personal). Cea mai lentă; viteza se reglează prin întindere audio.'};
+function updVoiceRow(){var id=$('sEngine').value;if(id==='browser')return;var v=TTS.voice(id),e=v.engine,s=TTS.state(e),el=$('pState');
+ $('pMB').textContent=TTS.sizeMB(e);$('pNote').textContent=NOTES[e];
+ if(s==='ready'){el.textContent='✓ '+TTS.engineName(e)+' e descărcată și gata.';$('pDl').style.display='none';$('pDel').style.display=''}
+ else if(s==='loading'){el.textContent='Se descarcă… '+Math.round(TTS.progress(e)*100)+'%';$('pDl').style.display='none';$('pDel').style.display='none'}
+ else TTS.isDownloaded(e).then(function(h){if($('sEngine').value!==id)return;el.textContent=h?'Descărcată (se încarcă la nevoie).':(s==='error'?'Eroare la descărcare. Reîncearcă.':'Nedescărcată.');
+  $('pDl').style.display='';$('pDl').textContent=h?'Încarcă':'Descarcă';$('pDel').style.display=h?'':'none'})}
+function updEngineUI(){var b=$('sEngine').value==='browser';$('fVoice').style.display=b?'':'none';$('fPitch').style.display=b?'':'none';$('fPiper').style.display=b?'none':'';$('fTone').style.display=b?'none':''}
+function showVals(){$('vRate').textContent=(+$('sRate').value).toFixed(2)+'×';$('vPitch').textContent=(+$('sPitch').value).toFixed(2);$('vSize').textContent=$('sSize').value+' px';$('vTone').textContent=(+$('sTone').value).toFixed(2)+((+$('sTone').value)<.99?' (mai grav)':(+$('sTone').value)>1.01?' (mai subțire)':' (natural)')}
 function buildFontGrid(){var g=$('fontGrid'),d=new Date(),t=pad(d.getHours())+'.'+pad(d.getMinutes());g.innerHTML='';
  FONTS.forEach(function(f){var b=document.createElement('button');b.type='button';b.className='fopt'+(draft.clockFont===f.id?' sel':'');
   b.innerHTML='<b style="font-family:'+esc(f.css)+';font-weight:'+f.w+';font-size:'+Math.round(26*f.k)+'px">'+t+'</b><span>'+esc(f.name)+'</span>';
@@ -640,19 +716,19 @@ function buildColors(){var r=$('colorRow');r.innerHTML='';
  COLORS.forEach(function(c){var b=document.createElement('button');b.type='button';b.className='sw'+(draft.clockColor.toLowerCase()===c?' sel':'');b.style.background=c;b.setAttribute('aria-label',c);
   b.onclick=function(){draft.clockColor=c;$('cPick').value=c;applyClock(draft);buildColors()};r.appendChild(b)});
  var p=document.createElement('input');p.type='color';p.id='cPick';p.value=draft.clockColor;p.oninput=function(){draft.clockColor=p.value;applyClock(draft);r.querySelectorAll('.sw').forEach(function(x){x.classList.remove('sel')})};r.appendChild(p)}
-$('sRate').oninput=$('sPitch').oninput=showVals;
+$('sRate').oninput=$('sPitch').oninput=$('sTone').oninput=showVals;
 $('sSize').oninput=function(){showVals();draft.clockSize=+this.value;applyClock(draft)};
-$('sEngine').onchange=function(){updEngineUI();updPiperRow()};
-$('pDl').onclick=function(){ensurePiper().catch(function(){});updPiperRow()};
-$('pDel').onclick=function(){if(!confirm('Ștergi vocea Mihai descărcată? (se poate descărca din nou)'))return;PiperTTS.remove().then(function(){toast('Vocea Mihai a fost ștearsă');updPiperRow()})};
-$('sTest').onclick=function(){var old={engine:cfg.engine,rate:cfg.rate,pitch:cfg.pitch,voiceURI:cfg.voiceURI};
- cfg.engine=$('sEngine').value;cfg.rate=+$('sRate').value;cfg.pitch=+$('sPitch').value;cfg.voiceURI=$('sVoice').value||null;loadVoices();
+$('sEngine').onchange=function(){updEngineUI();updVoiceRow()};
+$('pDl').onclick=function(){ensureVoice($('sEngine').value).catch(function(){});setTimeout(updVoiceRow,50)};
+$('pDel').onclick=function(){var v=TTS.voice($('sEngine').value);if(!v||!confirm('Ștergi vocea '+TTS.engineName(v.engine)+' descărcată? (se poate descărca din nou)'))return;TTS.remove(v.engine).then(function(){toast('Vocea a fost ștearsă');updVoiceRow()})};
+$('sTest').onclick=function(){var old={engine:cfg.engine,rate:cfg.rate,pitch:cfg.pitch,voiceURI:cfg.voiceURI,tone:cfg.tone};
+ cfg.tone=+$('sTone').value;cfg.engine=$('sEngine').value;cfg.rate=+$('sRate').value;cfg.pitch=+$('sPitch').value;cfg.voiceURI=$('sVoice').value||null;loadVoices();
  greetBusy=true;clearTimeout(greetRestoreT);var seg=prepSeg($('greet'),'Salut, '+($('sName').value.trim()||cfg.name)+'. Așa sună vocea mea acum.');
- speak([seg],'voice').then(function(){greetBusy=false});Object.assign(cfg,old);loadVoices()};
+ speak([seg],'voice').then(function(){greetBusy=false});setTimeout(function(){Object.assign(cfg,old);loadVoices()},0)};
 $('bSettings').onclick=function(){draft={clockFont:cfg.clockFont,clockColor:cfg.clockColor,clockSize:cfg.clockSize};
  $('sName').value=cfg.name;$('sCity').value=cfg.city;$('cityList').innerHTML='';pending=null;
- $('sEngine').value=cfg.engine;loadVoices();fillVoiceSelect();$('sVoice').value=cfg.voiceURI||'';$('sRate').value=curRate();$('sPitch').value=curPitch();$('sSize').value=cfg.clockSize;
- showVals();updEngineUI();updPiperRow();buildFontGrid();buildColors();$('modal').classList.add('show')};
+ fillEngineSelect();$('sEngine').value=cfg.engine;$('sTone').value=cfg.tone;loadVoices();fillVoiceSelect();$('sVoice').value=cfg.voiceURI||'';$('sRate').value=curRate();$('sPitch').value=curPitch();$('sSize').value=cfg.clockSize;
+ showVals();updEngineUI();updVoiceRow();buildFontGrid();buildColors();$('modal').classList.add('show')};
 function closeModal(){applyClock(cfg);$('modal').classList.remove('show')}
 $('sCancel').onclick=closeModal;
 $('modal').addEventListener('click',function(e){if(e.target===this)closeModal()});
@@ -663,8 +739,8 @@ $('sCity').addEventListener('input',function(){pending=null;clearTimeout(gT);var
   res.forEach(function(c){var b=document.createElement('button');b.type='button';b.className='btn';b.textContent=c.name+(c.admin1?', '+c.admin1:'')+(c.country?', '+c.country:'');
    b.onclick=function(){pending={city:c.name,lat:c.latitude,lon:c.longitude,tz:c.timezone||'auto'};$('sCity').value=c.name;cl.innerHTML=''};cl.appendChild(b)})}).catch(function(){})},400)});
 $('sSave').onclick=function(){var name=$('sName').value.trim()||cfg.name,city=$('sCity').value.trim();
- function done(){saveCfg();$('modal').classList.remove('show');applyClock();renderGreet(true);renderWx();loadWx();toast('Setări salvate');if(cfg.engine==='piper')ensurePiper().catch(function(){})}
- cfg.name=name;cfg.engine=$('sEngine').value;cfg.voiceURI=$('sVoice').value||null;cfg.rate=+$('sRate').value;cfg.pitch=+$('sPitch').value;
+ function done(){saveCfg();$('modal').classList.remove('show');applyClock();renderGreet(true);renderWx();loadWx();toast('Setări salvate');if(cfg.engine!=='browser')ensureVoice().catch(function(){})}
+ cfg.name=name;cfg.engine=$('sEngine').value;cfg.tone=+$('sTone').value;cfg.voiceURI=$('sVoice').value||null;cfg.rate=+$('sRate').value;cfg.pitch=+$('sPitch').value;
  cfg.clockFont=draft.clockFont;cfg.clockColor=draft.clockColor;cfg.clockSize=draft.clockSize;loadVoices();
  if(pending){cfg.city=pending.city;cfg.lat=pending.lat;cfg.lon=pending.lon;cfg.tz=pending.tz;wx=null;done()}
  else if(city&&city!==cfg.city){geocode(city).then(function(r){if(!r.length){toast('Orașul nu a fost găsit');return}
@@ -696,11 +772,11 @@ if(wx&&wx.city!==cfg.city)wx=null;
 renderTasks();renderShop();renderWx();tick();setInterval(tick,1000);
 loadWx();setInterval(loadWx,15*60*1000);
 document.addEventListener('visibilitychange',function(){if(!document.hidden&&(!wx||Date.now()-wx.ts>15*60*1000))loadWx()});
-bootPiper();
+bootVoice();
 
 /* test/preview hooks */
 window.JARVIS={readCard:readCard,stop:stopSpeaking,say:say,get speaking(){return speaking},get activeWord(){return activeSeg&&activeSeg.cur>=0?activeSeg.words[activeSeg.cur].w:null},
- get activeEl(){return activeSeg&&activeSeg.el?activeSeg.el.id||activeSeg.el.className:null},ensurePiper:ensurePiper};
+ get activeEl(){return activeSeg&&activeSeg.el?activeSeg.el.id||activeSeg.el.className:null},ensureVoice:ensureVoice,TTS:TTS};
 var dm=location.hash.match(/demo-karaoke(?:=(\d+))?/);
 if(dm)loadWx().then(function(){speaking=true;speakKey='wx';updEq();setStatus('Vorbesc (Mihai)…');var s=prepSeg($('wxtxt'),wxSentence(wx));setTimeout(function(){hl(s,+(dm[1]||6))},80)});
 if(/demo-settings/.test(location.hash))setTimeout(function(){$('bSettings').click()},300);
