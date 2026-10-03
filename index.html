@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#06111f">
-<meta name="jarvis-version" content="v6-jarvis">
+<meta name="jarvis-version" content="v7-jarvis">
 <title>JARVIS · Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Roboto+Condensed:wght@700&family=Orbitron:wght@700&family=Share+Tech+Mono&family=Rajdhani:wght@600;700&family=Audiowide&family=Teko:wght@500&family=Oxanium:wght@700&display=swap" rel="stylesheet">
@@ -76,6 +76,15 @@ ul.tasks{list-style:none;margin:0;padding:0}
 .task .st{color:var(--mut);font-size:12.5px;margin-top:3px;white-space:nowrap;text-align:right}
 .task .st small{display:block;font-size:11px;color:#6f8798;margin-top:2px}
 .task .x{background:none;border:0;color:var(--mut);font-size:18px;line-height:1;padding:2px 2px 2px 6px;cursor:pointer}
+.task .ed{background:none;border:0;color:var(--mut);font-size:16px;line-height:1;padding:2px 4px;cursor:pointer}
+.task.editing{cursor:default}
+.task.editing .st,.task.editing .x,.task.editing .ed{display:none}
+.task.editing .t{text-decoration:none;color:var(--txt)}
+.edin{display:block;width:100%;resize:none;overflow:hidden;background:rgba(5,18,32,.85);border:1px solid var(--cyan);color:var(--txt);border-radius:10px;padding:8px 10px;font:inherit;font-size:16px;line-height:1.4;outline:none;user-select:text;-webkit-user-select:text;box-shadow:0 0 10px rgba(63,216,255,.25)}
+.edb{display:flex;gap:8px;justify-content:flex-end;margin-top:8px}
+.edb .btn{width:44px;height:36px;padding:0;font-size:17px}
+.edb .eok{color:var(--green);border-color:rgba(74,222,128,.5)}
+.edb .eno{color:var(--red);border-color:rgba(255,107,107,.45)}
 .task.done .t{text-decoration:line-through;color:var(--mut)}
 .task.done .st{color:var(--green)}
 .task.done .dot{background:var(--green);box-shadow:0 0 6px var(--green)}
@@ -497,23 +506,42 @@ function renderTasks(){
   var ul=$(p[0]),list=listFor(p[1]);
   ul.innerHTML=list.length?'':'<li class="empty">Niciun task.</li>';
   list.forEach(function(t){var li=document.createElement('li');li.className='task'+(t.done?' done':'');li.dataset.id=t.id;
-   li.innerHTML='<span class="dot"></span><span class="t kw">'+esc(t.text)+'</span><span class="st">'+(t.done?'Făcut':'Deschis')+(p[1]==='old'?'<small>'+shortDate(t.date)+'</small>':'')+'</span><button class="x" aria-label="Șterge">×</button>';
+   li.innerHTML='<span class="dot"></span><span class="t kw">'+esc(t.text)+'</span><span class="st">'+(t.done?'Făcut':'Deschis')+(p[1]==='old'?'<small>'+shortDate(t.date)+'</small>':'')+'</span><button class="ed" aria-label="Editează">✎</button><button class="x" aria-label="Șterge">×</button>';
    ul.appendChild(li)})})}
 function findT(id){for(var i=0;i<tasks.length;i++)if(tasks[i].id===id)return i;return -1}
 function delTask(id){var i=findT(id);if(i<0)return;if(confirm('Ștergi taskul „'+tasks[i].text+'"?')){tasks[i].deleted=new Date().toISOString();save();renderTasks()}}
 function addTask(txt){txt=(txt||'').trim();if(!txt)return false;txt=txt.charAt(0).toUpperCase()+txt.slice(1);
  tasks.push({id:Date.now()+'_'+Math.random().toString(36).slice(2,6),text:txt,date:dkey(),done:false,doneDate:null,created:new Date().toISOString()});save();renderTasks();return true}
 ['lOld','lNew'].forEach(function(id){var ul=$(id),timer=null,longFired=false,sx=0,sy=0;
- ul.addEventListener('click',function(e){var li=e.target.closest('.task');if(!li)return;
+ ul.addEventListener('click',function(e){var li=e.target.closest('.task');if(!li||li.classList.contains('editing'))return;
+  if(e.target.closest('.ed')){var i=findT(li.dataset.id);if(i>=0)startEdit(li,tasks[i],save,renderTasks);return}
   if(e.target.classList.contains('x')){delTask(li.dataset.id);return}
   if(longFired){longFired=false;return}
   var i=findT(li.dataset.id);if(i<0)return;var t=tasks[i];t.done=!t.done;t.doneDate=t.done?dkey():null;t.doneAt=t.done?new Date().toISOString():null;save();renderTasks()});
- ul.addEventListener('pointerdown',function(e){var li=e.target.closest('.task');if(!li||e.target.classList.contains('x'))return;longFired=false;sx=e.clientX;sy=e.clientY;
+ ul.addEventListener('pointerdown',function(e){var li=e.target.closest('.task');if(!li||li.classList.contains('editing')||e.target.classList.contains('x')||e.target.closest('.ed'))return;longFired=false;sx=e.clientX;sy=e.clientY;
   timer=setTimeout(function(){longFired=true;if(navigator.vibrate)navigator.vibrate(30);delTask(li.dataset.id)},650)});
  ul.addEventListener('pointermove',function(e){if(timer&&(Math.abs(e.clientX-sx)>10||Math.abs(e.clientY-sy)>10)){clearTimeout(timer);timer=null}});
  ['pointerup','pointercancel','pointerleave'].forEach(function(ev){ul.addEventListener(ev,function(){clearTimeout(timer);timer=null})});
  ul.addEventListener('contextmenu',function(e){if(e.target.closest('.task'))e.preventDefault()})});
 $('fAdd').addEventListener('submit',function(e){e.preventDefault();if(addTask($('iTask').value)){$('iTask').value='';toast('Task adăugat')}});
+
+/* ---------- inline edit (tasks + shopping): keeps id/date/done, records editedAt ---------- */
+var editing=null;
+function startEdit(li,item,saveFn,rerender){if(editing&&editing!==li&&editing.isConnected)return;
+ if(speaking)stopSpeaking();editing=li;li.classList.add('editing');var t=li.querySelector('.t');t.classList.remove('kw');
+ t.innerHTML='<textarea class="edin" rows="1" enterkeyhint="done" aria-label="Editează textul"></textarea><span class="edb"><button type="button" class="btn eok" aria-label="Salvează">✓</button><button type="button" class="btn eno" aria-label="Anulează">✕</button></span>';
+ var ta=t.querySelector('textarea');ta.value=item.text;
+ function grow(){ta.style.height='auto';ta.style.height=ta.scrollHeight+'px'}
+ function close(){editing=null;rerender()}
+ function ok(e){if(e){e.preventDefault();e.stopPropagation()}var v=ta.value.replace(/\s+/g,' ').trim();
+  if(!v){toast('Textul nu poate fi gol');ta.focus();return}
+  if(v!==item.text){item.text=v;item.editedAt=new Date().toISOString();saveFn();toast('Salvat')}close()}
+ function no(e){if(e){e.preventDefault();e.stopPropagation()}close()}
+ ta.addEventListener('input',grow);
+ ta.addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){ok(e)}else if(e.key==='Escape'){no(e)}});
+ t.querySelector('.eok').addEventListener('click',ok);t.querySelector('.eno').addEventListener('click',no);
+ ['click','pointerdown'].forEach(function(ev){t.addEventListener(ev,function(e){e.stopPropagation()})});
+ grow();ta.focus();try{ta.setSelectionRange(ta.value.length,ta.value.length)}catch(_){}}
 
 /* ---------- shopping list (unbought items carry over forever; bought ones vanish after their day; hidden = kept in storage) ---------- */
 var shop=LS.get('jv_shop',[]);
@@ -522,18 +550,19 @@ function shopVisible(s){return !s.hidden&&(!s.bought||s.boughtDate===dkey())}
 function shopList(){return shop.filter(shopVisible)}
 function renderShop(){var ul=$('lShop'),list=shopList();ul.innerHTML=list.length?'':'<li class="empty">Lista e goală.</li>';
  list.forEach(function(s){var li=document.createElement('li');li.className='task'+(s.bought?' done':'');li.dataset.id=s.id;
-  li.innerHTML='<span class="dot"></span><span class="t kw">'+esc(s.text)+'</span><span class="st">'+(s.bought?'Cumpărat':'De luat')+(s.date<dkey()?'<small>'+shortDate(s.date)+'</small>':'')+'</span><button class="x" aria-label="Ascunde">×</button>';
+  li.innerHTML='<span class="dot"></span><span class="t kw">'+esc(s.text)+'</span><span class="st">'+(s.bought?'Cumpărat':'De luat')+(s.date<dkey()?'<small>'+shortDate(s.date)+'</small>':'')+'</span><button class="ed" aria-label="Editează">✎</button><button class="x" aria-label="Ascunde">×</button>';
   ul.appendChild(li)})}
 function findS(id){for(var i=0;i<shop.length;i++)if(shop[i].id===id)return shop[i];return null}
 function hideShop(id){var s=findS(id);if(!s)return;if(confirm('Scoți „'+s.text+'" din listă?')){s.hidden=new Date().toISOString();saveShop();renderShop()}}
 function addShop(txt){txt=(txt||'').trim();if(!txt)return false;txt=txt.charAt(0).toUpperCase()+txt.slice(1);
  shop.push({id:Date.now()+'_'+Math.random().toString(36).slice(2,6),text:txt,date:dkey(),bought:false,boughtDate:null,created:new Date().toISOString()});saveShop();renderShop();return true}
 (function(){var ul=$('lShop'),timer=null,longFired=false,sx=0,sy=0;
- ul.addEventListener('click',function(e){var li=e.target.closest('.task');if(!li)return;
+ ul.addEventListener('click',function(e){var li=e.target.closest('.task');if(!li||li.classList.contains('editing'))return;
+  if(e.target.closest('.ed')){var s=findS(li.dataset.id);if(s)startEdit(li,s,saveShop,renderShop);return}
   if(e.target.classList.contains('x')){hideShop(li.dataset.id);return}
   if(longFired){longFired=false;return}
   var s=findS(li.dataset.id);if(!s)return;s.bought=!s.bought;s.boughtDate=s.bought?dkey():null;s.boughtAt=s.bought?new Date().toISOString():null;saveShop();renderShop()});
- ul.addEventListener('pointerdown',function(e){var li=e.target.closest('.task');if(!li||e.target.classList.contains('x'))return;longFired=false;sx=e.clientX;sy=e.clientY;
+ ul.addEventListener('pointerdown',function(e){var li=e.target.closest('.task');if(!li||li.classList.contains('editing')||e.target.classList.contains('x')||e.target.closest('.ed'))return;longFired=false;sx=e.clientX;sy=e.clientY;
   timer=setTimeout(function(){longFired=true;if(navigator.vibrate)navigator.vibrate(30);hideShop(li.dataset.id)},650)});
  ul.addEventListener('pointermove',function(e){if(timer&&(Math.abs(e.clientX-sx)>10||Math.abs(e.clientY-sy)>10)){clearTimeout(timer);timer=null}});
  ['pointerup','pointercancel','pointerleave'].forEach(function(ev){ul.addEventListener(ev,function(){clearTimeout(timer);timer=null})});
