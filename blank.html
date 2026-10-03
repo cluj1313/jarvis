@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#06111f">
-<meta name="jarvis-version" content="v8-jarvis-blank">
+<meta name="jarvis-version" content="v9-jarvis-blank">
 <script>window.JARVIS_BLANK=true</script>
 <title>JARVIS · Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,7 +34,7 @@ header{display:flex;justify-content:space-between;align-items:center;gap:8px;mar
 @supports (color:color-mix(in srgb,red 50%,transparent)){.clock{text-shadow:0 0 14px color-mix(in srgb,var(--clock) 60%,transparent)}}
 .clock.seg::before{content:attr(data-ghost);position:absolute;right:0;top:0;opacity:.1;text-shadow:none}
 .hbtns{display:flex;gap:6px;justify-content:flex-end;margin-top:10px}
-.hbtns .btn{white-space:nowrap;padding:6px 11px;font-size:13px;background:rgba(10,30,50,.4);color:#cfe3ee}
+.btn.pill{white-space:nowrap;padding:6px 11px;font-size:13px;line-height:1.25;background:rgba(10,30,50,.4);color:#cfe3ee;border:1px solid var(--line);border-radius:999px}
 .btn{background:rgba(20,60,90,.45);color:var(--txt);border:1px solid var(--line);border-radius:999px;padding:7px 12px;font:inherit;font-size:13px;cursor:pointer}
 .btn:active{background:rgba(63,216,255,.25)}
 .btn.sel{border-color:var(--cyan);background:rgba(63,216,255,.2)}
@@ -105,7 +105,6 @@ ul.tasks{list-style:none;margin:0;padding:0}
 .eq.on i:nth-child(2){animation-delay:.1s}.eq.on i:nth-child(3){animation-delay:.2s}.eq.on i:nth-child(4){animation-delay:.3s}.eq.on i:nth-child(5){animation-delay:.4s}
 @keyframes eq{50%{height:18px}}
 .barbtns{display:flex;gap:8px;flex:1;justify-content:center}
-.barbtns .btn{font-size:16px;padding:11px 16px}
 .barbtns .btn.on{background:rgba(63,216,255,.3);border-color:var(--cyan)}
 .modal{position:fixed;inset:0;background:rgba(0,8,16,.75);display:none;align-items:center;justify-content:center;z-index:10;padding:16px}
 .modal.show{display:flex}
@@ -140,10 +139,10 @@ ul.tasks{list-style:none;margin:0;padding:0}
 .hb svg{width:15px;height:15px}
 .hb.del{color:#ff8a8a}
 .lbl .hgrp{display:flex;gap:6px;flex:none}
-.barbtns .btn{white-space:nowrap}
-.barbtns .btn.newtab{color:var(--cyan2);border-style:dashed}
-@media (max-width:440px){.bar{padding-left:8px;padding-right:8px}.barin{gap:8px;padding:10px 10px}.eq{width:32px;gap:2px}.eq i{width:3.5px}.barbtns{gap:6px}.barbtns .btn{font-size:14.5px;padding:10px 11px}}
-@media (max-width:370px){.barbtns .btn{font-size:13.5px;padding:10px 9px}.eq{width:26px}.eq i{width:3px}}
+.btn.pill.newtab{color:var(--cyan2);border-style:dashed}
+.barin{padding:9px 12px}.barbtns{gap:6px}
+@media (max-width:440px){.bar{padding-left:8px;padding-right:8px}.barin{gap:8px;padding:9px 10px}.eq{width:32px;gap:2px}.eq i{width:3.5px}}
+@media (max-width:370px){.eq{width:26px}.eq i{width:3px}}
 .tcolors{display:flex;gap:10px;flex-wrap:wrap}
 .tcolors .sw{width:32px;height:32px}
 .tcolors .sw.none{background:none;border:2px dashed var(--line);color:var(--mut);font-size:12px}
@@ -155,7 +154,7 @@ ul.tasks{list-style:none;margin:0;padding:0}
  <header>
   <div class="brand"><div class="orb" id="orb"></div><div><h1>JARVIS</h1><small>COMMAND CENTER</small></div></div>
   <div class="right"><div class="clock" id="clock" data-ghost="88.88">--.--</div>
-   <div class="hbtns"><button class="btn" id="bSettings">Setări</button><button class="btn" id="bShare">Trimite copia</button></div></div>
+   <div class="hbtns"><button class="btn pill" id="bSettings">Setări</button><button class="btn pill" id="bShare">Trimite copia</button></div></div>
  </header>
 
  <section class="card" id="cVoice"><div class="lbl"><span class="lt">Voice status</span><button class="spk" data-read="voice" aria-label="Citește"></button></div>
@@ -183,7 +182,7 @@ ul.tasks{list-style:none;margin:0;padding:0}
 
 <div class="bar"><div class="barin">
  <div class="eq" id="eq"><i></i><i></i><i></i><i></i><i></i></div>
- <div class="barbtns"><button class="btn newtab" id="bNewTab" aria-label="Tab nou">+ Tab nou</button><button class="btn" id="bRead">Citește</button><button class="btn" id="bHi">Salut</button></div>
+ <div class="barbtns"><button class="btn pill newtab" id="bNewTab" aria-label="Tab nou">+ Tab nou</button><button class="btn pill" id="bRead">Citește</button><button class="btn pill" id="bHi">Salut</button></div>
 </div></div>
 
 <div class="modal" id="modal"><div class="card"><div class="lbl"><span>Setări</span></div>
