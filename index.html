@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#06111f">
-<meta name="jarvis-version" content="v4-jarvis">
+<meta name="jarvis-version" content="v5-jarvis">
 <title>JARVIS · Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Roboto+Condensed:wght@700&family=Orbitron:wght@700&family=Share+Tech+Mono&family=Rajdhani:wght@600;700&family=Audiowide&family=Teko:wght@500&family=Oxanium:wght@700&display=swap" rel="stylesheet">
@@ -71,6 +71,7 @@ ul.tasks{list-style:none;margin:0;padding:0}
 .dot{width:9px;height:9px;border-radius:50%;margin-top:7px;flex:none}
 .old .dot{background:var(--orange);box-shadow:0 0 6px var(--orange)}
 .new .dot{background:var(--cyan);box-shadow:0 0 6px var(--cyan)}
+.shop .dot{background:#c084fc;box-shadow:0 0 6px #c084fc}
 .task .t{flex:1;font-size:16.5px;line-height:1.5;padding-bottom:3px}
 .task .st{color:var(--mut);font-size:12.5px;margin-top:3px;white-space:nowrap;text-align:right}
 .task .st small{display:block;font-size:11px;color:#6f8798;margin-top:2px}
@@ -82,6 +83,7 @@ ul.tasks{list-style:none;margin:0;padding:0}
 .add{display:flex;gap:8px;margin-top:14px}
 .add input{flex:1;min-width:0;background:rgba(5,18,32,.7);border:1px solid var(--line);color:var(--txt);border-radius:14px;padding:13px 14px;font:inherit;font-size:16px;outline:none}
 .add input:focus{border-color:var(--cyan)}
+.add input::placeholder{font-size:14.5px}
 .add .btn{padding:0 14px;font-size:15px}
 .mic{width:46px;flex:none;display:flex;align-items:center;justify-content:center}
 .mic.on{background:rgba(255,80,80,.3);border-color:var(--red)}
@@ -145,6 +147,11 @@ ul.tasks{list-style:none;margin:0;padding:0}
  <section class="card" id="cNew"><div class="lbl"><span class="lt kw" id="ltNew">Taskuri noi</span><button class="spk" data-read="new" aria-label="Citește"></button></div><ul class="tasks new" id="lNew"></ul>
   <form class="add" id="fAdd"><input id="iTask" placeholder="Spune sau scrie un task" autocomplete="off">
    <button type="button" class="btn mic" id="bMic" title="Scrie sau dictează cu tastatura" aria-label="Deschide tastatura"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4"/></svg></button>
+   <button class="btn" type="submit">Adaugă</button></form></section>
+
+ <section class="card" id="cShop"><div class="lbl"><span class="lt kw" id="ltShop">Cumpărături</span><button class="spk" data-read="shop" aria-label="Citește"></button></div><ul class="tasks shop" id="lShop"></ul>
+  <form class="add" id="fShop"><input id="iShop" placeholder="Spune sau scrie un produs" autocomplete="off">
+   <button type="button" class="btn mic" id="bMicShop" title="Scrie sau dictează cu tastatura" aria-label="Deschide tastatura"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4"/></svg></button>
    <button class="btn" type="submit">Adaugă</button></form></section>
 </div>
 
@@ -341,7 +348,7 @@ if(document.fonts){if(document.fonts.ready)document.fonts.ready.then(reflowBars)
 var lastDay=dkey();
 function tick(){var d=new Date();$('clock').textContent=pad(d.getHours())+'.'+pad(d.getMinutes());
  if(d.getSeconds()===0||!tick.done){if(!speaking)renderGreet();tick.done=1}
- if(dkey()!==lastDay){lastDay=dkey();renderTasks()}}
+ if(dkey()!==lastDay){lastDay=dkey();renderTasks();renderShop()}}
 
 /* ---------- karaoke core ---------- */
 /* A segment = a piece of text shown in a DOM element; every word becomes a span, and the element gets its own glowing bar. */
@@ -442,6 +449,32 @@ function addTask(txt){txt=(txt||'').trim();if(!txt)return false;txt=txt.charAt(0
  ['pointerup','pointercancel','pointerleave'].forEach(function(ev){ul.addEventListener(ev,function(){clearTimeout(timer);timer=null})});
  ul.addEventListener('contextmenu',function(e){if(e.target.closest('.task'))e.preventDefault()})});
 $('fAdd').addEventListener('submit',function(e){e.preventDefault();if(addTask($('iTask').value)){$('iTask').value='';toast('Task adăugat')}});
+
+/* ---------- shopping list (unbought items carry over forever; bought ones vanish after their day; hidden = kept in storage) ---------- */
+var shop=LS.get('jv_shop',[]);
+function saveShop(){LS.set('jv_shop',shop)}
+function shopVisible(s){return !s.hidden&&(!s.bought||s.boughtDate===dkey())}
+function shopList(){return shop.filter(shopVisible)}
+function renderShop(){var ul=$('lShop'),list=shopList();ul.innerHTML=list.length?'':'<li class="empty">Lista e goală.</li>';
+ list.forEach(function(s){var li=document.createElement('li');li.className='task'+(s.bought?' done':'');li.dataset.id=s.id;
+  li.innerHTML='<span class="dot"></span><span class="t kw">'+esc(s.text)+'</span><span class="st">'+(s.bought?'Cumpărat':'De luat')+(s.date<dkey()?'<small>'+shortDate(s.date)+'</small>':'')+'</span><button class="x" aria-label="Ascunde">×</button>';
+  ul.appendChild(li)})}
+function findS(id){for(var i=0;i<shop.length;i++)if(shop[i].id===id)return shop[i];return null}
+function hideShop(id){var s=findS(id);if(!s)return;if(confirm('Scoți „'+s.text+'" din listă?')){s.hidden=new Date().toISOString();saveShop();renderShop()}}
+function addShop(txt){txt=(txt||'').trim();if(!txt)return false;txt=txt.charAt(0).toUpperCase()+txt.slice(1);
+ shop.push({id:Date.now()+'_'+Math.random().toString(36).slice(2,6),text:txt,date:dkey(),bought:false,boughtDate:null,created:new Date().toISOString()});saveShop();renderShop();return true}
+(function(){var ul=$('lShop'),timer=null,longFired=false,sx=0,sy=0;
+ ul.addEventListener('click',function(e){var li=e.target.closest('.task');if(!li)return;
+  if(e.target.classList.contains('x')){hideShop(li.dataset.id);return}
+  if(longFired){longFired=false;return}
+  var s=findS(li.dataset.id);if(!s)return;s.bought=!s.bought;s.boughtDate=s.bought?dkey():null;s.boughtAt=s.bought?new Date().toISOString():null;saveShop();renderShop()});
+ ul.addEventListener('pointerdown',function(e){var li=e.target.closest('.task');if(!li||e.target.classList.contains('x'))return;longFired=false;sx=e.clientX;sy=e.clientY;
+  timer=setTimeout(function(){longFired=true;if(navigator.vibrate)navigator.vibrate(30);hideShop(li.dataset.id)},650)});
+ ul.addEventListener('pointermove',function(e){if(timer&&(Math.abs(e.clientX-sx)>10||Math.abs(e.clientY-sy)>10)){clearTimeout(timer);timer=null}});
+ ['pointerup','pointercancel','pointerleave'].forEach(function(ev){ul.addEventListener(ev,function(){clearTimeout(timer);timer=null})});
+ ul.addEventListener('contextmenu',function(e){if(e.target.closest('.task'))e.preventDefault()})})();
+$('fShop').addEventListener('submit',function(e){e.preventDefault();if(addShop($('iShop').value)){$('iShop').value='';toast('Produs adăugat')}});
+$('bMicShop').onclick=function(){var i=$('iShop');i.focus();try{i.click()}catch(e){}};
 
 /* ---------- speech output ---------- */
 var speaking=false,listening=false,kGen=0,speakKey=null;
@@ -553,9 +586,12 @@ function segsTasks(which){var lt=which==='old'?$('ltOld'):$('ltNew'),title=which
  var s=[prepSeg(lt,title)],open=listFor(which).filter(function(t){return !t.done});
  if(!open.length){s.push(prepSeg(null,'Niciun task deschis.'));return s}
  open.forEach(function(t){var li=document.querySelector('#'+(which==='old'?'lOld':'lNew')+' li[data-id="'+t.id+'"] .t');s.push(prepSeg(li,t.text))});return s}
+function segsShop(){var s=[prepSeg($('ltShop'),'Cumpărături')],open=shopList().filter(function(x){return !x.bought});
+ if(!open.length){s.push(prepSeg(null,'Lista de cumpărături e goală.'));return s}
+ open.forEach(function(x){var el=document.querySelector('#lShop li[data-id="'+x.id+'"] .t');s.push(prepSeg(el,x.text))});return s}
 function readCard(key){if(speaking&&speakKey===key){stopSpeaking();return}
- var segs=key==='voice'?segsVoice():key==='wx'?segsWx():key==='old'?segsTasks('old'):key==='new'?segsTasks('new'):
-  segsWx().concat(segsTasks('old'),segsTasks('new')); /* bottom Citește: weather + tasks only */
+ var segs=key==='voice'?segsVoice():key==='wx'?segsWx():key==='old'?segsTasks('old'):key==='new'?segsTasks('new'):key==='shop'?segsShop():
+  segsWx().concat(segsTasks('old'),segsTasks('new'),segsShop()); /* bottom Citește: weather + tasks only */
  return speak(segs,key)}
 function say(text){greetBusy=true;clearTimeout(greetRestoreT);var seg=prepSeg($('greet'),text);
  return speak([seg],'voice').then(function(){greetRestoreT=setTimeout(function(){greetBusy=false;if(!speaking)renderGreet()},10000)})}
@@ -657,7 +693,7 @@ $('bShare').onclick=function(){var url=blankURL(),text='JARVIS Command Center �
 
 /* ---------- boot ---------- */
 if(wx&&wx.city!==cfg.city)wx=null;
-renderTasks();renderWx();tick();setInterval(tick,1000);
+renderTasks();renderShop();renderWx();tick();setInterval(tick,1000);
 loadWx();setInterval(loadWx,15*60*1000);
 document.addEventListener('visibilitychange',function(){if(!document.hidden&&(!wx||Date.now()-wx.ts>15*60*1000))loadWx()});
 bootPiper();
