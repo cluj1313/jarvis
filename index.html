@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#06111f">
-<meta name="jarvis-version" content="v9-jarvis">
+<meta name="jarvis-version" content="v10-jarvis">
 <title>JARVIS · Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Roboto+Condensed:wght@700&family=Orbitron:wght@700&family=Share+Tech+Mono&family=Rajdhani:wght@600;700&family=Audiowide&family=Teko:wght@500&family=Oxanium:wght@700&display=swap" rel="stylesheet">
@@ -146,6 +146,9 @@ ul.tasks{list-style:none;margin:0;padding:0}
 .tcolors .sw{width:32px;height:32px}
 .tcolors .sw.none{background:none;border:2px dashed var(--line);color:var(--mut);font-size:12px}
 .tcolors .sw.sel{border-color:#fff;box-shadow:0 0 8px rgba(255,255,255,.4)}
+.offnote{background:rgba(255,181,71,.12);border:1px solid rgba(255,181,71,.5);color:#ffd9a0;border-radius:14px;padding:10px 14px;font-size:13.5px;line-height:1.45;margin-bottom:14px}
+.offnote a{color:#fff;word-break:break-all}
+.offnote[hidden]{display:none}
 </style>
 </head>
 <body>
@@ -156,6 +159,7 @@ ul.tasks{list-style:none;margin:0;padding:0}
    <div class="hbtns"><button class="btn pill" id="bSettings">Setări</button><button class="btn pill" id="bShare">Trimite copia</button></div></div>
  </header>
 
+ <div class="offnote" id="offNote" hidden></div>
  <section class="card" id="cVoice"><div class="lbl"><span class="lt">Voice status</span><button class="spk" data-read="voice" aria-label="Citește"></button></div>
   <p class="voice kw" id="greet">…</p>
   <div class="status" id="vstatus">Agent local. Doar vreme și taskuri.</div>
@@ -212,47 +216,47 @@ ul.tasks{list-style:none;margin:0;padding:0}
 </div></div>
 <div class="toast" id="toast"></div>
 <script>
-/* ===== Neural TTS in-browser (no API keys): Piper Mihai, Supertonic-3 (male styles M1–M5, q4), MMS-TTS ron. One Web Worker, onnxruntime-web 1.18 WASM. ===== */
+/* ===== Neural TTS in-browser (no API keys): Piper Mihai only. onnxruntime-web 1.18 WASM.
+   Runs in a Web Worker; script code is passed as text and eval'd (no importScripts of blob: URLs), so it also works
+   when the page is opened from file:// or content:// (null origin). Falls back to the main thread if the worker fails.
+   Storage: Cache API -> IndexedDB -> memory (download each time). ===== */
 var TTS=(function(){
  'use strict';
  var ORT='https://cdn.jsdelivr.net/npm/onnxruntime-web@1.18.0/dist/';
  var PH='https://cdn.jsdelivr.net/npm/@diffusionstudio/piper-wasm@1.0.0/build/piper_phonemize';
  var HFP='https://huggingface.co/rhasspy/piper-voices/resolve/main/ro/ro_RO/mihai/medium/ro_RO-mihai-medium';
- var HFS='https://huggingface.co/nadare/supertonic-3-onnx-q4/resolve/main/onnx/';
- var HFSV='https://huggingface.co/Supertone/supertonic-3/resolve/main/voice_styles/';
- var HFM='https://huggingface.co/Xenova/mms-tts-ron/resolve/main/';
- var CACHE='jarvis-piper-v1'; /* same cache as v3–v5, so Mihai is not downloaded again */
+ var CACHE='jarvis-piper-v1'; /* same cache as v3–v9, so Mihai is not downloaded again */
+ var OPAQUE=false;try{OPAQUE=self.origin==='null'||location.origin==='null'||!/^https?:$/.test(location.protocol)}catch(e){OPAQUE=true}
  function simdOK(){try{return WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,0,0,1,5,1,96,0,1,123,3,2,1,0,10,10,1,8,0,65,0,253,15,253,98,11]))}catch(e){return false}}
  var SIMD=typeof WebAssembly==='object'&&simdOK();
  var ORTWASM=SIMD?'ort-wasm-simd.wasm':'ort-wasm.wasm';
- var BASE=[{k:'ortjs',url:ORT+'ort.wasm.min.js',size:142930},{k:'ortwasm',url:ORT+ORTWASM,size:SIMD?10595041:9758086}];
- var ENG={
-  piper:{name:'Mihai',files:BASE.concat([
+ var ENG={piper:{name:'Mihai',files:[{k:'ortjs',url:ORT+'ort.wasm.min.js',size:142930},{k:'ortwasm',url:ORT+ORTWASM,size:SIMD?10595041:9758086},
    {k:'cfg',url:HFP+'.onnx.json',size:5000},{k:'phjs',url:PH+'.js',size:120714},{k:'phwasm',url:PH+'.wasm',size:635212},
-   {k:'phdata',url:PH+'.data',size:18077249},{k:'model',url:HFP+'.onnx',size:63201294}])},
-  st:{name:'Supertonic',files:BASE.concat([
-   {k:'cfg',url:HFS+'tts.json',size:8253},{k:'idx',url:HFS+'unicode_indexer.json',size:277676},
-   {k:'dp',url:HFS+'duration_predictor.onnx',size:3700147},{k:'te',url:HFS+'text_encoder.onnx',size:36416150},
-   {k:'ve',url:HFS+'vector_estimator.onnx',size:51663166},{k:'voc',url:HFS+'vocoder.onnx',size:40688430}].concat(
-   ['M1','M2','M3','M4','M5'].map(function(m){return {k:'s'+m,url:HFSV+m+'.json',size:291800}})))},
-  mms:{name:'MMS',files:BASE.concat([{k:'vocab',url:HFM+'vocab.json',size:374},{k:'model',url:HFM+'onnx/model_quantized.onnx',size:38360875}])}
- };
- var VOICES=[
-  {id:'mihai',engine:'piper',short:'Mihai',label:'Mihai (Piper) – implicit, rapidă'},
-  {id:'st-M1',engine:'st',style:'M1',short:'Bărbat 1',label:'Supertonic – Bărbat 1 (mai înalt)'},
-  {id:'st-M2',engine:'st',style:'M2',short:'Bărbat 2',label:'Supertonic – Bărbat 2 (grav)'},
-  {id:'st-M3',engine:'st',style:'M3',short:'Bărbat 3',label:'Supertonic – Bărbat 3'},
-  {id:'st-M4',engine:'st',style:'M4',short:'Bărbat 4',label:'Supertonic – Bărbat 4'},
-  {id:'st-M5',engine:'st',style:'M5',short:'Bărbat 5',label:'Supertonic – Bărbat 5 (foarte grav)'},
-  {id:'mms',engine:'mms',short:'MMS',label:'MMS Română (Meta)'}];
+   {k:'phdata',url:PH+'.data',size:18077249},{k:'model',url:HFP+'.onnx',size:63201294}]}};
+ var VOICES=[{id:'mihai',engine:'piper',short:'Mihai',label:'Mihai (Piper)'}];
  function voice(id){for(var i=0;i<VOICES.length;i++)if(VOICES[i].id===id)return VOICES[i];return null}
  function total(e){return ENG[e].files.reduce(function(a,f){return a+f.size},0)}
- var hasCache=typeof caches!=='undefined';
- function openCache(){return hasCache?caches.open(CACHE).catch(function(){hasCache=false;return null}):Promise.resolve(null)}
+
+ /* ----- storage: Cache API, else IndexedDB, else memory ----- */
+ var mem={},store=null;
+ function cacheStore(){try{if(typeof caches==='undefined')return Promise.reject();return caches.open(CACHE).then(function(c){
+   return {kind:'cache',get:function(u){return c.match(u).then(function(r){return r?r.arrayBuffer():null})},
+    put:function(u,b){return c.put(u,new Response(b,{headers:{'Content-Type':'application/octet-stream'}}))},
+    has:function(u){return c.match(u).then(Boolean)},del:function(u){return c.delete(u)}}})}catch(e){return Promise.reject(e)}}
+ function idbStore(){return new Promise(function(res,rej){try{var rq=indexedDB.open('jarvis-tts',1);
+   rq.onupgradeneeded=function(){rq.result.createObjectStore('files')};rq.onerror=function(){rej(rq.error)};
+   rq.onsuccess=function(){var db=rq.result;function tx(m,fn){return new Promise(function(r2,j2){try{var t=db.transaction('files',m),q=fn(t.objectStore('files'));t.oncomplete=function(){r2(q&&q.result)};t.onerror=t.onabort=function(){j2(t.error)}}catch(e){j2(e)}})}
+    res({kind:'idb',get:function(u){return tx('readonly',function(s){return s.get(u)}).then(function(v){return v||null})},
+     put:function(u,b){return tx('readwrite',function(s){return s.put(b,u)})},
+     has:function(u){return tx('readonly',function(s){return s.count(u)}).then(function(n){return n>0})},
+     del:function(u){return tx('readwrite',function(s){return s.delete(u)})}})}}catch(e){rej(e)}})}
+ var memStore={kind:'memory',get:function(u){return Promise.resolve(mem[u]||null)},put:function(){return Promise.resolve()},
+  has:function(){return Promise.resolve(false)},del:function(u){delete mem[u];return Promise.resolve()}};
+ function getStore(){if(!store)store=cacheStore().catch(function(){return idbStore()}).catch(function(){return memStore});return store}
  function getFile(f,onBytes){
-  return openCache().then(function(c){
-   return (c?c.match(f.url):Promise.resolve(null)).then(function(hit){
-    if(hit)return hit.arrayBuffer().then(function(b){onBytes(f,b.byteLength);return b});
+  return getStore().then(function(S){
+   return S.get(f.url).catch(function(){return null}).then(function(hit){
+    if(hit){onBytes(f,hit.byteLength);return hit}
     return fetch(f.url,{mode:'cors'}).then(function(r){
      if(!r.ok)throw new Error('HTTP '+r.status+' '+f.url.split('/').pop());
      var got=0,chunks=[];
@@ -261,109 +265,79 @@ var TTS=(function(){
      return (function pump(){return rd.read().then(function(x){
       if(x.done){var u=new Uint8Array(got),o=0;chunks.forEach(function(ch){u.set(ch,o);o+=ch.length});return u.buffer}
       chunks.push(x.value);got+=x.value.length;onBytes(f,got);return pump()})})();
-    }).then(function(buf){
-     if(c)return c.put(f.url,new Response(buf.slice(0),{headers:{'Content-Type':'application/octet-stream'}})).then(function(){return buf},function(){return buf});
-     return buf})})})}
- function isDownloaded(e){return openCache().then(function(c){if(!c)return false;
-  return Promise.all(ENG[e].files.map(function(f){return c.match(f.url)})).then(function(r){return r.every(Boolean)})}).catch(function(){return false})}
- function remove(e){release(e);return openCache().then(function(c){if(!c)return;
-  return Promise.all(ENG[e].files.filter(function(f){return BASE.indexOf(f)<0}).map(function(f){return c.delete(f.url)}))})}
+    }).then(function(buf){return S.put(f.url,S.kind==='memory'?null:buf.slice(0)).then(function(){return buf},function(){return buf})})})})}
+ function isDownloaded(e){return getStore().then(function(S){return Promise.all(ENG[e].files.map(function(f){return S.has(f.url)})).then(function(r){return r.every(Boolean)})}).catch(function(){return false})}
+ function remove(e){release(e);return getStore().then(function(S){return Promise.all(ENG[e].files.filter(function(f){return f.k!=='ortjs'&&f.k!=='ortwasm'}).map(function(f){return S.del(f.url)}))})}
+ /* v10: Supertonic + MMS removed -> free their cached files */
+ function cleanupOld(){try{if(typeof caches==='undefined')return;caches.open(CACHE).then(function(c){return c.keys().then(function(ks){
+   return Promise.all(ks.filter(function(r){return /supertonic|mms-tts-ron/i.test(r.url)}).map(function(r){return c.delete(r)}))})}).catch(function(){})}catch(e){}}
+ setTimeout(cleanupOld,3000);
 
- /* ----- worker ----- */
- var WORKER=function(){
-  var ort=null,P=null,S=null,M=null;
-  function ensureOrt(m){if(ort)return;importScripts(m.ortURL);ort=self.ort;
+ /* ----- engine (same code runs inside the worker or on the main thread) ----- */
+ var ENGINE=function(G){
+  var ort=null,P=null;
+  function run(code){(0,eval)(code)}
+  function ensureOrt(m){if(ort)return;if(!G.ort)run(m.ortJS+'\n;globalThis.ort=ort;');ort=G.ort;
    ort.env.wasm.numThreads=1;ort.env.wasm.simd=m.simd;ort.env.wasm.proxy=false;ort.env.wasm.wasmPaths=m.wasmPaths}
-  function sess(buf){return ort.InferenceSession.create(new Uint8Array(buf),{executionProviders:['wasm'],graphOptimizationLevel:'all'})}
   function I64(a){return BigInt64Array.from(a,function(x){return BigInt(x)})}
-  /* Piper */
   var phResolve=null;
   function getPh(){if(P.ph)return Promise.resolve(P.ph);
-   return createPiperPhonemize({print:function(d){if(phResolve){var r=phResolve;phResolve=null;try{r(JSON.parse(d).phoneme_ids)}catch(e){}}},printErr:function(){},
+   return G.createPiperPhonemize({print:function(d){if(phResolve){var r=phResolve;phResolve=null;try{r(JSON.parse(d).phoneme_ids)}catch(e){}}},printErr:function(){},
     wasmBinary:P.phWasm,getPreloadedPackage:function(){return P.phData.slice(0)},locateFile:function(u){return u},noInitialRun:true}).then(function(m){P.ph=m;return m})}
   function phonemize(text){return getPh().then(function(m){return new Promise(function(res,rej){
    var done=false;phResolve=function(ids){done=true;res(ids)};
    try{m.callMain(['-l',P.cfg.espeak.voice,'--input',JSON.stringify([{text:text}]),'--espeak_data','/espeak-ng-data'])}catch(e){if(!done){P.ph=null;phResolve=null;rej(e);return}}
    if(!done){P.ph=null;phResolve=null;rej(new Error('phonemizer returned nothing'))}})})}
-  /* Supertonic text prep (from supertone-inc/supertonic web helper, MIT) */
-  function stPrep(text){text=text.normalize('NFKD').replace(/[–‑—]/g,'-').replace(/[_\[\]|\/#→←]/g,' ').replace(/[\u201C\u201D]/g,'"').replace(/[\u2018\u2019´`]/g,"'")
-   .replace(/[♥☆♡©\\]/g,'').replace(/ ([,.!?;:'])/g,'$1').replace(/\s+/g,' ').trim();
-   if(!/[.!?;:,'"')\]}…]$/.test(text))text+='.';return '<ro>'+text+'</ro>'}
-  function gauss(n){var a=new Float32Array(n);for(var i=0;i<n;i+=2){var u1=Math.max(1e-4,Math.random()),u2=Math.random(),r=Math.sqrt(-2*Math.log(u1));a[i]=r*Math.cos(2*Math.PI*u2);if(i+1<n)a[i+1]=r*Math.sin(2*Math.PI*u2)}return a}
-  async function stSynth(text,style,speed,steps){
-   var t=stPrep(text),L=t.length,ids=new Array(L);for(var j=0;j<L;j++){var cp=t.codePointAt(j);ids[j]=cp<S.idx.length?S.idx[cp]:-1}
-   var tid=new ort.Tensor('int64',I64(ids),[1,L]),tmask=new ort.Tensor('float32',new Float32Array(L).fill(1),[1,1,L]),st=S.styles[style];
-   var dur=(await S.dp.run({text_ids:tid,style_dp:st.dp,text_mask:tmask})).duration.data[0]/speed;
-   var emb=(await S.te.run({text_ids:tid,style_ttl:st.ttl,text_mask:tmask})).text_emb;
-   var sr=S.cfg.ae.sample_rate,chunk=S.cfg.ae.base_chunk_size*S.cfg.ttl.chunk_compress_factor,wavLen=Math.floor(dur*sr);
-   var LL=Math.max(1,Math.ceil(wavLen/chunk)),D=S.cfg.ttl.latent_dim*S.cfg.ttl.chunk_compress_factor,xt=gauss(D*LL);
-   var lmask=new ort.Tensor('float32',new Float32Array(LL).fill(1),[1,1,LL]),tot=new ort.Tensor('float32',Float32Array.of(steps),[1]);
-   for(var s=0;s<steps;s++){var o=await S.ve.run({noisy_latent:new ort.Tensor('float32',xt,[1,D,LL]),text_emb:emb,style_ttl:st.ttl,latent_mask:lmask,text_mask:tmask,
-     current_step:new ort.Tensor('float32',Float32Array.of(s),[1]),total_step:tot});xt=new Float32Array(o.denoised_latent.data)}
-   var w=(await S.voc.run({latent:new ort.Tensor('float32',xt,[1,D,LL])})).wav_tts.data;
-   return {pcm:new Float32Array(w.subarray?w.subarray(0,Math.min(w.length,wavLen)):w.slice(0,wavLen)),sr:sr}}
-  /* MMS */
-  async function mmsSynth(text){var t=text.toLowerCase().replace(/ț/g,'ţ').replace(/ş/g,'ș').replace(/k/g,'c').replace(/w/g,'v').replace(/y/g,'i')
-    .replace(/[.,;:!?…"()]+/g,' ').replace(/\s+/g,' ').trim(),ids=[0];
-   for(var i=0;i<t.length;i++){var v=M.vocab[t[i]];if(v!==undefined)ids.push(v,0)}
-   var a=new ort.Tensor('int64',I64(ids),[1,ids.length]),m=new ort.Tensor('int64',I64(ids.map(function(){return 1})),[1,ids.length]);
-   var o=await M.s.run({input_ids:a,attention_mask:m});return {pcm:new Float32Array(o.waveform.data),sr:16000}}
   function J(buf){return JSON.parse(new TextDecoder().decode(buf))}
-  async function release(e){var x=e==='piper'?P:e==='st'?S:M;if(!x)return;
-   for(var k in x)if(x[k]&&x[k].release)try{await x[k].release()}catch(_){};if(e==='piper')P=null;else if(e==='st')S=null;else M=null}
-  onmessage=function(ev){var m=ev.data;(async function(){
-   if(m.type==='init'){ensureOrt(m);var B=m.bufs;
-    if(m.engine==='piper'){importScripts(m.phURL);P={cfg:J(B.cfg),phWasm:B.phwasm,phData:B.phdata};P.s=await sess(B.model);await phonemize('test')}
-    else if(m.engine==='st'){S={cfg:J(B.cfg),idx:J(B.idx),styles:{}};S.dp=await sess(B.dp);S.te=await sess(B.te);S.ve=await sess(B.ve);S.voc=await sess(B.voc);
-     ['M1','M2','M3','M4','M5'].forEach(function(k){var j=J(B['s'+k]);S.styles[k]={ttl:new ort.Tensor('float32',Float32Array.from(j.style_ttl.data.flat(Infinity)),j.style_ttl.dims),
-      dp:new ort.Tensor('float32',Float32Array.from(j.style_dp.data.flat(Infinity)),j.style_dp.dims)}})}
-    else if(m.engine==='mms'){M={vocab:J(B.vocab)};M.s=await sess(B.model)}
-    return {ok:true}}
-   if(m.type==='release'){await release(m.engine);return {ok:true}}
-   if(m.type==='synth'){var t0=Date.now(),r;
-    if(m.engine==='piper'){var ids;try{ids=await phonemize(m.text)}catch(err){P.ph=null;ids=await phonemize(m.text)}
-     var feeds={input:new ort.Tensor('int64',I64(ids),[1,ids.length]),input_lengths:new ort.Tensor('int64',I64([ids.length]),[1]),
-      scales:new ort.Tensor('float32',Float32Array.from([P.cfg.inference.noise_scale,1/m.speed,P.cfg.inference.noise_w]),[3])};
-     var out=await P.s.run(feeds);r={pcm:new Float32Array(out.output.data),sr:P.cfg.audio.sample_rate}}
-    else if(m.engine==='st')r=await stSynth(m.text,m.style,m.speed,m.steps||6);
-    else r=await mmsSynth(m.text);
-    r.ok=true;r.ms=Date.now()-t0;r.transfer=[r.pcm.buffer];return r}
-  })().then(function(r){var tr=r.transfer;delete r.transfer;r.id=m.id;postMessage(r,tr||[])},function(err){postMessage({id:m.id,ok:false,error:String(err&&err.message||err)})})}
- };
+  return async function(m){
+   if(m.type==='ping'){run('void 0');return {ok:true}}
+   if(m.type==='init'){ensureOrt(m);var B=m.bufs;if(!G.createPiperPhonemize)run(m.phJS+'\n;globalThis.createPiperPhonemize=createPiperPhonemize;');
+    P={cfg:J(B.cfg),phWasm:B.phwasm,phData:B.phdata};
+    P.s=await ort.InferenceSession.create(new Uint8Array(B.model),{executionProviders:['wasm'],graphOptimizationLevel:'all'});await phonemize('test');return {ok:true}}
+   if(m.type==='release'){if(P&&P.s)try{await P.s.release()}catch(_){};P=null;return {ok:true}}
+   if(m.type==='synth'){var t0=Date.now(),ids;try{ids=await phonemize(m.text)}catch(err){P.ph=null;ids=await phonemize(m.text)}
+    var feeds={input:new ort.Tensor('int64',I64(ids),[1,ids.length]),input_lengths:new ort.Tensor('int64',I64([ids.length]),[1]),
+     scales:new ort.Tensor('float32',Float32Array.from([P.cfg.inference.noise_scale,1/m.speed,P.cfg.inference.noise_w]),[3])};
+    var out=await P.s.run(feeds),pcm=new Float32Array(out.output.data);return {ok:true,pcm:pcm,sr:P.cfg.audio.sample_rate,ms:Date.now()-t0,transfer:[pcm.buffer]}}
+   throw new Error('unknown '+m.type)}};
 
- var worker=null,seq=0,cbs={},st={},prog={},ready={},baseURLs=null;
- Object.keys(ENG).forEach(function(e){st[e]='idle';prog[e]=0});
- function blobURL(buf,type){return URL.createObjectURL(new Blob([buf],{type:type}))}
- function getWorker(){if(worker)return worker;
-  worker=new Worker(blobURL('('+WORKER.toString()+')()','text/javascript'));
-  worker.onmessage=function(e){var d=e.data,c=cbs[d.id];if(!c)return;delete cbs[d.id];d.ok?c.res(d):c.rej(new Error(d.error))};
-  worker.onerror=function(e){for(var id in cbs){cbs[id].rej(new Error(e.message||'worker error'));delete cbs[id]}};return worker}
- function call(msg,transfer){return new Promise(function(res,rej){msg.id=++seq;cbs[msg.id]={res:res,rej:rej};getWorker().postMessage(msg,transfer||[])})}
+ var worker=null,mainH=null,mode=null,seq=0,cbs={},st={piper:'idle'},prog={piper:0},ready={},workerFailed=false;
+ function td(b){return new TextDecoder().decode(b)}
+ function b64(buf){var u=new Uint8Array(buf),s='',C=0x8000;for(var i=0;i<u.length;i+=C)s+=String.fromCharCode.apply(null,u.subarray(i,i+C));return btoa(s)}
+ function startWorker(){return new Promise(function(res,rej){var w;
+  try{var src='var H=('+ENGINE.toString()+')(self);onmessage=function(ev){var m=ev.data;H(m).then(function(r){var tr=r.transfer||[];delete r.transfer;r.id=m.id;postMessage(r,tr)},function(err){postMessage({id:m.id,ok:false,error:String(err&&err.message||err)})})}';
+   w=new Worker(URL.createObjectURL(new Blob([src],{type:'text/javascript'})))}catch(e){rej(e);return}
+  var to=setTimeout(function(){try{w.terminate()}catch(_){}rej(new Error('worker timeout'))},5000);
+  w.onmessage=function(e){var d=e.data;if(d.id===0){clearTimeout(to);w.onmessage=onMsg;res(w);return}onMsg(e)};
+  w.onerror=function(e){clearTimeout(to);try{w.terminate()}catch(_){}rej(new Error(e.message||'worker error'))};
+  w.postMessage({type:'ping',id:0})})}
+ function onMsg(e){var d=e.data,c=cbs[d.id];if(!c)return;delete cbs[d.id];d.ok?c.res(d):c.rej(new Error(d.error))}
+ function useMain(){if(!mainH)mainH=ENGINE(window);mode='main';if(worker){try{worker.terminate()}catch(_){}worker=null}}
+ function ensureRunner(){if(mode)return Promise.resolve(mode);
+  return startWorker().then(function(w){worker=w;mode='worker';w.onerror=function(e){for(var id in cbs){cbs[id].rej(new Error(e.message||'worker error'));delete cbs[id]}};return mode},
+   function(err){console.warn('TTS worker unavailable, using main thread:',err);useMain();return mode})}
+ function call(msg,transfer){return ensureRunner().then(function(){
+  if(mode==='main')return mainH(msg).then(function(r){delete r.transfer;return r});
+  return new Promise(function(res,rej){msg.id=++seq;cbs[msg.id]={res:res,rej:rej};worker.postMessage(msg,transfer||[])})})}
  function release(e){if(st[e]==='ready'){call({type:'release',engine:e}).catch(function(){})}st[e]='idle';ready[e]=null}
- /* only one neural engine kept in memory (phones have little RAM) */
- function init(e,onProgress){if(ready[e])return ready[e];onProgress=onProgress||function(){};
-  Object.keys(ENG).forEach(function(o){if(o!==e&&st[o]==='ready')release(o)});
+ function init(e,onProgress){e='piper';if(ready[e])return ready[e];onProgress=onProgress||function(){};
   var files=ENG[e].files,T=total(e),loaded={};st[e]='loading';prog[e]=0;
   function onBytes(f,n){loaded[f.k]=Math.min(n,f.size*1.05);var s=0;for(var k in loaded)s+=loaded[k];prog[e]=Math.min(.99,s/T);onProgress(prog[e],'download')}
   ready[e]=Promise.all(files.map(function(f){return getFile(f,onBytes)})).then(function(bufs){
    var B={};files.forEach(function(f,i){B[f.k]=bufs[i]});onProgress(.99,'init');
-   if(!baseURLs){var wp={};wp[ORTWASM]=blobURL(B.ortwasm,'application/wasm');baseURLs={ortURL:blobURL(B.ortjs,'text/javascript'),wasmPaths:wp}}
-   delete B.ortjs;delete B.ortwasm;var tr=[];for(var k in B)if(B[k]&&B[k].byteLength>100000)tr.push(B[k]);
-   return call({type:'init',engine:e,ortURL:baseURLs.ortURL,wasmPaths:baseURLs.wasmPaths,simd:SIMD,phURL:B.phjs?blobURL(B.phjs,'text/javascript'):null,bufs:B},tr)
-  }).then(function(){st[e]='ready';prog[e]=1;onProgress(1,'ready');if(navigator.storage&&navigator.storage.persist)navigator.storage.persist().catch(function(){})},
+   /* wasm for onnxruntime: blob URL normally; data: URL on null origin (blob:null fetches fail there) */
+   var wp={};wp[ORTWASM]=OPAQUE?'data:application/octet-stream;base64,'+b64(B.ortwasm):URL.createObjectURL(new Blob([B.ortwasm],{type:'application/wasm'}));
+   var msg={type:'init',engine:e,ortJS:td(B.ortjs),phJS:td(B.phjs),wasmPaths:wp,simd:SIMD,bufs:{cfg:B.cfg,phwasm:B.phwasm,phdata:B.phdata,model:B.model}};
+   function viaMain(err){if(mode==='main')throw err;console.warn('TTS worker init failed, retrying on main thread:',err);useMain();return call(msg)}
+   return ensureRunner().then(function(){
+    if(mode==='main')return call(msg);
+    /* keep our copies (no transfer) so the main-thread fallback can reuse them without downloading again */
+    return call(msg).catch(viaMain)})
+  }).then(function(){st[e]='ready';prog[e]=1;onProgress(1,'ready');try{if(navigator.storage&&navigator.storage.persist)navigator.storage.persist().catch(function(){})}catch(_){}},
    function(err){st[e]='error';ready[e]=null;throw err});
   return ready[e]}
- /* opts: {speed} -> {pcm:Float32Array, sr} */
- function synth(voiceId,text,opts){var v=voice(voiceId);opts=opts||{};
-  return init(v.engine).then(function(){return call({type:'synth',engine:v.engine,style:v.style,text:prepText(v.engine,text),speed:opts.speed||1,steps:opts.steps})})}
- /* numbers -> Romanian words for engines that can't read digits */
- var U=['zero','unu','două','trei','patru','cinci','șase','șapte','opt','nouă'],T10=['zece','unsprezece','douăsprezece','treisprezece','paisprezece','cincisprezece','șaisprezece','șaptesprezece','optsprezece','nouăsprezece'];
- var TENS=['','','douăzeci','treizeci','patruzeci','cincizeci','șaizeci','șaptezeci','optzeci','nouăzeci'];
- function num(n){if(n<10)return U[n];if(n<20)return T10[n-10];if(n<100)return TENS[Math.floor(n/10)]+(n%10?' și '+U[n%10]:'');
-  if(n<1000){var h=Math.floor(n/100);return (h===1?'o sută':(h===2?'două':U[h])+' sute')+(n%100?' '+num(n%100):'')}
-  if(n<1000000){var k=Math.floor(n/1000);return (k===1?'o mie':num(k)+(k%100>=20||k%100===0?' de':'')+' mii')+(n%1000?' '+num(n%1000):'')}return String(n)}
- function prepText(e,t){if(e==='piper')return t;
-  return t.replace(/(-?)(\d+)\s*%/g,function(_,m,d){return (m?'minus ':'')+num(+d)+' la sută'}).replace(/-(\d+)/g,function(_,d){return 'minus '+num(+d)}).replace(/\d+/g,function(d){return num(+d)})}
+ function synth(voiceId,text,opts){opts=opts||{};
+  return init('piper').then(function(){return call({type:'synth',engine:'piper',text:text,speed:opts.speed||1})})}
  function pcmToWav(pcm,sr){var b=new ArrayBuffer(44+pcm.length*2),v=new DataView(b);
   function w(o,s){for(var i=0;i<s.length;i++)v.setUint8(o+i,s.charCodeAt(i))}
   w(0,'RIFF');v.setUint32(4,36+pcm.length*2,true);w(8,'WAVE');w(12,'fmt ');v.setUint32(16,16,true);v.setUint16(20,1,true);v.setUint16(22,1,true);
@@ -380,7 +354,8 @@ var TTS=(function(){
  function resample(x,factor){var n=Math.floor(x.length/factor),y=new Float32Array(n);for(var i=0;i<n;i++){var p=i*factor,k=Math.floor(p),f=p-k;y[i]=(x[k]||0)*(1-f)+(x[k+1]||0)*f}return y}
  function fx(pcm,sr,tempo,pitch){tempo=tempo||1;pitch=pitch||1;if(Math.abs(tempo-1)<.01&&Math.abs(pitch-1)<.01)return pcm;
   var z=wsola(pcm,tempo/pitch,sr);return Math.abs(pitch-1)<.01?z:resample(z,pitch)}
- return {VOICES:VOICES,voice:voice,init:init,synth:synth,isDownloaded:isDownloaded,remove:remove,release:release,pcmToWav:pcmToWav,fx:fx,
+ return {VOICES:VOICES,voice:voice,init:init,synth:synth,isDownloaded:isDownloaded,remove:remove,release:release,pcmToWav:pcmToWav,fx:fx,opaque:OPAQUE,
+  storage:function(){return getStore().then(function(S){return S.kind})},runner:function(){return mode},
   state:function(e){return st[e]},progress:function(e){return prog[e]},sizeMB:function(e){return Math.round(total(e)/1048576)},engineName:function(e){return ENG[e].name}};
 })();
 </script>
@@ -708,8 +683,8 @@ function speakNeural(segs,gen,v){
  var chunks=buildChunks(segs);if(!chunks.length)return Promise.resolve();
  unlockAudio();if(!actx)return Promise.reject(new Error('AudioContext indisponibil'));
  var rate=curRate(),tone=+cfg.tone||1,proms=[],timeline=[],cursor=0;
- var nat=v.engine==='mms'?1:v.engine==='st'?rate*.9:rate,post=v.engine==='mms'?rate*.9:1;   /* MMS has no speed input: WSOLA time-stretch instead */
- function get(i){if(!proms[i])proms[i]=TTS.synth(v.id,chunks[i].text,{speed:nat,steps:5}).then(function(r){return {pcm:TTS.fx(r.pcm,r.sr,post,tone),sr:r.sr}});return proms[i]}
+ var nat=rate,post=1;
+ function get(i){if(!proms[i])proms[i]=TTS.synth(v.id,chunks[i].text,{speed:nat}).then(function(r){return {pcm:TTS.fx(r.pcm,r.sr,post,tone),sr:r.sr}});return proms[i]}
  function lat(){return (actx.outputLatency||0)+(actx.baseLatency||0)}
  (function anim(){if(gen!==kGen)return;var now=actx.currentTime-lat();
   for(var j=timeline.length-1;j>=0;j--){var e=timeline[j];if(now>=e.start){var rel=now-e.start,k=0;while(k+1<e.times.length&&rel>=e.times[k+1])k++;hl(e.c.seg,e.c.a+k);break}}
@@ -814,9 +789,7 @@ function fillVoiceSelect(){var sel=$('sVoice'),cur=sel.value||cfg.voiceURI||'';s
 function fillEngineSelect(){var sel=$('sEngine');if(sel.options.length)return;
  TTS.VOICES.forEach(function(v){var o=document.createElement('option');o.value=v.id;o.textContent=v.label+' · ~'+TTS.sizeMB(v.engine)+' MB';sel.appendChild(o)});
  var o=document.createElement('option');o.value='browser';o.textContent='Vocea telefonului';sel.appendChild(o)}
-var NOTES={piper:'Rapidă. Se descarcă o singură dată și merge offline.',
- st:'Supertonic 3 (licență OpenRAIL-M): un singur pachet pentru toți cei 5 bărbați. Mai lentă decât Mihai: pe telefon prima propoziție poate întârzia câteva secunde.',
- mms:'Meta MMS (licență CC-BY-NC 4.0, uz personal). Cea mai lentă; viteza se reglează prin întindere audio.'};
+var NOTES={piper:TTS.opaque?'Fișier deschis local: vocea poate fi descărcată la fiecare deschidere. Deschide linkul online ca să rămână salvată.':'Rapidă. Se descarcă o singură dată și merge offline.'};
 function updVoiceRow(){var id=$('sEngine').value;if(id==='browser')return;var v=TTS.voice(id),e=v.engine,s=TTS.state(e),el=$('pState');
  $('pMB').textContent=TTS.sizeMB(e);$('pNote').textContent=NOTES[e];
  if(s==='ready'){el.textContent='✓ '+TTS.engineName(e)+' e descărcată și gata.';$('pDl').style.display='none';$('pDel').style.display=''}
@@ -887,6 +860,8 @@ $('bShare').onclick=function(){var url=blankURL(),text='JARVIS Command Center �
 
 /* ---------- boot ---------- */
 if(wx&&wx.city!==cfg.city)wx=null;
+(function(){if(!TTS.opaque)return;var u='https://cluj1313.github.io/jarvis/'+(BLANK?'blank.html':''),n=$('offNote');if(!n)return;
+ n.innerHTML='Pentru cea mai bună experiență deschide <a href="'+u+'" target="_blank" rel="noopener">'+u.replace('https://','')+'</a> (vocea rămâne salvată, merge și offline).';n.hidden=false})();
 renderTasks();renderShop();renderTabs();renderWx();tick();setInterval(tick,1000);
 loadWx();setInterval(loadWx,15*60*1000);
 document.addEventListener('visibilitychange',function(){if(!document.hidden&&(!wx||Date.now()-wx.ts>15*60*1000))loadWx()});
