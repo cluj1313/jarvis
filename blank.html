@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#06111f">
-<meta name="jarvis-version" content="v11-jarvis-blank">
+<meta name="jarvis-version" content="v12-jarvis-blank">
 <script>window.JARVIS_BLANK=true</script>
 <title>JARVIS · Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -152,6 +152,10 @@ ul.tasks{list-style:none;margin:0;padding:0}
 .offnote[hidden]{display:none}
 .btn.pill.hist{padding-left:8px;padding-right:8px}
 .btn.pill.hist:disabled{opacity:.35;cursor:default}
+.readall{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:44px;margin:0 0 16px;padding:10px 16px;border:1px solid var(--line);border-radius:18px;background:rgba(20,60,90,.35);color:var(--cyan2);font:inherit;font-size:15px;letter-spacing:.04em;cursor:pointer;box-shadow:inset 0 0 24px rgba(63,216,255,.04)}
+.readall:active{background:rgba(63,216,255,.25)}
+.readall.on{background:rgba(63,216,255,.3);border-color:var(--cyan);box-shadow:0 0 10px rgba(63,216,255,.5)}
+.readall .rai{display:flex;width:18px;height:18px}.readall .rai svg{width:18px;height:18px}
 </style>
 </head>
 <body>
@@ -171,6 +175,8 @@ ul.tasks{list-style:none;margin:0;padding:0}
  <section class="card" id="cWx"><div class="lbl"><span class="lt" id="wxlbl">Vremea · Gherla</span><button class="spk" data-read="wx" aria-label="Citește"></button></div>
   <div class="wx"><div class="wxicon" id="wxicon"></div>
    <div><div class="wxtxt kw" id="wxtxt">Se încarcă vremea…</div><div class="wxmeta" id="wxmeta"></div></div></div></section>
+
+ <button type="button" class="readall" id="bReadAll" aria-label="Citește tot"><span class="rai"></span>Citește tot</button>
 
  <section class="card" id="cOld"><div class="lbl"><span class="lt kw" id="ltOld">Taskuri de ieri</span><button class="spk" data-read="old" aria-label="Citește"></button></div><ul class="tasks old" id="lOld"></ul></section>
 
@@ -652,7 +658,7 @@ document.addEventListener('keydown',function(e){if(!(e.ctrlKey||e.metaKey)||e.al
 var speaking=false,listening=false,kGen=0,speakKey=null;
 function updEq(){$('eq').classList.toggle('on',speaking||listening);$('orb').classList.toggle('active',speaking||listening);
  document.querySelectorAll('.spk').forEach(function(b){b.classList.toggle('on',speaking&&b.dataset.read===speakKey)});
- $('bRead').classList.toggle('on',speaking&&speakKey==='all')}
+ $('bRead').classList.toggle('on',speaking&&speakKey==='all');$('bReadAll').classList.toggle('on',speaking&&speakKey==='below')}
 var actx=null,sources=[];
 function unlockAudio(){try{if(!actx){var AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;actx=new AC()}
  if(actx.state==='suspended')actx.resume();
@@ -768,6 +774,7 @@ function segsTab(tab){var c=$('ct_'+tab.id),s=[prepSeg(c&&c.querySelector('.lt')
  open.forEach(function(x){var el=document.querySelector('#ct_'+tab.id+' li[data-id="'+x.id+'"] .t');s.push(prepSeg(el,x.text))});return s}
 function readCard(key){if(speaking&&speakKey===key){stopSpeaking();return}
  if(/^tab:/.test(key)){var tb=findTab(key.slice(4));if(!tb)return;return speak(segsTab(tb),key)}
+ if(key==='below')return speak(segsTasks('old').concat(segsTasks('new'),segsShop(),[].concat.apply([],visTabs().map(segsTab))),key);
  var segs=key==='voice'?segsVoice():key==='wx'?segsWx():key==='old'?segsTasks('old'):key==='new'?segsTasks('new'):key==='shop'?segsShop():
   segsWx().concat(segsTasks('old'),segsTasks('new'),segsShop(),[].concat.apply([],visTabs().map(segsTab))); /* bottom Citește: weather + tasks only */
  return speak(segs,key)}
@@ -776,6 +783,7 @@ function say(text){greetBusy=true;clearTimeout(greetRestoreT);var seg=prepSeg($(
 document.querySelectorAll('.spk').forEach(function(b){b.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4z" fill="currentColor"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>';
  b.addEventListener('click',function(){readCard(b.dataset.read)})});
 $('bRead').onclick=function(){readCard('all')};
+$('bReadAll').querySelector('.rai').innerHTML=SPK_SVG;$('bReadAll').onclick=function(){readCard('below')};
 $('bHi').onclick=function(){if(speaking&&speakKey==='voice'){stopSpeaking();return}readCard('voice')};
 
 /* ---------- neural voice download / init with progress in the voice card ---------- */
