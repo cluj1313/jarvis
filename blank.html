@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="JARVIS">
-<meta name="jarvis-version" content="v14-jarvis-blank">
+<meta name="jarvis-version" content="v15-jarvis-blank">
 <script>window.JARVIS_BLANK=true</script>
 <title>JARVIS · Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -194,11 +194,14 @@ ul.tasks{list-style:none;margin:0;padding:0}
 
  <button type="button" class="readall" id="bReadAll" aria-label="Citește tot"><span class="rai"></span>Citește tot</button>
 
- <section class="card" id="cOld"><div class="lbl"><span class="lt kw" id="ltOld">Taskuri de ieri</span><button class="spk" data-read="old" aria-label="Citește"></button></div><ul class="tasks old" id="lOld"></ul></section>
-
- <section class="card" id="cNew"><div class="lbl"><span class="lt kw" id="ltNew">Taskuri noi</span><button class="spk" data-read="new" aria-label="Citește"></button></div><ul class="tasks new" id="lNew"></ul>
+ <section class="card" id="cAzi"><div class="lbl"><span class="lt kw" id="ltAzi">Taskuri azi</span><button class="spk" data-read="azi" aria-label="Citește"></button></div><ul class="tasks new" id="lAzi"></ul>
   <form class="add" id="fAdd"><input id="iTask" placeholder="Spune sau scrie un task" autocomplete="off">
    <button type="button" class="btn mic" id="bMic" title="Scrie sau dictează cu tastatura" aria-label="Deschide tastatura"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4"/></svg></button>
+   <button class="btn" type="submit">Adaugă</button></form></section>
+
+ <section class="card" id="cMaine"><div class="lbl"><span class="lt kw" id="ltMaine">Taskuri mâine</span><button class="spk" data-read="maine" aria-label="Citește"></button></div><ul class="tasks old" id="lMaine"></ul>
+  <form class="add" id="fAddM"><input id="iTaskM" placeholder="Spune sau scrie un task" autocomplete="off">
+   <button type="button" class="btn mic" id="bMicM" title="Scrie sau dictează cu tastatura" aria-label="Deschide tastatura"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4"/></svg></button>
    <button class="btn" type="submit">Adaugă</button></form></section>
 
  <section class="card" id="cShop"><div class="lbl"><span class="lt kw" id="ltShop">Cumpărături</span><button class="spk" data-read="shop" aria-label="Citește"></button></div><ul class="tasks shop" id="lShop"></ul>
@@ -444,9 +447,12 @@ function reflowBars(){if(activeSeg&&activeSeg.cur>=0&&activeSeg.words[activeSeg.
  if(greetStatic&&greetStatic.span&&greetStatic.span.isConnected&&activeSeg!==greetStatic.seg)moveBar(greetStatic.seg,greetStatic.span,true)}
 if(document.fonts){if(document.fonts.ready)document.fonts.ready.then(reflowBars);if(document.fonts.addEventListener)document.fonts.addEventListener('loadingdone',reflowBars)}
 var lastDay=dkey();
+function dayCheck(){if(dkey()===lastDay)return;lastDay=dkey();rollTasks();renderTasks();renderShop();renderTabs()}
+document.addEventListener('visibilitychange',function(){if(!document.hidden)dayCheck()});window.addEventListener('focus',dayCheck);
+(function midnight(){var n=new Date(),m=new Date(n.getFullYear(),n.getMonth(),n.getDate()+1,0,0,2);setTimeout(function(){dayCheck();midnight()},Math.max(1000,m-n))})();
 function tick(){var d=new Date();$('clock').textContent=pad(d.getHours())+'.'+pad(d.getMinutes());
  if(d.getSeconds()===0||!tick.done){if(!speaking)renderGreet();tick.done=1}
- if(dkey()!==lastDay){lastDay=dkey();renderTasks();renderShop();renderTabs()}}
+ dayCheck()}
 
 /* ---------- karaoke core ---------- */
 /* A segment = a piece of text shown in a DOM element; every word becomes a span, and the element gets its own glowing bar. */
@@ -517,36 +523,48 @@ var tasks=LS.get('jv_tasks',null);
 if(!tasks&&BLANK)tasks=[];
 if(!tasks){ /* first visit of the owner's page only; the shared blank copy never seeds */var y=new Date();y.setDate(y.getDate()-1);var yk=dkey(y),tk0=dkey(),i0=0;
  tasks=[['De comandat ață gri de 20. De vorbit cu Grig ori cu Alex',yk],['De curățat uleiul de sub mașina de cusut',yk],['Scaune Sorin',tk0],['Burete pat Leia, strada Dejului, de sunat',tk0],['Contor apă',tk0]]
-  .map(function(a){return{id:Date.now()+'_'+(i0++),text:a[0],date:a[1],done:false,doneDate:null}});LS.set('jv_tasks',tasks)}
+  .map(function(a){return{id:Date.now()+'_'+(i0++),text:a[0],date:a[1],done:false,doneDate:null}});LS.set('jv_tasks',tasks)} /* (v15 migrate() below gives them dueDay) */
 function save(){LS.set('jv_tasks',tasks);histPush()}
 function live(t){return !t.deleted}
 function visible(t){return live(t)&&(!t.done||t.doneDate===dkey())} /* done tasks stay visible until the end of the day they were completed */
-function isOld(t){return t.date<dkey()}
+function dayOff(n){var d=new Date();d.setDate(d.getDate()+n);return dkey(d)}
 function shortDate(k){var p=k.split('-');return 'din '+(+p[2])+' '+LUNI_S[+p[1]-1]}
-function listFor(which){return tasks.filter(function(t){return visible(t)&&(which==='old'?isOld(t):!isOld(t))})
- .sort(ordCmp(which==='old'?'old':'new@'+dkey()))}
+/* v15: Azi / Mâine. Each task has dueDay. Azi = dueDay <= today (open, or done today); Mâine = dueDay >= tomorrow.
+   Open tasks whose dueDay passed roll to today (fromDay keeps the first day they were due -> "din 3 oct" note). */
+function inList(t,which){var tk=dkey();return which==='maine'?t.dueDay>tk:t.dueDay<=tk}
+function listFor(which){return tasks.filter(function(t){return visible(t)&&inList(t,which)}).sort(ordCmp(which==='maine'?'maine':'azi'))}
 /* v14: explicit order set by drag & drop (ord + ordK = list it was ordered in); unordered items keep the old date order, after the ordered ones */
 function ordCmp(k){return function(a,b){var oa=a.ord!=null&&a.ordK===k,ob=b.ord!=null&&b.ordK===k;
  if(oa&&ob)return a.ord-b.ord;if(oa!==ob)return oa?-1:1;return a.date<b.date?-1:a.date>b.date?1:0}}
+(function migrate(){var tk=dkey(),need=tasks.filter(function(t){return !t.dueDay});if(!need.length)return;
+ /* keep what v14 showed: old "ieri" list, then "noi", in their on-screen order -> all open ones go to Azi */
+ var vis=function(t){return !t.dueDay&&visible(t)},seen=tasks.filter(function(t){return vis(t)&&t.date<tk}).sort(ordCmp('old'))
+  .concat(tasks.filter(function(t){return vis(t)&&!(t.date<tk)}).sort(ordCmp('new@'+tk)));
+ need.forEach(function(t){if(live(t)&&!t.done){t.dueDay=tk;if(t.date&&t.date<tk)t.fromDay=t.date}else t.dueDay=t.date||tk;delete t.ord;delete t.ordK});
+ seen.forEach(function(t,i){t.ord=i;t.ordK='azi'});LS.set('jv_tasks',tasks)})();
+function rollTasks(){var tk=dkey(),ch=false;tasks.forEach(function(t){if(live(t)&&!t.done&&t.dueDay<tk){if(!t.fromDay)t.fromDay=t.dueDay;t.dueDay=tk;ch=true}});
+ if(ch){LS.set('jv_tasks',tasks);if(typeof hCur!=='undefined'&&hCur!==null)hCur=snap()}return ch}
+rollTasks();
 function renderTasks(){
- [['lOld','old'],['lNew','new']].forEach(function(p){
-  var ul=$(p[0]),list=listFor(p[1]);
+ [['lAzi','azi'],['lMaine','maine']].forEach(function(p){
+  var ul=$(p[0]),list=listFor(p[1]),tk=dkey();
   ul.innerHTML=list.length?'':'<li class="empty">Niciun task.</li>';
   list.forEach(function(t){var li=document.createElement('li');li.className='task'+(t.done?' done':'');li.dataset.id=t.id;
-   li.innerHTML='<span class="dot"></span><span class="t kw">'+esc(t.text)+'</span><span class="st">'+(t.done?'Făcut':'Deschis')+(p[1]==='old'?'<small>'+shortDate(t.date)+'</small>':'')+'</span><button class="ed" aria-label="Editează">✎</button><button class="x" aria-label="Șterge">×</button>';
+   li.innerHTML='<span class="dot"></span><span class="t kw">'+esc(t.text)+'</span><span class="st">'+(t.done?'Făcut':'Deschis')+(p[1]==='azi'&&t.fromDay&&t.fromDay<tk?'<small>'+shortDate(t.fromDay)+'</small>':'')+'</span><button class="ed" aria-label="Editează">✎</button><button class="x" aria-label="Șterge">×</button>';
    ul.appendChild(li)})})}
 function findT(id){for(var i=0;i<tasks.length;i++)if(tasks[i].id===id)return i;return -1}
 function delTask(id){var i=findT(id);if(i<0)return;if(confirm('Ștergi taskul „'+tasks[i].text+'"?')){tasks[i].deleted=new Date().toISOString();save();renderTasks()}}
-function addTask(txt){txt=(txt||'').trim();if(!txt)return false;txt=txt.charAt(0).toUpperCase()+txt.slice(1);
- tasks.push({id:Date.now()+'_'+Math.random().toString(36).slice(2,6),text:txt,date:dkey(),done:false,doneDate:null,created:new Date().toISOString()});save();renderTasks();return true}
-['lOld','lNew'].forEach(function(id){var ul=$(id);
+function addTask(txt,which){txt=(txt||'').trim();if(!txt)return false;txt=txt.charAt(0).toUpperCase()+txt.slice(1);
+ tasks.push({id:Date.now()+'_'+Math.random().toString(36).slice(2,6),text:txt,date:dkey(),dueDay:which==='maine'?dayOff(1):dkey(),done:false,doneDate:null,created:new Date().toISOString()});save();renderTasks();return true}
+['lAzi','lMaine'].forEach(function(id){var ul=$(id);
  ul.addEventListener('click',function(e){var li=e.target.closest('.task');if(!li||li.classList.contains('editing'))return;
   if(e.target.closest('.ed')){var i=findT(li.dataset.id);if(i>=0)startEdit(li,tasks[i],save,renderTasks);return}
   if(e.target.classList.contains('x')){delTask(li.dataset.id);return}
   if(dndEat())return
   var i=findT(li.dataset.id);if(i<0)return;var t=tasks[i];t.done=!t.done;t.doneDate=t.done?dkey():null;t.doneAt=t.done?new Date().toISOString():null;save();renderTasks()});
  ul.addEventListener('contextmenu',function(e){if(e.target.closest('.task'))e.preventDefault()})});
-$('fAdd').addEventListener('submit',function(e){e.preventDefault();if(addTask($('iTask').value)){$('iTask').value='';toast('Task adăugat')}});
+$('fAdd').addEventListener('submit',function(e){e.preventDefault();if(addTask($('iTask').value,'azi')){$('iTask').value='';toast('Task adăugat pentru azi')}});
+$('fAddM').addEventListener('submit',function(e){e.preventDefault();if(addTask($('iTaskM').value,'maine')){$('iTaskM').value='';toast('Task adăugat pentru mâine')}});
 
 /* ---------- inline edit (tasks + shopping): keeps id/date/done, records editedAt ---------- */
 var editing=null;
@@ -672,10 +690,10 @@ var DND_ARM=480,DND_DEL=900,DND_SLOP=10,DND_EDGE=70;
 var dnd=null,dndEatClick=false;
 function dndEat(){if(dndEatClick){dndEatClick=false;return true}return false}
 function dndListOf(ul){if(!ul)return null;
- if(ul.id==='lOld')return{kind:'old',key:'old'};if(ul.id==='lNew')return{kind:'new',key:'new'};if(ul.id==='lShop')return{kind:'shop',key:'shop'};
+ if(ul.id==='lAzi')return{kind:'azi',key:'azi'};if(ul.id==='lMaine')return{kind:'maine',key:'maine'};if(ul.id==='lShop')return{kind:'shop',key:'shop'};
  var c=ul.closest&&ul.closest('.ctab');if(c&&ul.classList.contains('ctl')){var tb=findTab(c.dataset.tab);if(tb)return{kind:'tab',key:'tab:'+tb.id,tab:tb}}return null}
-function dndUL(el){if(!el||!el.closest)return null;var ul=el.closest('#lOld,#lNew,#lShop,.ctab ul.ctl');if(ul)return ul;
- var c=el.closest('#cOld,#cNew,#cShop,.ctab');return c?c.querySelector('#lOld,#lNew,#lShop,ul.ctl'):null}
+function dndUL(el){if(!el||!el.closest)return null;var ul=el.closest('#lAzi,#lMaine,#lShop,.ctab ul.ctl');if(ul)return ul;
+ var c=el.closest('#cAzi,#cMaine,#cShop,.ctab');return c?c.querySelector('#lAzi,#lMaine,#lShop,ul.ctl'):null}
 function dndYest(){var y=new Date();y.setDate(y.getDate()-1);return dkey(y)}
 function dndClasses(on){var r=document.documentElement;r.classList.toggle('jv-press',!!on);if(!on)r.classList.remove('jv-dragging')}
 function dndReset(){if(!dnd)return;clearTimeout(dnd.armT);clearTimeout(dnd.delT);if(dnd.raf)cancelAnimationFrame(dnd.raf);
@@ -703,22 +721,23 @@ function dndPlace(){var d=dnd;if(!d||!d.drag)return;d.ghost.style.transform='tra
 function dndTick(){var d=dnd;if(!d||!d.drag)return;var h=window.innerHeight,v=0;
  if(d.y<DND_EDGE)v=-Math.ceil((DND_EDGE-d.y)/4);else if(d.y>h-DND_EDGE)v=Math.ceil((d.y-(h-DND_EDGE))/4);
  if(v){var y0=window.scrollY;window.scrollBy(0,v);if(window.scrollY!==y0)dndPlace()}d.raf=requestAnimationFrame(dndTick)}
-function dndObj(L,id){if(L.kind==='old'||L.kind==='new'){var i=findT(id);return i<0?null:tasks[i]}return L.kind==='shop'?findS(id):findTI(L.tab,id)}
+function dndObj(L,id){if(L.kind==='azi'||L.kind==='maine'){var i=findT(id);return i<0?null:tasks[i]}return L.kind==='shop'?findS(id):findTI(L.tab,id)}
 function dndArr(L){return L.kind==='shop'?shop:L.kind==='tab'?L.tab.items:tasks}
 function dndConv(o,toShop,date){var done=o.done!=null?!!o.done:!!o.bought,dd=done?(o.doneDate||o.boughtDate||dkey()):null,da=done?(o.doneAt||o.boughtAt||null):null,n={};
  for(var k in o)if(['done','doneDate','doneAt','bought','boughtDate','boughtAt','ord','ordK'].indexOf(k)<0)n[k]=o[k];
  n.date=date;if(toShop){n.bought=done;n.boughtDate=dd;n.boughtAt=da}else{n.done=done;n.doneDate=dd;n.doneAt=da}n.movedAt=new Date().toISOString();return n}
-function dndApply(S,T,id,ids){var o=dndObj(S,id);if(!o)return;var isT=function(L){return L.kind==='old'||L.kind==='new'},today=dkey();
+function dndApply(S,T,id,ids){var o=dndObj(S,id);if(!o)return;var isT=function(L){return L.kind==='azi'||L.kind==='maine'},today=dkey();
  if(S.key===T.key){var cur=(isT(S)?listFor(S.kind):S.kind==='shop'?shopList():tabList(S.tab)).map(function(x){return x.id});if(cur.join('|')===ids.join('|'))return}
- var date=T.kind==='new'?today:T.kind==='old'?(o.date&&o.date<today?o.date:dndYest()):(o.date||today);
- if(isT(S)&&isT(T)){o.date=date}
+ var date=isT(T)?(isT(S)?o.date:(o.date||today)):(isT(S)?(o.fromDay||o.date||today):(o.date||today)),due=T.kind==='maine'?dayOff(1):today;
+ if(isT(S)&&isT(T)){if(T.kind!==S.kind){o.dueDay=due;if(T.kind==='maine')delete o.fromDay}}
  else{var sa=dndArr(S),si=sa.indexOf(o);if(si<0)return;sa.splice(si,1);
   var n=(isT(S)===isT(T)&&(S.kind==='shop')===(T.kind==='shop'))?o:dndConv(o,T.kind==='shop',date);if(n===o){o.date=date;o.movedAt=new Date().toISOString()}
+  if(isT(T)){n.dueDay=due;delete n.fromDay;if(T.kind==='azi'&&n.date<today)n.fromDay=n.date}else{delete n.dueDay;delete n.fromDay}
   var ta=dndArr(T);if(isT(T))ta.push(n);else{var p=ids.indexOf(id),at=-1,j;
    for(j=p+1;j<ids.length&&at<0;j++)at=ta.findIndex(function(x){return x.id===ids[j]});
    if(at<0){for(j=p-1;j>=0&&at<0;j--){at=ta.findIndex(function(x){return x.id===ids[j]});if(at>=0)at++}}
    if(at<0)ta.push(n);else ta.splice(at,0,n)}}
- if(isT(T)){var k=T.kind==='old'?'old':'new@'+today;ids.forEach(function(x,i){var t=tasks[findT(x)];if(t){t.ord=i;t.ordK=k}})}
+ if(isT(T)){var k=T.kind;ids.forEach(function(x,i){var t=tasks[findT(x)];if(t){t.ord=i;t.ordK=k}})}
  LS.set('jv_tasks',tasks);LS.set('jv_shop',shop);LS.set('jv_tabs',tabs);histPush();
  [S,T].forEach(function(L){if(isT(L))renderTasks();else if(L.kind==='shop')renderShop();else renderTabItems(L.tab)})}
 function dndDrop(){var d=dnd,ul=d.ph&&d.ph.parentNode,T=ul&&dndListOf(ul),id=d.li.dataset.id,ids=[],S=d.src;
@@ -847,10 +866,10 @@ function speak(segs,key){
 /* what each card says */
 function segsVoice(){greetBusy=false;return [prepSeg($('greet'),greetFull())]}
 function segsWx(){var s=[prepSeg(null,'Vremea în '+cfg.city+'.')];if(wx)s.push(prepSeg($('wxtxt'),wxSentence(wx)));else s.push(prepSeg(null,'Nu am date despre vreme.'));return s}
-function segsTasks(which){var lt=which==='old'?$('ltOld'):$('ltNew'),title=which==='old'?'Taskuri de ieri':'Taskuri noi';
+function segsTasks(which){var lt=which==='maine'?$('ltMaine'):$('ltAzi'),title=which==='maine'?'Taskuri pentru mâine':'Taskuri pentru azi';
  var s=[prepSeg(lt,title)],open=listFor(which).filter(function(t){return !t.done});
  if(!open.length){s.push(prepSeg(null,'Niciun task deschis.'));return s}
- open.forEach(function(t){var li=document.querySelector('#'+(which==='old'?'lOld':'lNew')+' li[data-id="'+t.id+'"] .t');s.push(prepSeg(li,t.text))});return s}
+ open.forEach(function(t){var li=document.querySelector('#'+(which==='maine'?'lMaine':'lAzi')+' li[data-id="'+t.id+'"] .t');s.push(prepSeg(li,t.text))});return s}
 function segsShop(){var s=[prepSeg($('ltShop'),'Cumpărături')],open=shopList().filter(function(x){return !x.bought});
  if(!open.length){s.push(prepSeg(null,'Lista de cumpărături e goală.'));return s}
  open.forEach(function(x){var el=document.querySelector('#lShop li[data-id="'+x.id+'"] .t');s.push(prepSeg(el,x.text))});return s}
@@ -859,9 +878,9 @@ function segsTab(tab){var c=$('ct_'+tab.id),s=[prepSeg(c&&c.querySelector('.lt')
  open.forEach(function(x){var el=document.querySelector('#ct_'+tab.id+' li[data-id="'+x.id+'"] .t');s.push(prepSeg(el,x.text))});return s}
 function readCard(key){if(speaking&&speakKey===key){stopSpeaking();return}
  if(/^tab:/.test(key)){var tb=findTab(key.slice(4));if(!tb)return;return speak(segsTab(tb),key)}
- if(key==='below')return speak(segsTasks('old').concat(segsTasks('new'),segsShop(),[].concat.apply([],visTabs().map(segsTab))),key);
- var segs=key==='voice'?segsVoice():key==='wx'?segsWx():key==='old'?segsTasks('old'):key==='new'?segsTasks('new'):key==='shop'?segsShop():
-  segsWx().concat(segsTasks('old'),segsTasks('new'),segsShop(),[].concat.apply([],visTabs().map(segsTab))); /* bottom Citește: weather + tasks only */
+ if(key==='below')return speak(segsTasks('azi').concat(segsTasks('maine'),segsShop(),[].concat.apply([],visTabs().map(segsTab))),key);
+ var segs=key==='voice'?segsVoice():key==='wx'?segsWx():key==='azi'?segsTasks('azi'):key==='maine'?segsTasks('maine'):key==='shop'?segsShop():
+  segsWx().concat(segsTasks('azi'),segsTasks('maine'),segsShop(),[].concat.apply([],visTabs().map(segsTab))); /* bottom Citește: weather + tasks only */
  return speak(segs,key)}
 function say(text){greetBusy=true;clearTimeout(greetRestoreT);var seg=prepSeg($('greet'),text);
  return speak([seg],'voice').then(function(){greetRestoreT=setTimeout(function(){greetBusy=false;if(!speaking)renderGreet()},10000)})}
@@ -888,6 +907,7 @@ function bootVoice(){var v=selVoice();if(!v)return;
 
 /* ---------- task input: just open the keyboard (dictate with the keyboard's own mic) ---------- */
 $('bMic').onclick=function(){var i=$('iTask');i.focus();try{i.click()}catch(e){}};
+$('bMicM').onclick=function(){var i=$('iTaskM');i.focus();try{i.click()}catch(e){}};
 
 /* ---------- settings modal ---------- */
 var pending=null,draft=null;
@@ -952,9 +972,9 @@ $('sSave').onclick=function(){var name=$('sName').value.trim()||cfg.name,city=$(
 /* ---------- share ---------- */
 function summary(){var d=new Date(),tk=dkey(),o=tasks.filter(function(t){return live(t)&&!t.done});
  var L=['JARVIS · '+ZILE[d.getDay()]+', '+d.getDate()+' '+LUNI[d.getMonth()]+' '+d.getFullYear()+' '+pad(d.getHours())+':'+pad(d.getMinutes()),'','Vremea · '+cfg.city+': '+wxSentence(wx),''];
- var old=listFor('old').filter(function(t){return !t.done}),nw=listFor('new').filter(function(t){return !t.done});
- if(old.length){L.push('Taskuri de ieri:');old.forEach(function(t){L.push('• '+t.text+' ('+shortDate(t.date)+')')});L.push('')}
- if(nw.length){L.push('Taskuri noi:');nw.forEach(function(t){L.push('• '+t.text)})}
+ var az=listFor('azi').filter(function(t){return !t.done}),mn=listFor('maine').filter(function(t){return !t.done});
+ if(az.length){L.push('Taskuri pentru azi:');az.forEach(function(t){L.push('• '+t.text+(t.fromDay&&t.fromDay<tk?' ('+shortDate(t.fromDay)+')':''))});L.push('')}
+ if(mn.length){L.push('Taskuri pentru mâine:');mn.forEach(function(t){L.push('• '+t.text)})}
  if(!o.length)L.push('Nu ai taskuri deschise.');return L.join('\n')}
 function copy(text){if(navigator.clipboard&&window.isSecureContext)return navigator.clipboard.writeText(text);
  return new Promise(function(res,rej){var ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();
