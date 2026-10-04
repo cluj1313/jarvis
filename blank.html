@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#06111f">
-<meta name="jarvis-version" content="v10-jarvis-blank">
+<meta name="jarvis-version" content="v11-jarvis-blank">
 <script>window.JARVIS_BLANK=true</script>
 <title>JARVIS · Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -150,6 +150,8 @@ ul.tasks{list-style:none;margin:0;padding:0}
 .offnote{background:rgba(255,181,71,.12);border:1px solid rgba(255,181,71,.5);color:#ffd9a0;border-radius:14px;padding:10px 14px;font-size:13.5px;line-height:1.45;margin-bottom:14px}
 .offnote a{color:#fff;word-break:break-all}
 .offnote[hidden]{display:none}
+.btn.pill.hist{padding-left:8px;padding-right:8px}
+.btn.pill.hist:disabled{opacity:.35;cursor:default}
 </style>
 </head>
 <body>
@@ -186,7 +188,7 @@ ul.tasks{list-style:none;margin:0;padding:0}
 
 <div class="bar"><div class="barin">
  <div class="eq" id="eq"><i></i><i></i><i></i><i></i><i></i></div>
- <div class="barbtns"><button class="btn pill newtab" id="bNewTab" aria-label="Tab nou">+ Tab nou</button><button class="btn pill" id="bRead">Citește</button><button class="btn pill" id="bHi">Salut</button></div>
+ <div class="barbtns"><button class="btn pill hist" id="bUndo" aria-label="Anulează" title="Anulează" disabled>↶</button><button class="btn pill hist" id="bRedo" aria-label="Refă" title="Refă" disabled>↷</button><button class="btn pill newtab" id="bNewTab" aria-label="Tab nou">+ Tab nou</button><button class="btn pill" id="bRead">Citește</button><button class="btn pill" id="bHi">Salut</button></div>
 </div></div>
 
 <div class="modal" id="modal"><div class="card"><div class="lbl"><span>Setări</span></div>
@@ -490,7 +492,7 @@ if(!tasks&&BLANK)tasks=[];
 if(!tasks){ /* first visit of the owner's page only; the shared blank copy never seeds */var y=new Date();y.setDate(y.getDate()-1);var yk=dkey(y),tk0=dkey(),i0=0;
  tasks=[['De comandat ață gri de 20. De vorbit cu Grig ori cu Alex',yk],['De curățat uleiul de sub mașina de cusut',yk],['Scaune Sorin',tk0],['Burete pat Leia, strada Dejului, de sunat',tk0],['Contor apă',tk0]]
   .map(function(a){return{id:Date.now()+'_'+(i0++),text:a[0],date:a[1],done:false,doneDate:null}});LS.set('jv_tasks',tasks)}
-function save(){LS.set('jv_tasks',tasks)}
+function save(){LS.set('jv_tasks',tasks);histPush()}
 function live(t){return !t.deleted}
 function visible(t){return live(t)&&(!t.done||t.doneDate===dkey())} /* done tasks stay visible until the end of the day they were completed */
 function isOld(t){return t.date<dkey()}
@@ -541,7 +543,7 @@ function startEdit(li,item,saveFn,rerender){if(editing&&editing!==li&&editing.is
 
 /* ---------- shopping list (unbought items carry over forever; bought ones vanish after their day; hidden = kept in storage) ---------- */
 var shop=LS.get('jv_shop',[]);
-function saveShop(){LS.set('jv_shop',shop)}
+function saveShop(){LS.set('jv_shop',shop);histPush()}
 function shopVisible(s){return !s.hidden&&(!s.bought||s.boughtDate===dkey())}
 function shopList(){return shop.filter(shopVisible)}
 function renderShop(){var ul=$('lShop'),list=shopList();ul.innerHTML=list.length?'':'<li class="empty">Lista e goală.</li>';
@@ -573,7 +575,7 @@ var MIC_SVG='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke=
 var SPK_SVG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4z" fill="currentColor"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>';
 var TRASH_SVG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14M10 11v6M14 11v6"/></svg>';
 function uid(){return Date.now()+'_'+Math.random().toString(36).slice(2,6)}
-function saveTabs(){LS.set('jv_tabs',tabs)}
+function saveTabs(){LS.set('jv_tabs',tabs);histPush()}
 function visTabs(){return tabs.filter(function(t){return !t.hidden})}
 function findTab(id){for(var i=0;i<tabs.length;i++)if(tabs[i].id===id)return tabs[i];return null}
 function findTI(tab,id){for(var i=0;i<tab.items.length;i++)if(tab.items[i].id===id)return tab.items[i];return null}
@@ -631,6 +633,21 @@ $('tmForm').addEventListener('submit',function(e){e.preventDefault();var n=$('tm
  if(tmTab){tmTab.name=n;tmTab.color=tmColor;tmTab.editedAt=new Date().toISOString();saveTabs();renderTabs();closeTabModal();toast('Tab redenumit');return}
  var t={id:uid(),name:n,color:tmColor,created:new Date().toISOString(),items:[]};tabs.push(t);saveTabs();renderTabs();closeTabModal();
  var c=$('ct_'+t.id);if(c){c.scrollIntoView({behavior:'smooth',block:'center'})}toast('Tab „'+n+'" creat')});
+
+/* ---------- undo / redo: snapshot history of tasks + shopping + tabs (session only, max 50 steps) ---------- */
+var HMAX=50,hUndo=[],hRedo=[],hCur=null;
+function snap(){return JSON.stringify({tasks:tasks,shop:shop,tabs:tabs})}
+function histBtns(){var u=$('bUndo'),r=$('bRedo');if(u)u.disabled=!hUndo.length;if(r)r.disabled=!hRedo.length}
+function histPush(){if(hCur===null)return;var s=snap();if(s===hCur)return;hUndo.push(hCur);if(hUndo.length>HMAX)hUndo.shift();hRedo=[];hCur=s;histBtns()}
+function histApply(s){var d=JSON.parse(s);if(speaking)stopSpeaking();editing=null;if($('tabModal').classList.contains('show'))closeTabModal();
+ tasks=d.tasks;shop=d.shop;tabs=d.tabs;LS.set('jv_tasks',tasks);LS.set('jv_shop',shop);LS.set('jv_tabs',tabs);hCur=s;
+ renderTasks();renderShop();renderTabs();histBtns()}
+function undo(){if(!hUndo.length)return;hRedo.push(hCur);histApply(hUndo.pop());toast('Anulat')}
+function redo(){if(!hRedo.length)return;hUndo.push(hCur);histApply(hRedo.pop());toast('Refăcut')}
+$('bUndo').onclick=undo;$('bRedo').onclick=redo;
+document.addEventListener('keydown',function(e){if(!(e.ctrlKey||e.metaKey)||e.altKey)return;var t=e.target,tag=t&&t.tagName;
+ if(tag==='INPUT'||tag==='TEXTAREA'||tag==='SELECT'||(t&&t.isContentEditable)||document.querySelector('.modal.show'))return;
+ var k=e.key.toLowerCase();if(k==='z'&&!e.shiftKey){e.preventDefault();undo()}else if(k==='y'||(k==='z'&&e.shiftKey)){e.preventDefault();redo()}});
 /* ---------- speech output ---------- */
 var speaking=false,listening=false,kGen=0,speakKey=null;
 function updEq(){$('eq').classList.toggle('on',speaking||listening);$('orb').classList.toggle('active',speaking||listening);
@@ -863,7 +880,7 @@ $('bShare').onclick=function(){var url=blankURL(),text='JARVIS Command Center �
 if(wx&&wx.city!==cfg.city)wx=null;
 (function(){if(!TTS.opaque)return;var u='https://cluj1313.github.io/jarvis/'+(BLANK?'blank.html':''),n=$('offNote');if(!n)return;
  n.innerHTML='Pentru cea mai bună experiență deschide <a href="'+u+'" target="_blank" rel="noopener">'+u.replace('https://','')+'</a> (vocea rămâne salvată, merge și offline).';n.hidden=false})();
-renderTasks();renderShop();renderTabs();renderWx();tick();setInterval(tick,1000);
+renderTasks();renderShop();renderTabs();hCur=snap();histBtns();renderWx();tick();setInterval(tick,1000);
 loadWx();setInterval(loadWx,15*60*1000);
 document.addEventListener('visibilitychange',function(){if(!document.hidden&&(!wx||Date.now()-wx.ts>15*60*1000))loadWx()});
 bootVoice();
