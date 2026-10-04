@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="JARVIS">
-<meta name="jarvis-version" content="v13-jarvis">
+<meta name="jarvis-version" content="v14-jarvis">
 <title>JARVIS · Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Roboto+Condensed:wght@700&family=Orbitron:wght@700&family=Share+Tech+Mono&family=Rajdhani:wght@600;700&family=Audiowide&family=Teko:wght@500&family=Oxanium:wght@700&display=swap" rel="stylesheet">
@@ -161,6 +161,16 @@ ul.tasks{list-style:none;margin:0;padding:0}
 .readall:active{background:rgba(63,216,255,.25)}
 .readall.on{background:rgba(63,216,255,.3);border-color:var(--cyan);box-shadow:0 0 10px rgba(63,216,255,.5)}
 .readall .rai{display:flex;width:18px;height:18px}.readall .rai svg{width:18px;height:18px}
+/* v14 drag & drop: these classes exist only while a press/drag is in progress */
+.jv-press,.jv-press *{-webkit-user-select:none!important;user-select:none!important;-webkit-touch-callout:none!important}
+.jv-dragging,.jv-dragging *{cursor:grabbing!important}
+.task.jv-lift{transform:scale(1.02);transition:transform .12s ease;position:relative;z-index:2}
+.task.jv-hide{display:none}
+.jv-ph{list-style:none;box-sizing:border-box;border:1px dashed rgba(63,216,255,.45);border-radius:10px;background:rgba(63,216,255,.06);margin:2px 0}
+.jv-over>.empty{display:none}
+.card.jv-tgt{border-color:rgba(63,216,255,.55);box-shadow:inset 0 0 24px rgba(63,216,255,.08),0 0 14px rgba(63,216,255,.18)}
+.jv-ghost{position:fixed;left:0;top:0;z-index:9999;margin:0;pointer-events:none;background:#0a1d30;border:1px solid rgba(63,216,255,.5);border-radius:12px;padding:0 12px;box-sizing:border-box;box-shadow:0 10px 28px rgba(0,0,0,.55);opacity:.96;transform-origin:center}
+.jv-ghost .task{border-bottom:0}
 </style>
 </head>
 <body>
@@ -513,7 +523,10 @@ function visible(t){return live(t)&&(!t.done||t.doneDate===dkey())} /* done task
 function isOld(t){return t.date<dkey()}
 function shortDate(k){var p=k.split('-');return 'din '+(+p[2])+' '+LUNI_S[+p[1]-1]}
 function listFor(which){return tasks.filter(function(t){return visible(t)&&(which==='old'?isOld(t):!isOld(t))})
- .sort(function(a,b){return a.date<b.date?-1:a.date>b.date?1:0})}
+ .sort(ordCmp(which==='old'?'old':'new@'+dkey()))}
+/* v14: explicit order set by drag & drop (ord + ordK = list it was ordered in); unordered items keep the old date order, after the ordered ones */
+function ordCmp(k){return function(a,b){var oa=a.ord!=null&&a.ordK===k,ob=b.ord!=null&&b.ordK===k;
+ if(oa&&ob)return a.ord-b.ord;if(oa!==ob)return oa?-1:1;return a.date<b.date?-1:a.date>b.date?1:0}}
 function renderTasks(){
  [['lOld','old'],['lNew','new']].forEach(function(p){
   var ul=$(p[0]),list=listFor(p[1]);
@@ -525,16 +538,12 @@ function findT(id){for(var i=0;i<tasks.length;i++)if(tasks[i].id===id)return i;r
 function delTask(id){var i=findT(id);if(i<0)return;if(confirm('Ștergi taskul „'+tasks[i].text+'"?')){tasks[i].deleted=new Date().toISOString();save();renderTasks()}}
 function addTask(txt){txt=(txt||'').trim();if(!txt)return false;txt=txt.charAt(0).toUpperCase()+txt.slice(1);
  tasks.push({id:Date.now()+'_'+Math.random().toString(36).slice(2,6),text:txt,date:dkey(),done:false,doneDate:null,created:new Date().toISOString()});save();renderTasks();return true}
-['lOld','lNew'].forEach(function(id){var ul=$(id),timer=null,longFired=false,sx=0,sy=0;
+['lOld','lNew'].forEach(function(id){var ul=$(id);
  ul.addEventListener('click',function(e){var li=e.target.closest('.task');if(!li||li.classList.contains('editing'))return;
   if(e.target.closest('.ed')){var i=findT(li.dataset.id);if(i>=0)startEdit(li,tasks[i],save,renderTasks);return}
   if(e.target.classList.contains('x')){delTask(li.dataset.id);return}
-  if(longFired){longFired=false;return}
+  if(dndEat())return
   var i=findT(li.dataset.id);if(i<0)return;var t=tasks[i];t.done=!t.done;t.doneDate=t.done?dkey():null;t.doneAt=t.done?new Date().toISOString():null;save();renderTasks()});
- ul.addEventListener('pointerdown',function(e){var li=e.target.closest('.task');if(!li||li.classList.contains('editing')||e.target.classList.contains('x')||e.target.closest('.ed'))return;longFired=false;sx=e.clientX;sy=e.clientY;
-  timer=setTimeout(function(){longFired=true;if(navigator.vibrate)navigator.vibrate(30);delTask(li.dataset.id)},650)});
- ul.addEventListener('pointermove',function(e){if(timer&&(Math.abs(e.clientX-sx)>10||Math.abs(e.clientY-sy)>10)){clearTimeout(timer);timer=null}});
- ['pointerup','pointercancel','pointerleave'].forEach(function(ev){ul.addEventListener(ev,function(){clearTimeout(timer);timer=null})});
  ul.addEventListener('contextmenu',function(e){if(e.target.closest('.task'))e.preventDefault()})});
 $('fAdd').addEventListener('submit',function(e){e.preventDefault();if(addTask($('iTask').value)){$('iTask').value='';toast('Task adăugat')}});
 
@@ -569,16 +578,12 @@ function findS(id){for(var i=0;i<shop.length;i++)if(shop[i].id===id)return shop[
 function hideShop(id){var s=findS(id);if(!s)return;if(confirm('Scoți „'+s.text+'" din listă?')){s.hidden=new Date().toISOString();saveShop();renderShop()}}
 function addShop(txt){txt=(txt||'').trim();if(!txt)return false;txt=txt.charAt(0).toUpperCase()+txt.slice(1);
  shop.push({id:Date.now()+'_'+Math.random().toString(36).slice(2,6),text:txt,date:dkey(),bought:false,boughtDate:null,created:new Date().toISOString()});saveShop();renderShop();return true}
-(function(){var ul=$('lShop'),timer=null,longFired=false,sx=0,sy=0;
+(function(){var ul=$('lShop');
  ul.addEventListener('click',function(e){var li=e.target.closest('.task');if(!li||li.classList.contains('editing'))return;
   if(e.target.closest('.ed')){var s=findS(li.dataset.id);if(s)startEdit(li,s,saveShop,renderShop);return}
   if(e.target.classList.contains('x')){hideShop(li.dataset.id);return}
-  if(longFired){longFired=false;return}
+  if(dndEat())return
   var s=findS(li.dataset.id);if(!s)return;s.bought=!s.bought;s.boughtDate=s.bought?dkey():null;s.boughtAt=s.bought?new Date().toISOString():null;saveShop();renderShop()});
- ul.addEventListener('pointerdown',function(e){var li=e.target.closest('.task');if(!li||li.classList.contains('editing')||e.target.classList.contains('x')||e.target.closest('.ed'))return;longFired=false;sx=e.clientX;sy=e.clientY;
-  timer=setTimeout(function(){longFired=true;if(navigator.vibrate)navigator.vibrate(30);hideShop(li.dataset.id)},650)});
- ul.addEventListener('pointermove',function(e){if(timer&&(Math.abs(e.clientX-sx)>10||Math.abs(e.clientY-sy)>10)){clearTimeout(timer);timer=null}});
- ['pointerup','pointercancel','pointerleave'].forEach(function(ev){ul.addEventListener(ev,function(){clearTimeout(timer);timer=null})});
  ul.addEventListener('contextmenu',function(e){if(e.target.closest('.task'))e.preventDefault()})})();
 $('fShop').addEventListener('submit',function(e){e.preventDefault();if(addShop($('iShop').value)){$('iShop').value='';toast('Produs adăugat')}});
 $('bMicShop').onclick=function(){var i=$('iShop');i.focus();try{i.click()}catch(e){}};
@@ -612,7 +617,7 @@ function addTI(tab,txt){txt=(txt||'').trim();if(!txt)return false;txt=txt.charAt
  tab.items.push({id:uid(),text:txt,date:dkey(),done:false,doneDate:null,created:new Date().toISOString()});saveTabs();renderTabItems(tab);return true}
 function delTab(tab){if(!confirm('Ștergi tabul „'+tab.name+'"? Elementele lui nu mai apar (datele rămân salvate în telefon).'))return;
  if(speaking&&speakKey==='tab:'+tab.id)stopSpeaking();tab.hidden=new Date().toISOString();saveTabs();renderTabs();toast('Tab șters')}
-(function(){var box=$('customCards'),timer=null,longFired=false,sx=0,sy=0;
+(function(){var box=$('customCards');
  function ctx(e){var c=e.target.closest('.ctab');return c?findTab(c.dataset.tab):null}
  box.addEventListener('click',function(e){var tab=ctx(e);if(!tab)return;
   if(e.target.closest('.spk')){readCard('tab:'+tab.id);return}
@@ -622,13 +627,9 @@ function delTab(tab){if(!confirm('Ștergi tabul „'+tab.name+'"? Elementele lui
   var li=e.target.closest('.task');if(!li||li.classList.contains('editing')||!li.dataset.id)return;
   if(e.target.closest('.ed')){var s=findTI(tab,li.dataset.id);if(s)startEdit(li,s,saveTabs,function(){renderTabItems(tab)});return}
   if(e.target.classList.contains('x')){hideTI(tab,li.dataset.id);return}
-  if(longFired){longFired=false;return}
+  if(dndEat())return
   var s=findTI(tab,li.dataset.id);if(!s)return;s.done=!s.done;s.doneDate=s.done?dkey():null;s.doneAt=s.done?new Date().toISOString():null;saveTabs();renderTabItems(tab)});
  box.addEventListener('submit',function(e){e.preventDefault();var tab=ctx(e);if(!tab)return;var i=e.target.querySelector('input');if(addTI(tab,i.value)){i.value='';toast('Adăugat în '+tab.name)}});
- box.addEventListener('pointerdown',function(e){var li=e.target.closest('.task');if(!li||!li.dataset.id||li.classList.contains('editing')||e.target.classList.contains('x')||e.target.closest('.ed'))return;var tab=ctx(e);if(!tab)return;longFired=false;sx=e.clientX;sy=e.clientY;
-  timer=setTimeout(function(){longFired=true;if(navigator.vibrate)navigator.vibrate(30);hideTI(tab,li.dataset.id)},650)});
- box.addEventListener('pointermove',function(e){if(timer&&(Math.abs(e.clientX-sx)>10||Math.abs(e.clientY-sy)>10)){clearTimeout(timer);timer=null}});
- ['pointerup','pointercancel','pointerleave'].forEach(function(ev){box.addEventListener(ev,function(){clearTimeout(timer);timer=null})});
  box.addEventListener('contextmenu',function(e){if(e.target.closest('.task'))e.preventDefault()})})();
 /* create / rename modal */
 var tmTab=null,tmColor='';
@@ -663,6 +664,80 @@ $('bUndo').onclick=undo;$('bRedo').onclick=redo;
 document.addEventListener('keydown',function(e){if(!(e.ctrlKey||e.metaKey)||e.altKey)return;var t=e.target,tag=t&&t.tagName;
  if(tag==='INPUT'||tag==='TEXTAREA'||tag==='SELECT'||(t&&t.isContentEditable)||document.querySelector('.modal.show'))return;
  var k=e.key.toLowerCase();if(k==='z'&&!e.shiftKey){e.preventDefault();undo()}else if(k==='y'||(k==='z'&&e.shiftKey)){e.preventDefault();redo()}});
+/* ---------- v14: drag & drop for list items (Pointer Events: touch + mouse; nothing new visible unless a drag is in progress)
+   long-press ~480 ms arms the drag (haptic + lift); moving then = drag; holding still >= 900 ms and releasing = old delete/hide confirm;
+   a move before arming cancels (page scrolls normally); short tap still toggles. Each drop = one undo step. ---------- */
+var DND_ARM=480,DND_DEL=900,DND_SLOP=10,DND_EDGE=70;
+var dnd=null,dndEatClick=false;
+function dndEat(){if(dndEatClick){dndEatClick=false;return true}return false}
+function dndListOf(ul){if(!ul)return null;
+ if(ul.id==='lOld')return{kind:'old',key:'old'};if(ul.id==='lNew')return{kind:'new',key:'new'};if(ul.id==='lShop')return{kind:'shop',key:'shop'};
+ var c=ul.closest&&ul.closest('.ctab');if(c&&ul.classList.contains('ctl')){var tb=findTab(c.dataset.tab);if(tb)return{kind:'tab',key:'tab:'+tb.id,tab:tb}}return null}
+function dndUL(el){if(!el||!el.closest)return null;var ul=el.closest('#lOld,#lNew,#lShop,.ctab ul.ctl');if(ul)return ul;
+ var c=el.closest('#cOld,#cNew,#cShop,.ctab');return c?c.querySelector('#lOld,#lNew,#lShop,ul.ctl'):null}
+function dndYest(){var y=new Date();y.setDate(y.getDate()-1);return dkey(y)}
+function dndClasses(on){var r=document.documentElement;r.classList.toggle('jv-press',!!on);if(!on)r.classList.remove('jv-dragging')}
+function dndReset(){if(!dnd)return;clearTimeout(dnd.armT);clearTimeout(dnd.delT);if(dnd.raf)cancelAnimationFrame(dnd.raf);
+ if(dnd.li)dnd.li.classList.remove('jv-lift','jv-hide');if(dnd.ghost&&dnd.ghost.parentNode)dnd.ghost.parentNode.removeChild(dnd.ghost);
+ if(dnd.ph&&dnd.ph.parentNode)dnd.ph.parentNode.removeChild(dnd.ph);if(dnd.over){dnd.over.classList.remove('jv-over');var c=dnd.over.closest('.card');if(c)c.classList.remove('jv-tgt')}
+ dnd=null;dndClasses(false)}
+function dndArm(){if(!dnd)return;if(editing&&editing.isConnected){dndReset();return}dnd.armed=true;if(navigator.vibrate)try{navigator.vibrate(15)}catch(_){}
+ dnd.li.classList.add('jv-lift');dnd.delT=setTimeout(function(){if(dnd&&dnd.armed&&!dnd.drag&&navigator.vibrate)try{navigator.vibrate(30)}catch(_){}},DND_DEL-DND_ARM)}
+function dndStart(){var d=dnd,li=d.li,r=li.getBoundingClientRect();d.drag=true;clearTimeout(d.delT);d.ox=d.sx-r.left+12;d.oy=d.sy-r.top;
+ var g=document.createElement('ul');g.className=d.ul.className+(d.src.kind==='tab'?' ctab':'')+' jv-ghost';g.setAttribute('aria-hidden','true');
+ var tc=getComputedStyle(d.ul).getPropertyValue('--tc');if(tc&&tc.trim())g.style.setProperty('--tc',tc.trim());
+ g.style.width=(r.width+24)+'px';var c=li.cloneNode(true);c.classList.remove('jv-lift');g.appendChild(c);document.body.appendChild(g);d.ghost=g;
+ var ph=document.createElement('li');ph.className='jv-ph';ph.style.height=r.height+'px';d.ph=ph;li.parentNode.insertBefore(ph,li);
+ li.classList.remove('jv-lift');li.classList.add('jv-hide');document.documentElement.classList.add('jv-dragging');
+ dndPlace();d.raf=requestAnimationFrame(dndTick)}
+function dndNextTask(n,skip){n=n.nextSibling;while(n&&(n===skip||!n.classList||!n.classList.contains('task')||!n.dataset.id))n=n.nextSibling;return n}
+function dndPlace(){var d=dnd;if(!d||!d.drag)return;d.ghost.style.transform='translate('+(d.x-d.ox)+'px,'+(d.y-d.oy)+'px) scale(1.03)';
+ var ul=dndUL(document.elementFromPoint(d.x,d.y));if(!ul||!dndListOf(ul))return;
+ if(d.over!==ul){if(d.over){d.over.classList.remove('jv-over');var oc=d.over.closest('.card');if(oc)oc.classList.remove('jv-tgt')}
+  d.over=ul;ul.classList.add('jv-over');var nc=ul.closest('.card');if(nc)nc.classList.add('jv-tgt')}
+ var before=null,ch=ul.children;
+ for(var i=0;i<ch.length;i++){var n=ch[i];if(n===d.li||n===d.ph||!n.classList.contains('task')||!n.dataset.id)continue;var r=n.getBoundingClientRect();if(d.y<r.top+r.height/2){before=n;break}}
+ if(d.ph.parentNode===ul&&dndNextTask(d.ph,d.li)===before)return;
+ if(before)ul.insertBefore(d.ph,before);else ul.appendChild(d.ph)}
+function dndTick(){var d=dnd;if(!d||!d.drag)return;var h=window.innerHeight,v=0;
+ if(d.y<DND_EDGE)v=-Math.ceil((DND_EDGE-d.y)/4);else if(d.y>h-DND_EDGE)v=Math.ceil((d.y-(h-DND_EDGE))/4);
+ if(v){var y0=window.scrollY;window.scrollBy(0,v);if(window.scrollY!==y0)dndPlace()}d.raf=requestAnimationFrame(dndTick)}
+function dndObj(L,id){if(L.kind==='old'||L.kind==='new'){var i=findT(id);return i<0?null:tasks[i]}return L.kind==='shop'?findS(id):findTI(L.tab,id)}
+function dndArr(L){return L.kind==='shop'?shop:L.kind==='tab'?L.tab.items:tasks}
+function dndConv(o,toShop,date){var done=o.done!=null?!!o.done:!!o.bought,dd=done?(o.doneDate||o.boughtDate||dkey()):null,da=done?(o.doneAt||o.boughtAt||null):null,n={};
+ for(var k in o)if(['done','doneDate','doneAt','bought','boughtDate','boughtAt','ord','ordK'].indexOf(k)<0)n[k]=o[k];
+ n.date=date;if(toShop){n.bought=done;n.boughtDate=dd;n.boughtAt=da}else{n.done=done;n.doneDate=dd;n.doneAt=da}n.movedAt=new Date().toISOString();return n}
+function dndApply(S,T,id,ids){var o=dndObj(S,id);if(!o)return;var isT=function(L){return L.kind==='old'||L.kind==='new'},today=dkey();
+ if(S.key===T.key){var cur=(isT(S)?listFor(S.kind):S.kind==='shop'?shopList():tabList(S.tab)).map(function(x){return x.id});if(cur.join('|')===ids.join('|'))return}
+ var date=T.kind==='new'?today:T.kind==='old'?(o.date&&o.date<today?o.date:dndYest()):(o.date||today);
+ if(isT(S)&&isT(T)){o.date=date}
+ else{var sa=dndArr(S),si=sa.indexOf(o);if(si<0)return;sa.splice(si,1);
+  var n=(isT(S)===isT(T)&&(S.kind==='shop')===(T.kind==='shop'))?o:dndConv(o,T.kind==='shop',date);if(n===o){o.date=date;o.movedAt=new Date().toISOString()}
+  var ta=dndArr(T);if(isT(T))ta.push(n);else{var p=ids.indexOf(id),at=-1,j;
+   for(j=p+1;j<ids.length&&at<0;j++)at=ta.findIndex(function(x){return x.id===ids[j]});
+   if(at<0){for(j=p-1;j>=0&&at<0;j--){at=ta.findIndex(function(x){return x.id===ids[j]});if(at>=0)at++}}
+   if(at<0)ta.push(n);else ta.splice(at,0,n)}}
+ if(isT(T)){var k=T.kind==='old'?'old':'new@'+today;ids.forEach(function(x,i){var t=tasks[findT(x)];if(t){t.ord=i;t.ordK=k}})}
+ LS.set('jv_tasks',tasks);LS.set('jv_shop',shop);LS.set('jv_tabs',tabs);histPush();
+ [S,T].forEach(function(L){if(isT(L))renderTasks();else if(L.kind==='shop')renderShop();else renderTabItems(L.tab)})}
+function dndDrop(){var d=dnd,ul=d.ph&&d.ph.parentNode,T=ul&&dndListOf(ul),id=d.li.dataset.id,ids=[],S=d.src;
+ if(ul)[].forEach.call(ul.children,function(n){if(n===d.ph)ids.push(id);else if(n!==d.li&&n.classList.contains('task')&&n.dataset.id)ids.push(n.dataset.id)});
+ dndReset();if(T)dndApply(S,T,id,ids)}
+document.addEventListener('pointerdown',function(e){dndEatClick=false;if(dnd){dndReset();return}
+ if(e.pointerType==='mouse'&&e.button!==0)return;var li=e.target.closest&&e.target.closest('.task');
+ if(!li||!li.dataset.id||li.classList.contains('editing')||e.target.closest('.x,.ed,textarea,.edb'))return;
+ var S=dndListOf(li.parentNode);if(!S||(editing&&editing.isConnected)||document.querySelector('.modal.show'))return;
+ dnd={id:e.pointerId,li:li,ul:li.parentNode,src:S,sx:e.clientX,sy:e.clientY,x:e.clientX,y:e.clientY,t0:Date.now(),armed:false,drag:false,armT:setTimeout(dndArm,DND_ARM)};dndClasses(true)});
+window.addEventListener('pointermove',function(e){var d=dnd;if(!d||e.pointerId!==d.id)return;d.x=e.clientX;d.y=e.clientY;
+ var far=Math.abs(d.x-d.sx)>DND_SLOP||Math.abs(d.y-d.sy)>DND_SLOP;if(!d.armed){if(far)dndReset();return}
+ if(!d.drag){if(!far)return;dndStart()}if(e.cancelable)e.preventDefault();dndPlace()},{passive:false});
+window.addEventListener('pointerup',function(e){var d=dnd;if(!d||e.pointerId!==d.id)return;
+ if(d.drag){dndEatClick=true;dndDrop();return}var held=d.armed&&Date.now()-d.t0>=DND_DEL,armed=d.armed,S=d.src,id=d.li.dataset.id;dndReset();
+ if(armed)dndEatClick=true;if(held)setTimeout(function(){if(S.kind==='shop')hideShop(id);else if(S.kind==='tab')hideTI(S.tab,id);else delTask(id)},0)});
+window.addEventListener('pointercancel',function(e){if(dnd&&e.pointerId===dnd.id)dndReset()});
+document.addEventListener('touchmove',function(e){if(dnd&&dnd.armed&&e.cancelable)e.preventDefault()},{passive:false});
+['contextmenu','selectstart','dragstart'].forEach(function(ev){document.addEventListener(ev,function(e){if(dnd)e.preventDefault()})});
+window.addEventListener('blur',dndReset);document.addEventListener('visibilitychange',function(){if(document.hidden)dndReset()});
 /* ---------- speech output ---------- */
 var speaking=false,listening=false,kGen=0,speakKey=null;
 function updEq(){$('eq').classList.toggle('on',speaking||listening);$('orb').classList.toggle('active',speaking||listening);
@@ -876,7 +951,7 @@ $('sSave').onclick=function(){var name=$('sName').value.trim()||cfg.name,city=$(
 /* ---------- share ---------- */
 function summary(){var d=new Date(),tk=dkey(),o=tasks.filter(function(t){return live(t)&&!t.done});
  var L=['JARVIS · '+ZILE[d.getDay()]+', '+d.getDate()+' '+LUNI[d.getMonth()]+' '+d.getFullYear()+' '+pad(d.getHours())+':'+pad(d.getMinutes()),'','Vremea · '+cfg.city+': '+wxSentence(wx),''];
- var old=o.filter(function(t){return t.date<tk}),nw=o.filter(function(t){return t.date>=tk});
+ var old=listFor('old').filter(function(t){return !t.done}),nw=listFor('new').filter(function(t){return !t.done});
  if(old.length){L.push('Taskuri de ieri:');old.forEach(function(t){L.push('• '+t.text+' ('+shortDate(t.date)+')')});L.push('')}
  if(nw.length){L.push('Taskuri noi:');nw.forEach(function(t){L.push('• '+t.text)})}
  if(!o.length)L.push('Nu ai taskuri deschise.');return L.join('\n')}
