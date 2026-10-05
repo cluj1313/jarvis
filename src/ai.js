@@ -5,10 +5,12 @@ var AI_MODELS=[
  {id:'gemini-2.0-flash',label:'Gemini 2.0 Flash'},
  {id:'gemini-flash-latest',label:'Flash latest'}
 ];
-var AI_MAX=100,aiBusy=false,aiKey=LS.get('jv_gkey','')||'',aiModel=LS.get('jv_gmodel',AI_MODELS[0].id)||AI_MODELS[0].id,aiAuto=!!LS.get('jv_gauto',false);
+var AI_MAX=100,aiBusy=false,aiKey=LS.get('jv_gkey','')||'',aiSerper=LS.get('jv_skey','')||'',aiModel=LS.get('jv_gmodel',AI_MODELS[0].id)||AI_MODELS[0].id,aiAuto=!!LS.get('jv_gauto',false);
 var chat=LS.get('jv_chat',[]);if(!Array.isArray(chat))chat=[];
 function saveChat(){if(chat.length>AI_MAX)chat=chat.slice(-AI_MAX);LS.set('jv_chat',chat)}
 function saveAiKey(k){aiKey=k||'';if(aiKey)LS.set('jv_gkey',aiKey);else try{localStorage.removeItem(PFX+'jv_gkey')}catch(e){}}
+function saveSerperKey(k){aiSerper=k||'';if(aiSerper)LS.set('jv_skey',aiSerper);else try{localStorage.removeItem(PFX+'jv_skey')}catch(e){}}
+function aiHasSerper(){return !!(aiSerper&&String(aiSerper).trim())}
 function aiHasKey(){return !!(aiKey&&String(aiKey).trim())}
 function aiNowRO(){var d=new Date();try{return d.toLocaleString('ro-RO',{timeZone:cfg.tz||'Europe/Bucharest',weekday:'long',year:'numeric',month:'long',day:'numeric',hour:'2-digit',minute:'2-digit'})}catch(e){return d.toISOString()}}
 function aiCtxLists(){var L=[],tk=dkey();
@@ -50,7 +52,7 @@ function aiRunFn(name,args){args=args||{};
   return{ok:false,msg:'Unealtă necunoscută: '+name}
  }catch(e){return{ok:false,msg:'Eroare: '+(e&&e.message||e)}}
 }
-function aiNeedSearch(text){return /(caut[aă]|pe net|google|știri|stiri|cine a|c[aâ]nd (e|are)|(ce|care) (e|este) |preț|pret|curs(ul)? (valutar|euro|dolar)|rezultat|ultimele noutăți| pe web|farmacie|unde (pot|găsesc|gasesc))/i.test(text||'')}
+function aiNeedSearch(text){return /(caut[aă]|pe net|google|știri|stiri|cine a|c[aâ]nd (e|are)|(ce|care) (e|este) |preț|pret|curs(ul)? (valutar|euro|dolar)|rezultat|ultimele noutăți| pe web|farmacie|unde (pot|g[aă]sesc|gasesc|e|sunt)|unde (pot )?g[aă]si|adresa|deschis|din ambele|s[aă] cump[aă]r)/i.test(text||'')}
 function aiEndpoint(model){return 'https://generativelanguage.googleapis.com/v1beta/models/'+encodeURIComponent(model)+':generateContent'}
 function aiFetch(model,body){return fetch(aiEndpoint(model),{method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':aiKey},body:JSON.stringify(body)}).then(function(r){
  return r.json().then(function(j){return{ok:r.ok,status:r.status,json:j,model:model}}).catch(function(){return{ok:r.ok,status:r.status,json:null,model:model}})})}
@@ -59,8 +61,9 @@ function aiParseErr(status,j){var err=(j&&j.error)||{},m=err.message||'',details
   if(/RetryInfo/i.test(t)){var rd=d.retryDelay||d.retry_delay||'';var sec=parseFloat(String(rd).replace(/s$/,''));if(isFinite(sec))retryMs=Math.round(sec*1000)}
   if(/ErrorInfo/i.test(t)){reason=d.reason||reason;var md=d.metadata||{};metric=md.quota_metric||md.quotaMetric||metric;limit=md.quota_limit||md.quotaLimit||metric}});
  var blob=(m+' '+reason+' '+metric+' '+limit).toLowerCase();
- if(status===401||status===403||/API[_ ]key|PERMISSION_DENIED|invalid/i.test(blob))kind='key';
- else if(status===404||/NOT_FOUND|not found/i.test(blob))kind='model';
+ if(status===401||status===403||/API[_ ]key|PERMISSION_DENIED|API key not valid/i.test(blob))kind='key';
+ else if(status===404||/NOT_FOUND|not found for API version/i.test(blob))kind='model';
+ else if(status===503||/high demand|overloaded|UNAVAILABLE|try again later|experiencing high/i.test(blob))kind='overload';
  else if(status===429||/RESOURCE_EXHAUSTED|quota|rate/i.test(blob)){
   if(/grounding|google_search|search_queries|search_request/i.test(blob))kind='search';
   else if(/per[_-]?day|PerDay|rpd|daily/i.test(blob))kind='daily';
@@ -68,17 +71,44 @@ function aiParseErr(status,j){var err=(j&&j.error)||{},m=err.message||'',details
   else kind='quota'}
  else if(!navigator.onLine)kind='offline';
  var text=kind==='key'?'Cheia Gemini pare invalidă. Verific-o în Setări.'
-  :kind==='model'?'Modelul nu e disponibil. Alege alt model în Setări.'
-  :kind==='search'?'Căutarea web Google a atins limita gratuită (grounding). Încerc fără căutare…'
-  :kind==='daily'?'Ai atins limita zilnică gratuită Gemini. Încearcă mâine sau treci pe plan plătit.'
-  :kind==='minute'?'Prea multe cereri pe minut. Așteaptă câteva secunde și reîncearcă.'
-  :kind==='quota'?'Limită Gemini atinsă (RESOURCE_EXHAUSTED). Încearcă mai târziu.'
+  :kind==='model'?'Modelul nu e disponibil. Încerc altul…'
+  :kind==='overload'?'Gemini e ocupat acum (cerere mare). Reîncerc…'
+  :kind==='search'?'Căutarea web Gemini (grounding) e limitată. Încerc alternativă…'
+  :kind==='daily'?'Ai atins limita zilnică gratuită Gemini.'
+  :kind==='minute'?'Prea multe cereri pe minut. Aștept puțin…'
+  :kind==='quota'?'Limită Gemini atinsă. Încerc alternativă…'
   :kind==='offline'?'Fără internet — nu pot vorbi cu Gemini acum.'
-  :(m?('Gemini: '+m):('Eroare Gemini ('+status+').'));
- var detail=[];if(reason)detail.push(reason);if(metric)detail.push(metric);if(limit&&limit!==metric)detail.push(limit);if(retryMs)detail.push('retry ~'+Math.round(retryMs/1000)+'s');
- if(m&&kind!=='key'&&kind!=='offline')detail.push(m.slice(0,160));
+  :(m?('Gemini: '+m.slice(0,220)):('Eroare Gemini ('+status+').'));
+ var detail=[];if(reason)detail.push(reason);if(metric)detail.push(metric);if(limit&&limit!==metric)detail.push(limit);if(status)detail.push('HTTP '+status);if(retryMs)detail.push('retry ~'+Math.round(retryMs/1000)+'s');
+ if(m&&kind!=='key'&&kind!=='offline')detail.push(m.slice(0,140));
  return{kind:kind,text:text,detail:detail.join(' · '),retryMs:retryMs||0,raw:m}}
 function aiErrMsg(status,j){return aiParseErr(status,j).text}
+function aiEsc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function aiStripMd(s){s=String(s||'');
+ s=s.replace(/\[([^\]]+)\]\(([^)]+)\)/g,'$1');
+ s=s.replace(/\*\*([^*]+)\*\*/g,'$1').replace(/__([^_]+)__/g,'$1');
+ s=s.replace(/(^|[^*\w])\*([^*\n]+)\*(?!\*)/g,'$1$2').replace(/(^|[^_\w])_([^_\n]+)_(?!_)/g,'$1$2');
+ s=s.replace(/^#{1,6}\s+/gm,'').replace(/^>\s?/gm,'').replace(/`([^`]+)`/g,'$1');
+ s=s.replace(/^\s*[-*]\s+/gm,'').replace(/^\s*\d+\.\s+/gm,'');
+ return s.replace(/[ \t]+\n/g,'\n').trim()}
+function aiMdInline(s){/* s already escaped */
+ s=s.replace(/\[([^\]]+)\]\((https?:[^)\s]+)\)/g,function(_,t,u){return '<a class="md-a" href="'+u+'" target="_blank" rel="noopener">'+t+'</a>'});
+ s=s.replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>').replace(/__([^_]+)__/g,'<strong>$1</strong>');
+ s=s.replace(/(^|[^*])\*([^*\n]+)\*(?!\*)/g,'$1<em>$2</em>').replace(/(^|[^_])_([^_\n]+)_(?!_)/g,'$1<em>$2</em>');
+ s=s.replace(/`([^`]+)`/g,'<code>$1</code>');
+ return s}
+function aiMdRender(text){var raw=String(text||''),lines=raw.split(/\n/),html=[],list=null,listType=null;
+ function close(){if(list){html.push(listType==='ol'?'</ol>':'</ul>');list=null;listType=null}}
+ lines.forEach(function(line){
+  var m;
+  if((m=/^\s*[-*]\s+(.+)$/.exec(line))){if(listType!=='ul'){close();html.push('<ul class="md-ul">');list=1;listType='ul'}
+   html.push('<li>'+aiMdInline(aiEsc(m[1]))+'</li>');return}
+  if((m=/^\s*(\d+)\.\s+(.+)$/.exec(line))){if(listType!=='ol'){close();html.push('<ol class="md-ol">');list=1;listType='ol'}
+   html.push('<li>'+aiMdInline(aiEsc(m[2]))+'</li>');return}
+  close();
+  if(!line.trim()){html.push('<div class="md-p"></div>');return}
+  html.push('<div class="md-p">'+aiMdInline(aiEsc(line))+'</div>')});
+ close();return html.join('')}
 function aiPartsText(parts){if(!parts)return'';return parts.map(function(p){return p.text||''}).filter(Boolean).join('\n').trim()}
 function aiGroundLinks(cand){var gm=cand&&(cand.groundingMetadata||cand.grounding_metadata);if(!gm)return[];
  var out=[],seen={},chunks=gm.groundingChunks||gm.grounding_chunks||[];
@@ -88,66 +118,110 @@ function aiExtractFns(parts){var fns=[];(parts||[]).forEach(function(p){var fc=p
   var args=fc.args;if(typeof args==='string')try{args=JSON.parse(args)}catch(e){args={}}
   fns.push({name:fc.name,args:args||{}})}});return fns}
 function aiHistContents(limit){limit=limit||12;var slice=chat.filter(function(m){return m.role==='user'||m.role==='model'}).slice(-limit);
- return slice.map(function(m){return{role:m.role==='model'?'model':'user',parts:[{text:m.text||''}]}})}
-function aiBody(tools,extraContents){return{system_instruction:{parts:[{text:aiSystem()}]},contents:(extraContents||aiHistContents()),tools:tools,generationConfig:{temperature:.6,maxOutputTokens:1024}}}
+ return slice.map(function(m){return{role:m.role==='model'?'model':'user',parts:[{text:aiStripMd(m.text||'')}]}})}
+function aiBody(tools,extraContents){var b={system_instruction:{parts:[{text:aiSystem()}]},contents:(extraContents||aiHistContents()),generationConfig:{temperature:.6,maxOutputTokens:1024}};
+ if(tools&&tools.length)b.tools=tools;return b}
 function aiSleep(ms){return new Promise(function(r){setTimeout(r,ms)})}
-function aiSearchModels(){var prefer=['gemini-2.0-flash','gemini-2.5-flash-lite','gemini-2.5-flash'],out=[],seen={};
+function aiModelChain(){var prefer=['gemini-2.5-flash','gemini-2.5-flash-lite','gemini-2.0-flash'],out=[],seen={};
  [aiModel].concat(prefer).forEach(function(id){if(id&&!seen[id]){seen[id]=1;out.push(id)}});return out}
 function aiSearchBlocked(){var until=+LS.get('jv_gnosearch',0)||0;return Date.now()<until}
 function aiBlockSearch(hours){LS.set('jv_gnosearch',Date.now()+Math.round((hours||6)*3600*1000))}
 function aiCallModel(model,tools,extraContents){return aiFetch(model,aiBody(tools,extraContents))}
-function aiCallOnce(tools,extraContents){return aiCallModel(aiModel,tools,extraContents).then(function(res){
-  if(res.status===404){var alt=AI_MODELS.map(function(m){return m.id}).filter(function(id){return id!==aiModel});
-   if(alt.length){return aiCallModel(alt[0],tools,extraContents)}}
-  return res})}
+/* Robust call: up to 2 short retries on overload/minute, then next model in chain */
+function aiCallRobust(tools,extraContents,opt){opt=opt||{};var models=aiModelChain(),mi=0,retries=0;
+ function attempt(){var model=models[mi];if(!model)return Promise.resolve({ok:false,status:0,json:null,model:null});
+  if(opt.status)aiSetStatus(opt.status.replace('{m}',model));
+  return aiCallModel(model,tools,extraContents).then(function(res){
+   if(res.ok)return res;
+   var e=aiParseErr(res.status,res.json);
+   if((e.kind==='overload'||e.kind==='minute')&&retries<2){retries++;var wait=e.retryMs>0&&e.retryMs<8000?e.retryMs:(900*retries+400);
+    aiSetStatus('Gemini ocupat — reîncerc '+(retries)+'/2…');return aiSleep(wait).then(attempt)}
+   if((e.kind==='overload'||e.kind==='model'||e.kind==='minute'||e.kind==='quota')&&mi<models.length-1){mi++;retries=0;aiSetStatus('Încerc '+models[mi]+'…');return attempt()}
+   return res})}
+ return attempt()}
 function aiPushBot(text,opt){opt=opt||{};chat.push({role:'model',text:text,links:opt.links||[],err:!!opt.err,detail:opt.detail||'',ts:Date.now()});saveChat();aiRender();if(aiAuto&&!opt.err)aiSpeakLast()}
-function aiHandleSuccess(res,note){var cand=(res.json&&res.json.candidates&&res.json.candidates[0])||{};
+function aiFormatSearchList(results,prefix){var lines=[prefix||'Gemini e ocupat acum, uite ce am găsit:'];
+ (results||[]).slice(0,5).forEach(function(r,i){lines.push((i+1)+'. **'+(r.title||'Rezultat')+'** — '+(r.snippet||'').slice(0,160));
+  if(r.url)lines.push('   '+r.url)});
+ return lines.join('\n')}
+function aiSerperSearch(q){if(!aiHasSerper())return Promise.resolve({ok:false,reason:'nokey',results:[]});
+ return fetch('https://google.serper.dev/search',{method:'POST',headers:{'Content-Type':'application/json','X-API-KEY':aiSerper},body:JSON.stringify({q:q,num:5,gl:'ro',hl:'ro'})}).then(function(r){
+  return r.json().then(function(j){if(!r.ok)return{ok:false,reason:'http',status:r.status,results:[],raw:j};
+   var organic=j.organic||[],results=organic.slice(0,5).map(function(o){return{title:o.title||o.link,url:o.link||o.url,snippet:o.snippet||o.description||''}});
+   return{ok:!!results.length,results:results,raw:j}}).catch(function(){return{ok:false,reason:'json',results:[]}})}).catch(function(){return{ok:false,reason:'network',results:[]}})}
+function aiComposeWithResults(userText,results,note){var ctx=results.map(function(r,i){return (i+1)+'. '+r.title+'\nURL: '+r.url+'\n'+(r.snippet||'')}).join('\n\n');
+ var contents=aiHistContents(8);
+ contents.push({role:'user',parts:[{text:userText+'\n\nRezultate căutare web (folosește-le ca surse, răspunde în română, concis, cu markdown ușor):\n'+ctx}]});
+ return aiCallRobust([{function_declarations:AI_FUNCS}],contents,{status:'Compun răspunsul…'}).then(function(res){
+  if(!res.ok){aiPushBot(aiFormatSearchList(results),{links:results.map(function(r){return{title:r.title,url:r.url}})});return}
+  return aiHandleSuccess(res,note||'',results.map(function(r){return{title:r.title,url:r.url}}))})}
+function aiAltSearchThenAnswer(userText,lastErr){if(!aiHasSerper()){
+  var hint=lastErr?(lastErr.text+'\n'):'';
+  hint+='Adaugă o cheie Serper în Setări pentru căutare web alternativă (Brave API nu merge din browser — CORS).';
+  return aiCallRobust([{function_declarations:AI_FUNCS}],null,{status:'Fără Serper — răspund din ce știu…'}).then(function(res){
+   var note='(fără căutare web — lipsește Serper)';var det=lastErr&&lastErr.detail;
+   if(!res.ok){var e=aiParseErr(res.status,res.json);aiPushBot(e.text+'\n'+hint,{err:true,detail:(e.detail||'')+(det?' · '+det:'')});return}
+   return aiHandleSuccess(res,note+(det?'\n'+det:''))})}
+ aiSetStatus('Caut pe web (Serper)…');
+ return aiSerperSearch(userText).then(function(sr){
+  if(!sr.ok){var msg=sr.reason==='nokey'?'Lipsește cheia Serper.':('Căutarea Serper a eșuat'+(sr.status?' ('+sr.status+')':'')+'.');
+   return aiCallRobust([{function_declarations:AI_FUNCS}],null,{status:'Serper eșuat — încerc fără…'}).then(function(res){
+    if(!res.ok){var e=aiParseErr(res.status,res.json);aiPushBot(e.text+'\n'+msg,{err:true,detail:e.detail});return}
+    return aiHandleSuccess(res,'(fără rezultate web)')})}
+  return aiComposeWithResults(userText,sr.results,'(via Serper)')})}
+function aiHandleSuccess(res,note,extraLinks){var cand=(res.json&&res.json.candidates&&res.json.candidates[0])||{};
  var parts=(cand.content&&cand.content.parts)||[],fns=aiExtractFns(parts);
+ var links=(aiGroundLinks(cand)||[]).concat(extraLinks||[]);
+ var seen={};links=links.filter(function(l){if(!l||!l.url||seen[l.url])return false;seen[l.url]=1;return true});
  if(fns.length){var notes=[],frParts=[];fns.forEach(function(fn){var r=aiRunFn(fn.name,fn.args);notes.push(r.msg);frParts.push({functionResponse:{name:fn.name,response:r}})});
   var contents=aiHistContents(10);contents.push({role:'model',parts:parts});contents.push({role:'user',parts:frParts});
-  return aiCallOnce([{function_declarations:AI_FUNCS}],contents).then(function(res2){
-   if(!res2.ok){aiPushBot((note?note+'\n':'')+notes.join(' '));return}
+  return aiCallRobust([{function_declarations:AI_FUNCS}],contents,{status:'Aplic acțiuni…'}).then(function(res2){
+   if(!res2.ok){aiPushBot((note?note+'\n':'')+notes.join(' '),{links:links});return}
    var c2=(res2.json.candidates&&res2.json.candidates[0])||{};
    var txt=aiPartsText(c2.content&&c2.content.parts)||notes.join(' ');
    if(note)txt=note+'\n'+txt;
-   aiPushBot(txt,{links:aiGroundLinks(c2)})})}
+   var l2=links.concat(aiGroundLinks(c2));var s2={};l2=l2.filter(function(l){if(!l||!l.url||s2[l.url])return false;s2[l.url]=1;return true});
+   aiPushBot(txt,{links:l2})})}
  var txt=aiPartsText(parts);if(!txt)txt='Nu am un răspuns clar acum.';
  if(note)txt=note+'\n'+txt;
- aiPushBot(txt,{links:aiGroundLinks(cand)})}
-function aiTrySearchThenFallback(userText){/* 1 grounded model (+ optional short retry), then plain — don't burn free search RPD */
- var models=aiSearchModels(),model=models[0],alt=models[1],lastErr=null,retried=false;
- function plain(){return aiCallOnce([{function_declarations:AI_FUNCS}]).then(function(res){
-   var note='(fără căutare web acum — limită Google)';
-   var det=lastErr&&(lastErr.detail||lastErr.text);
-   if(!res.ok){var e=aiParseErr(res.status,res.json);aiPushBot(e.text+(det?'\n'+det:''),{err:true,detail:e.detail});return}
-   return aiHandleSuccess(res,note+(det?'\n'+det:''))})}
+ aiPushBot(txt,{links:links})}
+function aiTrySearchThenFallback(userText){
+ var lastErr=null,retried=false,models=aiModelChain(),model=models[0],alt=models[1];
+ function afterGroundFail(){return aiAltSearchThenAnswer(userText,lastErr)}
  function tryGround(m){aiSetStatus('Caut pe web ('+m+')…');
   return aiCallModel(m,[{google_search:{}}]).then(function(res){
    if(res.ok)return aiHandleSuccess(res);
    var e=aiParseErr(res.status,res.json);lastErr=e;
-   if(e.kind==='model'&&alt&&m!==alt)return tryGround(alt);
-   if(!retried&&e.retryMs>0&&e.retryMs<10000){retried=true;aiSetStatus('Reîncerc peste '+Math.ceil(e.retryMs/1000)+'s…');
-    return aiSleep(e.retryMs).then(function(){return tryGround(m)})}
+   if((e.kind==='overload'||e.kind==='minute')&&!retried){retried=true;var wait=e.retryMs>0&&e.retryMs<8000?e.retryMs:1200;
+    aiSetStatus('Gemini ocupat — reîncerc…');return aiSleep(wait).then(function(){return tryGround(m)})}
+   if(e.kind==='model'&&alt&&m!==alt){retried=false;return tryGround(alt)}
    if(e.kind==='search'||e.kind==='daily')aiBlockSearch(e.kind==='daily'?20:6);
-   if(e.kind==='search'||e.kind==='quota'||e.kind==='daily'||e.kind==='minute'||e.kind==='model')return plain();
+   if(e.kind==='search'||e.kind==='quota'||e.kind==='daily'||e.kind==='minute'||e.kind==='overload'||e.kind==='model')return afterGroundFail();
+   /* key/other: still try alt search if we have it, else show error */
+   if(aiHasSerper()&&e.kind!=='key')return afterGroundFail();
    aiPushBot(e.text,{err:true,detail:e.detail})})}
+ if(aiSearchBlocked())return afterGroundFail();
  return tryGround(model)}
 function aiSend(userText){if(aiBusy)return Promise.resolve();userText=(userText||'').trim();if(!userText)return Promise.resolve();
  if(!aiHasKey()){aiShowNokey();return Promise.resolve()}
  chat.push({role:'user',text:userText,ts:Date.now()});saveChat();aiRender();aiBusy=true;aiSetStatus('Jarvis se gândește…');
- var wantSearch=aiNeedSearch(userText)&&!aiSearchBlocked();
- var p=wantSearch?aiTrySearchThenFallback(userText):aiCallOnce([{function_declarations:AI_FUNCS}]).then(function(res){
-  if(!res.ok){var e=aiParseErr(res.status,res.json);aiPushBot(e.text,{err:true,detail:e.detail});return}
+ var wantSearch=aiNeedSearch(userText);
+ var p=wantSearch?aiTrySearchThenFallback(userText):aiCallRobust([{function_declarations:AI_FUNCS}],null,{status:'Jarvis se gândește…'}).then(function(res){
+  if(!res.ok){var e=aiParseErr(res.status,res.json);
+   if(aiHasSerper()&&(e.kind==='overload'||e.kind==='quota'||e.kind==='daily'||e.kind==='minute'))return aiAltSearchThenAnswer(userText,e);
+   aiPushBot(e.text,{err:true,detail:e.detail});return}
   return aiHandleSuccess(res)});
  return p.catch(function(e){if(e){aiPushBot(!navigator.onLine?'Fără internet — nu pot vorbi cu Gemini acum.':'Nu am putut contacta Gemini.',{err:true})}}).then(function(){aiBusy=false;aiSetStatus('')})}
 function aiSetStatus(t){var el=$('aiStatus');if(el)el.textContent=t||''}
 function aiSpeakMsg(i,el){if(speaking&&speakKey==='ai:'+i){stopSpeaking();return}
  unlockAudio();var msg=chat[i];if(!msg)return;
+ var plain=aiStripMd(msg.text||'');
  var node=el||document.querySelector('#aiPanel.show .ai-msg[data-i="'+i+'"] .ai-b')||document.querySelector('.ai-msg[data-i="'+i+'"] .ai-b');
- return speak([prepSeg(node,msg.text)],'ai:'+i)}
+ return speak([prepSeg(node,plain)],'ai:'+i)}
 function aiSpeakLast(){for(var i=chat.length-1;i>=0;i--)if(chat[i].role==='model'&&!chat[i].err)return aiSpeakMsg(i)}
 function aiBubble(m,i){var div=document.createElement('div');div.className='ai-msg '+(m.role==='user'?'me':'bot')+(m.err?' err':'');div.dataset.i=i;
- var b=document.createElement('div');b.className='ai-b kw';b.textContent=m.text||'';div.appendChild(b);
+ var b=document.createElement('div');b.className='ai-b kw';
+ if(m.role==='model'&&!m.err)b.innerHTML=aiMdRender(m.text||'');else b.textContent=m.text||'';div.appendChild(b);
  if(m.detail){var d=document.createElement('div');d.className='ai-detail';d.textContent=m.detail;div.appendChild(d)}
  if(m.links&&m.links.length){var s=document.createElement('div');s.className='ai-src';m.links.slice(0,5).forEach(function(l){var a=document.createElement('a');a.href=l.url;a.target='_blank';a.rel='noopener';a.textContent=l.title||l.url;s.appendChild(a)});div.appendChild(s)}
  if(m.role==='model'&&!m.err){var sp=document.createElement('button');sp.type='button';sp.className='ai-spk';sp.dataset.read='ai:'+i;sp.setAttribute('aria-label','Citește');sp.innerHTML=SPK_SVG;
@@ -162,8 +236,11 @@ function aiRender(){var prev=$('aiPreview'),full=$('aiFullList'),nok=$('aiNokey'
 function aiShowNokey(){aiRender();toast('Adaugă cheia Gemini în Setări')}
 function aiOpenSettings(){$('bSettings').click();setTimeout(function(){var s=$('aiSec');if(s)s.scrollIntoView({block:'nearest'})},50)}
 function aiFillModels(){var sel=$('sAiModel');if(!sel)return;sel.innerHTML='';AI_MODELS.forEach(function(m){var o=document.createElement('option');o.value=m.id;o.textContent=m.label;sel.appendChild(o)});sel.value=aiModel;if(sel.value!==aiModel)sel.value=AI_MODELS[0].id}
-function aiLoadSettings(){aiFillModels();var inp=$('sAiKey');if(inp)inp.value=aiKey||'';inp.type='password';
- var t=$('sAiShow');if(t)t.textContent='Arată';var a=$('sAiAuto');if(a)a.checked=aiAuto;var st=$('sAiKeyState');if(st)st.textContent=aiHasKey()?'Cheie salvată pe acest telefon.':'Nicio cheie salvată.'}
+function aiLoadSettings(){aiFillModels();var inp=$('sAiKey');if(inp){inp.value=aiKey||'';inp.type='password'}
+ var t=$('sAiShow');if(t)t.textContent='Arată';var a=$('sAiAuto');if(a)a.checked=aiAuto;var st=$('sAiKeyState');if(st)st.textContent=aiHasKey()?'Cheie Gemini salvată pe acest telefon.':'Nicio cheie Gemini salvată.';
+ var sp=$('sSerperKey');if(sp){sp.value=aiSerper||'';sp.type='password'}
+ var ts=$('sSerperShow');if(ts)ts.textContent='Arată';
+ var ss=$('sSerperState');if(ss)ss.textContent=aiHasSerper()?'Cheie Serper salvată — căutare alternativă activă.':'Opțional — folosit când Gemini grounding e limitat/ocupat.'}
 function aiTestKey(){if(!aiHasKey()&&$('sAiKey')){var v=$('sAiKey').value.trim();if(v){aiKey=v}}
  if(!aiHasKey()){toast('Lipsește cheia');return}
  var st=$('sAiTestState');if(st)st.textContent='Testez…';
@@ -211,15 +288,17 @@ function aiTestKey(){if(!aiHasKey()&&$('sAiKey')){var v=$('sAiKey').value.trim()
  if($('aiClear'))$('aiClear').onclick=function(){if(!confirm('Ștergi conversația?'))return;chat=[];saveChat();aiRender();toast('Conversație ștearsă')};
  if($('aiOpenSet'))$('aiOpenSet').onclick=aiOpenSettings;
  if($('sAiShow'))$('sAiShow').onclick=function(){var i=$('sAiKey');if(!i)return;var show=i.type==='password';i.type=show?'text':'password';this.textContent=show?'Ascunde':'Arată'};
- if($('sAiSaveKey'))$('sAiSaveKey').onclick=function(){var v=$('sAiKey').value.trim();saveAiKey(v);LS.set('jv_gmodel',$('sAiModel').value||aiModel);aiModel=$('sAiModel').value||aiModel;aiAuto=!!$('sAiAuto').checked;LS.set('jv_gauto',aiAuto);aiLoadSettings();aiRender();toast(v?'Cheie salvată':'Cheie ștearsă')};
+ if($('sSerperShow'))$('sSerperShow').onclick=function(){var i=$('sSerperKey');if(!i)return;var show=i.type==='password';i.type=show?'text':'password';this.textContent=show?'Ascunde':'Arată'};
+ if($('sAiSaveKey'))$('sAiSaveKey').onclick=function(){var v=$('sAiKey').value.trim();saveAiKey(v);var sv=$('sSerperKey')&&$('sSerperKey').value.trim();if(sv!==undefined&&sv!==null)saveSerperKey(sv||'');LS.set('jv_gmodel',$('sAiModel').value||aiModel);aiModel=$('sAiModel').value||aiModel;aiAuto=!!$('sAiAuto').checked;LS.set('jv_gauto',aiAuto);aiLoadSettings();aiRender();toast('Chei salvate')};
  if($('sAiDelKey'))$('sAiDelKey').onclick=function(){if(!confirm('Ștergi cheia Gemini de pe acest telefon?'))return;$('sAiKey').value='';saveAiKey('');aiLoadSettings();aiRender();toast('Cheie ștearsă')};
  if($('sAiTest'))$('sAiTest').onclick=function(){var v=$('sAiKey').value.trim();if(v)aiKey=v;aiModel=$('sAiModel').value||aiModel;aiTestKey()};
  var _bs=$('bSettings').onclick;
  $('bSettings').onclick=function(){_bs();aiLoadSettings()};
  var _sv=$('sSave').onclick;
  $('sSave').onclick=function(){var v=$('sAiKey')&&$('sAiKey').value.trim();if(v!==undefined){if(v)saveAiKey(v);aiModel=$('sAiModel').value||aiModel;LS.set('jv_gmodel',aiModel);aiAuto=!!$('sAiAuto').checked;LS.set('jv_gauto',aiAuto)}
+  var sv=$('sSerperKey')&&$('sSerperKey').value.trim();if(sv)saveSerperKey(sv);
   _sv();aiRender()};
  aiRender();
  /* expose for tests */
- window.JARVIS_AI={send:aiSend,runFn:aiRunFn,render:aiRender,hasKey:aiHasKey,setKey:saveAiKey,get chat(){return chat},setChat:function(c){chat=c;saveChat()},needSearch:aiNeedSearch,models:AI_MODELS,funcs:AI_FUNCS,system:aiSystem,parseErr:aiParseErr,searchBlocked:aiSearchBlocked,blockSearch:aiBlockSearch,buildBody:function(tools){return aiBody(tools||[{function_declarations:AI_FUNCS}])}};
+ window.JARVIS_AI={send:aiSend,runFn:aiRunFn,render:aiRender,hasKey:aiHasKey,setKey:saveAiKey,hasSerper:aiHasSerper,setSerper:saveSerperKey,serperSearch:aiSerperSearch,mdRender:aiMdRender,stripMd:aiStripMd,callRobust:aiCallRobust,get chat(){return chat},setChat:function(c){chat=c;saveChat()},needSearch:aiNeedSearch,models:AI_MODELS,funcs:AI_FUNCS,system:aiSystem,parseErr:aiParseErr,searchBlocked:aiSearchBlocked,blockSearch:aiBlockSearch,buildBody:function(tools){return aiBody(tools||[{function_declarations:AI_FUNCS}])}};
 })();

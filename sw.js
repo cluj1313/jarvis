@@ -1,6 +1,6 @@
 /* JARVIS service worker: app shell cache. HTML = network-first (updates arrive), static = cache-first.
    Voice model files (Mihai, own cache "jarvis-piper-v1") and weather (Open-Meteo) are NOT touched: passed straight to the network. */
-var VERSION='jarvis-shell-v19';
+var VERSION='jarvis-shell-v20';
 var SHELL=['./','index.html','blank.html','manifest.webmanifest','manifest-blank.webmanifest',
  'icons/icon-192.png','icons/icon-512.png','icons/icon-maskable-512.png','icons/apple-touch-icon.png'];
 var FONT_HOSTS=/^https:\/\/(fonts\.googleapis\.com|fonts\.gstatic\.com)\//,DSEG=/^https:\/\/cdn\.jsdelivr\.net\/npm\/dseg@/;
@@ -10,7 +10,7 @@ self.addEventListener('activate',function(e){e.waitUntil(caches.keys().then(func
  return Promise.all(ks.filter(function(k){return /^jarvis-shell-/.test(k)&&k!==VERSION}).map(function(k){return caches.delete(k)}))}).then(function(){return self.clients.claim()}))});
 function strip(u){var x=new URL(u);x.search='';x.hash='';return x.href}
 self.addEventListener('fetch',function(e){var r=e.request;var url=r.url;
- if(/generativelanguage\.googleapis\.com/.test(url))return; /* Gemini: never cache */
+ if(/generativelanguage\.googleapis\.com|google\.serper\.dev|api\.search\.brave\.com|api\.tavily\.com|s\.jina\.ai/.test(url))return; /* AI/search APIs: never cache */
  if(r.method!=='GET')return;var same=url.indexOf(self.registration.scope)===0;
  if(same){var path=new URL(url).pathname;
   if(r.mode==='navigate'||/\.html$|\/$/.test(path)){ /* network-first */
