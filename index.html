@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="JARVIS">
-<meta name="jarvis-version" content="v16-jarvis">
+<meta name="jarvis-version" content="v17-jarvis">
 <title>JARVIS · Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Roboto+Condensed:wght@700&family=Orbitron:wght@700&family=Share+Tech+Mono&family=Rajdhani:wght@600;700&family=Audiowide&family=Teko:wght@500&family=Oxanium:wght@700&display=swap" rel="stylesheet">
@@ -66,11 +66,20 @@ header{display:flex;justify-content:space-between;align-items:center;gap:8px;mar
 .kbar{position:absolute;left:0;top:0;height:3px;width:0;border-radius:3px;background:var(--cyan);box-shadow:0 0 8px var(--cyan),0 0 16px rgba(63,216,255,.6);opacity:0;pointer-events:none;
  transition:transform .16s cubic-bezier(.4,.1,.2,1),width .16s cubic-bezier(.4,.1,.2,1),opacity .25s;will-change:transform,width}
 .kbar.show{opacity:1}
-.wx{display:flex;gap:18px;align-items:center}
-.wxicon{width:84px;flex:none;display:flex;justify-content:center}
-.wxicon svg{width:72px;height:72px}
-.wxtxt{font-size:16.5px;line-height:1.55}
-.wxmeta{color:var(--mut);font-size:13.5px;margin-top:10px;line-height:1.45}
+.wx{display:flex;gap:14px;align-items:center;position:relative}
+.wxleft{flex:none;width:76px;text-align:center}
+.wxicon{display:flex;justify-content:center;line-height:0}
+.wxicon svg{width:72px;height:72px;display:block}
+.wxtemp{font-size:28px;font-weight:700;letter-spacing:-.02em;margin-top:-2px;line-height:1.1;color:var(--txt)}
+.wxright{flex:1;min-width:0;padding-right:2px}
+.wxhi{position:absolute;top:0;right:0;font-size:12.5px;color:var(--mut);font-weight:500}
+.wxcond{font-size:17px;font-weight:700;line-height:1.2;padding-right:52px}
+.wxfeel{font-size:13.5px;color:var(--mut);margin-top:3px}
+.wxline{font-size:13px;color:#9eb4c4;margin-top:4px}
+.wxmeta{color:#6f8798;font-size:11px;margin-top:5px;line-height:1.3}
+.wxtxt{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+#cWx{padding:14px 16px}
+#cWx .lbl{margin-bottom:8px}
 ul.tasks{list-style:none;margin:0;padding:0}
 .task{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-bottom:1px solid rgba(120,180,220,.12);user-select:none;-webkit-user-select:none;cursor:pointer}
 .task:last-child{border-bottom:0}
@@ -193,8 +202,9 @@ ul.tasks{list-style:none;margin:0;padding:0}
   <div class="vprog" id="vprog"><span id="vprogTxt"></span><div class="pb"><i id="vprogBar"></i></div></div></section>
 
  <section class="card" id="cWx"><div class="lbl"><span class="lt" id="wxlbl">Vremea · Gherla</span><button class="spk" data-read="wx" aria-label="Citește"></button></div>
-  <div class="wx"><div class="wxicon" id="wxicon"></div>
-   <div><div class="wxtxt kw" id="wxtxt">Se încarcă vremea…</div><div class="wxmeta" id="wxmeta"></div></div></div></section>
+  <div class="wx"><div class="wxleft"><div class="wxicon" id="wxicon"></div><div class="wxtemp" id="wxtemp">—°</div></div>
+   <div class="wxright"><div class="wxhi" id="wxhi"></div><div class="wxcond" id="wxcond">Se încarcă…</div><div class="wxfeel" id="wxfeel"></div><div class="wxline" id="wxline"></div><div class="wxmeta" id="wxmeta"></div></div>
+   <div class="wxtxt kw" id="wxtxt" aria-hidden="true"></div></div></section>
 
  <button type="button" class="readall" id="bReadAll" aria-label="Citește tot"><span class="rai"></span>Citește tot</button>
 
@@ -484,43 +494,80 @@ function clearActive(){if(activeSeg)clearSeg(activeSeg);activeSeg=null}
 addEventListener('resize',reflowBars);
 
 /* ---------- weather ---------- */
-var WMO={0:['Cer senin','clear'],1:['Predominant senin','clear'],2:['Parțial noros','partly'],3:['Cer acoperit','cloud'],45:['Ceață','fog'],48:['Ceață cu chiciură','fog'],
-51:['Burniță slabă','rain'],53:['Burniță','rain'],55:['Burniță densă','rain'],56:['Burniță înghețată','rain'],57:['Burniță înghețată','rain'],
-61:['Ploaie slabă','rain'],63:['Ploaie','rain'],65:['Ploaie puternică','rain'],66:['Ploaie înghețată','rain'],67:['Ploaie înghețată','rain'],
-71:['Ninsoare slabă','snow'],73:['Ninsoare','snow'],75:['Ninsoare abundentă','snow'],77:['Fulgi de zăpadă','snow'],
-80:['Averse slabe','rain'],81:['Averse de ploaie','rain'],82:['Averse puternice','rain'],85:['Averse de ninsoare','snow'],86:['Averse de ninsoare','snow'],
-95:['Furtună','storm'],96:['Furtună cu grindină','storm'],99:['Furtună cu grindină','storm']};
-var C='#dff6ff',CY='#3fd8ff';
-var SUN='<circle cx="32" cy="32" r="12" fill="#ffd36b"/><g stroke="#ffd36b" stroke-width="3" stroke-linecap="round"><path d="M32 6v7M32 51v7M6 32h7M51 32h7M13.6 13.6l5 5M45.4 45.4l5 5M13.6 50.4l5-5M45.4 18.6l5-5"/></g>';
-var MOON='<path d="M40 10a22 22 0 1 0 16 30A18 18 0 0 1 40 10z" fill="'+C+'"/><circle cx="46" cy="22" r="2" fill="'+CY+'"/><circle cx="52" cy="30" r="1.4" fill="'+CY+'"/>';
-var CLOUD=function(x,y,f){return '<path transform="translate('+x+' '+y+')" d="M18 44h28a10 10 0 0 0 0-20 14 14 0 0 0-27-3A11 11 0 0 0 18 44z" fill="'+(f||C)+'"/>'};
-function icon(kind,day){var s='';
- if(kind==='clear')s=day?SUN:MOON;
- else if(kind==='partly')s='<g transform="translate(-8 -8) scale(.8)">'+(day?SUN:MOON)+'</g>'+CLOUD(2,6);
- else if(kind==='cloud')s=CLOUD(-6,-2,'#9fb8c8')+CLOUD(2,4);
- else if(kind==='fog')s=CLOUD(0,-6)+'<g stroke="'+C+'" stroke-width="3" stroke-linecap="round"><path d="M12 48h40M18 56h30"/></g>';
- else if(kind==='rain')s=CLOUD(0,-8)+'<g stroke="'+CY+'" stroke-width="3" stroke-linecap="round"><path d="M22 44l-3 8M32 44l-3 8M42 44l-3 8"/></g>';
- else if(kind==='snow')s=CLOUD(0,-8)+'<g fill="'+C+'"><circle cx="21" cy="47" r="2.5"/><circle cx="32" cy="52" r="2.5"/><circle cx="43" cy="47" r="2.5"/><circle cx="27" cy="58" r="2"/><circle cx="38" cy="58" r="2"/></g>';
- else s=CLOUD(0,-8,'#9fb8c8')+'<path d="M34 40l-8 12h7l-4 10 11-14h-7l4-8z" fill="#ffd36b"/>';
- return '<svg viewBox="0 0 64 64" aria-hidden="true">'+s+'</svg>'}
+var WMO={0:['Cer senin','clear','Senin'],1:['Predominant senin','clear','Senin'],2:['Parțial noros','partly','Parțial noros'],3:['Cer acoperit','cloud','Acoperit'],45:['Ceață','fog','Ceață'],48:['Ceață cu chiciură','fog','Chiciură'],
+51:['Burniță slabă','drizzle','Burniță'],53:['Burniță','drizzle','Burniță'],55:['Burniță densă','drizzle','Burniță'],56:['Burniță înghețată','drizzle','Burniță'],57:['Burniță înghețată','drizzle','Burniță'],
+61:['Ploaie slabă','rain','Ploaie'],63:['Ploaie','rain','Ploaie'],65:['Ploaie puternică','rain','Ploaie'],66:['Ploaie înghețată','rain','Ploaie'],67:['Ploaie înghețată','rain','Ploaie'],
+71:['Ninsoare slabă','snow','Ninsoare'],73:['Ninsoare','snow','Ninsoare'],75:['Ninsoare abundentă','snow','Ninsoare'],77:['Fulgi de zăpadă','snow','Ninsoare'],
+80:['Averse slabe','rain','Averse'],81:['Averse de ploaie','rain','Averse'],82:['Averse puternice','rain','Averse'],85:['Averse de ninsoare','snow','Ninsoare'],86:['Averse de ninsoare','snow','Ninsoare'],
+95:['Furtună','storm','Furtună'],96:['Furtună cu grindină','storm','Furtună'],99:['Furtună cu grindină','storm','Furtună']};
+var _iconN=0;
+function iconDefs(u){return '<defs>'+
+ '<radialGradient id="'+u+'sg" cx="38%" cy="35%" r="60%"><stop offset="0%" stop-color="#fff6c8"/><stop offset="45%" stop-color="#ffd24a"/><stop offset="100%" stop-color="#ff8a1a"/></radialGradient>'+
+ '<radialGradient id="'+u+'sg2" cx="40%" cy="35%" r="55%"><stop offset="0%" stop-color="#ffe9a0"/><stop offset="100%" stop-color="#ffb020" stop-opacity="0"/></radialGradient>'+
+ '<radialGradient id="'+u+'mg" cx="40%" cy="35%" r="65%"><stop offset="0%" stop-color="#f0f6ff"/><stop offset="55%" stop-color="#c5d4ea"/><stop offset="100%" stop-color="#7a90b0"/></radialGradient>'+
+ '<linearGradient id="'+u+'cg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ffffff"/><stop offset="45%" stop-color="#e8eef5"/><stop offset="100%" stop-color="#9aafc0"/></linearGradient>'+
+ '<linearGradient id="'+u+'cgd" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d8e0ea"/><stop offset="50%" stop-color="#a8b8c8"/><stop offset="100%" stop-color="#6a7f92"/></linearGradient>'+
+ '<linearGradient id="'+u+'cgs" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#5a6a7c"/><stop offset="100%" stop-color="#2a3544"/></linearGradient>'+
+ '<linearGradient id="'+u+'rg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#7ad4ff"/><stop offset="100%" stop-color="#2a8fd4"/></linearGradient>'+
+ '<linearGradient id="'+u+'lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#fff6a0"/><stop offset="50%" stop-color="#ffd020"/><stop offset="100%" stop-color="#ff8a00"/></linearGradient>'+
+ '<filter id="'+u+'glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>'+
+ '<filter id="'+u+'soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="1.1"/></filter>'+
+ '<filter id="'+u+'fluff" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation=".6"/></filter>'+
+ '</defs>'}
+function sunBody(u,cx,cy,r){return '<circle cx="'+cx+'" cy="'+cy+'" r="'+(r*1.55)+'" fill="url(#'+u+'sg2)" opacity=".55"/>'+
+ '<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="url(#'+u+'sg)" filter="url(#'+u+'glow)"/>'+
+ '<circle cx="'+(cx-r*.28)+'" cy="'+(cy-r*.32)+'" r="'+(r*.28)+'" fill="#fff" opacity=".35"/>'}
+function moonBody(u,cx,cy,r){return '<g filter="url(#'+u+'glow)"><path d="M'+(cx+r*.15)+' '+(cy-r)+'a'+r+' '+r+' 0 1 0 '+(r*.2)+' '+(r*1.85)+'a'+(r*.72)+' '+(r*.72)+' 0 1 1 -'+(r*.2)+' -'+(r*1.85)+'z" fill="url(#'+u+'mg)"/></g>'+
+ '<circle cx="'+(cx+r*.35)+'" cy="'+(cy-r*.2)+'" r="'+(r*.12)+'" fill="#9eb0c8" opacity=".35"/>'+
+ '<circle cx="'+(cx+r*.1)+'" cy="'+(cy+r*.25)+'" r="'+(r*.08)+'" fill="#9eb0c8" opacity=".28"/>'}
+function cloudBody(u,x,y,sc,dark){sc=sc||1;var g=dark?(dark===2?u+'cgs':u+'cgd'):u+'cg';
+ return '<g transform="translate('+x+' '+y+') scale('+sc+')" filter="url(#'+u+'fluff)">'+
+ '<ellipse cx="22" cy="28" rx="14" ry="10" fill="url(#'+g+')"/><ellipse cx="36" cy="24" rx="16" ry="12" fill="url(#'+g+')"/>'+
+ '<ellipse cx="50" cy="30" rx="12" ry="9" fill="url(#'+g+')"/><ellipse cx="36" cy="34" rx="22" ry="11" fill="url(#'+g+')"/>'+
+ (dark?'':'<ellipse cx="30" cy="22" rx="10" ry="6" fill="#fff" opacity=".45"/>')+'</g>'}
+function rainDrops(u,y){y=y||46;return '<g fill="url(#'+u+'rg)" opacity=".9">'+
+ '<path d="M20 '+y+'q1.2 3 0 6q-1.2-3 0-6z"/><path d="M28 '+(y+3)+'q1.4 3.5 0 7q-1.4-3.5 0-7z"/><path d="M36 '+y+'q1.2 3 0 6q-1.2-3 0-6z"/>'+
+ '<path d="M44 '+(y+4)+'q1.3 3.2 0 6.5q-1.3-3.3 0-6.5z"/><path d="M24 '+(y+8)+'q1 2.5 0 5q-1-2.5 0-5z"/><path d="M40 '+(y+9)+'q1 2.5 0 5q-1-2.5 0-5z"/></g>'}
+function snowFlakes(y){y=y||48;return '<g fill="#eef6ff" opacity=".95">'+
+ '<circle cx="22" cy="'+y+'" r="2.2"/><circle cx="32" cy="'+(y+4)+'" r="2.6"/><circle cx="42" cy="'+y+'" r="2.2"/>'+
+ '<circle cx="27" cy="'+(y+10)+'" r="1.8"/><circle cx="37" cy="'+(y+11)+'" r="1.9"/>'+
+ '<g stroke="#eef6ff" stroke-width="1.2" stroke-linecap="round" opacity=".7"><path d="M22 '+(y-3)+'v6M19 '+y+'h6"/><path d="M42 '+(y-3)+'v6M39 '+y+'h6"/></g></g>'}
+function fogBands(u){return '<g stroke="#c8d6e4" stroke-width="3.2" stroke-linecap="round" opacity=".75" filter="url(#'+u+'soft)"><path d="M12 40h40"/><path d="M16 48h32" opacity=".85"/><path d="M14 56h36" opacity=".65"/></g>'}
+function bolt(u){return '<path d="M36 34l-9 12h6.5l-4.5 12 13-16h-7l5.5-8z" fill="url(#'+u+'lg)" filter="url(#'+u+'glow)"/>'}
+function icon(kind,day){var u='i'+(_iconN++),body='';
+ if(kind==='clear')body=day?sunBody(u,32,32,14):moonBody(u,34,32,16);
+ else if(kind==='partly')body=(day?sunBody(u,22,20,10):moonBody(u,22,18,11))+cloudBody(u,4,18,.95);
+ else if(kind==='cloud')body=cloudBody(u,-2,8,1.05,1)+cloudBody(u,6,16,1);
+ else if(kind==='fog')body=cloudBody(u,2,2,.9)+fogBands(u);
+ else if(kind==='drizzle')body=cloudBody(u,2,4)+'<g opacity=".7">'+rainDrops(u,48)+'</g>';
+ else if(kind==='rain')body=cloudBody(u,2,2,1,1)+rainDrops(u,46);
+ else if(kind==='snow')body=cloudBody(u,2,2)+snowFlakes(48);
+ else if(kind==='storm')body=cloudBody(u,0,0,1.05,2)+bolt(u)+'<g opacity=".55">'+rainDrops(u,50)+'</g>';
+ else body=cloudBody(u,2,10);
+ return '<svg viewBox="0 0 64 64" aria-hidden="true">'+iconDefs(u)+body+'</svg>'}
 function windTxt(k){return k<6?'Vânt calm':k<20?'Vânt slab':k<39?'Vânt moderat':k<62?'Vânt puternic':'Vânt foarte puternic'}
 var wx=LS.get('jv_wx',null);
-function wxSentence(w){if(!w)return 'Nu am date despre vreme.';var d=WMO[w.code]||['Vreme variabilă','cloud'];
+function wxSentence(w){if(!w)return 'Nu am date despre vreme.';var d=WMO[w.code]||['Vreme variabilă','cloud','Variabil'];
  var s=d[0]+'. Acum '+Math.round(w.temp)+' grade. Maxima '+Math.round(w.max)+', minima '+Math.round(w.min)+'. Șanse de ploaie: '+w.pp+'%. '+windTxt(w.wind)+'.';
- var rainy=/rain|storm/.test(d[1]);s+=(w.pp>=40||rainy)?' Ia umbrela cu tine.':' Nu ai nevoie de umbrelă.';return s}
+ var rainy=/rain|storm|drizzle/.test(d[1]);s+=(w.pp>=40||rainy)?' Ia umbrela cu tine.':' Nu ai nevoie de umbrelă.';return s}
 function renderWx(){$('wxlbl').textContent='Vremea · '+cfg.city;
- if(!wx){$('wxicon').innerHTML=icon('cloud',1);return}
- var d=WMO[wx.code]||['','cloud'];$('wxicon').innerHTML=icon(d[1],wx.day);
+ if(!wx){$('wxicon').innerHTML=icon('cloud',1);$('wxtemp').textContent='—°';$('wxcond').textContent='Se încarcă…';$('wxfeel').textContent='';$('wxline').textContent='';$('wxhi').textContent='';$('wxmeta').textContent='';return}
+ var d=WMO[wx.code]||['Vreme variabilă','cloud','Variabil'];$('wxicon').innerHTML=icon(d[1],wx.day);
+ $('wxtemp').textContent=Math.round(wx.temp)+'°';
+ $('wxcond').textContent=d[2]||d[0];
+ $('wxfeel').textContent=wx.feel!=null?'Se simte ca: '+Math.round(wx.feel)+'°C':'';
+ $('wxhi').textContent=Math.round(wx.max)+'°/'+Math.round(wx.min)+'°';
+ $('wxline').textContent='Ploaie '+wx.pp+'% · '+windTxt(wx.wind);
  if(!(speaking&&activeSeg&&activeSeg.el===$('wxtxt')))$('wxtxt').textContent=wxSentence(wx);
  var t=new Date(wx.ts),n=new Date();
- var when=dkey(t)===dkey(n)?'azi la '+pad(t.getHours())+':'+pad(t.getMinutes()):ZILE[t.getDay()].toLowerCase()+', '+t.getDate()+' '+LUNI[t.getMonth()]+' la '+pad(t.getHours())+':'+pad(t.getMinutes());
- $('wxmeta').textContent=ZILE[n.getDay()]+', '+n.getDate()+' '+LUNI[n.getMonth()]+' '+n.getFullYear()+'. Actualizat '+when+(wx.stale?' (offline, date salvate)':'')+'. Se reîmprospătează la 15 minute.'}
+ var when=dkey(t)===dkey(n)?'azi la '+pad(t.getHours())+':'+pad(t.getMinutes()):t.getDate()+' '+LUNI_S[t.getMonth()]+' '+pad(t.getHours())+':'+pad(t.getMinutes());
+ $('wxmeta').textContent='Actualizat '+when+(wx.stale?' (offline)':'')}
 function loadWx(){
- var u='https://api.open-meteo.com/v1/forecast?latitude='+cfg.lat+'&longitude='+cfg.lon+'&current=temperature_2m,weather_code,wind_speed_10m,is_day&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone='+encodeURIComponent(cfg.tz||'auto')+'&forecast_days=1';
+ var u='https://api.open-meteo.com/v1/forecast?latitude='+cfg.lat+'&longitude='+cfg.lon+'&current=temperature_2m,apparent_temperature,weather_code,wind_speed_10m,is_day&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone='+encodeURIComponent(cfg.tz||'auto')+'&forecast_days=1';
  return fetch(u).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()}).then(function(j){
-  wx={temp:j.current.temperature_2m,code:j.current.weather_code,wind:j.current.wind_speed_10m,day:j.current.is_day===1,
+  wx={temp:j.current.temperature_2m,feel:j.current.apparent_temperature,code:j.current.weather_code,wind:j.current.wind_speed_10m,day:j.current.is_day===1,
    max:j.daily.temperature_2m_max[0],min:j.daily.temperature_2m_min[0],pp:j.daily.precipitation_probability_max[0]||0,ts:Date.now(),city:cfg.city};
-  LS.set('jv_wx',wx);renderWx()}).catch(function(){if(wx){wx.stale=true;renderWx()}else{$('wxtxt').textContent='Nu pot încărca vremea (fără internet?).';renderWx()}})}
+  LS.set('jv_wx',wx);renderWx()}).catch(function(){if(wx){wx.stale=true;renderWx()}else{$('wxcond').textContent='Fără date';$('wxtxt').textContent='Nu pot încărca vremea (fără internet?).';renderWx()}})}
 
 /* ---------- tasks (never lost: open tasks carry over; done/deleted kept as history) ---------- */
 var tasks=LS.get('jv_tasks',null);
