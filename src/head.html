@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#06111f">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="JARVIS">
+<meta name="jarvis-version" content="v19-jarvis">
+<title>JARVIS · Command Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Roboto+Condensed:wght@700&family=Orbitron:wght@700&family=Share+Tech+Mono&family=Rajdhani:wght@600;700&family=Audiowide&family=Teko:wght@500&family=Oxanium:wght@700&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:"DSEG7 Classic";font-weight:700;font-display:swap;src:url(https://cdn.jsdelivr.net/npm/dseg@0.46.0/fonts/DSEG7-Classic/DSEG7Classic-Bold.woff2) format("woff2")}
+@font-face{font-family:"DSEG14 Classic";font-weight:700;font-display:swap;src:url(https://cdn.jsdelivr.net/npm/dseg@0.46.0/fonts/DSEG14-Classic/DSEG14Classic-Bold.woff2) format("woff2")}
+:root{--bg:#06111f;--card:rgba(10,30,50,.55);--line:rgba(80,200,255,.28);--cyan:#3fd8ff;--cyan2:#7fe6ff;--txt:#e6f2fa;--mut:#8aa3b5;--green:#4ade80;--orange:#f5b84a;--red:#ff6b6b;--clock:#3fd8ff}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--txt);font-family:Roboto,"Segoe UI",system-ui,-apple-system,Arial,sans-serif}
+body{min-height:100vh;background:
+ radial-gradient(ellipse at 20% -10%,rgba(30,120,180,.25),transparent 60%),
+ linear-gradient(rgba(80,180,255,.05) 1px,transparent 1px) 0 0/28px 28px,
+ linear-gradient(90deg,rgba(80,180,255,.05) 1px,transparent 1px) 0 0/28px 28px,var(--bg);
+ background-attachment:fixed}
+.wrap{max-width:460px;margin:0 auto;padding:16px 16px 120px}
+header{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:8px 0 18px}
+.brand{display:flex;align-items:center;gap:13px;min-width:0}
+.orb{width:56px;height:56px;border-radius:50%;flex:none;background:radial-gradient(circle at 36% 32%,#9fe9f5 0,#52c3d9 22%,#2a93ad 52%,#14627d 80%,#0e4c63 100%);
+ box-shadow:0 0 22px 4px rgba(63,200,235,.38),0 0 50px 10px rgba(63,200,235,.12),inset 0 0 12px rgba(200,250,255,.18);border:1.5px solid rgba(110,225,250,.75);animation:pulse 4s ease-in-out infinite}
+.orb.active{animation:pulse .8s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 30px 6px rgba(63,210,245,.6),0 0 60px 14px rgba(63,200,235,.2),inset 0 0 14px rgba(200,250,255,.28)}}
+.brand h1{margin:0;font-weight:400;letter-spacing:.27em;font-size:23px;color:#eef6fb;line-height:1}
+.brand small{display:block;color:#7cc3d8;letter-spacing:.13em;font-size:10.5px;margin-top:10px;font-weight:400;white-space:nowrap}
+.right{text-align:right;flex:none}
+.clock{position:relative;display:inline-block;font-family:"Roboto Condensed",Oswald,"Arial Narrow",sans-serif;font-weight:700;font-size:56px;line-height:.95;color:var(--clock);text-shadow:0 0 14px var(--clock);letter-spacing:.5px;white-space:nowrap}
+@supports (color:color-mix(in srgb,red 50%,transparent)){.clock{text-shadow:0 0 14px color-mix(in srgb,var(--clock) 60%,transparent)}}
+.clock.seg::before{content:attr(data-ghost);position:absolute;right:0;top:0;opacity:.1;text-shadow:none}
+.hbtns{display:flex;gap:6px;justify-content:flex-end;margin-top:10px}
+.btn.pill{white-space:nowrap;padding:6px 11px;font-size:13px;line-height:1.25;background:rgba(10,30,50,.4);color:#cfe3ee;border:1px solid var(--line);border-radius:999px}
+.btn{background:rgba(20,60,90,.45);color:var(--txt);border:1px solid var(--line);border-radius:999px;padding:7px 12px;font:inherit;font-size:13px;cursor:pointer}
+.btn:active{background:rgba(63,216,255,.25)}
+.btn.sel{border-color:var(--cyan);background:rgba(63,216,255,.2)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:16px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);box-shadow:inset 0 0 24px rgba(63,216,255,.04)}
+.lbl{display:flex;justify-content:space-between;align-items:center;gap:8px;color:var(--cyan2);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;margin:-4px 0 12px;font-weight:500;min-height:30px}
+.spk{flex:none;width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:rgba(20,60,90,.35);color:var(--cyan2);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0}
+.spk svg{width:16px;height:16px}
+.spk.on{background:rgba(63,216,255,.3);border-color:var(--cyan);box-shadow:0 0 10px rgba(63,216,255,.5)}
+.voice{font-size:18px;line-height:1.55;margin:0 0 12px}
+.status{color:var(--green);font-size:14px}
+.status.err{color:var(--orange)}
+.vprog{display:none;margin-top:10px;font-size:13px;color:var(--cyan2)}
+.vprog.show{display:block}
+.vprog .pb{height:4px;border-radius:4px;background:rgba(63,216,255,.15);margin-top:6px;overflow:hidden}
+.vprog .pb i{display:block;height:100%;width:0;background:var(--cyan);box-shadow:0 0 8px var(--cyan);transition:width .3s}
+/* karaoke */
+.kw{position:relative;scroll-margin:90px 0 120px}
+.lt.kw{display:inline-block}
+.w{transition:color .2s}
+.w.cur{color:#fff;text-shadow:0 0 8px rgba(63,216,255,.6)}
+.w.past{color:#b9cfdd}
+.lbl .w.cur{color:#fff}
+.done .w.past,.done .w.cur{color:inherit}
+.kbar{position:absolute;left:0;top:0;height:3px;width:0;border-radius:3px;background:var(--cyan);box-shadow:0 0 8px var(--cyan),0 0 16px rgba(63,216,255,.6);opacity:0;pointer-events:none;
+ transition:transform .16s cubic-bezier(.4,.1,.2,1),width .16s cubic-bezier(.4,.1,.2,1),opacity .25s;will-change:transform,width}
+.kbar.show{opacity:1}
+.wx{display:flex;gap:14px;align-items:center;position:relative}
+.wxleft{flex:none;width:76px;text-align:center}
+.wxicon{display:flex;justify-content:center;line-height:0}
+.wxicon svg{width:72px;height:72px;display:block}
+.wxtemp{font-size:28px;font-weight:700;letter-spacing:-.02em;margin-top:-2px;line-height:1.1;color:var(--txt)}
+.wxright{flex:1;min-width:0;padding-right:2px}
+.wxhi{position:absolute;top:0;right:0;font-size:12.5px;color:var(--mut);font-weight:500}
+.wxcond{font-size:17px;font-weight:700;line-height:1.2;padding-right:52px}
+.wxfeel{font-size:13.5px;color:var(--mut);margin-top:3px}
+.wxline{font-size:13px;color:#9eb4c4;margin-top:4px}
+.wxmeta{color:#6f8798;font-size:11px;margin-top:5px;line-height:1.3}
+.wxtxt{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+#cWx{padding:14px 16px}
+#cWx .lbl{margin-bottom:8px}
+ul.tasks{list-style:none;margin:0;padding:0}
+.task{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-bottom:1px solid rgba(120,180,220,.12);user-select:none;-webkit-user-select:none;cursor:pointer}
+.task:last-child{border-bottom:0}
+.dot{width:9px;height:9px;border-radius:50%;margin-top:7px;flex:none}
+.old .dot{background:var(--orange);box-shadow:0 0 6px var(--orange)}
+.new .dot{background:var(--cyan);box-shadow:0 0 6px var(--cyan)}
+.shop .dot{background:#c084fc;box-shadow:0 0 6px #c084fc}
+.task .t{flex:1;font-size:16.5px;line-height:1.5;padding-bottom:3px}
+.task .st{color:var(--mut);font-size:12.5px;margin-top:3px;white-space:nowrap;text-align:right}
+.task .st small{display:block;font-size:11px;color:#6f8798;margin-top:2px}
+.task .x{background:none;border:0;color:var(--mut);font-size:18px;line-height:1;padding:2px 2px 2px 6px;cursor:pointer}
+.task .ed{background:none;border:0;color:var(--mut);font-size:16px;line-height:1;padding:2px 4px;cursor:pointer}
+.task.editing{cursor:default}
+.task.editing .st,.task.editing .x,.task.editing .ed{display:none}
+.task.editing .t{text-decoration:none;color:var(--txt)}
+.edin{display:block;width:100%;resize:none;overflow:hidden;background:rgba(5,18,32,.85);border:1px solid var(--cyan);color:var(--txt);border-radius:10px;padding:8px 10px;font:inherit;font-size:16px;line-height:1.4;outline:none;user-select:text;-webkit-user-select:text;box-shadow:0 0 10px rgba(63,216,255,.25)}
+.edb{display:flex;gap:8px;justify-content:flex-end;margin-top:8px}
+.edb .btn{width:44px;height:36px;padding:0;font-size:17px}
+.edb .eok{color:var(--green);border-color:rgba(74,222,128,.5)}
+.edb .eno{color:var(--red);border-color:rgba(255,107,107,.45)}
+.task.done .t{text-decoration:line-through;color:var(--mut)}
+.task.done .st{color:var(--green)}
+.task.done .dot{background:var(--green);box-shadow:0 0 6px var(--green)}
+.empty{color:var(--mut);font-size:14px;padding:6px 0}
+.add{display:flex;gap:8px;margin-top:14px}
+.add input{flex:1;min-width:0;background:rgba(5,18,32,.7);border:1px solid var(--line);color:var(--txt);border-radius:14px;padding:13px 14px;font:inherit;font-size:16px;outline:none}
+.add input:focus{border-color:var(--cyan)}
+.add input::placeholder{font-size:14.5px}
+.add .btn{padding:0 14px;font-size:15px}
+.mic{width:46px;flex:none;display:flex;align-items:center;justify-content:center}
+.mic.on{background:rgba(255,80,80,.3);border-color:var(--red)}
+.bar{position:fixed;left:0;right:0;bottom:0;padding:10px 14px calc(10px + env(safe-area-inset-bottom));z-index:5}
+.barin{max-width:432px;margin:0 auto;display:flex;align-items:center;gap:10px;background:rgba(8,24,40,.88);border:1px solid var(--line);border-radius:20px;padding:12px 14px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.eq{display:flex;gap:3px;align-items:center;width:44px;height:20px;flex:none}
+.eq i{width:4px;height:6px;border-radius:2px;background:var(--cyan);opacity:.6}
+.eq.on i{animation:eq .7s ease-in-out infinite;opacity:1}
+.eq.on i:nth-child(2){animation-delay:.1s}.eq.on i:nth-child(3){animation-delay:.2s}.eq.on i:nth-child(4){animation-delay:.3s}.eq.on i:nth-child(5){animation-delay:.4s}
+@keyframes eq{50%{height:18px}}
+.barbtns{display:flex;gap:8px;flex:1;justify-content:center}
+.barbtns .btn.on{background:rgba(63,216,255,.3);border-color:var(--cyan)}
+.modal{position:fixed;inset:0;background:rgba(0,8,16,.75);display:none;align-items:center;justify-content:center;z-index:10;padding:16px}
+.modal.show{display:flex}
+.modal .card{width:100%;max-width:400px;background:#0a1d30;max-height:92vh;overflow:auto}
+.sec{color:var(--cyan2);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;margin:18px 0 10px;border-top:1px solid rgba(120,180,220,.15);padding-top:14px}
+.field{margin-bottom:14px}
+.field label{display:block;color:var(--mut);font-size:13px;margin-bottom:6px}
+.field input:not([type=range]):not([type=color]),.field select{width:100%;background:rgba(5,18,32,.8);border:1px solid var(--line);color:var(--txt);border-radius:12px;padding:12px;font:inherit;font-size:15px;outline:none}
+.field input[type=range]{width:100%;accent-color:var(--cyan)}
+.field .val{float:right;color:var(--cyan)}
+.hint{color:var(--mut);font-size:12px;margin-top:5px;line-height:1.4}
+.prow{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.prow .ptxt{flex:1;min-width:150px;font-size:13.5px}
+.fonts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.fopt{background:rgba(5,18,32,.7);border:1px solid var(--line);border-radius:12px;padding:8px 6px 6px;color:var(--clock);cursor:pointer;text-align:center;font:inherit}
+.fopt b{display:block;font-size:26px;line-height:1.15;white-space:nowrap;overflow:hidden}
+.fopt span{display:block;color:var(--mut);font-size:11px;margin-top:4px;font-family:Roboto,system-ui,sans-serif}
+.fopt.sel{border-color:var(--cyan);box-shadow:0 0 10px rgba(63,216,255,.35)}
+.colors{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.sw{width:30px;height:30px;border-radius:50%;border:2px solid transparent;cursor:pointer;padding:0}
+.sw.sel{border-color:#fff}
+.colors input[type=color]{width:38px;height:32px;border:0;background:none;padding:0}
+.mrow{display:flex;gap:8px;justify-content:flex-end;margin-top:6px}
+.toast{position:fixed;left:50%;bottom:100px;transform:translateX(-50%);background:#0d2a40;border:1px solid var(--cyan);padding:10px 16px;border-radius:12px;font-size:14px;opacity:0;transition:opacity .3s;pointer-events:none;z-index:20;max-width:90%}
+.toast.show{opacity:1}
+.citylist{margin-top:8px}
+.citylist button{display:block;width:100%;text-align:left;margin-bottom:6px;border-radius:10px}
+.ctab .dot{background:var(--tc,#3fd8ff);box-shadow:0 0 6px var(--tc,#3fd8ff)}
+.ctab .lbl .lt{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ctab .lbl .lt::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--tc,#3fd8ff);box-shadow:0 0 6px var(--tc,#3fd8ff);margin-right:9px;vertical-align:1px}
+.hb{flex:none;width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:rgba(20,60,90,.35);color:var(--cyan2);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;font-size:15px;line-height:1}
+.hb svg{width:15px;height:15px}
+.hb.del{color:#ff8a8a}
+.lbl .hgrp{display:flex;gap:6px;flex:none}
+.btn.pill.newtab{color:var(--cyan2);border-style:dashed}
+.barin{padding:9px 12px}.barbtns{gap:6px}
+@media (max-width:440px){.bar{padding-left:8px;padding-right:8px}.barin{gap:8px;padding:9px 10px}.eq{width:32px;gap:2px}.eq i{width:3.5px}}
+@media (max-width:370px){.eq{width:26px}.eq i{width:3px}}
+.tcolors{display:flex;gap:10px;flex-wrap:wrap}
+.tcolors .sw{width:32px;height:32px}
+.tcolors .sw.none{background:none;border:2px dashed var(--line);color:var(--mut);font-size:12px}
+.tcolors .sw.sel{border-color:#fff;box-shadow:0 0 8px rgba(255,255,255,.4)}
+.offnote{background:rgba(255,181,71,.12);border:1px solid rgba(255,181,71,.5);color:#ffd9a0;border-radius:14px;padding:10px 14px;font-size:13.5px;line-height:1.45;margin-bottom:14px}
+.offnote a{color:#fff;word-break:break-all}
+.offnote[hidden]{display:none}
+.btn.pill.hist{padding-left:8px;padding-right:8px}
+.btn.pill.hist:disabled{opacity:.35;cursor:default}
+.readall{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:44px;margin:0 0 16px;padding:10px 16px;border:1px solid var(--line);border-radius:18px;background:rgba(20,60,90,.35);color:var(--cyan2);font:inherit;font-size:15px;letter-spacing:.04em;cursor:pointer;box-shadow:inset 0 0 24px rgba(63,216,255,.04)}
+.readall:active{background:rgba(63,216,255,.25)}
+.readall.on{background:rgba(63,216,255,.3);border-color:var(--cyan);box-shadow:0 0 10px rgba(63,216,255,.5)}
+.readall .rai{display:flex;width:18px;height:18px}.readall .rai svg{width:18px;height:18px}
+/* v14 drag & drop: these classes exist only while a press/drag is in progress */
+.jv-press,.jv-press *{-webkit-user-select:none!important;user-select:none!important;-webkit-touch-callout:none!important}
+.jv-dragging,.jv-dragging *{cursor:grabbing!important}
+.task.jv-lift{transform:scale(1.02);transition:transform .12s ease;position:relative;z-index:2}
+.task.jv-hide{display:none}
+.jv-ph{list-style:none;box-sizing:border-box;border:1px dashed rgba(63,216,255,.45);border-radius:10px;background:rgba(63,216,255,.06);margin:2px 0}
+.jv-over>.empty{display:none}
+.card.jv-tgt{border-color:rgba(63,216,255,.55);box-shadow:inset 0 0 24px rgba(63,216,255,.08),0 0 14px rgba(63,216,255,.18)}
+.jv-ghost{position:fixed;left:0;top:0;z-index:9999;margin:0;pointer-events:none;background:#0a1d30;border:1px solid rgba(63,216,255,.5);border-radius:12px;padding:0 12px;box-sizing:border-box;box-shadow:0 10px 28px rgba(0,0,0,.55);opacity:.96;transform-origin:center}
+.jv-ghost .task{border-bottom:0}
+/* v16 urgent separator */
+.jv-sep{list-style:none;display:flex;align-items:center;gap:8px;padding:5px 0;margin:1px 0;user-select:none;-webkit-user-select:none;pointer-events:none}
+.jv-sep span{font-size:9px;letter-spacing:.06em;color:rgba(255,130,130,.65);font-weight:600;flex:none}
+.jv-sep::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(255,107,107,.5),rgba(255,107,107,.12) 70%,transparent);box-shadow:0 0 6px rgba(255,107,107,.3)}
+.task.urgent:not(.done) .dot{background:#ff6b6b!important;box-shadow:0 0 7px rgba(255,107,107,.75)!important}
+/* v18 AI chat */
+.ai-preview,.ai-full{display:flex;flex-direction:column;gap:8px;max-height:180px;overflow:auto;padding:2px 0 6px;scroll-behavior:smooth}
+.ai-full{max-height:none;flex:1;padding:12px 14px 8px}
+.ai-msg{display:flex;flex-direction:column;max-width:92%;position:relative}
+.ai-msg.me{align-self:flex-end;align-items:flex-end}
+.ai-msg.bot{align-self:flex-start;align-items:flex-start}
+.ai-b{padding:9px 12px;border-radius:14px;font-size:14.5px;line-height:1.45;white-space:pre-wrap;word-break:break-word}
+.ai-msg.me .ai-b{background:rgba(63,216,255,.18);border:1px solid rgba(63,216,255,.35);border-bottom-right-radius:4px}
+.ai-msg.bot .ai-b{background:rgba(8,28,48,.9);border:1px solid rgba(120,180,220,.2);border-bottom-left-radius:4px}
+.ai-msg.err .ai-b{border-color:rgba(255,107,107,.45);color:#ffb4b4}
+.ai-src{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;padding:0 2px}
+.ai-src a{font-size:11px;color:var(--cyan);text-decoration:none;border-bottom:1px dotted rgba(63,216,255,.4);max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ai-spk{background:none;border:0;color:var(--mut);padding:2px 4px;cursor:pointer;align-self:flex-start;opacity:.7}
+.ai-spk svg{width:16px;height:16px}
+.ai-spk.on,.ai-spk:hover{color:var(--cyan);opacity:1}
+.ai-nokey{padding:8px 0 4px;color:var(--mut);font-size:14px;line-height:1.45}
+.ai-detail{font-size:11px;color:#8aa0b0;margin-top:3px;padding:0 4px;line-height:1.35;word-break:break-word}
+.ai-status{font-size:12px;color:var(--mut);min-height:16px;margin:2px 0 4px}
+.ai-panel{position:fixed;inset:0;background:#06111f;z-index:30;display:none;flex-direction:column}
+.ai-panel.show{display:flex}
+.ai-phd{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line);flex:none}
+.ai-phd .lt{flex:1;font-weight:700;letter-spacing:.04em}
+.ai-keyrow{display:flex;gap:8px;align-items:center}
+.ai-keyrow input{flex:1;min-width:0}
+#cAi .add{margin-top:8px}
+.chk{display:flex;align-items:center;gap:8px;font-size:14px;cursor:pointer}
+.chk input{width:18px;height:18px}
+</style>
+</head>
+<body>
+<div class="wrap">
+ <header>
+  <div class="brand"><div class="orb" id="orb"></div><div><h1>JARVIS</h1><small>COMMAND CENTER</small></div></div>
+  <div class="right"><div class="clock" id="clock" data-ghost="88.88">--.--</div>
+   <div class="hbtns"><button class="btn pill" id="bSettings">Setări</button><button class="btn pill" id="bShare">Trimite copia</button></div></div>
+ </header>
+
+ <div class="offnote" id="offNote" hidden></div>
+ <section class="card" id="cVoice"><div class="lbl"><span class="lt">Voice status</span><button class="spk" data-read="voice" aria-label="Citește"></button></div>
+  <p class="voice kw" id="greet">…</p>
+  <div class="status" id="vstatus">Agent local. Doar vreme și taskuri.</div>
+  <div class="vprog" id="vprog"><span id="vprogTxt"></span><div class="pb"><i id="vprogBar"></i></div></div></section>
+
+ <section class="card" id="cAi"><div class="lbl"><span class="lt kw">Asistent Jarvis</span><span class="hgrp"><button type="button" class="hb" id="aiExpand" aria-label="Deschide chat">⤢</button></span></div>
+  <div class="ai-nokey" id="aiNokey">Adaugă cheia Gemini în Setări ca să vorbești cu mine.<div style="margin-top:8px"><button type="button" class="btn" id="aiOpenSet">Deschide Setări</button></div></div>
+  <div id="aiChatBox" hidden>
+   <div class="ai-preview" id="aiPreview"></div>
+   <div class="ai-status" id="aiStatus"></div>
+   <form class="add" id="fAi"><input id="iAi" placeholder="Scrie sau dictează…" autocomplete="off" enterkeyhint="send">
+    <button type="button" class="btn mic" id="bAiMic" title="Dictează (sau tastatură)" aria-label="Dictează"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4"/></svg></button>
+    <button class="btn" type="submit">Trimite</button></form>
+  </div></section>
+
+ <section class="card" id="cWx"><div class="lbl"><span class="lt" id="wxlbl">Vremea · Gherla</span><button class="spk" data-read="wx" aria-label="Citește"></button></div>
+  <div class="wx"><div class="wxleft"><div class="wxicon" id="wxicon"></div><div class="wxtemp" id="wxtemp">—°</div></div>
+   <div class="wxright"><div class="wxhi" id="wxhi"></div><div class="wxcond" id="wxcond">Se încarcă…</div><div class="wxfeel" id="wxfeel"></div><div class="wxline" id="wxline"></div><div class="wxmeta" id="wxmeta"></div></div>
+   <div class="wxtxt kw" id="wxtxt" aria-hidden="true"></div></div></section>
+
+ <button type="button" class="readall" id="bReadAll" aria-label="Citește tot"><span class="rai"></span>Citește tot</button>
+
+ <section class="card" id="cAzi"><div class="lbl"><span class="lt kw" id="ltAzi">Taskuri azi</span><button class="spk" data-read="azi" aria-label="Citește"></button></div><ul class="tasks new" id="lAzi"></ul>
+  <form class="add" id="fAdd"><input id="iTask" placeholder="Spune sau scrie un task" autocomplete="off">
+   <button type="button" class="btn mic" id="bMic" title="Dictează (sau tastatură)" aria-label="Dictează"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4"/></svg></button>
+   <button class="btn" type="submit">Adaugă</button></form></section>
+
+ <section class="card" id="cMaine"><div class="lbl"><span class="lt kw" id="ltMaine">Taskuri mâine</span><button class="spk" data-read="maine" aria-label="Citește"></button></div><ul class="tasks old" id="lMaine"></ul>
+  <form class="add" id="fAddM"><input id="iTaskM" placeholder="Spune sau scrie un task" autocomplete="off">
+   <button type="button" class="btn mic" id="bMicM" title="Dictează (sau tastatură)" aria-label="Dictează"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4"/></svg></button>
+   <button class="btn" type="submit">Adaugă</button></form></section>
+
+ <section class="card" id="cShop"><div class="lbl"><span class="lt kw" id="ltShop">Cumpărături</span><button class="spk" data-read="shop" aria-label="Citește"></button></div><ul class="tasks shop" id="lShop"></ul>
+  <form class="add" id="fShop"><input id="iShop" placeholder="Spune sau scrie un produs" autocomplete="off">
+   <button type="button" class="btn mic" id="bMicShop" title="Dictează (sau tastatură)" aria-label="Dictează"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4"/></svg></button>
+   <button class="btn" type="submit">Adaugă</button></form></section>
+ <div id="customCards"></div>
+</div>
+
+<div class="bar"><div class="barin">
+ <div class="eq" id="eq"><i></i><i></i><i></i><i></i><i></i></div>
+ <div class="barbtns"><button class="btn pill hist" id="bUndo" aria-label="Anulează" title="Anulează" disabled>↶</button><button class="btn pill hist" id="bRedo" aria-label="Refă" title="Refă" disabled>↷</button><button class="btn pill newtab" id="bNewTab" aria-label="Tab nou">+ Tab nou</button><button class="btn pill" id="bRead">Citește</button><button class="btn pill" id="bHi">Salut</button></div>
+</div></div>
+
+<div class="modal" id="modal"><div class="card"><div class="lbl"><span>Setări</span></div>
+ <div class="field"><label for="sName">Nume</label><input id="sName"></div>
+ <div class="field"><label for="sCity">Oraș</label><input id="sCity" placeholder="ex. Gherla"><div class="citylist" id="cityList"></div></div>
+
+ <div class="sec">Voce</div>
+ <div class="field"><label for="sEngine">Motor voce</label><select id="sEngine"></select></div>
+ <div class="field" id="fPiper"><div class="prow"><span class="ptxt" id="pState">…</span><button type="button" class="btn" id="pDl">Descarcă</button><button type="button" class="btn" id="pDel">Șterge</button></div>
+  <div class="hint">Se descarcă o singură dată (≈<span id="pMB">88</span> MB) și rămâne salvată în browser pentru folosire offline. <span id="pNote"></span></div></div>
+ <div class="field" id="fTone"><label for="sTone">Ton <span class="val" id="vTone"></span></label><input type="range" id="sTone" min="0.7" max="1.3" step="0.01"><div class="hint">Stânga = voce mai groasă (aceeași viteză).</div></div>
+ <div class="field" id="fVoice"><label for="sVoice">Voce telefon</label><select id="sVoice"></select></div>
+ <div class="field"><label for="sRate">Viteză <span class="val" id="vRate"></span></label><input type="range" id="sRate" min="0.8" max="2" step="0.05"></div>
+ <div class="field" id="fPitch"><label for="sPitch">Ton (doar vocea telefonului) <span class="val" id="vPitch"></span></label><input type="range" id="sPitch" min="0.5" max="1.5" step="0.05"></div>
+ <div class="field"><button type="button" class="btn" id="sTest">Test voce</button></div>
+
+ <div class="sec">Ceas</div>
+ <div class="field"><label>Font</label><div class="fonts" id="fontGrid"></div></div>
+ <div class="field"><label>Culoare</label><div class="colors" id="colorRow"></div></div>
+ <div class="field"><label for="sSize">Mărime <span class="val" id="vSize"></span></label><input type="range" id="sSize" min="30" max="72" step="1"></div>
+
+ <div class="sec" id="aiSec">Asistent AI</div>
+ <div class="field"><label for="sAiKey">Cheie Gemini</label>
+  <div class="ai-keyrow"><input id="sAiKey" type="password" autocomplete="off" spellcheck="false" placeholder="AIza…"><button type="button" class="btn" id="sAiShow">Arată</button></div>
+  <div class="hint" id="sAiKeyState">Nicio cheie salvată.</div></div>
+ <div class="field"><label for="sAiModel">Model</label><select id="sAiModel"></select></div>
+ <div class="field"><label class="chk"><input type="checkbox" id="sAiAuto"> Citește răspunsurile automat</label></div>
+ <div class="field" style="display:flex;gap:8px;flex-wrap:wrap">
+  <button type="button" class="btn" id="sAiSaveKey">Salvează cheia</button>
+  <button type="button" class="btn" id="sAiDelKey">Șterge</button>
+  <button type="button" class="btn" id="sAiTest">Testează</button></div>
+ <div class="hint" id="sAiTestState"></div>
+ <div class="hint">Cheia rămâne doar pe acest telefon. Obține una gratuit de pe <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com/apikey</a>.</div>
+
+ <div id="fInstall"><div class="sec">Aplicație</div>
+ <div class="field"><button type="button" class="btn" id="sInstall">Instalează aplicația</button>
+  <div class="hint" id="installHint">Chrome: meniu ⋮ → „Instalează aplicația” / „Adaugă pe ecranul de pornire”.<br>Brave: meniu ⋮ → „Adaugă pe ecranul de pornire” / „Instalează aplicația”.</div></div></div>
+
+ <div class="mrow"><button class="btn" id="sCancel">Anulează</button><button class="btn" id="sSave">Salvează</button></div>
+</div></div>
+<div class="modal" id="tabModal"><div class="card"><div class="lbl"><span id="tmTitle">Tab nou</span></div>
+ <form id="tmForm"><div class="field"><label for="tmName">Nume (obligatoriu)</label><input id="tmName" maxlength="40" placeholder="ex. Farmacie, Mașină, Idei" autocomplete="off" enterkeyhint="done"></div>
+ <div class="field"><label>Culoare (opțional)</label><div class="tcolors" id="tmColors"></div></div>
+ <div class="mrow"><button type="button" class="btn" id="tmCancel">Anulează</button><button type="submit" class="btn" id="tmSave">Creează</button></div></form>
+</div></div>
+<div class="ai-panel" id="aiPanel" role="dialog" aria-label="Chat Jarvis">
+ <div class="ai-phd"><span class="lt">Asistent Jarvis</span>
+  <button type="button" class="btn pill" id="aiClear">Șterge conversația</button>
+  <button type="button" class="btn pill" id="aiClose" aria-label="Închide">✕</button></div>
+ <div class="ai-full" id="aiFullList"></div>
+ <form class="add" id="fAiFull" style="margin:0;padding:10px 14px calc(10px + env(safe-area-inset-bottom));border-top:1px solid var(--line)">
+  <input id="iAiFull" placeholder="Scrie sau dictează…" autocomplete="off" enterkeyhint="send">
+  <button type="button" class="btn mic" id="bAiMicFull" title="Dictează (sau tastatură)" aria-label="Dictează"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4"/></svg></button>
+  <button class="btn" type="submit">Trimite</button></form>
+</div>
+<div class="toast" id="toast"></div>
