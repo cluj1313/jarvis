@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="JARVIS">
-<meta name="jarvis-version" content="v17-jarvis-blank">
+<meta name="jarvis-version" content="v18-jarvis-blank">
 <script>window.JARVIS_BLANK=true</script>
 <title>JARVIS · Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -186,6 +186,32 @@ ul.tasks{list-style:none;margin:0;padding:0}
 .jv-sep span{font-size:9px;letter-spacing:.06em;color:rgba(255,130,130,.65);font-weight:600;flex:none}
 .jv-sep::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(255,107,107,.5),rgba(255,107,107,.12) 70%,transparent);box-shadow:0 0 6px rgba(255,107,107,.3)}
 .task.urgent:not(.done) .dot{background:#ff6b6b!important;box-shadow:0 0 7px rgba(255,107,107,.75)!important}
+/* v18 AI chat */
+.ai-preview,.ai-full{display:flex;flex-direction:column;gap:8px;max-height:180px;overflow:auto;padding:2px 0 6px;scroll-behavior:smooth}
+.ai-full{max-height:none;flex:1;padding:12px 14px 8px}
+.ai-msg{display:flex;flex-direction:column;max-width:92%;position:relative}
+.ai-msg.me{align-self:flex-end;align-items:flex-end}
+.ai-msg.bot{align-self:flex-start;align-items:flex-start}
+.ai-b{padding:9px 12px;border-radius:14px;font-size:14.5px;line-height:1.45;white-space:pre-wrap;word-break:break-word}
+.ai-msg.me .ai-b{background:rgba(63,216,255,.18);border:1px solid rgba(63,216,255,.35);border-bottom-right-radius:4px}
+.ai-msg.bot .ai-b{background:rgba(8,28,48,.9);border:1px solid rgba(120,180,220,.2);border-bottom-left-radius:4px}
+.ai-msg.err .ai-b{border-color:rgba(255,107,107,.45);color:#ffb4b4}
+.ai-src{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;padding:0 2px}
+.ai-src a{font-size:11px;color:var(--cyan);text-decoration:none;border-bottom:1px dotted rgba(63,216,255,.4);max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ai-spk{background:none;border:0;color:var(--mut);padding:2px 4px;cursor:pointer;align-self:flex-start;opacity:.7}
+.ai-spk svg{width:16px;height:16px}
+.ai-spk.on,.ai-spk:hover{color:var(--cyan);opacity:1}
+.ai-nokey{padding:8px 0 4px;color:var(--mut);font-size:14px;line-height:1.45}
+.ai-status{font-size:12px;color:var(--mut);min-height:16px;margin:2px 0 4px}
+.ai-panel{position:fixed;inset:0;background:#06111f;z-index:30;display:none;flex-direction:column}
+.ai-panel.show{display:flex}
+.ai-phd{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line);flex:none}
+.ai-phd .lt{flex:1;font-weight:700;letter-spacing:.04em}
+.ai-keyrow{display:flex;gap:8px;align-items:center}
+.ai-keyrow input{flex:1;min-width:0}
+#cAi .add{margin-top:8px}
+.chk{display:flex;align-items:center;gap:8px;font-size:14px;cursor:pointer}
+.chk input{width:18px;height:18px}
 </style>
 </head>
 <body>
@@ -201,6 +227,16 @@ ul.tasks{list-style:none;margin:0;padding:0}
   <p class="voice kw" id="greet">…</p>
   <div class="status" id="vstatus">Agent local. Doar vreme și taskuri.</div>
   <div class="vprog" id="vprog"><span id="vprogTxt"></span><div class="pb"><i id="vprogBar"></i></div></div></section>
+
+ <section class="card" id="cAi"><div class="lbl"><span class="lt kw">Asistent Jarvis</span><span class="hgrp"><button type="button" class="hb" id="aiExpand" aria-label="Deschide chat">⤢</button></span></div>
+  <div class="ai-nokey" id="aiNokey">Adaugă cheia Gemini în Setări ca să vorbești cu mine.<div style="margin-top:8px"><button type="button" class="btn" id="aiOpenSet">Deschide Setări</button></div></div>
+  <div id="aiChatBox" hidden>
+   <div class="ai-preview" id="aiPreview"></div>
+   <div class="ai-status" id="aiStatus"></div>
+   <form class="add" id="fAi"><input id="iAi" placeholder="Scrie sau dictează…" autocomplete="off" enterkeyhint="send">
+    <button type="button" class="btn mic" id="bAiMic" title="Scrie sau dictează cu tastatura" aria-label="Deschide tastatura"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4"/></svg></button>
+    <button class="btn" type="submit">Trimite</button></form>
+  </div></section>
 
  <section class="card" id="cWx"><div class="lbl"><span class="lt" id="wxlbl">Vremea · Gherla</span><button class="spk" data-read="wx" aria-label="Citește"></button></div>
   <div class="wx"><div class="wxleft"><div class="wxicon" id="wxicon"></div><div class="wxtemp" id="wxtemp">—°</div></div>
@@ -250,6 +286,19 @@ ul.tasks{list-style:none;margin:0;padding:0}
  <div class="field"><label>Culoare</label><div class="colors" id="colorRow"></div></div>
  <div class="field"><label for="sSize">Mărime <span class="val" id="vSize"></span></label><input type="range" id="sSize" min="30" max="72" step="1"></div>
 
+ <div class="sec" id="aiSec">Asistent AI</div>
+ <div class="field"><label for="sAiKey">Cheie Gemini</label>
+  <div class="ai-keyrow"><input id="sAiKey" type="password" autocomplete="off" spellcheck="false" placeholder="AIza…"><button type="button" class="btn" id="sAiShow">Arată</button></div>
+  <div class="hint" id="sAiKeyState">Nicio cheie salvată.</div></div>
+ <div class="field"><label for="sAiModel">Model</label><select id="sAiModel"></select></div>
+ <div class="field"><label class="chk"><input type="checkbox" id="sAiAuto"> Citește răspunsurile automat</label></div>
+ <div class="field" style="display:flex;gap:8px;flex-wrap:wrap">
+  <button type="button" class="btn" id="sAiSaveKey">Salvează cheia</button>
+  <button type="button" class="btn" id="sAiDelKey">Șterge</button>
+  <button type="button" class="btn" id="sAiTest">Testează</button></div>
+ <div class="hint" id="sAiTestState"></div>
+ <div class="hint">Cheia rămâne doar pe acest telefon. Obține una gratuit de pe <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com/apikey</a>.</div>
+
  <div id="fInstall"><div class="sec">Aplicație</div>
  <div class="field"><button type="button" class="btn" id="sInstall">Instalează aplicația</button>
   <div class="hint" id="installHint">Chrome: meniu ⋮ → „Instalează aplicația” / „Adaugă pe ecranul de pornire”.<br>Brave: meniu ⋮ → „Adaugă pe ecranul de pornire” / „Instalează aplicația”.</div></div></div>
@@ -261,6 +310,16 @@ ul.tasks{list-style:none;margin:0;padding:0}
  <div class="field"><label>Culoare (opțional)</label><div class="tcolors" id="tmColors"></div></div>
  <div class="mrow"><button type="button" class="btn" id="tmCancel">Anulează</button><button type="submit" class="btn" id="tmSave">Creează</button></div></form>
 </div></div>
+<div class="ai-panel" id="aiPanel" role="dialog" aria-label="Chat Jarvis">
+ <div class="ai-phd"><span class="lt">Asistent Jarvis</span>
+  <button type="button" class="btn pill" id="aiClear">Șterge conversația</button>
+  <button type="button" class="btn pill" id="aiClose" aria-label="Închide">✕</button></div>
+ <div class="ai-full" id="aiFullList"></div>
+ <form class="add" id="fAiFull" style="margin:0;padding:10px 14px calc(10px + env(safe-area-inset-bottom));border-top:1px solid var(--line)">
+  <input id="iAiFull" placeholder="Scrie sau dictează…" autocomplete="off" enterkeyhint="send">
+  <button type="button" class="btn mic" id="bAiMicFull" aria-label="Deschide tastatura"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4"/></svg></button>
+  <button class="btn" type="submit">Trimite</button></form>
+</div>
 <div class="toast" id="toast"></div>
 <script>
 /* ===== Neural TTS in-browser (no API keys): Piper Mihai only. onnxruntime-web 1.18 WASM.
@@ -1080,6 +1139,164 @@ window.JARVIS={readCard:readCard,stop:stopSpeaking,say:say,get speaking(){return
 var dm=location.hash.match(/demo-karaoke(?:=(\d+))?/);
 if(dm)loadWx().then(function(){speaking=true;speakKey='wx';updEq();setStatus('Vorbesc (Mihai)…');var s=prepSeg($('wxtxt'),wxSentence(wx));setTimeout(function(){hl(s,+(dm[1]||6))},80)});
 if(/demo-settings/.test(location.hash))setTimeout(function(){$('bSettings').click()},300);
+
+/* ---------- AI assistant (Gemini) — key only in localStorage, never in repo ---------- */
+var AI_MODELS=[
+ {id:'gemini-2.5-flash',label:'Gemini 2.5 Flash (recomandat)'},
+ {id:'gemini-2.5-flash-lite',label:'Gemini 2.5 Flash-Lite'},
+ {id:'gemini-2.0-flash',label:'Gemini 2.0 Flash'},
+ {id:'gemini-flash-latest',label:'Flash latest'}
+];
+var AI_MAX=100,aiBusy=false,aiKey=LS.get('jv_gkey','')||'',aiModel=LS.get('jv_gmodel',AI_MODELS[0].id)||AI_MODELS[0].id,aiAuto=!!LS.get('jv_gauto',false);
+var chat=LS.get('jv_chat',[]);if(!Array.isArray(chat))chat=[];
+function saveChat(){if(chat.length>AI_MAX)chat=chat.slice(-AI_MAX);LS.set('jv_chat',chat)}
+function saveAiKey(k){aiKey=k||'';if(aiKey)LS.set('jv_gkey',aiKey);else try{localStorage.removeItem(PFX+'jv_gkey')}catch(e){}}
+function aiHasKey(){return !!(aiKey&&String(aiKey).trim())}
+function aiNowRO(){var d=new Date();try{return d.toLocaleString('ro-RO',{timeZone:cfg.tz||'Europe/Bucharest',weekday:'long',year:'numeric',month:'long',day:'numeric',hour:'2-digit',minute:'2-digit'})}catch(e){return d.toISOString()}}
+function aiCtxLists(){var L=[],tk=dkey();
+ listFor('azi').forEach(function(t){L.push('- [azi'+(t.urgent?' URGENT':'')+(t.done?' DONE':'')+'] '+t.text)});
+ listFor('maine').forEach(function(t){L.push('- [maine'+(t.urgent?' URGENT':'')+(t.done?' DONE':'')+'] '+t.text)});
+ shopList().forEach(function(s){L.push('- [cumpărături'+(s.urgent?' URGENT':'')+(s.bought?' LUAT':'')+'] '+s.text)});
+ visTabs().forEach(function(tab){tabList(tab).forEach(function(it){L.push('- [tab:'+tab.name+(it.urgent?' URGENT':'')+(it.done?' DONE':'')+'] '+it.text)})});
+ return L.length?L.join('\n'):'(liste goale)'}
+function aiSystem(){return 'Ești Jarvis, asistentul personal al lui '+(cfg.name||'utilizator')+'. Răspunzi concis, prietenos, în română. Data/ora curentă: '+aiNowRO()+' (Europe/Bucharest). Oraș: '+(cfg.city||'?')+'.\n'+
+ 'Poți folosi uneltele pentru a adăuga taskuri, cumpărături, elemente în taburi, a bifa elemente și a citi vremea locală.\n'+
+ 'Listele curente:\n'+aiCtxLists()+'\n'+
+ 'Când adaugi ceva, confirmă scurt: „Am pus «…» la …”. Nu inventa acțiuni pe care nu le-ai făcut prin unelte.'}
+var AI_FUNCS=[{name:'add_task',description:'Adaugă un task la Taskuri azi sau Taskuri mâine',parameters:{type:'OBJECT',properties:{text:{type:'STRING'},day:{type:'STRING',enum:['azi','maine']},urgent:{type:'BOOLEAN'}},required:['text','day']}},
+ {name:'add_shopping',description:'Adaugă produse la lista de cumpărături',parameters:{type:'OBJECT',properties:{items:{type:'ARRAY',items:{type:'STRING'}}},required:['items']}},
+ {name:'add_to_tab',description:'Adaugă un element într-un tab personalizat (după nume)',parameters:{type:'OBJECT',properties:{tab_name:{type:'STRING'},text:{type:'STRING'}},required:['tab_name','text']}},
+ {name:'complete_item',description:'Bifează ca făcut/cumpărat un element după potrivire de text',parameters:{type:'OBJECT',properties:{list:{type:'STRING',description:'azi, maine, shop, sau tab:<nume>'},text_match:{type:'STRING'}},required:['list','text_match']}},
+ {name:'get_weather',description:'Returnează vremea curentă din aplicație pentru orașul configurat',parameters:{type:'OBJECT',properties:{}} }];
+function aiNorm(s){return String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/\s+/g,' ').trim()}
+function aiFindTab(name){var n=aiNorm(name),best=null,vis=visTabs();
+ for(var i=0;i<vis.length;i++){if(aiNorm(vis[i].name)===n)return vis[i];if(!best&&aiNorm(vis[i].name).indexOf(n)>=0)best=vis[i]}
+ return best}
+function aiRunFn(name,args){args=args||{};
+ try{
+  if(name==='add_task'){var t=(args.text||'').trim();if(!t)return{ok:false,msg:'Text lipsă'};var which=args.day==='maine'?'maine':'azi';
+   addTask(t,which);var last=tasks[tasks.length-1];if(last&&args.urgent){last.urgent=true;last.ord=0;last.ordK=which+':u';save();renderTasks()}
+   return{ok:true,msg:'Am pus «'+t+'» la Taskuri '+(which==='maine'?'mâine':'azi')+(args.urgent?' (urgent)':'')+'.'}}
+  if(name==='add_shopping'){var items=args.items||[];if(typeof items==='string')items=[items];var added=[];
+   items.forEach(function(it){if(addShop(it))added.push(String(it).trim())});
+   return{ok:!!added.length,msg:added.length?'Am adăugat la Cumpărături: '+added.map(function(x){return '«'+x+'»'}).join(', ')+'.':'Nimic de adăugat.'}}
+  if(name==='add_to_tab'){var tab=aiFindTab(args.tab_name);if(!tab)return{ok:false,msg:'Nu am găsit tabul «'+(args.tab_name||'')+'».'};
+   if(!addTI(tab,args.text))return{ok:false,msg:'Text invalid'};return{ok:true,msg:'Am pus «'+String(args.text).trim()+'» în «'+tab.name+'».'}}
+  if(name==='complete_item'){var list=String(args.list||'').toLowerCase(),m=aiNorm(args.text_match),hit=null;
+   function score(txt){var n=aiNorm(txt);if(n===m)return 3;if(n.indexOf(m)>=0||m.indexOf(n)>=0)return 2;return 0}
+   if(list==='shop'||list==='cumparaturi'||list==='cumpărături'){shopList().forEach(function(s){var sc=score(s.text);if(sc&&(!hit||sc>hit.sc))hit={sc:sc,run:function(){if(!s.bought){s.bought=true;s.boughtDate=dkey();s.boughtAt=new Date().toISOString();saveShop();renderShop()}},txt:s.text}})}
+   else if(list.indexOf('tab:')===0){var tb=aiFindTab(list.slice(4));if(tb)tabList(tb).forEach(function(it){var sc=score(it.text);if(sc&&(!hit||sc>hit.sc))hit={sc:sc,run:function(){if(!it.done){it.done=true;it.doneDate=dkey();it.doneAt=new Date().toISOString();saveTabs();renderTabItems(tb)}},txt:it.text}})}
+   else{var which=list==='maine'?'maine':'azi';listFor(which).forEach(function(t){var sc=score(t.text);if(sc&&(!hit||sc>hit.sc))hit={sc:sc,run:function(){if(!t.done){t.done=true;t.doneDate=dkey();t.doneAt=new Date().toISOString();save();renderTasks()}},txt:t.text}})}
+   if(!hit)return{ok:false,msg:'Nu am găsit «'+(args.text_match||'')+'».'};hit.run();return{ok:true,msg:'Am bifat «'+hit.txt+'».'}}
+  if(name==='get_weather'){return{ok:true,msg:wx?wxSentence(wx):'Nu am încă date despre vreme.'}}
+  return{ok:false,msg:'Unealtă necunoscută: '+name}
+ }catch(e){return{ok:false,msg:'Eroare: '+(e&&e.message||e)}}
+}
+function aiNeedSearch(text){return /(caut[aă]|pe net|google|știri|stiri|cine a|c[aâ]nd (e|are)|(ce|care) (e|este) |preț|pret|curs(ul)? (valutar|euro|dolar)|rezultat|ultimele noutăți| pe web)/i.test(text||'')}
+function aiEndpoint(model){return 'https://generativelanguage.googleapis.com/v1beta/models/'+encodeURIComponent(model)+':generateContent'}
+function aiFetch(model,body){return fetch(aiEndpoint(model),{method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':aiKey},body:JSON.stringify(body)}).then(function(r){
+ return r.json().then(function(j){return{ok:r.ok,status:r.status,json:j}}).catch(function(){return{ok:r.ok,status:r.status,json:null}})})}
+function aiErrMsg(status,j){var m=(j&&(j.error&&j.error.message))||'';
+ if(status===401||status===403||/API key|PERMISSION|invalid/i.test(m))return 'Cheia Gemini pare invalidă. Verific-o în Setări.';
+ if(status===429||/quota|rate/i.test(m))return 'Ai atins limita gratuită Gemini (prea multe cereri). Încearcă mai târziu.';
+ if(status===404||/not found|NOT_FOUND/i.test(m))return 'Modelul nu e disponibil. Alege alt model în Setări.';
+ if(!navigator.onLine)return 'Fără internet — nu pot vorbi cu Gemini acum.';
+ return m?('Gemini: '+m):('Eroare Gemini ('+status+').')}
+function aiPartsText(parts){if(!parts)return'';return parts.map(function(p){return p.text||''}).filter(Boolean).join('\n').trim()}
+function aiGroundLinks(cand){var gm=cand&&(cand.groundingMetadata||cand.grounding_metadata);if(!gm)return[];
+ var out=[],seen={},chunks=gm.groundingChunks||gm.grounding_chunks||[];
+ chunks.forEach(function(c){var w=c.web||{};var u=w.uri||w.url,t=w.title||u;if(u&&!seen[u]){seen[u]=1;out.push({title:t||u,url:u})}});
+ return out}
+function aiExtractFns(parts){var fns=[];(parts||[]).forEach(function(p){var fc=p.functionCall||p.function_call;if(fc){
+  var args=fc.args;if(typeof args==='string')try{args=JSON.parse(args)}catch(e){args={}}
+  fns.push({name:fc.name,args:args||{}})}});return fns}
+function aiHistContents(limit){limit=limit||12;var slice=chat.filter(function(m){return m.role==='user'||m.role==='model'}).slice(-limit);
+ return slice.map(function(m){return{role:m.role==='model'?'model':'user',parts:[{text:m.text||''}]}})}
+function aiCallOnce(tools,extraContents){var body={system_instruction:{parts:[{text:aiSystem()}]},contents:(extraContents||aiHistContents()),tools:tools,generationConfig:{temperature:.6,maxOutputTokens:1024}};
+ return aiFetch(aiModel,body).then(function(res){
+  if(res.status===404){var alt=AI_MODELS.map(function(m){return m.id}).filter(function(id){return id!==aiModel});
+   if(alt.length){aiModel=alt[0];LS.set('jv_gmodel',aiModel);return aiFetch(aiModel,body)} }
+  return res})}
+function aiSend(userText){if(aiBusy)return Promise.resolve();userText=(userText||'').trim();if(!userText)return Promise.resolve();
+ if(!aiHasKey()){aiShowNokey();return Promise.resolve()}
+ chat.push({role:'user',text:userText,ts:Date.now()});saveChat();aiRender();aiBusy=true;aiSetStatus('Jarvis se gândește…');
+ var useSearch=aiNeedSearch(userText);
+ var tools=useSearch?[{google_search:{}}]:[{function_declarations:AI_FUNCS}];
+ return aiCallOnce(tools).then(function handle(res){
+  if(!res.ok){var msg=aiErrMsg(res.status,res.json);chat.push({role:'model',text:msg,err:true,ts:Date.now()});saveChat();aiRender();throw 0}
+  var cand=(res.json&&res.json.candidates&&res.json.candidates[0])||{};
+  var parts=(cand.content&&cand.content.parts)||[];
+  var fns=aiExtractFns(parts);
+  if(fns.length){
+   var notes=[],frParts=[];
+   fns.forEach(function(fn){var r=aiRunFn(fn.name,fn.args);notes.push(r.msg);frParts.push({functionResponse:{name:fn.name,response:r}})});
+   var contents=aiHistContents(10);contents.push({role:'model',parts:parts});contents.push({role:'user',parts:frParts});
+   return aiCallOnce([{function_declarations:AI_FUNCS}],contents).then(function(res2){
+    if(!res2.ok){chat.push({role:'model',text:notes.join(' '),ts:Date.now()});saveChat();aiRender();return}
+    var c2=(res2.json.candidates&&res2.json.candidates[0])||{};
+    var txt=aiPartsText(c2.content&&c2.content.parts)||notes.join(' ');
+    var links=aiGroundLinks(c2);
+    chat.push({role:'model',text:txt,links:links,ts:Date.now()});saveChat();aiRender();if(aiAuto)aiSpeakLast()})}
+  else{
+   var txt=aiPartsText(parts);var links=aiGroundLinks(cand);
+   if(!txt)txt='Nu am un răspuns clar acum.';
+   chat.push({role:'model',text:txt,links:links,ts:Date.now()});saveChat();aiRender();if(aiAuto)aiSpeakLast()}
+ }).catch(function(e){if(e!==0){chat.push({role:'model',text:!navigator.onLine?'Fără internet — nu pot vorbi cu Gemini acum.':'Nu am putut contacta Gemini.',err:true,ts:Date.now()});saveChat();aiRender()}}).then(function(){aiBusy=false;aiSetStatus('')})}
+function aiSetStatus(t){var el=$('aiStatus');if(el)el.textContent=t||''}
+function aiSpeakLast(){for(var i=chat.length-1;i>=0;i--)if(chat[i].role==='model'&&!chat[i].err){var el=document.querySelector('.ai-msg[data-i="'+i+'"] .ai-b');if(!el)el=$('aiFullList')&&$('aiFullList').querySelector('.ai-msg[data-i="'+i+'"] .ai-b');
+  if(speaking&&speakKey==='ai:'+i){stopSpeaking();return}return speak([prepSeg(el,chat[i].text)],'ai:'+i)} }
+function aiBubble(m,i){var div=document.createElement('div');div.className='ai-msg '+(m.role==='user'?'me':'bot')+(m.err?' err':'');div.dataset.i=i;
+ var b=document.createElement('div');b.className='ai-b kw';b.textContent=m.text||'';div.appendChild(b);
+ if(m.links&&m.links.length){var s=document.createElement('div');s.className='ai-src';m.links.slice(0,5).forEach(function(l){var a=document.createElement('a');a.href=l.url;a.target='_blank';a.rel='noopener';a.textContent=l.title||l.url;s.appendChild(a)});div.appendChild(s)}
+ if(m.role==='model'&&!m.err){var sp=document.createElement('button');sp.type='button';sp.className='ai-spk';sp.setAttribute('aria-label','Citește');sp.innerHTML=SPK_SVG;sp.onclick=function(e){e.stopPropagation();
+  if(speaking&&speakKey==='ai:'+i){stopSpeaking();return}speak([prepSeg(b,m.text)],'ai:'+i)};div.appendChild(sp)}
+ return div}
+function aiRender(){var prev=$('aiPreview'),full=$('aiFullList'),nok=$('aiNokey'),box=$('aiChatBox');
+ if(!aiHasKey()){if(nok)nok.hidden=false;if(box)box.hidden=true;if(prev)prev.innerHTML='';if(full)full.innerHTML='';return}
+ if(nok)nok.hidden=true;if(box)box.hidden=false;
+ function fill(el,n){if(!el)return;el.innerHTML='';var start=Math.max(0,chat.length-n);for(var i=start;i<chat.length;i++)el.appendChild(aiBubble(chat[i],i));el.scrollTop=el.scrollHeight}
+ fill(prev,4);fill(full,AI_MAX)}
+function aiShowNokey(){aiRender();toast('Adaugă cheia Gemini în Setări')}
+function aiOpenSettings(){$('bSettings').click();setTimeout(function(){var s=$('aiSec');if(s)s.scrollIntoView({block:'nearest'})},50)}
+function aiFillModels(){var sel=$('sAiModel');if(!sel)return;sel.innerHTML='';AI_MODELS.forEach(function(m){var o=document.createElement('option');o.value=m.id;o.textContent=m.label;sel.appendChild(o)});sel.value=aiModel;if(sel.value!==aiModel)sel.value=AI_MODELS[0].id}
+function aiLoadSettings(){aiFillModels();var inp=$('sAiKey');if(inp)inp.value=aiKey||'';inp.type='password';
+ var t=$('sAiShow');if(t)t.textContent='Arată';var a=$('sAiAuto');if(a)a.checked=aiAuto;var st=$('sAiKeyState');if(st)st.textContent=aiHasKey()?'Cheie salvată pe acest telefon.':'Nicio cheie salvată.'}
+function aiTestKey(){if(!aiHasKey()&&$('sAiKey')){var v=$('sAiKey').value.trim();if(v){aiKey=v}}
+ if(!aiHasKey()){toast('Lipsește cheia');return}
+ var st=$('sAiTestState');if(st)st.textContent='Testez…';
+ var body={contents:[{role:'user',parts:[{text:'Răspunde doar cu: OK'}]}],generationConfig:{maxOutputTokens:8,temperature:0}};
+ aiFetch(aiModel,body).then(function(res){
+  if(res.status===404){var next=AI_MODELS.map(function(m){return m.id}).filter(function(id){return id!==aiModel})[0];
+   if(next){aiModel=next;LS.set('jv_gmodel',aiModel);aiFillModels();return aiFetch(aiModel,body)}}
+  return res}).then(function(res){
+  if(!res||!res.ok){if(st)st.textContent=aiErrMsg(res&&res.status,res&&res.json);toast('Test eșuat');return}
+  var t=aiPartsText((((res.json.candidates||[])[0]||{}).content||{}).parts);if(st)st.textContent='OK — '+aiModel+(t?' („'+t.slice(0,40)+'”)':'');toast('Cheia funcționează')
+ }).catch(function(){if(st)st.textContent='Fără internet sau eroare de rețea';toast('Test eșuat')})}
+/* wire UI */
+(function(){
+ var form=$('fAi');if(form)form.addEventListener('submit',function(e){e.preventDefault();var i=$('iAi');aiSend(i.value).then(function(){i.value=''})});
+ var fm=$('fAiFull');if(fm)fm.addEventListener('submit',function(e){e.preventDefault();var i=$('iAiFull');aiSend(i.value).then(function(){i.value='';$('iAi').value=''})});
+ if($('bAiMic'))$('bAiMic').onclick=function(){var i=$('iAi');i.focus();try{i.click()}catch(e){}};
+ if($('bAiMicFull'))$('bAiMicFull').onclick=function(){var i=$('iAiFull');i.focus();try{i.click()}catch(e){}};
+ if($('aiExpand'))$('aiExpand').onclick=function(){$('aiPanel').classList.add('show');aiRender()};
+ if($('aiClose'))$('aiClose').onclick=function(){$('aiPanel').classList.remove('show')};
+ if($('aiPanel'))$('aiPanel').addEventListener('click',function(e){if(e.target===this)$('aiPanel').classList.remove('show')});
+ if($('aiClear'))$('aiClear').onclick=function(){if(!confirm('Ștergi conversația?'))return;chat=[];saveChat();aiRender();toast('Conversație ștearsă')};
+ if($('aiOpenSet'))$('aiOpenSet').onclick=aiOpenSettings;
+ if($('sAiShow'))$('sAiShow').onclick=function(){var i=$('sAiKey');if(!i)return;var show=i.type==='password';i.type=show?'text':'password';this.textContent=show?'Ascunde':'Arată'};
+ if($('sAiSaveKey'))$('sAiSaveKey').onclick=function(){var v=$('sAiKey').value.trim();saveAiKey(v);LS.set('jv_gmodel',$('sAiModel').value||aiModel);aiModel=$('sAiModel').value||aiModel;aiAuto=!!$('sAiAuto').checked;LS.set('jv_gauto',aiAuto);aiLoadSettings();aiRender();toast(v?'Cheie salvată':'Cheie ștearsă')};
+ if($('sAiDelKey'))$('sAiDelKey').onclick=function(){if(!confirm('Ștergi cheia Gemini de pe acest telefon?'))return;$('sAiKey').value='';saveAiKey('');aiLoadSettings();aiRender();toast('Cheie ștearsă')};
+ if($('sAiTest'))$('sAiTest').onclick=function(){var v=$('sAiKey').value.trim();if(v)aiKey=v;aiModel=$('sAiModel').value||aiModel;aiTestKey()};
+ var _bs=$('bSettings').onclick;
+ $('bSettings').onclick=function(){_bs();aiLoadSettings()};
+ var _sv=$('sSave').onclick;
+ $('sSave').onclick=function(){var v=$('sAiKey')&&$('sAiKey').value.trim();if(v!==undefined){if(v)saveAiKey(v);aiModel=$('sAiModel').value||aiModel;LS.set('jv_gmodel',aiModel);aiAuto=!!$('sAiAuto').checked;LS.set('jv_gauto',aiAuto)}
+  _sv();aiRender()};
+ aiRender();
+ /* expose for tests */
+ window.JARVIS_AI={send:aiSend,runFn:aiRunFn,render:aiRender,hasKey:aiHasKey,setKey:saveAiKey,get chat(){return chat},setChat:function(c){chat=c;saveChat()},needSearch:aiNeedSearch,models:AI_MODELS,funcs:AI_FUNCS,system:aiSystem,buildBody:function(tools){return{system_instruction:{parts:[{text:aiSystem()}]},contents:aiHistContents(),tools:tools||[{function_declarations:AI_FUNCS}]}}};
+})();
+
 })();
 </script>
 </body>
