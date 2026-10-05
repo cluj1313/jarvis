@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="JARVIS">
-<meta name="jarvis-version" content="v21-jarvis-blank">
+<meta name="jarvis-version" content="v22-jarvis-blank">
 <script>window.JARVIS_BLANK=true</script>
 <title>JARVIS · Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -191,6 +191,20 @@ ul.tasks{list-style:none;margin:0;padding:0}
 .jv-sep span{font-size:9px;letter-spacing:.06em;color:rgba(255,130,130,.65);font-weight:600;flex:none}
 .jv-sep::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(255,107,107,.5),rgba(255,107,107,.12) 70%,transparent);box-shadow:0 0 6px rgba(255,107,107,.3)}
 .task.urgent:not(.done) .dot{background:#ff6b6b!important;box-shadow:0 0 7px rgba(255,107,107,.75)!important}
+
+/* v22 AI news RSS */
+#cNews .lbl{margin-bottom:6px}
+.news-meta{font-size:11px;color:#6f8798;margin:-2px 0 8px}
+.news-src{margin:0 0 4px}
+.news-src+.news-src{margin-top:12px;padding-top:12px;border-top:1px solid rgba(120,160,190,.22)}
+.news-ch{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#e8f4ff;margin:0 0 8px;line-height:1.25}
+.news-item{display:block;text-decoration:none;color:inherit;padding:7px 2px;border-radius:8px;margin:0 -2px}
+.news-item:active,.news-item:hover{background:rgba(63,216,255,.06)}
+.news-item+.news-item{border-top:1px solid rgba(100,140,170,.12)}
+.news-t{font-size:14px;font-weight:600;line-height:1.3;color:#9eb8cc;margin:0 0 3px}
+.news-s{font-size:12.5px;line-height:1.35;color:#7a94a8;margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.news-when{font-size:11px;color:#5e7588;margin-top:3px}
+.news-empty{color:var(--mut);font-size:13.5px;padding:4px 0}
 </style>
 </head>
 <body>
@@ -230,6 +244,10 @@ ul.tasks{list-style:none;margin:0;padding:0}
    <button type="button" class="btn mic" id="bMicShop" title="Dictează (sau tastatură)" aria-label="Dictează"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4"/></svg></button>
    <button class="btn" type="submit">Adaugă</button></form></section>
  <div id="customCards"></div>
+ <section class="card" id="cNews"><div class="lbl"><span class="lt">Știri AI</span></div>
+  <div class="news-meta" id="newsMeta">Se încarcă…</div>
+  <div id="newsBody"><div class="news-empty">Se încarcă știrile…</div></div>
+ </section>
 </div>
 
 <div class="bar"><div class="barin">
@@ -1090,9 +1108,40 @@ $('bShare').onclick=function(){var url=blankURL(),text='JARVIS Command Center �
 if(wx&&wx.city!==cfg.city)wx=null;
 (function(){if(!TTS.opaque)return;var u='https://cluj1313.github.io/jarvis/'+(BLANK?'blank.html':''),n=$('offNote');if(!n)return;
  n.innerHTML='Pentru cea mai bună experiență deschide <a href="'+u+'" target="_blank" rel="noopener">'+u.replace('https://','')+'</a> (vocea rămâne salvată, merge și offline).';n.hidden=false})();
-renderTasks();renderShop();renderTabs();hCur=snap();histBtns();renderWx();tick();setInterval(tick,1000);
+
+/* ---------- AI news (news.json from GitHub Actions; same-origin) ---------- */
+var newsData=LS.get('jv_news',null);
+function newsRelTime(iso){if(!iso)return'';
+ var t=Date.parse(iso);if(!isFinite(t))return'';
+ var s=Math.max(0,Math.round((Date.now()-t)/1000));
+ if(s<60)return'acum';if(s<3600)return Math.floor(s/60)+' min';if(s<86400)return Math.floor(s/3600)+' h';
+ var d=Math.floor(s/86400);return d===1?'1 zi':d+' zile'}
+function newsFmtUpdated(iso){var t=iso?new Date(iso):null;if(!t||!isFinite(t.getTime()))t=new Date();
+ return 'Actualizat la '+pad(t.getHours())+':'+pad(t.getMinutes())}
+function renderNews(){var body=$('newsBody'),meta=$('newsMeta');if(!body)return;
+ if(!newsData||!newsData.sources||!newsData.sources.length){
+  if(meta)meta.textContent='Fără știri încă';body.innerHTML='<div class="news-empty">Știrile AI apar aici când news.json e disponibil.</div>';return}
+ if(meta)meta.textContent=newsFmtUpdated(newsData.updated)+(newsData.stale?' (offline)':'');
+ body.innerHTML='';
+ newsData.sources.forEach(function(src){
+  var sec=document.createElement('div');sec.className='news-src';
+  var h=document.createElement('div');h.className='news-ch';h.textContent=(src.name||src.id||'Canal').toUpperCase();sec.appendChild(h);
+  (src.items||[]).forEach(function(it){
+   var a=document.createElement('a');a.className='news-item';a.href=it.url;a.target='_blank';a.rel='noopener noreferrer';
+   var t=document.createElement('div');t.className='news-t';t.textContent=it.title||'';a.appendChild(t);
+   if(it.snippet){var s=document.createElement('div');s.className='news-s';s.textContent=it.snippet;a.appendChild(s)}
+   var w=newsRelTime(it.published);if(w){var m=document.createElement('div');m.className='news-when';m.textContent=w;a.appendChild(m)}
+   sec.appendChild(a)});
+  body.appendChild(sec)})}
+function loadNews(){return fetch('news.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()}).then(function(j){
+  if(!j||!j.sources)throw new Error('bad news.json');
+  newsData={updated:j.updated,sources:j.sources,stale:false};LS.set('jv_news',newsData);renderNews()
+ }).catch(function(){if(newsData){newsData.stale=true;renderNews()}else{renderNews()}})}
+
+renderTasks();renderShop();renderTabs();hCur=snap();histBtns();renderWx();renderNews();tick();setInterval(tick,1000);
 loadWx();setInterval(loadWx,15*60*1000);
-document.addEventListener('visibilitychange',function(){if(!document.hidden&&(!wx||Date.now()-wx.ts>15*60*1000))loadWx()});
+loadNews();setInterval(loadNews,30*60*1000);
+document.addEventListener('visibilitychange',function(){if(!document.hidden){if(!wx||Date.now()-wx.ts>15*60*1000)loadWx();loadNews()}});
 bootVoice();
 
 /* test/preview hooks */

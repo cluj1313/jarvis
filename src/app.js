@@ -675,9 +675,40 @@ $('bShare').onclick=function(){var url=blankURL(),text='JARVIS Command Center �
 if(wx&&wx.city!==cfg.city)wx=null;
 (function(){if(!TTS.opaque)return;var u='https://cluj1313.github.io/jarvis/'+(BLANK?'blank.html':''),n=$('offNote');if(!n)return;
  n.innerHTML='Pentru cea mai bună experiență deschide <a href="'+u+'" target="_blank" rel="noopener">'+u.replace('https://','')+'</a> (vocea rămâne salvată, merge și offline).';n.hidden=false})();
-renderTasks();renderShop();renderTabs();hCur=snap();histBtns();renderWx();tick();setInterval(tick,1000);
+
+/* ---------- AI news (news.json from GitHub Actions; same-origin) ---------- */
+var newsData=LS.get('jv_news',null);
+function newsRelTime(iso){if(!iso)return'';
+ var t=Date.parse(iso);if(!isFinite(t))return'';
+ var s=Math.max(0,Math.round((Date.now()-t)/1000));
+ if(s<60)return'acum';if(s<3600)return Math.floor(s/60)+' min';if(s<86400)return Math.floor(s/3600)+' h';
+ var d=Math.floor(s/86400);return d===1?'1 zi':d+' zile'}
+function newsFmtUpdated(iso){var t=iso?new Date(iso):null;if(!t||!isFinite(t.getTime()))t=new Date();
+ return 'Actualizat la '+pad(t.getHours())+':'+pad(t.getMinutes())}
+function renderNews(){var body=$('newsBody'),meta=$('newsMeta');if(!body)return;
+ if(!newsData||!newsData.sources||!newsData.sources.length){
+  if(meta)meta.textContent='Fără știri încă';body.innerHTML='<div class="news-empty">Știrile AI apar aici când news.json e disponibil.</div>';return}
+ if(meta)meta.textContent=newsFmtUpdated(newsData.updated)+(newsData.stale?' (offline)':'');
+ body.innerHTML='';
+ newsData.sources.forEach(function(src){
+  var sec=document.createElement('div');sec.className='news-src';
+  var h=document.createElement('div');h.className='news-ch';h.textContent=(src.name||src.id||'Canal').toUpperCase();sec.appendChild(h);
+  (src.items||[]).forEach(function(it){
+   var a=document.createElement('a');a.className='news-item';a.href=it.url;a.target='_blank';a.rel='noopener noreferrer';
+   var t=document.createElement('div');t.className='news-t';t.textContent=it.title||'';a.appendChild(t);
+   if(it.snippet){var s=document.createElement('div');s.className='news-s';s.textContent=it.snippet;a.appendChild(s)}
+   var w=newsRelTime(it.published);if(w){var m=document.createElement('div');m.className='news-when';m.textContent=w;a.appendChild(m)}
+   sec.appendChild(a)});
+  body.appendChild(sec)})}
+function loadNews(){return fetch('news.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()}).then(function(j){
+  if(!j||!j.sources)throw new Error('bad news.json');
+  newsData={updated:j.updated,sources:j.sources,stale:false};LS.set('jv_news',newsData);renderNews()
+ }).catch(function(){if(newsData){newsData.stale=true;renderNews()}else{renderNews()}})}
+
+renderTasks();renderShop();renderTabs();hCur=snap();histBtns();renderWx();renderNews();tick();setInterval(tick,1000);
 loadWx();setInterval(loadWx,15*60*1000);
-document.addEventListener('visibilitychange',function(){if(!document.hidden&&(!wx||Date.now()-wx.ts>15*60*1000))loadWx()});
+loadNews();setInterval(loadNews,30*60*1000);
+document.addEventListener('visibilitychange',function(){if(!document.hidden){if(!wx||Date.now()-wx.ts>15*60*1000)loadWx();loadNews()}});
 bootVoice();
 
 /* test/preview hooks */

@@ -1,0 +1,32 @@
+name: Update AI news
+on:
+  schedule:
+    - cron: '15,45 * * * *'  # every 30 minutes
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: news-json
+  cancel-in-progress: true
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch RSS feeds
+        run: python3 scripts/fetch-news.py | tee /tmp/news-out.txt
+      - name: Commit if changed
+        run: |
+          if grep -q '^UNCHANGED$' /tmp/news-out.txt; then
+            echo "news.json unchanged — skip commit"
+            exit 0
+          fi
+          git config user.name "jarvis-news-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add news.json
+          if git diff --cached --quiet; then
+            echo "nothing staged"
+            exit 0
+          fi
+          git commit -m "chore: refresh AI news.json"
+          git push
