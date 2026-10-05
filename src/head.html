@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="JARVIS">
-<meta name="jarvis-version" content="v20-jarvis">
+<meta name="jarvis-version" content="v21-jarvis">
 <title>JARVIS · Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Roboto+Condensed:wght@700&family=Orbitron:wght@700&family=Share+Tech+Mono&family=Rajdhani:wght@600;700&family=Audiowide&family=Teko:wght@500&family=Oxanium:wght@700&display=swap" rel="stylesheet">
@@ -78,6 +78,11 @@ header{display:flex;justify-content:space-between;align-items:center;gap:8px;mar
 .wxline{font-size:13px;color:#9eb4c4;margin-top:4px}
 .wxmeta{color:#6f8798;font-size:11px;margin-top:5px;line-height:1.3}
 .wxtxt{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wxdays{display:flex;gap:2px;margin-top:10px;padding-top:10px;border-top:1px solid rgba(120,160,190,.18)}
+.wxday{flex:1 1 0;min-width:0;text-align:center;display:flex;flex-direction:column;align-items:center;gap:3px}
+.wxday .wd{font-size:10.5px;color:var(--mut);font-weight:600;letter-spacing:.01em;line-height:1.1;white-space:nowrap}
+.wxday .wi{line-height:0;display:flex;justify-content:center}
+.wxday .wi svg{width:34px;height:34px;display:block}
 #cWx{padding:14px 16px}
 #cWx .lbl{margin-bottom:8px}
 ul.tasks{list-style:none;margin:0;padding:0}
@@ -185,40 +190,6 @@ ul.tasks{list-style:none;margin:0;padding:0}
 .jv-sep span{font-size:9px;letter-spacing:.06em;color:rgba(255,130,130,.65);font-weight:600;flex:none}
 .jv-sep::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(255,107,107,.5),rgba(255,107,107,.12) 70%,transparent);box-shadow:0 0 6px rgba(255,107,107,.3)}
 .task.urgent:not(.done) .dot{background:#ff6b6b!important;box-shadow:0 0 7px rgba(255,107,107,.75)!important}
-/* v18 AI chat */
-.ai-preview,.ai-full{display:flex;flex-direction:column;gap:8px;max-height:180px;overflow:auto;padding:2px 0 6px;scroll-behavior:smooth}
-.ai-full{max-height:none;flex:1;padding:12px 14px 8px}
-.ai-msg{display:flex;flex-direction:column;max-width:92%;position:relative}
-.ai-msg.me{align-self:flex-end;align-items:flex-end}
-.ai-msg.bot{align-self:flex-start;align-items:flex-start}
-.ai-b{padding:9px 12px;border-radius:14px;font-size:14.5px;line-height:1.45;white-space:normal;word-break:break-word}
-.ai-b .md-p{margin:0 0 .35em}.ai-b .md-p:last-child{margin:0}
-.ai-b ul.md-ul,.ai-b ol.md-ol{margin:.15em 0 .35em 1.15em;padding:0}
-.ai-b li{margin:.1em 0}
-.ai-b strong{font-weight:700;color:#e8f4ff}
-.ai-b em{font-style:italic;color:#d0e4f4}
-.ai-b a.md-a{color:var(--cyan);text-decoration:none;border-bottom:1px dotted rgba(63,216,255,.45);word-break:break-all}
-.ai-msg.me .ai-b{white-space:pre-wrap}
-.ai-msg.me .ai-b{background:rgba(63,216,255,.18);border:1px solid rgba(63,216,255,.35);border-bottom-right-radius:4px}
-.ai-msg.bot .ai-b{background:rgba(8,28,48,.9);border:1px solid rgba(120,180,220,.2);border-bottom-left-radius:4px}
-.ai-msg.err .ai-b{border-color:rgba(255,107,107,.45);color:#ffb4b4}
-.ai-src{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;padding:0 2px}
-.ai-src a{font-size:11px;color:var(--cyan);text-decoration:none;border-bottom:1px dotted rgba(63,216,255,.4);max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.ai-spk{background:none;border:0;color:var(--mut);padding:2px 4px;cursor:pointer;align-self:flex-start;opacity:.7}
-.ai-spk svg{width:16px;height:16px}
-.ai-spk.on,.ai-spk:hover{color:var(--cyan);opacity:1}
-.ai-nokey{padding:8px 0 4px;color:var(--mut);font-size:14px;line-height:1.45}
-.ai-detail{font-size:11px;color:#8aa0b0;margin-top:3px;padding:0 4px;line-height:1.35;word-break:break-word}
-.ai-status{font-size:12px;color:var(--mut);min-height:16px;margin:2px 0 4px}
-.ai-panel{position:fixed;inset:0;background:#06111f;z-index:30;display:none;flex-direction:column}
-.ai-panel.show{display:flex}
-.ai-phd{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line);flex:none}
-.ai-phd .lt{flex:1;font-weight:700;letter-spacing:.04em}
-.ai-keyrow{display:flex;gap:8px;align-items:center}
-.ai-keyrow input{flex:1;min-width:0}
-#cAi .add{margin-top:8px}
-.chk{display:flex;align-items:center;gap:8px;font-size:14px;cursor:pointer}
-.chk input{width:18px;height:18px}
 </style>
 </head>
 <body>
@@ -235,20 +206,11 @@ ul.tasks{list-style:none;margin:0;padding:0}
   <div class="status" id="vstatus">Agent local. Doar vreme și taskuri.</div>
   <div class="vprog" id="vprog"><span id="vprogTxt"></span><div class="pb"><i id="vprogBar"></i></div></div></section>
 
- <section class="card" id="cAi"><div class="lbl"><span class="lt kw">Asistent Jarvis</span><span class="hgrp"><button type="button" class="hb" id="aiExpand" aria-label="Deschide chat">⤢</button></span></div>
-  <div class="ai-nokey" id="aiNokey">Adaugă cheia Gemini în Setări ca să vorbești cu mine.<div style="margin-top:8px"><button type="button" class="btn" id="aiOpenSet">Deschide Setări</button></div></div>
-  <div id="aiChatBox" hidden>
-   <div class="ai-preview" id="aiPreview"></div>
-   <div class="ai-status" id="aiStatus"></div>
-   <form class="add" id="fAi"><input id="iAi" placeholder="Scrie sau dictează…" autocomplete="off" enterkeyhint="send">
-    <button type="button" class="btn mic" id="bAiMic" title="Dictează (sau tastatură)" aria-label="Dictează"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4"/></svg></button>
-    <button class="btn" type="submit">Trimite</button></form>
-  </div></section>
-
  <section class="card" id="cWx"><div class="lbl"><span class="lt" id="wxlbl">Vremea · Gherla</span><button class="spk" data-read="wx" aria-label="Citește"></button></div>
   <div class="wx"><div class="wxleft"><div class="wxicon" id="wxicon"></div><div class="wxtemp" id="wxtemp">—°</div></div>
    <div class="wxright"><div class="wxhi" id="wxhi"></div><div class="wxcond" id="wxcond">Se încarcă…</div><div class="wxfeel" id="wxfeel"></div><div class="wxline" id="wxline"></div><div class="wxmeta" id="wxmeta"></div></div>
-   <div class="wxtxt kw" id="wxtxt" aria-hidden="true"></div></div></section>
+   <div class="wxtxt kw" id="wxtxt" aria-hidden="true"></div></div>
+  <div class="wxdays" id="wxdays" aria-hidden="true"></div></section>
 
  <button type="button" class="readall" id="bReadAll" aria-label="Citește tot"><span class="rai"></span>Citește tot</button>
 
@@ -293,23 +255,6 @@ ul.tasks{list-style:none;margin:0;padding:0}
  <div class="field"><label>Culoare</label><div class="colors" id="colorRow"></div></div>
  <div class="field"><label for="sSize">Mărime <span class="val" id="vSize"></span></label><input type="range" id="sSize" min="30" max="72" step="1"></div>
 
- <div class="sec" id="aiSec">Asistent AI</div>
- <div class="field"><label for="sAiKey">Cheie Gemini</label>
-  <div class="ai-keyrow"><input id="sAiKey" type="password" autocomplete="off" spellcheck="false" placeholder="AIza…"><button type="button" class="btn" id="sAiShow">Arată</button></div>
-  <div class="hint" id="sAiKeyState">Nicio cheie salvată.</div></div>
- <div class="field"><label for="sAiModel">Model</label><select id="sAiModel"></select></div>
- <div class="field"><label class="chk"><input type="checkbox" id="sAiAuto"> Citește răspunsurile automat</label></div>
- <div class="field"><label for="sSerperKey">Cheie Serper (căutare web)</label>
-  <div class="ai-keyrow"><input id="sSerperKey" type="password" autocomplete="off" spellcheck="false" placeholder="serper…"><button type="button" class="btn" id="sSerperShow">Arată</button></div>
-  <div class="hint" id="sSerperState">Opțional — folosit când Gemini grounding e limitat/ocupat.</div>
-  <div class="hint">Brave Search API <b>nu permite CORS</b> din browser (cererile sunt blocate). Serper.dev da: cheie gratuită (~2500 interogări) pe <a href="https://serper.dev" target="_blank" rel="noopener">serper.dev</a>. Rămâne doar pe telefon.</div></div>
- <div class="field" style="display:flex;gap:8px;flex-wrap:wrap">
-  <button type="button" class="btn" id="sAiSaveKey">Salvează cheile</button>
-  <button type="button" class="btn" id="sAiDelKey">Șterge Gemini</button>
-  <button type="button" class="btn" id="sAiTest">Testează</button></div>
- <div class="hint" id="sAiTestState"></div>
- <div class="hint">Cheile rămân doar pe acest telefon. Gemini: <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com/apikey</a>.</div>
-
  <div id="fInstall"><div class="sec">Aplicație</div>
  <div class="field"><button type="button" class="btn" id="sInstall">Instalează aplicația</button>
   <div class="hint" id="installHint">Chrome: meniu ⋮ → „Instalează aplicația” / „Adaugă pe ecranul de pornire”.<br>Brave: meniu ⋮ → „Adaugă pe ecranul de pornire” / „Instalează aplicația”.</div></div></div>
@@ -321,14 +266,4 @@ ul.tasks{list-style:none;margin:0;padding:0}
  <div class="field"><label>Culoare (opțional)</label><div class="tcolors" id="tmColors"></div></div>
  <div class="mrow"><button type="button" class="btn" id="tmCancel">Anulează</button><button type="submit" class="btn" id="tmSave">Creează</button></div></form>
 </div></div>
-<div class="ai-panel" id="aiPanel" role="dialog" aria-label="Chat Jarvis">
- <div class="ai-phd"><span class="lt">Asistent Jarvis</span>
-  <button type="button" class="btn pill" id="aiClear">Șterge conversația</button>
-  <button type="button" class="btn pill" id="aiClose" aria-label="Închide">✕</button></div>
- <div class="ai-full" id="aiFullList"></div>
- <form class="add" id="fAiFull" style="margin:0;padding:10px 14px calc(10px + env(safe-area-inset-bottom));border-top:1px solid var(--line)">
-  <input id="iAiFull" placeholder="Scrie sau dictează…" autocomplete="off" enterkeyhint="send">
-  <button type="button" class="btn mic" id="bAiMicFull" title="Dictează (sau tastatură)" aria-label="Dictează"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4"/></svg></button>
-  <button class="btn" type="submit">Trimite</button></form>
-</div>
 <div class="toast" id="toast"></div>

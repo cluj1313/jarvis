@@ -3,7 +3,10 @@
 var $=function(id){return document.getElementById(id)};
 var BLANK=!!window.JARVIS_BLANK||/[?&]gol\b/.test(location.search),PFX=BLANK?'jvb_':'';
 var LS={get:function(k,d){try{var v=localStorage.getItem(PFX+k);return v?JSON.parse(v):d}catch(e){return d}},set:function(k,v){try{localStorage.setItem(PFX+k,JSON.stringify(v))}catch(e){}}};
+/* v21: drop AI/search keys */
+(function(){['jv_gkey','jv_skey','jv_chat','jv_gmodel','jv_gauto','jv_gnosearch'].forEach(function(k){try{localStorage.removeItem(PFX+k)}catch(e){}})})();
 var ZILE=['Duminică','Luni','Marți','Miercuri','Joi','Vineri','Sâmbătă'];
+var ZILE_S=['Dum','Lun','Mar','Mie','Joi','Vin','Sâm'];
 var LUNI=['ianuarie','februarie','martie','aprilie','mai','iunie','iulie','august','septembrie','octombrie','noiembrie','decembrie'];
 var LUNI_S=['ian','feb','mar','apr','mai','iun','iul','aug','sept','oct','nov','dec'];
 function pad(n){return (n<10?'0':'')+n}
@@ -142,8 +145,17 @@ var wx=LS.get('jv_wx',null);
 function wxSentence(w){if(!w)return 'Nu am date despre vreme.';var d=WMO[w.code]||['Vreme variabilă','cloud','Variabil'];
  var s=d[0]+'. Acum '+Math.round(w.temp)+' grade. Maxima '+Math.round(w.max)+', minima '+Math.round(w.min)+'. Șanse de ploaie: '+w.pp+'%. '+windTxt(w.wind)+'.';
  var rainy=/rain|storm|drizzle/.test(d[1]);s+=(w.pp>=40||rainy)?' Ia umbrela cu tine.':' Nu ai nevoie de umbrelă.';return s}
+function wxDayLabel(iso){var p=String(iso||'').split('-');if(p.length<3)return'—';
+ var d=new Date(+p[0],+p[1]-1,+p[2]);return ZILE_S[d.getDay()]+' '+d.getDate()}
+function renderWxDays(){var el=$('wxdays');if(!el)return;el.innerHTML='';
+ var days=(wx&&wx.days)||[];if(!days.length){el.hidden=true;return}el.hidden=false;
+ days.slice(0,5).forEach(function(day){var d=WMO[day.code]||['Vreme variabilă','cloud','Variabil'];
+  var cell=document.createElement('div');cell.className='wxday';
+  var lab=document.createElement('div');lab.className='wd';lab.textContent=wxDayLabel(day.date);cell.appendChild(lab);
+  var ic=document.createElement('div');ic.className='wi';ic.innerHTML=icon(d[1],1);cell.appendChild(ic);
+  el.appendChild(cell)})}
 function renderWx(){$('wxlbl').textContent='Vremea · '+cfg.city;
- if(!wx){$('wxicon').innerHTML=icon('cloud',1);$('wxtemp').textContent='—°';$('wxcond').textContent='Se încarcă…';$('wxfeel').textContent='';$('wxline').textContent='';$('wxhi').textContent='';$('wxmeta').textContent='';return}
+ if(!wx){$('wxicon').innerHTML=icon('cloud',1);$('wxtemp').textContent='—°';$('wxcond').textContent='Se încarcă…';$('wxfeel').textContent='';$('wxline').textContent='';$('wxhi').textContent='';$('wxmeta').textContent='';renderWxDays();return}
  var d=WMO[wx.code]||['Vreme variabilă','cloud','Variabil'];$('wxicon').innerHTML=icon(d[1],wx.day);
  $('wxtemp').textContent=Math.round(wx.temp)+'°';
  $('wxcond').textContent=d[2]||d[0];
@@ -153,12 +165,15 @@ function renderWx(){$('wxlbl').textContent='Vremea · '+cfg.city;
  if(!(speaking&&activeSeg&&activeSeg.el===$('wxtxt')))$('wxtxt').textContent=wxSentence(wx);
  var t=new Date(wx.ts),n=new Date();
  var when=dkey(t)===dkey(n)?'azi la '+pad(t.getHours())+':'+pad(t.getMinutes()):t.getDate()+' '+LUNI_S[t.getMonth()]+' '+pad(t.getHours())+':'+pad(t.getMinutes());
- $('wxmeta').textContent='Actualizat '+when+(wx.stale?' (offline)':'')}
+ $('wxmeta').textContent='Actualizat '+when+(wx.stale?' (offline)':'');
+ renderWxDays()}
 function loadWx(){
- var u='https://api.open-meteo.com/v1/forecast?latitude='+cfg.lat+'&longitude='+cfg.lon+'&current=temperature_2m,apparent_temperature,weather_code,wind_speed_10m,is_day&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone='+encodeURIComponent(cfg.tz||'auto')+'&forecast_days=1';
+ var u='https://api.open-meteo.com/v1/forecast?latitude='+cfg.lat+'&longitude='+cfg.lon+'&current=temperature_2m,apparent_temperature,weather_code,wind_speed_10m,is_day&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone='+encodeURIComponent(cfg.tz||'Europe/Bucharest')+'&forecast_days=5';
  return fetch(u).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()}).then(function(j){
+  var days=[],time=(j.daily&&j.daily.time)||[],codes=(j.daily&&j.daily.weather_code)||[];
+  for(var i=0;i<Math.min(5,time.length);i++)days.push({date:time[i],code:codes[i]});
   wx={temp:j.current.temperature_2m,feel:j.current.apparent_temperature,code:j.current.weather_code,wind:j.current.wind_speed_10m,day:j.current.is_day===1,
-   max:j.daily.temperature_2m_max[0],min:j.daily.temperature_2m_min[0],pp:j.daily.precipitation_probability_max[0]||0,ts:Date.now(),city:cfg.city};
+   max:j.daily.temperature_2m_max[0],min:j.daily.temperature_2m_min[0],pp:j.daily.precipitation_probability_max[0]||0,days:days,ts:Date.now(),city:cfg.city};
   LS.set('jv_wx',wx);renderWx()}).catch(function(){if(wx){wx.stale=true;renderWx()}else{$('wxcond').textContent='Fără date';$('wxtxt').textContent='Nu pot încărca vremea (fără internet?).';renderWx()}})}
 
 /* ---------- tasks (never lost: open tasks carry over; done/deleted kept as history) ---------- */
@@ -414,7 +429,7 @@ window.addEventListener('blur',dndReset);document.addEventListener('visibilitych
 /* ---------- speech output ---------- */
 var speaking=false,listening=false,kGen=0,speakKey=null;
 function updEq(){$('eq').classList.toggle('on',speaking||listening);$('orb').classList.toggle('active',speaking||listening);
- document.querySelectorAll('.spk,.ai-spk').forEach(function(b){b.classList.toggle('on',speaking&&b.dataset.read===speakKey)});
+ document.querySelectorAll('.spk').forEach(function(b){b.classList.toggle('on',speaking&&b.dataset.read===speakKey)});
  $('bRead').classList.toggle('on',speaking&&speakKey==='all');$('bReadAll').classList.toggle('on',speaking&&speakKey==='below')}
 var actx=null,sources=[];
 function unlockAudio(){try{if(!actx){var AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;actx=new AC()}
