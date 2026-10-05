@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="JARVIS">
-<meta name="jarvis-version" content="v15-jarvis">
+<meta name="jarvis-version" content="v16-jarvis">
 <title>JARVIS · Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Roboto+Condensed:wght@700&family=Orbitron:wght@700&family=Share+Tech+Mono&family=Rajdhani:wght@600;700&family=Audiowide&family=Teko:wght@500&family=Oxanium:wght@700&display=swap" rel="stylesheet">
@@ -171,6 +171,11 @@ ul.tasks{list-style:none;margin:0;padding:0}
 .card.jv-tgt{border-color:rgba(63,216,255,.55);box-shadow:inset 0 0 24px rgba(63,216,255,.08),0 0 14px rgba(63,216,255,.18)}
 .jv-ghost{position:fixed;left:0;top:0;z-index:9999;margin:0;pointer-events:none;background:#0a1d30;border:1px solid rgba(63,216,255,.5);border-radius:12px;padding:0 12px;box-sizing:border-box;box-shadow:0 10px 28px rgba(0,0,0,.55);opacity:.96;transform-origin:center}
 .jv-ghost .task{border-bottom:0}
+/* v16 urgent separator */
+.jv-sep{list-style:none;display:flex;align-items:center;gap:8px;padding:5px 0;margin:1px 0;user-select:none;-webkit-user-select:none;pointer-events:none}
+.jv-sep span{font-size:9px;letter-spacing:.06em;color:rgba(255,130,130,.65);font-weight:600;flex:none}
+.jv-sep::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(255,107,107,.5),rgba(255,107,107,.12) 70%,transparent);box-shadow:0 0 6px rgba(255,107,107,.3)}
+.task.urgent:not(.done) .dot{background:#ff6b6b!important;box-shadow:0 0 7px rgba(255,107,107,.75)!important}
 </style>
 </head>
 <body>
@@ -531,10 +536,12 @@ function shortDate(k){var p=k.split('-');return 'din '+(+p[2])+' '+LUNI_S[+p[1]-
 /* v15: Azi / Mâine. Each task has dueDay. Azi = dueDay <= today (open, or done today); Mâine = dueDay >= tomorrow.
    Open tasks whose dueDay passed roll to today (fromDay keeps the first day they were due -> "din 3 oct" note). */
 function inList(t,which){var tk=dkey();return which==='maine'?t.dueDay>tk:t.dueDay<=tk}
-function listFor(which){return tasks.filter(function(t){return visible(t)&&inList(t,which)}).sort(ordCmp(which==='maine'?'maine':'azi'))}
+function listFor(which){return tasks.filter(function(t){return visible(t)&&inList(t,which)}).sort(urgOrd(which==='maine'?'maine':'azi'))}
 /* v14: explicit order set by drag & drop (ord + ordK = list it was ordered in); unordered items keep the old date order, after the ordered ones */
 function ordCmp(k){return function(a,b){var oa=a.ord!=null&&a.ordK===k,ob=b.ord!=null&&b.ordK===k;
  if(oa&&ob)return a.ord-b.ord;if(oa!==ob)return oa?-1:1;return a.date<b.date?-1:a.date>b.date?1:0}}
+function urgOrd(k){return function(a,b){if(!!a.urgent!==!!b.urgent)return a.urgent?-1:1;return ordCmp(k+(a.urgent?':u':':n'))(a,b)}}
+function urgSort(a,b){if(!!a.urgent!==!!b.urgent)return a.urgent?-1:1;return 0}
 (function migrate(){var tk=dkey(),need=tasks.filter(function(t){return !t.dueDay});if(!need.length)return;
  /* keep what v14 showed: old "ieri" list, then "noi", in their on-screen order -> all open ones go to Azi */
  var vis=function(t){return !t.dueDay&&visible(t)},seen=tasks.filter(function(t){return vis(t)&&t.date<tk}).sort(ordCmp('old'))
@@ -543,18 +550,22 @@ function ordCmp(k){return function(a,b){var oa=a.ord!=null&&a.ordK===k,ob=b.ord!
  seen.forEach(function(t,i){t.ord=i;t.ordK='azi'});LS.set('jv_tasks',tasks)})();
 function rollTasks(){var tk=dkey(),ch=false;tasks.forEach(function(t){if(live(t)&&!t.done&&t.dueDay<tk){if(!t.fromDay)t.fromDay=t.dueDay;t.dueDay=tk;ch=true}});
  if(ch){LS.set('jv_tasks',tasks);if(typeof hCur!=='undefined'&&hCur!==null)hCur=snap()}return ch}
+(function(){var ch=false;tasks.forEach(function(t){if(t.urgent==null){t.urgent=false;ch=true}});if(ch)LS.set('jv_tasks',tasks)})();
 rollTasks();
+function renderItem(t,stHtml){var li=document.createElement('li');li.className='task'+(t.done?' done':'')+(t.urgent?' urgent':'');li.dataset.id=t.id;
+ li.innerHTML='<span class="dot"></span><span class="t kw">'+esc(t.text)+'</span><span class="st">'+stHtml+'</span><button class="ed" aria-label="Editează">✎</button><button class="x" aria-label="Șterge">×</button>';return li}
+function fillList(ul,list,emptyTxt,makeLi){ul.innerHTML=list.length?'':'<li class="empty">'+emptyTxt+'</li>';if(!list.length)return;
+ list.filter(function(x){return x.urgent}).forEach(function(x){ul.appendChild(makeLi(x))});
+ var sep=document.createElement('li');sep.className='jv-sep';sep.setAttribute('aria-hidden','true');sep.innerHTML='<span>URGENT ↑</span>';ul.appendChild(sep);
+ list.filter(function(x){return !x.urgent}).forEach(function(x){ul.appendChild(makeLi(x))})}
 function renderTasks(){
  [['lAzi','azi'],['lMaine','maine']].forEach(function(p){
   var ul=$(p[0]),list=listFor(p[1]),tk=dkey();
-  ul.innerHTML=list.length?'':'<li class="empty">Niciun task.</li>';
-  list.forEach(function(t){var li=document.createElement('li');li.className='task'+(t.done?' done':'');li.dataset.id=t.id;
-   li.innerHTML='<span class="dot"></span><span class="t kw">'+esc(t.text)+'</span><span class="st">'+(t.done?'Făcut':'Deschis')+(p[1]==='azi'&&t.fromDay&&t.fromDay<tk?'<small>'+shortDate(t.fromDay)+'</small>':'')+'</span><button class="ed" aria-label="Editează">✎</button><button class="x" aria-label="Șterge">×</button>';
-   ul.appendChild(li)})})}
+  fillList(ul,list,'Niciun task.',function(t){return renderItem(t,(t.done?'Făcut':'Deschis')+(p[1]==='azi'&&t.fromDay&&t.fromDay<tk?'<small>'+shortDate(t.fromDay)+'</small>':''))})})}
 function findT(id){for(var i=0;i<tasks.length;i++)if(tasks[i].id===id)return i;return -1}
 function delTask(id){var i=findT(id);if(i<0)return;if(confirm('Ștergi taskul „'+tasks[i].text+'"?')){tasks[i].deleted=new Date().toISOString();save();renderTasks()}}
 function addTask(txt,which){txt=(txt||'').trim();if(!txt)return false;txt=txt.charAt(0).toUpperCase()+txt.slice(1);
- tasks.push({id:Date.now()+'_'+Math.random().toString(36).slice(2,6),text:txt,date:dkey(),dueDay:which==='maine'?dayOff(1):dkey(),done:false,doneDate:null,created:new Date().toISOString()});save();renderTasks();return true}
+ tasks.push({id:Date.now()+'_'+Math.random().toString(36).slice(2,6),text:txt,date:dkey(),dueDay:which==='maine'?dayOff(1):dkey(),done:false,doneDate:null,urgent:false,created:new Date().toISOString()});save();renderTasks();return true}
 ['lAzi','lMaine'].forEach(function(id){var ul=$(id);
  ul.addEventListener('click',function(e){var li=e.target.closest('.task');if(!li||li.classList.contains('editing'))return;
   if(e.target.closest('.ed')){var i=findT(li.dataset.id);if(i>=0)startEdit(li,tasks[i],save,renderTasks);return}
@@ -587,15 +598,15 @@ function startEdit(li,item,saveFn,rerender){if(editing&&editing!==li&&editing.is
 var shop=LS.get('jv_shop',[]);
 function saveShop(){LS.set('jv_shop',shop);histPush()}
 function shopVisible(s){return !s.hidden&&(!s.bought||s.boughtDate===dkey())}
-function shopList(){return shop.filter(shopVisible)}
-function renderShop(){var ul=$('lShop'),list=shopList();ul.innerHTML=list.length?'':'<li class="empty">Lista e goală.</li>';
- list.forEach(function(s){var li=document.createElement('li');li.className='task'+(s.bought?' done':'');li.dataset.id=s.id;
-  li.innerHTML='<span class="dot"></span><span class="t kw">'+esc(s.text)+'</span><span class="st">'+(s.bought?'Cumpărat':'De luat')+(s.date<dkey()?'<small>'+shortDate(s.date)+'</small>':'')+'</span><button class="ed" aria-label="Editează">✎</button><button class="x" aria-label="Ascunde">×</button>';
-  ul.appendChild(li)})}
+function shopList(){return shop.filter(shopVisible).sort(urgSort)}
+(function(){var ch=false;shop.forEach(function(s){if(s.urgent==null){s.urgent=false;ch=true}});if(ch)LS.set('jv_shop',shop)})();
+function renderShop(){var ul=$('lShop'),list=shopList();
+ fillList(ul,list,'Lista e goală.',function(s){var li=document.createElement('li');li.className='task'+(s.bought?' done':'')+(s.urgent?' urgent':'');li.dataset.id=s.id;
+  li.innerHTML='<span class="dot"></span><span class="t kw">'+esc(s.text)+'</span><span class="st">'+(s.bought?'Cumpărat':'De luat')+(s.date<dkey()?'<small>'+shortDate(s.date)+'</small>':'')+'</span><button class="ed" aria-label="Editează">✎</button><button class="x" aria-label="Ascunde">×</button>';return li})}
 function findS(id){for(var i=0;i<shop.length;i++)if(shop[i].id===id)return shop[i];return null}
 function hideShop(id){var s=findS(id);if(!s)return;if(confirm('Scoți „'+s.text+'" din listă?')){s.hidden=new Date().toISOString();saveShop();renderShop()}}
 function addShop(txt){txt=(txt||'').trim();if(!txt)return false;txt=txt.charAt(0).toUpperCase()+txt.slice(1);
- shop.push({id:Date.now()+'_'+Math.random().toString(36).slice(2,6),text:txt,date:dkey(),bought:false,boughtDate:null,created:new Date().toISOString()});saveShop();renderShop();return true}
+ shop.push({id:Date.now()+'_'+Math.random().toString(36).slice(2,6),text:txt,date:dkey(),bought:false,boughtDate:null,urgent:false,created:new Date().toISOString()});saveShop();renderShop();return true}
 (function(){var ul=$('lShop');
  ul.addEventListener('click',function(e){var li=e.target.closest('.task');if(!li||li.classList.contains('editing'))return;
   if(e.target.closest('.ed')){var s=findS(li.dataset.id);if(s)startEdit(li,s,saveShop,renderShop);return}
@@ -618,11 +629,10 @@ function visTabs(){return tabs.filter(function(t){return !t.hidden})}
 function findTab(id){for(var i=0;i<tabs.length;i++)if(tabs[i].id===id)return tabs[i];return null}
 function findTI(tab,id){for(var i=0;i<tab.items.length;i++)if(tab.items[i].id===id)return tab.items[i];return null}
 function tiVisible(x){return !x.hidden&&(!x.done||x.doneDate===dkey())}
-function tabList(tab){return tab.items.filter(tiVisible)}
-function renderTabItems(tab){var ul=document.querySelector('#ct_'+tab.id+' ul');if(!ul)return;var list=tabList(tab);ul.innerHTML=list.length?'':'<li class="empty">Lista e goală.</li>';
- list.forEach(function(s){var li=document.createElement('li');li.className='task'+(s.done?' done':'');li.dataset.id=s.id;
-  li.innerHTML='<span class="dot"></span><span class="t kw">'+esc(s.text)+'</span><span class="st">'+(s.done?'Gata':'Deschis')+(s.date<dkey()?'<small>'+shortDate(s.date)+'</small>':'')+'</span><button class="ed" aria-label="Editează">✎</button><button class="x" aria-label="Ascunde">×</button>';
-  ul.appendChild(li)})}
+function tabList(tab){return tab.items.filter(tiVisible).sort(urgSort)}
+(function(){var ch=false;tabs.forEach(function(tab){(tab.items||[]).forEach(function(s){if(s.urgent==null){s.urgent=false;ch=true}})});if(ch)LS.set('jv_tabs',tabs)})();
+function renderTabItems(tab){var ul=document.querySelector('#ct_'+tab.id+' ul');if(!ul)return;
+ fillList(ul,tabList(tab),'Lista e goală.',function(s){return renderItem(s,(s.done?'Gata':'Deschis')+(s.date<dkey()?'<small>'+shortDate(s.date)+'</small>':''))})}
 function renderTabs(){var box=$('customCards');if(!box)return;box.innerHTML='';
  visTabs().forEach(function(tab){var c=document.createElement('section');c.className='card ctab';c.id='ct_'+tab.id;c.dataset.tab=tab.id;
   if(tab.color)c.style.setProperty('--tc',tab.color);
@@ -632,7 +642,7 @@ function renderTabs(){var box=$('customCards');if(!box)return;box.innerHTML='';
  if(typeof updEq==='function')updEq()}
 function hideTI(tab,id){var s=findTI(tab,id);if(!s)return;if(confirm('Scoți „'+s.text+'" din listă?')){s.hidden=new Date().toISOString();saveTabs();renderTabItems(tab)}}
 function addTI(tab,txt){txt=(txt||'').trim();if(!txt)return false;txt=txt.charAt(0).toUpperCase()+txt.slice(1);
- tab.items.push({id:uid(),text:txt,date:dkey(),done:false,doneDate:null,created:new Date().toISOString()});saveTabs();renderTabItems(tab);return true}
+ tab.items.push({id:uid(),text:txt,date:dkey(),done:false,doneDate:null,urgent:false,created:new Date().toISOString()});saveTabs();renderTabItems(tab);return true}
 function delTab(tab){if(!confirm('Ștergi tabul „'+tab.name+'"? Elementele lui nu mai apar (datele rămân salvate în telefon).'))return;
  if(speaking&&speakKey==='tab:'+tab.id)stopSpeaking();tab.hidden=new Date().toISOString();saveTabs();renderTabs();toast('Tab șters')}
 (function(){var box=$('customCards');
@@ -708,14 +718,16 @@ function dndStart(){var d=dnd,li=d.li,r=li.getBoundingClientRect();d.drag=true;c
  var ph=document.createElement('li');ph.className='jv-ph';ph.style.height=r.height+'px';d.ph=ph;li.parentNode.insertBefore(ph,li);
  li.classList.remove('jv-lift');li.classList.add('jv-hide');document.documentElement.classList.add('jv-dragging');
  dndPlace();d.raf=requestAnimationFrame(dndTick)}
-function dndNextTask(n,skip){n=n.nextSibling;while(n&&(n===skip||!n.classList||!n.classList.contains('task')||!n.dataset.id))n=n.nextSibling;return n}
+function dndNextSlot(n,skip){n=n.nextSibling;while(n&&(n===skip||!(n.classList&&((n.classList.contains('task')&&n.dataset.id)||n.classList.contains('jv-sep')))))n=n.nextSibling;return n}
 function dndPlace(){var d=dnd;if(!d||!d.drag)return;d.ghost.style.transform='translate('+(d.x-d.ox)+'px,'+(d.y-d.oy)+'px) scale(1.03)';
  var ul=dndUL(document.elementFromPoint(d.x,d.y));if(!ul||!dndListOf(ul))return;
  if(d.over!==ul){if(d.over){d.over.classList.remove('jv-over');var oc=d.over.closest('.card');if(oc)oc.classList.remove('jv-tgt')}
   d.over=ul;ul.classList.add('jv-over');var nc=ul.closest('.card');if(nc)nc.classList.add('jv-tgt')}
  var before=null,ch=ul.children;
- for(var i=0;i<ch.length;i++){var n=ch[i];if(n===d.li||n===d.ph||!n.classList.contains('task')||!n.dataset.id)continue;var r=n.getBoundingClientRect();if(d.y<r.top+r.height/2){before=n;break}}
- if(d.ph.parentNode===ul&&dndNextTask(d.ph,d.li)===before)return;
+ for(var i=0;i<ch.length;i++){var n=ch[i];if(n===d.li||n===d.ph)continue;
+  if(n.classList.contains('jv-sep')){var rs=n.getBoundingClientRect();if(d.y<rs.top+rs.height/2){before=n;break}continue}
+  if(!n.classList.contains('task')||!n.dataset.id)continue;var r=n.getBoundingClientRect();if(d.y<r.top+r.height/2){before=n;break}}
+ if(d.ph.parentNode===ul&&dndNextSlot(d.ph,d.li)===before)return;
  if(before)ul.insertBefore(d.ph,before);else ul.appendChild(d.ph)}
 function dndTick(){var d=dnd;if(!d||!d.drag)return;var h=window.innerHeight,v=0;
  if(d.y<DND_EDGE)v=-Math.ceil((DND_EDGE-d.y)/4);else if(d.y>h-DND_EDGE)v=Math.ceil((d.y-(h-DND_EDGE))/4);
@@ -725,8 +737,9 @@ function dndArr(L){return L.kind==='shop'?shop:L.kind==='tab'?L.tab.items:tasks}
 function dndConv(o,toShop,date){var done=o.done!=null?!!o.done:!!o.bought,dd=done?(o.doneDate||o.boughtDate||dkey()):null,da=done?(o.doneAt||o.boughtAt||null):null,n={};
  for(var k in o)if(['done','doneDate','doneAt','bought','boughtDate','boughtAt','ord','ordK'].indexOf(k)<0)n[k]=o[k];
  n.date=date;if(toShop){n.bought=done;n.boughtDate=dd;n.boughtAt=da}else{n.done=done;n.doneDate=dd;n.doneAt=da}n.movedAt=new Date().toISOString();return n}
-function dndApply(S,T,id,ids){var o=dndObj(S,id);if(!o)return;var isT=function(L){return L.kind==='azi'||L.kind==='maine'},today=dkey();
- if(S.key===T.key){var cur=(isT(S)?listFor(S.kind):S.kind==='shop'?shopList():tabList(S.tab)).map(function(x){return x.id});if(cur.join('|')===ids.join('|'))return}
+function dndApply(S,T,id,ids,urgMap){var o=dndObj(S,id);if(!o)return;var isT=function(L){return L.kind==='azi'||L.kind==='maine'},today=dkey();
+ if(S.key===T.key){var cur=(isT(S)?listFor(S.kind):S.kind==='shop'?shopList():tabList(S.tab)).map(function(x){return x.id});
+  if(cur.join('|')===ids.join('|')&&cur.every(function(x){var it=dndObj(S,x);return !!it.urgent===!!urgMap[x]}))return}
  var date=isT(T)?(isT(S)?o.date:(o.date||today)):(isT(S)?(o.fromDay||o.date||today):(o.date||today)),due=T.kind==='maine'?dayOff(1):today;
  if(isT(S)&&isT(T)){if(T.kind!==S.kind){o.dueDay=due;if(T.kind==='maine')delete o.fromDay}}
  else{var sa=dndArr(S),si=sa.indexOf(o);if(si<0)return;sa.splice(si,1);
@@ -736,12 +749,14 @@ function dndApply(S,T,id,ids){var o=dndObj(S,id);if(!o)return;var isT=function(L
    for(j=p+1;j<ids.length&&at<0;j++)at=ta.findIndex(function(x){return x.id===ids[j]});
    if(at<0){for(j=p-1;j>=0&&at<0;j--){at=ta.findIndex(function(x){return x.id===ids[j]});if(at>=0)at++}}
    if(at<0)ta.push(n);else ta.splice(at,0,n)}}
- if(isT(T)){var k=T.kind;ids.forEach(function(x,i){var t=tasks[findT(x)];if(t){t.ord=i;t.ordK=k}})}
+ if(isT(T)){var k=T.kind,uI=0,nI=0;ids.forEach(function(x){var t=tasks[findT(x)];if(!t)return;t.urgent=!!urgMap[x];if(t.urgent){t.ord=uI++;t.ordK=k+':u'}else{t.ord=nI++;t.ordK=k+':n'}})}
+ else ids.forEach(function(x){var it=dndObj(T,x);if(it)it.urgent=!!urgMap[x]});
  LS.set('jv_tasks',tasks);LS.set('jv_shop',shop);LS.set('jv_tabs',tabs);histPush();
  [S,T].forEach(function(L){if(isT(L))renderTasks();else if(L.kind==='shop')renderShop();else renderTabItems(L.tab)})}
-function dndDrop(){var d=dnd,ul=d.ph&&d.ph.parentNode,T=ul&&dndListOf(ul),id=d.li.dataset.id,ids=[],S=d.src;
- if(ul)[].forEach.call(ul.children,function(n){if(n===d.ph)ids.push(id);else if(n!==d.li&&n.classList.contains('task')&&n.dataset.id)ids.push(n.dataset.id)});
- dndReset();if(T)dndApply(S,T,id,ids)}
+function dndDrop(){var d=dnd,ul=d.ph&&d.ph.parentNode,T=ul&&dndListOf(ul),id=d.li.dataset.id,ids=[],urgMap={},S=d.src,sec=true;
+ if(ul)[].forEach.call(ul.children,function(n){if(n.classList&&n.classList.contains('jv-sep')){sec=false;return}
+  if(n===d.ph){ids.push(id);urgMap[id]=sec}else if(n!==d.li&&n.classList.contains('task')&&n.dataset.id){ids.push(n.dataset.id);urgMap[n.dataset.id]=sec}});
+ dndReset();if(T)dndApply(S,T,id,ids,urgMap)}
 document.addEventListener('pointerdown',function(e){dndEatClick=false;if(dnd){dndReset();return}
  if(e.pointerType==='mouse'&&e.button!==0)return;var li=e.target.closest&&e.target.closest('.task');
  if(!li||!li.dataset.id||li.classList.contains('editing')||e.target.closest('.x,.ed,textarea,.edb'))return;
@@ -865,16 +880,14 @@ function speak(segs,key){
 /* what each card says */
 function segsVoice(){greetBusy=false;return [prepSeg($('greet'),greetFull())]}
 function segsWx(){var s=[prepSeg(null,'Vremea în '+cfg.city+'.')];if(wx)s.push(prepSeg($('wxtxt'),wxSentence(wx)));else s.push(prepSeg(null,'Nu am date despre vreme.'));return s}
-function segsTasks(which){var lt=which==='maine'?$('ltMaine'):$('ltAzi'),title=which==='maine'?'Taskuri pentru mâine':'Taskuri pentru azi';
- var s=[prepSeg(lt,title)],open=listFor(which).filter(function(t){return !t.done});
- if(!open.length){s.push(prepSeg(null,'Niciun task deschis.'));return s}
- open.forEach(function(t){var li=document.querySelector('#'+(which==='maine'?'lMaine':'lAzi')+' li[data-id="'+t.id+'"] .t');s.push(prepSeg(li,t.text))});return s}
-function segsShop(){var s=[prepSeg($('ltShop'),'Cumpărături')],open=shopList().filter(function(x){return !x.bought});
- if(!open.length){s.push(prepSeg(null,'Lista de cumpărături e goală.'));return s}
- open.forEach(function(x){var el=document.querySelector('#lShop li[data-id="'+x.id+'"] .t');s.push(prepSeg(el,x.text))});return s}
-function segsTab(tab){var c=$('ct_'+tab.id),s=[prepSeg(c&&c.querySelector('.lt'),tab.name)],open=tabList(tab).filter(function(x){return !x.done});
- if(!open.length){s.push(prepSeg(null,'Lista e goală.'));return s}
- open.forEach(function(x){var el=document.querySelector('#ct_'+tab.id+' li[data-id="'+x.id+'"] .t');s.push(prepSeg(el,x.text))});return s}
+function segsUrg(open,getEl,emptyMsg){var s=[],urg=open.filter(function(x){return x.urgent}),norm=open.filter(function(x){return !x.urgent});
+ if(!open.length){s.push(prepSeg(null,emptyMsg));return s}
+ if(urg.length){s.push(prepSeg(null,'Urgent:'));urg.forEach(function(x){s.push(prepSeg(getEl(x),x.text))})}
+ norm.forEach(function(x){s.push(prepSeg(getEl(x),x.text))});return s}
+function segsTasks(which){var lt=which==='maine'?$('ltMaine'):$('ltAzi'),title=which==='maine'?'Taskuri pentru mâine':'Taskuri pentru azi',ul=which==='maine'?'lMaine':'lAzi';
+ return [prepSeg(lt,title)].concat(segsUrg(listFor(which).filter(function(t){return !t.done}),function(t){return document.querySelector('#'+ul+' li[data-id="'+t.id+'"] .t')},'Niciun task deschis.'))}
+function segsShop(){return [prepSeg($('ltShop'),'Cumpărături')].concat(segsUrg(shopList().filter(function(x){return !x.bought}),function(x){return document.querySelector('#lShop li[data-id="'+x.id+'"] .t')},'Lista de cumpărături e goală.'))}
+function segsTab(tab){var c=$('ct_'+tab.id);return [prepSeg(c&&c.querySelector('.lt'),tab.name)].concat(segsUrg(tabList(tab).filter(function(x){return !x.done}),function(x){return document.querySelector('#ct_'+tab.id+' li[data-id="'+x.id+'"] .t')},'Lista e goală.'))}
 function readCard(key){if(speaking&&speakKey===key){stopSpeaking();return}
  if(/^tab:/.test(key)){var tb=findTab(key.slice(4));if(!tb)return;return speak(segsTab(tb),key)}
  if(key==='below')return speak(segsTasks('azi').concat(segsTasks('maine'),segsShop(),[].concat.apply([],visTabs().map(segsTab))),key);
