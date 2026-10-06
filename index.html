@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="JARVIS">
-<meta name="jarvis-version" content="v34-jarvis">
+<meta name="jarvis-version" content="v35-jarvis">
 <title>JARVIS · Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Roboto+Condensed:wght@700&family=Orbitron:wght@700&family=Share+Tech+Mono&family=Rajdhani:wght@600;700&family=Audiowide&family=Teko:wght@500&family=Oxanium:wght@700&display=swap" rel="stylesheet">
@@ -184,6 +184,8 @@ ul.tasks{list-style:none;margin:0;padding:0}
 .toast.show{opacity:1}
 .citylist{margin-top:8px}
 .citylist button{display:block;width:100%;text-align:left;margin-bottom:6px;border-radius:10px}
+.citylist button b{font-weight:500;color:var(--txt)}.citylist button small{display:block;color:var(--mut);font-size:12px;margin-top:2px}
+.cityrow{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:8px}.citysel{font-size:12.5px;color:var(--cyan2);flex:1;min-width:120px}
 .ctab .dot{background:var(--tc,#3fd8ff);box-shadow:0 0 6px var(--tc,#3fd8ff)}
 .ctab .lbl .lt{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .ctab .lbl .lt::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--tc,#3fd8ff);box-shadow:0 0 6px var(--tc,#3fd8ff);margin-right:9px;vertical-align:1px}
@@ -327,7 +329,7 @@ ul.tasks{list-style:none;margin:0;padding:0}
 
 <div class="modal" id="modal"><div class="card"><div class="lbl"><span>Setări</span></div>
  <div class="field"><label for="sName">Nume</label><input id="sName"></div>
- <div class="field"><label for="sCity">Oraș</label><input id="sCity" placeholder="ex. Gherla"><div class="citylist" id="cityList"></div></div>
+ <div class="field"><label for="sCity">Oraș (vremea)</label><input id="sCity" placeholder="Caută orașul, ex. Gherla" autocomplete="off" enterkeyhint="search"><div class="cityrow"><button type="button" class="btn" id="sGeo">📍 Folosește locația mea</button><span class="citysel" id="citySel"></span></div><div class="citylist" id="cityList"></div></div>
 
  <div class="sec">Voce</div>
  <div class="field"><label for="sEngine">Motor voce</label><select id="sEngine"></select></div>
@@ -690,7 +692,7 @@ function loadWx(){
   var days=[],time=(j.daily&&j.daily.time)||[],codes=(j.daily&&j.daily.weather_code)||[];
   for(var i=0;i<Math.min(5,time.length);i++)days.push({date:time[i],code:codes[i]});
   wx={temp:j.current.temperature_2m,feel:j.current.apparent_temperature,code:j.current.weather_code,wind:j.current.wind_speed_10m,day:j.current.is_day===1,
-   max:j.daily.temperature_2m_max[0],min:j.daily.temperature_2m_min[0],pp:j.daily.precipitation_probability_max[0]||0,days:days,ts:Date.now(),city:cfg.city};
+   max:j.daily.temperature_2m_max[0],min:j.daily.temperature_2m_min[0],pp:j.daily.precipitation_probability_max[0]||0,days:days,ts:Date.now(),city:cfg.city,lat:cfg.lat,lon:cfg.lon};
   LS.set('jv_wx',wx);renderWx()}).catch(function(){if(wx){wx.stale=true;renderWx()}else{$('wxcond').textContent='Fără date';$('wxtxt').textContent='Nu pot încărca vremea (fără internet?).';renderWx()}})}
 
 /* ---------- tasks (never lost: open tasks carry over; done/deleted kept as history) ---------- */
@@ -1162,7 +1164,7 @@ $('sTest').onclick=function(){var old={engine:cfg.engine,rate:cfg.rate,pitch:cfg
  greetBusy=true;clearTimeout(greetRestoreT);var seg=prepSeg($('greet'),'Salut, '+($('sName').value.trim()||cfg.name)+'. Așa sună vocea mea acum.');
  speak([seg],'voice').then(function(){greetBusy=false});setTimeout(function(){Object.assign(cfg,old);loadVoices()},0)};
 $('bSettings').onclick=function(){draft={clockFont:cfg.clockFont,clockColor:cfg.clockColor,clockSize:cfg.clockSize,newsSize:newsScale,newsCats:newsCats.slice()};
- $('sName').value=cfg.name;$('sCity').value=cfg.city;$('cityList').innerHTML='';pending=null;
+ $('sName').value=cfg.name;$('sCity').value=cfg.city;$('cityList').innerHTML='';pending=null;$('citySel').textContent='';
  fillEngineSelect();$('sEngine').value=cfg.engine;$('sTone').value=cfg.tone;loadVoices();fillVoiceSelect();$('sVoice').value=cfg.voiceURI||'';$('sRate').value=curRate();$('sPitch').value=curPitch();$('sSize').value=cfg.clockSize;$('sNewsSize').value=newsScale;buildNewsCats(draft.newsCats);
  showVals();updEngineUI();updVoiceRow();buildFontGrid();buildColors();renderBkList();$('modal').classList.add('show')};
 function closeModal(){applyClock(cfg);applyNewsSize(newsScale);renderNews(newsCats);$('modal').classList.remove('show')}
@@ -1170,17 +1172,27 @@ $('sCancel').onclick=closeModal;
 $('modal').addEventListener('click',function(e){if(e.target===this)closeModal()});
 function geocode(q){return fetch('https://geocoding-api.open-meteo.com/v1/search?name='+encodeURIComponent(q)+'&count=5&language=ro&format=json').then(function(r){return r.json()}).then(function(j){return j.results||[]})}
 var gT=null;
-$('sCity').addEventListener('input',function(){pending=null;clearTimeout(gT);var q=this.value.trim();if(q.length<2){$('cityList').innerHTML='';return}
+function citySel(p,sub){pending=p;$('sCity').value=p.city;$('cityList').innerHTML='';$('citySel').textContent='✓ '+p.city+(sub?' · '+sub:'')+' — apasă Salvează'}
+$('sCity').addEventListener('input',function(){pending=null;$('citySel').textContent='';clearTimeout(gT);var q=this.value.trim();if(q.length<2){$('cityList').innerHTML='';return}
  gT=setTimeout(function(){geocode(q).then(function(res){var cl=$('cityList');cl.innerHTML='';
-  res.forEach(function(c){var b=document.createElement('button');b.type='button';b.className='btn';b.textContent=c.name+(c.admin1?', '+c.admin1:'')+(c.country?', '+c.country:'');
-   b.onclick=function(){pending={city:c.name,lat:c.latitude,lon:c.longitude,tz:c.timezone||'auto'};$('sCity').value=c.name;cl.innerHTML=''};cl.appendChild(b)})}).catch(function(){})},400)});
+  if(!res.length){cl.innerHTML='<div class="hint">Niciun rezultat.</div>';return}
+  res.forEach(function(c){var b=document.createElement('button');b.type='button';b.className='btn';var sub=[c.admin1,c.country].filter(Boolean).join(', ');
+   b.innerHTML='<b>'+esc(c.name)+'</b>'+(sub?'<small>'+esc(sub)+'</small>':'');
+   b.onclick=function(){citySel({city:c.name,lat:c.latitude,lon:c.longitude,tz:c.timezone||'auto'},sub)};cl.appendChild(b)})}).catch(function(){$('cityList').innerHTML='<div class="hint">Fără internet: nu pot căuta orașul.</div>'})},400)});
+$('sGeo').onclick=function(){if(!navigator.geolocation){toast('Locația nu e disponibilă pe acest dispozitiv');return}
+ var b=this;b.disabled=true;$('citySel').textContent='Caut locația…';
+ navigator.geolocation.getCurrentPosition(function(pos){var lat=+pos.coords.latitude.toFixed(4),lon=+pos.coords.longitude.toFixed(4);
+  fetch('https://api.bigdatacloud.net/data/reverse-geocode-client?latitude='+lat+'&longitude='+lon+'&localityLanguage=ro').then(function(r){return r.json()}).catch(function(){return{}}).then(function(j){
+   var nm=(j&&(j.city||j.locality))||'Locația mea',sub=[j&&j.principalSubdivision,j&&j.countryName].filter(Boolean).join(', ');
+   b.disabled=false;citySel({city:nm,lat:lat,lon:lon,tz:'auto'},sub)})},
+  function(){b.disabled=false;$('citySel').textContent='';toast('Nu am acces la locație (permisiune refuzată)')},{enableHighAccuracy:false,timeout:12000,maximumAge:600000})};
 $('sSave').onclick=function(){var name=$('sName').value.trim()||cfg.name,city=$('sCity').value.trim();
  function done(){saveCfg();$('modal').classList.remove('show');applyClock();renderGreet(true);renderWx();loadWx();toast('Setări salvate');if(cfg.engine!=='browser')ensureVoice().catch(function(){})}
  cfg.name=name;cfg.engine=$('sEngine').value;cfg.tone=+$('sTone').value;cfg.voiceURI=$('sVoice').value||null;cfg.rate=+$('sRate').value;cfg.pitch=+$('sPitch').value;
  cfg.clockFont=draft.clockFont;cfg.clockColor=draft.clockColor;cfg.clockSize=draft.clockSize;newsScale=draft.newsSize||100;LS.set('jv_newssize',newsScale);applyNewsSize(newsScale);newsCats=draft.newsCats.slice();LS.set('jv_newscats',newsCats);renderNews(newsCats);loadVoices();
- if(pending){cfg.city=pending.city;cfg.lat=pending.lat;cfg.lon=pending.lon;cfg.tz=pending.tz;wx=null;done()}
+ if(pending){var chg=pending.lat!==cfg.lat||pending.lon!==cfg.lon||pending.city!==cfg.city;cfg.city=pending.city;cfg.lat=pending.lat;cfg.lon=pending.lon;cfg.tz=pending.tz;if(chg){wx=null;LS.set('jv_wx',null)}done()}
  else if(city&&city!==cfg.city){geocode(city).then(function(r){if(!r.length){toast('Orașul nu a fost găsit');return}
-   cfg.city=r[0].name;cfg.lat=r[0].latitude;cfg.lon=r[0].longitude;cfg.tz=r[0].timezone||'auto';wx=null;done()}).catch(function(){toast('Fără internet: nu pot căuta orașul')})}
+   cfg.city=r[0].name;cfg.lat=r[0].latitude;cfg.lon=r[0].longitude;cfg.tz=r[0].timezone||'auto';wx=null;LS.set('jv_wx',null);done()}).catch(function(){toast('Fără internet: nu pot căuta orașul')})}
  else done()};
 
 
@@ -1230,7 +1242,7 @@ function bkApply(data){if(!data||typeof data!=='object')throw new Error('empty')
   $('sName').value=cfg.name;$('sCity').value=cfg.city;$('cityList').innerHTML='';pending=null;
   fillEngineSelect();$('sEngine').value=cfg.engine;$('sTone').value=cfg.tone;fillVoiceSelect();$('sVoice').value=cfg.voiceURI||'';$('sRate').value=curRate();$('sPitch').value=curPitch();$('sSize').value=cfg.clockSize;$('sNewsSize').value=newsScale;buildNewsCats(draft.newsCats);
   showVals();updEngineUI();updVoiceRow();buildFontGrid();buildColors()}
- if(!wx||wx.city!==cfg.city){wx=null;loadWx()}else renderWx()}
+ if(!wx||wx.city!==cfg.city||(wx.lat!=null&&(wx.lat!==cfg.lat||wx.lon!==cfg.lon))){wx=null;LS.set('jv_wx',null);renderWx();loadWx()}else renderWx()}
 function bkRestore(id){var e=bkFind(id);if(!e)return;if(!confirm('Se înlocuiește tot ce e acum în aplicație cu backup-ul din '+e.label+'?'))return;
  try{bkApply(e.data);toast('Restaurat · '+e.label)}catch(err){console.warn(err);toast('Nu am putut restaura backup-ul')}}
 function renderBkList(){var box=$('bkList');if(!box)return;var a=bkList();
@@ -1285,7 +1297,7 @@ $('bShare').onclick=function(){var url=blankURL(),text='JARVIS Command Center �
  $('bSettings').addEventListener('click',upd);upd();
 })();
 /* ---------- boot ---------- */
-if(wx&&wx.city!==cfg.city)wx=null;
+if(wx&&(wx.city!==cfg.city||(wx.lat!=null&&(wx.lat!==cfg.lat||wx.lon!==cfg.lon))))wx=null;
 (function(){if(!TTS.opaque)return;var u='https://cluj1313.github.io/jarvis/'+(BLANK?'blank.html':''),n=$('offNote');if(!n)return;
  n.innerHTML='Pentru cea mai bună experiență deschide <a href="'+u+'" target="_blank" rel="noopener">'+u.replace('https://','')+'</a> (vocea rămâne salvată, merge și offline).';n.hidden=false})();
 
