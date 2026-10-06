@@ -727,10 +727,13 @@ function buildNewsCats(sel){var box=$('newsCats');if(!box)return;box.innerHTML='
   var i=document.createElement('input');i.type='checkbox';i.value=c.id;i.checked=sel.indexOf(c.id)>=0;
   i.onchange=function(){var k=sel.indexOf(c.id);if(i.checked&&k<0)sel.push(c.id);if(!i.checked&&k>=0)sel.splice(k,1);l.classList.toggle('on',i.checked);renderNews(sel)};
   l.appendChild(i);l.appendChild(document.createTextNode(c.name));box.appendChild(l)})}
-function loadNews(){return fetch('news.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()}).then(function(j){
+function loadNews(manual){return (manual&&navigator.onLine===false?Promise.reject(new Error('offline')):fetch('news.json?'+(manual?'fresh=':'t=')+Date.now(),{cache:'no-store'})).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()}).then(function(j){
   var n=newsNorm(j);if(!n||!n.categories.length)throw new Error('bad news.json');
   newsData=n;LS.set('jv_news',newsData);renderNews(draft&&$('modal').classList.contains('show')?draft.newsCats:newsCats)
- }).catch(function(){if(newsData){newsData.stale=true;renderNews()}else{renderNews()}})}
+ }).catch(function(){if(newsData){newsData.stale=true;renderNews()}else{renderNews()}if(manual)toast(navigator.onLine?'Nu am putut actualiza știrile':'Ești offline — nu pot actualiza știrile')})}
+var newsBusy=false;
+$('newsRefresh').onclick=function(){if(newsBusy)return;newsBusy=true;var b=this;b.classList.add('spin');
+ var t0=Date.now();loadNews(true).then(function(){setTimeout(function(){b.classList.remove('spin');newsBusy=false},Math.max(0,500-(Date.now()-t0)))})};
 
 renderTasks();renderShop();renderTabs();hCur=snap();histBtns();renderWx();renderNews();tick();setInterval(tick,1000);
 loadWx();setInterval(loadWx,15*60*1000);

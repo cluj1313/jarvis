@@ -1,6 +1,6 @@
 /* JARVIS service worker: app shell cache. HTML = network-first (updates arrive), static = cache-first.
    Voice model files (Mihai, own cache "jarvis-piper-v1") and weather (Open-Meteo) are NOT touched: passed straight to the network. */
-var VERSION='jarvis-shell-v25';
+var VERSION='jarvis-shell-v26';
 var SHELL=['./','index.html','blank.html','manifest.webmanifest','manifest-blank.webmanifest',
  'icons/icon-192.png','icons/icon-512.png','icons/icon-maskable-512.png','icons/apple-touch-icon.png'];
 var FONT_HOSTS=/^https:\/\/(fonts\.googleapis\.com|fonts\.gstatic\.com)\//,DSEG=/^https:\/\/cdn\.jsdelivr\.net\/npm\/dseg@/;
@@ -17,8 +17,9 @@ self.addEventListener('fetch',function(e){var r=e.request;var url=r.url;
     return caches.open(VERSION).then(function(c){return c.match(strip(url)).then(function(h){return h||c.match(/blank\.html$/.test(path)?'blank.html':'index.html',{ignoreSearch:true})})})}));return}
   if(/\.js$/.test(path)&&/sw\.js$/.test(path))return;
   if(/news\.json$/.test(path)){ /* network-first — never sticky-stale */
-   e.respondWith(fetch(r).then(function(res){if(res&&res.ok){var cp=res.clone();caches.open(VERSION).then(function(c){c.put(strip(url),cp)})}return res}).catch(function(){
-    return caches.open(VERSION).then(function(c){return c.match(strip(url))})}));return}
+   var fresh=/[?&]fresh=/.test(url); /* manual refresh: no cache fallback, so the app can report the failure */
+   e.respondWith(fetch(r,fresh?{cache:'no-store'}:undefined).then(function(res){if(res&&res.ok){var cp=res.clone();caches.open(VERSION).then(function(c){c.put(strip(url),cp)})}return res}).catch(function(err){
+    if(fresh)throw err;return caches.open(VERSION).then(function(c){return c.match(strip(url))})}));return}
   e.respondWith(caches.open(VERSION).then(function(c){return c.match(strip(url)).then(function(h){return h||fetch(r).then(function(res){if(res&&res.ok)c.put(strip(url),res.clone());return res})})}));return}
  if(FONT_HOSTS.test(url)||DSEG.test(url)){ /* fonts: cache-first */
   e.respondWith(caches.open(VERSION).then(function(c){return c.match(url).then(function(h){return h||fetch(r).then(function(res){if(res&&(res.ok||res.type==='opaque'))c.put(url,res.clone());return res})})}));return}
