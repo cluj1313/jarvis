@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="JARVIS">
-<meta name="jarvis-version" content="v24-jarvis-blank">
+<meta name="jarvis-version" content="v25-jarvis-blank">
 <script>window.JARVIS_BLANK=true</script>
 <title>JARVIS · Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -159,6 +159,15 @@ ul.tasks{list-style:none;margin:0;padding:0}
 .hb svg{width:15px;height:15px}
 .hb.del{color:#ff8a8a}
 .lbl .hgrp{display:flex;gap:6px;flex:none}
+.ctab .lbl{cursor:pointer;-webkit-tap-highlight-color:transparent}
+.ctab .tcnt{display:none;flex:none;color:var(--mut);letter-spacing:.06em;margin-left:-2px}
+.ctab.col .tcnt{display:inline;margin-right:auto}
+.ctab.col .lbl .lt{flex:0 1 auto}
+.hb.tcol{width:26px;border-color:transparent;background:none;color:var(--mut);font-size:15px;transition:transform .2s ease,color .2s}
+.hb.tcol:hover{color:var(--cyan2)}
+.ctab.col .hb.tcol{transform:rotate(-90deg)}
+.ctab.col ul.ctl,.ctab.col form.add{display:none}
+.ctab.col .lbl{margin-bottom:-4px}
 .btn.pill.newtab{color:var(--cyan2);border-style:dashed}
 .barin{padding:9px 12px}.barbtns{gap:6px}
 @media (max-width:440px){.bar{padding-left:8px;padding-right:8px}.barin{gap:8px;padding:9px 10px}.eq{width:32px;gap:2px}.eq i{width:3.5px}}
@@ -733,12 +742,18 @@ function findTI(tab,id){for(var i=0;i<tab.items.length;i++)if(tab.items[i].id===
 function tiVisible(x){return !x.hidden&&(!x.done||x.doneDate===dkey())}
 function tabList(tab){return tab.items.filter(tiVisible).sort(urgSort)}
 (function(){var ch=false;tabs.forEach(function(tab){(tab.items||[]).forEach(function(s){if(s.urgent==null){s.urgent=false;ch=true}})});if(ch)LS.set('jv_tabs',tabs)})();
-function renderTabItems(tab){var ul=document.querySelector('#ct_'+tab.id+' ul');if(!ul)return;
+var tabCol=LS.get('jv_tabcol',{});if(!tabCol||typeof tabCol!=='object')tabCol={}; /* v25: collapsed custom tabs (not in undo history) */
+function tabOpenCount(tab){return tabList(tab).filter(function(x){return !x.done}).length}
+function updTabCount(tab){var n=document.querySelector('#ct_'+tab.id+' .tcnt');if(n)n.textContent='· '+tabOpenCount(tab)}
+function toggleTabCol(tab){var c=$('ct_'+tab.id);if(!c)return;var col=!c.classList.contains('col');c.classList.toggle('col',col);
+ if(col)tabCol[tab.id]=1;else delete tabCol[tab.id];LS.set('jv_tabcol',tabCol);
+ var b=c.querySelector('.tcol');if(b){b.setAttribute('aria-expanded',col?'false':'true');b.setAttribute('aria-label',col?'Extinde tabul':'Restrânge tabul')}updTabCount(tab)}
+function renderTabItems(tab){var ul=document.querySelector('#ct_'+tab.id+' ul');if(!ul)return;updTabCount(tab);
  fillList(ul,tabList(tab),'Lista e goală.',function(s){return renderItem(s,(s.done?'Gata':'Deschis')+(s.date<dkey()?'<small>'+shortDate(s.date)+'</small>':''))})}
 function renderTabs(){var box=$('customCards');if(!box)return;box.innerHTML='';
- visTabs().forEach(function(tab){var c=document.createElement('section');c.className='card ctab';c.id='ct_'+tab.id;c.dataset.tab=tab.id;
+ visTabs().forEach(function(tab){var c=document.createElement('section');c.className='card ctab'+(tabCol[tab.id]?' col':'');c.id='ct_'+tab.id;c.dataset.tab=tab.id;
   if(tab.color)c.style.setProperty('--tc',tab.color);
-  c.innerHTML='<div class="lbl"><span class="lt kw">'+esc(tab.name)+'</span><span class="hgrp"><button class="hb ren" aria-label="Redenumește tabul">✎</button><button class="hb del" aria-label="Șterge tabul">'+TRASH_SVG+'</button><button class="spk" data-read="tab:'+tab.id+'" aria-label="Citește">'+SPK_SVG+'</button></span></div><ul class="tasks ctl"></ul>'+
+  c.innerHTML='<div class="lbl"><span class="lt kw">'+esc(tab.name)+'</span><span class="tcnt" aria-hidden="true"></span><span class="hgrp"><button class="hb ren" aria-label="Redenumește tabul">✎</button><button class="hb del" aria-label="Șterge tabul">'+TRASH_SVG+'</button><button class="spk" data-read="tab:'+tab.id+'" aria-label="Citește">'+SPK_SVG+'</button><button type="button" class="hb tcol" aria-expanded="'+(tabCol[tab.id]?'false':'true')+'" aria-label="'+(tabCol[tab.id]?'Extinde tabul':'Restrânge tabul')+'">▾</button></span></div><ul class="tasks ctl"></ul>'+
    '<form class="add"><input placeholder="Scrie un element" autocomplete="off" aria-label="Element nou"><button type="button" class="btn mic tmic" title="Scrie sau dictează cu tastatura" aria-label="Deschide tastatura">'+MIC_SVG+'</button><button class="btn" type="submit">Adaugă</button></form>';
   box.appendChild(c);renderTabItems(tab)});
  if(typeof updEq==='function')updEq()}
@@ -753,6 +768,7 @@ function delTab(tab){if(!confirm('Ștergi tabul „'+tab.name+'"? Elementele lui
   if(e.target.closest('.spk')){readCard('tab:'+tab.id);return}
   if(e.target.closest('.ren')){openTabModal(tab);return}
   if(e.target.closest('.del')){delTab(tab);return}
+  if(e.target.closest('.lbl')){toggleTabCol(tab);return}
   if(e.target.closest('.tmic')){var i=e.target.closest('form').querySelector('input');i.focus();try{i.click()}catch(_){}return}
   var li=e.target.closest('.task');if(!li||li.classList.contains('editing')||!li.dataset.id)return;
   if(e.target.closest('.ed')){var s=findTI(tab,li.dataset.id);if(s)startEdit(li,s,saveTabs,function(){renderTabItems(tab)});return}
@@ -804,7 +820,7 @@ function dndListOf(ul){if(!ul)return null;
  if(ul.id==='lAzi')return{kind:'azi',key:'azi'};if(ul.id==='lMaine')return{kind:'maine',key:'maine'};if(ul.id==='lShop')return{kind:'shop',key:'shop'};
  var c=ul.closest&&ul.closest('.ctab');if(c&&ul.classList.contains('ctl')){var tb=findTab(c.dataset.tab);if(tb)return{kind:'tab',key:'tab:'+tb.id,tab:tb}}return null}
 function dndUL(el){if(!el||!el.closest)return null;var ul=el.closest('#lAzi,#lMaine,#lShop,.ctab ul.ctl');if(ul)return ul;
- var c=el.closest('#cAzi,#cMaine,#cShop,.ctab');return c?c.querySelector('#lAzi,#lMaine,#lShop,ul.ctl'):null}
+ var c=el.closest('#cAzi,#cMaine,#cShop,.ctab');return c&&!c.classList.contains('col')?c.querySelector('#lAzi,#lMaine,#lShop,ul.ctl'):null}
 function dndYest(){var y=new Date();y.setDate(y.getDate()-1);return dkey(y)}
 function dndClasses(on){var r=document.documentElement;r.classList.toggle('jv-press',!!on);if(!on)r.classList.remove('jv-dragging')}
 function dndReset(){if(!dnd)return;clearTimeout(dnd.armT);clearTimeout(dnd.delT);if(dnd.raf)cancelAnimationFrame(dnd.raf);

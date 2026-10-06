@@ -288,12 +288,18 @@ function findTI(tab,id){for(var i=0;i<tab.items.length;i++)if(tab.items[i].id===
 function tiVisible(x){return !x.hidden&&(!x.done||x.doneDate===dkey())}
 function tabList(tab){return tab.items.filter(tiVisible).sort(urgSort)}
 (function(){var ch=false;tabs.forEach(function(tab){(tab.items||[]).forEach(function(s){if(s.urgent==null){s.urgent=false;ch=true}})});if(ch)LS.set('jv_tabs',tabs)})();
-function renderTabItems(tab){var ul=document.querySelector('#ct_'+tab.id+' ul');if(!ul)return;
+var tabCol=LS.get('jv_tabcol',{});if(!tabCol||typeof tabCol!=='object')tabCol={}; /* v25: collapsed custom tabs (not in undo history) */
+function tabOpenCount(tab){return tabList(tab).filter(function(x){return !x.done}).length}
+function updTabCount(tab){var n=document.querySelector('#ct_'+tab.id+' .tcnt');if(n)n.textContent='· '+tabOpenCount(tab)}
+function toggleTabCol(tab){var c=$('ct_'+tab.id);if(!c)return;var col=!c.classList.contains('col');c.classList.toggle('col',col);
+ if(col)tabCol[tab.id]=1;else delete tabCol[tab.id];LS.set('jv_tabcol',tabCol);
+ var b=c.querySelector('.tcol');if(b){b.setAttribute('aria-expanded',col?'false':'true');b.setAttribute('aria-label',col?'Extinde tabul':'Restrânge tabul')}updTabCount(tab)}
+function renderTabItems(tab){var ul=document.querySelector('#ct_'+tab.id+' ul');if(!ul)return;updTabCount(tab);
  fillList(ul,tabList(tab),'Lista e goală.',function(s){return renderItem(s,(s.done?'Gata':'Deschis')+(s.date<dkey()?'<small>'+shortDate(s.date)+'</small>':''))})}
 function renderTabs(){var box=$('customCards');if(!box)return;box.innerHTML='';
- visTabs().forEach(function(tab){var c=document.createElement('section');c.className='card ctab';c.id='ct_'+tab.id;c.dataset.tab=tab.id;
+ visTabs().forEach(function(tab){var c=document.createElement('section');c.className='card ctab'+(tabCol[tab.id]?' col':'');c.id='ct_'+tab.id;c.dataset.tab=tab.id;
   if(tab.color)c.style.setProperty('--tc',tab.color);
-  c.innerHTML='<div class="lbl"><span class="lt kw">'+esc(tab.name)+'</span><span class="hgrp"><button class="hb ren" aria-label="Redenumește tabul">✎</button><button class="hb del" aria-label="Șterge tabul">'+TRASH_SVG+'</button><button class="spk" data-read="tab:'+tab.id+'" aria-label="Citește">'+SPK_SVG+'</button></span></div><ul class="tasks ctl"></ul>'+
+  c.innerHTML='<div class="lbl"><span class="lt kw">'+esc(tab.name)+'</span><span class="tcnt" aria-hidden="true"></span><span class="hgrp"><button class="hb ren" aria-label="Redenumește tabul">✎</button><button class="hb del" aria-label="Șterge tabul">'+TRASH_SVG+'</button><button class="spk" data-read="tab:'+tab.id+'" aria-label="Citește">'+SPK_SVG+'</button><button type="button" class="hb tcol" aria-expanded="'+(tabCol[tab.id]?'false':'true')+'" aria-label="'+(tabCol[tab.id]?'Extinde tabul':'Restrânge tabul')+'">▾</button></span></div><ul class="tasks ctl"></ul>'+
    '<form class="add"><input placeholder="Scrie un element" autocomplete="off" aria-label="Element nou"><button type="button" class="btn mic tmic" title="Scrie sau dictează cu tastatura" aria-label="Deschide tastatura">'+MIC_SVG+'</button><button class="btn" type="submit">Adaugă</button></form>';
   box.appendChild(c);renderTabItems(tab)});
  if(typeof updEq==='function')updEq()}
@@ -308,6 +314,7 @@ function delTab(tab){if(!confirm('Ștergi tabul „'+tab.name+'"? Elementele lui
   if(e.target.closest('.spk')){readCard('tab:'+tab.id);return}
   if(e.target.closest('.ren')){openTabModal(tab);return}
   if(e.target.closest('.del')){delTab(tab);return}
+  if(e.target.closest('.lbl')){toggleTabCol(tab);return}
   if(e.target.closest('.tmic')){var i=e.target.closest('form').querySelector('input');i.focus();try{i.click()}catch(_){}return}
   var li=e.target.closest('.task');if(!li||li.classList.contains('editing')||!li.dataset.id)return;
   if(e.target.closest('.ed')){var s=findTI(tab,li.dataset.id);if(s)startEdit(li,s,saveTabs,function(){renderTabItems(tab)});return}
@@ -359,7 +366,7 @@ function dndListOf(ul){if(!ul)return null;
  if(ul.id==='lAzi')return{kind:'azi',key:'azi'};if(ul.id==='lMaine')return{kind:'maine',key:'maine'};if(ul.id==='lShop')return{kind:'shop',key:'shop'};
  var c=ul.closest&&ul.closest('.ctab');if(c&&ul.classList.contains('ctl')){var tb=findTab(c.dataset.tab);if(tb)return{kind:'tab',key:'tab:'+tb.id,tab:tb}}return null}
 function dndUL(el){if(!el||!el.closest)return null;var ul=el.closest('#lAzi,#lMaine,#lShop,.ctab ul.ctl');if(ul)return ul;
- var c=el.closest('#cAzi,#cMaine,#cShop,.ctab');return c?c.querySelector('#lAzi,#lMaine,#lShop,ul.ctl'):null}
+ var c=el.closest('#cAzi,#cMaine,#cShop,.ctab');return c&&!c.classList.contains('col')?c.querySelector('#lAzi,#lMaine,#lShop,ul.ctl'):null}
 function dndYest(){var y=new Date();y.setDate(y.getDate()-1);return dkey(y)}
 function dndClasses(on){var r=document.documentElement;r.classList.toggle('jv-press',!!on);if(!on)r.classList.remove('jv-dragging')}
 function dndReset(){if(!dnd)return;clearTimeout(dnd.armT);clearTimeout(dnd.delT);if(dnd.raf)cancelAnimationFrame(dnd.raf);
