@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="JARVIS">
-<meta name="jarvis-version" content="v29-jarvis-blank">
+<meta name="jarvis-version" content="v30-jarvis-blank">
 <script>window.JARVIS_BLANK=true</script>
 <title>JARVIS · Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,10 +29,10 @@ body{min-height:100vh;background:
 .wrap{max-width:460px;margin:0 auto;padding:16px 16px 120px}
 header{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:8px 0 18px}
 .brand{display:flex;align-items:center;gap:13px;min-width:0}
-.orb{width:56px;height:56px;border-radius:50%;flex:none;position:relative;overflow:visible;
+.orb{width:76px;height:76px;border-radius:50%;flex:none;position:relative;overflow:visible;
  background:#061522;border:1.5px solid rgba(110,225,250,.55);
- box-shadow:0 0 16px 3px rgba(63,200,235,.32),0 0 36px 8px rgba(63,200,235,.1)}
-.orb-img{display:block;width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:50% 28%;
+ box-shadow:0 0 18px 4px rgba(63,200,235,.34),0 0 40px 10px rgba(63,200,235,.12)}
+.orb-img{display:block;width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:50% 42%;
  box-shadow:inset 0 0 10px rgba(0,40,60,.35)}
 .orb-ring{position:absolute;inset:-3px;border-radius:50%;pointer-events:none;z-index:2;
  background:conic-gradient(from 0deg,transparent 0 72%,rgba(120,220,255,.08) 82%,rgba(160,245,255,.55) 90%,#e8ffff 95%,rgba(160,245,255,.55) 98%,transparent 100%);
@@ -41,7 +41,7 @@ header{display:flex;justify-content:space-between;align-items:center;gap:8px;mar
  animation:orb-race 2.75s linear infinite;will-change:transform}
 .orb.active .orb-ring{animation-duration:1.15s}
 @keyframes orb-race{0%{transform:rotate(0deg)}28%{transform:rotate(360deg)}100%{transform:rotate(360deg)}}
-.orb-spark{position:absolute;top:7px;right:9px;width:4px;height:4px;border-radius:50%;z-index:3;pointer-events:none;
+.orb-spark{position:absolute;top:10px;right:12px;width:5px;height:5px;border-radius:50%;z-index:3;pointer-events:none;
  background:#eefcff;box-shadow:0 0 5px 1.5px rgba(180,250,255,.95),0 0 10px 3px rgba(63,216,255,.45);
  opacity:0;animation:orb-twinkle 5.2s ease-in-out infinite;animation-delay:1.55s;will-change:opacity,transform}
 .orb-spark::after{content:"";position:absolute;left:50%;top:50%;width:7px;height:1px;background:rgba(230,255,255,.85);
@@ -259,7 +259,7 @@ ul.tasks{list-style:none;margin:0;padding:0}
 <body>
 <div class="wrap">
  <header>
-  <div class="brand"><div class="orb" id="orb"><img class="orb-img" src="jarvis-avatar.jpg" width="56" height="56" alt="Jarvis" decoding="async"><span class="orb-ring" aria-hidden="true"></span><span class="orb-spark" aria-hidden="true"></span></div><div><h1>JARVIS</h1><small>COMMAND CENTER</small></div></div>
+  <div class="brand"><div class="orb" id="orb"><img class="orb-img" src="jarvis-avatar.jpg" width="76" height="76" alt="Jarvis" decoding="async"><span class="orb-ring" aria-hidden="true"></span><span class="orb-spark" aria-hidden="true"></span></div><div><h1>JARVIS</h1><small>COMMAND CENTER</small></div></div>
   <div class="right"><div class="clock" id="clock" data-ghost="88.88">--.--</div>
    <div class="hbtns"><button class="btn pill" id="bSettings">Setări</button><button class="btn pill" id="bShare">Trimite copia</button></div></div>
  </header>
