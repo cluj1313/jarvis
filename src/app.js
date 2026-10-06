@@ -19,7 +19,7 @@ function setStatus(m,err){var s=$('vstatus');s.textContent=m||(cfg&&!cfg.name?'S
 /* ---------- settings ---------- */
 var cfg=null;cfg=Object.assign({name:BLANK?'':'Iosif',city:'Gherla',lat:47.03,lon:23.91,tz:'Europe/Bucharest',engine:'piper',rate:1.25,pitch:null,voiceURI:null,
  clockFont:'condensed',clockColor:'#3fd8ff',clockSize:56},LS.get('jv_cfg',{}));
-if(cfg.engine==='piper'||!cfg.engine||(cfg.engine!=='browser'&&!TTS.voice(cfg.engine)))cfg.engine='mihai';if(cfg.tone==null)cfg.tone=1;
+if(cfg.engine==='piper'||!cfg.engine||(cfg.engine!=='browser'&&!TTS.voice(cfg.engine)))cfg.engine='mihai';if(cfg.tone==null)cfg.tone=1;if(cfg.remindUrgent==null)cfg.remindUrgent=true;
 if(!LS.get('jv_v4',false)){cfg.clockFont='condensed';cfg.clockSize=56;cfg.clockColor='#3fd8ff';LS.set('jv_v4',true);LS.set('jv_cfg',cfg)}
 if(!LS.get('jv_v3',false)){cfg.engine='mihai';if(cfg.rate==null||cfg.rate===1.3)cfg.rate=1.25;LS.set('jv_v3',true);LS.set('jv_cfg',cfg)}
 function saveCfg(){LS.set('jv_cfg',cfg)}
@@ -650,7 +650,7 @@ $('sTest').onclick=function(){var old={engine:cfg.engine,rate:cfg.rate,pitch:cfg
 $('bSettings').onclick=function(){draft={clockFont:cfg.clockFont,clockColor:cfg.clockColor,clockSize:cfg.clockSize,newsSize:newsScale,newsCats:newsCats.slice()};
  $('sName').value=cfg.name;$('sCity').value=cfg.city;$('cityList').innerHTML='';pending=null;$('citySel').textContent='';
  fillEngineSelect();$('sEngine').value=cfg.engine;$('sTone').value=cfg.tone;loadVoices();fillVoiceSelect();$('sVoice').value=cfg.voiceURI||'';$('sRate').value=curRate();$('sPitch').value=curPitch();$('sSize').value=cfg.clockSize;$('sNewsSize').value=newsScale;buildNewsCats(draft.newsCats);
- showVals();updEngineUI();updVoiceRow();buildFontGrid();buildColors();renderBkList();$('modal').classList.add('show')};
+ $('sRemindUrg').checked=cfg.remindUrgent!==false;showVals();updEngineUI();updVoiceRow();buildFontGrid();buildColors();renderBkList();$('modal').classList.add('show')};
 function closeModal(){applyClock(cfg);applyNewsSize(newsScale);renderNews(newsCats);$('modal').classList.remove('show')}
 $('sCancel').onclick=closeModal;
 $('modal').addEventListener('click',function(e){if(e.target===this)closeModal()});
@@ -673,16 +673,28 @@ $('sGeo').onclick=function(){if(!navigator.geolocation){toast('Locația nu e dis
 $('sSave').onclick=function(){var name=$('sName').value.trim()||cfg.name,city=$('sCity').value.trim();
  function done(){saveCfg();$('modal').classList.remove('show');applyClock();renderGreet(true);renderWx();loadWx();toast('Setări salvate');if(cfg.engine!=='browser')ensureVoice().catch(function(){})}
  cfg.name=name;cfg.engine=$('sEngine').value;cfg.tone=+$('sTone').value;cfg.voiceURI=$('sVoice').value||null;cfg.rate=+$('sRate').value;cfg.pitch=+$('sPitch').value;
- cfg.clockFont=draft.clockFont;cfg.clockColor=draft.clockColor;cfg.clockSize=draft.clockSize;newsScale=draft.newsSize||100;LS.set('jv_newssize',newsScale);applyNewsSize(newsScale);newsCats=draft.newsCats.slice();LS.set('jv_newscats',newsCats);renderNews(newsCats);loadVoices();
+ cfg.remindUrgent=!!$('sRemindUrg').checked;cfg.clockFont=draft.clockFont;cfg.clockColor=draft.clockColor;cfg.clockSize=draft.clockSize;newsScale=draft.newsSize||100;LS.set('jv_newssize',newsScale);applyNewsSize(newsScale);newsCats=draft.newsCats.slice();LS.set('jv_newscats',newsCats);renderNews(newsCats);loadVoices();
  if(pending){var chg=pending.lat!==cfg.lat||pending.lon!==cfg.lon||pending.city!==cfg.city;cfg.city=pending.city;cfg.lat=pending.lat;cfg.lon=pending.lon;cfg.tz=pending.tz;if(chg){wx=null;LS.set('jv_wx',null)}done()}
  else if(city&&city!==cfg.city){geocode(city).then(function(r){if(!r.length){toast('Orașul nu a fost găsit');return}
    cfg.city=r[0].name;cfg.lat=r[0].latitude;cfg.lon=r[0].longitude;cfg.tz=r[0].timezone||'auto';wx=null;LS.set('jv_wx',null);done()}).catch(function(){toast('Fără internet: nu pot căuta orașul')})}
  else done()};
 
 
+
+/* ---------- urgent reminder (v36) ---------- */
+function urgentAzi(){return listFor('azi').filter(function(t){return !t.done&&t.urgent})}
+function maybeRemindUrgent(){
+ if(cfg.remindUrgent===false||document.querySelector('.modal.show'))return;
+ var u=urgentAzi();if(!u.length)return;
+ var day=dkey();if(LS.get('jv_urgday',null)===day)return;LS.set('jv_urgday',day);
+ var n=u.length,tit=u.slice(0,2).map(function(t){return t.text}).join(' · ');
+ var msg=(n===1?'Ai 1 task urgent azi: ':'Ai '+n+' taskuri urgente azi: ')+tit+(n>2?'…':'');
+ toast(msg);clearTimeout(toast._t);toast._t=setTimeout(function(){$('toast').classList.remove('show')},5500)}
+document.addEventListener('visibilitychange',function(){if(!document.hidden)setTimeout(maybeRemindUrgent,600)});
+window.addEventListener('focus',function(){setTimeout(maybeRemindUrgent,600)});
 /* ---------- backups (v32) ---------- */
 var BK_KEYS=['jv_cfg','jv_tasks','jv_shop','jv_tabs','jv_tabcol','jv_cardcol','jv_newscats','jv_newssize'],BK_MAX=20;
-var BK_CFG_DEF={name:BLANK?'':'Iosif',city:'Gherla',lat:47.03,lon:23.91,tz:'Europe/Bucharest',engine:'mihai',rate:1.25,pitch:null,voiceURI:null,tone:1,clockFont:'condensed',clockColor:'#3fd8ff',clockSize:56};
+var BK_CFG_DEF={name:BLANK?'':'Iosif',city:'Gherla',lat:47.03,lon:23.91,tz:'Europe/Bucharest',engine:'mihai',rate:1.25,pitch:null,voiceURI:null,tone:1,clockFont:'condensed',clockColor:'#3fd8ff',clockSize:56,remindUrgent:true};
 function bkLabel(d){d=d||new Date();return d.getDate()+' '+LUNI_S[d.getMonth()]+' '+d.getFullYear()+' · '+pad(d.getHours())+':'+pad(d.getMinutes())}
 function bkList(){var a=LS.get('jv_backups',[]);return Array.isArray(a)?a:[]}
 function bkSaveList(a){LS.set('jv_backups',a)}
@@ -835,6 +847,7 @@ $('newsRefresh').onclick=function(){if(newsBusy)return;newsBusy=true;var b=this;
  var t0=Date.now();loadNews(true).then(function(){setTimeout(function(){b.classList.remove('spin');newsBusy=false},Math.max(0,500-(Date.now()-t0)))})};
 
 renderTasks();renderShop();renderTabs();hCur=snap();histBtns();renderWx();renderNews();tick();setInterval(tick,1000);
+setTimeout(maybeRemindUrgent,3200);
 loadWx();setInterval(loadWx,15*60*1000);
 loadNews();setInterval(loadNews,30*60*1000);
 document.addEventListener('visibilitychange',function(){if(!document.hidden){if(!wx||Date.now()-wx.ts>15*60*1000)loadWx();loadNews()}});

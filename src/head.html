@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="JARVIS">
-<meta name="jarvis-version" content="v35-jarvis">
+<meta name="jarvis-version" content="v36-jarvis">
 <title>JARVIS · Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Roboto+Condensed:wght@700&family=Orbitron:wght@700&family=Share+Tech+Mono&family=Rajdhani:wght@600;700&family=Audiowide&family=Teko:wght@500&family=Oxanium:wght@700&display=swap" rel="stylesheet">
@@ -186,6 +186,9 @@ ul.tasks{list-style:none;margin:0;padding:0}
 .citylist button{display:block;width:100%;text-align:left;margin-bottom:6px;border-radius:10px}
 .citylist button b{font-weight:500;color:var(--txt)}.citylist button small{display:block;color:var(--mut);font-size:12px;margin-top:2px}
 .cityrow{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:8px}.citysel{font-size:12.5px;color:var(--cyan2);flex:1;min-width:120px}
+.chk{display:flex;align-items:center;gap:10px;color:var(--txt);font-size:14.5px;cursor:pointer;user-select:none;-webkit-user-select:none}
+.chk input{width:18px;height:18px;margin:0;flex:none;accent-color:var(--cyan)}
+
 .ctab .dot{background:var(--tc,#3fd8ff);box-shadow:0 0 6px var(--tc,#3fd8ff)}
 .ctab .lbl .lt{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .ctab .lbl .lt::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--tc,#3fd8ff);box-shadow:0 0 6px var(--tc,#3fd8ff);margin-right:9px;vertical-align:1px}
@@ -329,6 +332,7 @@ ul.tasks{list-style:none;margin:0;padding:0}
 
 <div class="modal" id="modal"><div class="card"><div class="lbl"><span>Setări</span></div>
  <div class="field"><label for="sName">Nume</label><input id="sName"></div>
+ <div class="field"><label class="chk"><input type="checkbox" id="sRemindUrg" checked> Amintește-mi urgentele</label><div class="hint">La deschiderea aplicației, o notificare scurtă o dată pe zi dacă ai taskuri urgente azi.</div></div>
  <div class="field"><label for="sCity">Oraș (vremea)</label><input id="sCity" placeholder="Caută orașul, ex. Gherla" autocomplete="off" enterkeyhint="search"><div class="cityrow"><button type="button" class="btn" id="sGeo">📍 Folosește locația mea</button><span class="citysel" id="citySel"></span></div><div class="citylist" id="cityList"></div></div>
 
  <div class="sec">Voce</div>
