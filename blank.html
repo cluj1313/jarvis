@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="JARVIS">
-<meta name="jarvis-version" content="v36-jarvis-blank">
+<meta name="jarvis-version" content="v37-jarvis-blank">
 <script>window.JARVIS_BLANK=true</script>
 <title>JARVIS · Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -70,8 +70,8 @@ header{display:flex;justify-content:space-between;align-items:center;gap:8px;mar
 .btn{background:rgba(20,60,90,.45);color:var(--txt);border:1px solid var(--line);border-radius:999px;padding:7px 12px;font:inherit;font-size:13px;cursor:pointer}
 .btn:active{background:rgba(63,216,255,.25)}
 .btn.sel{border-color:var(--cyan);background:rgba(63,216,255,.2)}
-.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:16px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);box-shadow:inset 0 0 24px rgba(63,216,255,.04)}
-.lbl{display:flex;justify-content:space-between;align-items:center;gap:8px;color:var(--cyan2);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;margin:-4px 0 12px;font-weight:500;min-height:30px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:22px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);box-shadow:inset 0 0 24px rgba(63,216,255,.04)}
+.lbl{display:flex;justify-content:space-between;align-items:center;gap:8px;color:#9eebff;font-size:13.5px;letter-spacing:.15em;text-transform:uppercase;margin:-2px 0 12px;font-weight:600;min-height:32px}
 .spk{flex:none;width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:rgba(20,60,90,.35);color:var(--cyan2);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0}
 .spk svg{width:16px;height:16px}
 .spk.on{background:rgba(63,216,255,.3);border-color:var(--cyan);box-shadow:0 0 10px rgba(63,216,255,.5)}
@@ -206,18 +206,18 @@ ul.tasks{list-style:none;margin:0;padding:0}
 .hb.tcol:hover{color:var(--cyan2)}
 .ctab.col .hb.tcol{transform:rotate(-90deg)}
 .ctab.col ul.ctl,.ctab.col form.add{display:none}
-.ctab.col .lbl{margin-bottom:-4px}
+.ctab.col{padding-top:15px;padding-bottom:15px}.ctab.col .lbl{margin-bottom:0;min-height:34px}
 .ccol .lbl{cursor:pointer;-webkit-tap-highlight-color:transparent}
 .ccol .tcnt{display:none;flex:none;color:var(--mut);letter-spacing:.06em;margin-left:-2px}
 .ccol.col .tcnt{display:inline;margin-right:auto}
 .ccol.col .hb.tcol{transform:rotate(-90deg)}
 .ccol.col ul.tasks,.ccol.col form.add,.ccol.col .news-meta,.ccol.col #newsBody{display:none}
-.ccol.col .lbl{margin-bottom:-4px}
+.ccol.col{padding-top:15px;padding-bottom:15px}.ccol.col .lbl{margin-bottom:0;min-height:34px}
 #cVoice.col > :not(.lbl),#cWx.col > :not(.lbl){display:none}
 #cWx .wxsum{display:none;flex:1;min-width:0;align-items:center;gap:10px;margin-right:2px}
 #cWx.col .wxsum{display:flex}
 #cWx.col #wxlbl{display:none}
-#cWx .wxcity{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--cyan2);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:500}
+#cWx .wxcity{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#9eebff;font-size:13.5px;letter-spacing:.15em;text-transform:uppercase;font-weight:600}
 #cWx .wxsumr{display:flex;align-items:center;gap:6px;flex:none}
 #cWx .wxtempmini{font-size:22px;font-weight:700;letter-spacing:-.02em;color:var(--txt);line-height:1}
 #cWx .wxiconmini{display:flex;align-items:center;justify-content:center;line-height:0}
