@@ -650,7 +650,7 @@ $('sTest').onclick=function(){var old={engine:cfg.engine,rate:cfg.rate,pitch:cfg
 $('bSettings').onclick=function(){draft={clockFont:cfg.clockFont,clockColor:cfg.clockColor,clockSize:cfg.clockSize,newsSize:newsScale,newsCats:newsCats.slice()};
  $('sName').value=cfg.name;$('sCity').value=cfg.city;$('cityList').innerHTML='';pending=null;
  fillEngineSelect();$('sEngine').value=cfg.engine;$('sTone').value=cfg.tone;loadVoices();fillVoiceSelect();$('sVoice').value=cfg.voiceURI||'';$('sRate').value=curRate();$('sPitch').value=curPitch();$('sSize').value=cfg.clockSize;$('sNewsSize').value=newsScale;buildNewsCats(draft.newsCats);
- showVals();updEngineUI();updVoiceRow();buildFontGrid();buildColors();$('modal').classList.add('show')};
+ showVals();updEngineUI();updVoiceRow();buildFontGrid();buildColors();renderBkList();$('modal').classList.add('show')};
 function closeModal(){applyClock(cfg);applyNewsSize(newsScale);renderNews(newsCats);$('modal').classList.remove('show')}
 $('sCancel').onclick=closeModal;
 $('modal').addEventListener('click',function(e){if(e.target===this)closeModal()});
@@ -668,6 +668,71 @@ $('sSave').onclick=function(){var name=$('sName').value.trim()||cfg.name,city=$(
  else if(city&&city!==cfg.city){geocode(city).then(function(r){if(!r.length){toast('Orașul nu a fost găsit');return}
    cfg.city=r[0].name;cfg.lat=r[0].latitude;cfg.lon=r[0].longitude;cfg.tz=r[0].timezone||'auto';wx=null;done()}).catch(function(){toast('Fără internet: nu pot căuta orașul')})}
  else done()};
+
+
+/* ---------- backups (v32) ---------- */
+var BK_KEYS=['jv_cfg','jv_tasks','jv_shop','jv_tabs','jv_tabcol','jv_cardcol','jv_newscats','jv_newssize'],BK_MAX=20;
+var BK_CFG_DEF={name:BLANK?'':'Iosif',city:'Gherla',lat:47.03,lon:23.91,tz:'Europe/Bucharest',engine:'mihai',rate:1.25,pitch:null,voiceURI:null,tone:1,clockFont:'condensed',clockColor:'#3fd8ff',clockSize:56};
+function bkLabel(d){d=d||new Date();return d.getDate()+' '+LUNI_S[d.getMonth()]+' '+d.getFullYear()+' · '+pad(d.getHours())+':'+pad(d.getMinutes())}
+function bkList(){var a=LS.get('jv_backups',[]);return Array.isArray(a)?a:[]}
+function bkSaveList(a){LS.set('jv_backups',a)}
+function bkCollect(){return{jv_cfg:JSON.parse(JSON.stringify(cfg)),jv_tasks:JSON.parse(JSON.stringify(tasks)),jv_shop:JSON.parse(JSON.stringify(shop)),jv_tabs:JSON.parse(JSON.stringify(tabs)),jv_tabcol:JSON.parse(JSON.stringify(tabCol||{})),jv_cardcol:JSON.parse(JSON.stringify(cardCol||{})),jv_newscats:(newsCats||[]).slice(),jv_newssize:newsScale}}
+function bkUid(){return Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,8)}
+function bkCreate(){var now=new Date(),entry={id:bkUid(),ts:now.toISOString(),label:bkLabel(now),data:bkCollect()};
+ var a=bkList();a.unshift(entry);if(a.length>BK_MAX)a=a.slice(0,BK_MAX);bkSaveList(a);renderBkList();toast('Backup salvat · '+entry.label);return entry}
+function bkFind(id){var a=bkList();for(var i=0;i<a.length;i++)if(a[i].id===id)return a[i];return null}
+function bkDelete(id){var e=bkFind(id);if(!e)return;if(!confirm('Ștergi backup-ul din '+e.label+'?'))return;bkSaveList(bkList().filter(function(x){return x.id!==id}));renderBkList();toast('Backup șters')}
+function bkExportPayload(e){return{jarvisBackup:1,version:1,exportedAt:new Date().toISOString(),id:e.id,ts:e.ts,label:e.label,data:e.data}}
+function bkFilename(e){var t=(e.ts||'').replace(/[:.]/g,'-').slice(0,19)||'backup';return 'jarvis-backup-'+t+'.json'}
+function bkShare(id){var e=bkFind(id);if(!e)return;var json=JSON.stringify(bkExportPayload(e),null,2),file=new File([json],bkFilename(e),{type:'application/json'});
+ function dl(){var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([json],{type:'application/json'}));a.download=bkFilename(e);document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},800);toast('Backup descărcat')}
+ if(navigator.share){var p={title:'Backup JARVIS · '+e.label,text:'Backup JARVIS din '+e.label,files:[file]};
+  if(!navigator.canShare||navigator.canShare(p))return navigator.share(p).then(function(){toast('Backup trimis')}).catch(function(err){if(err&&err.name==='AbortError')return;dl()})}
+ dl()}
+function bkParseImport(raw){var j=typeof raw==='string'?JSON.parse(raw):raw;if(!j||typeof j!=='object')throw new Error('invalid');
+ var data=j.data;if(!data||typeof data!=='object'){if(j.jv_tasks!=null||j.jv_cfg!=null)data=j;else throw new Error('no data')}
+ var ts=j.ts||j.exportedAt||new Date().toISOString(),label=j.label||bkLabel(new Date(ts));
+ return{id:bkUid(),ts:ts,label:label+(j.jarvisBackup||j.data?'':' (import)'),data:data,importedAt:new Date().toISOString()}}
+function bkImportFile(file){return new Promise(function(res,rej){var r=new FileReader();r.onload=function(){try{res(bkParseImport(r.result))}catch(e){rej(e)}};r.onerror=function(){rej(r.error)};r.readAsText(file)})}
+function bkApply(data){if(!data||typeof data!=='object')throw new Error('empty');
+ if(speaking)stopSpeaking();editing=null;if($('tabModal').classList.contains('show'))closeTabModal();
+ var next=Object.assign({},BK_CFG_DEF,data.jv_cfg&&typeof data.jv_cfg==='object'?data.jv_cfg:{});
+ Object.keys(cfg).forEach(function(k){delete cfg[k]});Object.assign(cfg,next);
+ if(cfg.engine==='piper'||!cfg.engine||(cfg.engine!=='browser'&&!TTS.voice(cfg.engine)))cfg.engine='mihai';
+ if(cfg.tone==null)cfg.tone=1;LS.set('jv_cfg',cfg);
+ tasks=Array.isArray(data.jv_tasks)?JSON.parse(JSON.stringify(data.jv_tasks)):[];
+ shop=Array.isArray(data.jv_shop)?JSON.parse(JSON.stringify(data.jv_shop)):[];
+ tabs=Array.isArray(data.jv_tabs)?JSON.parse(JSON.stringify(data.jv_tabs)):[];
+ tabCol=data.jv_tabcol&&typeof data.jv_tabcol==='object'?JSON.parse(JSON.stringify(data.jv_tabcol)):{};
+ cardCol=data.jv_cardcol&&typeof data.jv_cardcol==='object'?JSON.parse(JSON.stringify(data.jv_cardcol)):{};
+ newsCats=Array.isArray(data.jv_newscats)?data.jv_newscats.slice():(BLANK?['general','ai']:['ai']);
+ newsScale=+data.jv_newssize||100;if(!(newsScale>=80&&newsScale<=160))newsScale=100;
+ LS.set('jv_tasks',tasks);LS.set('jv_shop',shop);LS.set('jv_tabs',tabs);LS.set('jv_tabcol',tabCol);LS.set('jv_cardcol',cardCol);LS.set('jv_newscats',newsCats);LS.set('jv_newssize',newsScale);
+ hUndo=[];hRedo=[];hCur=snap();histBtns();
+ applyClock();applyNewsSize(newsScale);renderGreet(true);renderTasks();renderShop();renderTabs();
+ ['azi','maine','shop','news'].forEach(function(k){setCardCol(k,!!cardCol[k]);updCardCount(k)});
+ renderNews(newsCats);loadVoices();
+ if($('modal').classList.contains('show')){draft={clockFont:cfg.clockFont,clockColor:cfg.clockColor,clockSize:cfg.clockSize,newsSize:newsScale,newsCats:newsCats.slice()};
+  $('sName').value=cfg.name;$('sCity').value=cfg.city;$('cityList').innerHTML='';pending=null;
+  fillEngineSelect();$('sEngine').value=cfg.engine;$('sTone').value=cfg.tone;fillVoiceSelect();$('sVoice').value=cfg.voiceURI||'';$('sRate').value=curRate();$('sPitch').value=curPitch();$('sSize').value=cfg.clockSize;$('sNewsSize').value=newsScale;buildNewsCats(draft.newsCats);
+  showVals();updEngineUI();updVoiceRow();buildFontGrid();buildColors()}
+ if(!wx||wx.city!==cfg.city){wx=null;loadWx()}else renderWx()}
+function bkRestore(id){var e=bkFind(id);if(!e)return;if(!confirm('Se înlocuiește tot ce e acum în aplicație cu backup-ul din '+e.label+'?'))return;
+ try{bkApply(e.data);toast('Restaurat · '+e.label)}catch(err){console.warn(err);toast('Nu am putut restaura backup-ul')}}
+function renderBkList(){var box=$('bkList');if(!box)return;var a=bkList();
+ if(!a.length){box.innerHTML='<div class="bkempty">Niciun backup încă.</div>';return}
+ box.innerHTML='';a.forEach(function(e){var row=document.createElement('div');row.className='bkrow';row.dataset.id=e.id;
+  var lbl=document.createElement('div');lbl.className='bklbl';lbl.textContent=e.label+(e.importedAt?' · importat':'');row.appendChild(lbl);
+  var acts=document.createElement('div');acts.className='bkacts';
+  [['Refă',function(){bkRestore(e.id)}],['Trimite',function(){bkShare(e.id)}],['Șterge',function(){bkDelete(e.id)}]].forEach(function(x){
+   var b=document.createElement('button');b.type='button';b.className='btn';b.textContent=x[0];b.onclick=x[1];acts.appendChild(b)});
+  row.appendChild(acts);box.appendChild(row)})}
+$('bBkSave').onclick=function(){bkCreate()};
+$('bBkImport').onclick=function(){$('bBkFile').value='';$('bBkFile').click()};
+$('bBkFile').onchange=function(){var f=this.files&&this.files[0];if(!f)return;
+ bkImportFile(f).then(function(entry){var a=bkList();a.unshift(entry);if(a.length>BK_MAX)a=a.slice(0,BK_MAX);bkSaveList(a);renderBkList();toast('Backup importat · '+entry.label);
+  if(confirm('Backup importat ('+entry.label+'). Restaurezi acum?')){try{bkApply(entry.data);toast('Restaurat · '+entry.label)}catch(err){console.warn(err);toast('Nu am putut restaura backup-ul')}}
+ }).catch(function(err){console.warn(err);toast('Fișier invalid — nu e un backup JARVIS')})};
 
 /* ---------- share ---------- */
 function summary(){var d=new Date(),tk=dkey(),o=tasks.filter(function(t){return live(t)&&!t.done});

@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="JARVIS">
-<meta name="jarvis-version" content="v31-jarvis">
+<meta name="jarvis-version" content="v32-jarvis">
 <title>JARVIS · Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Roboto+Condensed:wght@700&family=Orbitron:wght@700&family=Share+Tech+Mono&family=Rajdhani:wght@600;700&family=Audiowide&family=Teko:wght@500&family=Oxanium:wght@700&display=swap" rel="stylesheet">
@@ -163,6 +163,13 @@ ul.tasks{list-style:none;margin:0;padding:0}
 .hint{color:var(--mut);font-size:12px;margin-top:5px;line-height:1.4}
 .prow{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .prow .ptxt{flex:1;min-width:150px;font-size:13.5px}
+.bklist{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.bkrow{border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:rgba(5,18,32,.6)}
+.bkrow .bklbl{font-size:14px;color:var(--txt);margin:0 0 8px;font-weight:500}
+.bkrow .bkacts{display:flex;gap:6px;flex-wrap:wrap}
+.bkrow .bkacts .btn{padding:5px 10px;font-size:12.5px}
+.bkempty{color:var(--mut);font-size:13px;padding:2px 0}
+
 .fonts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .fopt{background:rgba(5,18,32,.7);border:1px solid var(--line);border-radius:12px;padding:8px 6px 6px;color:var(--clock);cursor:pointer;text-align:center;font:inherit}
 .fopt b{display:block;font-size:26px;line-height:1.15;white-space:nowrap;overflow:hidden}
@@ -329,6 +336,13 @@ ul.tasks{list-style:none;margin:0;padding:0}
  <div class="sec">Știri</div>
  <div class="field"><label>Categorii știri</label><div class="ncats" id="newsCats"></div><div class="hint">Bifează ce fel de știri vrei să vezi jos. Nimic bifat = cardul de știri e ascuns.</div></div>
  <div class="field"><label for="sNewsSize">Mărime text știri <span class="val" id="vNewsSize"></span></label><input type="range" id="sNewsSize" min="80" max="160" step="5"><div class="hint" id="newsSizePrev" style="font-size:calc(14px*var(--ns,1));color:#9eb8cc;--ns:1">Exemplu titlu de știre AI</div></div>
+
+ <div class="sec">Backup</div>
+ <div class="field">
+  <div class="prow" style="margin-bottom:8px"><button type="button" class="btn" id="bBkSave">Salvează backup</button><button type="button" class="btn" id="bBkImport">Importă backup</button><input type="file" id="bBkFile" accept="application/json,.json" hidden></div>
+  <div class="hint">Salvează pe telefon taskuri, cumpărături, taburi, categorii știri și setările (ceas, voce, oraș). Poți restaura un backup vechi sau îl poți trimite ca fișier .json.</div>
+  <div class="bklist" id="bkList"><div class="bkempty">Niciun backup încă.</div></div>
+ </div>
 
  <div id="fInstall"><div class="sec">Aplicație</div>
  <div class="field"><button type="button" class="btn" id="sInstall">Instalează aplicația</button>
