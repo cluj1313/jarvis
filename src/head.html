@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="JARVIS">
-<meta name="jarvis-version" content="v23-jarvis">
+<meta name="jarvis-version" content="v24-jarvis">
 <title>JARVIS · Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Roboto+Condensed:wght@700&family=Orbitron:wght@700&family=Share+Tech+Mono&family=Rajdhani:wght@600;700&family=Audiowide&family=Teko:wght@500&family=Oxanium:wght@700&display=swap" rel="stylesheet">
@@ -204,6 +204,13 @@ ul.tasks{list-style:none;margin:0;padding:0}
 .news-t{font-size:calc(14px*var(--ns));font-weight:600;line-height:1.3;color:#9eb8cc;margin:0 0 3px}
 .news-s{font-size:calc(12.5px*var(--ns));line-height:1.35;color:#7a94a8;margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .news-when{font-size:calc(11px*var(--ns));color:#5e7588;margin-top:3px}
+.news-cat{font-size:calc(10.5px*var(--ns));font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan2);margin:2px 0 10px;display:flex;align-items:center;gap:8px}
+.news-cat::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(63,216,255,.35),transparent)}
+.news-catblk+.news-catblk{margin-top:18px;padding-top:14px;border-top:1px solid rgba(63,216,255,.22)}
+.ncats{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.field .ncats .ncat{margin:0;display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--txt);padding:9px 10px;border:1px solid var(--line);border-radius:12px;background:rgba(5,18,32,.6);cursor:pointer;user-select:none;-webkit-user-select:none}
+.field .ncats .ncat input[type=checkbox]{width:18px;height:18px;margin:0;padding:0;flex:none;border-radius:4px;background:none;accent-color:var(--cyan)}
+.field .ncats .ncat.on{border-color:rgba(63,216,255,.55);background:rgba(63,216,255,.08)}
 .news-empty{color:var(--mut);font-size:calc(13.5px*var(--ns));padding:4px 0}
 </style>
 </head>
@@ -244,7 +251,7 @@ ul.tasks{list-style:none;margin:0;padding:0}
    <button type="button" class="btn mic" id="bMicShop" title="Dictează (sau tastatură)" aria-label="Dictează"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4"/></svg></button>
    <button class="btn" type="submit">Adaugă</button></form></section>
  <div id="customCards"></div>
- <section class="card" id="cNews"><div class="lbl"><span class="lt">Știri AI</span></div>
+ <section class="card" id="cNews"><div class="lbl"><span class="lt">Știri</span></div>
   <div class="news-meta" id="newsMeta">Se încarcă…</div>
   <div id="newsBody"><div class="news-empty">Se încarcă știrile…</div></div>
  </section>
@@ -274,7 +281,8 @@ ul.tasks{list-style:none;margin:0;padding:0}
  <div class="field"><label>Culoare</label><div class="colors" id="colorRow"></div></div>
  <div class="field"><label for="sSize">Mărime <span class="val" id="vSize"></span></label><input type="range" id="sSize" min="30" max="72" step="1"></div>
 
- <div class="sec">Știri AI</div>
+ <div class="sec">Știri</div>
+ <div class="field"><label>Categorii știri</label><div class="ncats" id="newsCats"></div><div class="hint">Bifează ce fel de știri vrei să vezi jos. Nimic bifat = cardul de știri e ascuns.</div></div>
  <div class="field"><label for="sNewsSize">Mărime text știri <span class="val" id="vNewsSize"></span></label><input type="range" id="sNewsSize" min="80" max="160" step="5"><div class="hint" id="newsSizePrev" style="font-size:calc(14px*var(--ns,1));color:#9eb8cc;--ns:1">Exemplu titlu de știre AI</div></div>
 
  <div id="fInstall"><div class="sec">Aplicație</div>

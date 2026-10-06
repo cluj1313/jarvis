@@ -1,4 +1,4 @@
-name: Update AI news
+name: Update news
 on:
   schedule:
     - cron: '15,45 * * * *'  # every 30 minutes
