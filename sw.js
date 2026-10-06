@@ -1,8 +1,8 @@
 /* JARVIS service worker: app shell cache. HTML = network-first (updates arrive), static = cache-first.
    Voice model files (Mihai, own cache "jarvis-piper-v1") and weather (Open-Meteo) are NOT touched: passed straight to the network. */
-var VERSION='jarvis-shell-v28';
+var VERSION='jarvis-shell-v29';
 var SHELL=['./','index.html','blank.html','manifest.webmanifest','manifest-blank.webmanifest',
- 'icons/icon-192.png','icons/icon-512.png','icons/icon-maskable-512.png','icons/apple-touch-icon.png'];
+ 'jarvis-avatar.jpg','icons/icon-192.png','icons/icon-512.png','icons/icon-maskable-512.png','icons/apple-touch-icon.png'];
 var FONT_HOSTS=/^https:\/\/(fonts\.googleapis\.com|fonts\.gstatic\.com)\//,DSEG=/^https:\/\/cdn\.jsdelivr\.net\/npm\/dseg@/;
 self.addEventListener('install',function(e){e.waitUntil(caches.open(VERSION).then(function(c){
  return Promise.all(SHELL.map(function(u){return c.add(new Request(u,{cache:'reload'})).catch(function(){})}))}).then(function(){return self.skipWaiting()}))});
