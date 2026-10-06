@@ -1,7 +1,10 @@
 name: Update news
+# GitHub schedule cron is best-effort and often delayed (sometimes by hours) on
+# small/low-traffic repos. */30 maximizes chances; disable+enable after edits
+# to re-register the schedule. Prefer workflow_dispatch for an immediate refresh.
 on:
   schedule:
-    - cron: '7,37 * * * *'  # every 30 minutes (off-peak minutes)
+    - cron: '*/30 * * * *'
   workflow_dispatch:
 permissions:
   contents: write
