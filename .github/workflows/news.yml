@@ -1,7 +1,7 @@
 name: Update news
 on:
   schedule:
-    - cron: '15,45 * * * *'  # every 30 minutes
+    - cron: '7,37 * * * *'  # every 30 minutes (off-peak minutes)
   workflow_dispatch:
 permissions:
   contents: write
