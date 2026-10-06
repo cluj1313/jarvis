@@ -42,6 +42,9 @@ function applyClock(c){c=c||cfg;var f=fontById(c.clockFont),el=$('clock');
  document.documentElement.style.setProperty('--clock',c.clockColor);
  el.classList.toggle('seg',!!f.seg);if(f.seg)el.setAttribute('data-ghost',f.seg)}
 applyClock();
+var newsScale=+LS.get('jv_newssize',100)||100;
+function applyNewsSize(p){p=Math.max(80,Math.min(160,+p||100));var s=String(p/100);var c=$('cNews');if(c)c.style.setProperty('--ns',s);var pv=$('newsSizePrev');if(pv)pv.style.setProperty('--ns',s)}
+applyNewsSize(newsScale);
 
 /* ---------- greeting ---------- */
 function greeting(){var h=new Date().getHours();var g=h>=5&&h<12?'Bună dimineața':h>=12&&h<18?'Bună ziua':'Bună seara';return cfg.name?g+', '+cfg.name+'.':g+'!'}
@@ -594,7 +597,7 @@ function updVoiceRow(){var id=$('sEngine').value;if(id==='browser')return;var v=
  else TTS.isDownloaded(e).then(function(h){if($('sEngine').value!==id)return;el.textContent=h?'Descărcată (se încarcă la nevoie).':(s==='error'?'Eroare la descărcare. Reîncearcă.':'Nedescărcată.');
   $('pDl').style.display='';$('pDl').textContent=h?'Încarcă':'Descarcă';$('pDel').style.display=h?'':'none'})}
 function updEngineUI(){var b=$('sEngine').value==='browser';$('fVoice').style.display=b?'':'none';$('fPitch').style.display=b?'':'none';$('fPiper').style.display=b?'none':'';$('fTone').style.display=b?'none':''}
-function showVals(){$('vRate').textContent=(+$('sRate').value).toFixed(2)+'×';$('vPitch').textContent=(+$('sPitch').value).toFixed(2);$('vSize').textContent=$('sSize').value+' px';$('vTone').textContent=(+$('sTone').value).toFixed(2)+((+$('sTone').value)<.99?' (mai grav)':(+$('sTone').value)>1.01?' (mai subțire)':' (natural)')}
+function showVals(){$('vRate').textContent=(+$('sRate').value).toFixed(2)+'×';$('vPitch').textContent=(+$('sPitch').value).toFixed(2);$('vSize').textContent=$('sSize').value+' px';$('vNewsSize').textContent=$('sNewsSize').value+'%';$('vTone').textContent=(+$('sTone').value).toFixed(2)+((+$('sTone').value)<.99?' (mai grav)':(+$('sTone').value)>1.01?' (mai subțire)':' (natural)')}
 function buildFontGrid(){var g=$('fontGrid'),d=new Date(),t=pad(d.getHours())+'.'+pad(d.getMinutes());g.innerHTML='';
  FONTS.forEach(function(f){var b=document.createElement('button');b.type='button';b.className='fopt'+(draft.clockFont===f.id?' sel':'');
   b.innerHTML='<b style="font-family:'+esc(f.css)+';font-weight:'+f.w+';font-size:'+Math.round(26*f.k)+'px">'+t+'</b><span>'+esc(f.name)+'</span>';
@@ -606,6 +609,7 @@ function buildColors(){var r=$('colorRow');r.innerHTML='';
  var p=document.createElement('input');p.type='color';p.id='cPick';p.value=draft.clockColor;p.oninput=function(){draft.clockColor=p.value;applyClock(draft);r.querySelectorAll('.sw').forEach(function(x){x.classList.remove('sel')})};r.appendChild(p)}
 $('sRate').oninput=$('sPitch').oninput=$('sTone').oninput=showVals;
 $('sSize').oninput=function(){showVals();draft.clockSize=+this.value;applyClock(draft)};
+$('sNewsSize').oninput=function(){showVals();draft.newsSize=+this.value;applyNewsSize(draft.newsSize)};
 $('sEngine').onchange=function(){updEngineUI();updVoiceRow()};
 $('pDl').onclick=function(){ensureVoice($('sEngine').value).catch(function(){});setTimeout(updVoiceRow,50)};
 $('pDel').onclick=function(){var v=TTS.voice($('sEngine').value);if(!v||!confirm('Ștergi vocea '+TTS.engineName(v.engine)+' descărcată? (se poate descărca din nou)'))return;TTS.remove(v.engine).then(function(){toast('Vocea a fost ștearsă');updVoiceRow()})};
@@ -613,11 +617,11 @@ $('sTest').onclick=function(){var old={engine:cfg.engine,rate:cfg.rate,pitch:cfg
  cfg.tone=+$('sTone').value;cfg.engine=$('sEngine').value;cfg.rate=+$('sRate').value;cfg.pitch=+$('sPitch').value;cfg.voiceURI=$('sVoice').value||null;loadVoices();
  greetBusy=true;clearTimeout(greetRestoreT);var seg=prepSeg($('greet'),'Salut, '+($('sName').value.trim()||cfg.name)+'. Așa sună vocea mea acum.');
  speak([seg],'voice').then(function(){greetBusy=false});setTimeout(function(){Object.assign(cfg,old);loadVoices()},0)};
-$('bSettings').onclick=function(){draft={clockFont:cfg.clockFont,clockColor:cfg.clockColor,clockSize:cfg.clockSize};
+$('bSettings').onclick=function(){draft={clockFont:cfg.clockFont,clockColor:cfg.clockColor,clockSize:cfg.clockSize,newsSize:newsScale};
  $('sName').value=cfg.name;$('sCity').value=cfg.city;$('cityList').innerHTML='';pending=null;
- fillEngineSelect();$('sEngine').value=cfg.engine;$('sTone').value=cfg.tone;loadVoices();fillVoiceSelect();$('sVoice').value=cfg.voiceURI||'';$('sRate').value=curRate();$('sPitch').value=curPitch();$('sSize').value=cfg.clockSize;
+ fillEngineSelect();$('sEngine').value=cfg.engine;$('sTone').value=cfg.tone;loadVoices();fillVoiceSelect();$('sVoice').value=cfg.voiceURI||'';$('sRate').value=curRate();$('sPitch').value=curPitch();$('sSize').value=cfg.clockSize;$('sNewsSize').value=newsScale;
  showVals();updEngineUI();updVoiceRow();buildFontGrid();buildColors();$('modal').classList.add('show')};
-function closeModal(){applyClock(cfg);$('modal').classList.remove('show')}
+function closeModal(){applyClock(cfg);applyNewsSize(newsScale);$('modal').classList.remove('show')}
 $('sCancel').onclick=closeModal;
 $('modal').addEventListener('click',function(e){if(e.target===this)closeModal()});
 function geocode(q){return fetch('https://geocoding-api.open-meteo.com/v1/search?name='+encodeURIComponent(q)+'&count=5&language=ro&format=json').then(function(r){return r.json()}).then(function(j){return j.results||[]})}
@@ -629,7 +633,7 @@ $('sCity').addEventListener('input',function(){pending=null;clearTimeout(gT);var
 $('sSave').onclick=function(){var name=$('sName').value.trim()||cfg.name,city=$('sCity').value.trim();
  function done(){saveCfg();$('modal').classList.remove('show');applyClock();renderGreet(true);renderWx();loadWx();toast('Setări salvate');if(cfg.engine!=='browser')ensureVoice().catch(function(){})}
  cfg.name=name;cfg.engine=$('sEngine').value;cfg.tone=+$('sTone').value;cfg.voiceURI=$('sVoice').value||null;cfg.rate=+$('sRate').value;cfg.pitch=+$('sPitch').value;
- cfg.clockFont=draft.clockFont;cfg.clockColor=draft.clockColor;cfg.clockSize=draft.clockSize;loadVoices();
+ cfg.clockFont=draft.clockFont;cfg.clockColor=draft.clockColor;cfg.clockSize=draft.clockSize;newsScale=draft.newsSize||100;LS.set('jv_newssize',newsScale);applyNewsSize(newsScale);loadVoices();
  if(pending){cfg.city=pending.city;cfg.lat=pending.lat;cfg.lon=pending.lon;cfg.tz=pending.tz;wx=null;done()}
  else if(city&&city!==cfg.city){geocode(city).then(function(r){if(!r.length){toast('Orașul nu a fost găsit');return}
    cfg.city=r[0].name;cfg.lat=r[0].latitude;cfg.lon=r[0].longitude;cfg.tz=r[0].timezone||'auto';wx=null;done()}).catch(function(){toast('Fără internet: nu pot căuta orașul')})}

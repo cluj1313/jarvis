@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="JARVIS">
-<meta name="jarvis-version" content="v22-jarvis">
+<meta name="jarvis-version" content="v23-jarvis">
 <title>JARVIS · Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Roboto+Condensed:wght@700&family=Orbitron:wght@700&family=Share+Tech+Mono&family=Rajdhani:wght@600;700&family=Audiowide&family=Teko:wght@500&family=Oxanium:wght@700&display=swap" rel="stylesheet">
@@ -192,18 +192,19 @@ ul.tasks{list-style:none;margin:0;padding:0}
 .task.urgent:not(.done) .dot{background:#ff6b6b!important;box-shadow:0 0 7px rgba(255,107,107,.75)!important}
 
 /* v22 AI news RSS */
+#cNews{--ns:1}
 #cNews .lbl{margin-bottom:6px}
-.news-meta{font-size:11px;color:#6f8798;margin:-2px 0 8px}
+.news-meta{font-size:calc(11px*var(--ns));color:#6f8798;margin:-2px 0 8px}
 .news-src{margin:0 0 4px}
 .news-src+.news-src{margin-top:12px;padding-top:12px;border-top:1px solid rgba(120,160,190,.22)}
-.news-ch{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#e8f4ff;margin:0 0 8px;line-height:1.25}
+.news-ch{font-size:calc(13px*var(--ns));font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#e8f4ff;margin:0 0 8px;line-height:1.25}
 .news-item{display:block;text-decoration:none;color:inherit;padding:7px 2px;border-radius:8px;margin:0 -2px}
 .news-item:active,.news-item:hover{background:rgba(63,216,255,.06)}
 .news-item+.news-item{border-top:1px solid rgba(100,140,170,.12)}
-.news-t{font-size:14px;font-weight:600;line-height:1.3;color:#9eb8cc;margin:0 0 3px}
-.news-s{font-size:12.5px;line-height:1.35;color:#7a94a8;margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.news-when{font-size:11px;color:#5e7588;margin-top:3px}
-.news-empty{color:var(--mut);font-size:13.5px;padding:4px 0}
+.news-t{font-size:calc(14px*var(--ns));font-weight:600;line-height:1.3;color:#9eb8cc;margin:0 0 3px}
+.news-s{font-size:calc(12.5px*var(--ns));line-height:1.35;color:#7a94a8;margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.news-when{font-size:calc(11px*var(--ns));color:#5e7588;margin-top:3px}
+.news-empty{color:var(--mut);font-size:calc(13.5px*var(--ns));padding:4px 0}
 </style>
 </head>
 <body>
@@ -272,6 +273,9 @@ ul.tasks{list-style:none;margin:0;padding:0}
  <div class="field"><label>Font</label><div class="fonts" id="fontGrid"></div></div>
  <div class="field"><label>Culoare</label><div class="colors" id="colorRow"></div></div>
  <div class="field"><label for="sSize">Mărime <span class="val" id="vSize"></span></label><input type="range" id="sSize" min="30" max="72" step="1"></div>
+
+ <div class="sec">Știri AI</div>
+ <div class="field"><label for="sNewsSize">Mărime text știri <span class="val" id="vNewsSize"></span></label><input type="range" id="sNewsSize" min="80" max="160" step="5"><div class="hint" id="newsSizePrev" style="font-size:calc(14px*var(--ns,1));color:#9eb8cc;--ns:1">Exemplu titlu de știre AI</div></div>
 
  <div id="fInstall"><div class="sec">Aplicație</div>
  <div class="field"><button type="button" class="btn" id="sInstall">Instalează aplicația</button>
@@ -474,6 +478,9 @@ function applyClock(c){c=c||cfg;var f=fontById(c.clockFont),el=$('clock');
  document.documentElement.style.setProperty('--clock',c.clockColor);
  el.classList.toggle('seg',!!f.seg);if(f.seg)el.setAttribute('data-ghost',f.seg)}
 applyClock();
+var newsScale=+LS.get('jv_newssize',100)||100;
+function applyNewsSize(p){p=Math.max(80,Math.min(160,+p||100));var s=String(p/100);var c=$('cNews');if(c)c.style.setProperty('--ns',s);var pv=$('newsSizePrev');if(pv)pv.style.setProperty('--ns',s)}
+applyNewsSize(newsScale);
 
 /* ---------- greeting ---------- */
 function greeting(){var h=new Date().getHours();var g=h>=5&&h<12?'Bună dimineața':h>=12&&h<18?'Bună ziua':'Bună seara';return cfg.name?g+', '+cfg.name+'.':g+'!'}
@@ -1026,7 +1033,7 @@ function updVoiceRow(){var id=$('sEngine').value;if(id==='browser')return;var v=
  else TTS.isDownloaded(e).then(function(h){if($('sEngine').value!==id)return;el.textContent=h?'Descărcată (se încarcă la nevoie).':(s==='error'?'Eroare la descărcare. Reîncearcă.':'Nedescărcată.');
   $('pDl').style.display='';$('pDl').textContent=h?'Încarcă':'Descarcă';$('pDel').style.display=h?'':'none'})}
 function updEngineUI(){var b=$('sEngine').value==='browser';$('fVoice').style.display=b?'':'none';$('fPitch').style.display=b?'':'none';$('fPiper').style.display=b?'none':'';$('fTone').style.display=b?'none':''}
-function showVals(){$('vRate').textContent=(+$('sRate').value).toFixed(2)+'×';$('vPitch').textContent=(+$('sPitch').value).toFixed(2);$('vSize').textContent=$('sSize').value+' px';$('vTone').textContent=(+$('sTone').value).toFixed(2)+((+$('sTone').value)<.99?' (mai grav)':(+$('sTone').value)>1.01?' (mai subțire)':' (natural)')}
+function showVals(){$('vRate').textContent=(+$('sRate').value).toFixed(2)+'×';$('vPitch').textContent=(+$('sPitch').value).toFixed(2);$('vSize').textContent=$('sSize').value+' px';$('vNewsSize').textContent=$('sNewsSize').value+'%';$('vTone').textContent=(+$('sTone').value).toFixed(2)+((+$('sTone').value)<.99?' (mai grav)':(+$('sTone').value)>1.01?' (mai subțire)':' (natural)')}
 function buildFontGrid(){var g=$('fontGrid'),d=new Date(),t=pad(d.getHours())+'.'+pad(d.getMinutes());g.innerHTML='';
  FONTS.forEach(function(f){var b=document.createElement('button');b.type='button';b.className='fopt'+(draft.clockFont===f.id?' sel':'');
   b.innerHTML='<b style="font-family:'+esc(f.css)+';font-weight:'+f.w+';font-size:'+Math.round(26*f.k)+'px">'+t+'</b><span>'+esc(f.name)+'</span>';
@@ -1038,6 +1045,7 @@ function buildColors(){var r=$('colorRow');r.innerHTML='';
  var p=document.createElement('input');p.type='color';p.id='cPick';p.value=draft.clockColor;p.oninput=function(){draft.clockColor=p.value;applyClock(draft);r.querySelectorAll('.sw').forEach(function(x){x.classList.remove('sel')})};r.appendChild(p)}
 $('sRate').oninput=$('sPitch').oninput=$('sTone').oninput=showVals;
 $('sSize').oninput=function(){showVals();draft.clockSize=+this.value;applyClock(draft)};
+$('sNewsSize').oninput=function(){showVals();draft.newsSize=+this.value;applyNewsSize(draft.newsSize)};
 $('sEngine').onchange=function(){updEngineUI();updVoiceRow()};
 $('pDl').onclick=function(){ensureVoice($('sEngine').value).catch(function(){});setTimeout(updVoiceRow,50)};
 $('pDel').onclick=function(){var v=TTS.voice($('sEngine').value);if(!v||!confirm('Ștergi vocea '+TTS.engineName(v.engine)+' descărcată? (se poate descărca din nou)'))return;TTS.remove(v.engine).then(function(){toast('Vocea a fost ștearsă');updVoiceRow()})};
@@ -1045,11 +1053,11 @@ $('sTest').onclick=function(){var old={engine:cfg.engine,rate:cfg.rate,pitch:cfg
  cfg.tone=+$('sTone').value;cfg.engine=$('sEngine').value;cfg.rate=+$('sRate').value;cfg.pitch=+$('sPitch').value;cfg.voiceURI=$('sVoice').value||null;loadVoices();
  greetBusy=true;clearTimeout(greetRestoreT);var seg=prepSeg($('greet'),'Salut, '+($('sName').value.trim()||cfg.name)+'. Așa sună vocea mea acum.');
  speak([seg],'voice').then(function(){greetBusy=false});setTimeout(function(){Object.assign(cfg,old);loadVoices()},0)};
-$('bSettings').onclick=function(){draft={clockFont:cfg.clockFont,clockColor:cfg.clockColor,clockSize:cfg.clockSize};
+$('bSettings').onclick=function(){draft={clockFont:cfg.clockFont,clockColor:cfg.clockColor,clockSize:cfg.clockSize,newsSize:newsScale};
  $('sName').value=cfg.name;$('sCity').value=cfg.city;$('cityList').innerHTML='';pending=null;
- fillEngineSelect();$('sEngine').value=cfg.engine;$('sTone').value=cfg.tone;loadVoices();fillVoiceSelect();$('sVoice').value=cfg.voiceURI||'';$('sRate').value=curRate();$('sPitch').value=curPitch();$('sSize').value=cfg.clockSize;
+ fillEngineSelect();$('sEngine').value=cfg.engine;$('sTone').value=cfg.tone;loadVoices();fillVoiceSelect();$('sVoice').value=cfg.voiceURI||'';$('sRate').value=curRate();$('sPitch').value=curPitch();$('sSize').value=cfg.clockSize;$('sNewsSize').value=newsScale;
  showVals();updEngineUI();updVoiceRow();buildFontGrid();buildColors();$('modal').classList.add('show')};
-function closeModal(){applyClock(cfg);$('modal').classList.remove('show')}
+function closeModal(){applyClock(cfg);applyNewsSize(newsScale);$('modal').classList.remove('show')}
 $('sCancel').onclick=closeModal;
 $('modal').addEventListener('click',function(e){if(e.target===this)closeModal()});
 function geocode(q){return fetch('https://geocoding-api.open-meteo.com/v1/search?name='+encodeURIComponent(q)+'&count=5&language=ro&format=json').then(function(r){return r.json()}).then(function(j){return j.results||[]})}
@@ -1061,7 +1069,7 @@ $('sCity').addEventListener('input',function(){pending=null;clearTimeout(gT);var
 $('sSave').onclick=function(){var name=$('sName').value.trim()||cfg.name,city=$('sCity').value.trim();
  function done(){saveCfg();$('modal').classList.remove('show');applyClock();renderGreet(true);renderWx();loadWx();toast('Setări salvate');if(cfg.engine!=='browser')ensureVoice().catch(function(){})}
  cfg.name=name;cfg.engine=$('sEngine').value;cfg.tone=+$('sTone').value;cfg.voiceURI=$('sVoice').value||null;cfg.rate=+$('sRate').value;cfg.pitch=+$('sPitch').value;
- cfg.clockFont=draft.clockFont;cfg.clockColor=draft.clockColor;cfg.clockSize=draft.clockSize;loadVoices();
+ cfg.clockFont=draft.clockFont;cfg.clockColor=draft.clockColor;cfg.clockSize=draft.clockSize;newsScale=draft.newsSize||100;LS.set('jv_newssize',newsScale);applyNewsSize(newsScale);loadVoices();
  if(pending){cfg.city=pending.city;cfg.lat=pending.lat;cfg.lon=pending.lon;cfg.tz=pending.tz;wx=null;done()}
  else if(city&&city!==cfg.city){geocode(city).then(function(r){if(!r.length){toast('Orașul nu a fost găsit');return}
    cfg.city=r[0].name;cfg.lat=r[0].latitude;cfg.lon=r[0].longitude;cfg.tz=r[0].timezone||'auto';wx=null;done()}).catch(function(){toast('Fără internet: nu pot căuta orașul')})}
