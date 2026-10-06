@@ -157,10 +157,10 @@ function renderWxDays(){var el=$('wxdays');if(!el)return;el.innerHTML='';
   var lab=document.createElement('div');lab.className='wd';lab.textContent=wxDayLabel(day.date);cell.appendChild(lab);
   var ic=document.createElement('div');ic.className='wi';ic.innerHTML=icon(d[1],1);cell.appendChild(ic);
   el.appendChild(cell)})}
-function renderWx(){$('wxlbl').textContent='Vremea · '+cfg.city;
- if(!wx){$('wxicon').innerHTML=icon('cloud',1);$('wxtemp').textContent='—°';$('wxcond').textContent='Se încarcă…';$('wxfeel').textContent='';$('wxline').textContent='';$('wxhi').textContent='';$('wxmeta').textContent='';renderWxDays();return}
- var d=WMO[wx.code]||['Vreme variabilă','cloud','Variabil'];$('wxicon').innerHTML=icon(d[1],wx.day);
- $('wxtemp').textContent=Math.round(wx.temp)+'°';
+function renderWx(){$('wxlbl').textContent='Vremea · '+cfg.city;if($('wxcity'))$('wxcity').textContent=cfg.city;
+ if(!wx){$('wxicon').innerHTML=icon('cloud',1);$('wxtemp').textContent='—°';if($('wxtempmini'))$('wxtempmini').textContent='—°';if($('wxiconmini'))$('wxiconmini').innerHTML=icon('cloud',1);$('wxcond').textContent='Se încarcă…';$('wxfeel').textContent='';$('wxline').textContent='';$('wxhi').textContent='';$('wxmeta').textContent='';renderWxDays();return}
+ var d=WMO[wx.code]||['Vreme variabilă','cloud','Variabil'];$('wxicon').innerHTML=icon(d[1],wx.day);if($('wxiconmini'))$('wxiconmini').innerHTML=icon(d[1],wx.day);
+ $('wxtemp').textContent=Math.round(wx.temp)+'°';if($('wxtempmini'))$('wxtempmini').textContent=Math.round(wx.temp)+'°';
  $('wxcond').textContent=d[2]||d[0];
  $('wxfeel').textContent=wx.feel!=null?'Se simte ca: '+Math.round(wx.feel)+'°C':'';
  $('wxhi').textContent=Math.round(wx.max)+'°/'+Math.round(wx.min)+'°';
@@ -337,14 +337,14 @@ function delTab(tab){if(!confirm('Ștergi tabul „'+tab.name+'"? Elementele lui
  box.addEventListener('contextmenu',function(e){if(e.target.closest('.task'))e.preventDefault()})})();
 /* v27: collapsible built-in cards (Taskuri azi/mâine, Cumpărături, Știri); state in jv_cardcol, not in undo history */
 var cardCol=LS.get('jv_cardcol',{});if(!cardCol||typeof cardCol!=='object')cardCol={};
-function ccEl(k){return $({azi:'cAzi',maine:'cMaine',shop:'cShop',news:'cNews'}[k])}
+function ccEl(k){return $({voice:'cVoice',wx:'cWx',azi:'cAzi',maine:'cMaine',shop:'cShop',news:'cNews'}[k])}
 function cardCount(k){if(k==='azi'||k==='maine')return listFor(k).filter(function(t){return !t.done}).length;
  if(k==='shop')return shopList().filter(function(x){return !x.bought}).length;return document.querySelectorAll('#newsBody .news-item').length}
 function updCardCount(k){var c=ccEl(k),n=c&&c.querySelector('.tcnt');if(n)n.textContent='· '+cardCount(k)}
 function setCardCol(k,col){var c=ccEl(k);if(!c)return;c.classList.toggle('col',col);
  var b=c.querySelector('.tcol');if(b){b.setAttribute('aria-expanded',col?'false':'true');b.setAttribute('aria-label',col?'Extinde cardul':'Restrânge cardul')}}
-['azi','maine','shop','news'].forEach(function(k){var c=ccEl(k);if(!c)return;setCardCol(k,!!cardCol[k]);
- c.querySelector('.lbl').addEventListener('click',function(e){if(e.target.closest('.spk,.nrf'))return;
+['voice','wx','azi','maine','shop','news'].forEach(function(k){var c=ccEl(k);if(!c)return;setCardCol(k,!!cardCol[k]);
+ c.querySelector('.lbl').addEventListener('click',function(e){if(e.target.closest('.spk,.nrf,.hb.ren,.hb.del'))return;
   var col=!c.classList.contains('col');setCardCol(k,col);if(col)cardCol[k]=1;else delete cardCol[k];LS.set('jv_cardcol',cardCol);updCardCount(k)})});
 /* create / rename modal */
 var tmTab=null,tmColor='';
@@ -710,7 +710,7 @@ function bkApply(data){if(!data||typeof data!=='object')throw new Error('empty')
  LS.set('jv_tasks',tasks);LS.set('jv_shop',shop);LS.set('jv_tabs',tabs);LS.set('jv_tabcol',tabCol);LS.set('jv_cardcol',cardCol);LS.set('jv_newscats',newsCats);LS.set('jv_newssize',newsScale);
  hUndo=[];hRedo=[];hCur=snap();histBtns();
  applyClock();applyNewsSize(newsScale);renderGreet(true);renderTasks();renderShop();renderTabs();
- ['azi','maine','shop','news'].forEach(function(k){setCardCol(k,!!cardCol[k]);updCardCount(k)});
+ ['voice','wx','azi','maine','shop','news'].forEach(function(k){setCardCol(k,!!cardCol[k]);updCardCount(k)});
  renderNews(newsCats);loadVoices();
  if($('modal').classList.contains('show')){draft={clockFont:cfg.clockFont,clockColor:cfg.clockColor,clockSize:cfg.clockSize,newsSize:newsScale,newsCats:newsCats.slice()};
   $('sName').value=cfg.name;$('sCity').value=cfg.city;$('cityList').innerHTML='';pending=null;

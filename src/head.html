@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="JARVIS">
-<meta name="jarvis-version" content="v33-jarvis">
+<meta name="jarvis-version" content="v34-jarvis">
 <title>JARVIS · Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Roboto+Condensed:wght@700&family=Orbitron:wght@700&family=Share+Tech+Mono&family=Rajdhani:wght@600;700&family=Audiowide&family=Teko:wght@500&family=Oxanium:wght@700&display=swap" rel="stylesheet">
@@ -207,6 +207,16 @@ ul.tasks{list-style:none;margin:0;padding:0}
 .ccol.col .hb.tcol{transform:rotate(-90deg)}
 .ccol.col ul.tasks,.ccol.col form.add,.ccol.col .news-meta,.ccol.col #newsBody{display:none}
 .ccol.col .lbl{margin-bottom:-4px}
+#cVoice.col > :not(.lbl),#cWx.col > :not(.lbl){display:none}
+#cWx .wxsum{display:none;flex:1;min-width:0;align-items:center;gap:10px;margin-right:2px}
+#cWx.col .wxsum{display:flex}
+#cWx.col #wxlbl{display:none}
+#cWx .wxcity{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--cyan2);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:500}
+#cWx .wxsumr{display:flex;align-items:center;gap:6px;flex:none}
+#cWx .wxtempmini{font-size:22px;font-weight:700;letter-spacing:-.02em;color:var(--txt);line-height:1}
+#cWx .wxiconmini{display:flex;align-items:center;justify-content:center;line-height:0}
+#cWx .wxiconmini svg{width:30px;height:30px;display:block}
+
 .btn.pill.newtab{color:var(--cyan2);border-style:dashed}
 .barin{padding:9px 12px}.barbtns{gap:6px}
 @media (max-width:440px){.bar{padding-left:8px;padding-right:8px}.barin{gap:8px;padding:9px 10px}.eq{width:32px;gap:2px}.eq i{width:3.5px}}
@@ -276,12 +286,12 @@ ul.tasks{list-style:none;margin:0;padding:0}
  </header>
 
  <div class="offnote" id="offNote" hidden></div>
- <section class="card" id="cVoice"><div class="lbl"><span class="lt">Voice status</span><button class="spk" data-read="voice" aria-label="Citește"></button></div>
+ <section class="card ccol" id="cVoice"><div class="lbl"><span class="lt">Voice status</span><span class="hgrp"><button class="spk" data-read="voice" aria-label="Citește"></button><button type="button" class="hb tcol" aria-expanded="true" aria-label="Restrânge cardul"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4.2 8.1a1.5 1.5 0 0 1 2.1 0L12 13.8l5.7-5.7a1.5 1.5 0 1 1 2.1 2.1l-6.75 6.75a1.5 1.5 0 0 1-2.1 0L4.2 10.2a1.5 1.5 0 0 1 0-2.1z"/></svg></button></span></div>
   <p class="voice kw" id="greet">…</p>
   <div class="status" id="vstatus">Agent local. Doar vreme și taskuri.</div>
   <div class="vprog" id="vprog"><span id="vprogTxt"></span><div class="pb"><i id="vprogBar"></i></div></div></section>
 
- <section class="card" id="cWx"><div class="lbl"><span class="lt" id="wxlbl">Vremea · Gherla</span><button class="spk" data-read="wx" aria-label="Citește"></button></div>
+ <section class="card ccol" id="cWx"><div class="lbl"><span class="lt" id="wxlbl">Vremea · Gherla</span><span class="wxsum"><span class="wxcity" id="wxcity">Gherla</span><span class="wxsumr"><span class="wxtempmini" id="wxtempmini">—°</span><span class="wxiconmini" id="wxiconmini"></span></span></span><span class="hgrp"><button class="spk" data-read="wx" aria-label="Citește"></button><button type="button" class="hb tcol" aria-expanded="true" aria-label="Restrânge cardul"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4.2 8.1a1.5 1.5 0 0 1 2.1 0L12 13.8l5.7-5.7a1.5 1.5 0 1 1 2.1 2.1l-6.75 6.75a1.5 1.5 0 0 1-2.1 0L4.2 10.2a1.5 1.5 0 0 1 0-2.1z"/></svg></button></span></div>
   <div class="wx"><div class="wxleft"><div class="wxicon" id="wxicon"></div><div class="wxtemp" id="wxtemp">—°</div></div>
    <div class="wxright"><div class="wxhi" id="wxhi"></div><div class="wxcond" id="wxcond">Se încarcă…</div><div class="wxfeel" id="wxfeel"></div><div class="wxline" id="wxline"></div><div class="wxmeta" id="wxmeta"></div></div>
    <div class="wxtxt kw" id="wxtxt" aria-hidden="true"></div></div>

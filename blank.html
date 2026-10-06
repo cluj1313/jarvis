@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="JARVIS">
-<meta name="jarvis-version" content="v33-jarvis-blank">
+<meta name="jarvis-version" content="v34-jarvis-blank">
 <script>window.JARVIS_BLANK=true</script>
 <title>JARVIS · Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -208,6 +208,16 @@ ul.tasks{list-style:none;margin:0;padding:0}
 .ccol.col .hb.tcol{transform:rotate(-90deg)}
 .ccol.col ul.tasks,.ccol.col form.add,.ccol.col .news-meta,.ccol.col #newsBody{display:none}
 .ccol.col .lbl{margin-bottom:-4px}
+#cVoice.col > :not(.lbl),#cWx.col > :not(.lbl){display:none}
+#cWx .wxsum{display:none;flex:1;min-width:0;align-items:center;gap:10px;margin-right:2px}
+#cWx.col .wxsum{display:flex}
+#cWx.col #wxlbl{display:none}
+#cWx .wxcity{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--cyan2);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:500}
+#cWx .wxsumr{display:flex;align-items:center;gap:6px;flex:none}
+#cWx .wxtempmini{font-size:22px;font-weight:700;letter-spacing:-.02em;color:var(--txt);line-height:1}
+#cWx .wxiconmini{display:flex;align-items:center;justify-content:center;line-height:0}
+#cWx .wxiconmini svg{width:30px;height:30px;display:block}
+
 .btn.pill.newtab{color:var(--cyan2);border-style:dashed}
 .barin{padding:9px 12px}.barbtns{gap:6px}
 @media (max-width:440px){.bar{padding-left:8px;padding-right:8px}.barin{gap:8px;padding:9px 10px}.eq{width:32px;gap:2px}.eq i{width:3.5px}}
@@ -277,12 +287,12 @@ ul.tasks{list-style:none;margin:0;padding:0}
  </header>
 
  <div class="offnote" id="offNote" hidden></div>
- <section class="card" id="cVoice"><div class="lbl"><span class="lt">Voice status</span><button class="spk" data-read="voice" aria-label="Citește"></button></div>
+ <section class="card ccol" id="cVoice"><div class="lbl"><span class="lt">Voice status</span><span class="hgrp"><button class="spk" data-read="voice" aria-label="Citește"></button><button type="button" class="hb tcol" aria-expanded="true" aria-label="Restrânge cardul"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4.2 8.1a1.5 1.5 0 0 1 2.1 0L12 13.8l5.7-5.7a1.5 1.5 0 1 1 2.1 2.1l-6.75 6.75a1.5 1.5 0 0 1-2.1 0L4.2 10.2a1.5 1.5 0 0 1 0-2.1z"/></svg></button></span></div>
   <p class="voice kw" id="greet">…</p>
   <div class="status" id="vstatus">Agent local. Doar vreme și taskuri.</div>
   <div class="vprog" id="vprog"><span id="vprogTxt"></span><div class="pb"><i id="vprogBar"></i></div></div></section>
 
- <section class="card" id="cWx"><div class="lbl"><span class="lt" id="wxlbl">Vremea · Gherla</span><button class="spk" data-read="wx" aria-label="Citește"></button></div>
+ <section class="card ccol" id="cWx"><div class="lbl"><span class="lt" id="wxlbl">Vremea · Gherla</span><span class="wxsum"><span class="wxcity" id="wxcity">Gherla</span><span class="wxsumr"><span class="wxtempmini" id="wxtempmini">—°</span><span class="wxiconmini" id="wxiconmini"></span></span></span><span class="hgrp"><button class="spk" data-read="wx" aria-label="Citește"></button><button type="button" class="hb tcol" aria-expanded="true" aria-label="Restrânge cardul"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4.2 8.1a1.5 1.5 0 0 1 2.1 0L12 13.8l5.7-5.7a1.5 1.5 0 1 1 2.1 2.1l-6.75 6.75a1.5 1.5 0 0 1-2.1 0L4.2 10.2a1.5 1.5 0 0 1 0-2.1z"/></svg></button></span></div>
   <div class="wx"><div class="wxleft"><div class="wxicon" id="wxicon"></div><div class="wxtemp" id="wxtemp">—°</div></div>
    <div class="wxright"><div class="wxhi" id="wxhi"></div><div class="wxcond" id="wxcond">Se încarcă…</div><div class="wxfeel" id="wxfeel"></div><div class="wxline" id="wxline"></div><div class="wxmeta" id="wxmeta"></div></div>
    <div class="wxtxt kw" id="wxtxt" aria-hidden="true"></div></div>
@@ -662,10 +672,10 @@ function renderWxDays(){var el=$('wxdays');if(!el)return;el.innerHTML='';
   var lab=document.createElement('div');lab.className='wd';lab.textContent=wxDayLabel(day.date);cell.appendChild(lab);
   var ic=document.createElement('div');ic.className='wi';ic.innerHTML=icon(d[1],1);cell.appendChild(ic);
   el.appendChild(cell)})}
-function renderWx(){$('wxlbl').textContent='Vremea · '+cfg.city;
- if(!wx){$('wxicon').innerHTML=icon('cloud',1);$('wxtemp').textContent='—°';$('wxcond').textContent='Se încarcă…';$('wxfeel').textContent='';$('wxline').textContent='';$('wxhi').textContent='';$('wxmeta').textContent='';renderWxDays();return}
- var d=WMO[wx.code]||['Vreme variabilă','cloud','Variabil'];$('wxicon').innerHTML=icon(d[1],wx.day);
- $('wxtemp').textContent=Math.round(wx.temp)+'°';
+function renderWx(){$('wxlbl').textContent='Vremea · '+cfg.city;if($('wxcity'))$('wxcity').textContent=cfg.city;
+ if(!wx){$('wxicon').innerHTML=icon('cloud',1);$('wxtemp').textContent='—°';if($('wxtempmini'))$('wxtempmini').textContent='—°';if($('wxiconmini'))$('wxiconmini').innerHTML=icon('cloud',1);$('wxcond').textContent='Se încarcă…';$('wxfeel').textContent='';$('wxline').textContent='';$('wxhi').textContent='';$('wxmeta').textContent='';renderWxDays();return}
+ var d=WMO[wx.code]||['Vreme variabilă','cloud','Variabil'];$('wxicon').innerHTML=icon(d[1],wx.day);if($('wxiconmini'))$('wxiconmini').innerHTML=icon(d[1],wx.day);
+ $('wxtemp').textContent=Math.round(wx.temp)+'°';if($('wxtempmini'))$('wxtempmini').textContent=Math.round(wx.temp)+'°';
  $('wxcond').textContent=d[2]||d[0];
  $('wxfeel').textContent=wx.feel!=null?'Se simte ca: '+Math.round(wx.feel)+'°C':'';
  $('wxhi').textContent=Math.round(wx.max)+'°/'+Math.round(wx.min)+'°';
@@ -842,14 +852,14 @@ function delTab(tab){if(!confirm('Ștergi tabul „'+tab.name+'"? Elementele lui
  box.addEventListener('contextmenu',function(e){if(e.target.closest('.task'))e.preventDefault()})})();
 /* v27: collapsible built-in cards (Taskuri azi/mâine, Cumpărături, Știri); state in jv_cardcol, not in undo history */
 var cardCol=LS.get('jv_cardcol',{});if(!cardCol||typeof cardCol!=='object')cardCol={};
-function ccEl(k){return $({azi:'cAzi',maine:'cMaine',shop:'cShop',news:'cNews'}[k])}
+function ccEl(k){return $({voice:'cVoice',wx:'cWx',azi:'cAzi',maine:'cMaine',shop:'cShop',news:'cNews'}[k])}
 function cardCount(k){if(k==='azi'||k==='maine')return listFor(k).filter(function(t){return !t.done}).length;
  if(k==='shop')return shopList().filter(function(x){return !x.bought}).length;return document.querySelectorAll('#newsBody .news-item').length}
 function updCardCount(k){var c=ccEl(k),n=c&&c.querySelector('.tcnt');if(n)n.textContent='· '+cardCount(k)}
 function setCardCol(k,col){var c=ccEl(k);if(!c)return;c.classList.toggle('col',col);
  var b=c.querySelector('.tcol');if(b){b.setAttribute('aria-expanded',col?'false':'true');b.setAttribute('aria-label',col?'Extinde cardul':'Restrânge cardul')}}
-['azi','maine','shop','news'].forEach(function(k){var c=ccEl(k);if(!c)return;setCardCol(k,!!cardCol[k]);
- c.querySelector('.lbl').addEventListener('click',function(e){if(e.target.closest('.spk,.nrf'))return;
+['voice','wx','azi','maine','shop','news'].forEach(function(k){var c=ccEl(k);if(!c)return;setCardCol(k,!!cardCol[k]);
+ c.querySelector('.lbl').addEventListener('click',function(e){if(e.target.closest('.spk,.nrf,.hb.ren,.hb.del'))return;
   var col=!c.classList.contains('col');setCardCol(k,col);if(col)cardCol[k]=1;else delete cardCol[k];LS.set('jv_cardcol',cardCol);updCardCount(k)})});
 /* create / rename modal */
 var tmTab=null,tmColor='';
@@ -1215,7 +1225,7 @@ function bkApply(data){if(!data||typeof data!=='object')throw new Error('empty')
  LS.set('jv_tasks',tasks);LS.set('jv_shop',shop);LS.set('jv_tabs',tabs);LS.set('jv_tabcol',tabCol);LS.set('jv_cardcol',cardCol);LS.set('jv_newscats',newsCats);LS.set('jv_newssize',newsScale);
  hUndo=[];hRedo=[];hCur=snap();histBtns();
  applyClock();applyNewsSize(newsScale);renderGreet(true);renderTasks();renderShop();renderTabs();
- ['azi','maine','shop','news'].forEach(function(k){setCardCol(k,!!cardCol[k]);updCardCount(k)});
+ ['voice','wx','azi','maine','shop','news'].forEach(function(k){setCardCol(k,!!cardCol[k]);updCardCount(k)});
  renderNews(newsCats);loadVoices();
  if($('modal').classList.contains('show')){draft={clockFont:cfg.clockFont,clockColor:cfg.clockColor,clockSize:cfg.clockSize,newsSize:newsScale,newsCats:newsCats.slice()};
   $('sName').value=cfg.name;$('sCity').value=cfg.city;$('cityList').innerHTML='';pending=null;
