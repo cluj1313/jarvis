@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-06T11:09:34.479725Z",
+  "updated": "2026-10-06T17:22:11.277040Z",
   "categories": [
     {
       "id": "ai",
@@ -9,6 +9,24 @@
           "id": "verge",
           "name": "The Verge AI",
           "items": [
+            {
+              "title": "We can’t just change the definition of ‘recording’",
+              "url": "https://www.theverge.com/column/1005697/we-cant-just-change-the-definition-of-recording",
+              "snippet": "With AI hardware, tech companies are pushing the definition of what does and doesn't constitute a recording. For most of gadget history, it'd be reasonable to assume that a…",
+              "published": "2026-10-06T16:29:44Z"
+            },
+            {
+              "title": "Google is about to remove free access to Gemini Flash and Pro",
+              "url": "https://www.theverge.com/ai-artificial-intelligence/1005451/google-gemini-free-flash-lite-only",
+              "snippet": "Starting on October 9th, anyone using Google Gemini on a free plan will be limited to the Flash Lite model. Free users can currently choose from Gemini Flash Lite, Flash, and…",
+              "published": "2026-10-06T13:19:01Z"
+            },
+            {
+              "title": "Amazon Alexa Plus keeps creepily singing ‘lalala’ for minutes on end",
+              "url": "https://www.theverge.com/tech/1005342/amazon-alexa-plus-keeps-creepily-singing-lalala-for-minutes-on-end",
+              "snippet": "An unsettling Alexa Plus bug has seen some Amazon Echo smart home speakers reduced to saying - and sometimes singing - nothing but \"lalala\" on repeat for minutes at a time, often…",
+              "published": "2026-10-06T10:53:11Z"
+            },
             {
               "title": "Gemini Call for Me might tell your mom you’re running late",
               "url": "https://www.theverge.com/ai-artificial-intelligence/1005177/google-gemini-call-for-me-expansion-rumors",
@@ -20,24 +38,6 @@
               "url": "https://www.theverge.com/news/1004929/wikipedia-openai-rogue-bots-wikimedia-foundation-outage",
               "snippet": "Following many recent disclosures about AI agents accessing third-party websites and services, the Wikimedia Foundation, which hosts Wikipedia, says that it \"can confirm that we…",
               "published": "2026-10-05T22:22:32Z"
-            },
-            {
-              "title": "This startup is issuing AI-generated acne prescriptions",
-              "url": "https://www.theverge.com/ai-artificial-intelligence/1005075/nolla-health-acne-ai-prescriptions",
-              "snippet": "People in Utah can now use AI to get a prescription for acne treatment. On Monday, healthcare startup Nolla Health announced that users in the state can scan their faces using…",
-              "published": "2026-10-05T20:14:57Z"
-            },
-            {
-              "title": "All the drama around AI’s takeover of mathematics",
-              "url": "https://www.theverge.com/ai-artificial-intelligence/1004933/ai-math-openai-breakthrough-solution",
-              "snippet": "This past year, OpenAI, Anthropic, and other labs have announced breakthroughs on numerous long-standing mathematical problems, in some cases pushing well beyond what researchers…",
-              "published": "2026-10-05T19:42:41Z"
-            },
-            {
-              "title": "OpenAI is adding text watermarking in ChatGPT and Codex",
-              "url": "https://www.theverge.com/ai-artificial-intelligence/1004880/openai-chatgpt-text-watermarks-eu-ai-act",
-              "snippet": "An invisible, machine-readable watermark in text output is rolling out to ChatGPT and Codex, but only for users in the European Union at first. OpenAI says its textGrain…",
-              "published": "2026-10-05T18:08:39Z"
             }
           ]
         },
@@ -46,34 +46,34 @@
           "name": "TechCrunch AI",
           "items": [
             {
-              "title": "OpenAI will start watermarking ChatGPT’s text in the EU",
-              "url": "https://techcrunch.com/2026/10/05/openai-will-start-watermarking-chatgpts-text-in-the-eu/",
-              "snippet": "OpenAI will watermark ChatGPT and Codex text in the EU to comply with the AI Act. Editing can make the invisible marks harder to detect, it says.",
-              "published": "2026-10-05T20:36:48Z"
+              "title": "Mirror Particle is building a ‘world model’ of human behavior",
+              "url": "https://techcrunch.com/2026/10/06/mirror-particle-is-building-a-world-model-of-human-behavior/",
+              "snippet": "Mirror Particle will launch at TechCrunch Disrupt's Startup Battlefield 200 with a world model built from scratch to predict human behavior, arguing that LLM role-play falls…",
+              "published": "2026-10-06T16:35:00Z"
             },
             {
-              "title": "Reflection debuts Beam, an open-weight AI model to rival Chinese models at lower compute cost",
-              "url": "https://techcrunch.com/2026/10/05/reflection-debuts-beam-a-open-weight-ai-model-to-rival-chinese-models-at-lower-compute-cost/",
-              "snippet": "Reflection is aiming Beam and future models at enterprises and sovereign nations. The pitch is to build “AI factories,” a product that would let institutions build their own…",
-              "published": "2026-10-05T19:33:53Z"
+              "title": "Anthropic is giving startups a free year of Claude Team and $1,000 in credits",
+              "url": "https://techcrunch.com/2026/10/06/anthropic-gives-startups-a-free-year-of-enterprise-service-and-1000-in-token-credits/",
+              "snippet": "\"We created this program because we believe the benefits of AI will reach most people through the companies that build on top of models, rather than through the models alone.\"",
+              "published": "2026-10-06T16:00:00Z"
             },
             {
-              "title": "Instinct brings its AI agent to group chats, even for friends without an account",
-              "url": "https://techcrunch.com/2026/10/05/instinct-brings-its-ai-agent-to-group-chats-even-for-friends-without-an-account/",
-              "snippet": "Instinct is launching group chats that let friends use its AI agent together for tasks like planning trips, organizing carpools, and coordinating events. The company says…",
-              "published": "2026-10-05T18:54:30Z"
+              "title": "LibreOffice says ‘no AI’ is now a software feature",
+              "url": "https://techcrunch.com/2026/10/06/libreoffice-says-no-ai-is-now-a-software-feature/",
+              "snippet": "The maker of the open source document editor says it has no plans to add AI to its software's default configuration, citing user privacy.",
+              "published": "2026-10-06T15:25:00Z"
             },
             {
-              "title": "TikTok rolls out an AI shopping assistant and one-click checkout",
-              "url": "https://techcrunch.com/2026/10/05/tiktok-rolls-out-an-ai-shopping-assistant-and-one-click-checkout/",
-              "snippet": "TikTok describes its new Shopping Assistant as a conversational AI agent designed to help users discover and purchase products.",
-              "published": "2026-10-05T18:29:00Z"
+              "title": "Mistral’s new 1T model aims to leapfrog closed and open rivals",
+              "url": "https://techcrunch.com/2026/10/06/mistrals-new-1t-model-aims-to-leapfrog-closed-and-open-rivals/",
+              "snippet": "French AI lab Mistral AI has released Mistral Large 4, a new large multimodal model aiming to leapfrog both American and Chinese rivals.",
+              "published": "2026-10-06T14:33:16Z"
             },
             {
-              "title": "Hot Girl Hotline is like ‘Dear Abby’ for the AI era",
-              "url": "https://techcrunch.com/2026/10/05/hot-girl-hotline-is-like-dear-abby-for-the-ai-era/",
-              "snippet": "Founded by two sisters, Hot Girl Hotline uses AI to give young women personalized dating and relationship advice, with an emphasis on safety and avoiding emotional dependency.",
-              "published": "2026-10-05T17:29:22Z"
+              "title": "Pinterest’s AI now turns beauty Pins into action plans",
+              "url": "https://techcrunch.com/2026/10/06/pinterests-ai-now-turns-beauty-pins-into-action-plans/",
+              "snippet": "Pinterest’s new AI-powered Beauty Guides translate hair and nail Pins into salon terminology, with estimated costs, appointment times, and maintenance needs.",
+              "published": "2026-10-06T14:00:49Z"
             }
           ]
         },
@@ -160,34 +160,34 @@
           "name": "Digi24",
           "items": [
             {
-              "title": "Avertismentul lui Cristian Bușoi pentru iarna și primăvara lui 2027: Trebuie să ne pregătim pentru prețuri foarte mari la electricitate",
-              "url": "https://www.digi24.ro/stiri/economie/energie/avertismentul-lui-cristian-busoi-pentru-iarna-si-primavara-lui-2027-trebuie-sa-ne-pregatim-pentru-preturi-foarte-mari-la-electricitate-3980189",
-              "snippet": "România trebuie să se pregătească pentru prețuri foarte mari la electricitate în iarna și primăvara anului 2027, a avertizat marți Cristian Bușoi, secretar de stat în Ministerul…",
-              "published": "2026-10-06T11:06:39Z"
+              "title": "Tomac: România trebuie să iasă cu bine din această criză politică. Un vot pentru viitorul guvern a devenit o obligaţie patriotică",
+              "url": "https://www.digi24.ro/stiri/actualitate/politica/tomac-romania-trebuie-sa-iasa-cu-bine-din-aceasta-criza-politica-un-vot-pentru-viitorul-guvern-a-devenit-o-obligatie-patriotica-3981235",
+              "snippet": "Consilierul onorific al preşedintelui, europarlamentarul Eugen Tomac, care a fost prima propunere de premier a lui Nicuşor Dan, spune că România trebuie să iasă cu bine din…",
+              "published": "2026-10-06T17:08:32Z"
             },
             {
-              "title": "Ședință crucială în PSD pentru soarta Guvernului propus de Luca Niculescu. Social-democrații ar putea intra la guvernare (surse)",
-              "url": "https://www.digi24.ro/stiri/actualitate/politica/sedinta-cruciala-in-psd-pentru-soarta-guvernului-propus-de-luca-niculescu-social-democratii-ar-putea-intra-la-guvernare-surse-3979979",
-              "snippet": "Conducerea Partidului Social Democrat (PSD) se reunește începând cu ora 14:00 într-o ședință pentru a discuta care sunt pașii următori ai partidului, după ce Luca Niculescu a…",
-              "published": "2026-10-06T11:06:18Z"
+              "title": "Siegfried Mureșan, despre liniile roșii ale PSD: „Nu poți lua în serios un partid care își schimbă discursul ca la grădiniță”",
+              "url": "https://www.digi24.ro/stiri/actualitate/politica/siegfried-muresan-despre-liniile-rosii-ale-psd-nu-poti-lua-in-serios-un-partid-care-isi-schimba-discursul-ca-la-gradinita-3981065",
+              "snippet": "Europarlamentarul PNL Siegfried Mureșan acuză PSD că își schimbă discursul „ca la grădiniță” și că nu poate fi luat în serios, arătând că președintele social-democraților, Sorin…",
+              "published": "2026-10-06T17:02:51Z"
             },
             {
-              "title": "Premiul Nobel pentru Fizică 2026: Francis Halzen pentru „descoperirea neutrinilor de înaltă energie de origine astrofizică”",
-              "url": "https://www.digi24.ro/stiri/externe/premiul-nobel-pentru-fizica-2026-francis-halzen-pentru-descoperirea-neutrinilor-de-inalta-energie-de-origine-astrofizica-3980393",
-              "snippet": "Academia Regală Suedeză de Ştiinţe de la Stockholm a decis marţi să acorde Premiul Nobel pentru Fizică pe 2026 lui Francis Halzen „pentru contribuţiile decisive aduse…",
-              "published": "2026-10-06T11:04:54Z"
+              "title": "Încă o țară anunță că se retrage de la Eurovision 2027: „Nu vom vedea drapelul nostru pe scenă anul viitor”",
+              "url": "https://www.digi24.ro/stiri/externe/inca-o-tara-anunta-ca-se-retrage-de-la-eurovision-2027-nu-vom-vedea-drapelul-nostru-pe-scena-anul-viitor-3981237",
+              "snippet": "Televiziunea publică a anunţat marţi că nu va participa la ediţia de anul viitor a Eurovision, cel mai mare eveniment muzical televizat din lume, invocând reduceri bugetare.",
+              "published": "2026-10-06T16:56:21Z"
             },
             {
-              "title": "Reprezentanții UDMR s-au arătat deschiși să îl susțină pe Luca Niculescu, cu o condiție: „Ar fi dificil să intrăm numai cu PSD”",
-              "url": "https://www.digi24.ro/stiri/actualitate/politica/reprezentantii-udmr-s-au-aratat-deschisi-sa-il-sustina-pe-luca-niculescu-cu-o-conditie-ar-fi-dificil-sa-intram-numai-cu-psd-3980257",
-              "snippet": "UDMR, prin vocea liderului deputaților formațiunii parlamentare, Csoma Botond, s-a arătat deschis să voteze pentru învestirea unui eventual Guvern condus de Luca Niculescu, însă…",
-              "published": "2026-10-06T10:58:28Z"
+              "title": "Poliţia Sibiu nu mai pune în funcțiune un sistem de semaforizare inteligent, pentru că la testare aglomerația în trafic a crescut",
+              "url": "https://www.digi24.ro/stiri/actualitate/politia-sibiu-nu-mai-pune-in-functiune-un-sistem-de-semaforizare-inteligent-pentru-ca-la-testare-aglomeratia-in-trafic-a-crescut-3981211",
+              "snippet": "Poliţia Sibiu a anunţat că nu va folosi deocamdată sistemul adaptiv de semaforizare montat în trei intersecţii din municipiu, testat marţi în două dintre aceste intersecţii…",
+              "published": "2026-10-06T16:37:22Z"
             },
             {
-              "title": "Euro a atins un nou record în fața leului. Cursul BNR a ajuns la 5,3527 lei/euro",
-              "url": "https://www.digi24.ro/stiri/economie/euro-a-atins-un-nou-record-in-fata-leului-cursul-bnr-a-ajuns-la-53527-lei-euro-3980473",
-              "snippet": "Euro a atins marți, 6 octombrie, un nou maxim istoric în raport cu leul. Banca Națională a României (BNR) a anunțat un curs de 5,3527 lei/euro, cu 2,21 bani peste cotația de luni…",
-              "published": "2026-10-06T10:55:06Z"
+              "title": "SBU descoperă secretul: cum a ajutat un agent rus atacurile cu drone asupra Kievului cu stații de retransmisie",
+              "url": "https://www.digi24.ro/stiri/externe/sbu-descopera-secretul-cum-a-ajutat-un-agent-rus-atacurile-cu-drone-asupra-kievului-cu-statii-de-retransmisie-3981197",
+              "snippet": "Serviciul de Securitate al Ucrainei (SBU), împreună cu Poliția Națională ucraineană, au reținut un colaborator rus, care ar fi fost angajat de Serviciul Federal de Securitate…",
+              "published": "2026-10-06T16:32:24Z"
             }
           ]
         },
@@ -196,34 +196,34 @@
           "name": "HotNews",
           "items": [
             {
-              "title": "Nivel istoric pentru euro, care a trecut de un nou prag",
-              "url": "https://hotnews.ro/nivel-istoric-pentru-euro-care-a-trecut-de-un-nou-prag-2368523",
-              "snippet": "Banca Națională a României a anunțat marți un curs record pentru un euro, care a trecut de 5,35 de lei. Este o valoare istorică a monedei naționale în raport cu euro. Cursul…",
-              "published": "2026-10-06T10:53:50Z"
+              "title": "Popularitatea noii adaptări Netflix a readus un roman clasic în topurile celor mai vândute cărți",
+              "url": "https://hotnews.ro/popularitatea-noii-adaptari-netflix-a-readus-un-roman-clasic-in-topurile-celor-mai-vandute-carti-2367463",
+              "snippet": "Noul serial Netflix „La răsărit de Eden” (East of Eden), cu o interpretare pe larg lăudată a lui Florence Pugh, a făcut ca romanul omonim al scriitorului american John Steinbeck…",
+              "published": "2026-10-06T17:08:32Z"
             },
             {
-              "title": "„Pas istoric” al Ungariei, care desecretizează toate dosarele colaboratorilor din perioada comunistă",
-              "url": "https://hotnews.ro/pas-istoric-al-ungariei-care-desecretizeaza-toate-dosarele-colaboratorilor-din-perioada-comunista-2368514",
-              "snippet": "Ungaria va începe în curând desecretizarea a zeci de mii de dosare ale poliției comuniste, care vor fi accesibile într-o bază de date publică; în documentele depozitate în…",
-              "published": "2026-10-06T10:48:02Z"
+              "title": "După ce a desfășurat avioane de vânătoare Gripen, Suedia mai face o mutare pentru hubul strategic din Polonia ce furnizează arme Ucrainei",
+              "url": "https://hotnews.ro/dupa-ce-a-desfasurat-avioane-de-vanatoare-gripen-suedia-mai-face-o-mutare-pentru-hubul-strategic-din-polonia-ce-furnizeaza-arme-ucrainei-2369018",
+              "snippet": "Prim-ministrul Suediei, Ulf Kristersson, a declarat marți că această țară nordică va desfășura sisteme de apărare antiaeriană Patriot în estul Poloniei pentru a contribui la…",
+              "published": "2026-10-06T16:54:40Z"
             },
             {
-              "title": "INTERVIU „Mandatul ultimei șanse înainte de anticipate”. Un profesor de drept constituţional explică a patra desemnare de premier făcută de Nicușor Dan",
-              "url": "https://hotnews.ro/interviu-mandatul-ultimei-sanse-inainte-de-anticipate-un-profesor-de-drept-constitutional-explica-a-patra-desemnare-de-premier-facuta-de-nicusor-dan-2368084",
-              "snippet": "Desemnarea lui Luca Niculescu poate împiedica formarea unei majorități PSD–AUR, spune profesorul Ioan Stanomir, într-un interviu pentru publicul HotNews. El susține însă că…",
-              "published": "2026-10-06T10:32:29Z"
+              "title": "Concurs de dormit în Japonia. Criteriile după care a fost ales câștigătorul",
+              "url": "https://hotnews.ro/concurs-de-dormit-in-japonia-criteriile-dupa-care-a-fost-ales-castigatorul-2369002",
+              "snippet": "În Japonia, o ţară în care se munceşte intens şi se doarme puţin, zeci de ”campioni la dormit” s-au confruntat într-o disciplină unde pentru a câştiga este suficient să te…",
+              "published": "2026-10-06T16:46:16Z"
             },
             {
-              "title": "Donald Trump, declarație șoc la un miting: „Lăsați-i să distrugă Los Angeles, să distrugă San Diego”",
-              "url": "https://hotnews.ro/donald-trump-declaratie-soc-la-un-miting-lasati-i-sa-distruga-los-angeles-sa-distruga-san-diego-2368438",
-              "snippet": "La un miting organizat luni seara în Nebraska, un stat cu o majoritate republicană, Donald Trump a sugerat că Iranul ar putea „distruge” Los Angeles și San Diego, două mari orașe…",
-              "published": "2026-10-06T10:22:40Z"
+              "title": "CCR stabileşte în ce situaţii pot fi ridicate la percheziţii obiecte şi înscrisuri. „Suspiciunea trebuie să fie rezonabilă”",
+              "url": "https://hotnews.ro/ccr-stabileste-in-ce-situatii-pot-fi-ridicate-la-perchezitii-obiecte-si-inscrisuri-suspiciunea-trebuie-sa-fie-rezonabila-2368995",
+              "snippet": "Curtea Constituţională a României (CCR) a stabilit, marţi, că excepţia din Codul de procedură penală care instituie obligaţia de a fi ridicate în cadrul percheziţiilor…",
+              "published": "2026-10-06T16:27:43Z"
             },
             {
-              "title": "Profesorul Mihai Maci: „În România, există patru facultăți care produc angajați pentru piața muncii. În rest, nu prea e clar ce producem”",
-              "url": "https://hotnews.ro/profesorul-mihai-maci-in-romania-exista-patru-facultati-care-produc-angajati-pentru-piata-muncii-in-rest-nu-prea-e-clar-ce-producem-2368481",
-              "snippet": "În România, patru direcții de studiu le oferă absolvenților perspectiva unui loc de muncă imediat, este de părere profesorul Mihai Maci, lector în cadrul Departamentului de…",
-              "published": "2026-10-06T10:20:43Z"
+              "title": "Polonia face o mutare militară cu implicații și pentru alte țări europene, inclusiv România. De ce ia în calcul să vândă sistemele americane HIMARS",
+              "url": "https://hotnews.ro/polonia-face-o-mutare-militara-cu-implicatii-si-pentru-alte-tari-europene-inclusiv-romania-de-ce-ia-in-calcul-sa-vanda-sistemele-americane-himars-2367189",
+              "snippet": "Polonia ia în calcul să renunțe la cele 20 de lansatoare americane M142 HIMARS din dotare, pe care un analist polonez le consideră „elefanți albi”, pentru a direcționa banii spre…",
+              "published": "2026-10-06T16:13:21Z"
             }
           ]
         },
@@ -232,34 +232,34 @@
           "name": "G4Media",
           "items": [
             {
-              "title": "Începe sesiunea de examen pentru obținerea titlului de medic, medic stomatolog și farmacist specialist / În premieră, subiecte unice la nivel național / Peste 3.900 de candidați înscriși",
-              "url": "https://www.g4media.ro/incepe-sesiunea-de-examen-pentru-obtinerea-titlului-de-medic-medic-stomatolog-si-farmacist-specialist-in-premiera-subiecte-unice-la-nivel-national-peste-3-900-de-candidati-inscrisi.html",
-              "snippet": "Sesiunea de examen pentru obținerea titlului de medic, medic stomatolog și farmacist specialist începe miercuri, 7 octombrie, și, în premieră, vor fi subiecte unice la nivel…",
-              "published": "2026-10-06T11:06:00Z"
+              "title": "George Simion: ”A venit cineva cu acest caz al domnului Bogos, că trebuie să facem ceva” / Liderul AUR vine cu noi detalii după acuzațiile senatorului Ninel Peia: ”Fratele nostru suveranist de la AUR George Simon a căzut pe interceptări„",
+              "url": "https://www.g4media.ro/george-simion-a-venit-cineva-cu-acest-caz-al-domnului-bogos-ca-trebuie-sa-facem-ceva-liderul-aur-vine-cu-noi-detalii-dupa-acuzatiile-senatorului-ninel-peia-fratele-nost.html",
+              "snippet": "Președintele partidului extremist AUR, George Simion, susține că ”a intervenit cineva” la el pentru a soluționa problemele omului de afaceri Fănel Bogos. Afirmația făcută marți…",
+              "published": "2026-10-06T17:18:25Z"
             },
             {
-              "title": "Comisia Europeană acordă exportatorilor de combustibili fosili încă un an pentru a se conforma normelor privind emisiile de metan",
-              "url": "https://www.g4media.ro/comisia-europeana-acorda-exportatorilor-de-combustibili-fosili-inca-un-an-pentru-a-se-conforma-normelor-privind-emisiile-de-metan.html",
-              "snippet": "Comisia Europeană va acorda exportatorilor de combustibili fosili încă un an pentru a se conforma normelor privind emisiile de metan, transmite MEDIAFAX. Comisia Europeană vrea…",
-              "published": "2026-10-06T11:01:34Z"
+              "title": "Cehia se retrage de la Eurovision / A invocat reduceri bugetare / ”Nu vom vedea drapelul ceh pe scenă anul viitor”",
+              "url": "https://www.g4media.ro/cehia-se-retrage-de-la-eurovision-a-invocat-reduceri-bugetare-nu-vom-vedea-drapelul-ceh-pe-scena-anul-viitor.html",
+              "snippet": "Televiziunea publică cehă a anunţat marţi că nu va participa la ediţia de anul viitor a Eurovision, cel mai mare eveniment muzical televizat din lume, invocând reduceri bugetare…",
+              "published": "2026-10-06T17:00:12Z"
             },
             {
-              "title": "Grupul 5 de la Termocentrala Turceni, oprit din cauza unei avarii, va fi repornit joi",
-              "url": "https://www.g4media.ro/grupul-5-de-la-termocentrala-turceni-oprit-din-cauza-unei-avarii-va-fi-repornit-joi.html",
-              "snippet": "Grupul 5 de la Termocentrala Turceni din cadrul Complexului Energetic Oltenia, oprit luni din cauza unei avarii, o să fie disponibil pentru pornite joi, la schimbul I, mai repede…",
-              "published": "2026-10-06T10:57:00Z"
+              "title": "Israelul a demolat în Ierusalimul de Est un imobil în care locuiau 70 de palestinieni / Ministrul Ben Gvir s-a aflat la maneta unui buldozer",
+              "url": "https://www.g4media.ro/israelul-a-demolat-in-ierusalimul-de-est-un-imobil-in-care-locuiau-70-de-palestinieni-ministrul-ben-gvir-s-a-aflat-la-maneta-unui-buldozer.html",
+              "snippet": "Un imobil rezidenţial de cinci etaje, unde locuiau în jur de 70 de persoane, a fost demolat marţi de buldozere israeliene în Ierusalimul de Est, anexat de Israel, în vederea unui…",
+              "published": "2026-10-06T16:55:57Z"
             },
             {
-              "title": "George Russell va fi penalizat la cursa de F1 din Singapore",
-              "url": "https://www.g4media.ro/george-russell-va-fi-penalizat-la-cursa-de-f1-din-singapore.html",
-              "snippet": "George Russell va porni Marele Premiu de Formula 1 de la Singapore din coada grilei de start, anunță Sky Sports. Britanicul va avea un motor nou în cursa din acest weekend, iar…",
-              "published": "2026-10-06T10:53:19Z"
+              "title": "ReporterIS: Record olimpic la Iași / Rector, profesoară și studentă în același timp / A dat licența și tot ea a fost șefa Comisiei de licență",
+              "url": "https://www.g4media.ro/reporteris-record-olimpic-la-iasi-rector-profesoara-si-studenta-in-acelasi-timp-a-dat-licenta-si-tot-ea-a-fost-sefa-comisiei-de-licenta.html",
+              "snippet": "Între 2020 și 2023, Gabriela Mihalache, fostul rector al Universității Apollonia din Iași a avut triplă calitate în cadrul instituției. În timp ce conducea universitatea, ea era…",
+              "published": "2026-10-06T16:50:50Z"
             },
             {
-              "title": "Organizaţiile fermierilor cer suplimentarea sprijinului pentru îngrăşăminte la nivelul maxim de 200% permis de legislația europeană pentru compensarea creşterii preţurilor",
-              "url": "https://www.g4media.ro/organizatiile-fermierilor-cer-suplimentarea-sprijinului-pentru-ingrasaminte-la-nivelul-maxim-de-200-permis-de-legislatia-europeana-pentru-compensarea-cresterii-preturilor.html",
-              "snippet": "Organizaţiile reprezentative ale fermierilor şi producătorilor agricoli solicită Ministerului Finanţelor suplimentarea bugetului Ministerului Agriculturii şi Dezvoltării Rurale…",
-              "published": "2026-10-06T10:45:21Z"
+              "title": "Starea de alertă de la Praid, prelungită cu încă o lună / În continuare este interzis accesul populaţiei în zona afectată",
+              "url": "https://www.g4media.ro/starea-de-alerta-de-la-praid-prelungita-cu-inca-o-luna-in-continuare-este-interzis-accesul-populatiei-in-zona-afectata.html",
+              "snippet": "Starea de alertă instituită la Praid în urma inundării salinei, în 2025, a fost prelungită cu încă o lună de Comitetul Local pentru Situaţii de Urgenţă (CLSU) al comunei. Rămâne…",
+              "published": "2026-10-06T16:23:08Z"
             }
           ]
         }
@@ -274,34 +274,34 @@
           "name": "Ziarul Financiar",
           "items": [
             {
-              "title": "Top 100 companii antreprenoriale din România: One United Properties, cel mai mare dezvoltator imobiliar listat la Bursa de Valori Bucureşti",
-              "url": "https://www.zf.ro/anuar-zf-top-100-companii-antreprenoriale-romanesti-2026/top-100-companii-antreprenoriale-din-romania-one-united-properties-cel-mai-mare-dezvoltator-imobiliar-listat-la-bursa-de-valori-bucuresti-23252396",
-              "snippet": "One United Properties, principalul investitor şi dezvoltator imobiliar de proiecte sustenabile rezidenţiale, de birouri şi mixte de ultimă generaţie din România, listat pe piaţa…",
-              "published": "2026-10-06T11:00:00Z"
+              "title": "Fondul de investiţii Transilvania Investments şi-a vândut pachetele majoritare de la Independenţa Sibiu şi Mecanica Codlea. Deţinerile, evaluate la 62 mil. lei la Bursă",
+              "url": "https://www.zf.ro/burse-fonduri-mutuale/fondul-de-investitii-transilvania-investments-si-a-vandut-pachetele-majoritare-de-la-independenta-sibiu-si-mecanica-codlea-detinerile-evaluate-la-62-mil-lei-la-bursa-23254542",
+              "snippet": "",
+              "published": "2026-10-06T15:39:00Z"
             },
             {
-              "title": "Scandal uriaş în Germania: Fostul şef al serviciului german informaţii externe BND, August Hanning, a fost arestat pentru spionaj şi trădare",
-              "url": "https://www.zf.ro/eveniment/scandal-urias-in-germania-fostul-sef-al-serviciului-german-informatii-externe-bnd-august-hanning-a-fost-arestat-pentru-spionaj-si-tradare-23254307",
+              "title": "Nuclearelectrica (SNN) cere acordul acţionarilor pentru un împrumut de 800 mil. euro de la BEI, destinat retehnologizării Unităţii 1 de la Cernavodă. Pe ordinea de zi a intrat şi rectificarea bugetului pe 2026",
+              "url": "https://www.zf.ro/burse-fonduri-mutuale/nuclearelectrica-snn-cere-acordul-actionarilor-imprumut-800-mil-euro-bei-destinat-retehnologizarii-unitatii-1-cernavoda-ordinea-zi-intrat-rectificarea-bugetului-2026-23254534",
               "snippet": "",
-              "published": "2026-10-06T10:32:00Z"
+              "published": "2026-10-06T15:28:43Z"
             },
             {
-              "title": "NOD adaugă soluţiile HPE Juniper Networking în portofoliu şi îşi extinde oferta pentru proiecte de AI, cloud şi centre de date",
-              "url": "https://www.zf.ro/info/nod-adauga-solutiile-hpe-juniper-networking-in-portofoliu-si-isi-extinde-oferta-pentru-proiecte-de-ai-cloud-si-centre-de-date-23254311",
+              "title": "ZF DESCHIDEREA DE ASTĂZI. Cum va merge bursa. Urmăriţi o discuţie miercuri, 7 octombrie 2026, ora 09.30 cu Alexandru Angelo, analist şi investitor",
+              "url": "https://www.zf.ro/burse-fonduri-mutuale/zf-deschiderea-de-astazi-cum-va-merge-bursa-urmariti-o-discutie-miercuri-7-octombrie-2026-ora-09-30-cu-alexandru-angelo-analist-si-investitor-23254520",
               "snippet": "",
-              "published": "2026-10-06T10:28:31Z"
+              "published": "2026-10-06T15:18:39Z"
             },
             {
-              "title": "Banca Mondială a revizuit prognoza privind creşterea economică a României în 2026, estimând o scădere de 0,5%. În 2027, PIB-ul României ar urma să revină pe creştere, cu un avans de 1,7%",
-              "url": "https://www.zf.ro/zf-24/banca-mondiala-a-revizuit-prognoza-privind-cresterea-economica-a-romaniei-in-2026-estimand-o-scadere-de-0-5-in-2027-pib-ul-romaniei-ar-urma-sa-revina-pe-crestere-cu-un-avans-de-1-7-23254293",
+              "title": "Un loc doar pentru ei rămâne un vis: România se află pe primul loc în UE la supraaglomerarea locuinţelor în rândul tinerilor",
+              "url": "https://www.zf.ro/zf-gen-z/un-loc-doar-pentru-ei-ramane-un-vis-romania-se-afla-pe-primul-loc-in-ue-la-supraaglomerarea-locuintelor-in-randul-tinerilor-23254524",
               "snippet": "",
-              "published": "2026-10-06T10:17:00Z"
+              "published": "2026-10-06T15:17:54Z"
             },
             {
-              "title": "Grupul Agricover, controlat de antreprenorul Jabbar Kanani, lansează un agri-fitech în care a investit 12 mil. lei. „În 3-5 ani, ţintim ca 20.000 de fermieri să folosească platforma”",
-              "url": "https://www.zf.ro/companii/retail-agrobusiness/grupul-agricover-controlat-de-antreprenorul-jabbar-kanani-lanseaza-un-agri-fitech-in-care-a-investit-12-mil-lei-in-3-5-ani-tintim-ca-20-000-de-fermieri-sa-foloseasca-platforma-23254296",
+              "title": "Consiliul Judeţean Braşov investeşte 16,9 mil. lei în producţia de energie electrică din surse regenerabile solare pentru autoconsum",
+              "url": "https://www.zf.ro/zf-transilvania/consiliul-judetean-brasov-investeste-16-9-mil-lei-in-productia-de-energie-electrica-din-surse-regenerabile-solare-pentru-autoconsum-23254522",
               "snippet": "",
-              "published": "2026-10-06T10:12:02Z"
+              "published": "2026-10-06T15:16:40Z"
             }
           ]
         },
@@ -310,34 +310,34 @@
           "name": "Profit.ro",
           "items": [
             {
-              "title": "Lidl taie prețurile în România. Retailerul anunță reduceri de până la 28% la prețurile standard la șase sortimente de carne proaspătă",
-              "url": "https://www.profit.ro/insider/retail/lidl-taie-preturile-in-romania-retailerul-anunta-reduceri-de-pana-la-28-la-preturile-standard-la-sase-sortimente-de-carne-proaspata-22805671?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
-              "snippet": "Lidl anunță reduceri la anumite produse.",
-              "published": "2026-10-06T11:03:00Z"
+              "title": "GRAFIC Sesiune pozitivă la bursă. Mișcări de sens contrar de la o acțiune la alta",
+              "url": "https://www.profit.ro/insider/bursa-fonduri/grafic-sesiune-pozitiva-la-bursa-miscari-de-sens-contrar-de-la-o-actiune-la-alta-22806526?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
+              "snippet": "Toate acțiunile de pe podiumul de la BVB au avut închideri “pe verde” pe tranzacții de cel puțin 10 milioane lei.",
+              "published": "2026-10-06T17:07:00Z"
             },
             {
-              "title": "România, cel mai semnificativ avans din UE al vânzărilor cu amănuntul",
-              "url": "https://www.profit.ro/stiri/economie/romania-cel-mai-semnificativ-avans-din-ue-al-vanzarilor-cu-amanuntul-22805844?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
-              "snippet": "Conform datelor publicate de Oficiul European pentru Statistică (Eurostat), volumul comerțului cu amănuntul a crescut cu 0,1% în Uniunea Europeană și în zona euro, în august…",
-              "published": "2026-10-06T10:49:09Z"
+              "title": "TAROM atenționează călătorii. Pot apărea probleme la cumpărarea online a biletelor",
+              "url": "https://www.profit.ro/povesti-cu-profit/auto-transporturi/tarom-atentioneaza-calatorii-pot-aparea-probleme-la-cumpararea-online-a-biletelor-22806539?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
+              "snippet": "Compania națională aeriană TAROM avertizează călătorii că pot apărea probleme la cumpărarea online a biletelor, în această perioadă fiind efectuate au actualizări ale site-ului.",
+              "published": "2026-10-06T16:57:00Z"
             },
             {
-              "title": "Bilanț negru în România. 390 pietoni nu au mai ajuns la destinație. Mai mult de un pieton decedat în fiecare zi",
-              "url": "https://www.profit.ro/povesti-cu-profit/auto-transporturi/bilant-negru-in-romania-390-pietoni-nu-au-mai-ajuns-la-destinatie-mai-mult-de-un-pieton-decedat-in-fiecare-zi-22805704?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
-              "snippet": "390 de pietoni și-au pierdut viața în accidente rutiere grave în România în 2025, conform datelor oficiale prezentate acum.",
-              "published": "2026-10-06T10:43:00Z"
+              "title": "VIDEO Aer puternic poluat în București. Cauciuc ars, fum și o amendă de 15.000 de lei după drifturile din Piața Constituției",
+              "url": "https://www.profit.ro/stiri/social/video-aer-puternic-poluat-in-bucuresti-cauciuc-ars-fum-si-o-amenda-de-15-000-de-lei-dupa-drifturile-din-piata-constitutiei-22806532?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
+              "snippet": "Cauciuc ars, fum și o amendă de 15.000 de lei după drifturile din Piața Constituției, anunță Garda de Mediu.",
+              "published": "2026-10-06T16:52:00Z"
             },
             {
-              "title": "Deschideți buzunarele! Oficial guvernamental vă anunță deja: Vom avea prețuri foarte mari la electricitate",
-              "url": "https://www.profit.ro/povesti-cu-profit/energie/deschideti-buzunarele-oficial-guvernamental-va-anunta-deja-vom-avea-preturi-foarte-mari-la-electricitate-22805781?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
-              "snippet": "Trebuie să ne pregătim de o iarnă și de o primăvară 2027 cu prețuri foarte mari la electricitate, anunță un oficial din Ministerul Energiei.",
-              "published": "2026-10-06T10:32:00Z"
+              "title": "Operațiune majoră pentru unitatea I de la centrala nucleară Cernavodă: SNN va împrumuta 800 milioane euro CONFIRMARE",
+              "url": "https://www.profit.ro/povesti-cu-profit/energie/operatiune-majora-pentru-unitatea-i-de-la-centrala-nucleara-cernavoda-snn-va-imprumuta-800-milioane-euro-confirmare-22806503?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
+              "snippet": "Compania de stat Nuclearelectrica (SNN), operatoarea centralei nucleare de la Cernavodă, va împrumuta 800 milioane euro de la Banca Europeana de Investitii pentru finantarea…",
+              "published": "2026-10-06T16:39:00Z"
             },
             {
-              "title": "FOTO Investiție de 50 de milioane de euro finalizată. Noul pod peste Tisa va fi inaugurat în această săptămână",
-              "url": "https://www.profit.ro/povesti-cu-profit/vecini/foto-investitie-de-50-de-milioane-de-euro-finalizata-noul-pod-peste-tisa-va-fi-inaugurat-in-aceasta-saptamana-22805403?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
-              "snippet": "În această săptămână devine funcțional unul dintre cele mai importante proiecte de infrastructură de frontieră realizate în România în ultimii ani.",
-              "published": "2026-10-06T10:18:00Z"
+              "title": "Tranzacție istorică, apare una dintre cele mai mari companii de divertisment din lume. Paramount finalizează achiziția de 110 miliarde de dolari a Warner Bros. Discovery",
+              "url": "https://www.profit.ro/insider/life/tranzactie-istorica-apare-una-dintre-cele-mai-mari-companii-de-divertisment-din-lume-paramount-finalizeaza-achizitia-de-110-miliarde-de-dolari-a-warner-bros-discovery-22806449?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
+              "snippet": "Paramount Skydance a finalizat achiziția de proporții a Warner Bros. Discovery, tranzacție evaluată la 110 miliarde de dolari, creând, astfel, un gigant la Hollywood, denumit…",
+              "published": "2026-10-06T16:26:00Z"
             }
           ]
         },
@@ -346,34 +346,34 @@
           "name": "Economica.net",
           "items": [
             {
-              "title": "Lege nouă – ANRE: Licenţierea activităţii de trading în energie ar urma să fie implementată din 2027",
-              "url": "https://www.economica.net/lege-noua-anre-licentierea-activitatii-de-trading-in-energie-ar-urma-sa-fie-implementata-din-2027_983165.html",
-              "snippet": "Un nou proiect ce ar urma să fie implementat din anul 2027 se referă la licenţierea activităţii de trading în energie, cu scopul de profesionalizare a acestei zone, nu de…",
-              "published": "2026-10-06T10:59:17Z"
+              "title": "Grindeanu: Prioritatea numărul unu pe care trebuie să o aibă viitorul Guvern ar fi măsurile legate de energie",
+              "url": "https://www.economica.net/grindeanu-prioritatea-numarul-unu-pe-care-trebuie-sa-o-aiba-viitorul-guvern-ar-fi-masurile-legate-de-energie_983327.html",
+              "snippet": "Preşedintele PSD, Sorin Grindeanu, a declarat, marţi, că prioritatea numărul unu pe care ar trebui să o aibă viitorul Guvern ar fi măsurile legate de energie, iar România trebuie…",
+              "published": "2026-10-06T16:39:08Z"
             },
             {
-              "title": "Agricover a investit 12 milioane de lei într-o platformă financiară. Este prima din Europa de acest fel",
-              "url": "https://www.economica.net/agricover-a-investit-12-milioane-de-lei-intr-o-platforma-financiara-este-prima-din-europa-de-acest-fel_983154.html",
-              "snippet": "Agricover a lansat Agricover Pay, prima platformă financiară din Europa dedicată fermierilor, o aplicație mobilă care integrează contul de plăți, transferurile, cardul Visa…",
-              "published": "2026-10-06T10:35:13Z"
+              "title": "CNAIR anunță că incidentele tehnice de pe platform TollRo au fost remediate și aceasta funcționează în parametrii normali. Compania spune că ar mai putea apărea defecțiuni sporadice",
+              "url": "https://www.economica.net/cnair-anunta-ca-incidentele-tehnice-de-pe-platform-tollro-au-fost-remediate-si-aceasta-functioneaza-in-parametrii-normali-compania-spune-ca-ar-mai-putea-aparea-defectiuni-sporadice_983318.html",
+              "snippet": "Incidentele tehnice ale platformei TollRo, constatate la data de 1 octombrie, au fost remediate, iar aceasta funcţionează în parametrii normali, a anunţat marţi seara Compania…",
+              "published": "2026-10-06T16:15:23Z"
             },
             {
-              "title": "Nu mai sunt bani pentru programul „investiții în fermele de mici dimensiuni”. Fermierii au depus deja cereri pentru 35 milioane de euro, de două ori peste plafon",
-              "url": "https://www.economica.net/nu-mai-sunt-bani-pentru-programul-investitii-in-fermele-de-mici-dimensiuni-fermierii-au-depus-deja-cereri-pentru-35-milioane-de-euro-de-doua-ori-peste-plafon_983146.html",
-              "snippet": "În perioada 1 septembrie – 6 octombrie 2026, fermierii au depus cereri de finanțare prin programul DR-14 „Investiții în fermele de mici dimensiuni” în valoare de peste 35…",
-              "published": "2026-10-06T10:17:36Z"
+              "title": "Ungaria vrea să introducă o taxă pe avere pentru persoanele foarte bogate",
+              "url": "https://www.economica.net/ungaria-vrea-sa-introduca-o-taxa-pe-avere-pentru-persoanele-foarte-bogate_983311.html",
+              "snippet": "Guvernul ungar a propus o taxă pe avere care vizează persoanele care deţin active cu o valoare de peste un miliard de forinţi (3,08 milioane de dolari), a declarat marţi…",
+              "published": "2026-10-06T16:06:35Z"
             },
             {
-              "title": "Anchetă UE în România. Statul ar putea fi obligat să despăgubească investitori din domeniul energiei regenerabile – LISTA",
-              "url": "https://www.economica.net/ancheta-ue-in-romania-statul-ar-putea-fi-obligat-sa-despagubeasca-investitori-din-domeniul-energiei-regenerabile-lista_983142.html",
-              "snippet": "Comisia Europeană a lansat miercuri o investigație aprofundată pentru a evalua dacă o hotărâre arbitrală, prin care România este obligată să plătească despăgubiri unui număr de…",
-              "published": "2026-10-06T10:15:42Z"
+              "title": "Grecia anunță că restituirea frizelor Parthenonului va face paarte din orice viitoare negociere privind apropierea dintre Marea Britanie și Uniunea Europeană",
+              "url": "https://www.economica.net/grecia-anunta-ca-restituirea-frizelor-parthenonului-va-face-paarte-din-orice-viitoare-negociere-privind-apropierea-dintre-marea-britanie-si-uniunea-europeana_983306.html",
+              "snippet": "Prim-ministrul grec, Kyriakos Mitsotakis (foto), a declarat marţi că subiectul restituirii frizelor Parthenonului de către Londra va \"face parte\" din orice viitoare dezbatere cu…",
+              "published": "2026-10-06T15:39:40Z"
             },
             {
-              "title": "Şocul valutar continuă, leul e pe roşu aprins. Un nou record, cel mai mare euro din istorie – curs BNR 6.10.2026",
-              "url": "https://www.economica.net/socul-valutar-continua-leul-e-pe-rosu-aprins-un-nou-record-cel-mai-mare-euro-din-istorie-curs-bnr-6-10-2026_983052.html",
-              "snippet": "Curs BNR - Euro atinge cea mai mare valoare din istorie la cursul de referinţă anunţat de Banca Naţională marţi, 6 octombrie 2026, 5,3527 lei/euro. Precedentul record a fost…",
-              "published": "2026-10-06T10:03:48Z"
+              "title": "Mutare majoră la BVB: Transilvania Investments face exit din două companii istorice, Independența Sibiu și Mecanica Codlea",
+              "url": "https://www.economica.net/mutare-majora-la-bvb-transilvania-investments-face-exit-din-doua-companii-istorice-independenta-sibiu-si-mecanica-codlea_983291.html",
+              "snippet": "Fondul Transilvania Investments Alliance S.A. face își vinde participațiile majoritare din firmele Independența Sibiu și Mecanica Codlea, ca parte din strategia de a renunța la…",
+              "published": "2026-10-06T15:32:24Z"
             }
           ]
         }
@@ -388,6 +388,24 @@
           "name": "Start-up.ro",
           "items": [
             {
+              "title": "Siena raises $17M Series A to expand its Agent of Record platform for consumer brands",
+              "url": "https://start-up.ro/siena-raises-17m-series-a-to-expand-its-agent-of-record-platform-for-consumer-brands/",
+              "snippet": "Siena, the AI-driven customer experience platform trusted by hundreds of leading consumer brands to automate customer interactions and turn them into meaningful relationships…",
+              "published": "2026-10-06T13:05:01Z"
+            },
+            {
+              "title": "Siena, startup cofondat de Andrei Negrău și Lisa Popovici, 17 milioane de $ pentru dezvoltarea de agenți AI care interacționează cu clienții brandurilor",
+              "url": "https://start-up.ro/siena-startup-cofondat-de-andrei-negrau-si-lisa-popovici-17-milioane-de-pentru-dezvoltarea-de-agenti-ai-care-interactioneaza-cu-clientii-brandurilor/",
+              "snippet": "Startup-ul Siena, cofondat de Andrei Negrău și Lisa Popovici a atras 17 milioane de dolari într-o rundă de finanțare Series A condusă de York IE, cu participarea Joyance Ventures…",
+              "published": "2026-10-06T13:00:02Z"
+            },
+            {
+              "title": "Andra Ciorici-Chelmuș, cofondatoare UiPath, investește în SyndiFi - platforma care vrea să coboare pragul de investiție la 1.000 de euro",
+              "url": "https://start-up.ro/andra-ciorici-chelmus-cofondatoare-uipath-investeste-in-syndifi-platforma-care-vrea-sa-coboare-pragul-de-investitie-la-1-000-de-euro/",
+              "snippet": "Andra Ciorici-Chelmuș, cofondatoare UiPath, se alătură SyndiFi în calitate de investitor și membră a consiliului consultativ, după ce platforma de investiții în imobiliare…",
+              "published": "2026-10-06T12:04:25Z"
+            },
+            {
               "title": "SGS, prezent și în România, preia pachetul majoritar al Prescient Security, companie americană de securitate cibernetică cu 5.000 de clienți",
               "url": "https://start-up.ro/sgs-prezent-si-in-romania-preia-pachetul-majoritar-al-prescient-security-companie-americana-de-securitate-cibernetica-cu-5-000-de-clienti/",
               "snippet": "SGS, companie din domeniul testării, inspecției și certificării, prezentă pe piața din România din 1922, a finalizat achiziția pachetului majoritar de acțiuni al Prescient…",
@@ -398,24 +416,6 @@
               "url": "https://start-up.ro/noi-parteneri-de-dialog-din-industria-veterinara-pe-care-ii-gasesti-la-sezatoarea-de-pet-care/",
               "snippet": "Șezătoarea de Pet Care adună antreprenori, medici, specialiști, cercetători și oameni pasionați de industria veterinară. De la ei vom afla încotro se îndreaptă acest sector de…",
               "published": "2026-10-06T08:21:07Z"
-            },
-            {
-              "title": "Caută doctorii în halat de la How to Web 2026 | WakeZ testează depresia la fondatorii români și are și premii pentru participanți",
-              "url": "https://start-up.ro/cauta-doctorii-in-halat-de-la-how-to-web-2026-wakez-testeaza-depresia-la-fondatorii-romani-si-are-si-premii-pentru-participanti/",
-              "snippet": "WakeZ, startup-ul care intervine în scăderea simptomelor depresiei în timp ce oamenii dorm, va fi prezent la How to Web. Și vine însoțit de o grupare de medici și de un…",
-              "published": "2026-10-06T08:10:44Z"
-            },
-            {
-              "title": "România, ultima din UE la adopția AI în companii. Cine răspunde când sistemele greșesc?",
-              "url": "https://start-up.ro/romania-ultima-din-ue-la-adoptia-ai-in-companii-cine-raspunde-cand-sistemele-gresesc/",
-              "snippet": "România avea în 2025 cea mai redusă rată de utilizare a AI în companii din Uniunea Europeană: 5,2%, față de o medie europeană de 20%, potrivit Eurostat. Pentru afacerile care…",
-              "published": "2026-10-06T07:44:58Z"
-            },
-            {
-              "title": "Stay Fit Gym și 18 GYM fuzionează după ce Morphosis Capital vinde participația sa în Stay Fit",
-              "url": "https://start-up.ro/stay-fit-gym-si-18-gym-fuzioneaza-dupa-ce-morphosis-capital-vinde-participatia-sa-in-stay-fit/",
-              "snippet": "Morphosis Capital, una dintre principalele firme de private equity din Europa Centrală și de Est care investește în IMM-uri conduse de fondatorii lor, anunță semnarea unui acord…",
-              "published": "2026-10-06T06:05:11Z"
             }
           ]
         },
@@ -423,6 +423,18 @@
           "id": "go4it",
           "name": "Go4IT",
           "items": [
+            {
+              "title": "Ofertă la Auchan: Espressor automat smart Philips, la prețul de 1.000 de lei până pe 20 octombrie",
+              "url": "https://www.go4it.ro/oferte-din-magazine/oferta-la-auchan-espressor-automat-smart-philips-la-pretul-de-1-000-de-lei-pana-pe-20-octombrie-19287153/",
+              "snippet": "Retailerul Auchan comercializează modelul de espressor automat Philips EP1200/00 la prețul de 999 de lei în intervalul 29 septembrie – 20 octombrie 2026, pe platforma online…",
+              "published": null
+            },
+            {
+              "title": "Buletinul, permisul și cardul de sănătate pe telefon: Din 2027 se lansează RO Wallet, portofelul digital al României",
+              "url": "https://www.go4it.ro/content/aplicatii/buletinul-permisul-si-cardul-de-sanatate-pe-telefon-din-2027-se-lanseaza-ro-wallet-portofelul-digital-al-romaniei-19287151/",
+              "snippet": "Românii vor putea utiliza, din anul 2027, RO Wallet, portofelul european de identitate digitală dezvoltat de Ministerul Afacerilor Interne. Aplicația mobilă, creată în baza…",
+              "published": null
+            },
             {
               "title": "Armata cumpără echipamente de criptare și securitate cibernetică de până la 11 milioane de lei",
               "url": "https://www.go4it.ro/content/business/armata-cumpara-echipamente-de-criptare-si-securitate-cibernetica-de-pana-la-11-milioane-de-lei-19287149/",
@@ -440,18 +452,6 @@
               "url": "https://www.go4it.ro/content/inteligenta-artificiala/watermark-invizibil-in-chatgpt-openai-lanseaza-tehnologia-textgrain-pentru-a-respecta-eu-ai-act-19287147/",
               "snippet": "OpenAI se pregătește să integreze un watermark invizibil în anumite texte generate prin ChatGPT și Codex pentru utilizatorii din Uniunea Europeană. Măsura are rolul de a răspunde…",
               "published": null
-            },
-            {
-              "title": "O femeie a fost arestată după ce Anthropic a semnalat poliției o conversație pe Claude",
-              "url": "https://www.go4it.ro/content/inteligenta-artificiala/o-femeie-a-fost-arestata-dupa-ce-anthropic-a-semnalat-politiei-o-conversatie-pe-claude-19287145/",
-              "snippet": "Autoritățile din Florida au arestat o femeie după ce compania Anthropic, dezvoltatorul de modele de inteligență artificială, a alertat forțele de ordine cu privire la o…",
-              "published": null
-            },
-            {
-              "title": "Vrei să-ți începi o colecție de ceasuri? Ce trebuie să știe începătorii înainte de a cumpăra",
-              "url": "https://www.go4it.ro/content/accesorii/vrei-sa-ti-incepi-o-colectie-de-ceasuri-ce-trebuie-sa-stie-incepatorii-inainte-de-a-cumpara-19287140/",
-              "snippet": "Colecționarea ceasurilor trebuie privită mai degrabă ca o pasiune decât ca o strategie de investiții, potrivit experților consultați de CNBC. Deși industria globală a ceasurilor…",
-              "published": null
             }
           ]
         },
@@ -460,34 +460,34 @@
           "name": "The Verge",
           "items": [
             {
-              "title": "The Matic is the first robovac to get an FCC ban waiver, not that it needs it",
-              "url": "https://www.theverge.com/policy/1004926/matic-fcc-ban-waiver-conditional-approval",
-              "snippet": "The Matic is our favorite robot vacuum and robo-mop, and it's also now the first to escape the FCC's Roomba ban. Well, sort of - because the Matic wasn't banned to begin with…",
-              "published": "2026-10-06T06:03:46Z"
+              "title": "Apple TV’s great year continues with Small Prophets",
+              "url": "https://www.theverge.com/entertainment/1005781/small-prophets-review-apple-tv",
+              "snippet": "Apple TV has had a really great run in 2026 - and a cozy new addition is helping expand its lineup even more. As the streaming service has attempted to grow in order to better…",
+              "published": "2026-10-06T17:15:16Z"
             },
             {
-              "title": "This remote-controlled wagon is silly but so very useful",
-              "url": "https://www.theverge.com/tech/1004820/this-remote-controlled-wagon-is-silly-but-useful",
-              "snippet": "Confession: When BougeRV told me about its remote-controlled wagon with animated lighting, I called it in for a laugh, expecting to eviscerate it in a review. It's ridiculous, to…",
-              "published": "2026-10-06T04:42:57Z"
+              "title": "We can’t just change the definition of ‘recording’",
+              "url": "https://www.theverge.com/column/1005697/we-cant-just-change-the-definition-of-recording",
+              "snippet": "With AI hardware, tech companies are pushing the definition of what does and doesn't constitute a recording. For most of gadget history, it'd be reasonable to assume that a…",
+              "published": "2026-10-06T16:29:44Z"
             },
             {
-              "title": "Gemini Call for Me might tell your mom you’re running late",
-              "url": "https://www.theverge.com/ai-artificial-intelligence/1005177/google-gemini-call-for-me-expansion-rumors",
-              "snippet": "Google may be expanding its \"Call for Me\" AI feature beyond business calls so you can use it to send messages to friends and family. Android Authority reports finding a \"Gemini…",
-              "published": "2026-10-05T23:09:55Z"
+              "title": "HBO Max and Paramount Plus will merge into a single streamer under Skydance",
+              "url": "https://www.theverge.com/entertainment/1005696/hbo-max-paramout-plus-merge-skydance",
+              "snippet": "HBO Max and Paramount Plus will become one streaming service under Paramount's $110 billion acquisition of Warner Bros. Discovery. In a press release announcing the completion of…",
+              "published": "2026-10-06T16:03:06Z"
             },
             {
-              "title": "Reverse-engineered games: All the news on video game decomps, recomps, VR and web and 3D ports",
-              "url": "https://www.theverge.com/games/1004869/reverse-engineered-games-all-the-news-on-video-game-decomps-recomps-vr-and-web-and-3d-ports",
-              "snippet": "It’s a wild time for retro gaming. Thanks to decompilations and recompilations of classic titles, those games are becoming unshackled from their proprietary code and original…",
-              "published": "2026-10-05T22:50:57Z"
+              "title": "Arturia adds proper sound design tools to its AstroLab synths",
+              "url": "https://www.theverge.com/gadgets/1005671/arturia-astrolab-synth-firmware-update",
+              "snippet": "Arturia's AstroLab series was already amongst the best stage keyboards out there. They essentially put the company's AnalogLab suite of vintage synth emulations, sampled pianos…",
+              "published": "2026-10-06T15:35:44Z"
             },
             {
-              "title": "Wikipedia operator says OpenAI’s ‘rogue’ bots may be linked to a May outage",
-              "url": "https://www.theverge.com/news/1004929/wikipedia-openai-rogue-bots-wikimedia-foundation-outage",
-              "snippet": "Following many recent disclosures about AI agents accessing third-party websites and services, the Wikimedia Foundation, which hosts Wikipedia, says that it \"can confirm that we…",
-              "published": "2026-10-05T22:22:32Z"
+              "title": "Our favorite headphones and earbuds are cheaper during October Prime Day",
+              "url": "https://www.theverge.com/gadgets/1004886/october-prime-day-big-deals-days-headphones-earbuds-deal-sale",
+              "snippet": "We spotted a variety of discounted headphones and earbuds during October’s Prime Big Deals Days, with some of our favorite options discounted to at (or near) their all-time low…",
+              "published": "2026-10-06T15:16:48Z"
             }
           ]
         }
@@ -502,34 +502,34 @@
           "name": "Gazeta Sporturilor",
           "items": [
             {
-              "title": "Novak Djokovic - Alex De Minaur, finala turneului ATP 500 de la Beijing",
-              "url": "https://www.gsp.ro/sporturi/tenis/live-novak-djokovic-alex-de-minaur-finala-atp-beijing-985138.html",
-              "snippet": "Novak Djokovic (39 de ani, #11 ATP) și Alex De Minaur (27 de ani, #9 ATP) se întâlnesc în finala turneului ATP 500 de la Beijing. Meciul începe la ora 14:10 și poate fi urmărit…",
-              "published": "2026-10-06T11:04:59Z"
+              "title": "De unde să începem să reparăm? Când, cum, cu cine?!",
+              "url": "https://www.gsp.ro/opinii/editorial-marius-margarit-de-unde-sa-incepem-sa-reparam-cand-cum-cu-cine-985300.html",
+              "snippet": "Am așa un sentiment că iar ne-am păcălit cu acest 0-1 cu Suedia. Până și Gică Hagi a încercat să ne transmită mesajul ăsta, ca ia uite ce diferență a fost între ce se întâmplase…",
+              "published": "2026-10-06T17:08:12Z"
             },
             {
-              "title": "„Hagi, suntem ca Andorra, lumea a 3-a există!” » Discurs INCENDIAR, în direct: „De ce a jucat el?! Gâfâia! Bagă-l pe Cîrjan!”",
-              "url": "https://www.gsp.ro/fotbal/nationala/stefan-nanu-gheorghe-hagi-nationala-985167.html",
-              "snippet": "Invitat marți la GSP Live, Ștefan Nanu a desființat strategia naționalei: nu crede în jucătorii convocați care nu evoluează la echipele de club, nici în schimbările masive de la…",
-              "published": "2026-10-06T11:00:26Z"
+              "title": "Spania U21 - România U21, ultimul meci din grupa de preliminarii",
+              "url": "https://www.gsp.ro/fotbal/nationala/live-spania-u21-romania-u21-in-preliminariile-euro-2027-fara-nicio-miza-985134.html",
+              "snippet": "Naționala de tineret a României joacă ACUM, în deplasare, pe terenul reprezentativei similare a Spaniei, în etapa a zecea a preliminariilor pentru Euro 2027. Meciul mai are miză…",
+              "published": "2026-10-06T16:59:26Z"
             },
             {
-              "title": "Redevine de actualitate? » El a fost prima variantă de selecționer a lui Burleanu, înaintea lui Hagi!",
-              "url": "https://www.gsp.ro/fotbal/nationala/edi-iordanescu-nationala-romaniei-burleanu-985158.html",
-              "snippet": "Surse din lumea fotbalului dezvăluie că Edward Iordănescu ar fi fost foarte aproape să revină pe banca tehnică a naționalei, chiar în timpul preliminariilor pentru Mondialul din…",
-              "published": "2026-10-06T10:52:13Z"
+              "title": "FRF a rupt tăcerea și a anunțat ce se întâmplă cu Gică Hagi, după debutul dezastruos din Liga Națiunilor",
+              "url": "https://www.gsp.ro/fotbal/nationala/gica-hagi-ramane-selectioner-romania-frf-985296.html",
+              "snippet": "Federația Română de Fotbal, prin vocea directorului tehnic Mihai Stoichiță (72 de ani), a transmis că Gheorghe Hagi (61 de ani) va continua pe banca echipei naționale, în ciuda…",
+              "published": "2026-10-06T16:55:34Z"
             },
             {
-              "title": "Carlos Alcaraz, câștigător într-un turneu ATP după o pauză de șapte luni",
-              "url": "https://www.gsp.ro/sporturi/tenis/carlos-alcaraz-castigator-intr-un-turneu-atp-dupa-o-pauza-de-sapte-luni-985182.html",
-              "snippet": "Carlos Alcaraz (23 de ani, 3 ATP) și-a apărat trofeul câștigat anul trecut la turneul ATP 500 de la Tokyo, învingându-l în finală, marți, pe cehul Jiri Lehecka (24 de ani, 19…",
-              "published": "2026-10-06T10:50:09Z"
+              "title": "Marius Lăcătuș ridică o mare problemă pentru Hagi: „Îi ai la dispoziție pe Opruț și Borza”",
+              "url": "https://www.gsp.ro/fotbal/nationala/marius-lacatus-gica-hagi-amicale-romania-985299.html",
+              "snippet": "Marius Lăcătuș, 62 de ani, câștigător de Cupa Campionilor Europeni alături de Steaua, recordman privind numărul de titluri în principala competiție internă (10), consideră că…",
+              "published": "2026-10-06T16:50:42Z"
             },
             {
-              "title": "Acum este sigur: vom avea un nou lider mondial în clasamentul ATP",
-              "url": "https://www.gsp.ro/sporturi/tenis/acum-este-sigur-vom-avea-un-nou-lider-mondial-in-clasamentul-atp-985178.html",
-              "snippet": "Jannik Sinner (25 de ani, 1 ATP) a anunțat oficial, printr-un videoclip publicat pe rețelele sociale, că nu va mai participa la nicio competiție în anul 2026 din cauza unei…",
-              "published": "2026-10-06T10:43:57Z"
+              "title": "Diego Simeone a construit un imperiu la Madrid » La ce sumă este evaluat patrimoniul antrenorului lui Atletico!",
+              "url": "https://www.gsp.ro/international/campionate/diego-simeone-construit-imperiu-madrid-180-case-7-cladiri-patrimoniul-antrenorului-atletico-985286.html",
+              "snippet": "Diego Simeone, antrenorul lui Atletico Madrid deține peste 180 de apartamente și șapte clădiri în Madrid. Conform „Equipo de Investigación”, patrimoniul imobiliar deținut de…",
+              "published": "2026-10-06T16:49:45Z"
             }
           ]
         },
@@ -538,34 +538,34 @@
           "name": "Digi Sport",
           "items": [
             {
-              "title": "Un singur cuvânt în loc de ”Messi”! Tricoul uriaș apărut în Argentina, înainte de retragerea lui Leo",
-              "url": "https://www.digisport.ro/fotbal/un-singur-cuvant-in-loc-de-messi-tricoul-urias-aparut-in-argentina-inainte-de-retragerea-lui-leo-4527919",
-              "snippet": "Un singur cuvânt în loc de ”Messi”! Tricoul uriaș apărut în Argentina, înainte de retragerea lui Leo",
-              "published": "2026-10-06T11:05:58Z"
+              "title": "CSM București - Chambery, ACUM, Digi Sport 2 / Granollers - HC Buzău, 21:45, Digi Sport 4, în EHF European League",
+              "url": "https://www.digisport.ro/handbal/csm-bucuresti-chambery-1945-digi-sport-2-granollers-hc-buzau-2145-digi-sport-4-in-ehf-european-league-4527709",
+              "snippet": "CSM București - Chambery, ACUM, Digi Sport 2 / Granollers - HC Buzău, 21:45, Digi Sport 4, în EHF European League",
+              "published": "2026-10-06T17:21:44Z"
             },
             {
-              "title": "Suedezii, după 10 puncte în primele patru meciuri din UEFA Nations League: \"Circul Potter\"",
-              "url": "https://www.digisport.ro/fotbal/liga-natiunilor/suedezii-dupa-10-puncte-in-primele-patru-meciuri-din-uefa-nations-league-circul-potter-4527677",
-              "snippet": "Suedezii, după 10 puncte în primele patru meciuri din UEFA Nations League: \"Circul Potter\"",
-              "published": "2026-10-06T11:04:40Z"
+              "title": "Cosmin Contra nu s-a ferit de cuvinte, după ce România a pierdut patru meciuri din patru în Liga Națiunilor",
+              "url": "https://www.digisport.ro/fotbal/echipa-nationala/cosmin-contra-nu-s-a-ferit-de-cuvinte-dupa-ce-romania-a-pierdut-patru-meciuri-din-patru-in-liga-natiunilor-4528567",
+              "snippet": "Cosmin Contra nu s-a ferit de cuvinte, după ce România a pierdut patru meciuri din patru în Liga Națiunilor",
+              "published": "2026-10-06T17:21:15Z"
             },
             {
-              "title": "Cristi Borcea i-a spus lui Gigi Becali câți bani trebuie să bage pentru calificarea în Champions League",
-              "url": "https://www.digisport.ro/fotbal/champions-league/cristi-borcea-i-a-spus-lui-gigi-becali-cati-bani-trebuie-sa-bage-pentru-calificarea-in-champions-league-4526499",
-              "snippet": "Cristi Borcea i-a spus lui Gigi Becali câți bani trebuie să bage pentru calificarea în Champions League",
-              "published": "2026-10-06T11:00:53Z"
+              "title": "Lovitură după lovitură pentru Marius Șumudică, înainte de CFR Cluj - \"U\" Cluj",
+              "url": "https://www.digisport.ro/fotbal/liga-1/lovitura-dupa-lovitura-pentru-marius-sumudica-inainte-de-cfr-cluj-u-cluj-4528563",
+              "snippet": "Lovitură după lovitură pentru Marius Șumudică, înainte de CFR Cluj - \"U\" Cluj",
+              "published": "2026-10-06T17:20:46Z"
             },
             {
-              "title": "Transfer-surpriză pentru Dani Carvajal! Cu ce echipă negociază, la 3 luni după ce a plecat de la Real Madrid",
-              "url": "https://www.digisport.ro/fotbal/la-liga/transfer-surpriza-pentru-dani-carvajal-cu-ce-echipa-negociaza-la-3-luni-dupa-ce-a-plecat-de-la-real-madrid-4527885",
-              "snippet": "Transfer-surpriză pentru Dani Carvajal! Cu ce echipă negociază, la 3 luni după ce a plecat de la Real Madrid",
-              "published": "2026-10-06T10:54:27Z"
+              "title": "Messi a scris două cuvinte înainte de meciul de retragere",
+              "url": "https://www.digisport.ro/fotbal/messi-a-scris-doua-cuvinte-inainte-de-meciul-de-retragere-4528557",
+              "snippet": "Messi a scris două cuvinte înainte de meciul de retragere",
+              "published": "2026-10-06T17:18:30Z"
             },
             {
-              "title": "Înainte de retragerea de la naționala Argentinei, Messi a avut un mesaj de aproape 6 milioane de aprecieri",
-              "url": "https://www.digisport.ro/fotbal/fotbal-international/inainte-de-retragerea-de-la-nationala-argentinei-messi-a-avut-un-mesaj-de-aproape-6-milioane-de-aprecieri-4527857",
-              "snippet": "Înainte de retragerea de la naționala Argentinei, Messi a avut un mesaj de aproape 6 milioane de aprecieri",
-              "published": "2026-10-06T10:47:45Z"
+              "title": "Spania U21 - România U21 0-0, ACUM, pe digisport.ro. Meci de palmares pentru elevii lui Curelea",
+              "url": "https://www.digisport.ro/fotbal/echipa-nationala/spania-u21-romania-u21-2000-live-text-pe-digisport-ro-primul-meci-dupa-ce-tricolorii-au-ratat-calificarea-la-euro-2027-4527473",
+              "snippet": "Spania U21 - România U21 0-0, ACUM, pe digisport.ro. Meci de palmares pentru elevii lui Curelea",
+              "published": "2026-10-06T17:00:25Z"
             }
           ]
         },
@@ -574,34 +574,34 @@
           "name": "ProSport",
           "items": [
             {
-              "title": "SPECIAL Nadia Comăneci, apariție spectaculoasă printre gondole pe canalele Veneției! „Trebuie să recunosc asta”",
-              "url": "https://www.prosport.ro/diverse/nadia-comaneci-aparitie-spectaculoasa-printre-gondole-pe-canalele-venetiei-20540442",
-              "snippet": "Preț de câteva zile, Nadia Comăneci și soțul ei, Bart Conner, s-au aflat la Veneția, în Italia. Cei doi au fost invitați să participe la un mare festival dedicat sportului dar și…",
-              "published": "2026-10-06T11:05:39Z"
+              "title": "Florin Prunea, reacție de top despre impactul lui Cisotti de la FCSB în naționala României: „Atât la sută ar fi câștig!”. EXCLUSIV",
+              "url": "https://www.prosport.ro/fotbal-intern/nationala/florin-prunea-reactie-impact-cisotti-fcsb-nationala-romaniei-20541324",
+              "snippet": "Florin Prunea (58 de ani) a vorbit, în exclusivitate, pentru ProSport, despre impactul pe care l-ar putea avea Juri Cisotti (33 de ani) la naționala României. Într-un interviu…",
+              "published": "2026-10-06T17:00:08Z"
             },
             {
-              "title": "LIGA NAȚIUNILOR Becali, dat de gol de Pintilii. A încercat să impună un titular prin telefon: „Nea Gigi, te rog eu…”",
-              "url": "https://www.prosport.ro/fotbal-intern/superliga/becali-pintilii-fcsb-20541229",
-              "snippet": "Mihai Pintilii a vorbit deschis despre relația de lucru cu Gigi Becali și a explicat cum funcționau discuțiile privind echipa de start la FCSB. Fostul antrenor al roș-albaștrilor…",
-              "published": "2026-10-06T10:47:34Z"
+              "title": "LIGA NAȚIUNILOR S-a terminat! Marica i-a cerut lui Gică Hagi să taie în carne vie: Stanciu, OUT!",
+              "url": "https://www.prosport.ro/fotbal-extern/liga-natiunilor/ciprian-marica-gica-hagi-stanciu-out-nationala-20541485",
+              "snippet": "Naționala României s-a făcut de râs până acum în Liga Națiunilor, tricolorii cedând toate cele patru meciuri din competiție: 1-2 și 0-1 cu Suedia, 2-4 cu Bosnia și 0-6 cu…",
+              "published": "2026-10-06T16:51:10Z"
             },
             {
-              "title": "De nerecunoscut! Taribo West a ajuns preot după ce a avut o relație de doi ani cu „o vrăjitoare din Iugoslavia”",
-              "url": "https://www.prosport.ro/diverse/taribo-west-preot-relatie-vrajitoare-iugoslavia-20541213",
-              "snippet": "Nigerianul Taribo West (52 de ani), fost fotbalist la rivalele Inter și AC Milan, precum și la Partizan Belgrad, este de recunoscut la ani de la retragerea sa din fotbal. După o…",
-              "published": "2026-10-06T10:44:41Z"
+              "title": "Adrian Mutu sare în apărarea lui Ianis Hagi: „S-a născut așa”",
+              "url": "https://www.prosport.ro/fotbal-intern/nationala/ianis-hagi-aparat-de-adrian-mutu-20541458",
+              "snippet": "Criticat din toate părțile după prestațiile mai puțin reușite pe care le-a avut în tricoul echipei naționale, Ianis Hagi (27 de ani) și-a găsit un aliat în persoana lui Adrian…",
+              "published": "2026-10-06T16:45:29Z"
             },
             {
-              "title": "LIGA NAȚIUNILOR Gigi Becali a anunțat de ce nu își dă demisia Gică Hagi de la naționala României: „Săracul, încearcă…”",
-              "url": "https://www.prosport.ro/fotbal-intern/nationala/gigi-becali-demisie-gica-hagi-romania-20541239",
-              "snippet": "Gigi Becali a stat cu ochii pe parcursul pe care echipa națională a României l-a avut în cele patru meciuri pierdute în Liga Națiunilor și a explicat de ce nu își dă demisia Gică…",
-              "published": "2026-10-06T10:41:34Z"
+              "title": "Dacia îl trimite pe Fernando Alonso la Dakar! Spaniolul va pilota mașina care a câștigat în 2026",
+              "url": "https://www.prosport.ro/alte-sporturi/fernando-alonso-pilot-dakar-2027-20541464",
+              "snippet": "Dublul campion de Formula 1, Fernando Alonso, va concura la Dakar 2027 în locul celor de la Dacia. Fernando Alonso continuă să facă senzație în sportul de viteză. Pilotul de…",
+              "published": "2026-10-06T16:41:37Z"
             },
             {
-              "title": "Contre între suporteri înainte de Știința Poli Timișoara – Steaua! Derby-ul programat la Sibiu a început deja cu mesaje ironice între cele două galerii",
-              "url": "https://www.prosport.ro/fotbal-intern/liga-2/contre-intre-suporteri-inainte-de-stiinta-poli-timisoara-steaua-derby-ul-programat-la-sibiu-a-inceput-deja-cu-mesaje-ironice-intre-cele-doua-galerii-20541254",
-              "snippet": "Contre între suporteri înainte de Știința Poli Timișoara – Steaua! Derby-ul programat la Sibiu a început deja cu mesaje ironice între cele două galerii The post Contre între…",
-              "published": "2026-10-06T10:40:52Z"
+              "title": "Soția arbitrului Gheorghe Moldovan a rupt tăcerea după ce nu a fost la înmormântarea acestuia: „Viața mea era în pericol”",
+              "url": "https://www.prosport.ro/fotbal-intern/sotia-arbitrului-gheorghe-moldovan-a-rupt-tacerea-de-ce-nu-a-fost-la-inmormantare-20541431",
+              "snippet": "După sinuciderea arbitrului Gheorghe Moldovan, care se afla în proces de divorț cu soția sa, Irina Vasilcan, aceasta a oferit primele declarații. Ea a explicat de ce a decis să…",
+              "published": "2026-10-06T16:37:30Z"
             }
           ]
         }
@@ -652,34 +652,34 @@
           "name": "ScienceDaily",
           "items": [
             {
-              "title": "Vagus Nerve Stimulation Could Help New Skills Stick",
-              "url": "https://www.sciencedaily.com/releases/2026/10/261002080034.htm",
-              "snippet": "Stimulating the vagus nerve after practice helped mice develop stronger long-term motor learning, revealing a potentially important window when the brain is still locking in a…",
-              "published": "2026-10-05T12:13:07Z"
+              "title": "Goodbye joint replacements? Stanford scientists found a way to regrow cartilage and stop arthritis",
+              "url": "https://www.sciencedaily.com/releases/2026/10/261005011249.htm",
+              "snippet": "Scientists have found a surprising way to regrow damaged knee cartilage by blocking a protein that becomes more abundant with age. In old mice, the treatment restored naturally…",
+              "published": "2026-10-06T13:03:47Z"
             },
             {
-              "title": "Don't miss: Watch Saturn shine and Halley’s Comet debris streak across the sky",
-              "url": "https://www.sciencedaily.com/releases/2026/10/261005071523.htm",
-              "snippet": "October skywatchers can see Saturn at opposition, catch meteors from Halley’s Comet during the Orionid peak, and watch the Moon sweep past the famous Pleiades star cluster…",
-              "published": "2026-10-05T11:59:17Z"
+              "title": "Archaeologists may have finally solved a 100-year-old Florida mystery",
+              "url": "https://www.sciencedaily.com/releases/2026/10/261004001835.htm",
+              "snippet": "Ancient pottery from Tampa Bay appears to have been made by migrant craftspeople who brought specialized Mississippian pottery-making knowledge hundreds of miles south…",
+              "published": "2026-10-06T12:41:48Z"
             },
             {
-              "title": "Scientists discover a human brain gene that can jump through DNA",
-              "url": "https://www.sciencedaily.com/releases/2026/10/261002080013.htm",
-              "snippet": "Scientists have discovered a human gene with a remarkable double life: it appears to play an important role in brain cells while still retaining the ability to jump around the…",
-              "published": "2026-10-05T10:06:28Z"
+              "title": "Scientists say this simple habit could strengthen your marriage",
+              "url": "https://www.sciencedaily.com/releases/2026/10/261004001843.htm",
+              "snippet": "Couples who exercise together report better communication, healthier conflict resolution, and lower marital stress than those who work out alone. Even something as simple as…",
+              "published": "2026-10-06T12:23:37Z"
             },
             {
-              "title": "Cancer-fighting t cells burn out. Scientists may have found a fix",
-              "url": "https://www.sciencedaily.com/releases/2026/10/261001214127.htm",
-              "snippet": "Cancer immunotherapy can lose its punch when tumor-fighting T cells become exhausted, but researchers may have found a way to keep them going longer. Scientists at Memorial Sloan…",
-              "published": "2026-10-05T09:24:29Z"
+              "title": "Physicists just saw quarks make waves in the Big Bang’s primordial soup",
+              "url": "https://www.sciencedaily.com/releases/2026/10/261004002556.htm",
+              "snippet": "Physicists at CERN’s Large Hadron Collider have captured the clearest evidence yet that quark-gluon plasma, the scorching-hot matter that filled the newborn universe, behaves…",
+              "published": "2026-10-06T12:04:50Z"
             },
             {
-              "title": "This mysterious hole on the Moon may open into a giant cave",
-              "url": "https://www.sciencedaily.com/releases/2026/10/261003234013.htm",
-              "snippet": "NASA has selected the GIMLI project to investigate whether the Marius Hill Pit opens into a vast underground cave or lava tube. Using radar, seismic sensors, gravity…",
-              "published": "2026-10-05T04:47:40Z"
+              "title": "Scientists finally see how nature moves energy so efficiently",
+              "url": "https://www.sciencedaily.com/releases/2026/10/261004001841.htm",
+              "snippet": "Researchers have captured key steps in a chemical reaction that helps nature transfer energy with remarkable efficiency. Ultrafast X-rays revealed how changes involving electrons…",
+              "published": "2026-10-06T07:49:51Z"
             }
           ]
         },
@@ -688,34 +688,34 @@
           "name": "ScienceDaily Sănătate",
           "items": [
             {
-              "title": "Scientists reveal what seven days of fasting does to the human body",
-              "url": "https://www.sciencedaily.com/releases/2026/10/261005012444.htm",
-              "snippet": "Scientists found that prolonged fasting triggers major changes throughout the body, but many of the most interesting effects only appeared after about three days without food…",
-              "published": "2026-10-05T12:26:03Z"
+              "title": "Colorectal cancer is rising in young people and often found too late",
+              "url": "https://www.sciencedaily.com/releases/2026/10/261003234019.htm",
+              "snippet": "Colorectal cancer in young people is often diagnosed at an advanced stage, with researchers finding most patients age 21 or younger already had Stage III or IV disease. Because…",
+              "published": "2026-10-06T13:20:15Z"
             },
             {
-              "title": "Scientists just found a way to fight lung cancer and muscle wasting at the same time",
-              "url": "https://www.sciencedaily.com/releases/2026/10/261001214129.htm",
-              "snippet": "A new nanoparticle therapy reduced lung tumors in mice while also targeting cachexia, the severe muscle wasting that can accompany cancer. By delivering follistatin mRNA directly…",
-              "published": "2026-10-05T11:11:21Z"
+              "title": "Goodbye joint replacements? Stanford scientists found a way to regrow cartilage and stop arthritis",
+              "url": "https://www.sciencedaily.com/releases/2026/10/261005011249.htm",
+              "snippet": "Scientists have found a surprising way to regrow damaged knee cartilage by blocking a protein that becomes more abundant with age. In old mice, the treatment restored naturally…",
+              "published": "2026-10-06T13:03:47Z"
             },
             {
-              "title": "Scientists discover a human brain gene that can jump through DNA",
-              "url": "https://www.sciencedaily.com/releases/2026/10/261002080013.htm",
-              "snippet": "Scientists have discovered a human gene with a remarkable double life: it appears to play an important role in brain cells while still retaining the ability to jump around the…",
-              "published": "2026-10-05T10:06:28Z"
+              "title": "Scientists say this simple habit could strengthen your marriage",
+              "url": "https://www.sciencedaily.com/releases/2026/10/261004001843.htm",
+              "snippet": "Couples who exercise together report better communication, healthier conflict resolution, and lower marital stress than those who work out alone. Even something as simple as…",
+              "published": "2026-10-06T12:23:37Z"
             },
             {
-              "title": "Cancer-fighting t cells burn out. Scientists may have found a fix",
-              "url": "https://www.sciencedaily.com/releases/2026/10/261001214127.htm",
-              "snippet": "Cancer immunotherapy can lose its punch when tumor-fighting T cells become exhausted, but researchers may have found a way to keep them going longer. Scientists at Memorial Sloan…",
-              "published": "2026-10-05T09:24:29Z"
+              "title": "One simple addition to postpartum care made a major difference",
+              "url": "https://www.sciencedaily.com/releases/2026/10/261003234017.htm",
+              "snippet": "New mothers paired with patient navigators were much more likely to receive postpartum care, depression screening, preventive testing, and ongoing primary care. By helping with…",
+              "published": "2026-10-06T11:25:14Z"
             },
             {
-              "title": "The “glue” holding your cells together has a surprising second job",
-              "url": "https://www.sciencedaily.com/releases/2026/10/261002080023.htm",
-              "snippet": "Scientists have discovered that E-cadherin, a protein best known as the “glue” holding cells and tissues together, has a surprising second job: helping epithelial cells swallow…",
-              "published": "2026-10-05T03:12:55Z"
+              "title": "A few drops of this Japanese tree oil may help you sleep more soundly",
+              "url": "https://www.sciencedaily.com/releases/2026/10/261002080030.htm",
+              "snippet": "In a small study, sleeping near the scent of Hinoki root essential oil was linked to fewer nighttime awakenings, better morning alertness, and brain-wave changes associated with…",
+              "published": "2026-10-06T04:33:58Z"
             }
           ]
         }
@@ -728,6 +728,24 @@
       "name": "The Verge AI",
       "items": [
         {
+          "title": "We can’t just change the definition of ‘recording’",
+          "url": "https://www.theverge.com/column/1005697/we-cant-just-change-the-definition-of-recording",
+          "snippet": "With AI hardware, tech companies are pushing the definition of what does and doesn't constitute a recording. For most of gadget history, it'd be reasonable to assume that a…",
+          "published": "2026-10-06T16:29:44Z"
+        },
+        {
+          "title": "Google is about to remove free access to Gemini Flash and Pro",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1005451/google-gemini-free-flash-lite-only",
+          "snippet": "Starting on October 9th, anyone using Google Gemini on a free plan will be limited to the Flash Lite model. Free users can currently choose from Gemini Flash Lite, Flash, and…",
+          "published": "2026-10-06T13:19:01Z"
+        },
+        {
+          "title": "Amazon Alexa Plus keeps creepily singing ‘lalala’ for minutes on end",
+          "url": "https://www.theverge.com/tech/1005342/amazon-alexa-plus-keeps-creepily-singing-lalala-for-minutes-on-end",
+          "snippet": "An unsettling Alexa Plus bug has seen some Amazon Echo smart home speakers reduced to saying - and sometimes singing - nothing but \"lalala\" on repeat for minutes at a time, often…",
+          "published": "2026-10-06T10:53:11Z"
+        },
+        {
           "title": "Gemini Call for Me might tell your mom you’re running late",
           "url": "https://www.theverge.com/ai-artificial-intelligence/1005177/google-gemini-call-for-me-expansion-rumors",
           "snippet": "Google may be expanding its \"Call for Me\" AI feature beyond business calls so you can use it to send messages to friends and family. Android Authority reports finding a \"Gemini…",
@@ -738,24 +756,6 @@
           "url": "https://www.theverge.com/news/1004929/wikipedia-openai-rogue-bots-wikimedia-foundation-outage",
           "snippet": "Following many recent disclosures about AI agents accessing third-party websites and services, the Wikimedia Foundation, which hosts Wikipedia, says that it \"can confirm that we…",
           "published": "2026-10-05T22:22:32Z"
-        },
-        {
-          "title": "This startup is issuing AI-generated acne prescriptions",
-          "url": "https://www.theverge.com/ai-artificial-intelligence/1005075/nolla-health-acne-ai-prescriptions",
-          "snippet": "People in Utah can now use AI to get a prescription for acne treatment. On Monday, healthcare startup Nolla Health announced that users in the state can scan their faces using…",
-          "published": "2026-10-05T20:14:57Z"
-        },
-        {
-          "title": "All the drama around AI’s takeover of mathematics",
-          "url": "https://www.theverge.com/ai-artificial-intelligence/1004933/ai-math-openai-breakthrough-solution",
-          "snippet": "This past year, OpenAI, Anthropic, and other labs have announced breakthroughs on numerous long-standing mathematical problems, in some cases pushing well beyond what researchers…",
-          "published": "2026-10-05T19:42:41Z"
-        },
-        {
-          "title": "OpenAI is adding text watermarking in ChatGPT and Codex",
-          "url": "https://www.theverge.com/ai-artificial-intelligence/1004880/openai-chatgpt-text-watermarks-eu-ai-act",
-          "snippet": "An invisible, machine-readable watermark in text output is rolling out to ChatGPT and Codex, but only for users in the European Union at first. OpenAI says its textGrain…",
-          "published": "2026-10-05T18:08:39Z"
         }
       ]
     },
@@ -764,34 +764,34 @@
       "name": "TechCrunch AI",
       "items": [
         {
-          "title": "OpenAI will start watermarking ChatGPT’s text in the EU",
-          "url": "https://techcrunch.com/2026/10/05/openai-will-start-watermarking-chatgpts-text-in-the-eu/",
-          "snippet": "OpenAI will watermark ChatGPT and Codex text in the EU to comply with the AI Act. Editing can make the invisible marks harder to detect, it says.",
-          "published": "2026-10-05T20:36:48Z"
+          "title": "Mirror Particle is building a ‘world model’ of human behavior",
+          "url": "https://techcrunch.com/2026/10/06/mirror-particle-is-building-a-world-model-of-human-behavior/",
+          "snippet": "Mirror Particle will launch at TechCrunch Disrupt's Startup Battlefield 200 with a world model built from scratch to predict human behavior, arguing that LLM role-play falls…",
+          "published": "2026-10-06T16:35:00Z"
         },
         {
-          "title": "Reflection debuts Beam, an open-weight AI model to rival Chinese models at lower compute cost",
-          "url": "https://techcrunch.com/2026/10/05/reflection-debuts-beam-a-open-weight-ai-model-to-rival-chinese-models-at-lower-compute-cost/",
-          "snippet": "Reflection is aiming Beam and future models at enterprises and sovereign nations. The pitch is to build “AI factories,” a product that would let institutions build their own…",
-          "published": "2026-10-05T19:33:53Z"
+          "title": "Anthropic is giving startups a free year of Claude Team and $1,000 in credits",
+          "url": "https://techcrunch.com/2026/10/06/anthropic-gives-startups-a-free-year-of-enterprise-service-and-1000-in-token-credits/",
+          "snippet": "\"We created this program because we believe the benefits of AI will reach most people through the companies that build on top of models, rather than through the models alone.\"",
+          "published": "2026-10-06T16:00:00Z"
         },
         {
-          "title": "Instinct brings its AI agent to group chats, even for friends without an account",
-          "url": "https://techcrunch.com/2026/10/05/instinct-brings-its-ai-agent-to-group-chats-even-for-friends-without-an-account/",
-          "snippet": "Instinct is launching group chats that let friends use its AI agent together for tasks like planning trips, organizing carpools, and coordinating events. The company says…",
-          "published": "2026-10-05T18:54:30Z"
+          "title": "LibreOffice says ‘no AI’ is now a software feature",
+          "url": "https://techcrunch.com/2026/10/06/libreoffice-says-no-ai-is-now-a-software-feature/",
+          "snippet": "The maker of the open source document editor says it has no plans to add AI to its software's default configuration, citing user privacy.",
+          "published": "2026-10-06T15:25:00Z"
         },
         {
-          "title": "TikTok rolls out an AI shopping assistant and one-click checkout",
-          "url": "https://techcrunch.com/2026/10/05/tiktok-rolls-out-an-ai-shopping-assistant-and-one-click-checkout/",
-          "snippet": "TikTok describes its new Shopping Assistant as a conversational AI agent designed to help users discover and purchase products.",
-          "published": "2026-10-05T18:29:00Z"
+          "title": "Mistral’s new 1T model aims to leapfrog closed and open rivals",
+          "url": "https://techcrunch.com/2026/10/06/mistrals-new-1t-model-aims-to-leapfrog-closed-and-open-rivals/",
+          "snippet": "French AI lab Mistral AI has released Mistral Large 4, a new large multimodal model aiming to leapfrog both American and Chinese rivals.",
+          "published": "2026-10-06T14:33:16Z"
         },
         {
-          "title": "Hot Girl Hotline is like ‘Dear Abby’ for the AI era",
-          "url": "https://techcrunch.com/2026/10/05/hot-girl-hotline-is-like-dear-abby-for-the-ai-era/",
-          "snippet": "Founded by two sisters, Hot Girl Hotline uses AI to give young women personalized dating and relationship advice, with an emphasis on safety and avoiding emotional dependency.",
-          "published": "2026-10-05T17:29:22Z"
+          "title": "Pinterest’s AI now turns beauty Pins into action plans",
+          "url": "https://techcrunch.com/2026/10/06/pinterests-ai-now-turns-beauty-pins-into-action-plans/",
+          "snippet": "Pinterest’s new AI-powered Beauty Guides translate hair and nail Pins into salon terminology, with estimated costs, appointment times, and maintenance needs.",
+          "published": "2026-10-06T14:00:49Z"
         }
       ]
     },
