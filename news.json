@@ -1,5 +1,727 @@
 {
-  "updated": "2026-10-05T23:53:11.220428Z",
+  "updated": "2026-10-06T03:38:20.945660Z",
+  "categories": [
+    {
+      "id": "ai",
+      "name": "AI",
+      "sources": [
+        {
+          "id": "verge",
+          "name": "The Verge AI",
+          "items": [
+            {
+              "title": "Gemini Call for Me might tell your mom you’re running late",
+              "url": "https://www.theverge.com/ai-artificial-intelligence/1005177/google-gemini-call-for-me-expansion-rumors",
+              "snippet": "Google may be expanding its \"Call for Me\" AI feature beyond business calls so you can use it to send messages to friends and family. Android Authority reports finding a \"Gemini…",
+              "published": "2026-10-05T23:09:55Z"
+            },
+            {
+              "title": "Wikipedia operator says OpenAI’s ‘rogue’ bots may be linked to a May outage",
+              "url": "https://www.theverge.com/news/1004929/wikipedia-openai-rogue-bots-wikimedia-foundation-outage",
+              "snippet": "Following many recent disclosures about AI agents accessing third-party websites and services, the Wikimedia Foundation, which hosts Wikipedia, says that it \"can confirm that we…",
+              "published": "2026-10-05T22:22:32Z"
+            },
+            {
+              "title": "This startup is issuing AI-generated acne prescriptions",
+              "url": "https://www.theverge.com/ai-artificial-intelligence/1005075/nolla-health-acne-ai-prescriptions",
+              "snippet": "People in Utah can now use AI to get a prescription for acne treatment. On Monday, healthcare startup Nolla Health announced that users in the state can scan their faces using…",
+              "published": "2026-10-05T20:14:57Z"
+            },
+            {
+              "title": "All the drama around AI’s takeover of mathematics",
+              "url": "https://www.theverge.com/ai-artificial-intelligence/1004933/ai-math-openai-breakthrough-solution",
+              "snippet": "This past year, OpenAI, Anthropic, and other labs have announced breakthroughs on numerous long-standing mathematical problems, in some cases pushing well beyond what researchers…",
+              "published": "2026-10-05T19:42:41Z"
+            },
+            {
+              "title": "OpenAI is adding text watermarking in ChatGPT and Codex",
+              "url": "https://www.theverge.com/ai-artificial-intelligence/1004880/openai-chatgpt-text-watermarks-eu-ai-act",
+              "snippet": "An invisible, machine-readable watermark in text output is rolling out to ChatGPT and Codex, but only for users in the European Union at first. OpenAI says its textGrain…",
+              "published": "2026-10-05T18:08:39Z"
+            }
+          ]
+        },
+        {
+          "id": "techcrunch",
+          "name": "TechCrunch AI",
+          "items": [
+            {
+              "title": "OpenAI will start watermarking ChatGPT’s text in the EU",
+              "url": "https://techcrunch.com/2026/10/05/openai-will-start-watermarking-chatgpts-text-in-the-eu/",
+              "snippet": "OpenAI will watermark ChatGPT and Codex text in the EU to comply with the AI Act. Editing can make the invisible marks harder to detect, it says.",
+              "published": "2026-10-05T20:36:48Z"
+            },
+            {
+              "title": "Reflection debuts Beam, an open-weight AI model to rival Chinese models at lower compute cost",
+              "url": "https://techcrunch.com/2026/10/05/reflection-debuts-beam-a-open-weight-ai-model-to-rival-chinese-models-at-lower-compute-cost/",
+              "snippet": "Reflection is aiming Beam and future models at enterprises and sovereign nations. The pitch is to build “AI factories,” a product that would let institutions build their own…",
+              "published": "2026-10-05T19:33:53Z"
+            },
+            {
+              "title": "Instinct brings its AI agent to group chats, even for friends without an account",
+              "url": "https://techcrunch.com/2026/10/05/instinct-brings-its-ai-agent-to-group-chats-even-for-friends-without-an-account/",
+              "snippet": "Instinct is launching group chats that let friends use its AI agent together for tasks like planning trips, organizing carpools, and coordinating events. The company says…",
+              "published": "2026-10-05T18:54:30Z"
+            },
+            {
+              "title": "TikTok rolls out an AI shopping assistant and one-click checkout",
+              "url": "https://techcrunch.com/2026/10/05/tiktok-rolls-out-an-ai-shopping-assistant-and-one-click-checkout/",
+              "snippet": "TikTok describes its new Shopping Assistant as a conversational AI agent designed to help users discover and purchase products.",
+              "published": "2026-10-05T18:29:00Z"
+            },
+            {
+              "title": "Hot Girl Hotline is like ‘Dear Abby’ for the AI era",
+              "url": "https://techcrunch.com/2026/10/05/hot-girl-hotline-is-like-dear-abby-for-the-ai-era/",
+              "snippet": "Founded by two sisters, Hot Girl Hotline uses AI to give young women personalized dating and relationship advice, with an emphasis on safety and avoiding emotional dependency.",
+              "published": "2026-10-05T17:29:22Z"
+            }
+          ]
+        },
+        {
+          "id": "mit",
+          "name": "MIT Technology Review",
+          "items": [
+            {
+              "title": "Connecting AI agents to enterprise knowledge",
+              "url": "https://www.technologyreview.com/2026/10/05/1145580/connecting-ai-agents-to-enterprise-knowledge/",
+              "snippet": "For all the data that AI systems continually amass and analyze, enterprise AI agents often suffer from a curious shortcoming: a lack of knowledge. More than data, knowledge is…",
+              "published": "2026-10-05T15:47:52Z"
+            },
+            {
+              "title": "Bringing predictive analytics to the agentic AI era",
+              "url": "https://www.technologyreview.com/2026/10/05/1143813/bringing-predictive-analytics-to-the-agentic-ai-era/",
+              "snippet": "In 2026, the question for enterprise AI is no longer whether predictive models can outperform statistical forecasts—that argument is settled. The big question now is how to…",
+              "published": "2026-10-05T13:29:32Z"
+            },
+            {
+              "title": "People really hate AI, so why can’t they get enough?",
+              "url": "https://www.technologyreview.com/2026/10/05/1145682/people-really-hate-ai-so-why-cant-they-get-enough/",
+              "snippet": "Over the summer I talked to the CEO of Springboards, a startup building an LLM that’s designed to come up with a wider variety of responses than its mainstream rivals do. At the…",
+              "published": "2026-10-05T08:00:00Z"
+            },
+            {
+              "title": "EmTech Future 2026: When AI Meets Everything",
+              "url": "https://www.technologyreview.com/2026/10/05/1145413/emtech-future-2026-when-ai-meets-everything/",
+              "snippet": "Yossi Matias, Vice President & Head of Google Research, explores how AI is beginning to reshape biology, infrastructure, manufacturing, and science, and why its greatest impact…",
+              "published": "2026-10-05T04:00:00Z"
+            },
+            {
+              "title": "Redefining enterprise intelligence with autonomous AI",
+              "url": "https://www.technologyreview.com/2026/10/02/1143774/redefining-enterprise-intelligence-with-autonomous-ai/",
+              "snippet": "Enterprise AI is no longer a future ambition. It is in full operational flight. Model capabilities are advancing faster than most organizations can absorb, while the cost of…",
+              "published": "2026-10-02T15:49:04Z"
+            }
+          ]
+        },
+        {
+          "id": "google",
+          "name": "Google AI Blog",
+          "items": [
+            {
+              "title": "The latest AI news we announced in September 2026",
+              "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-september-2026/",
+              "snippet": "Here are Google’s latest AI updates from September 2026",
+              "published": "2026-10-02T15:00:00Z"
+            },
+            {
+              "title": "Watch the winning trailer from the Future Vision XPRIZE, The Gifted.",
+              "url": "https://blog.google/innovation-and-ai/technology/ai/winner-future-vision-xprize/",
+              "snippet": "Watch the winning trailer from the Future Vision XPRIZE, The Gifted.",
+              "published": "2026-09-28T19:00:00Z"
+            },
+            {
+              "title": "Google Beam expands with new regions, partners, and customers",
+              "url": "https://blog.google/innovation-and-ai/technology/research/google-beam-expansion/",
+              "snippet": "We’re expanding Google Beam to five new countries, and partnering with Industrious for an extended network.",
+              "published": "2026-09-23T18:00:00Z"
+            },
+            {
+              "title": "New experts join Google’s AI & Economy team",
+              "url": "https://blog.google/innovation-and-ai/technology/ai/expanding-ai-economy-research-bench/",
+              "snippet": "We are expanding our AI & Economy team with world-class academic advisors, fellows, and core internal researchers.",
+              "published": "2026-09-18T14:00:00Z"
+            },
+            {
+              "title": "Co-creating the future of fashion with Google",
+              "url": "https://blog.google/innovation-and-ai/technology/ai/google-flow-fashion-week/",
+              "snippet": "Google worked side-by-side with designers Jane Wade and Sergio Hudson to custom-design Google Flow tools to prep for NYFW.",
+              "published": "2026-09-18T13:00:00Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "general",
+      "name": "Știri generale",
+      "sources": [
+        {
+          "id": "digi24",
+          "name": "Digi24",
+          "items": [
+            {
+              "title": "Gică Hagi, după a patra înfrângere consecutivă: Chiar dacă am pierdut şi de data aceasta a fost un meci bun şi din partea noastră",
+              "url": "https://www.digi24.ro/stiri/sport/fotbal/gica-hagi-chiar-daca-am-pierdut-si-de-data-aceasta-a-fost-un-meci-bun-si-din-partea-noastra-3979617",
+              "snippet": "Gheorghe Hagi, selecţionerul naţionalei României, a declarat după meciul cu Suedia că nu îi place să piardă şi a afirmat că la prima reprezentativă trebuie construită o generaţie…",
+              "published": "2026-10-05T22:20:51Z"
+            },
+            {
+              "title": "România, zero puncte în Liga Națiunilor după patru partide. Clasamentul grupei B4 și meciurile rămase de disputat",
+              "url": "https://www.digi24.ro/stiri/sport/fotbal/romania-zero-puncte-in-liga-natiunilor-dupa-patru-partide-clasamentul-grupei-b4-si-meciurile-ramase-de-disputat-3979603",
+              "snippet": "Selecţionata României a fost învinsă de echipa Suediei cu scorul de 1-0 (1-0), luni seara, pe Arena Naţională din Bucureşti, în Grupa B4 a Ligii Naţiunilor la fotbal. Astfel…",
+              "published": "2026-10-05T22:15:40Z"
+            },
+            {
+              "title": "Nicio revanșă. România a fost învinsă de Suedia și la București, în Liga Națiunilor",
+              "url": "https://www.digi24.ro/stiri/sport/fotbal/liga-natiunilor-ultimul-meci-din-seria-de-patru-disputate-in-aceasta-perioada-tricolorii-la-ora-revansei-cu-suedia-3977535",
+              "snippet": "România a fost învinsă de Suedia și la București, cu 1-0, iar tricolorii au ratat șansa unei revanșe în fața nordicilor. Meciul a fost al patrulea pentru naționala noastră, în…",
+              "published": "2026-10-05T22:14:41Z"
+            },
+            {
+              "title": "Cine este Luca Niculescu, a patra nominalizare a lui Nicușor Dan pentru funcția de prim-ministru",
+              "url": "https://www.digi24.ro/stiri/actualitate/politica/cine-este-luca-niculescu-pe-care-presedintele-nicusor-dan-l-a-nominalizat-pentru-functia-de-premier-3979323",
+              "snippet": "Luca Niculescu este noua nominalizare a președintelui Nicușor Dan pentru postul de premier al României. Luca Niculescu a fost numit Secretar de Stat în cadrul Ministerul…",
+              "published": "2026-10-05T21:05:59Z"
+            },
+            {
+              "title": "Reacția lui Trump după repatrierea bombardierelor americane din Regatul Unit. „Le-am mutat puţin, nu foarte departe”",
+              "url": "https://www.digi24.ro/stiri/externe/reactia-lui-trump-dupa-repatrierea-bombardierelor-americane-din-regatul-unit-le-am-mutat-putin-nu-foarte-departe-3979593",
+              "snippet": "Donald Trump a evocat luni prezenţa unor „ameninţări” care vizau bombardiere americane staţionate în Regatul Unit, ceea ce a justificat repatrierea acestora.",
+              "published": "2026-10-05T20:55:51Z"
+            }
+          ]
+        },
+        {
+          "id": "hotnews",
+          "name": "HotNews",
+          "items": [
+            {
+              "title": "Scriitorul și fostul politician Jeffrey Archer a murit la vârsta de 86 de ani",
+              "url": "https://hotnews.ro/scriitorul-si-fostul-politician-jeffrey-archer-a-murit-la-varsta-de-86-de-ani-2368115",
+              "snippet": "Jeffrey Archer a fost un romancier de succes, dar și un politician căzut în dizgrație, a cărui viață a fost la fel de colorată precum intriga romanelor sale, scrie BBC. Archer a…",
+              "published": "2026-10-06T03:02:54Z"
+            },
+            {
+              "title": "„O problemă majoră”. După misteriosul deces din Siberia, Trump anunță că SUA vor ajuta Rusia",
+              "url": "https://hotnews.ro/donald-trump-afirma-ca-sua-vor-ajuta-rusia-dupa-decesul-suspect-de-ciuma-al-unei-angajate-de-la-un-institut-din-siberia-2368106",
+              "snippet": "Președintele american Donald Trump a declarat luni, la Casa Albă, în fața jurnaliștilor, că Statele Unite vor ajuta Rusia, după ce o angajată a unui institut de cercetare a…",
+              "published": "2026-10-05T21:40:19Z"
+            },
+            {
+              "title": "Macron şi Merz cer ca UE să adopte instrumente comerciale mai dure. „Să provoace un prejudiciu comparabil” / Preocuparea China",
+              "url": "https://hotnews.ro/macron-si-merz-cer-ca-ue-sa-adopte-instrumente-comerciale-mai-dure-sa-provoace-un-prejudiciu-comparabil-preocuparea-china-2368097",
+              "snippet": "Preşedintele francez Emmanuel Macron şi cancelarul german Friedrich Merz au cerut Uniunii Europene să se doteze cu un nou arsenal juridic pentru a acţiona mult mai rapid în caz…",
+              "published": "2026-10-05T21:29:49Z"
+            },
+            {
+              "title": "Al doilea lider care anunță ferm că partidul său nu va vota guvernul lui Luca Niculescu",
+              "url": "https://hotnews.ro/diana-sosoaca-anunta-ca-sos-romania-nu-voteaza-guvernul-lui-luca-niculescu-2368076",
+              "snippet": "Partidul S.O.S. România nu va vota guvernul pe care îl va propune premierul desemnat Luca Niculescu, a anunțat luni seară președinta formațiunii parlamentare, Diana Iovanovici…",
+              "published": "2026-10-05T20:47:29Z"
+            },
+            {
+              "title": "„Teoria victoriei” în cazul unui atac al Rusiei. Mișcarea pregătită de generalul care conduce NATO",
+              "url": "https://hotnews.ro/teoria-victoriei-in-cazul-unui-atac-al-rusiei-miscarea-pregatita-de-generalul-care-conduce-nato-2368058",
+              "snippet": "Comandantul suprem al forțelor NATO din Europa, generalul american Alexus Grynkewich, își va prezenta săptămâna viitoare „teoria victoriei” cu privire la cea mai bună modalitate…",
+              "published": "2026-10-05T20:31:19Z"
+            }
+          ]
+        },
+        {
+          "id": "g4media",
+          "name": "G4Media",
+          "items": [
+            {
+              "title": "Selecționerul Gheorghe Hagi, după ce a pierdut primele patru meciuri oficiale la România: „Eu trebuie să vorbesc cât mai puțin. Ce să zic la patru înfrângeri”",
+              "url": "https://www.g4media.ro/selectionerul-gheorghe-hagi-dupa-ce-a-pierdut-primele-patru-meciuri-oficiale-la-romania-ce-sa-zic-la-patru-infrangeri.html",
+              "snippet": "Selecționerul Gheorghe Hagi a susținut o conferință de presă după meciul pe care România l-a pierdut la limită cu Suedia, luni seară, pe Arena Națională, scor 0-1, și a…",
+              "published": "2026-10-05T22:46:00Z"
+            },
+            {
+              "title": "Sondaj Reuters: Cota de încredere a lui Donald Trump atinge un minim istoric",
+              "url": "https://www.g4media.ro/sondaj-reuters-cota-de-incredere-a-lui-donald-trump-atinge-un-minim-istoric.html",
+              "snippet": "Popularitatea președintelui american Donald Trump a ajuns la un minim istoric, potrivit unui sondaj Reuters/Ipsos. Doar 32% dintre americani aprobă modul în care Trump își…",
+              "published": "2026-10-05T20:07:48Z"
+            },
+            {
+              "title": "Arabia Saudită, Turcia și Pakistanul pun în aplicare un pact de apărare în urma atacurilor grupării Houthi",
+              "url": "https://www.g4media.ro/arabia-saudita-turcia-si-pakistanul-pun-in-aplicare-un-pact-de-aparare-in-urma-atacurilor-gruparii-houthi.html",
+              "snippet": "Arabia Saudită, Turcia și Pakistanul au activat luni măsuri de descurajare colectivă și au convenit să desfășoare rapid forțe și capacități militare în regat, în timp ce trupele…",
+              "published": "2026-10-05T20:03:18Z"
+            },
+            {
+              "title": "Actrița Rodica Ana Luca a murit singură într-o comună din Sibiu / A jucat în „Brigada Diverse în alertă” / Vecinii au contribuit la înmormântare",
+              "url": "https://www.g4media.ro/actrita-rodica-ana-luca-a-murit-singura-intr-o-comuna-din-sibiu-a-jucat-in-brigada-diverse-in-alerta-vecinii-au-contribuit-la-inmormantare.html",
+              "snippet": "Actrița Rodica Ana Luca, care a jucat în seria de filme „Brigada Diverse în alertă”, a murit în comuna Mihăileni din județul Sibiu săptămâna trecută. Pentru că trăia singură și…",
+              "published": "2026-10-05T19:53:46Z"
+            },
+            {
+              "title": "La Repubblica: Estonia își apropie trupele de granița cu Rusia / „Germania riscă să fie târâtă într-un conflict armat cu Rusia” / NATO își revizuiește planurile",
+              "url": "https://www.g4media.ro/la-repubblica-estonia-isi-apropie-trupele-de-granita-cu-rusia-germania-risca-sa-fie-tarata-intr-un-conflict-armat-cu-rusia-nato-isi-revizuieste-planurile.html",
+              "snippet": "Estonia, dezvăluie Financial Times, se pregătește pentru o eventuală confruntare cu forțele de la Kremlin. Pentru Tallinn, „decența NATO nu funcționează”. Și serviciile secrete…",
+              "published": "2026-10-05T19:34:10Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "economie",
+      "name": "Economie",
+      "sources": [
+        {
+          "id": "zf",
+          "name": "Ziarul Financiar",
+          "items": [
+            {
+              "title": "PwC, 35 de ani. Daniel Anghel, country manager: Modelul de business se schimbă, iar rolul nostru este de a deveni parteneri strategici şi de a oferi clienţilor o soluţie end-to-end pe care să o şi implementăm",
+              "url": "https://www.zf.ro/pwc-35-de-ani-in-romania/pwc-35-ani-daniel-anghel-country-manager-modelul-business-schimba-iar-rolul-nostru-deveni-parteneri-strategici-oferi-clientilor-solutie-end-to-end-implementam-23253620",
+              "snippet": "Daniel Anghel, 53 de ani, actualul country manager al PwC România, a făcut cunoştinţă pentru prima dată cu firma de audit şi consultanţă în vara lui 1997, când aplicase pentru un…",
+              "published": "2026-10-05T21:07:00Z"
+            },
+            {
+              "title": "Investitorii de la BVB au sărbătorit că S&P nu a retrogradat România şi au ridicat evaluarea companiilor cu 17 mld. lei într-o singură zi, un salt istoric. Petrecerea se poate termina repede dacă bugetul pe 2027 nu convinge. Indicele BET creşte cu 4%, în cea mai bună şedinţă de anul acesta. Analişti: Piaţa a primit un răgaz, nu şi o rezolvare",
+              "url": "https://www.zf.ro/burse-fonduri-mutuale/investitorii-bvb-au-sarbatorit-s-p-retrogradat-romania-au-ridicat-evaluarea-companiilor-17-mld-lei-intr-singura-zi-salt-istoric-petrecerea-termina-repede-bugetul-2027-convinge-indicele-bet-creste-4-23253655",
+              "snippet": "Indicele de referinţă BET a crescut cu peste 4% în prima şedinţă de tranzacţionare de după decizia S&P de vinerea trecută, prin care România a rămas la ultima treaptă a…",
+              "published": "2026-10-05T21:07:00Z"
+            },
+            {
+              "title": "Analiză ZF. Investiţiile companiilor româneşti în străinătate se apropie de 10 mld. euro. Doar anul trecut, valoarea investiţiilor dincolo de graniţe s-a apropiat de 700 mil. euro. Care a fost cel mai bun an?",
+              "url": "https://www.zf.ro/companii/analiza-zf-investitiile-companiilor-romanesti-strainatate-apropie-10-mld-euro-anul-trecut-valoarea-investitiilor-dincolo-granite-s-apropiat-700-mil-euro-cel-bun-an-23253671",
+              "snippet": "În 2021, compania românească Superbet anunţa achiziţia Napoleon Games din Belgia, despre care ZF scria atunci că e cea mai mare tranzacţie făcută de o firmă autohtonă peste…",
+              "published": "2026-10-05T21:07:00Z"
+            },
+            {
+              "title": "Drone ruseşti au lovit o navă turcească lângă o platformă românească din Marea Neagră",
+              "url": "https://www.zf.ro/eveniment/drone-rusesti-au-lovit-o-nava-turceasca-langa-o-platforma-romaneasca-din-marea-neagra-23253690",
+              "snippet": "Potrivit Ministerului român de Externe, doi oameni au murit, trei sunt răniţi şi 11 salvaţi. Rusia a atacat luni, o navă comercială turcească, în apele de exclusivitate economică…",
+              "published": "2026-10-05T21:07:00Z"
+            },
+            {
+              "title": "De la Prima Casă la ecosistem: patronatele vor un program ca în criza din 2009-2011, care a salvat piaţa imobiliară. „Contractul social cu care a crescut generaţia noastră - te îndrăgosteşti, te căsătoreşti, îţi găseşti o casă, faci copii, te muţi într-o casă mai bună - este rupt în acest moment“",
+              "url": "https://www.zf.ro/business-construct/prima-casa-ecosistem-patronatele-vor-program-criza-2009-2011-salvat-piata-imobiliara-contractul-social-crescut-generatia-noastra-indragostesti-casatoresti-iti-gasesti-casa-faci-copii-muti-intr-casa-23253696",
+              "snippet": "Dobânzile în creştere, energia scumpă şi preţurile locuinţelor din marile oraşe au mutat discuţia despre locuire din zona socială în zona economică.",
+              "published": "2026-10-05T21:07:00Z"
+            }
+          ]
+        },
+        {
+          "id": "profit",
+          "name": "Profit.ro",
+          "items": [
+            {
+              "title": "Pe Profit Insider: Straco și Concelex vs Urban Scope și Yoruk Yapi Insaat",
+              "url": "https://www.profit.ro/stiri/economie/pe-profit-insider-straco-si-concelex-vs-urban-scope-si-yoruk-yapi-insaat-22804883?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
+              "snippet": "Straco și Concelex vs Urban Scope și Yoruk Yapi Insaat. Detalii pe PROFIT INSIDER, un instrument de business pe bază de abonament prin intermediul căruia sunt furnizate…",
+              "published": "2026-10-06T03:00:00Z"
+            },
+            {
+              "title": "EXCLUSIV Antreprenorul Andrei Sandu îl atrage pe milionarul belgian Peter de Cuyper în MediaCity cu planul de a se extinde în noi orașe din România",
+              "url": "https://www.profit.ro/povesti-cu-profit/real-estate-constructii/exclusiv-antreprenorul-andrei-sandu-il-atrage-pe-milionarul-belgian-peter-de-cuyper-in-mediacity-cu-planul-de-a-se-extinde-in-noi-orase-din-romania-22804241?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
+              "snippet": "Antreprenorul român Andrei Sandu îl atrage pe milionrul belgian Peter de Cuyper ca acționar în cadrul dezvoltatorului imobiliar MediaCity, în urma unei majorări de capital care…",
+              "published": "2026-10-05T21:14:00Z"
+            },
+            {
+              "title": "Gigant chinez ofertează în România cu un IMM din secuime. Proiectul noii centrale pe gaze de 475 MW de la Turceni a CE Oltenia-Tinmar: Evaluarea singurei oferte de construire a fost prelungită",
+              "url": "https://www.profit.ro/povesti-cu-profit/energie/gigant-chinez-oferteaza-in-romania-cu-un-imm-din-secuime-proiectul-noii-centrale-pe-gaze-de-475-mw-de-la-turceni-a-ce-oltenia-tinmar-evaluarea-singurei-oferte-de-construire-a-fost-prelungita-22803303?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
+              "snippet": "Societatea de proiect CCCG Turceni SA, controlată în proporții egale de compania de stat Complexul Energetic Oltenia (CEO), cel mai mare producător de energie electrică pe bază…",
+              "published": "2026-10-05T21:12:00Z"
+            },
+            {
+              "title": "EXCLUSIV ULTIMA ORĂ Producția redusă la Dacia afectează Horse România. Au fost deja 3 zile de oprire a activității",
+              "url": "https://www.profit.ro/povesti-cu-profit/auto-transporturi/exclusiv-ultima-ora-productia-redusa-la-dacia-afecteaza-horse-romania-au-fost-deja-3-zile-de-oprire-a-activitatii-22804338?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
+              "snippet": "Două dintre cele mai importante secții ale uzinei Horse România, fosta Uzină Mecanică Dacia, au fost oprite săptămâna trecută, timp de trei zile, din cauza reducerii comenzilor…",
+              "published": "2026-10-05T21:10:00Z"
+            },
+            {
+              "title": "EXCLUSIV Bancă vândută în România: Clarificări suplimentare cerute în achiziția Garanti de către Raiffeisen. Șeful Concurenței, pentru Profit.ro: Vom evalua în detaliu efectele asupra concurenței. Când va fi finalizată analiza",
+              "url": "https://www.profit.ro/povesti-cu-profit/financiar/exclusiv-banca-vanduta-romania-clarificari-suplimentare-cerute-achizitia-garanti-catre-raiffeisen-seful-concurentei-profit-vom-evalua-detaliu-efectele-asupra-concurentei-finalizata-analiza-22803812?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
+              "snippet": "Tranzacția prin care Raiffeisen Bank intenționează să preia Garanti Bank România se află încă în etapa de analiză și, având în vedere complexitatea operațiunii și specificul…",
+              "published": "2026-10-05T21:08:00Z"
+            }
+          ]
+        },
+        {
+          "id": "economica",
+          "name": "Economica.net",
+          "items": [
+            {
+              "title": "De ce încep oamenii să investească și care sunt barierele care îi fac pe alții să amâne",
+              "url": "https://www.economica.net/cum-sa-incepi-sa-investesti-xtb_982890.html",
+              "snippet": "Investițiile au încă o problemă de percepție. Mulți oameni cred că trebuie să fie pe deplin pregătiți înainte să înceapă: să aibă mai mulți bani, să înțeleagă mai bine bursa sau…",
+              "published": "2026-10-05T22:04:51Z"
+            },
+            {
+              "title": "Este oficial, 2026 este un an bun pentru agricultură. Producția de grâu a depășit-o pe cea de anul trecut. Cât au băgat fermierii în hambare",
+              "url": "https://www.economica.net/este-oficial-productia-de-grau-din-acest-an-a-depatit-o-pe-cea-de-anul-trecut-cat-au-bagat-fermierii-in-hambare_981460.html",
+              "snippet": "Producția de grâu, secară și triticale a depășit 13,5 milioane de tone după ce s-a recoltat 99,1% din suprafața cultivată, arată ultimele date ale Ministerului Agriculturii…",
+              "published": "2026-10-05T19:37:44Z"
+            },
+            {
+              "title": "CEO Microsoft România: Avem nevoie de tineri absolvenți care să știe să facă lucrurile diferit. Cred că vom depăși de 2.000 de angajați anul viitor",
+              "url": "https://www.economica.net/ceo-microsoft-romania-avem-nevoie-de-tineri-absolventi-care-sa-stie-sa-faca-lucrurile-diferit-cred-ca-vom-depasi-de-2-000-de-angajati-anul-viitor_982789.html",
+              "snippet": "Inginerii Microsoft din România contribuie la dezvoltarea unora dintre produsele pe care gigantul american le vinde în întreaga lume, iar inovațiile dezvoltate local ajung să…",
+              "published": "2026-10-05T19:36:21Z"
+            },
+            {
+              "title": "Ucraina construiește un parc eolian uriaș care să livreze energie inclusiv în România. Proiectul a fost acceptat de Bruxelles",
+              "url": "https://www.economica.net/ucraina-construieste-un-parc-eolian-urias-care-sa-livreze-energie-inclusiv-in-romania-proiectul-a-fost-acceptat-de-bruxelles_982824.html",
+              "snippet": "Comisia Europeană a aprobat trei noi proiecte transfrontaliere în domeniul energiei regenerabile în cadrul celui de-al cincilea apel pentru obținerea statutului CB RES…",
+              "published": "2026-10-05T19:35:33Z"
+            },
+            {
+              "title": "Industria regenerabilelor a cerut ANRE reducerea garanției cerute pentru proiectele de baterii, la 5.000 de euro/MW, de la 30.000 cât este acum",
+              "url": "https://www.economica.net/industria-regenerabilelor-a-cerut-anre-reducerea-garantiei-cerute-pentru-proiectele-de-baterii-la-5-000-de-euro-mw-de-la-30-000-cat-este-acum_982896.html",
+              "snippet": "Reprezentanții industriei regenerabile au solicitat ANRE reducerea de șase ori a garanției solicitate pentru autorizarea proiectelor de stocare a energiei, care au acum același…",
+              "published": "2026-10-05T19:35:17Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tech",
+      "name": "Tehnologie",
+      "sources": [
+        {
+          "id": "startup",
+          "name": "Start-up.ro",
+          "items": [
+            {
+              "title": "„Somebody has to get paid to fix this”: antreprenorii de impact și investitorii se întâlnesc la How to Web 2026",
+              "url": "https://start-up.ro/somebody-has-to-get-paid-to-fix-this-antreprenorii-de-impact-si-investitorii-se-intalnesc-la-how-to-web-2026/",
+              "snippet": "Antreprenorii care construiesc afaceri cu impact și investitorii interesați de acest segment se întâlnesc în cadrul „Somebody has to get paid to fix this”, o sesiune organizată…",
+              "published": "2026-10-05T11:48:49Z"
+            },
+            {
+              "title": "Unde vor merge investițiile în 2027? Peste 200 de investitori se întâlnesc la București, la How to Web",
+              "url": "https://start-up.ro/unde-vor-merge-investitiile-in-2027-peste-200-de-investitori-se-intalnesc-la-bucuresti-la-how-to-web/",
+              "snippet": "Peste 200 de investitori din România și din Europa, reprezentând peste 80 de fonduri și instituții, se reunesc pe 6 octombrie la București, la Investors Summit, eveniment…",
+              "published": "2026-10-05T09:01:34Z"
+            },
+            {
+              "title": "Femeia care îl aduce pe ”bine” mai aproape de oameni",
+              "url": "https://start-up.ro/melania-medeleanu/",
+              "snippet": "Când spui Melania Medeleanu, te gândești la binele pe care l-a făcut în mai multe comunități din România. Poate te gândești la ea în ipostaza de crainică TV la un jurnal de știri…",
+              "published": "2026-10-05T08:30:32Z"
+            },
+            {
+              "title": "Valentin Tătaru, Chief Economist ING Bank: Cum poate citi un antreprenor începător datele macroeconomice",
+              "url": "https://start-up.ro/valentin-tataru-chief-economist-ing-bank-cum-poate-citi-un-antreprenor-incepator-datele-macroeconomice/",
+              "snippet": "„Nu încercăm să prezicem viitorul, ci să limităm surprizele pe cât se poate”, spune Valentin Tătaru, Chief Economist la ING Bank România în podcastul Mai departe în business. Cu…",
+              "published": "2026-10-05T06:21:31Z"
+            },
+            {
+              "title": "REVIEW Samsung Galaxy S26 FE: fanii Samsung cred că vor și altceva",
+              "url": "https://start-up.ro/review-samsung-galaxy-s26-fe-fanii-samsung-cred-ca-vor-si-altceva/",
+              "snippet": "Samsung Galaxy S26 FE are o criză de identitate și cred că Samsung nu mai știe exact ce vor fanii lor, altfel nu pot să-mi explic de ce vine cu aproape același telefon, al…",
+              "published": "2026-10-05T05:35:56Z"
+            }
+          ]
+        },
+        {
+          "id": "go4it",
+          "name": "Go4IT",
+          "items": [
+            {
+              "title": "Google a inventat o tastatură pentru o singură mână. Tastele vin singure la degete, dar există o problemă – VIDEO",
+              "url": "https://www.go4it.ro/content/periferice/tastaturi-si-mouse/google-a-inventat-o-tastatura-pentru-o-singura-mana-gboard-19287109/",
+              "snippet": "Google Japan a găsit din nou o metodă neobișnuită pentru a reinventa tastatura. Cel mai nou concept Gboard pune tastele pe patru benzi transportoare care se mișcă permanent…",
+              "published": null
+            },
+            {
+              "title": "Apple vrea să transforme iPhone-ul într-o cameră de filmare serioasă. Noul rig dezvoltat împreună cu ShiftCam",
+              "url": "https://www.go4it.ro/content/accesorii/apple-vrea-sa-transforme-iphone-ul-intr-o-camera-de-filmare-serioasa-prorig-19287101/",
+              "snippet": "Apple face încă un pas pentru a transforma iPhone-ul într-un instrument de filmare tot mai apropiat de echipamentele profesionale. Compania a colaborat direct cu producătorul…",
+              "published": null
+            },
+            {
+              "title": "Sudo: un succesor al Apple iPod Classic? Dar cu Bluetooth, USB-C și ecran tactil",
+              "url": "https://www.go4it.ro/content/playere-mp3-si-video/sudo-un-succesor-al-apple-ipod-classic-dar-cu-bluetooth-usb-c-si-ecran-tactil-19287089/",
+              "snippet": "Sudo este un player care pare să-i fie succesorul iPod Classic, chiar dacă Apple a renunțat la această gamă de dispozitive pentru ascultat muzica. Cu un ecran tactil integrat, cu…",
+              "published": null
+            },
+            {
+              "title": "Windows 11 are o nouă problemă audio. Microsoft confirmă blocarea unor jocuri și aplicații",
+              "url": "https://www.go4it.ro/content/software/windows-11-are-o-noua-problema-audio-microsoft-confirma-blocarea-unor-jocuri-si-aplicatii-19287087/",
+              "snippet": "Microsoft a confirmat o nouă problemă audio care afectează mai multe versiuni recente de Windows 11. Anumite jocuri și aplicații se pot închide neașteptat atunci când folosesc…",
+              "published": null
+            },
+            {
+              "title": "Samsung investește într-o o nouă unitate de semiconductori în Vietnam",
+              "url": "https://www.go4it.ro/content/business/samsung-investeste-intr-o-o-noua-unitate-de-semiconductori-in-vietnam-19287084/",
+              "snippet": "Samsung își extinde prezența în sectorul semiconductorilor din Vietnam printr-o nouă unitate de mari dimensiuni destinată testării memoriilor, situată în Thai Nguyen. Aceasta…",
+              "published": null
+            }
+          ]
+        },
+        {
+          "id": "vergeall",
+          "name": "The Verge",
+          "items": [
+            {
+              "title": "Gemini Call for Me might tell your mom you’re running late",
+              "url": "https://www.theverge.com/ai-artificial-intelligence/1005177/google-gemini-call-for-me-expansion-rumors",
+              "snippet": "Google may be expanding its \"Call for Me\" AI feature beyond business calls so you can use it to send messages to friends and family. Android Authority reports finding a \"Gemini…",
+              "published": "2026-10-05T23:09:55Z"
+            },
+            {
+              "title": "Reverse-engineered games: All the news on video game decomps, recomps, VR and web and 3D ports",
+              "url": "https://www.theverge.com/games/1004869/reverse-engineered-games-all-the-news-on-video-game-decomps-recomps-vr-and-web-and-3d-ports",
+              "snippet": "It’s a wild time for retro gaming. Thanks to decompilations and recompilations of classic titles, those games are becoming unshackled from their proprietary code and original…",
+              "published": "2026-10-05T22:50:57Z"
+            },
+            {
+              "title": "Wikipedia operator says OpenAI’s ‘rogue’ bots may be linked to a May outage",
+              "url": "https://www.theverge.com/news/1004929/wikipedia-openai-rogue-bots-wikimedia-foundation-outage",
+              "snippet": "Following many recent disclosures about AI agents accessing third-party websites and services, the Wikimedia Foundation, which hosts Wikipedia, says that it \"can confirm that we…",
+              "published": "2026-10-05T22:22:32Z"
+            },
+            {
+              "title": "The Matic is the first robovac to get an FCC ban waiver, not that it needs it",
+              "url": "https://www.theverge.com/policy/1004926/matic-fcc-ban-waiver-conditional-approval",
+              "snippet": "The Matic is our favorite robot vacuum and robo-mop, and it's also now the first to escape the FCC's Roomba ban. Well, sort of - because the Matic wasn't banned to begin with…",
+              "published": "2026-10-05T21:15:05Z"
+            },
+            {
+              "title": "This startup is issuing AI-generated acne prescriptions",
+              "url": "https://www.theverge.com/ai-artificial-intelligence/1005075/nolla-health-acne-ai-prescriptions",
+              "snippet": "People in Utah can now use AI to get a prescription for acne treatment. On Monday, healthcare startup Nolla Health announced that users in the state can scan their faces using…",
+              "published": "2026-10-05T20:14:57Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sport",
+      "name": "Sport",
+      "sources": [
+        {
+          "id": "gsp",
+          "name": "Gazeta Sporturilor",
+          "items": [
+            {
+              "title": "Florin Tănase e convins de decizia lui Gică Hagi privind viitorul său la naționala României: „Toată lumea i-a sărit în cap”",
+              "url": "https://www.gsp.ro/fotbal/nationala/florin-tanase-reactie-infrangere-suedia-viitor-gica-hagi-nationala-romaniei-985089.html",
+              "snippet": "Florin Tănase (31 de ani), folosit pe postul de atacant de Gică Hagi (61 de ani) în meciul pierdut de naționala României cu Suedia, scor 0-1, este convins că „Regele” va rămâne…",
+              "published": "2026-10-05T22:22:24Z"
+            },
+            {
+              "title": "Remarcații lui Gheorghe Hagi: „Echipa națională a câștigat 3 jucători”",
+              "url": "https://www.gsp.ro/fotbal/nationala/remarcatii-lui-gheorghe-hagi-echipa-nationala-romania-985088.html",
+              "snippet": "Gheorghe Hagi, selecționerul României, a remarcat 3 jucători după meciul pierdut cu Suedia, scor 0-1. E vorba de Matei Ilie, Andrei Coubiș și Lisav Eissat. Coubiș, fundașul lui…",
+              "published": "2026-10-05T22:07:39Z"
+            },
+            {
+              "title": "Viktor Gyokeres, prima reacție după ce a decis România - Suedia",
+              "url": "https://www.gsp.ro/fotbal/nationala/viktor-gyokeres-reactie-romania-suedia-985087.html",
+              "snippet": "România - Suedia 0-1. Viktor Gyokeres (28 de ani) a oferit primele declarații după victoria din Liga Națiunilor. Atacantul lui Arsenal, autorul singurului gol de pe Arena…",
+              "published": "2026-10-05T21:48:14Z"
+            },
+            {
+              "title": "Întrebat dacă rămâne, Gică Hagi a anunțat revoluția la națională: „Din noiembrie...” » Conferință explozivă: „Voi spuneți că suntem jos! Pe el de ce nu l-ați pomenit?”",
+              "url": "https://www.gsp.ro/fotbal/nationala/gica-hagi-reactie-nationala-romaniei-infrangere-suedia-arena-nationala-985062.html",
+              "snippet": "Gică Hagi (61 de ani), selecționerul naționalei României, a reacționat după cel de-al patrulea eșec consecutiv în Liga Națiunilor, 0-1 cu Suedia pe Arena Națională. „Tricolorii”…",
+              "published": "2026-10-05T21:43:37Z"
+            },
+            {
+              "title": "Răzvan Marin, după România - Suedia: „Nu am o explicație. Trebuie să ne adaptăm”",
+              "url": "https://www.gsp.ro/fotbal/nationala/razvan-marin-declaratii-romania-suedia-985085.html",
+              "snippet": "După România - Suedia 0-1, Răzvan Marin și-a găsit cu greu cuvintele. Mijlocașul a încercat să găsească explicații după a patra înfrângere la rând în Liga Națiunilor. România a…",
+              "published": "2026-10-05T21:31:26Z"
+            }
+          ]
+        },
+        {
+          "id": "digisport",
+          "name": "Digi Sport",
+          "items": [
+            {
+              "title": "ZERO! Echipa de 435.300.000 €, o intrusă la ”masa bogaților”. Retrogradarea bate la ușă",
+              "url": "https://www.digisport.ro/fotbal/liga-natiunilor/zero-echipa-de-435-300-000-e-o-intrusa-la-masa-bogatilor-retrogradarea-bate-la-usa-4526929",
+              "snippet": "ZERO! Echipa de 435.300.000 €, o intrusă la ”masa bogaților”. Retrogradarea bate la ușă",
+              "published": "2026-10-05T22:50:47Z"
+            },
+            {
+              "title": "Gata! Cele două ”victime” ale lui Gică Hagi",
+              "url": "https://www.digisport.ro/fotbal/echipa-nationala/gata-gica-hagi-a-facut-doua-victime-zero-4526895",
+              "snippet": "Gata! Cele două ”victime” ale lui Gică Hagi",
+              "published": "2026-10-05T22:48:08Z"
+            },
+            {
+              "title": "Adrian Mutu e sigur în cazul FRF - Gică Hagi, după ce România a pierdut al patrulea meci la rând",
+              "url": "https://www.digisport.ro/fotbal/echipa-nationala/adrian-mutu-e-sigur-in-cazul-frf-gica-hagi-dupa-ce-romania-a-pierdut-al-patrulea-meci-la-rand-4527007",
+              "snippet": "Adrian Mutu e sigur în cazul FRF - Gică Hagi, după ce România a pierdut al patrulea meci la rând",
+              "published": "2026-10-05T22:46:41Z"
+            },
+            {
+              "title": "Gata: ”Nu vor mai veni la națională!” Primele două nume cerute în echipa României, după cele 4 eșecuri la rând",
+              "url": "https://www.digisport.ro/fotbal/echipa-nationala/gata-nu-vor-mai-veni-la-nationala-primele-doua-nume-cerute-in-echipa-romaniei-dupa-cele-4-esecuri-la-rand-4527067",
+              "snippet": "Gata: ”Nu vor mai veni la națională!” Primele două nume cerute în echipa României, după cele 4 eșecuri la rând",
+              "published": "2026-10-05T22:46:17Z"
+            },
+            {
+              "title": "Hagi, după 0-1 cu Suedia: ”România a câștigat patru jucători” + ”De ce nu l-ați pomenit? N-ați văzut cum joacă?”",
+              "url": "https://www.digisport.ro/fotbal/echipa-nationala/hagi-dupa-0-1-cu-suedia-romania-a-castigat-patru-jucatori-de-ce-nu-l-ati-pomenit-n-ati-vazut-cum-joaca-4527159",
+              "snippet": "Hagi, după 0-1 cu Suedia: ”România a câștigat patru jucători” + ”De ce nu l-ați pomenit? N-ați văzut cum joacă?”",
+              "published": "2026-10-05T22:43:43Z"
+            }
+          ]
+        },
+        {
+          "id": "prosport",
+          "name": "ProSport",
+          "items": [
+            {
+              "title": "VIDEO Matei Ilie, reacție sinceră despre demisia lui Gică Hagi: „Nu s-a auzit nimic”",
+              "url": "https://www.prosport.ro/fotbal-intern/nationala/matei-ilie-demisie-gica-hagi-nationala-romaniei-20541073",
+              "snippet": "România a încheiat prima acțiune oficială a lui Gică Hagi cu încă un eșec, scor 0-1, în fața Suediei, motiv pentru care în spațiul public se discută din nou despre o eventuală…",
+              "published": "2026-10-05T23:12:41Z"
+            },
+            {
+              "title": "VIDEO Darius Olaru a dezvăluit ce le-a cerut Gică Hagi și care e cea mai mare dezamăgire după România – Suedia 0-1: „Îmi pare rău că n-am făcut asta”",
+              "url": "https://www.prosport.ro/fotbal-intern/nationala/darius-olaru-dezvaluire-gica-hagi-dezamagire-romania-suedia-20541080",
+              "snippet": "Titular în România – Suedia 0-1, Darius Olaru (28 de ani) a spus care este cea mai mare dezamăgire după meciul de pe Arena Națională, din Grupa B4 a Ligii Națiunilor. Gică Hagi a…",
+              "published": "2026-10-05T23:10:37Z"
+            },
+            {
+              "title": "LIGA NAȚIUNILOR Florin Tănase, cea mai dură reacție în apărarea lui Gică Hagi: „Dacă nici cu el nu facem fotbal, trebuie să-l oprim!”",
+              "url": "https://www.prosport.ro/fotbal-extern/liga-natiunilor/florin-tanase-cea-mai-dura-reactie-in-apararea-lui-gica-hagi-20541075",
+              "snippet": "Florin Tănase a avut un mesaj puternic în apărarea lui Gică Hagi după România – Suedia 0-1, al patrulea eșec consecutiv al naționalei în Liga Națiunilor. Titularizat surprinzător…",
+              "published": "2026-10-05T22:58:21Z"
+            },
+            {
+              "title": "LIGA NAȚIUNILOR Panduru a dat cărțile pe față și știe că doar Gică Hagi putea scăpa așa: „Călcat în picioare”",
+              "url": "https://www.prosport.ro/fotbal-extern/liga-natiunilor/panduru-romania-suedia-reactie-20541067",
+              "snippet": "Basarab Panduru a analizat situația lui Gică Hagi după România – Suedia 0-1 și a spus direct că orice alt selecționer ar fi fost distrus de critici după patru înfrângeri…",
+              "published": "2026-10-05T22:41:42Z"
+            },
+            {
+              "title": "LIGA NAȚIUNILOR Cristi Borcea s-a săturat și a răbufnit după România – Suedia: „Arătați asta!”",
+              "url": "https://www.prosport.ro/fotbal-intern/nationala/cristi-borcea-romania-suedia-20541026",
+              "snippet": "Cristi Borcea a urmărit din tribune meciul România – Suedia, scor 0-1, apoi a tras concluziile, insistând asupra diferenței de valoare dintre jucătorii lui Gică Hagi și…",
+              "published": "2026-10-05T22:27:29Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stiinta",
+      "name": "Științe / Sănătate",
+      "sources": [
+        {
+          "id": "descopera",
+          "name": "Descoperă.ro",
+          "items": [
+            {
+              "title": "Problemă importantă în sistemele de educație: care este portretul profesorului european?",
+              "url": "https://www.descopera.ro/dnews/21142099-problema-importanta-in-sistemele-de-educatie-care-este-portretul-profesorului-european",
+              "snippet": "Peste 5,3 milioane de profesori lucrau în școlile primare și secundare din Uniunea Europeană în 2024, însă datele Eurostat scot în evidență o problemă importantă pentru sistemele…",
+              "published": "2026-10-06T00:00:18Z"
+            },
+            {
+              "title": "Tinerii beau mai puțin, dar cei între 50 și 64 de ani beau tot mai mult",
+              "url": "https://www.descopera.ro/dnews/21142090-tinerii-beau-mai-putin-dar-cei-intre-50-si-64-de-ani-beau-tot-mai-mult",
+              "snippet": "Tinerii beau tot mai puțin, dar cei între 50 și 64 de ani beau tot mai mult. Un studiu pe peste 114.000 de oameni arată de ce paharul de seară e mai riscant după 50 […] Articolul…",
+              "published": "2026-10-05T23:00:38Z"
+            },
+            {
+              "title": "Misterul din adâncuri: de ce Marea Neagră este unică în lume și cum o monitorizează cercetătorii?",
+              "url": "https://www.descopera.ro/dnews/21142069-misterul-din-adancuri-de-ce-marea-neagra-este-unica-in-lume-si-cum-o-monitorizeaza-cercetatorii",
+              "snippet": "Marea Neagră este cel mai mare bazin anoxic din lume, o mare parte din apele sale adânci fiind lipsite de oxigen. Particularitatea transformă bazinul într-un sistem natural…",
+              "published": "2026-10-05T22:00:46Z"
+            },
+            {
+              "title": "Primul anunț al săptămânii Nobel: cine a primit Premiul Nobel pentru Medicină 2026",
+              "url": "https://www.descopera.ro/dnews/21142061-primul-anunt-al-saptamanii-nobel-cine-a-primit-premiul-nobel-pentru-medicina-2026",
+              "snippet": "Premiul Nobel pentru Fiziologie sau Medicină a deschis luni, 5 octombrie, seria anunțurilor Nobel din 2026. Nobel Assembly de la Karolinska Institutet a dezvăluit laureații uneia…",
+              "published": "2026-10-05T21:00:46Z"
+            },
+            {
+              "title": "Moștenim traumele strămoșilor? Unde se termină știința și începe pseudoștiința",
+              "url": "https://www.descopera.ro/stiinta/21142016-mostenim-traumele-stramosilor-unde-se-termina-stiinta-si-incepe-pseudostiinta",
+              "snippet": "Putem moșteni efectele traumelor trăite de familie? Psihologia și epigenetica oferă câteva răspunsuri, dar nu confirmă că amintirile strămoșilor se transmit prin ADN sau că…",
+              "published": "2026-10-05T14:00:14Z"
+            }
+          ]
+        },
+        {
+          "id": "sdscience",
+          "name": "ScienceDaily",
+          "items": [
+            {
+              "title": "Vagus Nerve Stimulation Could Help New Skills Stick",
+              "url": "https://www.sciencedaily.com/releases/2026/10/261002080034.htm",
+              "snippet": "Stimulating the vagus nerve after practice helped mice develop stronger long-term motor learning, revealing a potentially important window when the brain is still locking in a…",
+              "published": "2026-10-05T12:13:07Z"
+            },
+            {
+              "title": "Don't miss: Watch Saturn shine and Halley’s Comet debris streak across the sky",
+              "url": "https://www.sciencedaily.com/releases/2026/10/261005071523.htm",
+              "snippet": "October skywatchers can see Saturn at opposition, catch meteors from Halley’s Comet during the Orionid peak, and watch the Moon sweep past the famous Pleiades star cluster…",
+              "published": "2026-10-05T11:59:17Z"
+            },
+            {
+              "title": "Scientists discover a human brain gene that can jump through DNA",
+              "url": "https://www.sciencedaily.com/releases/2026/10/261002080013.htm",
+              "snippet": "Scientists have discovered a human gene with a remarkable double life: it appears to play an important role in brain cells while still retaining the ability to jump around the…",
+              "published": "2026-10-05T10:06:28Z"
+            },
+            {
+              "title": "Cancer-fighting t cells burn out. Scientists may have found a fix",
+              "url": "https://www.sciencedaily.com/releases/2026/10/261001214127.htm",
+              "snippet": "Cancer immunotherapy can lose its punch when tumor-fighting T cells become exhausted, but researchers may have found a way to keep them going longer. Scientists at Memorial Sloan…",
+              "published": "2026-10-05T09:24:29Z"
+            },
+            {
+              "title": "This mysterious hole on the Moon may open into a giant cave",
+              "url": "https://www.sciencedaily.com/releases/2026/10/261003234013.htm",
+              "snippet": "NASA has selected the GIMLI project to investigate whether the Marius Hill Pit opens into a vast underground cave or lava tube. Using radar, seismic sensors, gravity…",
+              "published": "2026-10-05T04:47:40Z"
+            }
+          ]
+        },
+        {
+          "id": "sdhealth",
+          "name": "ScienceDaily Sănătate",
+          "items": [
+            {
+              "title": "Scientists reveal what seven days of fasting does to the human body",
+              "url": "https://www.sciencedaily.com/releases/2026/10/261005012444.htm",
+              "snippet": "Scientists found that prolonged fasting triggers major changes throughout the body, but many of the most interesting effects only appeared after about three days without food…",
+              "published": "2026-10-05T12:26:03Z"
+            },
+            {
+              "title": "Scientists just found a way to fight lung cancer and muscle wasting at the same time",
+              "url": "https://www.sciencedaily.com/releases/2026/10/261001214129.htm",
+              "snippet": "A new nanoparticle therapy reduced lung tumors in mice while also targeting cachexia, the severe muscle wasting that can accompany cancer. By delivering follistatin mRNA directly…",
+              "published": "2026-10-05T11:11:21Z"
+            },
+            {
+              "title": "Scientists discover a human brain gene that can jump through DNA",
+              "url": "https://www.sciencedaily.com/releases/2026/10/261002080013.htm",
+              "snippet": "Scientists have discovered a human gene with a remarkable double life: it appears to play an important role in brain cells while still retaining the ability to jump around the…",
+              "published": "2026-10-05T10:06:28Z"
+            },
+            {
+              "title": "Cancer-fighting t cells burn out. Scientists may have found a fix",
+              "url": "https://www.sciencedaily.com/releases/2026/10/261001214127.htm",
+              "snippet": "Cancer immunotherapy can lose its punch when tumor-fighting T cells become exhausted, but researchers may have found a way to keep them going longer. Scientists at Memorial Sloan…",
+              "published": "2026-10-05T09:24:29Z"
+            },
+            {
+              "title": "The “glue” holding your cells together has a surprising second job",
+              "url": "https://www.sciencedaily.com/releases/2026/10/261002080023.htm",
+              "snippet": "Scientists have discovered that E-cadherin, a protein best known as the “glue” holding cells and tissues together, has a surprising second job: helping epithelial cells swallow…",
+              "published": "2026-10-05T03:12:55Z"
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "sources": [
     {
       "id": "verge",
@@ -116,31 +838,31 @@
         {
           "title": "The latest AI news we announced in September 2026",
           "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-september-2026/",
-          "snippet": "",
+          "snippet": "Here are Google’s latest AI updates from September 2026",
           "published": "2026-10-02T15:00:00Z"
         },
         {
           "title": "Watch the winning trailer from the Future Vision XPRIZE, The Gifted.",
           "url": "https://blog.google/innovation-and-ai/technology/ai/winner-future-vision-xprize/",
-          "snippet": "",
+          "snippet": "Watch the winning trailer from the Future Vision XPRIZE, The Gifted.",
           "published": "2026-09-28T19:00:00Z"
         },
         {
           "title": "Google Beam expands with new regions, partners, and customers",
           "url": "https://blog.google/innovation-and-ai/technology/research/google-beam-expansion/",
-          "snippet": "",
+          "snippet": "We’re expanding Google Beam to five new countries, and partnering with Industrious for an extended network.",
           "published": "2026-09-23T18:00:00Z"
         },
         {
           "title": "New experts join Google’s AI & Economy team",
           "url": "https://blog.google/innovation-and-ai/technology/ai/expanding-ai-economy-research-bench/",
-          "snippet": "",
+          "snippet": "We are expanding our AI & Economy team with world-class academic advisors, fellows, and core internal researchers.",
           "published": "2026-09-18T14:00:00Z"
         },
         {
           "title": "Co-creating the future of fashion with Google",
           "url": "https://blog.google/innovation-and-ai/technology/ai/google-flow-fashion-week/",
-          "snippet": "",
+          "snippet": "Google worked side-by-side with designers Jane Wade and Sergio Hudson to custom-design Google Flow tools to prep for NYFW.",
           "published": "2026-09-18T13:00:00Z"
         }
       ]
