@@ -218,7 +218,7 @@ function fillList(ul,list,emptyTxt,makeLi){ul.innerHTML=list.length?'':'<li clas
 function renderTasks(){
  [['lAzi','azi'],['lMaine','maine']].forEach(function(p){
   var ul=$(p[0]),list=listFor(p[1]),tk=dkey();
-  fillList(ul,list,'Niciun task.',function(t){return renderItem(t,(t.done?'Făcut':'Deschis')+(p[1]==='azi'&&t.fromDay&&t.fromDay<tk?'<small>'+shortDate(t.fromDay)+'</small>':''))})})}
+  fillList(ul,list,'Niciun task.',function(t){return renderItem(t,(t.done?'Făcut':'Deschis')+(p[1]==='azi'&&t.fromDay&&t.fromDay<tk?'<small>'+shortDate(t.fromDay)+'</small>':''))})});updCardCount('azi');updCardCount('maine')}
 function findT(id){for(var i=0;i<tasks.length;i++)if(tasks[i].id===id)return i;return -1}
 function delTask(id){var i=findT(id);if(i<0)return;if(confirm('Ștergi taskul „'+tasks[i].text+'"?')){tasks[i].deleted=new Date().toISOString();save();renderTasks()}}
 function addTask(txt,which){txt=(txt||'').trim();if(!txt)return false;txt=txt.charAt(0).toUpperCase()+txt.slice(1);
@@ -257,7 +257,8 @@ function saveShop(){LS.set('jv_shop',shop);histPush()}
 function shopVisible(s){return !s.hidden&&(!s.bought||s.boughtDate===dkey())}
 function shopList(){return shop.filter(shopVisible).sort(urgSort)}
 (function(){var ch=false;shop.forEach(function(s){if(s.urgent==null){s.urgent=false;ch=true}});if(ch)LS.set('jv_shop',shop)})();
-function renderShop(){var ul=$('lShop'),list=shopList();
+function renderShop(){renderShop0();updCardCount('shop')}
+function renderShop0(){var ul=$('lShop'),list=shopList();
  fillList(ul,list,'Lista e goală.',function(s){var li=document.createElement('li');li.className='task'+(s.bought?' done':'')+(s.urgent?' urgent':'');li.dataset.id=s.id;
   li.innerHTML='<span class="dot"></span><span class="t kw">'+esc(s.text)+'</span><span class="st">'+(s.bought?'Cumpărat':'De luat')+(s.date<dkey()?'<small>'+shortDate(s.date)+'</small>':'')+'</span><button class="ed" aria-label="Editează">✎</button><button class="x" aria-label="Ascunde">×</button>';return li})}
 function findS(id){for(var i=0;i<shop.length;i++)if(shop[i].id===id)return shop[i];return null}
@@ -323,6 +324,17 @@ function delTab(tab){if(!confirm('Ștergi tabul „'+tab.name+'"? Elementele lui
   var s=findTI(tab,li.dataset.id);if(!s)return;s.done=!s.done;s.doneDate=s.done?dkey():null;s.doneAt=s.done?new Date().toISOString():null;saveTabs();renderTabItems(tab)});
  box.addEventListener('submit',function(e){e.preventDefault();var tab=ctx(e);if(!tab)return;var i=e.target.querySelector('input');if(addTI(tab,i.value)){i.value='';toast('Adăugat în '+tab.name)}});
  box.addEventListener('contextmenu',function(e){if(e.target.closest('.task'))e.preventDefault()})})();
+/* v27: collapsible built-in cards (Taskuri azi/mâine, Cumpărături, Știri); state in jv_cardcol, not in undo history */
+var cardCol=LS.get('jv_cardcol',{});if(!cardCol||typeof cardCol!=='object')cardCol={};
+function ccEl(k){return $({azi:'cAzi',maine:'cMaine',shop:'cShop',news:'cNews'}[k])}
+function cardCount(k){if(k==='azi'||k==='maine')return listFor(k).filter(function(t){return !t.done}).length;
+ if(k==='shop')return shopList().filter(function(x){return !x.bought}).length;return document.querySelectorAll('#newsBody .news-item').length}
+function updCardCount(k){var c=ccEl(k),n=c&&c.querySelector('.tcnt');if(n)n.textContent='· '+cardCount(k)}
+function setCardCol(k,col){var c=ccEl(k);if(!c)return;c.classList.toggle('col',col);
+ var b=c.querySelector('.tcol');if(b){b.setAttribute('aria-expanded',col?'false':'true');b.setAttribute('aria-label',col?'Extinde cardul':'Restrânge cardul')}}
+['azi','maine','shop','news'].forEach(function(k){var c=ccEl(k);if(!c)return;setCardCol(k,!!cardCol[k]);
+ c.querySelector('.lbl').addEventListener('click',function(e){if(e.target.closest('.spk,.nrf'))return;
+  var col=!c.classList.contains('col');setCardCol(k,col);if(col)cardCol[k]=1;else delete cardCol[k];LS.set('jv_cardcol',cardCol);updCardCount(k)})});
 /* create / rename modal */
 var tmTab=null,tmColor='';
 function buildTabColors(){var row=$('tmColors');row.innerHTML='';
@@ -702,7 +714,8 @@ function newsRelTime(iso){if(!iso)return'';
  var d=Math.floor(s/86400);return d===1?'1 zi':d+' zile'}
 function newsFmtUpdated(iso){var t=iso?new Date(iso):null;if(!t||!isFinite(t.getTime()))t=new Date();
  return 'Actualizat la '+pad(t.getHours())+':'+pad(t.getMinutes())}
-function renderNews(sel){sel=sel||newsCats;var card=$('cNews'),body=$('newsBody'),meta=$('newsMeta');if(!body)return;
+function renderNews(sel){renderNews0(sel);updCardCount('news')}
+function renderNews0(sel){sel=sel||newsCats;var card=$('cNews'),body=$('newsBody'),meta=$('newsMeta');if(!body)return;
  if(card)card.style.display=sel.length?'':'none';if(!sel.length)return;
  var cats=(newsData&&newsData.categories)||[];
  var show=NEWS_CATS.filter(function(c){return sel.indexOf(c.id)>=0}).map(function(c){var d=cats.filter(function(x){return x.id===c.id})[0];return{id:c.id,name:c.name,sources:(d&&d.sources)||[]}}).filter(function(c){return c.sources.length});
