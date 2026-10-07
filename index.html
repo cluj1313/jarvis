@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="JARVIS">
-<meta name="jarvis-version" content="v37-jarvis">
+<meta name="jarvis-version" content="v38-jarvis">
 <title>JARVIS · Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Roboto+Condensed:wght@700&family=Orbitron:wght@700&family=Share+Tech+Mono&family=Rajdhani:wght@600;700&family=Audiowide&family=Teko:wght@500&family=Oxanium:wght@700&display=swap" rel="stylesheet">
@@ -210,7 +210,7 @@ ul.tasks{list-style:none;margin:0;padding:0}
 .ccol .tcnt{display:none;flex:none;color:var(--mut);letter-spacing:.06em;margin-left:-2px}
 .ccol.col .tcnt{display:inline;margin-right:auto}
 .ccol.col .hb.tcol{transform:rotate(-90deg)}
-.ccol.col ul.tasks,.ccol.col form.add,.ccol.col .news-meta,.ccol.col #newsBody{display:none}
+.ccol.col ul.tasks,.ccol.col form.add,.ccol.col .news-meta,.ccol.col .news-search,.ccol.col #newsBody{display:none}
 .ccol.col{padding-top:15px;padding-bottom:15px}.ccol.col .lbl{margin-bottom:0;min-height:34px}
 #cVoice.col > :not(.lbl),#cWx.col > :not(.lbl){display:none}
 #cWx .wxsum{display:none;flex:1;min-width:0;align-items:center;gap:10px;margin-right:2px}
@@ -280,6 +280,14 @@ ul.tasks{list-style:none;margin:0;padding:0}
 .field .ncats .ncat input[type=checkbox]{width:18px;height:18px;margin:0;padding:0;flex:none;border-radius:4px;background:none;accent-color:var(--cyan)}
 .field .ncats .ncat.on{border-color:rgba(63,216,255,.55);background:rgba(63,216,255,.08)}
 .news-empty{color:var(--mut);font-size:calc(13.5px*var(--ns));padding:4px 0}
+/* v38 news search */
+.news-search{display:flex;align-items:center;gap:8px;margin:0 0 10px;padding:7px 10px;border:1px solid var(--line);border-radius:12px;background:rgba(5,18,32,.7)}
+.news-search .ns-ico{flex:none;font-size:calc(14px*var(--ns));line-height:1;opacity:.9}
+.news-search input{flex:1;min-width:0;background:none;border:0;color:var(--txt);font:inherit;font-size:calc(14px*var(--ns));outline:none;padding:0;line-height:1.3}
+.news-search input::placeholder{color:var(--mut);font-size:calc(13.5px*var(--ns))}
+.news-search input::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none}
+.news-search .ns-clear{flex:none;width:28px;height:28px;border:0;border-radius:50%;background:rgba(20,60,90,.45);color:var(--mut);font-size:18px;line-height:1;cursor:pointer;padding:0;display:flex;align-items:center;justify-content:center}
+.news-search .ns-clear[hidden]{display:none!important}
 </style>
 </head>
 <body>
@@ -321,6 +329,11 @@ ul.tasks{list-style:none;margin:0;padding:0}
  <div id="customCards"></div>
  <section class="card ccol" id="cNews"><div class="lbl"><span class="lt">Știri</span><span class="tcnt" aria-hidden="true"></span><span class="hgrp"><button type="button" class="nrf" id="newsRefresh" aria-label="Reîmprospătează știrile" title="Reîmprospătează"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></svg></button><button type="button" class="hb tcol" aria-expanded="true" aria-label="Restrânge cardul"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4.2 8.1a1.5 1.5 0 0 1 2.1 0L12 13.8l5.7-5.7a1.5 1.5 0 1 1 2.1 2.1l-6.75 6.75a1.5 1.5 0 0 1-2.1 0L4.2 10.2a1.5 1.5 0 0 1 0-2.1z"/></svg></button></span></div>
   <div class="news-meta" id="newsMeta">Se încarcă…</div>
+  <div class="news-search" id="newsSearchWrap">
+   <span class="ns-ico" aria-hidden="true">🔍</span>
+   <input type="search" id="newsSearch" placeholder="Caută în știri…" autocomplete="off" enterkeyhint="search" aria-label="Caută în știri">
+   <button type="button" class="ns-clear" id="newsSearchClear" aria-label="Șterge căutarea" hidden>×</button>
+  </div>
   <div id="newsBody"><div class="news-empty">Se încarcă știrile…</div></div>
  </section>
 </div>
@@ -859,7 +872,7 @@ function delTab(tab){if(!confirm('Ștergi tabul „'+tab.name+'"? Elementele lui
 var cardCol=LS.get('jv_cardcol',{});if(!cardCol||typeof cardCol!=='object')cardCol={};
 function ccEl(k){return $({voice:'cVoice',wx:'cWx',azi:'cAzi',maine:'cMaine',shop:'cShop',news:'cNews'}[k])}
 function cardCount(k){if(k==='azi'||k==='maine')return listFor(k).filter(function(t){return !t.done}).length;
- if(k==='shop')return shopList().filter(function(x){return !x.bought}).length;return document.querySelectorAll('#newsBody .news-item').length}
+ if(k==='shop')return shopList().filter(function(x){return !x.bought}).length;var n=0;document.querySelectorAll('#newsBody .news-item').forEach(function(a){if(a.style.display!=='none')n++});return n}
 function updCardCount(k){var c=ccEl(k),n=c&&c.querySelector('.tcnt');if(n)n.textContent='· '+cardCount(k)}
 function setCardCol(k,col){var c=ccEl(k);if(!c)return;c.classList.toggle('col',col);
  var b=c.querySelector('.tcol');if(b){b.setAttribute('aria-expanded',col?'false':'true');b.setAttribute('aria-label',col?'Extinde cardul':'Restrânge cardul')}}
@@ -1332,12 +1345,30 @@ function newsRelTime(iso){if(!iso)return'';
  var d=Math.floor(s/86400);return d===1?'1 zi':d+' zile'}
 function newsFmtUpdated(iso){var t=iso?new Date(iso):null;if(!t||!isFinite(t.getTime()))t=new Date();
  return 'Actualizat la '+pad(t.getHours())+':'+pad(t.getMinutes())}
+/* v38: in-card news search (titles+snippets; not persisted) */
+var newsQ='';
+function newsFold(s){try{return String(s||'').toLocaleLowerCase('ro')}catch(e){return String(s||'').toLowerCase()}}
+function applyNewsFilter(){var body=$('newsBody');if(!body)return;
+ var q=newsFold(newsQ).trim();
+ var prev=body.querySelector('.news-empty.ns-none');if(prev)prev.remove();
+ var items=body.querySelectorAll('.news-item'),any=false;
+ items.forEach(function(a){var tt=a.querySelector('.news-t'),ss=a.querySelector('.news-s');
+  var hay=newsFold(((tt&&tt.textContent)||'')+' '+((ss&&ss.textContent)||''));
+  var ok=!q||hay.indexOf(q)>=0;a.style.display=ok?'':'none';if(ok)any=true});
+ body.querySelectorAll('.news-src').forEach(function(sec){var has=false;sec.querySelectorAll('.news-item').forEach(function(a){if(a.style.display!=='none')has=true});sec.style.display=has?'':'none'});
+ body.querySelectorAll('.news-catblk').forEach(function(blk){var has=false;blk.querySelectorAll('.news-src').forEach(function(sec){if(sec.style.display!=='none')has=true});blk.style.display=has?'':'none'});
+ if(q&&items.length&&!any){var e=document.createElement('div');e.className='news-empty ns-none';e.textContent='Niciun rezultat';body.appendChild(e)}
+ updCardCount('news')}
+function bindNewsSearch(){var inp=$('newsSearch'),clr=$('newsSearchClear');if(!inp||inp._nsBound)return;inp._nsBound=1;
+ function sync(){newsQ=inp.value||'';if(clr)clr.hidden=!String(newsQ).length;applyNewsFilter()}
+ inp.addEventListener('input',sync);
+ if(clr)clr.addEventListener('click',function(ev){ev.preventDefault();inp.value='';inp.focus();sync()})}
 function renderNews(sel){renderNews0(sel);updCardCount('news')}
 function renderNews0(sel){sel=sel||newsCats;var card=$('cNews'),body=$('newsBody'),meta=$('newsMeta');if(!body)return;
  if(card)card.style.display=sel.length?'':'none';if(!sel.length)return;
  var cats=(newsData&&newsData.categories)||[];
  var show=NEWS_CATS.filter(function(c){return sel.indexOf(c.id)>=0}).map(function(c){var d=cats.filter(function(x){return x.id===c.id})[0];return{id:c.id,name:c.name,sources:(d&&d.sources)||[]}}).filter(function(c){return c.sources.length});
- if(!show.length){if(meta)meta.textContent=newsData?newsFmtUpdated(newsData.updated):'Fără știri încă';body.innerHTML='<div class="news-empty">'+(newsData?'Nu am încă știri pentru categoriile alese.':'Știrile apar aici când news.json e disponibil.')+'</div>';return}
+ if(!show.length){if(meta)meta.textContent=newsData?newsFmtUpdated(newsData.updated):'Fără știri încă';body.innerHTML='<div class="news-empty">'+(newsData?'Nu am încă știri pentru categoriile alese.':'Știrile apar aici când news.json e disponibil.')+'</div>';applyNewsFilter();return}
  if(meta)meta.textContent=newsFmtUpdated(newsData.updated)+(newsData.stale?' (offline)':'');
  body.innerHTML='';
  show.forEach(function(cat){var blk=document.createElement('div');blk.className='news-catblk';blk.dataset.cat=cat.id;
@@ -1352,7 +1383,7 @@ function renderNews0(sel){sel=sel||newsCats;var card=$('cNews'),body=$('newsBody
     var w=newsRelTime(it.published);if(w){var m=document.createElement('div');m.className='news-when';m.textContent=w;a.appendChild(m)}
     sec.appendChild(a)});
    blk.appendChild(sec)});
-  body.appendChild(blk)})}
+  body.appendChild(blk)});applyNewsFilter()}
 function buildNewsCats(sel){var box=$('newsCats');if(!box)return;box.innerHTML='';
  NEWS_CATS.forEach(function(c){var l=document.createElement('label');l.className='ncat'+(sel.indexOf(c.id)>=0?' on':'');
   var i=document.createElement('input');i.type='checkbox';i.value=c.id;i.checked=sel.indexOf(c.id)>=0;
@@ -1365,6 +1396,7 @@ function loadNews(manual){return (manual&&navigator.onLine===false?Promise.rejec
 var newsBusy=false;
 $('newsRefresh').onclick=function(){if(newsBusy)return;newsBusy=true;var b=this;b.classList.add('spin');
  var t0=Date.now();loadNews(true).then(function(){setTimeout(function(){b.classList.remove('spin');newsBusy=false},Math.max(0,500-(Date.now()-t0)))})};
+bindNewsSearch();
 
 renderTasks();renderShop();renderTabs();hCur=snap();histBtns();renderWx();renderNews();tick();setInterval(tick,1000);
 setTimeout(maybeRemindUrgent,3200);
