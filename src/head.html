@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="JARVIS">
-<meta name="jarvis-version" content="v38-jarvis">
+<meta name="jarvis-version" content="v39-jarvis">
 <title>JARVIS · Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Roboto+Condensed:wght@700&family=Orbitron:wght@700&family=Share+Tech+Mono&family=Rajdhani:wght@600;700&family=Audiowide&family=Teko:wght@500&family=Oxanium:wght@700&display=swap" rel="stylesheet">
@@ -288,6 +288,12 @@ ul.tasks{list-style:none;margin:0;padding:0}
 .news-search input::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none}
 .news-search .ns-clear{flex:none;width:28px;height:28px;border:0;border-radius:50%;background:rgba(20,60,90,.45);color:var(--mut);font-size:18px;line-height:1;cursor:pointer;padding:0;display:flex;align-items:center;justify-content:center}
 .news-search .ns-clear[hidden]{display:none!important}
+/* v39 web search row */
+.news-web{display:flex;align-items:center;gap:8px;margin:-4px 0 10px;padding:7px 10px;border:1px solid rgba(63,216,255,.22);border-radius:12px;background:rgba(63,216,255,.05);color:var(--cyan2);text-decoration:none;font-size:calc(13px*var(--ns));line-height:1.3;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.news-web:hover,.news-web:active{background:rgba(63,216,255,.1)}
+.news-web[hidden]{display:none!important}
+.news-web .nw-q{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ccol.col .news-web{display:none!important}
 </style>
 </head>
 <body>
@@ -334,6 +340,7 @@ ul.tasks{list-style:none;margin:0;padding:0}
    <input type="search" id="newsSearch" placeholder="Caută în știri…" autocomplete="off" enterkeyhint="search" aria-label="Caută în știri">
    <button type="button" class="ns-clear" id="newsSearchClear" aria-label="Șterge căutarea" hidden>×</button>
   </div>
+  <a class="news-web" id="newsWebSearch" href="#" target="_blank" rel="noopener noreferrer" hidden><span aria-hidden="true">🌐</span><span class="nw-q" id="newsWebSearchTxt"></span></a>
   <div id="newsBody"><div class="news-empty">Se încarcă știrile…</div></div>
  </section>
 </div>

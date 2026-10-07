@@ -827,7 +827,12 @@ function applyNewsFilter(){var body=$('newsBody');if(!body)return;
  if(q&&items.length&&!any){var e=document.createElement('div');e.className='news-empty ns-none';e.textContent='Niciun rezultat';body.appendChild(e)}
  updCardCount('news')}
 function bindNewsSearch(){var inp=$('newsSearch'),clr=$('newsSearchClear');if(!inp||inp._nsBound)return;inp._nsBound=1;
- function sync(){newsQ=inp.value||'';if(clr)clr.hidden=!String(newsQ).length;applyNewsFilter()}
+ var web=$('newsWebSearch'),webTxt=$('newsWebSearchTxt');
+ function webUrl(){return 'https://www.google.com/search?q='+encodeURIComponent(String(newsQ).trim())}
+ function sync(){newsQ=inp.value||'';if(clr)clr.hidden=!String(newsQ).length;
+  if(web){var q=String(newsQ).trim();web.hidden=!q;web.href=q?webUrl():'#';if(webTxt)webTxt.textContent=q?'Caută pe web: \u201E'+q+'\u201D':''}
+  applyNewsFilter()}
+ if(web)web.addEventListener('click',function(ev){ev.preventDefault();if(!String(newsQ).trim())return;window.open(webUrl(),'_blank','noopener')});
  inp.addEventListener('input',sync);
  if(clr)clr.addEventListener('click',function(ev){ev.preventDefault();inp.value='';inp.focus();sync()})}
 function renderNews(sel){renderNews0(sel);updCardCount('news')}
