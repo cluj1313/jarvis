@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-09T22:51:35.306670Z",
+  "updated": "2026-10-10T02:11:48.663192Z",
   "categories": [
     {
       "id": "ai",
@@ -13,7 +13,7 @@
               "title": "Anthropic’s AI gave Philadelphia police a fake tip about an unsolved homicide",
               "url": "https://www.theverge.com/ai-artificial-intelligence/1009090/anthropic-fake-homicide-information-philadelphia-pd-tip",
               "snippet": "An Anthropic AI model provided false information about an unsolved homicide to a Philadelphia Police Department (PPD) tipline, according to a report from 6abc. In a statement…",
-              "published": "2026-10-09T22:22:18Z"
+              "published": "2026-10-09T23:45:03Z"
             },
             {
               "title": "‘Pure insanity’: Mathematicians will need years to make sense of OpenAI’s latest drop",
@@ -46,6 +46,12 @@
           "name": "TechCrunch AI",
           "items": [
             {
+              "title": "Anthropic can’t reliably control its AI agents. It’s cutting off its internal evals from the live internet instead",
+              "url": "https://techcrunch.com/2026/10/09/anthropic-cant-reliably-control-its-ai-agents-its-cutting-off-its-internal-evals-from-the-live-internet-instead/",
+              "snippet": "Anthropic said it \"turned off live internet access\" for \"all our internal evaluations\" until further notice.",
+              "published": "2026-10-10T00:18:32Z"
+            },
+            {
               "title": "The maker of non-text AI model Jev valued at $7.5B just weeks after launch",
               "url": "https://techcrunch.com/2026/10/09/the-maker-of-non-text-ai-model-jev-valued-at-7-5b-just-weeks-after-launch/",
               "snippet": "What has users and large corporations so excited about Jev is TypeSafe’s claim that it works significantly faster and uses far fewer tokens than LLMs.",
@@ -68,12 +74,6 @@
               "url": "https://techcrunch.com/podcast/amazon-drops-data-center-ndas-and-ai-agents-want-your-credit-card/",
               "snippet": "Amazon says it will stop using NDAs when negotiating data center deals with local governments, following a similar move from Microsoft earlier this year. Secrecy has fueled…",
               "published": "2026-10-09T16:53:02Z"
-            },
-            {
-              "title": "Danu Robotics’ fight to build a better recycling robot",
-              "url": "https://techcrunch.com/2026/10/09/danu-robotics-fight-to-build-a-better-recycling-robot/",
-              "snippet": "For six years, Danu founder Amy Ma has been working on a better way to sort recyclable waste.",
-              "published": "2026-10-09T16:45:00Z"
             }
           ]
         },
@@ -346,6 +346,12 @@
           "name": "Economica.net",
           "items": [
             {
+              "title": "Acord Washington – Moscova pe piața carburanților: Rusia livrează milioane de tone de motorină. Analiștii avertizează asupra unei crize de rafinare",
+              "url": "https://www.economica.net/acord-washington-moscova-pe-piata-carburantilor-rusia-livreaza-milioane-de-tone-de-motorina-analistii-avertizeaza-asupra-unei-crize-de-rafinare_984412.html",
+              "snippet": "Cotațiile internaționale ale produselor petroliere au reacționat prompt după ce președintele american Donald Trump și omologul său rus, Vladimir Putin, au perfectat un acord de…",
+              "published": "2026-10-09T23:17:24Z"
+            },
+            {
               "title": "BMW anunță iX4, un SUV coupé electric cu autonomie de până la 828 km",
               "url": "https://www.economica.net/bmw-ix4-autonomie-828-km-469-cp_984405.html",
               "snippet": "BMW pregătește lansarea modelului electric iX4, un SUV cu siluetă de coupé construit pe arhitectura Neue Klasse. Oferta va include inițial două versiuni cu tracțiune integrală…",
@@ -368,12 +374,6 @@
               "url": "https://www.economica.net/record-trist-pentru-romania-si-pentru-petrom-productia-de-petrol-si-gaze-a-scazut-sub-un-prag-istoric_984355.html",
               "snippet": "Pentru prima dată în istoria Petrom, producția de petrol și gaze a companiei scăzut sub pragul de 100.000 de barili pe zi, potrivit datelor companiei analizate de noi.",
               "published": "2026-10-09T19:14:04Z"
-            },
-            {
-              "title": "AAOPFR: Traficul fluvial de mărfuri este blocat în ambele sensuri la kilometrul 280 al Dunării. Autoritățile nu au luat măsuri concrete pentru reluarea navigației. 30 de nave și barje sunt imobilizate",
-              "url": "https://www.economica.net/aaopfr-traficul-fluvial-de-marfuri-este-blocat-in-ambele-sensuri-la-kilometrul-280-al-dunarii-autoritatile-nu-au-luat-masuri-concrete-pentru-reluarea-navigatiei-30-de-nave-si-barje-sunt-imobilizate_984395.html",
-              "snippet": "Traficul fluvial de mărfuri este în continuare blocat în ambele sensuri, la kilometrul 280 al Dunării, unde sunt imobilizate 30 de împingătoare şi nave autopropulsate, precum şi…",
-              "published": "2026-10-09T19:07:47Z"
             }
           ]
         }
@@ -463,7 +463,7 @@
               "title": "Anthropic’s AI gave Philadelphia police a fake tip about an unsolved homicide",
               "url": "https://www.theverge.com/ai-artificial-intelligence/1009090/anthropic-fake-homicide-information-philadelphia-pd-tip",
               "snippet": "An Anthropic AI model provided false information about an unsolved homicide to a Philadelphia Police Department (PPD) tipline, according to a report from 6abc. In a statement…",
-              "published": "2026-10-09T22:22:18Z"
+              "published": "2026-10-09T23:45:03Z"
             },
             {
               "title": "Decade-old RAM is making a comeback",
@@ -616,6 +616,18 @@
           "name": "Descoperă.ro",
           "items": [
             {
+              "title": "Un oraș foarte bogat este și cel mai poluat de pe planetă",
+              "url": "https://www.descopera.ro/dnews/21143128-un-oras-foarte-bogat-este-si-cel-mai-poluat-de-pe-planeta",
+              "snippet": "Unul dintre cele mai bogate orașe ale lumii se confruntă cu o criză severă de poluare. Un nor dens de fum toxic a acoperit clădirile emblematice, iar calitatea aerului a atins…",
+              "published": "2026-10-10T00:00:10Z"
+            },
+            {
+              "title": "Un studiu recent a recalculat când se va destrăma Sistemul Solar",
+              "url": "https://www.descopera.ro/dnews/21143097-un-studiu-recent-a-recalculat-cand-se-va-destrama-sistemul-solar",
+              "snippet": "Sistemul Solar s-ar putea destrăma mult mai repede decât credeau oamenii de știință. Pe măsură ce Soarele își va pierde masa, Jupiter, Saturn, Uranus și Neptun ar putea ieși de…",
+              "published": "2026-10-09T23:00:28Z"
+            },
+            {
               "title": "Industria invizibilă care susține alimentația globală: ce este sectorul alimentar informal?",
               "url": "https://www.descopera.ro/dnews/21143080-industria-invizibila-care-sustine-alimentatia-globala-ce-este-sectorul-alimentar-informal",
               "snippet": "O mare parte a sistemului alimentar global se bazează pe lucrători care activează în afara economiei oficiale. Un studiu realizat pe baza cercetărilor din 64 de țări arată rolul…",
@@ -632,18 +644,6 @@
               "url": "https://www.descopera.ro/istorie/21143041-16-28-octombrie-1962-criza-rachetelor-din-cuba-cele-13-zile-in-care-lumea-s-a-apropiat-de-razboiul-nuclear",
               "snippet": "Avioanele americane au descoperit în Cuba rachete sovietice capabile să transporte focoase nucleare. Timp de 13 zile, Kennedy și Hrușciov au căutat o ieșire dintr-o confruntare…",
               "published": "2026-10-09T16:00:51Z"
-            },
-            {
-              "title": "De ce expansiunea reală a Universului nu se potrivește cu datele noastre? Astronomii tocmai au elucidat misterul",
-              "url": "https://www.descopera.ro/stiinta/21142212-de-ce-expansiunea-reala-a-universului-nu-se-potriveste-cu-datele-noastre-astronomii-tocmai-au-elucidat-misterul",
-              "snippet": "Cercetătorii au descoperit un indiciu surprinzător care ar putea explica discrepanțele majore privind viteza de expansiune a Universului. Câmpurile magnetice extrem de slabe…",
-              "published": "2026-10-09T15:00:19Z"
-            },
-            {
-              "title": "Un pui de țestoasă cu două capete a fost găsit la Cape Cod. Este al treilea caz în cinci ani",
-              "url": "https://www.descopera.ro/natura/21142976-un-pui-de-testoasa-cu-doua-capete-a-fost-gasit-la-cape-cod-este-al-treilea-caz-in-cinci-ani",
-              "snippet": "Cântărește numai 5,2 grame și are două capete care par să funcționeze independent. Puiul de țestoasă descoperit într-un cuib protejat din Cape Cod este al treilea caz de acest…",
-              "published": "2026-10-09T13:00:27Z"
             }
           ]
         },
@@ -731,7 +731,7 @@
           "title": "Anthropic’s AI gave Philadelphia police a fake tip about an unsolved homicide",
           "url": "https://www.theverge.com/ai-artificial-intelligence/1009090/anthropic-fake-homicide-information-philadelphia-pd-tip",
           "snippet": "An Anthropic AI model provided false information about an unsolved homicide to a Philadelphia Police Department (PPD) tipline, according to a report from 6abc. In a statement…",
-          "published": "2026-10-09T22:22:18Z"
+          "published": "2026-10-09T23:45:03Z"
         },
         {
           "title": "‘Pure insanity’: Mathematicians will need years to make sense of OpenAI’s latest drop",
@@ -764,6 +764,12 @@
       "name": "TechCrunch AI",
       "items": [
         {
+          "title": "Anthropic can’t reliably control its AI agents. It’s cutting off its internal evals from the live internet instead",
+          "url": "https://techcrunch.com/2026/10/09/anthropic-cant-reliably-control-its-ai-agents-its-cutting-off-its-internal-evals-from-the-live-internet-instead/",
+          "snippet": "Anthropic said it \"turned off live internet access\" for \"all our internal evaluations\" until further notice.",
+          "published": "2026-10-10T00:18:32Z"
+        },
+        {
           "title": "The maker of non-text AI model Jev valued at $7.5B just weeks after launch",
           "url": "https://techcrunch.com/2026/10/09/the-maker-of-non-text-ai-model-jev-valued-at-7-5b-just-weeks-after-launch/",
           "snippet": "What has users and large corporations so excited about Jev is TypeSafe’s claim that it works significantly faster and uses far fewer tokens than LLMs.",
@@ -786,12 +792,6 @@
           "url": "https://techcrunch.com/podcast/amazon-drops-data-center-ndas-and-ai-agents-want-your-credit-card/",
           "snippet": "Amazon says it will stop using NDAs when negotiating data center deals with local governments, following a similar move from Microsoft earlier this year. Secrecy has fueled…",
           "published": "2026-10-09T16:53:02Z"
-        },
-        {
-          "title": "Danu Robotics’ fight to build a better recycling robot",
-          "url": "https://techcrunch.com/2026/10/09/danu-robotics-fight-to-build-a-better-recycling-robot/",
-          "snippet": "For six years, Danu founder Amy Ma has been working on a better way to sort recyclable waste.",
-          "published": "2026-10-09T16:45:00Z"
         }
       ]
     },
