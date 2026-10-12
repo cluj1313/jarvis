@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-12T13:25:50.900476Z",
+  "updated": "2026-10-12T21:50:02.617729Z",
   "categories": [
     {
       "id": "ai",
@@ -9,6 +9,18 @@
           "id": "verge",
           "name": "The Verge AI",
           "items": [
+            {
+              "title": "Microsoft’s new AI chip makes it less reliant on Nvidia’s GPUs",
+              "url": "https://www.theverge.com/news/1009465/microsoft-maia-300-chip-improvements-rollout",
+              "snippet": "Microsoft is announcing its third-generation Maia in-house AI chip today, designed to be the \"primary AI inference system\" for Microsoft's products and services. Maia 300 not…",
+              "published": "2026-10-12T13:33:06Z"
+            },
+            {
+              "title": "Meta has some Wonder Full new AI models",
+              "url": "https://www.theverge.com/ai-artificial-intelligence/1009479/meta-muse-wonder-full-ai-model",
+              "snippet": "Meta is making up for lost time in the AI race. After launching Muse Spark, the first model from its revamped Superintelligence Labs division, and buzzy AI agent Muse, it's now…",
+              "published": "2026-10-12T11:13:10Z"
+            },
             {
               "title": "Silicon Valley is falling in line with Trump’s attempt to rename AI",
               "url": "https://www.theverge.com/ai-artificial-intelligence/1009406/silicon-valley-is-falling-in-line-with-trumps-attempt-to-rename-ai",
@@ -26,18 +38,6 @@
               "url": "https://www.theverge.com/ai-artificial-intelligence/1009337/satya-nadella-says-we-should-assume-all-ai-models-are-compromised",
               "snippet": "In a lengthy post on X, Microsoft's CEO laid out his views on the dangers posed by highly advanced AI models and how to confront those risks. Nadella says we can no longer accept…",
               "published": "2026-10-10T22:10:17Z"
-            },
-            {
-              "title": "DistroKid has been quietly taking down songs in response to UMG lawsuit",
-              "url": "https://www.theverge.com/entertainment/1009309/distrokid-take-down-songs-umg-lawsuit",
-              "snippet": "Artists are taking to social media to complain that DistroKid has unceremoniously removed their work without notice. Now DistroKid has confirmed to The Verge that the takedowns…",
-              "published": "2026-10-10T21:23:38Z"
-            },
-            {
-              "title": "Anthropic is cutting off its internal evaluations from the internet",
-              "url": "https://www.theverge.com/ai-artificial-intelligence/1009286/anthropic-is-cutting-off-its-internal-evaluations-from-the-internet",
-              "snippet": "After a recent spate of high-profile incidents in which AI agents escaped containment, Anthropic is cutting off internet access for all internal evaluations. In a report Friday…",
-              "published": "2026-10-10T14:41:16Z"
             }
           ]
         },
@@ -46,34 +46,34 @@
           "name": "TechCrunch AI",
           "items": [
             {
-              "title": "Former Plaud exec raises $26M for AI app that listens to you in the background",
-              "url": "https://techcrunch.com/2026/10/12/former-plaud-exec-raises-26m-for-ai-app-that-listens-to-you-in-the-background/",
-              "snippet": "Ambi is releasing apps for iPhone, Mac, and Apple Watch that enables ambient capture",
-              "published": "2026-10-12T12:47:59Z"
+              "title": "Meta releases its first frontier model, Muse Wonder",
+              "url": "https://techcrunch.com/2026/10/12/meta-releases-its-first-frontier-model-muse-wonder/",
+              "snippet": "Where Muse Spark aimed to be a lightweight model that could perform at low latency, the Wonder models are larger and said to be more capable, with higher benchmark scores and…",
+              "published": "2026-10-12T17:56:56Z"
             },
             {
-              "title": "Will the HomeView be Apple’s first smart home success?",
-              "url": "https://techcrunch.com/2026/10/11/will-the-homeview-be-apples-first-smart-home-success/",
-              "snippet": "Over the past couple of years, we’ve seen multiple reports that Apple was working on a new smart home product, but now it seems the product has a name and a launch date.",
-              "published": "2026-10-11T21:14:40Z"
+              "title": "WindBorne wins a hefty US Air Force contract for its balloon data",
+              "url": "https://techcrunch.com/2026/10/12/windborne-wins-a-hefty-us-air-force-contract-for-its-balloon-data/",
+              "snippet": "A Silicon Valley startup that uses weather balloons and AI to predict the weather won a U.S. military contract worth almost $50 million.",
+              "published": "2026-10-12T17:19:14Z"
             },
             {
-              "title": "48 hours to TechCrunch Disrupt 2026 — hear directly from the people building what’s next",
-              "url": "https://techcrunch.com/2026/10/11/48-hours-to-techcrunch-disrupt-2026-hear-directly-from-the-people-building-whats-next/",
-              "snippet": "Less than 48 hours, TechCrunch Disrupt 2026 starts in San Francisco’s Moscone West. Save up to $100 on your pass before prices increase at the door, plus get 50% on a second…",
-              "published": "2026-10-11T19:00:00Z"
+              "title": "Honeyjar offers AI tools to improve PR and comms at every company",
+              "url": "https://techcrunch.com/2026/10/12/honeyjar-offers-ai-tools-to-improve-pr-and-comms-at-every-company/",
+              "snippet": "Journalists, entrepreneurs, and even some public relations professionals will tell you that the PR process is broken. But could AI actually make things better?",
+              "published": "2026-10-12T15:45:00Z"
             },
             {
-              "title": "Can the AI industry persuade data center opponents by getting rid of NDAs?",
-              "url": "https://techcrunch.com/2026/10/11/can-the-ai-industry-persuade-data-center-opponents-by-getting-rid-of-ndas/",
-              "snippet": "On Equity, we debate the impact of data center moratoriums and whether the AI industry has a communication problem.",
-              "published": "2026-10-11T16:52:33Z"
+              "title": "Microsoft president says UK is best placed to drive AI regulation",
+              "url": "https://techcrunch.com/2026/10/12/microsoft-president-says-uk-is-best-placed-to-drive-ai-regulation/",
+              "snippet": "Microsoft president Brad Smith calls for urgent AI regulation, saying milk and washing machines have more oversight than AI companies.",
+              "published": "2026-10-12T15:31:19Z"
             },
             {
-              "title": "These execs think voice AI hasn’t reached its ChatGPT moment yet",
-              "url": "https://techcrunch.com/2026/10/11/these-execs-think-voice-ai-hasnt-reached-its-chatgpt-moment-yet/",
-              "snippet": "Voice AI's often misses important points for its context layer, and causes the whole pipeline to break",
-              "published": "2026-10-11T14:00:00Z"
+              "title": "This AI startup says it can generate permit-ready blueprints in minutes",
+              "url": "https://techcrunch.com/2026/10/12/this-ai-startup-says-it-can-generate-permit-ready-blueprints-in-minutes/",
+              "snippet": "Blueprints AI, a bootstrapped startup based in Santa Monica, developed software that produces code-compliant construction blueprints from a photo, PDF, or sketch.",
+              "published": "2026-10-12T15:27:59Z"
             }
           ]
         },
@@ -160,34 +160,34 @@
           "name": "Digi24",
           "items": [
             {
-              "title": "Teheranul pregătește răspunsul pentru SUA în disputa privind Strâmtoarea Ormuz. Qatarul și Pakistanul, intermediari în negocieri",
-              "url": "https://www.digi24.ro/stiri/externe/mapamond/teheranul-pregateste-raspunsul-pentru-sua-in-disputa-privind-stramtoarea-ormuz-qatarul-si-pakistanul-intermediari-in-negocieri-3988475",
-              "snippet": "Iranul analizează în continuare răspunsul Statelor Unite la propunerea sa privind redeschiderea Strâmtorii Ormuz și va transmite un punct de vedere prin intermediari după…",
-              "published": "2026-10-12T13:22:49Z"
+              "title": "O declarație AUR privind dreptul României de a-şi proteja interesele în Politica Externă a UE, aprobată de Senat. Reacția Oanei Țoiu",
+              "url": "https://www.digi24.ro/stiri/actualitate/politica/o-declaratie-aur-privind-dreptul-romaniei-de-a-si-proteja-interesele-in-politica-externa-a-ue-aprobata-de-senat-reactia-oanei-toiu-3989293",
+              "snippet": "Senatul a adoptat, luni, o declaraţia privind apărarea dreptului României de a-şi proteja interesele naţionale în cadrul Politicii Externe şi de Securitate Comune a Uniunii…",
+              "published": "2026-10-12T21:02:28Z"
             },
             {
-              "title": "ANRE monitorizează tranzacțiile din energie, pe fondul riscului de scumpire a electricității: Practicile neortodoxe vor fi sancționate",
-              "url": "https://www.digi24.ro/stiri/economie/energie/anre-monitorizeaza-tranzactiile-din-energie-pe-fondul-riscului-de-scumpire-a-electricitatii-practicile-neortodoxe-vor-fi-sanctionate-3988403",
-              "snippet": "Autoritatea Națională de Reglementare în domeniul Energiei (ANRE) monitorizează tranzacțiile și contractele de pe piețele de electricitate și gaze, pe fondul fluctuațiilor de…",
-              "published": "2026-10-12T12:59:44Z"
+              "title": "Ivan nu vede reformele lui Bolojan, dincolo de a da afară 2 şoferi de buldoexcavatoare pe la nişte primării şi 3 ospătari de la Guvern",
+              "url": "https://www.digi24.ro/stiri/actualitate/politica/ivan-nu-vede-reformele-lui-bolojan-in-afara-de-a-da-afara-2-soferi-de-buldoexcavatoare-pe-la-niste-primarii-si-3-ospatari-de-la-guvern-3989289",
+              "snippet": "Prim-vicepreşedintele PSD Bogdan Ivan îl ironizează pe fostul său şef de la Guvern, premierul demis Ilie Bolojan. „Domnul Ilie Bolojan în afară de a da afară doi şoferi de…",
+              "published": "2026-10-12T21:01:26Z"
             },
             {
-              "title": "O zi, în loc de 60. Putin ar accepta oprirea atacurilor asupra Ucrainei doar în ziua alegerilor prezidențiale",
-              "url": "https://www.digi24.ro/stiri/externe/rusia/o-zi-in-loc-de-60-putin-ar-accepta-oprirea-atacurilor-asupra-ucrainei-doar-in-ziua-alegerilor-prezidentiale-3988419",
-              "snippet": "Președintele rus Vladimir Putin ar fi dispus să oprească atacurile asupra Ucrainei doar în ziua desfășurării alegerilor prezidențiale, a anunțat luni purtătorul de cuvânt al…",
-              "published": "2026-10-12T12:50:07Z"
+              "title": "La 71 de ani, Rowan Atkinson își ia adio de la Mr. Bean, printr-o microstagiune de 30 de spectacole",
+              "url": "https://www.digi24.ro/magazin/timp-liber/showbiz/la-71-de-ani-rowan-atkinson-isi-ia-adio-de-la-mr-bean-printr-o-microstagiune-de-30-de-spectacole-3989249",
+              "snippet": "Mr. Bean va reveni pe scenă în 2027, într-o interpretare semnată de Rowan Atkinson, creatorul personajului. La 71 de ani, actorul britanic se pregăteşte să interpreteze din nou…",
+              "published": "2026-10-12T20:47:26Z"
             },
             {
-              "title": "NATO este „gata să lupte, chiar în această seară”, dacă va fi atacată, declară comandantul suprem al forțelor NATO din Europa",
-              "url": "https://www.digi24.ro/stiri/externe/nato-este-gata-sa-lupte-chiar-in-aceasta-seara-daca-va-fi-atacata-declara-comandantul-suprem-al-fortelor-nato-din-europa-3988391",
-              "snippet": "Comandantul suprem al forţelor NATO din Europa, generalul american Alexus Grynkewich, a adresat luni un avertisment Moscovei cu privire la capacitatea Alianţei Atlantice de a…",
-              "published": "2026-10-12T12:44:27Z"
+              "title": "„Un tsunami cu evoluție lentă”: FMI avertizează că AI ar putea afecta 40% dintre locurile de muncă la nivel mondial",
+              "url": "https://www.digi24.ro/stiri/sci-tech/un-tsunami-cu-evolutie-lenta-fmi-avertizeaza-ca-ai-ar-putea-afecta-40-dintre-locurile-de-munca-la-nivel-mondial-3989271",
+              "snippet": "Investițiile masive în infrastructura pentru inteligența artificială (AI) mențin creșterea economiei mondiale în jurul valorii de 3% și aduc beneficii importante economiilor…",
+              "published": "2026-10-12T20:46:58Z"
             },
             {
-              "title": "Luca Niculescu propune un acord pe 6 luni cu partidele, pentru „obiective esențiale”. Ce a spus după discuțiile de la sediul USR",
-              "url": "https://www.digi24.ro/stiri/actualitate/politica/negocieri-cruciale-pentru-formarea-noului-guvern-luca-niculescu-continua-astazi-discutiile-cu-partidele-parlamentare-3986921",
-              "snippet": "Luca Niculescu, premierul desemnat, are programate astăzi noi consultări cu reprezentanţii partidelor parlamentare pentru formarea viitorului Guvern. El propune un acord politic…",
-              "published": "2026-10-12T12:44:09Z"
+              "title": "Uraganul Simon provoacă inundații în Mexic. Autoritățile avertizează asupra riscului de alunecări de teren",
+              "url": "https://www.digi24.ro/stiri/sci-tech/natura-si-mediu/uraganul-simon-provoaca-inundatii-in-mexic-autoritatile-avertizeaza-asupra-riscului-de-alunecari-de-teren-3989239",
+              "snippet": "Uraganul Simon şi-a continuat luni deplasarea spre nord-vest, în largul coastei pacifice a Mexicului, lovind statele vestice cu vânturi periculoase, ploi abundente şi inundaţii…",
+              "published": "2026-10-12T20:38:31Z"
             }
           ]
         },
@@ -196,34 +196,34 @@
           "name": "HotNews",
           "items": [
             {
-              "title": "[P] Oase puternice până la 20 de ani: ce contează cu adevărat în copilărie",
-              "url": "https://hotnews.ro/p-oase-puternice-pana-la-20-de-ani-ce-conteaza-cu-adevarat-in-copilarie-2373860",
-              "snippet": "În ortopedia pediatrică există o imagine pe care o folosesc des când explic părinților de ce insist pe lucruri aparent banale: osul funcționează ca un cont de economii…",
-              "published": "2026-10-12T13:22:33Z"
+              "title": "Noaptea în care frigiderele supermarketurilor din Franța s-au încălzit la 50 de grade Celsius. Tone de alimente, aruncate",
+              "url": "https://hotnews.ro/noaptea-in-care-frigiderele-supermarketurilor-din-franta-s-au-incalzit-la-50-de-grade-celsius-tone-de-alimente-aruncate-2374254",
+              "snippet": "Hackerii au ridicat temperatura frigiderelor și congelatoarelor din sute de supermarketuri franceze până la 50 de grade Celsius (122 de grade Fahrenheit), în timpul nopții de 11…",
+              "published": "2026-10-12T21:15:10Z"
             },
             {
-              "title": "Îmbătrânirea, tratată ca o boală. Ce au demonstrat studiile și ce promit clinicile longevității",
-              "url": "https://hotnews.ro/imbatranirea-tratata-ca-o-boala-ce-au-demonstrat-studiile-si-ce-promit-clinicile-longevitatii-2373834",
-              "snippet": "Înaintarea în vârstă este unul dintre cei mai importanți factori de risc pentru numeroase boli cronice, de la afecțiunile cardiovasculare la cancer și demență. Pornind de la…",
-              "published": "2026-10-12T13:19:42Z"
+              "title": "Cum au explicat emisarii americani Ucrainei acordul anunțat de Trump cu privire la motorina rusească. Detalii din întâlnirea de la Miami",
+              "url": "https://hotnews.ro/cum-au-explicat-emisarii-americani-ucrainei-acordul-anuntat-de-trump-cu-privire-la-motorina-ruseasca-detalii-din-intalnirea-de-la-miami-2374247",
+              "snippet": "Emisarii SUA le-au spus oficialilor ucraineni că acordul care permite exporturile de motorină rusească face parte dintr-o încercare de a readuce Moscova la negocieri pentru…",
+              "published": "2026-10-12T21:03:17Z"
             },
             {
-              "title": "Grupul din Parlament care a anunțat că îl susține pe Luca Niculescu: „Avem un candidat cu șanse reale de a face o treabă foarte bună”",
-              "url": "https://hotnews.ro/grupul-din-parlament-care-a-anuntat-ca-il-sustine-pe-luca-niculescu-avem-un-candidat-cu-sanse-reale-de-a-face-o-treaba-foarte-buna-2373846",
-              "snippet": "Grupul minorităților naționale îl va susține pe premierul desemnat Luca Niculescu la votul de învestire din Parlament, conform anunțului făcut luni de liderul grupului, Varujan…",
-              "published": "2026-10-12T13:17:01Z"
+              "title": "RJ Mitte, unul dintre starurile din „Breaking Bad”, a murit la 34 de ani",
+              "url": "https://hotnews.ro/rj-mitte-unul-dintre-starurile-din-breaking-bad-a-murit-la-34-de-ani-2374250",
+              "snippet": "RJ Mitte, care a jucat rolul lui Walter White Jr. în popularul serial „Breaking Bad”, s-a stins din viață la vârsta de 34 de ani, luni, în Brownsville, Texas, potrivit…",
+              "published": "2026-10-12T20:51:43Z"
             },
             {
-              "title": "Băieții sunt buni la mate, fetele la română. Da sau nu? Profesorul Radu Gologan explică de ce „foarte multe dintre fete pierd startul”",
-              "url": "https://hotnews.ro/baietii-sunt-buni-la-mate-fetele-la-romana-da-sau-nu-profesorul-radu-gologan-explica-de-ce-foarte-multe-dintre-fete-pierd-startul-2373831",
-              "snippet": "O fată care lucrează mai mult la matematică este mai puțin talentată sau mai perseverentă? Un băiat care răspunde primul a înțeles mai bine problema sau a avut mai mult curaj să…",
-              "published": "2026-10-12T13:04:28Z"
+              "title": "Macron anunţă reţinerea unui petrolier al flotei-fantomă a Rusiei și publică imagini cu soldații francezi coborând din elicopter pe vas",
+              "url": "https://hotnews.ro/macron-anunta-retinerea-unui-petrolier-al-flotei-fantoma-a-rusiei-si-publica-imagini-cu-soldatii-francezi-coborand-din-elicopter-pe-vas-2374231",
+              "snippet": "Preşedintele Franţei, Emmanuel Macron, a anunţat luni reţinerea petrolierului „DF Peak” în largul insulei Réunion, un vas „implicat în activităţi ilegale de transport de…",
+              "published": "2026-10-12T20:35:34Z"
             },
             {
-              "title": "Șeful serviciului de informații din Cehia avertizează că Rusia poate viza state NATO care sprijină Ucraina. Ce scenarii sunt luate în calcul",
-              "url": "https://hotnews.ro/seful-serviciului-de-informatii-din-cehia-avertizeaza-ca-rusia-poate-viza-state-nato-care-sprijina-ucraina-ce-scenarii-sunt-luate-in-calcul-2373808",
-              "snippet": "Rusia poate recurge, în următoarele luni, la operațiuni mai riscante și de amploare mai mare împotriva statelor membre NATO care sprijină Ucraina, a declarat luni șeful…",
-              "published": "2026-10-12T12:32:32Z"
+              "title": "Un lider UDMR vede o singură soluție pentru „o majoritate stabilă”",
+              "url": "https://hotnews.ro/un-lider-udmr-vede-o-singura-solutie-pentru-o-majoritate-stabila-altfel-nu-facem-altceva-decat-pasam-puterea-politica-viitoare-extremistilor-2374227",
+              "snippet": "Liderul senatorilor UDMR, Lorand Turos, a declarat că este necesară „o înțelegere politică între PNL și PSD” pentru formarea unui „guvern stabil, cu puteri depline și care nu…",
+              "published": "2026-10-12T20:09:23Z"
             }
           ]
         },
@@ -232,34 +232,34 @@
           "name": "G4Media",
           "items": [
             {
-              "title": "Liderul partidului naţionalist britanic Reform UK, Nigel Farage, doreşte „să abolească” sistemul de azil dacă va ajunge la putere",
-              "url": "https://www.g4media.ro/liderul-partidului-nationalist-britanic-reform-uk-nigel-farage-doreste-sa-aboleasca-sistemul-de-azil-daca-va-ajunge-la-putere.html",
-              "snippet": "Liderul partidului naţionalist britanic Reform UK, Nigel Farage, a declarat luni că va aboli sistemul de azil dacă va ajunge la putere, o politică care va duce la anularea…",
-              "published": "2026-10-12T13:12:50Z"
+              "title": "O femeie de 25 de ani și fiul ei de 3 ani, dispăruți în Cluj / Poliția cere ajutorul populației",
+              "url": "https://www.g4media.ro/o-femeie-de-25-de-ani-si-fiul-ei-de-3-ani-disparuti-in-cluj-politia-cere-ajutorul-populatiei.html",
+              "snippet": "O femeie de 25 de ani din Cluj este căutată de polițiști după ce a plecat de acasă împreună cu fiul ei de 3 ani și nu s-a mai întors. Autoritățile cer ajutorul populației pentru…",
+              "published": "2026-10-12T20:49:13Z"
             },
             {
-              "title": "Şeful Stellantis cere stimulente mai puternice pentru producătorii auto care construiesc în Europa, în contextul intensificării concurenţei din China",
-              "url": "https://www.g4media.ro/seful-stellantis-cere-stimulente-mai-puternice-pentru-producatorii-auto-care-construiesc-in-europa-in-contextul-intensificarii-concurentei-din-china.html",
-              "snippet": "Şeful Stellantis, Antonio Filosa, a cerut autorităţilor europene de reglementare să ofere stimulente mai puternice pentru producătorii auto care fabrică vehicule în regiune, în…",
-              "published": "2026-10-12T13:10:44Z"
+              "title": "Schimbări în clasamentul Superligii României: Rapid revine pe locul al doilea, Farul Constanța urcă în play-off / FCSB și CFR Cluj, încă în play-out",
+              "url": "https://www.g4media.ro/schimbari-in-clasamentul-superligii-romaniei-dupa-etapa-a-11-a-rapid-revine-pe-locul-al-doilea-farul-constanta-urca-in-play-off-fcsb-si-cfr-cluj-inca-in-play-out.html",
+              "snippet": "Etapa a 11-a din Superliga României s-a încheiat luni seară cu victoria spectaculoasă a Rapidului pe terenul celor de la „U” Cluj, iar ierarhia a avut parte de schimbări…",
+              "published": "2026-10-12T20:40:55Z"
             },
             {
-              "title": "Siegfried Mureșan: Cele patru grupuri proeuropene din Parlamentul European resping propunerea pentru viitorul buget al Uniunii înaintată de Președinția irlandeză a UE",
-              "url": "https://www.g4media.ro/siegfried-muresan-cele-patru-grupuri-proeuropene-din-parlamentul-european-resping-propunerea-pentru-viitorul-buget-al-uniunii-inaintata-de-presedintia-irlandeza-a-ue.html",
-              "snippet": "Siegfried Mureșan, negociatorul-șef al Parlamentului European, a anunțat, luni, că cele patru grupuri proeuropene din Parlamentul European – PPE, S&D, Renew și Verzii – resping…",
-              "published": "2026-10-12T13:06:43Z"
+              "title": "Actrița Selma Blair, arestată după ce a făcut scandal la bordul unui avion. FBI a deschis o anchetă",
+              "url": "https://www.g4media.ro/actrita-selma-blair-arestata-dupa-ce-a-facut-scandal-la-bordul-unui-avion-fbi-a-deschis-o-ancheta.html",
+              "snippet": "Actrița americană Selma Blair a fost luată în custodie de autorități după un incident produs la bordul unui avion care zbura de la Los Angeles la New York. Autoritățile susțin că…",
+              "published": "2026-10-12T20:26:42Z"
             },
             {
-              "title": "Daily Express: Grupare de români, acuzată că face parte dintr-o rețea care îi taxează exorbitant pe turiștii din Londra",
-              "url": "https://www.g4media.ro/daily-express-grupare-de-romani-acuzata-ca-face-parte-dintr-o-retea-care-ii-taxeaza-exorbitant-pe-turistii-din-londra.html",
-              "snippet": "O grupare formată din români ar controla o parte din activitatea ricșelor turistice din zona Westminster Bridge și ar practica tarife extrem de ridicate, susține o investigație…",
-              "published": "2026-10-12T13:04:12Z"
+              "title": "Luca Niculescu, după ce PNL a anunțat că nu intră la guvernare cu PSD: Se poate și un guvern hibrid, și un guvern tehnocrat cu un acord între partide – să existe câteva mize pe care se înțeleg",
+              "url": "https://www.g4media.ro/luca-niculescu-dupa-ce-pnl-a-anuntat-ca-nu-intra-in-guvernare-cu-psd-se-poate-si-un-guvern-hibrid-si-un-guvern-tehnocrat-cu-un-acord-intre-partide-sa-existe-cateva-mize-pe-care-se-inteleg.html",
+              "snippet": "Premierul desemnat, Luca Niculescu, are termen până joi să prezinte programul de guvernare și Cabinetul de miniștri, în contextul în care principalele partide PNL și PSD arată că…",
+              "published": "2026-10-12T20:21:35Z"
             },
             {
-              "title": "Comandantul suprem al NATO avertizează Rusia: Un atac asupra Alianței ar fi „complet inutil” / „Dacă cineva este suficient de nesăbuit încât să ne atace, vom lupta”",
-              "url": "https://www.g4media.ro/comandantul-suprem-al-nato-avertizeaza-rusia-un-atac-asupra-aliantei-ar-fi-complet-inutil-daca-cineva-este-suficient-de-nesabuit-incat-sa-ne-atace-vom-lupta.html",
-              "snippet": "Comandantul suprem al forțelor aliate ale NATO în Europa, generalul american Alexus Grynkewich, a avertizat luni Rusia că Alianța ar distruge toate forțele implicate într-un…",
-              "published": "2026-10-12T12:55:55Z"
+              "title": "Meciul etapei în Superliga României: Rapid, victorie spectaculoasă cu „U” Cluj, scor 4-3",
+              "url": "https://www.g4media.ro/meciul-etapei-in-superliga-romaniei-rapid-victorie-spectaculoasa-cu-u-cluj-scor-4-3.html",
+              "snippet": "Rapid București și „U” Cluj au adus meciul etapei a 11-a în Superliga României: Giuleștenii s-au impus cu un spectaculos 4-3 în fața „șepcilor roșii” pe Cluj Arena, luni seară…",
+              "published": "2026-10-12T19:59:29Z"
             }
           ]
         }
@@ -274,34 +274,34 @@
           "name": "Ziarul Financiar",
           "items": [
             {
-              "title": "Radu Savopol, 5 to go: Modelul de franciză a fost cea mai bună decizie de business. Nu aveam resursele financiare pentru a deschide singuri peste 800 de locaţii",
-              "url": "https://www.zf.ro/banci-si-asigurari/radu-savopol-5-to-go-modelul-de-franciza-a-fost-cea-mai-buna-decizie-de-business-nu-aveam-resursele-financiare-pentru-a-deschide-singuri-peste-800-de-locatii-23258214",
+              "title": "Şi iată că e-commerce-ul nu e pentru toată lumea. Eşec în online: Mega Image a închis depozitul dedicat magazinului online, pe care îl inaugurase în 2021, după separarea de eMAG",
+              "url": "https://www.zf.ro/companii/si-iata-ca-e-commerce-ul-nu-e-pentru-toata-lumea-esec-in-online-mega-image-a-inchis-depozitul-dedicat-magazinului-online-pe-care-il-inaugurase-in-2021-dupa-separarea-de-emag-23258427",
               "snippet": "",
-              "published": "2026-10-12T13:13:06Z"
+              "published": "2026-10-12T21:08:00Z"
             },
             {
-              "title": "Studiu Raiffeisen Bank: 9 din 10 români nu au o strategie clară de investiţii. „Rezultatele studiului arată o schimbare importantă de comportament: românii cu venituri ridicate sunt tot mai interesaţi să îşi pună banii la lucru, nu doar să îi păstreze”",
-              "url": "https://www.zf.ro/zf-24/studiu-raiffeisen-bank-9-10-romani-au-strategie-clara-investitii-rezultatele-studiului-arata-schimbare-importanta-comportament-romanii-venituri-ridicate-tot-interesati-isi-puna-banii-lucru-ii-23258194",
-              "snippet": "",
-              "published": "2026-10-12T12:56:58Z"
+              "title": "ZF Agropower. Producătorii de vin se bucură de recolte bogate, dar consumul în scădere nu îi ajută. „Este un an extraordinar de bun, însă piaţa este dificilă. Trebuie să ne reinventăm“. În România sunt circa 300 de firme care produc vin din struguri, dar zece dintre ele ţin în mâini aproape întreaga industrie, adică generează peste 90% din cifra de afaceri",
+              "url": "https://www.zf.ro/zf-agropower/zf-agropower-producatorii-vin-bucura-recolte-bogate-consumul-scadere-ii-ajuta-an-extraordinar-bun-insa-piata-dificila-ne-reinventam-romania-circa-300-firme-produc-vin-struguri-zece-dintre-tin-maini-23258272",
+              "snippet": "Anul 2026 este unul foarte bun pentru recolta de struguri, iar producătorii de vin se aşteaptă la o producţie semnificativă, deşi piaţa este afectată de scăderea consumului. O…",
+              "published": "2026-10-12T21:07:00Z"
             },
             {
-              "title": "ZF DESCHIDEREA DE ASTĂZI. Cum va merge bursa. Urmăriţi o discuţie marţi, 13 octombrie 2026, ora 09.30 cu ​Robert Burlan, director de investiţii, Raiffeisen Asset Management",
-              "url": "https://www.zf.ro/burse-fonduri-mutuale/zf-deschiderea-de-astazi-cum-va-merge-bursa-urmariti-o-discutie-marti-13-octombrie-2026-ora-09-30-cu-robert-burlan-director-de-investitii-raiffeisen-asset-management-23258177",
-              "snippet": "",
-              "published": "2026-10-12T12:31:30Z"
+              "title": "Un avertisment care trebuie luat în seamă: Pe jumătate goale. Gradul de umplere a lacurilor de acumulare este la 51% la început de octombrie, cel mai scăzut nivel pentru această dată din 2018. Cernavodă e oprită, energia hidro e din ce în ce mai afectată",
+              "url": "https://www.zf.ro/companii/energie/avertisment-luat-seama-jumatate-goale-gradul-umplere-lacurilor-acumulare-51-inceput-octombrie-cel-scazut-nivel-aceasta-data-2018-cernavoda-e-oprita-energia-hidro-e-afectata-23258367",
+              "snippet": "Pe 12 octombrie anul trecut, gradul de umplere a lacurilor de acumulare era de 80%, acum a ajuns la 51%, iar efectele secetei se văd zilnic în modul de funcţionare a sistemului…",
+              "published": "2026-10-12T21:07:00Z"
             },
             {
-              "title": "Emisiunea ZF Generaţia Pilon 2: Cristian Pascu, APAPR: Pilonul 2 este un pilon în care banii se moştenesc. Unităţile de fond produc în continuare până când beneficiarii depun documentaţia pentru retragere",
-              "url": "https://www.zf.ro/zf-generatia-pilon-ii/emisiunea-zf-generatia-pilon-2-cristian-pascu-apapr-pilonul-2-pilon-banii-mostenesc-unitatile-fond-produc-continuare-pana-beneficiarii-depun-documentatia-retragere-23258173",
-              "snippet": "",
-              "published": "2026-10-12T12:21:15Z"
+              "title": "KRUK Summit of Now. Educaţia financiară şi digitalizarea încep să se vadă în creşterea şi diversificarea economiilor şi investiţiilor românilor, dar lipsa planificării îi lasă încă vulnerabili la şocuri. Românii oscilează între prudenţă excesivă şi asumarea unor riscuri financiare pe care nu le înţeleg suficient",
+              "url": "https://www.zf.ro/kruk-summit-of-now/kruk-summit-of-now-educatia-financiara-digitalizarea-incep-vada-cresterea-diversificarea-economiilor-investitiilor-romanilor-lipsa-planificarii-ii-lasa-vulnerabili-socuri-romanii-oscileaza-intre-23258372",
+              "snippet": "Românii au trecut în ultimii 20-30 de ani printr-un proces accelerat de educaţie financiară, care se vede şi în numărul celor care iau credite, economisesc şi fac investiţii, dar…",
+              "published": "2026-10-12T21:07:00Z"
             },
             {
-              "title": "OMV Petrom redevine luni după-amiază cea mai valoroasă companie a Bursei de Valori, cu 77,8 mld. lei, pe fondul scumpirii petrolului. Hidroelectrica, lider din februarie, trece pe locul doi",
-              "url": "https://www.zf.ro/burse-fonduri-mutuale/omv-petrom-redevine-luni-dupa-amiaza-cea-mai-valoroasa-companie-a-bursei-de-valori-cu-77-8-mld-lei-pe-fondul-scumpirii-petrolului-hidroelectrica-lider-din-februarie-trece-pe-locul-doi-23258169",
-              "snippet": "",
-              "published": "2026-10-12T12:10:46Z"
+              "title": "Care sunt factorii de creştere pentru companiile unora dintre cei mai cunoscuţi antreprenori de la Bursa de Valori",
+              "url": "https://www.zf.ro/burse-fonduri-mutuale/care-sunt-factorii-de-crestere-pentru-companiile-unora-dintre-cei-mai-cunoscuti-antreprenori-de-la-bursa-de-valori-23258413",
+              "snippet": "Achiziţiile, investiţiile în capacităţi de producţie şi chiriile sunt principalele surse de creştere pentru Electroalfa, AROBS, Agroland, Novere şi Star Invest, în timp ce…",
+              "published": "2026-10-12T21:07:00Z"
             }
           ]
         },
@@ -310,34 +310,34 @@
           "name": "Economica.net",
           "items": [
             {
-              "title": "Cu cât sunt mai mari preţurile de consum faţă de media anului 2017 – date INS august 2026",
-              "url": "https://www.economica.net/cu-cat-sunt-mai-mari-preturile-de-consum-fata-de-media-anului-2017-date-ins-august-2026_984789.html",
-              "snippet": "Preţurile de consum din România au fost, în august 2026, de 1,8 ori mai mari decât media anului 2017, cele mai importante scumpiri fiind înregistrate la energia electrică…",
-              "published": "2026-10-12T13:11:11Z"
+              "title": "Fabrice Cambolive, Renault Group: Așteptările mele în ceea ce privește România nu se referă doar la fabrică, ci și la piață",
+              "url": "https://www.economica.net/fabrice-cambolive-renault-group-asteptarile-mele-in-ceea-ce-priveste-romania-nu-se-refera-doar-la-fabrica-ci-si-la-piata_984893.html",
+              "snippet": "Fabrice Cambolive, Chief Growth Officer al grupului Renault, din care face parte și Dacia, și CEO al mărcii franceze, consideră că atât uzina din Mioveni, cât și piața auto…",
+              "published": "2026-10-12T19:44:29Z"
             },
             {
-              "title": "Şansele României să devină o super-putere energetică – Ce spune şeful BRM despre reliberalizarea preţurilor la gaze, reluarea programului „gas release” şi gazele din Marea Neagră",
-              "url": "https://www.economica.net/sansele-romaniei-sa-devina-o-super-putere-energetica-ce-spune-seful-brm-despre-reliberalizarea-preturilor-la-gaze-reluarea-programului-gas-release-si-gazele-din-marea-neagra_984785.html",
-              "snippet": "Reliberalizarea pieţei de gaze, reluarea programului de tipul ''gas release'' şi extragerea gazelor din Marea Neagră ar putea fi şansa Românie de a deveni o piaţă reprezentativă…",
-              "published": "2026-10-12T13:04:40Z"
+              "title": "Paradoxul României într-un nou raport internațional: infrastructura digitală este cea mai bună din regiune, rezultatele sunt cele mai slabe. Bulgaria și Serbia trec în fața României la digitalizare",
+              "url": "https://www.economica.net/paradoxul-romaniei-intr-un-nou-raport-international-infrastructura-digitala-este-cea-mai-buna-din-regiune-rezultatele-sunt-cele-mai-slabe-bulgaria-si-serbia-trec-in-fata-romaniei-la-digitalizare_983246.html",
+              "snippet": "România are cele mai bune premise pentru digitalizare în Europa de Sud-Est, dar obține cele mai slabe rezultate în transformarea acestei infrastructuri în beneficii concrete…",
+              "published": "2026-10-12T19:40:19Z"
             },
             {
-              "title": "Anunţ de la Mastercard. Plăţile offline vor fi introduse în România din 2027",
-              "url": "https://www.economica.net/anunt-de-la-mastercard-platile-offline-vor-fi-introduse-in-romania-din-2027_984782.html",
-              "snippet": "Toate cardurile Mastercard nou-emise în Europa vor permite efectuarea plăţilor offline începând din februarie 2027, iar din luna mai a aceluiaşi an toate terminalele de plată noi…",
-              "published": "2026-10-12T13:00:15Z"
+              "title": "PREMIERĂ Statul nu mai este fără concurență la FIDELIS și Tezaur. Metoda prin care iei de la bancă dobânzi cât cele de la titluri – Calcule concrete",
+              "url": "https://www.economica.net/premiera-statul-nu-mai-este-fara-concurenta-la-fidelis-si-tezaur-metoda-prin-care-iei-de-la-banca-dobanzi-cat-cele-de-la-titluri-calcule-concrete_984801.html",
+              "snippet": "Statul nu mai este fără concurență în lupta pentru banii românilor care vor să economisească printr-o metodă sigură, cu venit fix. Mai exact, randamentele oferite la achiziția de…",
+              "published": "2026-10-12T19:37:10Z"
             },
             {
-              "title": "Fabrica VAT România de la Arad se extinde. Numărul angajaților a crescut cu 50%, iar recrutările continuă și în 2027",
-              "url": "https://www.economica.net/fabrica-vat-romania-de-la-arad-se-extinde-numarul-angajatilor-a-crescut-cu-50-iar-recrutarile-continua-si-in-2027_984731.html",
-              "snippet": "Fabrica VAT România de la Arad, subsidiară a grupului elvețian VAT Group, care produce componente și produse destinate industriei semiconductorilor, precum și industriilor…",
-              "published": "2026-10-12T12:48:27Z"
+              "title": "Avertisment pentru producătorii români de cosmetice. Vânzările K-Beauty cresc cu peste 10% anual în marile lanțuri de hypermarketuri. Studiu de caz Kaufland",
+              "url": "https://www.economica.net/avertisment-pentru-producatorii-romani-de-cosmetice-vanzarile-k-beauty-cresc-cu-peste-10-anual-in-marile-lanturi-de-hypermarketuri-studiu-de-caz-kaufland_984226.html",
+              "snippet": "Produsele coreene de înfrumusețase au devenit vârful de lance al categoriei în marile lanțuri de hypermarketuri. Unele studii spun că 40% dintre femeile din generația Z…",
+              "published": "2026-10-12T19:31:29Z"
             },
             {
-              "title": "Românii de la GapMinder investesc 3,4 milioane de dolari într-un startup de AI pentru jocuri video",
-              "url": "https://www.economica.net/romanii-de-la-gapminder-investesc-34-milioane-de-dolari-intr-un-startup-de-ai-pentru-jocuri-video_984778.html",
-              "snippet": "GapMinder, fond de venture capital axat pe startup-uri de tehnologie din România și Europa de Est, conduce o investiție de 3,4 milioane de dolari în VoicePatrol, alături de…",
-              "published": "2026-10-12T12:46:50Z"
+              "title": "Excepţia naşte monştri. Top venituri din drepturi de autor: de la 25 de milioane de lei, la peste 5 milioane de lei în 2025. NU s-a datorat CAS pentru majoritatea. CASS s-a plătit plafonat EXCLUSIV",
+              "url": "https://www.economica.net/exceptia-naste-monstri-top-venituri-din-drepturi-de-autor-de-la-25-de-milioane-de-lei-la-peste-5-milioane-lei-in-2025-nu-s-a-datorat-cas-pentru-majoritatea-cass-s-a-platit-plafonat-exclu_983151.html",
+              "snippet": "Cel mai mare venit net din drepturi de autor, încasat de o persoană fizică în 2025, e de 25 de milioane de lei pe an, adică, în medie, peste 2 milioane de lei net pe lună. Nu s-a…",
+              "published": "2026-10-12T19:19:41Z"
             }
           ]
         }
@@ -388,33 +388,33 @@
           "name": "Go4IT",
           "items": [
             {
-              "title": "Criza memoriilor lovește puternic piața telefoanelor. Samsung și Apple rezistă, în timp ce Xiaomi pierde peste 30% din livrări",
-              "url": "https://www.go4it.ro/content/telefoane-mobile/criza-memoriilor-loveste-puternic-piata-smartphone-samsung-si-apple-rezista-in-timp-ce-xiaomi-pierde-peste-30-din-livrari-19287605/",
-              "snippet": "Piața smartphone-urilor a înregistrat o scădere puternică în trimestrul al treilea din 2026. Livrările au coborât cu 20% față de aceeași perioadă a anului trecut, până la cel mai…",
+              "title": "Cererea pentru iPhone 18 Pro depășește așteptările, dar Apple ar putea vinde cu 2% mai puțin. Ce se întâmplă cu noua generație",
+              "url": "https://www.go4it.ro/content/telefoane-mobile/cererea-pentru-iphone-18-pro-depaseste-asteptarile-dar-apple-ar-putea-vinde-cu-2-mai-putin-ce-se-intampla-cu-noua-generatie-19287661/",
+              "snippet": "Vânzările modelelor iPhone 18 Pro sunt ușor peste cele înregistrate de generația precedentă în aceeași perioadă, potrivit analiștilor JPMorgan. Informația vine în contextul unor…",
               "published": null
             },
             {
-              "title": "Hackerii ar fi provocat o „caniculă” în frigiderele supermarketurilor. Magazine din mai multe țări europene, afectate de un atac cibernetic",
-              "url": "https://www.go4it.ro/securitate-informatica/hackerii-ar-fi-provocat-o-canicula-in-frigiderele-supermarketuri-magazine-19287603/",
-              "snippet": "Un atac cibernetic a perturbat activitatea mai multor lanțuri de supermarketuri din Europa, după ce a afectat sistemele de refrigerare, livrările și afișarea prețurilor la raft…",
+              "title": "Starlink a avut un incendiu la o stație din Polonia. Au fost reținuți doi cetățeni turci în Germania",
+              "url": "https://www.go4it.ro/content/telecomunicatii/starlink-a-avut-un-incendiu-la-o-statie-din-polonia-au-fost-retinuti-doi-cetateni-turci-in-germania-19287658/",
+              "snippet": "O stație Starlink din Polonia a avut parte de un incendiu, iar doi cetățeni turci au fost reținuți în Germania din cauza incidentului. Varșovia spune că atacul a fost comandat de…",
               "published": null
             },
             {
-              "title": "Laptopurile cu Snapdragon ar putea deveni mai scumpe. Qualcomm majorează prețurile într-un moment prost pentru producători",
-              "url": "https://www.go4it.ro/content/componente-pc/laptopurile-cu-snapdragon-ar-putea-deveni-mai-scumpe-qualcomm-majoreaza-preturile-intr-un-moment-prost-pentru-producatori-19287601/",
-              "snippet": "Laptopurile cu procesoare Qualcomm s-ar putea scumpi după ce compania ar fi majorat cu aproximativ 10% prețurile procesoarelor Snapdragon X și Snapdragon X2 destinate…",
+              "title": "Criza memoriilor se adâncește: prețurile DDR4 au crescut cu 24% în trei luni, iar problemele de aprovizionare ar putea continua până în 2028",
+              "url": "https://www.go4it.ro/content/componente-pc/criza-memoriilor-se-adanceste-preturile-ddr4-au-crescut-cu-24-in-trei-luni-iar-problemele-de-aprovizionare-ar-putea-continua-pana-in-2028-19287654/",
+              "snippet": "Prețurile memoriilor continuă să crească, iar scumpirile nu mai ocolesc nici generațiile mai vechi. În intervalul august – octombrie 2026, prețurile contractuale pentru cipurile…",
               "published": null
             },
             {
-              "title": "De ce au devenit datele atât de importante în esports (P)",
-              "url": "https://www.go4it.ro/content/advertorial/de-ce-au-devenit-datele-atat-de-importante-in-esports-19287598/",
-              "snippet": "Când urmărești un meci de League of Legends, vrei să înțelegi de ce o echipă domină sau cum a reușit adversara să revină. Aceleași întrebări apar și când te interesează pariuri…",
+              "title": "Lenovo a lansat la nivel internațional noul PC ThinkCentre, dotat cu 2,5 GbE și 32 GB RAM",
+              "url": "https://www.go4it.ro/content/pc/lenovo-a-lansat-la-nivel-international-thinkcentre-m75t-19287647/",
+              "snippet": "Lenovo a lansat un nou PC desktop pe piața internațională. Modelul ThinkCentre M75t Gen 6, parte a seriei ThinkCentre, îmbină procesoarele moderne AMD Ryzen cu numeroase opțiuni…",
               "published": null
             },
             {
-              "title": "Microsoft vrea să schimbe Windows 11, dar admite că nu poate mulțumi pe toată lumea. Ce se întâmplă cu meniul Start",
-              "url": "https://www.go4it.ro/content/software/microsoft-vrea-sa-schimbe-windows-11-dar-admite-ca-nu-poate-multumi-pe-toata-lumea-ce-se-intampla-cu-meniul-start-19287594/",
-              "snippet": "Microsoft pregătește o serie de schimbări pentru Windows 11, cu accent pe modernizarea interfeței și pe mai multe opțiuni de personalizare. Diego Baca, vicepreședintele…",
+              "title": "Hackerii folosesc tot mai des inteligența artificială pentru fraude online. O metodă de phishing a explodat cu 1.380%",
+              "url": "https://www.go4it.ro/securitate-informatica/hackerii-folosesc-tot-mai-des-inteligenta-artificiala-pentru-fraude-online-o-metoda-de-phishing-a-explodat-cu-1-380-19287645/",
+              "snippet": "Numărul atacurilor cibernetice continuă să crească, iar vulnerabilitățile neactualizate au devenit una dintre principalele căi prin care infractorii pătrund în sisteme, conform…",
               "published": null
             }
           ]
@@ -424,34 +424,34 @@
           "name": "The Verge",
           "items": [
             {
-              "title": "The OnePlus 16 is the company’s most interesting phone in years",
-              "url": "https://www.theverge.com/tech/1009570/oneplus-16-specs-features-china",
-              "snippet": "Today the OnePlus 16 launched in China, the company's first flagship phone since quitting both the US and European markets this summer. As luck would have it, it also looks like…",
-              "published": "2026-10-12T13:13:53Z"
+              "title": "Elon Musk has donated over $276 million to Republican midterm efforts",
+              "url": "https://www.theverge.com/tech/1009604/elon-musk-2026-midterm-republican-donations",
+              "snippet": "Elon Musk has handed out at least $276 million to Republican groups since July, The New York Times reports, making him both the party's top known donor and the biggest…",
+              "published": "2026-10-12T16:52:54Z"
             },
             {
-              "title": "How Apple can win the smart home",
-              "url": "https://www.theverge.com/tech/1009324/how-apple-can-win-the-smart-home",
-              "snippet": "This week, Apple is hosting its first-ever dedicated smart home event. While the company hasn't shared details about what it will reveal at the \"Welcome Home experience\" in New…",
-              "published": "2026-10-12T11:42:06Z"
+              "title": "The Yandex outage probably didn’t blitz Russian bots",
+              "url": "https://www.theverge.com/tech/1009594/russian-bots-yandex-outage-drone-strikes-debunk",
+              "snippet": "Multiple Ukrainian drone strikes over the last week have taken Russian data centers offline and reportedly caused online bot traffic to plummet - but in reality it's probably not…",
+              "published": "2026-10-12T15:43:07Z"
+            },
+            {
+              "title": "Android is the best and worst thing about Googlebooks",
+              "url": "https://www.theverge.com/tech/1008750/googlebooks-android-best-worst-notifications-app-cast-file-sharing",
+              "snippet": "My first week with the new Android-powered laptops has been about as rocky as anyone's, but I've slowly learned to like them, even if love still feels a ways off. Every moment…",
+              "published": "2026-10-12T15:04:23Z"
             },
             {
               "title": "Microsoft’s new AI chip makes it less reliant on Nvidia’s GPUs",
               "url": "https://www.theverge.com/news/1009465/microsoft-maia-300-chip-improvements-rollout",
               "snippet": "Microsoft is announcing its third-generation Maia in-house AI chip today, designed to be the \"primary AI inference system\" for Microsoft's products and services. Maia 300 not…",
-              "published": "2026-10-12T10:56:42Z"
+              "published": "2026-10-12T13:33:06Z"
             },
             {
-              "title": "A college in Illinois tried to cancel its Flock contact and it refused",
-              "url": "https://www.theverge.com/tech/1009411/elgin-community-college-flock-safety-cameras",
-              "snippet": "In April of 2025, Elgin Community College had six Flock safety cameras installed to \"enhance the safety and security of students.\" But by September of that year, the school's…",
-              "published": "2026-10-11T21:08:43Z"
-            },
-            {
-              "title": "Silicon Valley is falling in line with Trump’s attempt to rename AI",
-              "url": "https://www.theverge.com/ai-artificial-intelligence/1009406/silicon-valley-is-falling-in-line-with-trumps-attempt-to-rename-ai",
-              "snippet": "When President Donald Trump announced his plans to rebrand artificial intelligence as \"super intelligence,\" you'd be forgiven for being skeptical that it would catch on. While…",
-              "published": "2026-10-11T18:33:56Z"
+              "title": "The OnePlus 16 is the company’s most interesting phone in years",
+              "url": "https://www.theverge.com/tech/1009570/oneplus-16-specs-features-china",
+              "snippet": "Today the OnePlus 16 launched in China, the company's first flagship phone since quitting both the US and European markets this summer. As luck would have it, it also looks like…",
+              "published": "2026-10-12T13:13:53Z"
             }
           ]
         }
@@ -466,34 +466,34 @@
           "name": "Gazeta Sporturilor",
           "items": [
             {
-              "title": "Detaliul pro-U Cluj care bagă spaima în adversari",
-              "url": "https://www.gsp.ro/fotbal/liga-1/detaliul-pro-u-cluj-care-baga-spaima-in-adversari-987188.html",
-              "snippet": "Ardelenii au adunat 4 penalty-uri din care au punctat, uneori, în momente-cheie ale meciurilor, toate cele 4 lovituri de la 11 metri venind după hențuri ale adversarilor. De…",
-              "published": "2026-10-12T13:11:39Z"
+              "title": "Ce au declarat eroii Rapidului, după duelul epic cu U Cluj",
+              "url": "https://www.gsp.ro/fotbal/liga-1/ce-au-declarat-eroii-rapidului-dupa-duelul-epic-cu-u-cluj-987429.html",
+              "snippet": "Eroii Rapidului din thrillerul cu Universitatea Cluj, câștigat cu 4-3, au tras concluziile la finalul partidei. Olimpiu Moruțan, autorul a trei pase decisive, s-a declarat…",
+              "published": "2026-10-12T20:54:55Z"
             },
             {
-              "title": "Vis împlinit pentru Alexander Zverev: va încheia anul 2026 pe primul loc în clasamentul mondial!",
-              "url": "https://www.gsp.ro/sporturi/tenis/vis-implinit-alexander-zverev-locul-1-2026-987252.html",
-              "snippet": "După eliminarea surprinzătoare a lui Carlos Alcaraz (23 de ani, 3 ATP) în turul 3 al turneului de la Shanghai, Alexander Zverev (29 de ani, 2 ATP) este sigur că va încheia anul…",
-              "published": "2026-10-12T13:10:00Z"
+              "title": "Reacția surprinzătoare a lui Bergodi după nebunia cu 7 goluri din U Cluj - Rapid: „Sunt mulțumit, unul dintre cele mai bune jocuri”",
+              "url": "https://www.gsp.ro/fotbal/liga-1/cristiano-bergodi-reactie-infrangere-u-cluj-rapid-987423.html",
+              "snippet": "Cristiano Bergodi (61 de ani), antrenorul lui U Cluj, s-a declarat mulțumit de jocul prestat de elevii săi, în ciuda eșecului de pe teren propriu, 3-4 cu Rapid. U Cluj a preluat…",
+              "published": "2026-10-12T20:50:16Z"
             },
             {
-              "title": "La 43 de ani, Corina Caragea a făcut senzație pe plajele din Hawaii: „Și parcă tot n-am stat suficient”",
-              "url": "https://www.gsp.ro/gsp-special/media/corina-caragea-vacanta-hawaii-987247.html",
-              "snippet": "Corina Caragea (43 de ani), prezentatoarea știrilor sportive de la PRO TV, se bucură de o vacanță de o lună în America de Nord, mai exact în Hawaii. După ce a explorat peisajele…",
-              "published": "2026-10-12T13:09:07Z"
+              "title": "„Altfel ar fi stat lucrurile acum” » Savuros la interviu, Pancu a dezvăluit și o mare nemulțumire de la Rapid: „Sunt sigur”",
+              "url": "https://www.gsp.ro/fotbal/liga-1/pancu-a-explicat-cum-ar-fi-putut-marca-rapid-peste-30-de-goluri-987426.html",
+              "snippet": "Daniel Pancu, antrenorul Rapidului, a evidențiat importanța stării gazonului din Giulești, după victoria spectaculoasă cu Universitatea Cluj, scor 4-3. Tehnicianul consideră că…",
+              "published": "2026-10-12T20:43:47Z"
             },
             {
-              "title": "Unul de la Getafe, doi de la Craiova! Absențe importante pentru prima etapă din Conference League",
-              "url": "https://www.gsp.ro/international/conference-league/unul-de-la-getafe-doi-de-la-craiova-absente-importante-pentru-prima-etapa-din-conference-league-987256.html",
-              "snippet": "Zaid Romero, stoperul lui Getafe, s-a accidentat și va absenta de la partida de joi din Bănie. Oltenii nu-i vor avea la dispoziție pe Carlos Mora, suspendat, și Etim Monday…",
-              "published": "2026-10-12T13:06:29Z"
+              "title": "Victor Angelescu a ales omul meciului: „Se întâmplă rar”",
+              "url": "https://www.gsp.ro/fotbal/liga-1/victor-angelescu-reactie-u-cluj-rapid-morutan-stojilkovic-987421.html",
+              "snippet": "U Cluj - Rapid 3-4. Victor Angelescu, acționarul giuleștenilor, a analizat victoria spectaculoasă obținută de giuleșteni, în ultima partidă a etapei a 11-a din Superliga…",
+              "published": "2026-10-12T20:35:16Z"
             },
             {
-              "title": "Capii rețelei care sparge casele fotbaliștilor au fost reținuți! Portarul Barcelonei, printre victime",
-              "url": "https://www.gsp.ro/international/campionate/barcelona-grupare-infractionala-spargeri-locuinte-joan-garcia-987242.html",
-              "snippet": "Poliția catalană (Mossos d'Esquadra) a destucturat în Catalonia o grupare infracțională specializată în spargeri de locuințe aparținând unor celebrități și fotbaliști. Rețeaua…",
-              "published": "2026-10-12T13:04:54Z"
+              "title": "Daniel Pancu a explicat decizia luată în dimineața meciului U Cluj - Rapid: „M-am răzgândit azi, e incredibil la antrenamente”",
+              "url": "https://www.gsp.ro/fotbal/liga-1/daniel-pancu-savuros-la-interviuri-dupa-u-cluj-rapid-987419.html",
+              "snippet": "Daniel Pancu, tehnicianul giuleștenilor, a tras cele mai importante concluzii, după thrillerul Universitatea Cluj - Rapid 3-4. A recunoscut că victoria a fost precedată de o…",
+              "published": "2026-10-12T20:32:36Z"
             }
           ]
         },
@@ -502,34 +502,34 @@
           "name": "Digi Sport",
           "items": [
             {
-              "title": "Surpriză uriașă! Francezii au anunțat primii 3 favoriți la câștigarea Balonului de Aur 2026",
-              "url": "https://www.digisport.ro/fotbal/surpriza-uriasa-francezii-au-anuntat-primii-3-favoriti-la-castigarea-balonului-de-aur-2026-4539573",
-              "snippet": "Surpriză uriașă! Francezii au anunțat primii 3 favoriți la câștigarea Balonului de Aur 2026",
-              "published": "2026-10-12T13:17:54Z"
+              "title": "Victor Angelescu a intrat în direct, după ”U” Cluj - Rapid 3-4: ”Sunt trei jucători cu care negociem”",
+              "url": "https://www.digisport.ro/fotbal/liga-1/victor-angelescu-dupa-u-cluj-rapid-3-4-sunt-trei-jucatori-cu-care-negociem-4540261",
+              "snippet": "Victor Angelescu a intrat în direct, după ”U” Cluj - Rapid 3-4: ”Sunt trei jucători cu care negociem”",
+              "published": "2026-10-12T21:09:01Z"
             },
             {
-              "title": "Aymen Boutoutaou a plecat în Serbia",
-              "url": "https://www.digisport.ro/fotbal/liga-1/aymen-boutoutaou-a-plecat-in-serbia-4539217",
-              "snippet": "Aymen Boutoutaou a plecat în Serbia",
-              "published": "2026-10-12T13:02:44Z"
+              "title": "Jovo Lukic a vorbit despre plecarea de la \"U\" Cluj, după 3-4 cu Rapid. Ce a spus despre penalty-ul cerut",
+              "url": "https://www.digisport.ro/fotbal/liga-1/jovo-lukic-a-vorbit-despre-plecarea-de-la-u-cluj-dupa-3-4-cu-rapid-ce-a-spus-despre-penalty-ul-cerut-4540263",
+              "snippet": "Jovo Lukic a vorbit despre plecarea de la \"U\" Cluj, după 3-4 cu Rapid. Ce a spus despre penalty-ul cerut",
+              "published": "2026-10-12T21:06:55Z"
             },
             {
-              "title": "Record: Echipa lui Charalambous a ajuns la \"9 ore de fotbal\" fără gol marcat: \"Incompetență ofensivă\"",
-              "url": "https://www.digisport.ro/fotbal/fotbal-international/record-echipa-lui-charalambous-a-ajuns-la-9-ore-de-fotbal-fara-gol-marcat-incompetenta-ofensiva-4539237",
-              "snippet": "Record: Echipa lui Charalambous a ajuns la \"9 ore de fotbal\" fără gol marcat: \"Incompetență ofensivă\"",
-              "published": "2026-10-12T13:02:32Z"
+              "title": "Ilie Dumitrescu a dat verdictul, după ”U” Cluj - Rapid 3-4: ”Senzațional. Omul meciului”",
+              "url": "https://www.digisport.ro/fotbal/liga-1/ilie-dumitrescu-a-dat-verdictul-dupa-u-cluj-rapid-3-4-senzational-omul-meciului-4540177",
+              "snippet": "Ilie Dumitrescu a dat verdictul, după ”U” Cluj - Rapid 3-4: ”Senzațional. Omul meciului”",
+              "published": "2026-10-12T21:00:50Z"
             },
             {
-              "title": "Dinamo, reclamată la UEFA: ”Un spectacol al urii! Zeci de minute”",
-              "url": "https://www.digisport.ro/fotbal/liga-1/dinamo-reclamata-la-uefa-un-spectacol-al-urii-zeci-de-minute-4539557",
-              "snippet": "Dinamo, reclamată la UEFA: ”Un spectacol al urii! Zeci de minute”",
-              "published": "2026-10-12T12:58:50Z"
+              "title": "De la 4,8 la 8,9! Toate notele după \"nebunia\" din \"U\" Cluj - Rapid 3-4",
+              "url": "https://www.digisport.ro/fotbal/liga-1/de-la-48-la-89-toate-notele-dupa-nebunia-din-u-cluj-rapid-3-4-4540233",
+              "snippet": "De la 4,8 la 8,9! Toate notele după \"nebunia\" din \"U\" Cluj - Rapid 3-4",
+              "published": "2026-10-12T21:00:41Z"
             },
             {
-              "title": "Ionuț Radu, cel mai bun portar din Spania! Românul, peste Courtois, Joan Garcia, Unai Simon și Oblak",
-              "url": "https://www.digisport.ro/fotbal/la-liga/ionut-radu-cel-mai-bun-portar-din-spania-romanul-peste-courtois-joan-garcia-unai-simon-si-oblak-4539503",
-              "snippet": "Ionuț Radu, cel mai bun portar din Spania! Românul, peste Courtois, Joan Garcia, Unai Simon și Oblak",
-              "published": "2026-10-12T12:52:09Z"
+              "title": "Cristiano Bergodi, după U Cluj - Rapid 3-4: \"Nu discut. Deloc!\"",
+              "url": "https://www.digisport.ro/fotbal/liga-1/cristiano-bergodi-dupa-u-cluj-rapid-3-4-nu-discut-deloc-4540215",
+              "snippet": "Cristiano Bergodi, după U Cluj - Rapid 3-4: \"Nu discut. Deloc!\"",
+              "published": "2026-10-12T20:56:20Z"
             }
           ]
         },
@@ -538,34 +538,34 @@
           "name": "ProSport",
           "items": [
             {
-              "title": "„Aloha”. Corina Caragea, imagini fierbinți din Hawaii într-un costum de baie roz",
-              "url": "https://www.prosport.ro/diverse/imaginile-cu-corina-caragea-in-costum-de-baie-in-hawaii-care-au-infierbantat-retelele-de-socializare-20545570",
-              "snippet": "Corin Caragea, prezentatoarea știrilor sportive de la PRO TV, are o siluetă impecabilă la 43 de ani. Sportul, o alimentație echilibrară și vacanțele exotice o fac să se mențină…",
-              "published": "2026-10-12T13:14:55Z"
+              "title": "DECLARAȚII Remarcatul lui Victor Angelescu după U Cluj – Rapid 3-4: „Are un sezon fantastic!”",
+              "url": "https://www.prosport.ro/fotbal-intern/superliga/victor-angelescu-remarcat-u-cluj-rapid-sezon-fantastic-olimpiu-morutan-20545970",
+              "snippet": "Echipa lui Daniel Pancu nu mai câștigase în fața grupării din Ardeal de 3 ani și 3 luni, iar președintele Victor Angelescu (42 de ani) a spus pe cine a remarcat în U Cluj – Rapid…",
+              "published": "2026-10-12T21:38:52Z"
             },
             {
-              "title": "FC Argeș – CFR Cluj Live Text Online în etapa 11 din Superliga, ora 18:00. Echipele probabile. Presiune în ambele tabere",
-              "url": "https://www.prosport.ro/fotbal-intern/superliga/fc-arges-cfr-cluj-live-text-online-in-etapa-11-din-superliga-20545397",
-              "snippet": "Meciul FC Argeș – CFR Cluj are loc în etapa 11 din Superliga, sezonul 2026-2027, iar partida este Live Text Online pe www.prosport.ro. De asemenea, duelul de pe Stadionul…",
-              "published": "2026-10-12T13:00:09Z"
+              "title": "Reghecampf a rămas uluit când l-a văzut pe Dennis Politic la antrenamentele FCSB. Ce verdict a dat",
+              "url": "https://www.prosport.ro/fotbal-intern/superliga/laurentiu-reghecampf-uluit-dennis-politic-antrenamente-fcsb-verdict-20545966",
+              "snippet": "După mai bine de două săptămâni în care l-a avut zi de zi sub ochi la antrenamente, Laurențiu Reghecampf (51 de ani) a rămas uluit de ceea ce a văzut la Dennis Politic (26 de…",
+              "published": "2026-10-12T21:05:56Z"
             },
             {
-              "title": "Schimbare de antrenor în Liga 2, a treia în acest sezon. CSC Șelimbăr a decis înlocuitorul lui Eugen Beza",
-              "url": "https://www.prosport.ro/fotbal-intern/liga-2/schimbare-de-antrenor-in-liga-2-a-treia-in-acest-sezon-csc-selimbar-a-decis-inlocuitorul-lui-eugen-beza-20545624",
-              "snippet": "CSC Șelimbăr a decis înlocuitorul lui Eugen Beza. Echipa sibiană este a treia care schimbă antrenorul în acest sezon de Liga 2 The post Schimbare de antrenor în Liga 2, a treia…",
-              "published": "2026-10-12T12:39:48Z"
+              "title": "Cristiano Bergodi a făcut anunțul despre plecarea de la U Cluj după ce Rapid i-a dat 4 goluri",
+              "url": "https://www.prosport.ro/fotbal-intern/superliga/cristiano-bergodi-reactie-infrangere-cluj-rapid-20545956",
+              "snippet": "Cristiano Bergodi a vorbit despre posibila plecare de la U Cluj după ce echipa sa a încasat 4 goluri de la Rapid. A fost o seară spectaculoasă pe Cluj Arena. S-au marcat nu mai…",
+              "published": "2026-10-12T20:54:29Z"
             },
             {
-              "title": "Avem primele imagini de pe camere cu Andrei Nicolescu şi platourile de la Sepsi! Ce acuză gazdele: „Asta vor să facă”. EXCLUSIV",
-              "url": "https://www.prosport.ro/fotbal-intern/superliga/sepsi-dinamo-andrei-nicolescu-platouri-scandal-primele-imagini-camere-gazde-20545577",
-              "snippet": "Mega-scandalul de la Sepsi – Dinamo, declanșat de Andrei Nicolescu, și legat de protocolul „subțire” pus la dispoziție de gazde pentru oaspeții din Capitală își consumă un nou…",
-              "published": "2026-10-12T12:08:30Z"
+              "title": "DECLARAȚII Daniel Pancu a venit la flash interviu și a făcut show total după U Cluj – Rapid 3-4: „Mamă, mamă!”",
+              "url": "https://www.prosport.ro/fotbal-intern/superliga/daniel-pancu-declaratie-u-cluj-rapid-3-4-20545953",
+              "snippet": "Daniel Pancu a venit la flash interviu și a făcut show total după partida pe care Rapid București a câștigat-o pe terenul celor de la Universitatea Cluj, scor 4-3, în etapa a…",
+              "published": "2026-10-12T20:43:39Z"
             },
             {
-              "title": "Rivalul lui David Popovici, probleme mari chiar înainte să doboare recordul mondial: „Eram paralizat, nu puteam merge”",
-              "url": "https://www.prosport.ro/david-popovici/egor-kornev-rival-david-popovici-probleme-mari-record-mondial-paralizat-20545584",
-              "snippet": "Egor Kornev (22 de ani), rival al lui David Popovici (22), este omul momentului în natația mondială, după ce în octombrie 2026, în decursul a nici zece zile, a izbutit să atingă…",
-              "published": "2026-10-12T11:59:52Z"
+              "title": "DECLARAȚII Vedetele Rapidului, Moruțan și Stojilkovic, încântate de victoria de la U Cluj: „Vrem în play-off!”",
+              "url": "https://www.prosport.ro/fotbal-intern/superliga/reactii-morutan-si-stojilkovic-rapid-u-cluj-20545944",
+              "snippet": "Olimpiu Moruțan și Filip Stojilkovic, doi dintre fotbaliștii importanți din lotul celor de la Rapid București, au fost extrem de încântați de victoria pe care giuleștenii au…",
+              "published": "2026-10-12T20:33:50Z"
             }
           ]
         }
@@ -580,6 +580,24 @@
           "name": "Descoperă.ro",
           "items": [
             {
+              "title": "Deși adolescenții consumă mai puține droguri și alcool, apar noi motive de îngrijorare pentru autorități",
+              "url": "https://www.descopera.ro/dnews/21143808-desi-adolescentii-consuma-mai-putine-droguri-si-alcool-apar-noi-motive-de-ingrijorare-pentru-autoritati",
+              "snippet": "Consumul de alcool și droguri este în scădere în rândul adolescenților din Portugalia, însă un nou studiu avertizează asupra unor riscuri care persistă, în special în cazul…",
+              "published": "2026-10-12T21:00:46Z"
+            },
+            {
+              "title": "Un obicei simplu și surprinzător ar putea să îmbunătățească relațiile de cuplu",
+              "url": "https://www.descopera.ro/stiinta/21142606-un-obicei-simplu-si-surprinzator-ar-putea-sa-imbunatateasca-relatiile-de-cuplu",
+              "snippet": "Un obicei simplu, precum practicarea exercițiilor fizice împreună, poate ajuta cuplurile să comunice mai bine, să gestioneze conflictele mai pașnic și să își consolideze…",
+              "published": "2026-10-12T17:00:11Z"
+            },
+            {
+              "title": "Egiptenii antici sacrificau slujitorii faraonilor pentru a-i servi și în viața de apoi",
+              "url": "https://www.descopera.ro/istorie/21142769-egiptenii-antici-sacrificau-slujitorii-faraonilor-pentru-a-i-servi-si-in-viata-de-apoi",
+              "snippet": "Egiptenii antici au practicat sacrificiul uman în urmă cu aproximativ 5.000 de ani, într-o perioadă imediat următoare primei unificări a țării. Un nou studiu publicat în revista…",
+              "published": "2026-10-12T16:00:15Z"
+            },
+            {
               "title": "Animalele ar fi evoluat cu 200 de milioane de ani mai devreme decât credeam, indică noi fosile",
               "url": "https://www.descopera.ro/istorie/21142512-animalele-ar-fi-evoluat-cu-200-de-milioane-de-ani-mai-devreme-decat-credeam-indica-noi-fosile",
               "snippet": "Un nou studiu publicat în revista Science Advances sugerează că primele animale au apărut pe Pământ cu sute de milioane de ani mai devreme decât indică fosilele descoperite până…",
@@ -590,24 +608,6 @@
               "url": "https://www.descopera.ro/stiinta/21142774-fisticul-ar-putea-fi-un-aliat-natural-pentru-un-somn-odihnitor-indica-un-nou-studiu",
               "snippet": "Aproape o treime dintre adulți dorm mai puțin de șapte ore pe noapte, iar dificultățile de adormire sau de menținere a somnului devin tot mai frecvente. În acest context, un nou…",
               "published": "2026-10-12T10:00:17Z"
-            },
-            {
-              "title": "Axa Pământului s-a deplasat de patru ori în ultimii 320 de milioane de ani, inclusiv în era dinozaurilor",
-              "url": "https://www.descopera.ro/istorie/21142623-axa-pamantului-s-a-deplasat-de-patru-ori-in-ultimii-320-de-milioane-de-ani-inclusiv-in-era-dinozaurilor",
-              "snippet": "Inundațiile antice ale marginilor continentale dezvăluie că, în anumite perioade din istoria Pământului, planeta s-a deplasat față de propria axă mult mai rapid decât o face în…",
-              "published": "2026-10-12T09:00:13Z"
-            },
-            {
-              "title": "Cât de repede îți îmbătrânește creierul? Bacteriile din intestin ar putea deține răspunsul",
-              "url": "https://www.descopera.ro/stiinta/21142530-cat-de-repede-iti-imbatraneste-creierul-bacteriile-din-intestin-ar-putea-detine-raspunsul",
-              "snippet": "Bacteriile din intestin și subprodusele lor chimice pot oferi un indiciu timpuriu despre ritmul în care creierul îmbătrânește, conform unui studiu realizat de cercetătorii de la…",
-              "published": "2026-10-12T07:00:47Z"
-            },
-            {
-              "title": "Ecranele ne fură prietenii, somnul și sportul. Care este concluzia desprinsă din 121 de studii?",
-              "url": "https://www.descopera.ro/dnews/21143774-ecranele-ne-fura-prietenii-somnul-si-sportul-care-este-concluzia-desprinsa-din-121-de-studii",
-              "snippet": "Peste două ore pe zi cu ochii în telefon? Un studiu pe 9 milioane de tineri leagă acest obicei de depresie, anxietate și obezitate. Timpul petrecut pe telefon ar costa omenirea…",
-              "published": "2026-10-12T06:30:23Z"
             }
           ]
         },
@@ -692,6 +692,18 @@
       "name": "The Verge AI",
       "items": [
         {
+          "title": "Microsoft’s new AI chip makes it less reliant on Nvidia’s GPUs",
+          "url": "https://www.theverge.com/news/1009465/microsoft-maia-300-chip-improvements-rollout",
+          "snippet": "Microsoft is announcing its third-generation Maia in-house AI chip today, designed to be the \"primary AI inference system\" for Microsoft's products and services. Maia 300 not…",
+          "published": "2026-10-12T13:33:06Z"
+        },
+        {
+          "title": "Meta has some Wonder Full new AI models",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1009479/meta-muse-wonder-full-ai-model",
+          "snippet": "Meta is making up for lost time in the AI race. After launching Muse Spark, the first model from its revamped Superintelligence Labs division, and buzzy AI agent Muse, it's now…",
+          "published": "2026-10-12T11:13:10Z"
+        },
+        {
           "title": "Silicon Valley is falling in line with Trump’s attempt to rename AI",
           "url": "https://www.theverge.com/ai-artificial-intelligence/1009406/silicon-valley-is-falling-in-line-with-trumps-attempt-to-rename-ai",
           "snippet": "When President Donald Trump announced his plans to rebrand artificial intelligence as \"super intelligence,\" you'd be forgiven for being skeptical that it would catch on. While…",
@@ -708,18 +720,6 @@
           "url": "https://www.theverge.com/ai-artificial-intelligence/1009337/satya-nadella-says-we-should-assume-all-ai-models-are-compromised",
           "snippet": "In a lengthy post on X, Microsoft's CEO laid out his views on the dangers posed by highly advanced AI models and how to confront those risks. Nadella says we can no longer accept…",
           "published": "2026-10-10T22:10:17Z"
-        },
-        {
-          "title": "DistroKid has been quietly taking down songs in response to UMG lawsuit",
-          "url": "https://www.theverge.com/entertainment/1009309/distrokid-take-down-songs-umg-lawsuit",
-          "snippet": "Artists are taking to social media to complain that DistroKid has unceremoniously removed their work without notice. Now DistroKid has confirmed to The Verge that the takedowns…",
-          "published": "2026-10-10T21:23:38Z"
-        },
-        {
-          "title": "Anthropic is cutting off its internal evaluations from the internet",
-          "url": "https://www.theverge.com/ai-artificial-intelligence/1009286/anthropic-is-cutting-off-its-internal-evaluations-from-the-internet",
-          "snippet": "After a recent spate of high-profile incidents in which AI agents escaped containment, Anthropic is cutting off internet access for all internal evaluations. In a report Friday…",
-          "published": "2026-10-10T14:41:16Z"
         }
       ]
     },
@@ -728,34 +728,34 @@
       "name": "TechCrunch AI",
       "items": [
         {
-          "title": "Former Plaud exec raises $26M for AI app that listens to you in the background",
-          "url": "https://techcrunch.com/2026/10/12/former-plaud-exec-raises-26m-for-ai-app-that-listens-to-you-in-the-background/",
-          "snippet": "Ambi is releasing apps for iPhone, Mac, and Apple Watch that enables ambient capture",
-          "published": "2026-10-12T12:47:59Z"
+          "title": "Meta releases its first frontier model, Muse Wonder",
+          "url": "https://techcrunch.com/2026/10/12/meta-releases-its-first-frontier-model-muse-wonder/",
+          "snippet": "Where Muse Spark aimed to be a lightweight model that could perform at low latency, the Wonder models are larger and said to be more capable, with higher benchmark scores and…",
+          "published": "2026-10-12T17:56:56Z"
         },
         {
-          "title": "Will the HomeView be Apple’s first smart home success?",
-          "url": "https://techcrunch.com/2026/10/11/will-the-homeview-be-apples-first-smart-home-success/",
-          "snippet": "Over the past couple of years, we’ve seen multiple reports that Apple was working on a new smart home product, but now it seems the product has a name and a launch date.",
-          "published": "2026-10-11T21:14:40Z"
+          "title": "WindBorne wins a hefty US Air Force contract for its balloon data",
+          "url": "https://techcrunch.com/2026/10/12/windborne-wins-a-hefty-us-air-force-contract-for-its-balloon-data/",
+          "snippet": "A Silicon Valley startup that uses weather balloons and AI to predict the weather won a U.S. military contract worth almost $50 million.",
+          "published": "2026-10-12T17:19:14Z"
         },
         {
-          "title": "48 hours to TechCrunch Disrupt 2026 — hear directly from the people building what’s next",
-          "url": "https://techcrunch.com/2026/10/11/48-hours-to-techcrunch-disrupt-2026-hear-directly-from-the-people-building-whats-next/",
-          "snippet": "Less than 48 hours, TechCrunch Disrupt 2026 starts in San Francisco’s Moscone West. Save up to $100 on your pass before prices increase at the door, plus get 50% on a second…",
-          "published": "2026-10-11T19:00:00Z"
+          "title": "Honeyjar offers AI tools to improve PR and comms at every company",
+          "url": "https://techcrunch.com/2026/10/12/honeyjar-offers-ai-tools-to-improve-pr-and-comms-at-every-company/",
+          "snippet": "Journalists, entrepreneurs, and even some public relations professionals will tell you that the PR process is broken. But could AI actually make things better?",
+          "published": "2026-10-12T15:45:00Z"
         },
         {
-          "title": "Can the AI industry persuade data center opponents by getting rid of NDAs?",
-          "url": "https://techcrunch.com/2026/10/11/can-the-ai-industry-persuade-data-center-opponents-by-getting-rid-of-ndas/",
-          "snippet": "On Equity, we debate the impact of data center moratoriums and whether the AI industry has a communication problem.",
-          "published": "2026-10-11T16:52:33Z"
+          "title": "Microsoft president says UK is best placed to drive AI regulation",
+          "url": "https://techcrunch.com/2026/10/12/microsoft-president-says-uk-is-best-placed-to-drive-ai-regulation/",
+          "snippet": "Microsoft president Brad Smith calls for urgent AI regulation, saying milk and washing machines have more oversight than AI companies.",
+          "published": "2026-10-12T15:31:19Z"
         },
         {
-          "title": "These execs think voice AI hasn’t reached its ChatGPT moment yet",
-          "url": "https://techcrunch.com/2026/10/11/these-execs-think-voice-ai-hasnt-reached-its-chatgpt-moment-yet/",
-          "snippet": "Voice AI's often misses important points for its context layer, and causes the whole pipeline to break",
-          "published": "2026-10-11T14:00:00Z"
+          "title": "This AI startup says it can generate permit-ready blueprints in minutes",
+          "url": "https://techcrunch.com/2026/10/12/this-ai-startup-says-it-can-generate-permit-ready-blueprints-in-minutes/",
+          "snippet": "Blueprints AI, a bootstrapped startup based in Santa Monica, developed software that produces code-compliant construction blueprints from a photo, PDF, or sketch.",
+          "published": "2026-10-12T15:27:59Z"
         }
       ]
     },
@@ -835,7 +835,7 @@
   "errors": [
     {
       "id": "economie/profit",
-      "error": "junk after document element: line 6, column 0"
+      "error": "junk after document element: line 9, column 0"
     }
   ]
 }
