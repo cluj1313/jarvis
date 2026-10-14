@@ -212,7 +212,7 @@ function rollTasks(){var tk=dkey(),ch=false;tasks.forEach(function(t){if(live(t)
  if(ch){LS.set('jv_tasks',tasks);if(typeof hCur!=='undefined'&&hCur!==null)hCur=snap()}return ch}
 (function(){var ch=false;tasks.forEach(function(t){if(t.urgent==null){t.urgent=false;ch=true}});if(ch)LS.set('jv_tasks',tasks)})();
 rollTasks();
-function alBtn(t){var nx=alNext(t);return '<button class="al'+(nx?' on':'')+'" aria-label="Alarmă">⏰'+(nx?'<small>'+alShort(nx)+'</small>':'')+'</button>'}
+function alBtn(t){var nx=alNext(t);return '<button class="al'+(nx?' on':'')+'" aria-label="Alarmă"><i>⏰</i>'+(nx?'<small>'+alShort(nx)+'</small>':'')+'</button>'}
 function renderItem(t,stHtml,alarm){var li=document.createElement('li');li.className='task'+(t.done?' done':'')+(t.urgent?' urgent':'');li.dataset.id=t.id;
  var al=alarm?alBtn(t):'';
  li.innerHTML='<span class="dot"></span><span class="t kw">'+esc(t.text)+'</span>'+(stHtml?'<span class="st">'+stHtml+'</span>':'')+al+'<button class="ed" aria-label="Editează">✎</button><button class="x" aria-label="Șterge">×</button>';return li}
@@ -451,18 +451,39 @@ function dndDrop(){var d=dnd,ul=d.ph&&d.ph.parentNode,T=ul&&dndListOf(ul),id=d.l
  if(ul)[].forEach.call(ul.children,function(n){if(n.classList&&n.classList.contains('jv-sep')){sec=false;return}
   if(n===d.ph){ids.push(id);urgMap[id]=sec}else if(n!==d.li&&n.classList.contains('task')&&n.dataset.id){ids.push(n.dataset.id);urgMap[n.dataset.id]=sec}});
  dndReset();if(T)dndApply(S,T,id,ids,urgMap)}
-document.addEventListener('pointerdown',function(e){dndEatClick=false;if(dnd){dndReset();return}
+/* v42: long-press (~450 ms) opens an item menu (Alarmă / Editează / Mută / Șterge); replaces drag. Movement/scroll cancels. */
+var lp=null,LP_MS=450,lpJust=false;
+function lpCancel(){if(lp){clearTimeout(lp.t);lp=null}}
+document.addEventListener('pointerdown',function(e){dndEatClick=false;lpJust=false;lpCancel();
  if(e.pointerType==='mouse'&&e.button!==0)return;var li=e.target.closest&&e.target.closest('.task');
- if(!li||!li.dataset.id||li.classList.contains('editing')||e.target.closest('.x,.ed,.al,textarea,.edb'))return;
- var S=dndListOf(li.parentNode);if(!S||(editing&&editing.isConnected)||document.querySelector('.modal.show'))return;
- dnd={id:e.pointerId,li:li,ul:li.parentNode,src:S,sx:e.clientX,sy:e.clientY,x:e.clientX,y:e.clientY,t0:Date.now(),armed:false,drag:false,armT:setTimeout(dndArm,DND_ARM)};dndClasses(true)});
-window.addEventListener('pointermove',function(e){var d=dnd;if(!d||e.pointerId!==d.id)return;d.x=e.clientX;d.y=e.clientY;
- var far=Math.abs(d.x-d.sx)>DND_SLOP||Math.abs(d.y-d.sy)>DND_SLOP;if(!d.armed){if(far)dndReset();return}
- if(!d.drag){if(!far)return;dndStart()}if(e.cancelable)e.preventDefault();dndPlace()},{passive:false});
-window.addEventListener('pointerup',function(e){var d=dnd;if(!d||e.pointerId!==d.id)return;
- if(d.drag){dndEatClick=true;dndDrop();return}var held=d.armed&&Date.now()-d.t0>=DND_DEL,armed=d.armed,S=d.src,id=d.li.dataset.id;dndReset();
- if(armed)dndEatClick=true;if(held)setTimeout(function(){if(S.kind==='shop')hideShop(id);else if(S.kind==='tab')hideTI(S.tab,id);else delTask(id)},0)});
-window.addEventListener('pointercancel',function(e){if(dnd&&e.pointerId===dnd.id)dndReset()});
+ if(!li||!li.dataset.id||li.classList.contains('editing')||e.target.closest('textarea,.edb'))return;
+ var S=dndListOf(li.parentNode);if(!S||(editing&&editing.isConnected)||document.querySelector('.modal.show')||$('lpMenu').classList.contains('show'))return;
+ lp={id:e.pointerId,li:li,S:S,x:e.clientX,y:e.clientY,t:setTimeout(function(){var d=lp;lp=null;if(!d)return;dndEatClick=true;try{if(navigator.vibrate)navigator.vibrate(20)}catch(_){}lpJust=true;lpOpen(d.li,d.S)},LP_MS)}});
+window.addEventListener('pointermove',function(e){if(lp&&e.pointerId===lp.id&&(Math.abs(e.clientX-lp.x)>10||Math.abs(e.clientY-lp.y)>10))lpCancel()});
+window.addEventListener('pointerup',function(e){if(lp&&e.pointerId===lp.id)lpCancel()});
+window.addEventListener('scroll',lpCancel,{passive:true});
+window.addEventListener('pointercancel',lpCancel);
+var lpCur=null;
+function lpLists(){var a=[{kind:'azi',key:'azi',n:'Taskuri azi'},{kind:'maine',key:'maine',n:'Taskuri mâine'},{kind:'shop',key:'shop',n:'Cumpărături'}];
+ tabs.forEach(function(tb){a.push({kind:'tab',key:'tab:'+tb.id,tab:tb,n:tb.name})});return a}
+function lpIds(T){var ul=T.kind==='azi'?$('lAzi'):T.kind==='maine'?$('lMaine'):T.kind==='shop'?$('lShop'):document.querySelector('#ct_'+T.tab.id+' ul.ctl'),ids=[],u={},sec=true;
+ if(ul)[].forEach.call(ul.children,function(n){if(n.classList.contains('jv-sep')){sec=false;return}if(n.classList.contains('task')&&n.dataset.id){ids.push(n.dataset.id);u[n.dataset.id]=sec}});return{ids:ids,u:u}}
+function lpMove(T,urg){var c=lpCur;lpClose();if(!c)return;var o=dndObj(c.S,c.id);if(!o)return;var U=urg==null?!!o.urgent:urg,r=lpIds(T);
+ if(T.key===c.S.key){r.u[c.id]=U}else{if(U)r.ids.unshift(c.id);else r.ids.push(c.id);r.u[c.id]=U}
+ dndApply(c.S,T,c.id,r.ids,r.u);toast(urg==null?'Mutat în '+(T.n||''):(U?'Marcat urgent':'Marcat normal'))}
+function lpOpen(li,S){var o=dndObj(S,li.dataset.id);if(!o)return;lpCur={li:li,S:S,id:li.dataset.id};var m=$('lpMenu'),box=$('lpBox');
+ box.innerHTML='<button data-a="al">⏰ Alarmă</button><button data-a="ed">✎ Editează</button><button data-a="mv">↕ Mută</button><button data-a="x" class="dng">× Șterge</button>';
+ m.classList.add('show');li.classList.add('jv-lpon');lpPos()}
+function lpPos(){var c=lpCur;if(!c)return;var r=c.li.getBoundingClientRect(),box=$('lpBox'),h=box.offsetHeight,w=box.offsetWidth,vh=window.innerHeight;
+ var top=r.bottom+6;if(top+h>vh-10)top=Math.max(10,r.top-h-6);box.style.top=top+'px';box.style.left=Math.max(12,Math.min(window.innerWidth-w-12,r.left+24))+'px'}
+function lpMoveMenu(){var c=lpCur,o=dndObj(c.S,c.id),box=$('lpBox'),h='<div class="lph">Mută în</div>';
+ lpLists().forEach(function(L,i){h+='<button data-mv="'+i+'"'+(L.key===c.S.key?' class="cur"':'')+'>'+esc(L.n)+(L.key===c.S.key?' ✓':'')+'</button>'});
+ h+='<button data-a="urg">'+(o.urgent?'● Normal':'● Urgent')+'</button>';box.innerHTML=h;lpPos()}
+function lpClose(){$('lpMenu').classList.remove('show');if(lpCur&&lpCur.li)lpCur.li.classList.remove('jv-lpon');lpCur=null}
+$('lpMenu').addEventListener('click',function(e){if(lpJust){lpJust=false;return}var c=lpCur;if(!c){lpClose();return}var b=e.target.closest('button');if(!b){lpClose();return}
+ if(b.dataset.mv!=null){var T=lpLists()[+b.dataset.mv];if(T.key===c.S.key){lpClose();return}lpMove(T);return}
+ var a=b.dataset.a;if(a==='mv'){lpMoveMenu();return}if(a==='urg'){var o=dndObj(c.S,c.id);lpMove(c.S,!(o&&o.urgent));return}
+ var li=c.li;lpClose();var btn=li.querySelector(a==='al'?'.al':a==='ed'?'.ed':'.x');if(btn){dndEatClick=false;btn.click()}});
 document.addEventListener('touchmove',function(e){if(dnd&&dnd.armed&&e.cancelable)e.preventDefault()},{passive:false});
 ['contextmenu','selectstart','dragstart'].forEach(function(ev){document.addEventListener(ev,function(e){if(dnd)e.preventDefault()})});
 window.addEventListener('blur',dndReset);document.addEventListener('visibilitychange',function(){if(document.hidden)dndReset()});

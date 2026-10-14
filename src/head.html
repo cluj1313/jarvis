@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="JARVIS">
-<meta name="jarvis-version" content="v41-jarvis">
+<meta name="jarvis-version" content="v42-jarvis">
 <title>JARVIS · Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Roboto+Condensed:wght@700&family=Orbitron:wght@700&family=Share+Tech+Mono&family=Rajdhani:wght@600;700&family=Audiowide&family=Teko:wght@500&family=Oxanium:wght@700&display=swap" rel="stylesheet">
@@ -133,6 +133,14 @@ ul.tasks{list-style:none;margin:0;padding:0}
 .alc{flex:0 0 auto;background:rgba(5,18,32,.6);border:1px solid var(--line);color:var(--txt);border-radius:999px;padding:7px 11px;font:inherit;font-size:13px;cursor:pointer}
 .al2{display:flex;gap:8px}.al2 input{flex:1;min-width:0}
 #alFire .card{text-align:center}#alfTask{font-size:20px;margin:10px 0 16px;color:var(--txt)}
+.task .ed,.task .x,.task .al i{display:none}.task .al:not(.on){display:none}
+.task .al.on{pointer-events:none;padding:0;align-self:center;text-shadow:none}.task .al.on small{margin:0;font-size:10px;opacity:.85}
+.task.jv-lpon{background:rgba(63,216,255,.07);border-radius:10px}
+#lpMenu{position:fixed;inset:0;z-index:11;display:none}#lpMenu.show{display:block}
+#lpBox{position:fixed;min-width:190px;max-width:260px;max-height:70vh;overflow:auto;background:#0a1d30;border:1px solid var(--line);border-radius:14px;padding:6px;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+#lpBox button{display:block;width:100%;text-align:left;background:none;border:0;color:var(--txt);font:inherit;font-size:15px;padding:11px 12px;border-radius:10px;cursor:pointer}
+#lpBox button:active{background:rgba(63,216,255,.12)}#lpBox .dng{color:var(--red)}#lpBox .cur{color:var(--cyan)}
+#lpBox .lph{color:var(--mut);font-size:12px;padding:6px 12px 2px;text-transform:uppercase;letter-spacing:.08em}
 .task.editing{cursor:default}
 .task.editing .st,.task.editing .x,.task.editing .ed{display:none}
 .task.editing .t{text-decoration:none;color:var(--txt)}
@@ -413,4 +421,5 @@ ul.tasks{list-style:none;margin:0;padding:0}
 </div></div>
 <div class="modal" id="alFire"><div class="card"><div class="lbl"><span>⏰ Alarmă</span></div><div id="alfTask"></div>
  <div class="mrow" style="justify-content:center"><button type="button" class="btn" id="alSnz">Amână 10 min</button><button type="button" class="btn" id="alOff">Oprit</button></div></div></div>
+<div id="lpMenu"><div id="lpBox"></div></div>
 <div class="toast" id="toast"></div>
