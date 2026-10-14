@@ -618,7 +618,10 @@ document.querySelectorAll('.spk').forEach(function(b){b.innerHTML='<svg viewBox=
  b.addEventListener('click',function(){readCard(b.dataset.read)})});
 $('bRead').onclick=function(){readCard('all')};
 $('bReadAll').querySelector('.rai').innerHTML=SPK_SVG;$('bReadAll').onclick=function(){readCard('below')};
-$('bHi').onclick=function(){if(speaking&&speakKey==='voice'){stopSpeaking();return}readCard('voice')};
+function openVoice(){$('cVoice').classList.remove('col');$('voiceModal').classList.add('show')}function closeVoice(){$('voiceModal').classList.remove('show')}
+$('cVoice').addEventListener('click',function(e){if(e.target.closest('.lbl')&&!e.target.closest('.spk,.vclose'))e.stopPropagation()},true);
+$('voiceClose').addEventListener('click',function(e){e.stopPropagation();closeVoice()});$('voiceModal').addEventListener('click',function(e){if(e.target===this)closeVoice()});
+$('bHi').onclick=function(){openVoice();if(speaking&&speakKey==='voice'){stopSpeaking();return}readCard('voice')};
 
 /* ---------- neural voice download / init with progress in the voice card ---------- */
 function showProg(frac,phase,v){var p=$('vprog');
