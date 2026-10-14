@@ -983,7 +983,7 @@ function saveNotes(){LS.set('jv_notes',notes)}
 function findN(id){for(var i=0;i<notes.length;i++)if(notes[i].id===id)return notes[i];return null}
 function renderNotes(){var ul=$('notesList');if(!ul)return;ul.innerHTML=notes.length?'':'<li class="empty">Nicio notiță.</li>';
  notes.forEach(function(n){var li=document.createElement('li');li.className='note';li.dataset.id=n.id;var d=new Date(n.ts);
-  li.innerHTML='<small class="nts">'+d.getDate()+' '+LUNI_S[d.getMonth()]+'</small><span class="t">'+esc(n.text)+'</span>';ul.appendChild(li)})}
+  li.innerHTML='<span class="t">'+esc(n.text)+'</span><small class="nts">'+d.getDate()+' '+LUNI_S[d.getMonth()]+'</small>';ul.appendChild(li)})}
 function addNote(txt){txt=(txt||'').trim();if(!txt)return false;notes.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),text:txt,ts:new Date().toISOString()});saveNotes();renderNotes();
  var pg=$('notesPg');setTimeout(function(){pg.scrollTop=pg.scrollHeight},0);return true}
 function noteEdit(li){var n=findN(li.dataset.id);if(n)startEdit(li,n,saveNotes,renderNotes)}
