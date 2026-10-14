@@ -212,8 +212,9 @@ function rollTasks(){var tk=dkey(),ch=false;tasks.forEach(function(t){if(live(t)
  if(ch){LS.set('jv_tasks',tasks);if(typeof hCur!=='undefined'&&hCur!==null)hCur=snap()}return ch}
 (function(){var ch=false;tasks.forEach(function(t){if(t.urgent==null){t.urgent=false;ch=true}});if(ch)LS.set('jv_tasks',tasks)})();
 rollTasks();
+function alBtn(t){var nx=alNext(t);return '<button class="al'+(nx?' on':'')+'" aria-label="Alarmă">⏰'+(nx?'<small>'+alShort(nx)+'</small>':'')+'</button>'}
 function renderItem(t,stHtml,alarm){var li=document.createElement('li');li.className='task'+(t.done?' done':'')+(t.urgent?' urgent':'');li.dataset.id=t.id;
- var al='';if(alarm){var nx=alNext(t);al='<button class="al'+(nx?' on':'')+'" aria-label="Alarmă">⏰'+(nx?'<small>'+alShort(nx)+'</small>':'')+'</button>'}
+ var al=alarm?alBtn(t):'';
  li.innerHTML='<span class="dot"></span><span class="t kw">'+esc(t.text)+'</span>'+(stHtml?'<span class="st">'+stHtml+'</span>':'')+al+'<button class="ed" aria-label="Editează">✎</button><button class="x" aria-label="Șterge">×</button>';return li}
 function fillList(ul,list,emptyTxt,makeLi){ul.innerHTML=list.length?'':'<li class="empty">'+emptyTxt+'</li>';if(!list.length)return;
  list.filter(function(x){return x.urgent&&!isDoneItem(x)}).forEach(function(x){ul.appendChild(makeLi(x))});
@@ -241,7 +242,7 @@ function addTask(txt,which){txt=(txt||'').trim();if(!txt)return false;txt=txt.ch
  ul.addEventListener('click',function(e){var li=e.target.closest('.task');if(!li||li.classList.contains('editing'))return;
   if(e.target.closest('.ed')){var i=findT(li.dataset.id);if(i>=0)startEdit(li,tasks[i],save,renderTasks);return}
   if(e.target.classList.contains('x')){delTask(li.dataset.id);return}
-  if(e.target.closest('.al')){openAlarm(li.dataset.id);return}
+  if(e.target.closest('.al')){openAlarm({k:'t',id:li.dataset.id});return}
   if(dndEat())return
   var i=findT(li.dataset.id);if(i<0)return;var t=tasks[i];t.done=!t.done;t.doneDate=t.done?dkey():null;t.doneAt=t.done?new Date().toISOString():null;if(!t.done)bumpOpenOrd(t);save();renderTasks()});
  ul.addEventListener('contextmenu',function(e){if(e.target.closest('.task'))e.preventDefault()})});
@@ -275,7 +276,7 @@ function shopList(){return shop.filter(shopVisible).sort(urgSort)}
 function renderShop(){renderShop0();updCardCount('shop')}
 function renderShop0(){var ul=$('lShop'),list=shopList();
  fillList(ul,list,'Lista e goală.',function(s){var li=document.createElement('li');li.className='task'+(s.bought?' done':'')+(s.urgent?' urgent':'');li.dataset.id=s.id;
-  li.innerHTML='<span class="dot"></span><span class="t kw">'+esc(s.text)+'</span><span class="st">'+(s.bought?'Cumpărat':'De luat')+(s.date<dkey()?'<small>'+shortDate(s.date)+'</small>':'')+'</span><button class="ed" aria-label="Editează">✎</button><button class="x" aria-label="Ascunde">×</button>';return li})}
+  li.innerHTML='<span class="dot"></span><span class="t kw">'+esc(s.text)+'</span>'+alBtn(s)+'<button class="ed" aria-label="Editează">✎</button><button class="x" aria-label="Ascunde">×</button>';return li})}
 function findS(id){for(var i=0;i<shop.length;i++)if(shop[i].id===id)return shop[i];return null}
 function hideShop(id){var s=findS(id);if(!s)return;if(confirm('Scoți „'+s.text+'" din listă?')){s.hidden=new Date().toISOString();saveShop();renderShop()}}
 function addShop(txt){txt=(txt||'').trim();if(!txt)return false;txt=txt.charAt(0).toUpperCase()+txt.slice(1);
@@ -284,6 +285,7 @@ function addShop(txt){txt=(txt||'').trim();if(!txt)return false;txt=txt.charAt(0
  ul.addEventListener('click',function(e){var li=e.target.closest('.task');if(!li||li.classList.contains('editing'))return;
   if(e.target.closest('.ed')){var s=findS(li.dataset.id);if(s)startEdit(li,s,saveShop,renderShop);return}
   if(e.target.classList.contains('x')){hideShop(li.dataset.id);return}
+  if(e.target.closest('.al')){openAlarm({k:'s',id:li.dataset.id});return}
   if(dndEat())return
   var s=findS(li.dataset.id);if(!s)return;s.bought=!s.bought;s.boughtDate=s.bought?dkey():null;s.boughtAt=s.bought?new Date().toISOString():null;placeBeforeDone(shop,s,function(x){return x.bought});saveShop();renderShop()});
  ul.addEventListener('contextmenu',function(e){if(e.target.closest('.task'))e.preventDefault()})})();
@@ -311,7 +313,7 @@ function toggleTabCol(tab){var c=$('ct_'+tab.id);if(!c)return;var col=!c.classLi
  if(col)tabCol[tab.id]=1;else delete tabCol[tab.id];LS.set('jv_tabcol',tabCol);
  var b=c.querySelector('.tcol');if(b){b.setAttribute('aria-expanded',col?'false':'true');b.setAttribute('aria-label',col?'Extinde tabul':'Restrânge tabul')}updTabCount(tab)}
 function renderTabItems(tab){var ul=document.querySelector('#ct_'+tab.id+' ul');if(!ul)return;updTabCount(tab);
- fillList(ul,tabList(tab),'Lista e goală.',function(s){return renderItem(s,'')})}
+ fillList(ul,tabList(tab),'Lista e goală.',function(s){return renderItem(s,'',true)})}
 function renderTabs(){var box=$('customCards');if(!box)return;box.innerHTML='';
  visTabs().forEach(function(tab){var c=document.createElement('section');c.className='card ctab'+(tabCol[tab.id]?' col':'');c.id='ct_'+tab.id;c.dataset.tab=tab.id;
   if(tab.color)c.style.setProperty('--tc',tab.color);
@@ -335,6 +337,7 @@ function delTab(tab){if(!confirm('Ștergi tabul „'+tab.name+'"? Elementele lui
   var li=e.target.closest('.task');if(!li||li.classList.contains('editing')||!li.dataset.id)return;
   if(e.target.closest('.ed')){var s=findTI(tab,li.dataset.id);if(s)startEdit(li,s,saveTabs,function(){renderTabItems(tab)});return}
   if(e.target.classList.contains('x')){hideTI(tab,li.dataset.id);return}
+  if(e.target.closest('.al')){openAlarm({k:'b',tab:tab.id,id:li.dataset.id});return}
   if(dndEat())return
   var s=findTI(tab,li.dataset.id);if(!s)return;s.done=!s.done;s.doneDate=s.done?dkey():null;s.doneAt=s.done?new Date().toISOString():null;placeBeforeDone(tab.items,s,function(x){return x.done});saveTabs();renderTabItems(tab)});
  box.addEventListener('submit',function(e){e.preventDefault();var tab=ctx(e);if(!tab)return;var i=e.target.querySelector('input');if(addTI(tab,i.value)){i.value='';toast('Adăugat în '+tab.name)}});
@@ -893,43 +896,48 @@ function alShort(ms){var d=new Date(ms),n=new Date(),hm=pad(d.getHours())+':'+pa
 function alLocal(ms){var d=new Date(ms);return{d:dkey(d),t:pad(d.getHours())+':'+pad(d.getMinutes())}}
 function alParse(d,t){if(!d||!t)return 0;var p=d.split('-'),q=t.split(':');return new Date(+p[0],+p[1]-1,+p[2],+q[0],+q[1],0,0).getTime()}
 var alId=null,alRep=120;
+function alGet(r){if(!r)return null;if(r.k==='t'){var i=findT(r.id);return i<0?null:tasks[i]}if(r.k==='s')return findS(r.id);var tb=findTab(r.tab);return tb?findTI(tb,r.id):null}
+function alPersist(r,quiet){if(r.k==='t'){quiet?LS.set('jv_tasks',tasks):save();renderTasks()}else if(r.k==='s'){quiet?LS.set('jv_shop',shop):saveShop();renderShop()}else{quiet?LS.set('jv_tabs',tabs):saveTabs();var tb=findTab(r.tab);if(tb)renderTabItems(tb)}}
+function alAll(){var a=[];tasks.forEach(function(t){if(!t.deleted)a.push({r:{k:'t',id:t.id},o:t,off:t.done})});
+ shop.forEach(function(s){if(!s.hidden)a.push({r:{k:'s',id:s.id},o:s,off:s.bought})});
+ tabs.forEach(function(tb){(tb.items||[]).forEach(function(s){if(!s.hidden)a.push({r:{k:'b',tab:tb.id,id:s.id},o:s,off:s.done})})});return a}
 function alChips(){var box=$('alChips');box.innerHTML='';[[30,'30 min'],[60,'1 oră'],[120,'2 ore'],[240,'4 ore'],[360,'6 ore'],[480,'8 ore'],[720,'12 ore'],[1440,'24 ore']].forEach(function(c){
  var b=document.createElement('button');b.type='button';b.className='alc'+(alRep===c[0]?' on':'');b.textContent=c[1];b.onclick=function(){alRep=c[0];$('alMin').value='';alChips()};box.appendChild(b)})}
 function alType(rep){$('alT1').classList.toggle('on',!rep);$('alT2').classList.toggle('on',!!rep);$('alRepBox').style.display=rep?'':'none'}
 function alEndUI(){$('alUntilBox').style.display=$('alEnd').value==='until'?'':'none'}
-function openAlarm(id){var i=findT(id);if(i<0)return;var t=tasks[i],a=t.alarm||{};alId=id;$('alTask').textContent=t.text;
+function openAlarm(r){var t=alGet(r);if(!t)return;var a=t.alarm||{};alId=r;$('alTask').textContent=t.text;
  var at=a.at||(Date.now()+3600000-Date.now()%60000),L=alLocal(at);$('alDate').value=L.d;$('alTime').value=L.t;
  alRep=a.rep||120;var pre=[30,60,120,240,360,480,720,1440].indexOf(alRep)>=0;$('alMin').value=pre?'':alRep;alChips();alType(!!a.rep);
  $('alEnd').value=a.until?'until':'none';var U=alLocal(a.until||at+86400000);$('alUDate').value=U.d;$('alUTime').value=U.t;alEndUI();
  $('alDel').style.display=t.alarm?'':'none';$('alModal').classList.add('show')}
 function closeAlarm(){$('alModal').classList.remove('show');alId=null}
-function alSave(){var i=findT(alId);if(i<0)return closeAlarm();var t=tasks[i],at=alParse($('alDate').value,$('alTime').value);if(!at){toast('Alege data și ora');return}
+function alSave(){var t=alGet(alId);if(!t)return closeAlarm();var at=alParse($('alDate').value,$('alTime').value);if(!at){toast('Alege data și ora');return}
  var rep=$('alT2').classList.contains('on')?(+$('alMin').value||alRep):0;if(rep&&rep<1){toast('Interval invalid');return}
  var until=rep&&$('alEnd').value==='until'?alParse($('alUDate').value,$('alUTime').value):null;
  if(rep&&at<Date.now())at=alRoll(at,rep);if(!rep&&at<Date.now()-30000){toast('Ora a trecut deja');return}
- t.alarm={at:at,rep:rep,until:until||null,snz:null};save();renderTasks();closeAlarm();toast('Alarmă setată · '+alShort(at));
+ t.alarm={at:at,rep:rep,until:until||null,snz:null};alPersist(alId);closeAlarm();toast('Alarmă setată · '+alShort(at));
  alPerm();alSchedule(t)}
 function alRoll(at,rep){var now=Date.now(),st=rep*60000;if(at>now)return at;return at+Math.ceil((now-at+1)/st)*st}
 function alPerm(){try{if(window.Notification&&Notification.permission==='default')Notification.requestPermission().catch(function(){})}catch(_){}}
 function alSchedule(t){ /* Notification Triggers where supported (feature-detected) */
  try{if(!('showTrigger' in Notification.prototype)||typeof TimestampTrigger==='undefined'||Notification.permission!=='granted'||!navigator.serviceWorker)return;
   navigator.serviceWorker.ready.then(function(r){var nx=alNext(t);if(nx>Date.now())r.showNotification('⏰ JARVIS',{body:t.text,tag:'jv-al-'+t.id,showTrigger:new TimestampTrigger(nx),requireInteraction:true})})}catch(_){}}
-function alDelete(){var i=findT(alId);if(i>=0){delete tasks[i].alarm;save();renderTasks();toast('Alarmă ștearsă')}closeAlarm()}
+function alDelete(){var t=alGet(alId);if(t){delete t.alarm;alPersist(alId);toast('Alarmă ștearsă')}closeAlarm()}
 var alQueue=[],alCur=null,alBeepT=null;
 function alBeep(on){clearInterval(alBeepT);alBeepT=null;if(!on)return;var one=function(){try{unlockAudio();if(!actx)return;var t0=actx.currentTime;[0,.25,.5].forEach(function(o){var g=actx.createGain(),os=actx.createOscillator();os.type='square';os.frequency.value=880;g.gain.setValueAtTime(.0001,t0+o);g.gain.exponentialRampToValueAtTime(.25,t0+o+.02);g.gain.exponentialRampToValueAtTime(.0001,t0+o+.18);os.connect(g);g.connect(actx.destination);os.start(t0+o);os.stop(t0+o+.2)})}catch(_){}
  try{if(navigator.vibrate)navigator.vibrate([400,200,400])}catch(_){}};one();alBeepT=setInterval(one,1500)}
 function alShow(){if(alCur||!alQueue.length)return;alCur=alQueue.shift();$('alfTask').textContent=alCur.text;$('alFire').classList.add('show');alBeep(true)}
-function alFire(t){alQueue.push({id:t.id,text:t.text});alShow();
+function alFire(t,r){alQueue.push({r:r,text:t.text});alShow();
  try{if(window.Notification&&Notification.permission==='granted'&&navigator.serviceWorker)navigator.serviceWorker.getRegistration().then(function(r){if(r)r.showNotification('⏰ JARVIS',{body:t.text,tag:'jv-al-'+t.id,renotify:true,requireInteraction:true,vibrate:[400,200,400],icon:'icons/icon-192.png'});else new Notification('⏰ JARVIS',{body:t.text})}).catch(function(){})}catch(_){}}
 function alStop(snooze){alBeep(false);$('alFire').classList.remove('show');var c=alCur;alCur=null;
- if(c&&snooze){var i=findT(c.id);if(i>=0){var t=tasks[i];if(!t.alarm)t.alarm={at:Date.now()+600000,rep:0,until:null};t.alarm.snz=Date.now()+600000;save();renderTasks();alSchedule(t);toast('Amânat 10 min')}}
+ if(c&&snooze){var t=alGet(c.r);if(t){if(!t.alarm)t.alarm={at:Date.now()+600000,rep:0,until:null};t.alarm.snz=Date.now()+600000;alPersist(c.r);alSchedule(t);toast('Amânat 10 min')}}
  setTimeout(alShow,300)}
-function alCheck(){var now=Date.now(),ch=false;tasks.forEach(function(t){var a=t.alarm;if(!a||!a.at||t.deleted)return;
+function alCheck(){var now=Date.now(),chg=[];alAll().forEach(function(e){var t=e.o,a=t.alarm;if(!a||!a.at)return;
  var nx=alNext(t);if(nx>now)return;
- if(!t.done)alFire(t);ch=true;
+ if(!e.off)alFire(t,e.r);chg.push(e.r);
  if(a.snz&&a.snz<=now){a.snz=null;if(a.at>now)return}
  if(a.rep){a.at=alRoll(a.at,a.rep);if(a.until&&a.at>a.until)delete t.alarm;else alSchedule(t)}else delete t.alarm});
- if(ch){LS.set('jv_tasks',tasks);renderTasks()}}
+ var ks={};chg.forEach(function(r){var key=r.k+(r.tab||'');if(!ks[key]){ks[key]=1;alPersist(r,true)}})}
 function alInit(){$('alT1').onclick=function(){alType(false)};$('alT2').onclick=function(){alType(true)};$('alEnd').onchange=alEndUI;
  $('alMin').oninput=function(){if(+this.value>0){alRep=+this.value;alChips()}};
  $('alSave').onclick=alSave;$('alDel').onclick=alDelete;$('alCancel').onclick=closeAlarm;
