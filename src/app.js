@@ -257,7 +257,7 @@ function startEdit(li,item,saveFn,rerender){if(editing&&editing!==li&&editing.is
  var ta=t.querySelector('textarea');ta.value=item.text;
  function grow(){ta.style.height='auto';ta.style.height=ta.scrollHeight+'px'}
  function close(){editing=null;rerender()}
- function ok(e){if(e){e.preventDefault();e.stopPropagation()}var v=ta.value.replace(/\s+/g,' ').trim();
+ function ok(e){if(e){e.preventDefault();e.stopPropagation()}var v=saveFn===saveNotes?ta.value.replace(/[ \t]+\n/g,'\n').trim():ta.value.replace(/\s+/g,' ').trim();
   if(!v){toast('Textul nu poate fi gol');ta.focus();return}
   if(v!==item.text){item.text=v;item.editedAt=new Date().toISOString();saveFn();toast('Salvat')}close()}
  function no(e){if(e){e.preventDefault();e.stopPropagation()}close()}
@@ -983,7 +983,7 @@ function saveNotes(){LS.set('jv_notes',notes)}
 function findN(id){for(var i=0;i<notes.length;i++)if(notes[i].id===id)return notes[i];return null}
 function renderNotes(){var ul=$('notesList');if(!ul)return;ul.innerHTML=notes.length?'':'<li class="empty">Nicio notiță.</li>';
  notes.forEach(function(n){var li=document.createElement('li');li.className='note';li.dataset.id=n.id;var d=new Date(n.ts);
-  li.innerHTML='<span class="t">'+esc(n.text)+'</span><small class="nts">'+d.getDate()+' '+LUNI_S[d.getMonth()]+' · '+pad(d.getHours())+':'+pad(d.getMinutes())+'</small>';ul.appendChild(li)})}
+  li.innerHTML='<small class="nts">'+d.getDate()+' '+LUNI_S[d.getMonth()]+'</small><span class="t">'+esc(n.text)+'</span>';ul.appendChild(li)})}
 function addNote(txt){txt=(txt||'').trim();if(!txt)return false;notes.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),text:txt,ts:new Date().toISOString()});saveNotes();renderNotes();
  var pg=$('notesPg');setTimeout(function(){pg.scrollTop=pg.scrollHeight},0);return true}
 function noteEdit(li){var n=findN(li.dataset.id);if(n)startEdit(li,n,saveNotes,renderNotes)}
@@ -993,8 +993,10 @@ function notesClose(fromPop){var pg=$('notesPg');if(!pg.classList.contains('show
  if(!fromPop&&history.state&&history.state.jvNotes)try{history.back()}catch(_){}}
 window.addEventListener('popstate',function(){notesClose(true)});
 $('notesBack').addEventListener('click',function(){notesClose()});
-$('fNote').addEventListener('submit',function(e){e.preventDefault();if(addNote($('iNote').value))$('iNote').value=''});
-$('bMicNote').onclick=function(){var i=$('iNote');i.focus();try{i.click()}catch(e){}};
+function noteGrow(){var i=$('iNote');i.style.height='auto';i.style.height=i.scrollHeight+'px'}
+$('fNote').addEventListener('submit',function(e){e.preventDefault();if(addNote($('iNote').value)){$('iNote').value='';noteGrow()}});
+$('iNote').addEventListener('input',noteGrow);
+$('iNote').addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey&&!e.isComposing){e.preventDefault();$('fNote').requestSubmit?$('fNote').requestSubmit():$('fNote').dispatchEvent(new Event('submit',{cancelable:true}))}});
 var sw=null;
 document.addEventListener('touchstart',function(e){sw=null;if(e.touches.length!==1)return;var t=e.target;
  if(t.closest&&t.closest('input,textarea,select,.modal.show,#lpMenu,.news-search'))return;if(document.querySelector('.modal.show')||$('lpMenu').classList.contains('show'))return;
