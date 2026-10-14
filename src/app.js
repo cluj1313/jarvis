@@ -455,7 +455,9 @@ function dndDrop(){var d=dnd,ul=d.ph&&d.ph.parentNode,T=ul&&dndListOf(ul),id=d.l
 var lp=null,LP_MS=450,lpJust=false;
 function lpCancel(){if(lp){clearTimeout(lp.t);lp=null}}
 document.addEventListener('pointerdown',function(e){dndEatClick=false;lpJust=false;lpCancel();
- if(e.pointerType==='mouse'&&e.button!==0)return;var li=e.target.closest&&e.target.closest('.task');
+ if(e.pointerType==='mouse'&&e.button!==0)return;
+ var hd=e.target.closest&&e.target.closest('.ctab .lbl');if(hd&&!e.target.closest('.spk,.tcol')&&!document.querySelector('.modal.show')&&!$('lpMenu').classList.contains('show')){
+  lp={id:e.pointerId,x:e.clientX,y:e.clientY,t:setTimeout(function(){lp=null;try{if(navigator.vibrate)navigator.vibrate(20)}catch(_){}lpJust=true;lpTabOpen(hd)},LP_MS)};return}var li=e.target.closest&&e.target.closest('.task');
  if(!li||!li.dataset.id||li.classList.contains('editing')||e.target.closest('textarea,.edb'))return;
  var S=dndListOf(li.parentNode);if(!S||(editing&&editing.isConnected)||document.querySelector('.modal.show')||$('lpMenu').classList.contains('show'))return;
  lp={id:e.pointerId,li:li,S:S,x:e.clientX,y:e.clientY,t:setTimeout(function(){var d=lp;lp=null;if(!d)return;dndEatClick=true;try{if(navigator.vibrate)navigator.vibrate(20)}catch(_){}lpJust=true;lpOpen(d.li,d.S)},LP_MS)}});
@@ -479,10 +481,11 @@ function lpPos(){var c=lpCur;if(!c)return;var r=c.li.getBoundingClientRect(),box
 function lpMoveMenu(){var c=lpCur,o=dndObj(c.S,c.id),box=$('lpBox'),h='<div class="lph">Mută în</div>';
  lpLists().forEach(function(L,i){h+='<button data-mv="'+i+'"'+(L.key===c.S.key?' class="cur"':'')+'>'+esc(L.n)+(L.key===c.S.key?' ✓':'')+'</button>'});
  h+='<button data-a="urg">'+(o.urgent?'● Normal':'● Urgent')+'</button>';box.innerHTML=h;lpPos()}
+function lpTabOpen(hd){lpCur={li:hd,tabHd:true};$('lpBox').innerHTML='<button data-a="ren">✎ Redenumește</button><button data-a="tdel" class="dng">🗑 Șterge tabul</button>';$('lpMenu').classList.add('show');hd.classList.add('jv-lpon');lpPos()}
 function lpClose(){$('lpMenu').classList.remove('show');if(lpCur&&lpCur.li)lpCur.li.classList.remove('jv-lpon');lpCur=null}
 $('lpMenu').addEventListener('click',function(e){if(lpJust){lpJust=false;return}var c=lpCur;if(!c){lpClose();return}var b=e.target.closest('button');if(!b){lpClose();return}
  if(b.dataset.mv!=null){var T=lpLists()[+b.dataset.mv];if(T.key===c.S.key){lpClose();return}lpMove(T);return}
- var a=b.dataset.a;if(a==='mv'){lpMoveMenu();return}if(a==='urg'){var o=dndObj(c.S,c.id);lpMove(c.S,!(o&&o.urgent));return}
+ var a=b.dataset.a;if(a==='ren'||a==='tdel'){var hd=c.li;lpClose();var hb=hd.querySelector(a==='ren'?'.hb.ren':'.hb.del');if(hb)hb.click();return}if(a==='mv'){lpMoveMenu();return}if(a==='urg'){var o=dndObj(c.S,c.id);lpMove(c.S,!(o&&o.urgent));return}
  var li=c.li;lpClose();var btn=li.querySelector(a==='al'?'.al':a==='ed'?'.ed':'.x');if(btn){dndEatClick=false;btn.click()}});
 document.addEventListener('touchmove',function(e){if(dnd&&dnd.armed&&e.cancelable)e.preventDefault()},{passive:false});
 ['contextmenu','selectstart','dragstart'].forEach(function(ev){document.addEventListener(ev,function(e){if(dnd)e.preventDefault()})});
