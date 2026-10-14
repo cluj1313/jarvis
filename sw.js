@@ -1,6 +1,6 @@
 /* JARVIS service worker: app shell cache. HTML = network-first (updates arrive), static = cache-first.
    Voice model files (Mihai, own cache "jarvis-piper-v1") and weather (Open-Meteo) are NOT touched: passed straight to the network. */
-var VERSION='jarvis-shell-v39';
+var VERSION='jarvis-shell-v40';
 var SHELL=['./','index.html','blank.html','manifest.webmanifest','manifest-blank.webmanifest',
  'jarvis-full.jpg','icons/icon-192.png','icons/icon-512.png','icons/icon-maskable-512.png','icons/apple-touch-icon.png'];
 var FONT_HOSTS=/^https:\/\/(fonts\.googleapis\.com|fonts\.gstatic\.com)\//,DSEG=/^https:\/\/cdn\.jsdelivr\.net\/npm\/dseg@/;
@@ -25,3 +25,4 @@ self.addEventListener('fetch',function(e){var r=e.request;var url=r.url;
   e.respondWith(caches.open(VERSION).then(function(c){return c.match(url).then(function(h){return h||fetch(r).then(function(res){if(res&&(res.ok||res.type==='opaque'))c.put(url,res.clone());return res})})}));return}
  /* everything else (Mihai voice files, onnxruntime, Open-Meteo, geocoding…) -> untouched network */
 });
+self.addEventListener('notificationclick',function(e){e.notification.close();e.waitUntil(self.clients.matchAll({type:'window',includeUncontrolled:true}).then(function(cs){for(var i=0;i<cs.length;i++)if('focus' in cs[i])return cs[i].focus();return self.clients.openWindow('./')}))});

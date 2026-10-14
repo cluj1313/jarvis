@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="JARVIS">
-<meta name="jarvis-version" content="v39-jarvis">
+<meta name="jarvis-version" content="v40-jarvis">
 <title>JARVIS · Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Roboto+Condensed:wght@700&family=Orbitron:wght@700&family=Share+Tech+Mono&family=Rajdhani:wght@600;700&family=Audiowide&family=Teko:wght@500&family=Oxanium:wght@700&display=swap" rel="stylesheet">
@@ -123,6 +123,16 @@ ul.tasks{list-style:none;margin:0;padding:0}
 .task .st small{display:block;font-size:11px;color:#6f8798;margin-top:2px}
 .task .x{background:none;border:0;color:var(--mut);font-size:18px;line-height:1;padding:2px 2px 2px 6px;cursor:pointer}
 .task .ed{background:none;border:0;color:var(--mut);font-size:16px;line-height:1;padding:2px 4px;cursor:pointer}
+.task .al{background:none;border:0;color:var(--mut);font-size:15px;line-height:1;padding:2px 2px;cursor:pointer;display:flex;flex-direction:column;align-items:center;opacity:.5;filter:grayscale(1)}
+.task .al.on{color:var(--cyan);opacity:1;filter:none;text-shadow:0 0 6px rgba(63,216,255,.6)}
+.task .al small{font-size:9.5px;margin-top:2px;white-space:nowrap;color:var(--cyan)}
+.task.editing .al{display:none}
+.alseg{display:flex;gap:8px}.alseg .btn,.alc{flex:1}
+.alseg .btn.on,.alc.on{border-color:rgba(63,216,255,.7);background:rgba(63,216,255,.14);color:var(--cyan)}
+.alchips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.alc{flex:0 0 auto;background:rgba(5,18,32,.6);border:1px solid var(--line);color:var(--txt);border-radius:999px;padding:7px 11px;font:inherit;font-size:13px;cursor:pointer}
+.al2{display:flex;gap:8px}.al2 input{flex:1;min-width:0}
+#alFire .card{text-align:center}#alfTask{font-size:20px;margin:10px 0 16px;color:var(--txt)}
 .task.editing{cursor:default}
 .task.editing .st,.task.editing .x,.task.editing .ed{display:none}
 .task.editing .t{text-decoration:none;color:var(--txt)}
@@ -392,6 +402,17 @@ ul.tasks{list-style:none;margin:0;padding:0}
  <div class="field"><label>Culoare (opțional)</label><div class="tcolors" id="tmColors"></div></div>
  <div class="mrow"><button type="button" class="btn" id="tmCancel">Anulează</button><button type="submit" class="btn" id="tmSave">Creează</button></div></form>
 </div></div>
+<div class="modal" id="alModal"><div class="card"><div class="lbl"><span>⏰ Alarmă</span></div>
+ <div class="field" style="color:var(--mut);font-size:14px" id="alTask"></div>
+ <div class="field"><label>Data și ora</label><div class="al2"><input type="date" id="alDate"><input type="time" id="alTime"></div></div>
+ <div class="field"><label>Tip</label><div class="alseg"><button type="button" class="btn" id="alT1">Unică</button><button type="button" class="btn" id="alT2">Repetitivă</button></div></div>
+ <div id="alRepBox"><div class="field"><label>Repetă la fiecare</label><div class="alchips" id="alChips"></div><input type="number" id="alMin" min="1" inputmode="numeric" placeholder="sau minute (ex. 90)"></div>
+ <div class="field"><label>Sfârșit</label><select id="alEnd"><option value="none">Fără sfârșit</option><option value="until">Până la…</option></select>
+ <div class="al2" id="alUntilBox" style="margin-top:8px"><input type="date" id="alUDate"><input type="time" id="alUTime"></div></div></div>
+ <div class="mrow"><button type="button" class="btn" id="alDel">Șterge alarma</button><button type="button" class="btn" id="alCancel">Anulează</button><button type="button" class="btn" id="alSave">Salvează</button></div>
+</div></div>
+<div class="modal" id="alFire"><div class="card"><div class="lbl"><span>⏰ Alarmă</span></div><div id="alfTask"></div>
+ <div class="mrow" style="justify-content:center"><button type="button" class="btn" id="alSnz">Amână 10 min</button><button type="button" class="btn" id="alOff">Oprit</button></div></div></div>
 <div class="toast" id="toast"></div>
 <script>
 /* ===== Neural TTS in-browser (no API keys): Piper Mihai only. onnxruntime-web 1.18 WASM.
@@ -738,7 +759,9 @@ function listFor(which){return tasks.filter(function(t){return visible(t)&&inLis
 function ordCmp(k){return function(a,b){var oa=a.ord!=null&&a.ordK===k,ob=b.ord!=null&&b.ordK===k;
  if(oa&&ob)return a.ord-b.ord;if(oa!==ob)return oa?-1:1;return a.date<b.date?-1:a.date>b.date?1:0}}
 function isDoneItem(x){return !!(x.done||x.bought)} /* v28: done/bought sink below open items */
-function urgOrd(k){return function(a,b){var da=!!a.done,db=!!b.done;if(da!==db)return da?1:-1;if(!!a.urgent!==!!b.urgent)return a.urgent?-1:1;return ordCmp(k+(a.urgent?':u':':n'))(a,b)}}
+function alphaCmp(a,b){return String(a.text||'').localeCompare(String(b.text||''),'ro',{sensitivity:'base'})} /* v40: alphabetical (ro, case/diacritics-insensitive) */
+function urgOrd(k){return function(a,b){var da=!!a.done,db=!!b.done;if(da!==db)return da?1:-1;if(!!a.urgent!==!!b.urgent)return a.urgent?-1:1;return alphaCmp(a,b)}}
+function urgAlpha(a,b){return urgSort(a,b)||alphaCmp(a,b)}
 function urgSort(a,b){var da=isDoneItem(a),db=isDoneItem(b);if(da!==db)return da?1:-1;if(!!a.urgent!==!!b.urgent)return a.urgent?-1:1;return 0}
 (function migrate(){var tk=dkey(),need=tasks.filter(function(t){return !t.dueDay});if(!need.length)return;
  /* keep what v14 showed: old "ieri" list, then "noi", in their on-screen order -> all open ones go to Azi */
@@ -750,8 +773,9 @@ function rollTasks(){var tk=dkey(),ch=false;tasks.forEach(function(t){if(live(t)
  if(ch){LS.set('jv_tasks',tasks);if(typeof hCur!=='undefined'&&hCur!==null)hCur=snap()}return ch}
 (function(){var ch=false;tasks.forEach(function(t){if(t.urgent==null){t.urgent=false;ch=true}});if(ch)LS.set('jv_tasks',tasks)})();
 rollTasks();
-function renderItem(t,stHtml){var li=document.createElement('li');li.className='task'+(t.done?' done':'')+(t.urgent?' urgent':'');li.dataset.id=t.id;
- li.innerHTML='<span class="dot"></span><span class="t kw">'+esc(t.text)+'</span><span class="st">'+stHtml+'</span><button class="ed" aria-label="Editează">✎</button><button class="x" aria-label="Șterge">×</button>';return li}
+function renderItem(t,stHtml,alarm){var li=document.createElement('li');li.className='task'+(t.done?' done':'')+(t.urgent?' urgent':'');li.dataset.id=t.id;
+ var al='';if(alarm){var nx=alNext(t);al='<button class="al'+(nx?' on':'')+'" aria-label="Alarmă">⏰'+(nx?'<small>'+alShort(nx)+'</small>':'')+'</button>'}
+ li.innerHTML='<span class="dot"></span><span class="t kw">'+esc(t.text)+'</span>'+(stHtml?'<span class="st">'+stHtml+'</span>':'')+al+'<button class="ed" aria-label="Editează">✎</button><button class="x" aria-label="Șterge">×</button>';return li}
 function fillList(ul,list,emptyTxt,makeLi){ul.innerHTML=list.length?'':'<li class="empty">'+emptyTxt+'</li>';if(!list.length)return;
  list.filter(function(x){return x.urgent&&!isDoneItem(x)}).forEach(function(x){ul.appendChild(makeLi(x))});
  var sep=document.createElement('li');sep.className='jv-sep';sep.setAttribute('aria-hidden','true');sep.innerHTML='<span>URGENT ↑</span>';ul.appendChild(sep);
@@ -768,8 +792,8 @@ function bumpOpenOrd(t){var which=inList(t,'maine')?'maine':'azi',kU=which+':u',
  if(t.urgent){t.ord=uI;t.ordK=kU}else{t.ord=nI;t.ordK=kN}}
 function renderTasks(){
  [['lAzi','azi'],['lMaine','maine']].forEach(function(p){
-  var ul=$(p[0]),list=listFor(p[1]),tk=dkey();
-  fillList(ul,list,'Niciun task.',function(t){return renderItem(t,(t.done?'Făcut':'Deschis')+(p[1]==='azi'&&t.fromDay&&t.fromDay<tk?'<small>'+shortDate(t.fromDay)+'</small>':''))})});updCardCount('azi');updCardCount('maine')}
+  var ul=$(p[0]),list=listFor(p[1]);
+  fillList(ul,list,'Niciun task.',function(t){return renderItem(t,'',true)})});updCardCount('azi');updCardCount('maine')}
 function findT(id){for(var i=0;i<tasks.length;i++)if(tasks[i].id===id)return i;return -1}
 function delTask(id){var i=findT(id);if(i<0)return;if(confirm('Ștergi taskul „'+tasks[i].text+'"?')){tasks[i].deleted=new Date().toISOString();save();renderTasks()}}
 function addTask(txt,which){txt=(txt||'').trim();if(!txt)return false;txt=txt.charAt(0).toUpperCase()+txt.slice(1);
@@ -778,6 +802,7 @@ function addTask(txt,which){txt=(txt||'').trim();if(!txt)return false;txt=txt.ch
  ul.addEventListener('click',function(e){var li=e.target.closest('.task');if(!li||li.classList.contains('editing'))return;
   if(e.target.closest('.ed')){var i=findT(li.dataset.id);if(i>=0)startEdit(li,tasks[i],save,renderTasks);return}
   if(e.target.classList.contains('x')){delTask(li.dataset.id);return}
+  if(e.target.closest('.al')){openAlarm(li.dataset.id);return}
   if(dndEat())return
   var i=findT(li.dataset.id);if(i<0)return;var t=tasks[i];t.done=!t.done;t.doneDate=t.done?dkey():null;t.doneAt=t.done?new Date().toISOString():null;if(!t.done)bumpOpenOrd(t);save();renderTasks()});
  ul.addEventListener('contextmenu',function(e){if(e.target.closest('.task'))e.preventDefault()})});
@@ -838,7 +863,7 @@ function visTabs(){return tabs.filter(function(t){return !t.hidden})}
 function findTab(id){for(var i=0;i<tabs.length;i++)if(tabs[i].id===id)return tabs[i];return null}
 function findTI(tab,id){for(var i=0;i<tab.items.length;i++)if(tab.items[i].id===id)return tab.items[i];return null}
 function tiVisible(x){return !x.hidden&&(!x.done||x.doneDate===dkey())}
-function tabList(tab){return tab.items.filter(tiVisible).sort(urgSort)}
+function tabList(tab){return tab.items.filter(tiVisible).sort(urgAlpha)}
 (function(){var ch=false;tabs.forEach(function(tab){(tab.items||[]).forEach(function(s){if(s.urgent==null){s.urgent=false;ch=true}})});if(ch)LS.set('jv_tabs',tabs)})();
 var tabCol=LS.get('jv_tabcol',{});if(!tabCol||typeof tabCol!=='object')tabCol={}; /* v25: collapsed custom tabs (not in undo history) */
 function tabOpenCount(tab){return tabList(tab).filter(function(x){return !x.done}).length}
@@ -847,7 +872,7 @@ function toggleTabCol(tab){var c=$('ct_'+tab.id);if(!c)return;var col=!c.classLi
  if(col)tabCol[tab.id]=1;else delete tabCol[tab.id];LS.set('jv_tabcol',tabCol);
  var b=c.querySelector('.tcol');if(b){b.setAttribute('aria-expanded',col?'false':'true');b.setAttribute('aria-label',col?'Extinde tabul':'Restrânge tabul')}updTabCount(tab)}
 function renderTabItems(tab){var ul=document.querySelector('#ct_'+tab.id+' ul');if(!ul)return;updTabCount(tab);
- fillList(ul,tabList(tab),'Lista e goală.',function(s){return renderItem(s,(s.done?'Gata':'Deschis')+(s.date<dkey()?'<small>'+shortDate(s.date)+'</small>':''))})}
+ fillList(ul,tabList(tab),'Lista e goală.',function(s){return renderItem(s,'')})}
 function renderTabs(){var box=$('customCards');if(!box)return;box.innerHTML='';
  visTabs().forEach(function(tab){var c=document.createElement('section');c.className='card ctab'+(tabCol[tab.id]?' col':'');c.id='ct_'+tab.id;c.dataset.tab=tab.id;
   if(tab.color)c.style.setProperty('--tc',tab.color);
@@ -986,7 +1011,7 @@ function dndDrop(){var d=dnd,ul=d.ph&&d.ph.parentNode,T=ul&&dndListOf(ul),id=d.l
  dndReset();if(T)dndApply(S,T,id,ids,urgMap)}
 document.addEventListener('pointerdown',function(e){dndEatClick=false;if(dnd){dndReset();return}
  if(e.pointerType==='mouse'&&e.button!==0)return;var li=e.target.closest&&e.target.closest('.task');
- if(!li||!li.dataset.id||li.classList.contains('editing')||e.target.closest('.x,.ed,textarea,.edb'))return;
+ if(!li||!li.dataset.id||li.classList.contains('editing')||e.target.closest('.x,.ed,.al,textarea,.edb'))return;
  var S=dndListOf(li.parentNode);if(!S||(editing&&editing.isConnected)||document.querySelector('.modal.show'))return;
  dnd={id:e.pointerId,li:li,ul:li.parentNode,src:S,sx:e.clientX,sy:e.clientY,x:e.clientX,y:e.clientY,t0:Date.now(),armed:false,drag:false,armT:setTimeout(dndArm,DND_ARM)};dndClasses(true)});
 window.addEventListener('pointermove',function(e){var d=dnd;if(!d||e.pointerId!==d.id)return;d.x=e.clientX;d.y=e.clientY;
@@ -1423,6 +1448,55 @@ window.JARVIS={readCard:readCard,stop:stopSpeaking,say:say,get speaking(){return
 var dm=location.hash.match(/demo-karaoke(?:=(\d+))?/);
 if(dm)loadWx().then(function(){speaking=true;speakKey='wx';updEq();setStatus('Vorbesc (Mihai)…');var s=prepSeg($('wxtxt'),wxSentence(wx));setTimeout(function(){hl(s,+(dm[1]||6))},80)});
 if(/demo-settings/.test(location.hash))setTimeout(function(){$('bSettings').click()},300);
+/* ---------- v40: per-task alarms (t.alarm={at:ms,rep:min|0,until:ms|null,snz:ms|null}; stored in jv_tasks -> included in Backup) ---------- */
+function alNext(t){var a=t&&t.alarm;if(!a||!a.at)return 0;return a.snz&&a.snz<a.at?a.snz:a.at}
+function alShort(ms){var d=new Date(ms),n=new Date(),hm=pad(d.getHours())+':'+pad(d.getMinutes());return dkey(d)===dkey(n)?hm:d.getDate()+' '+LUNI_S[d.getMonth()]+' '+hm}
+function alLocal(ms){var d=new Date(ms);return{d:dkey(d),t:pad(d.getHours())+':'+pad(d.getMinutes())}}
+function alParse(d,t){if(!d||!t)return 0;var p=d.split('-'),q=t.split(':');return new Date(+p[0],+p[1]-1,+p[2],+q[0],+q[1],0,0).getTime()}
+var alId=null,alRep=120;
+function alChips(){var box=$('alChips');box.innerHTML='';[[30,'30 min'],[60,'1 oră'],[120,'2 ore'],[240,'4 ore'],[360,'6 ore'],[480,'8 ore'],[720,'12 ore'],[1440,'24 ore']].forEach(function(c){
+ var b=document.createElement('button');b.type='button';b.className='alc'+(alRep===c[0]?' on':'');b.textContent=c[1];b.onclick=function(){alRep=c[0];$('alMin').value='';alChips()};box.appendChild(b)})}
+function alType(rep){$('alT1').classList.toggle('on',!rep);$('alT2').classList.toggle('on',!!rep);$('alRepBox').style.display=rep?'':'none'}
+function alEndUI(){$('alUntilBox').style.display=$('alEnd').value==='until'?'':'none'}
+function openAlarm(id){var i=findT(id);if(i<0)return;var t=tasks[i],a=t.alarm||{};alId=id;$('alTask').textContent=t.text;
+ var at=a.at||(Date.now()+3600000-Date.now()%60000),L=alLocal(at);$('alDate').value=L.d;$('alTime').value=L.t;
+ alRep=a.rep||120;var pre=[30,60,120,240,360,480,720,1440].indexOf(alRep)>=0;$('alMin').value=pre?'':alRep;alChips();alType(!!a.rep);
+ $('alEnd').value=a.until?'until':'none';var U=alLocal(a.until||at+86400000);$('alUDate').value=U.d;$('alUTime').value=U.t;alEndUI();
+ $('alDel').style.display=t.alarm?'':'none';$('alModal').classList.add('show')}
+function closeAlarm(){$('alModal').classList.remove('show');alId=null}
+function alSave(){var i=findT(alId);if(i<0)return closeAlarm();var t=tasks[i],at=alParse($('alDate').value,$('alTime').value);if(!at){toast('Alege data și ora');return}
+ var rep=$('alT2').classList.contains('on')?(+$('alMin').value||alRep):0;if(rep&&rep<1){toast('Interval invalid');return}
+ var until=rep&&$('alEnd').value==='until'?alParse($('alUDate').value,$('alUTime').value):null;
+ if(rep&&at<Date.now())at=alRoll(at,rep);if(!rep&&at<Date.now()-30000){toast('Ora a trecut deja');return}
+ t.alarm={at:at,rep:rep,until:until||null,snz:null};save();renderTasks();closeAlarm();toast('Alarmă setată · '+alShort(at));
+ alPerm();alSchedule(t)}
+function alRoll(at,rep){var now=Date.now(),st=rep*60000;if(at>now)return at;return at+Math.ceil((now-at+1)/st)*st}
+function alPerm(){try{if(window.Notification&&Notification.permission==='default')Notification.requestPermission().catch(function(){})}catch(_){}}
+function alSchedule(t){ /* Notification Triggers where supported (feature-detected) */
+ try{if(!('showTrigger' in Notification.prototype)||typeof TimestampTrigger==='undefined'||Notification.permission!=='granted'||!navigator.serviceWorker)return;
+  navigator.serviceWorker.ready.then(function(r){var nx=alNext(t);if(nx>Date.now())r.showNotification('⏰ JARVIS',{body:t.text,tag:'jv-al-'+t.id,showTrigger:new TimestampTrigger(nx),requireInteraction:true})})}catch(_){}}
+function alDelete(){var i=findT(alId);if(i>=0){delete tasks[i].alarm;save();renderTasks();toast('Alarmă ștearsă')}closeAlarm()}
+var alQueue=[],alCur=null,alBeepT=null;
+function alBeep(on){clearInterval(alBeepT);alBeepT=null;if(!on)return;var one=function(){try{unlockAudio();if(!actx)return;var t0=actx.currentTime;[0,.25,.5].forEach(function(o){var g=actx.createGain(),os=actx.createOscillator();os.type='square';os.frequency.value=880;g.gain.setValueAtTime(.0001,t0+o);g.gain.exponentialRampToValueAtTime(.25,t0+o+.02);g.gain.exponentialRampToValueAtTime(.0001,t0+o+.18);os.connect(g);g.connect(actx.destination);os.start(t0+o);os.stop(t0+o+.2)})}catch(_){}
+ try{if(navigator.vibrate)navigator.vibrate([400,200,400])}catch(_){}};one();alBeepT=setInterval(one,1500)}
+function alShow(){if(alCur||!alQueue.length)return;alCur=alQueue.shift();$('alfTask').textContent=alCur.text;$('alFire').classList.add('show');alBeep(true)}
+function alFire(t){alQueue.push({id:t.id,text:t.text});alShow();
+ try{if(window.Notification&&Notification.permission==='granted'&&navigator.serviceWorker)navigator.serviceWorker.getRegistration().then(function(r){if(r)r.showNotification('⏰ JARVIS',{body:t.text,tag:'jv-al-'+t.id,renotify:true,requireInteraction:true,vibrate:[400,200,400],icon:'icons/icon-192.png'});else new Notification('⏰ JARVIS',{body:t.text})}).catch(function(){})}catch(_){}}
+function alStop(snooze){alBeep(false);$('alFire').classList.remove('show');var c=alCur;alCur=null;
+ if(c&&snooze){var i=findT(c.id);if(i>=0){var t=tasks[i];if(!t.alarm)t.alarm={at:Date.now()+600000,rep:0,until:null};t.alarm.snz=Date.now()+600000;save();renderTasks();alSchedule(t);toast('Amânat 10 min')}}
+ setTimeout(alShow,300)}
+function alCheck(){var now=Date.now(),ch=false;tasks.forEach(function(t){var a=t.alarm;if(!a||!a.at||t.deleted)return;
+ var nx=alNext(t);if(nx>now)return;
+ if(!t.done)alFire(t);ch=true;
+ if(a.snz&&a.snz<=now){a.snz=null;if(a.at>now)return}
+ if(a.rep){a.at=alRoll(a.at,a.rep);if(a.until&&a.at>a.until)delete t.alarm;else alSchedule(t)}else delete t.alarm});
+ if(ch){LS.set('jv_tasks',tasks);renderTasks()}}
+function alInit(){$('alT1').onclick=function(){alType(false)};$('alT2').onclick=function(){alType(true)};$('alEnd').onchange=alEndUI;
+ $('alMin').oninput=function(){if(+this.value>0){alRep=+this.value;alChips()}};
+ $('alSave').onclick=alSave;$('alDel').onclick=alDelete;$('alCancel').onclick=closeAlarm;
+ $('alOff').onclick=function(){alStop(false)};$('alSnz').onclick=function(){alStop(true)};
+ alCheck();setInterval(alCheck,15000);document.addEventListener('visibilitychange',function(){if(!document.hidden)alCheck()});window.addEventListener('focus',alCheck)}
+alInit();
 })();
 </script>
 </body>

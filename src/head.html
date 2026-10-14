@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="JARVIS">
-<meta name="jarvis-version" content="v39-jarvis">
+<meta name="jarvis-version" content="v40-jarvis">
 <title>JARVIS · Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Roboto+Condensed:wght@700&family=Orbitron:wght@700&family=Share+Tech+Mono&family=Rajdhani:wght@600;700&family=Audiowide&family=Teko:wght@500&family=Oxanium:wght@700&display=swap" rel="stylesheet">
@@ -123,6 +123,16 @@ ul.tasks{list-style:none;margin:0;padding:0}
 .task .st small{display:block;font-size:11px;color:#6f8798;margin-top:2px}
 .task .x{background:none;border:0;color:var(--mut);font-size:18px;line-height:1;padding:2px 2px 2px 6px;cursor:pointer}
 .task .ed{background:none;border:0;color:var(--mut);font-size:16px;line-height:1;padding:2px 4px;cursor:pointer}
+.task .al{background:none;border:0;color:var(--mut);font-size:15px;line-height:1;padding:2px 2px;cursor:pointer;display:flex;flex-direction:column;align-items:center;opacity:.5;filter:grayscale(1)}
+.task .al.on{color:var(--cyan);opacity:1;filter:none;text-shadow:0 0 6px rgba(63,216,255,.6)}
+.task .al small{font-size:9.5px;margin-top:2px;white-space:nowrap;color:var(--cyan)}
+.task.editing .al{display:none}
+.alseg{display:flex;gap:8px}.alseg .btn,.alc{flex:1}
+.alseg .btn.on,.alc.on{border-color:rgba(63,216,255,.7);background:rgba(63,216,255,.14);color:var(--cyan)}
+.alchips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.alc{flex:0 0 auto;background:rgba(5,18,32,.6);border:1px solid var(--line);color:var(--txt);border-radius:999px;padding:7px 11px;font:inherit;font-size:13px;cursor:pointer}
+.al2{display:flex;gap:8px}.al2 input{flex:1;min-width:0}
+#alFire .card{text-align:center}#alfTask{font-size:20px;margin:10px 0 16px;color:var(--txt)}
 .task.editing{cursor:default}
 .task.editing .st,.task.editing .x,.task.editing .ed{display:none}
 .task.editing .t{text-decoration:none;color:var(--txt)}
@@ -392,4 +402,15 @@ ul.tasks{list-style:none;margin:0;padding:0}
  <div class="field"><label>Culoare (opțional)</label><div class="tcolors" id="tmColors"></div></div>
  <div class="mrow"><button type="button" class="btn" id="tmCancel">Anulează</button><button type="submit" class="btn" id="tmSave">Creează</button></div></form>
 </div></div>
+<div class="modal" id="alModal"><div class="card"><div class="lbl"><span>⏰ Alarmă</span></div>
+ <div class="field" style="color:var(--mut);font-size:14px" id="alTask"></div>
+ <div class="field"><label>Data și ora</label><div class="al2"><input type="date" id="alDate"><input type="time" id="alTime"></div></div>
+ <div class="field"><label>Tip</label><div class="alseg"><button type="button" class="btn" id="alT1">Unică</button><button type="button" class="btn" id="alT2">Repetitivă</button></div></div>
+ <div id="alRepBox"><div class="field"><label>Repetă la fiecare</label><div class="alchips" id="alChips"></div><input type="number" id="alMin" min="1" inputmode="numeric" placeholder="sau minute (ex. 90)"></div>
+ <div class="field"><label>Sfârșit</label><select id="alEnd"><option value="none">Fără sfârșit</option><option value="until">Până la…</option></select>
+ <div class="al2" id="alUntilBox" style="margin-top:8px"><input type="date" id="alUDate"><input type="time" id="alUTime"></div></div></div>
+ <div class="mrow"><button type="button" class="btn" id="alDel">Șterge alarma</button><button type="button" class="btn" id="alCancel">Anulează</button><button type="button" class="btn" id="alSave">Salvează</button></div>
+</div></div>
+<div class="modal" id="alFire"><div class="card"><div class="lbl"><span>⏰ Alarmă</span></div><div id="alfTask"></div>
+ <div class="mrow" style="justify-content:center"><button type="button" class="btn" id="alSnz">Amână 10 min</button><button type="button" class="btn" id="alOff">Oprit</button></div></div></div>
 <div class="toast" id="toast"></div>
