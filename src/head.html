@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="JARVIS">
-<meta name="jarvis-version" content="v44-jarvis">
+<meta name="jarvis-version" content="v45-jarvis">
 <title>JARVIS · Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Roboto+Condensed:wght@700&family=Orbitron:wght@700&family=Share+Tech+Mono&family=Rajdhani:wght@600;700&family=Audiowide&family=Teko:wght@500&family=Oxanium:wght@700&display=swap" rel="stylesheet">
@@ -314,6 +314,24 @@ ul.tasks{list-style:none;margin:0;padding:0}
 .news-web[hidden]{display:none!important}
 .news-web .nw-q{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .ccol.col .news-web{display:none!important}
+
+.task,.note,.lbl,#lpMenu,#lpBox{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+.task textarea,.note textarea,.lbl input{-webkit-user-select:text;user-select:text;-webkit-touch-callout:default}
+#notesPg{position:fixed;inset:0;z-index:9;overflow:auto;transform:translateX(100%);transition:transform .28s ease;visibility:hidden;background:
+ radial-gradient(ellipse at 20% -10%,rgba(30,120,180,.25),transparent 60%),
+ linear-gradient(rgba(80,180,255,.05) 1px,transparent 1px) 0 0/28px 28px,
+ linear-gradient(90deg,rgba(80,180,255,.05) 1px,transparent 1px) 0 0/28px 28px,var(--bg)}
+#notesPg.show{transform:none;visibility:visible}
+html.jv-notes body{overflow:hidden}
+#notesPg .nwrap{max-width:560px;margin:0 auto;padding:18px 16px 40px}
+#notesPg .ntop{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+#notesBack{width:38px;height:38px;font-size:24px;line-height:1}
+#notesPg h2{margin:0;font-size:18px;letter-spacing:.18em;color:var(--cyan);font-weight:700}
+#notesList{list-style:none;margin:14px 0 0;padding:0}
+.note{padding:11px 4px;border-bottom:1px solid rgba(120,180,220,.12);font-size:16.5px;line-height:1.5;cursor:default}
+.note:last-child{border-bottom:0}.note .t{display:block;white-space:pre-wrap;word-break:break-word}
+.note .nts{display:block;color:#6f8798;font-size:11px;margin-top:2px}.note.editing .nts{display:none}
+#notesList .empty{color:var(--mut);padding:8px 4px}
 </style>
 </head>
 <body>
@@ -420,6 +438,9 @@ ul.tasks{list-style:none;margin:0;padding:0}
 </div></div>
 <div class="modal" id="alFire"><div class="card"><div class="lbl"><span>⏰ Alarmă</span></div><div id="alfTask"></div>
  <div class="mrow" style="justify-content:center"><button type="button" class="btn" id="alSnz">Amână 10 min</button><button type="button" class="btn" id="alOff">Oprit</button></div></div></div>
+<div id="notesPg" aria-label="Notițe"><div class="nwrap"><div class="ntop"><button type="button" class="hb" id="notesBack" aria-label="Înapoi">‹</button><h2>NOTIȚE</h2></div>
+ <section class="card"><form class="add" id="fNote"><input id="iNote" placeholder="Scrie o notiță" autocomplete="off" enterkeyhint="done"><button type="button" class="btn mic" id="bMicNote" title="Dictează (sau tastatură)" aria-label="Dictează"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4"/></svg></button><button class="btn" type="submit">Adaugă</button></form>
+ <ul id="notesList"></ul></section></div></div>
 <div id="lpMenu"><div id="lpBox"></div></div>
  <div class="modal" id="voiceModal"><section class="card ccol" id="cVoice"><div class="lbl"><span class="lt">Voice status</span><span class="hgrp"><button type="button" class="hb vclose" id="voiceClose" aria-label="Închide">×</button><button class="spk" data-read="voice" aria-label="Citește"></button><button type="button" class="hb tcol" aria-expanded="true" aria-label="Restrânge cardul"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4.2 8.1a1.5 1.5 0 0 1 2.1 0L12 13.8l5.7-5.7a1.5 1.5 0 1 1 2.1 2.1l-6.75 6.75a1.5 1.5 0 0 1-2.1 0L4.2 10.2a1.5 1.5 0 0 1 0-2.1z"/></svg></button></span></div>
   <p class="voice kw" id="greet">…</p>
