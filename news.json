@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-15T15:16:29.902111Z",
+  "updated": "2026-10-15T19:20:00.493171Z",
   "categories": [
     {
       "id": "ai",
@@ -10,34 +10,34 @@
           "name": "The Verge AI",
           "items": [
             {
+              "title": "How Windows is being optimized for Nvidia’s RTX Spark laptops",
+              "url": "https://www.theverge.com/tech/1011996/microsoft-windows-rtx-spark-platform-changes-notepad",
+              "snippet": "Microsoft and Nvidia held a launch party for the first wave of RTX Spark laptops last week in San Francisco, where a new wave of AI PCs took center stage amid a packed crowd and…",
+              "published": "2026-10-15T17:25:15Z"
+            },
+            {
+              "title": "Friends don’t let friends feed their data to AI agents",
+              "url": "https://www.theverge.com/tech/1011938/muse-ai-data-friends-consent",
+              "snippet": "There's a growing trend in the consumer tech world: gadgets designed to spy on everything and everyone around you, regardless of whether or not anyone else actually consented to…",
+              "published": "2026-10-15T16:21:45Z"
+            },
+            {
+              "title": "Benn Jordan on Flock, privacy, and the new surveillance backlash",
+              "url": "https://www.theverge.com/podcast/1011170/benn-jordan-flock-cameras-alpr-ai-surveillance-privacy",
+              "snippet": "Today, I’m talking with Benn Jordan, musician, YouTuber, researcher, and investigative journalist. You might know Benn from those first two titles — he’s got a prolific…",
+              "published": "2026-10-15T16:06:42Z"
+            },
+            {
               "title": "Your secrets aren’t safe with this cute robot toy — they’re on Chinese servers ready to be hacked",
               "url": "https://www.theverge.com/tech/1010727/eiliko-robot-hack-energize-lab",
               "snippet": "There's a new digital pet in town - a cute little marshmallow of a robot that can change its cartoony expressions to match your mood. But if you or your kids talk to \"Eiliko\"…",
-              "published": "2026-10-15T10:54:19Z"
+              "published": "2026-10-15T14:46:20Z"
             },
             {
-              "title": "The AI race is back on",
-              "url": "https://www.theverge.com/ai-artificial-intelligence/1011311/the-ai-race-is-back-on",
-              "snippet": "Last week, Anthropic and OpenAI looked like they had the AI race to themselves, pulling ahead with increasingly powerful models that left their rivals in the dust. Google seemed…",
-              "published": "2026-10-15T00:16:12Z"
-            },
-            {
-              "title": "McKinsey is making job applicants spar with a fake AI client",
-              "url": "https://www.theverge.com/news/1011654/mckinsey-ai-client-interview",
-              "snippet": "Consulting firm McKinsey & Company is going to ask some entry-level candidates to have a 10-minute conversation with an AI simulation of a client as part of the interview…",
-              "published": "2026-10-14T22:53:31Z"
-            },
-            {
-              "title": "Amazon’s always-listening Bee wearable can now help you buy stuff",
-              "url": "https://www.theverge.com/tech/1011475/amazon-bee-frontier-eclipse-price-specs",
-              "snippet": "Last year, Amazon bought Bee, a relatively unknown startup with a $50 always-listening AI wearable that summarized every conversation you had. Today, the e-commerce giant is…",
-              "published": "2026-10-14T22:33:52Z"
-            },
-            {
-              "title": "Eight states sue OpenAI, saying ChatGPT isn’t safe for kids",
-              "url": "https://www.theverge.com/ai-artificial-intelligence/1011500/openai-state-lawsuits-chatgpt-safety",
-              "snippet": "OpenAI is facing a new wave of lawsuits from eight US states that accuse the company of harming children and misleading customers about the safety of ChatGPT, as reported earlier…",
-              "published": "2026-10-14T21:17:29Z"
+              "title": "Nobody is safe from celebrity AI deepfakes",
+              "url": "https://www.theverge.com/report/1011927/instagram-celebrity-ai-slop-likeness-taylor-swift-mia-goth",
+              "snippet": "In hindsight, the post on Instagram should have raised more red flags. The image purported to show actress Mia Goth, just days after filing for divorce from actor and filmmaker…",
+              "published": "2026-10-15T14:03:42Z"
             }
           ]
         },
@@ -45,6 +45,24 @@
           "id": "techcrunch",
           "name": "TechCrunch AI",
           "items": [
+            {
+              "title": "Anthropic is letting METR researchers look under the hood with employee-level access",
+              "url": "https://techcrunch.com/2026/10/15/anthropic-is-letting-metr-researchers-look-under-the-hood-with-employee-level-access/",
+              "snippet": "METR will publish its own assessments of Anthropic’s risks, incidents, and practices, and the frontier AI model maker has given up the right to block them.",
+              "published": "2026-10-15T19:14:26Z"
+            },
+            {
+              "title": "Bluesky expands its AI-powered Attie app to let anyone build websites, games, and more",
+              "url": "https://techcrunch.com/2026/10/15/bluesky-expands-its-ai-powered-attie-app-to-let-anyone-build-websites-games-and-more/",
+              "snippet": "Bluesky is bringing “social vibe coding” to its experimental Attie platform, allowing users to create interactive experiences like games, quizzes, and websites that can tap into…",
+              "published": "2026-10-15T18:56:46Z"
+            },
+            {
+              "title": "Last chance to save up to $200 on your TechCrunch Founder Summit pass: Early booking ends October 16",
+              "url": "https://techcrunch.com/2026/10/15/last-chance-to-save-up-to-200-on-techcrunch-founder-summit-early-booking-ends-oct-16/",
+              "snippet": "Savings of up to $200 end October 16 for TechCrunch Founder Summit. These savings for Founder and Investor Passes vanish after Friday. Join 1,000 founders and investors on…",
+              "published": "2026-10-15T18:00:00Z"
+            },
             {
               "title": "AI agents are coming to Rivian’s cars",
               "url": "https://techcrunch.com/2026/10/15/ai-agents-are-coming-to-rivians-cars/",
@@ -56,24 +74,6 @@
               "url": "https://techcrunch.com/2026/10/15/googles-universal-cart-shopping-tool-launches-in-the-us/",
               "snippet": "The new shopping tool is available in the U.S. across Google Search and the Gemini app.",
               "published": "2026-10-15T14:29:33Z"
-            },
-            {
-              "title": "TechCrunch Disrupt 2026: Last day",
-              "url": "https://techcrunch.com/2026/10/15/techcrunch-disrupt-2026-last-day/",
-              "snippet": "Last day to join TechCrunch Disrupt 2026. Join 10,000+ tech leaders for a day of connections and insights. Save 75% on your pass now.",
-              "published": "2026-10-15T14:00:00Z"
-            },
-            {
-              "title": "Amazon’s Bee launches two new personal AI devices, starting at $75",
-              "url": "https://techcrunch.com/2026/10/15/amazons-bee-launches-two-new-personal-ai-devices-starting-at-75/",
-              "snippet": "Amazon-owned Bee has launched its first new AI devices since its acquisition, including an updated wearable and a credit-card-sized recorder that attaches to smartphones. The…",
-              "published": "2026-10-15T12:00:00Z"
-            },
-            {
-              "title": "Figma announces new features to define how agents work on its platform",
-              "url": "https://techcrunch.com/2026/10/14/figma-announces-new-features-to-define-how-agents-work-on-its-platform/",
-              "snippet": "Figma is also releasing its code layers feature in open beta.",
-              "published": "2026-10-15T04:30:00Z"
             }
           ]
         },
@@ -160,34 +160,34 @@
           "name": "Digi24",
           "items": [
             {
-              "title": "Un cerșetor a făcut aproape 10.000 de lei în 8 ore, la Iași. Bărbatul, posesor al unei mașini de lux, spune Poliția locală",
-              "url": "https://www.digi24.ro/stiri/actualitate/un-cersetor-a-facut-aproape-10-000-de-lei-in-8-ore-la-iasi-barbatul-posesor-al-unei-masini-de-lux-spune-politia-locala-3994069",
-              "snippet": "Descoperire uluitoare a polițiștilor locali din Iași, după ce au controlat un bărbat care cerșea. Pe lângă faptul că persoana respectivă a strâns din cerșetorie aproape 10 mii de…",
-              "published": "2026-10-15T15:02:27Z"
+              "title": "UE vrea să limiteze importurile din China. Industria chimică și cea a utilajelor, vizate",
+              "url": "https://www.digi24.ro/stiri/externe/ue/ue-vrea-sa-limiteze-importurile-din-china-industria-chimica-si-cea-a-utilajelor-vizate-3994525",
+              "snippet": "Uniunea Europeană a început evaluarea datelor comerciale pentru a detecta majorarea importurilor, primul pas spre impunerea de cote de import asupra unor sectoare suplimentare de…",
+              "published": "2026-10-15T19:02:00Z"
             },
             {
-              "title": "„Vrem ca acest război să se termine”. Zelenski se întâlnește la Bruxelles cu liderii NATO și UE și cere „presiuni reale” asupra Rusiei",
-              "url": "https://www.digi24.ro/stiri/externe/vrem-ca-acest-razboi-sa-se-termine-zelenski-se-intalneste-la-bruxelles-cu-liderii-nato-si-ue-si-cere-presiuni-reale-asupra-rusiei-3994115",
-              "snippet": "Președintele ucrainean Volodimir Zelenski a sosit joi la Bruxelles pentru o serie de întâlniri cu liderii NATO și ai Uniunii Europene, în cadrul cărora va solicita intensificarea…",
-              "published": "2026-10-15T14:49:30Z"
+              "title": "Guvernul Niculescu vrea să scutească mamele de plata CASS; indemnizația de creștere a copilului, plătită și după revenirea la muncă",
+              "url": "https://www.digi24.ro/stiri/actualitate/politica/guvernul-niculescu-vrea-sa-scuteasca-mamele-de-plata-cass-indemnizatia-de-crestere-a-copilului-platita-si-dupa-revenirea-la-munca-3994531",
+              "snippet": "Părinţii care revin voluntar la muncă ar putea păstra indemnizaţia de creştere a copilului încă trei sau şase luni, în funcţie de vârsta copilului la momentul revenirii, iar…",
+              "published": "2026-10-15T19:01:35Z"
             },
             {
-              "title": "Nicușor Dan dă asigurări investitorilor că România va avea un Guvern: „Suntem într-o formă foarte avansată”",
-              "url": "https://www.digi24.ro/stiri/economie/nicusor-dan-da-asigurari-investitorilor-ca-romania-va-avea-un-guvern-suntem-intr-o-forma-foarte-avansata-3993627",
-              "snippet": "Președintele Nicușor Dan a declarat, joi, că există o probabilitate foarte mare ca România să aibă un Guvern învestit marți, întrucât premierul desemnat a ajuns deja la acorduri…",
-              "published": "2026-10-15T14:43:50Z"
+              "title": "Reforma administrativă a Guvernului Niculescu: Audit la instituții, personal redimensionat, servicii comune între primării",
+              "url": "https://www.digi24.ro/stiri/actualitate/politica/reforma-administrativa-a-guvernului-niculescu-audit-la-institutii-personal-redimensionat-servicii-comune-intre-primarii-3994465",
+              "snippet": "Programul de guvernare depus joi de premierul desemnat Luca Niculescu la Parlament prevede, la capitolul Administrație și dezvoltare regională, o reformă a administrației publice…",
+              "published": "2026-10-15T19:00:55Z"
             },
             {
-              "title": "„Premierul nostru este definiția corupției”. Edi Rama refuză să demisioneze, în timp ce protestele studenților se intensifică în Tirana",
-              "url": "https://www.digi24.ro/stiri/externe/premierul-nostru-este-definitia-coruptiei-edi-rama-refuza-sa-demisioneze-in-timp-ce-protestele-studentilor-se-intensifica-in-tirana-3994065",
-              "snippet": "Premierul albanez Edi Rama a respins joi apelurile la demisie, în timp ce mii de protestatari, mobilizați de studenți, au spart geamuri și s-au confruntat violent cu forțele de…",
-              "published": "2026-10-15T14:34:43Z"
+              "title": "Arderi ilegale de deşeuri la Sinteşti: 840 de kilograme de deşeuri de cupru şi aluminiu confiscate, amenzi de peste 320.000 lei",
+              "url": "https://www.digi24.ro/stiri/actualitate/arderi-ilegale-de-deseuri-la-sintesti-840-de-kilograme-de-deseuri-de-cupru-si-aluminiu-confiscate-amenzi-de-peste-320-000-lei-3994535",
+              "snippet": "Garda Naţională de Mediu anunţă, joi seară, că inspectorii de mediu, poliţiştii şi jandarmii au destructurat o acţiune de arderi ilegale de deşeuri în Sinteşti, judeţul Ilfov…",
+              "published": "2026-10-15T19:00:17Z"
             },
             {
-              "title": "Lavrov jubilează după „afacerea cu motorină” cu Trump și-l ceartă pe Zelenski pentru că o aruncă în aer prin atacarea rafinăriilor",
-              "url": "https://www.digi24.ro/stiri/externe/rusia/razboiul-declaratiilor-lavrov-il-lauda-pe-trump-il-admonesteaza-pe-zelenski-si-arunca-in-aer-negocierile-de-pace-3993961",
-              "snippet": "Ministrul rus de Externe a ținut o conferință neobișnuit de lungă în care a vorbit, în cea mai mare măsură, despre ceea ce el numește „afacerea cu motorină” cu Donald Trump…",
-              "published": "2026-10-15T14:29:40Z"
+              "title": "MAE: Atenţionare de călătorie în Albania. Demonstraţii violente în centrul Tiranei",
+              "url": "https://www.digi24.ro/stiri/externe/ue/mae-atentionare-de-calatorie-in-albania-demonstratii-violente-in-centrul-tiranei-3994529",
+              "snippet": "Ministerul Afacerilor Externe (MAE) informează cetăţenii români care se află, tranzitează sau intenţionează să călătorească în Republica Albania asupra faptului că, în centrul…",
+              "published": "2026-10-15T19:00:02Z"
             }
           ]
         },
@@ -196,34 +196,34 @@
           "name": "HotNews",
           "items": [
             {
-              "title": "Piețele bursiere: Hemoragie de 1 trilion de dolari în acțiunile inteligenței artificiale. De ce nu vede JPMorgan nicio redresare",
-              "url": "https://hotnews.ro/pietele-bursiere-hemoragie-de-1-trilion-de-dolari-in-actiunile-inteligentei-artificiale-de-ce-nu-vede-jpmorgan-nicio-redresare-2377258",
-              "snippet": "Peste 1 trilion de dolari au fost șterși din valoarea a 20 dintre cele mai mari acțiuni din industria inteligenței artificiale și a semiconductorilor de la începutul săptămânii …",
-              "published": "2026-10-15T14:41:13Z"
+              "title": "„Au lovit ici-colo”. Putin, scurt anunț despre atacurile ucrainene asupra rafinăriilor de petrol rusești",
+              "url": "https://hotnews.ro/au-lovit-ici-colo-putin-scurt-anunt-despre-atacurile-ucrainene-asupra-rafinariilor-de-petrol-rusesti-2377485",
+              "snippet": "Președintele rus Vladimir Putin a afirmat joi că recentele atacuri ucrainene asupra rafinăriilor de petrol rusești nu au provocat pagube semnificative și a promis că Moscova va…",
+              "published": "2026-10-15T19:09:40Z"
             },
             {
-              "title": "Țiriac Auto va livra SRI mașini cu zero emisii",
-              "url": "https://hotnews.ro/tiriac-auto-va-livra-sri-masini-cu-zero-emisii-2377253",
-              "snippet": "Țiriac Auto va livra Serviciului Român de Informații (SRI) 100 de autoturisme electrice pentru implementarea proiectului „Tranziția către mobilitate cu emisii zero a flotei…",
-              "published": "2026-10-15T14:32:11Z"
+              "title": "Cote de importuri din China, preconizate din UE. Țări membre fac presiuni pentru limitarea accesului mărfurilor din Asia",
+              "url": "https://hotnews.ro/cote-de-importuri-din-china-preconizate-din-ue-tari-membre-fac-presiuni-pentru-limitarea-accesului-marfurilor-din-asia-2377480",
+              "snippet": "Uniunea Europeană a început evaluarea datelor comerciale pentru a detecta majorarea importurilor, primul pas spre impunerea de cote de import asupra unor sectoare suplimentare de…",
+              "published": "2026-10-15T18:58:46Z"
             },
             {
-              "title": "La 28 de ani, Andreea este manager de fermă bio lângă București: „Sapa este cel mai bun prieten al nostru”",
-              "url": "https://hotnews.ro/la-28-de-ani-andreea-este-manager-de-ferma-bio-langa-bucuresti-sapa-este-cel-mai-bun-prieten-al-nostru-2377230",
-              "snippet": "La 42 de kilometri de București, o echipă mică, de șase oameni, cultivă pe 5 hectare de teren legume bio pe care le livrează în Capitală. Buburuzele le sunt prieteni, iar…",
-              "published": "2026-10-15T14:30:02Z"
+              "title": "Guvernul Niculescu promite scutire de CASS pentru mamele cu copii sub 2 ani. Reguli noi pentru indemnizații",
+              "url": "https://hotnews.ro/guvernul-niculescu-promite-scutire-de-cass-pentru-mamele-cu-copii-sub-2-ani-reguli-noi-pentru-indemnizatii-2377456",
+              "snippet": "Mamele cu copii sub doi ani vor fi scutite de plata contribuției de asigurări sociale de sănătate (CASS), potrivit programului de guvernare al Guvernului Luca Niculescu. De…",
+              "published": "2026-10-15T18:50:10Z"
             },
             {
-              "title": "Un bărbat care a vrut să mute o piatră neobișnuită de pe câmp a avut parte de surpriza vieții în Egipt",
-              "url": "https://hotnews.ro/un-barbat-care-a-vrut-sa-mute-o-piatra-neobisnuita-de-pe-camp-a-avut-parte-de-surpriza-vietii-in-egipt-2377224",
-              "snippet": "Un bărbat din Egipt care lucra pe un teren din apropierea locuinței sale a dat întâmplător peste o piatră neobișnuită, declanșând o campanie de săpături arheologice care a scos…",
-              "published": "2026-10-15T14:28:20Z"
+              "title": "Când vor fi indexate pensiile și ce prevede programul de guvernare în privința salariului minim",
+              "url": "https://hotnews.ro/cand-vor-fi-indexate-pensiile-si-ce-prevede-programul-de-guvernare-in-privinta-salariului-minim-2377460",
+              "snippet": "Indexarea pensiilor începând din 2027 și elaborarea, anul viitor, a proiectului noii legi a salarizării în sectorul public se numără printre măsurile prevăzute în programul de…",
+              "published": "2026-10-15T18:28:06Z"
             },
             {
-              "title": "Mesajul către iranieni al președintelui Pezeshkian. „Țara nu s-a mai confruntat cu o presiune atât de intensă”",
-              "url": "https://hotnews.ro/mesajul-catre-iranieni-al-presedintelui-pezeshkian-tara-nu-s-a-mai-confruntat-cu-o-presiune-atat-de-intensa-2377232",
-              "snippet": "Preşedintele iranian Masud Pezeshkian a afirmat joi că Republica Islamică nu s-a confruntat cu „o presiune şi nişte dificultăţi atât de intense” ca în prezent – din cauza…",
-              "published": "2026-10-15T14:27:04Z"
+              "title": "Guvernul Niculescu vrea să listeze pachete minoritare ale companiilor de stat / Acesta a fost unul dintre motivele invocate de PSD pentru demiterea lui Bolojan",
+              "url": "https://hotnews.ro/guvernul-niculescu-vrea-sa-listeze-pachete-minoritare-ale-companiilor-de-stat-acesta-a-fost-unul-dintre-motivele-invocate-de-psd-pentru-demiterea-lui-bolojan-2377423",
+              "snippet": "Programul de guvernare al Executivului Luca Niculescu, în care PSD va avea 11 din 17 portofolii, prevede posibilitatea vânzării pe bursă a unor pachete minoritare de acțiuni la…",
+              "published": "2026-10-15T18:08:59Z"
             }
           ]
         },
@@ -232,34 +232,34 @@
           "name": "G4Media",
           "items": [
             {
-              "title": "Trump renunţă la transmiterea în direct a execuţiei fostului psihiatru militar Nidal Hasan, programată pentru 3 decembrie",
-              "url": "https://www.g4media.ro/trump-renunta-la-transmiterea-in-direct-a-executiei-fostului-psihiatru-militar-nidal-hasan-programata-pentru-3-decembrie.html",
-              "snippet": "Preşedintele american Donald Trump a anunţat joi că execuţia lui Nidal Hasan, fost psihiatru al armatei americane condamnat pentru uciderea a 13 persoane la baza militară Fort…",
-              "published": "2026-10-15T15:04:00Z"
+              "title": "Programul de guvernare PSD – Luca Niculescu: Facilitățile și deducerile fiscale vor fi inventariate, evaluate și vor avea termen de expirare",
+              "url": "https://www.g4media.ro/programul-de-guvernare-psd-luca-niculescu-facilitatile-si-deducerile-fiscale-vor-fi-inventariate-evaluate-si-vor-avea-termen-de-expirare.html",
+              "snippet": "Dincolo de măsurile imediate pe 2027, sustenabilitatea bazei de venituri și reducerea presiunilor de cheltuieli, în programul de guvernare propus de Luca Niculescu se anunță și…",
+              "published": "2026-10-15T19:19:37Z"
             },
             {
-              "title": "Aproape 2.900 de români au murit din cauza căldurii în vara anului trecut, arată datele unui raport de specialitate",
-              "url": "https://www.g4media.ro/aproape-2-900-de-romani-au-murit-din-cauza-caldurii-in-vara-anului-trecut-arata-datele-unui-raport-de-specialitate.html",
-              "snippet": "Aproape 2.900 de decese au fost asociate temperaturilor ridicate în România, în numai patru luni din 2025, potrivit raportului „Starea Climei – România 2026”, publicat pe 14…",
-              "published": "2026-10-15T15:00:58Z"
+              "title": "Ninge pe Transfăgărășan și în Poiana Brașov / Vizibilitate redusă / Avertisment pentru șoferi și turiști",
+              "url": "https://www.g4media.ro/ninge-pe-transfagarasan-si-in-poiana-brasov-vizibilitate-redusa-avertisment-pentru-soferi-si-turisti.html",
+              "snippet": "Ninge pe Transfăgărășan și în Poiana Brașov, la altitudini de peste 1.600 de metri, iar vizibilitatea este redusă, anunță Mediafax. Salvamontiștii îi avertizează pe șoferi și…",
+              "published": "2026-10-15T19:14:45Z"
             },
             {
-              "title": "Rebelii houthi au atacat aeroportul din Riad de 20 de ori de la începutul lunii octombrie",
-              "url": "https://www.g4media.ro/rebelii-houthi-au-atacat-aeroportul-din-riad-de-20-de-ori-de-la-inceputul-lunii-octombrie.html",
-              "snippet": "Rebelii houthi din Yemen au atacat aeroportul internaţional din Riad de 20 de ori de la începutul lunii octombrie, în cadrul loviturilor tot mai dure pe care le-au multiplicat…",
-              "published": "2026-10-15T14:56:16Z"
+              "title": "Craiova începe cu o remiză în Conference League: 1-1 cu Getafe / Nemanja Gudelj a egalat oltenii în minutul 81",
+              "url": "https://www.g4media.ro/craiova-incepe-cu-o-remiza-in-conference-league-1-1-cu-getafe-nemanja-gudelj-a-egalat-oltenii-in-minutul-81.html",
+              "snippet": "Universitatea Craiova a remizat, joi seară, scor 1-1, cu formația spaniolă Getafe, în prima etapă a fazei principale din Conference League, relatează Mediafax. Assad Al Hamlawi a…",
+              "published": "2026-10-15T19:06:44Z"
             },
             {
-              "title": "Fondul suveran al Norvegiei, cel mai mare din lume, ar putea începe să investească în arme nucleare",
-              "url": "https://www.g4media.ro/fondul-suveran-al-norvegiei-cel-mai-mare-din-lume-ar-putea-incepe-sa-investeasca-in-arme-nucleare.html",
-              "snippet": "Guvernul Norvegiei ia în considerare posibilitatea ca fondul său suveran, cel mai mare din lume, să investească în companii legate de fabricarea armelor nucleare, a avertizat joi…",
-              "published": "2026-10-15T14:51:59Z"
+              "title": "Guvernul PSD – Luca Niculescu promite mai puțină birocrație, funcționari profesioniști, reformă administrativă prin comasare voluntară a localităților mici / Noi surse de fonduri direcționate în teritoriu: Programul Național de Infrastructură Județeană și Programul Național de Dezvoltare Metropolitană",
+              "url": "https://www.g4media.ro/guvernul-psd-luca-niculescu-promite-mai-putina-birocratie-functionari-profesionisti-reforma-administrativa-prin-comasare-voluntara-a-localitatilor-mici-noi-surse-de-fonduri-directionate-in-terit.html",
+              "snippet": "Guvernul PSD – Luca Niculescu promite, în Programul de guvernare depus joi seara la Parlament, „un stat mai simplu și mai eficient”, cu mai puțină birocrație, funcționari…",
+              "published": "2026-10-15T18:55:44Z"
             },
             {
-              "title": "Fiul magnatului Victor Micula, condamnat cu suspendare în dosarul accesării ilegale a bazelor Poliției",
-              "url": "https://www.g4media.ro/fiul-magnatului-victor-micula-condamnat-cu-suspendare-in-dosarul-accesarii-ilegale-a-bazelor-politiei.html",
-              "snippet": "Fiul omului de afaceri Victor Micula a pierdut și ultima cale extraordinară de atac pe care a încercat-o pentru a scăpa de condamnarea primită în dosarul accesării ilegale a…",
-              "published": "2026-10-15T14:45:29Z"
+              "title": "Gianni Infantino si-a cerut scuze în Consiliul FIFA / A refuzat să facă lumină în privința afacerii de 4,2 miliarde de dolari / Reacția opoziției: ”Avem nevoie de o persoană integră”",
+              "url": "https://www.g4media.ro/gianni-infantino-si-a-cerut-scuze-in-consiliul-fifa-a-refuzat-sa-faca-lumina-in-privinta-afacerii-de-42-miliarde-de-dolari-reactia-opozitiei-avem-nevoie-de-o-persoana-integra.html",
+              "snippet": "În cadrul unei ședințe a Consiliului de Administrație al FIFA, care a avut loc joi, joi, 15 octombrie, președintele Gianni Infantino și-a cerut scuze față de criticii cei mai…",
+              "published": "2026-10-15T18:41:54Z"
             }
           ]
         }
@@ -274,34 +274,34 @@
           "name": "Ziarul Financiar",
           "items": [
             {
-              "title": "Îşi recapătă investitorii încrederea în România? O licitaţie de titluri de stat a atras o cerere de cinci ori mai mare decât suma oferită de stat. Ministrul Finanţelor, Alexandru Nazare: „Este una dintre cele mai puternice suprasubscrieri pentru o emisiune în lei din ultimele luni”",
-              "url": "https://www.zf.ro/eveniment/isi-recapata-investitorii-increderea-romania-licitatie-titluri-stat-atras-cerere-cinci-ori-mare-suma-oferita-stat-ministrul-finantelor-alexandru-nazare-una-dintre-cele-puternice-suprasubscrieri-23260888",
+              "title": "Ediţia 16 octombrie 2026 epaper",
+              "url": "https://www.zf.ro/auxiliar/editia-16-octombrie-2026-epaper-23261121",
               "snippet": "",
-              "published": "2026-10-15T14:26:58Z"
+              "published": "2026-10-15T19:09:13Z"
             },
             {
-              "title": "Boom-ul AI începe să sperie Wall Street-ul. Cipurile se prăbuşesc, datoriile devin o problemă, iar concurenţa chineză ameninţă marjele companiilor americane. Nasdaq scade cu 1,4%, Nvidia pierde peste 3%, iar investitorii se refugiază în obligaţiuni americane",
-              "url": "https://www.zf.ro/business-international/boom-ul-incepe-sperie-wall-street-ul-cipurile-prabusesc-datoriile-devin-problema-iar-concurenta-chineza-ameninta-marjele-companiilor-americane-nasdaq-scade-1-4-nvidia-pierde-peste-3-iar-investitorii-23260882",
+              "title": "Emma Delaney, CEO-ul OMV AG, este singurul candidat pentru locul rămas liber în Consiliul de Supraveghere al OMV Petrom după plecarea lui Alfred Stern. Acţionarii votează în 6 noiembrie",
+              "url": "https://www.zf.ro/burse-fonduri-mutuale/emma-delaney-ceo-ul-omv-ag-este-singurul-candidat-pentru-locul-ramas-liber-in-consiliul-de-supraveghere-al-omv-petrom-dupa-plecarea-lui-alfred-stern-actionarii-voteaza-in-6-noiembrie-23261082",
               "snippet": "",
-              "published": "2026-10-15T14:21:28Z"
+              "published": "2026-10-15T18:04:05Z"
             },
             {
-              "title": "Grupul Iulius investeşte 1,3 miliarde de euro în proiecte sustenabile, printre care se numără RIVUS Cluj-Napoca, remodelarea Palas Iaşi şi Family Market Tomeşti",
-              "url": "https://www.zf.ro/zf-24/grupul-iulius-investeste-1-3-miliarde-de-euro-in-proiecte-sustenabile-printre-care-se-numara-rivus-cluj-napoca-remodelarea-palas-iasi-si-family-market-tomesti-23260880",
+              "title": "Care sunt primele măsuri pe care le are în vedere premierul desemnat Luca Niculescu? „Ne vom concentra asupra lucrurilor care nu mai pot aştepta: rectificarea bugetară, adoptarea bugetului pe 2027, relansarea economiei şi sprijinirea persoanelor vulnerabile”",
+              "url": "https://www.zf.ro/eveniment/primele-masuri-le-vedere-premierul-desemnat-luca-niculescu-ne-vom-concentra-asupra-lucrurilor-pot-astepta-rectificarea-bugetara-adoptarea-bugetului-2027-relansarea-economiei-sprijinirea-persoanelor-23261057",
               "snippet": "",
-              "published": "2026-10-15T14:17:31Z"
+              "published": "2026-10-15T17:19:07Z"
             },
             {
-              "title": "Lovitură pentru foştii bancheri Credit Suisse: Curtea Supremă a Elveţiei confirmă tăierea bonusurilor pentru aproximativ 1.000 de manageri, după preluarea băncii de către UBS. Decizia nu mai poate fi atacată",
-              "url": "https://www.zf.ro/business-international/lovitura-fostii-bancheri-credit-suisse-curtea-suprema-elvetiei-confirma-taierea-bonusurilor-aproximativ-1-000-manageri-dupa-preluarea-bancii-catre-ubs-decizia-atacata-23260855",
+              "title": "Oficial. Lista membrilor viitorului cabinet Luca Niculescu şi principalele priorităţi ale premierului desemnat. O nouă lege a salarizării în sectorul public în 2027, indexări de pensii şi un nou mecanism de creştere a salariului minim. Firmele vor scăpa de impozitul minim pe cifra de afaceri (IMCA) de la 1 ianuarie 2027",
+              "url": "https://www.zf.ro/eveniment/oficial-lista-membrilor-viitorului-cabinet-luca-niculescu-principalele-prioritati-premierului-desemnat-lege-salarizarii-sectorul-public-2027-indexari-pensii-mecanism-crestere-salariului-minim-23261034",
               "snippet": "",
-              "published": "2026-10-15T13:52:26Z"
+              "published": "2026-10-15T17:01:52Z"
             },
             {
-              "title": "Alexandru Petrescu, preşedintele ASF, s-a întâlnit joi cu Darryl Nirenberg, ambasadorul SUA în România. Discuţiile au vizat consolidarea cooperării în domeniul financiar, prevenirea şi combaterea spălării banilor şi dezvolarea pieţei de capital noi listări",
-              "url": "https://www.zf.ro/zf-24/alexandru-petrescu-presedintele-asf-s-intalnit-joi-darryl-nirenberg-ambasadorul-sua-romania-discutiile-au-vizat-consolidarea-cooperarii-domeniul-financiar-prevenirea-combaterea-spalarii-banilor-23260812",
+              "title": "ZF DESCHIDEREA DE ASTĂZI. Cum va merge bursa. Urmăriţi o discuţie miercuri, 16 octombrie 2026, ora 09.30 cu Ovidiu Dumitrescu, CEO adjunct, BRK Financial Group",
+              "url": "https://www.zf.ro/burse-fonduri-mutuale/zf-deschiderea-de-astazi-cum-va-merge-bursa-urmariti-o-discutie-miercuri-16-octombrie-2026-ora-09-30-cu-ovidiu-dumitrescu-ceo-adjunct-brk-financial-group-23261014",
               "snippet": "",
-              "published": "2026-10-15T12:47:41Z"
+              "published": "2026-10-15T16:40:52Z"
             }
           ]
         },
@@ -310,34 +310,34 @@
           "name": "Profit.ro",
           "items": [
             {
-              "title": "Tranzacție: Engie vinde în România către un grup românesc. BMF a preluat ENGIE Building Solutions",
-              "url": "https://www.profit.ro/povesti-cu-profit/energie/tranzactie-engie-vinde-in-romania-catre-un-grup-romanesc-bmf-a-preluat-engie-building-solutions-22833208?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
-              "snippet": "BMF GRUP, grup antreprenorial fondat în România în 2011, a preluat ENGIE Building Solutions de la ENGIE Servicii, companie deținută de ENGIE Romania.",
-              "published": "2026-10-15T15:03:00Z"
+              "title": "Investitor la TAROM. Asemenea lui Siegfried Mureșan, și Luca Niculescu vrea atragerea unui investitor strategic la TAROM. Investitor privat și pentru Aeroportul Henri Coandă - Program de guvernare",
+              "url": "https://www.profit.ro/stiri/politic/investitor-la-tarom-asemenea-lui-siegfried-muresan-si-luca-niculescu-vrea-atragerea-unui-investitor-strategic-la-tarom-investitor-privat-si-pentru-aeroportul-henri-coanda-program-de-guvernare-22836362?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
+              "snippet": "Guvernul Niculescu va susține în fața Comisiei Europene un plan de afaceri revizuit pe doi ani al companiei naționale de transport aerian TAROM, dar dorește în același timp, cu…",
+              "published": "2026-10-15T19:12:00Z"
             },
             {
-              "title": "LIVE Vitalie, în această seara, pe Prima News",
-              "url": "https://www.profit.ro/povesti-cu-profit/media-advertising-csr/live-vitalie-in-aceasta-seara-pe-prima-news-22833222?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
-              "snippet": "Două subiecte majore pentru viitorul Europei, două provocări cu implicații politice și sociale. Reforma administrativă din Republica Moldova și criza locuințelor din Spania sunt…",
-              "published": "2026-10-15T15:00:09Z"
+              "title": "AMÂNARE Casele vor fi impozitate la valoarea de piață, dar trecerea se va face gradual - program de guvernare",
+              "url": "https://www.profit.ro/taxe-si-consultanta/amanare-casele-vor-fi-impozitate-la-valoarea-de-piata-dar-trecerea-se-va-face-gradual-program-de-guvernare-22836663?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
+              "snippet": "Proprietățile imbiliare vor fi impozitate la valoarea de piață, dar trecerea se va face gradual, prevede programul de guvernare al Cabinetului Luca Niculescu.",
+              "published": "2026-10-15T19:08:00Z"
             },
             {
-              "title": "World Class România inaugurează în One High District primul club dezvoltat sub noul concept de fitness, longevitate și recuperare, în urma unei investiții de 3 milioane de euro",
-              "url": "https://www.profit.ro/povesti-cu-profit/world-class-romania-inaugureaza-in-one-high-district-primul-club-dezvoltat-sub-noul-concept-de-fitness-longevitate-si-recuperare-in-urma-unei-investitii-de-3-milioane-de-euro-22833203?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
-              "snippet": "World Class România, liderul industriei de health & fitness din România, inaugurează clubul din incinta complexului One High District din București, dezvoltat în urma unei…",
-              "published": "2026-10-15T14:57:49Z"
+              "title": "Schimbări la medicamente. Guvernul Niculescu promite reducerea adaosurilor comerciale la medicamente și va încuraja asigurările private pentru servicii medicale performante",
+              "url": "https://www.profit.ro/stiri/social/schimbari-la-medicamente-guvernul-niculescu-promite-reducerea-adaosurilor-comerciale-la-medicamente-si-va-incuraja-asigurarile-private-pentru-servicii-medicale-performante-22836081?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
+              "snippet": "Guvernul Niculescu promite un nou mecanism de stabilire a prețului la medicamentele compensate, urmând ca adaosul comercial pe întreg lanțul de medicamente să fie redus, conform…",
+              "published": "2026-10-15T19:00:00Z"
             },
             {
-              "title": "Raiffeisen Bank extinde serviciile din comunitatea GatadeBusiness cu soluții 100% digitale de încasare și cont de economii pentru business",
-              "url": "https://www.profit.ro/povesti-cu-profit/financiar/raiffeisen-bank-extinde-serviciile-din-comunitatea-gatadebusiness-cu-solutii-100-digitale-de-incasare-si-cont-de-economii-pentru-business-22833085?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
-              "snippet": "Raiffeisen Bank România lansează în comunitatea GatadeBusiness o soluție E-commerce 100% digitală, prin care companiile pot accepta plăți online, inclusiv fără website sau…",
-              "published": "2026-10-15T14:52:48Z"
+              "title": "Medici dați afară dacă lucrează la privat în timpul programului. Guvernul Niculescu va schimba sistemul de gărzi medicale și plata acestora, cu includerea rezidenților - Program guvernare",
+              "url": "https://www.profit.ro/stiri/politic/medici-dati-afara-daca-lucreaza-la-privat-in-timpul-programului-guvernul-niculescu-va-schimba-sistemul-de-garzi-medicale-si-plata-acestora-cu-includerea-rezidentilor-program-guvernare-22835802?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
+              "snippet": "Noul guvern va schimba modul de efectuare a gărzilor medicale în funcție de specificul unităților sanitare și al specialităților, cu tarifare diferită și progresivă a acestora și…",
+              "published": "2026-10-15T18:50:00Z"
             },
             {
-              "title": "Brazilia reduce timpul de muncă de la șase la cinci zile pe săptămână",
-              "url": "https://www.profit.ro/perspective/brazilia-reduce-timpul-de-munca-de-la-sase-la-cinci-zile-pe-saptamana-22831428?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
-              "snippet": "Printr-o reformă constituțională pe care președintele în exercițiu Luiz Inácio Lula da Silva mizează pentru a-l înfrânge pe senatorul Flavio Bolsonaro, care-l devansează în…",
-              "published": "2026-10-15T14:14:00Z"
+              "title": "Vom avea un Minister al Inteligenței Artificiale. LISTA miniștrilor lui Luca Niculescu",
+              "url": "https://www.profit.ro/stiri/politic/vom-avea-un-minister-al-inteligentei-artificiale-lista-ministrilor-lui-luca-niculescu-22836121?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
+              "snippet": "Premierul desemnat, Luca Niculescu, a depus și lista de miniștri la Parlament.",
+              "published": "2026-10-15T18:38:00Z"
             }
           ]
         },
@@ -346,34 +346,34 @@
           "name": "Economica.net",
           "items": [
             {
-              "title": "IMM România solicită prelungirea suspendării cu un an a amenzilor aplicate pentru emiterea bonului fiscal fără cod QR",
-              "url": "https://www.economica.net/imm-romania-solicita-prelungirea-suspendarii-cu-un-an-a-amenzilor-aplicate-pentru-emiterea-bonului-fiscal-fara-cod-qr_986064.html",
-              "snippet": "Antreprenorii riscă amenzi între 2.000 şi 4.000 de lei, începând cu 1 noiembrie 2026, pentru neemiterea bonurilor fiscale cu cod QR care să conţină data şi ora emiterii acestuia…",
-              "published": "2026-10-15T15:13:56Z"
+              "title": "Profesorii au făcut aproape un sfert de miliard de lei din meditații anul trecut, doar din ce au declarat la Fisc. Numai în București-Ilfov, Cluj și Brașov s-a strâns jumătate din suma totală – analiză exclusivă",
+              "url": "https://www.economica.net/capitala-si-ilfov-fac-o-treime-din-banii-fiscalizati-din-meditatii-peste-73-milioane-lei-in-10-judete-avem-venituri-de-peste-1-milion-de-euro-pe-an-fiscalizati-din-meditatii-analiza-exc_985885.html",
+              "snippet": "Suma totală declarată de profesorii din ţara noastră la Fisc că au obţinut-o din meditaţii se ridică la 225 de milioane de lei în 2025 şi este cu aproape 14% mai mare decât cea…",
+              "published": "2026-10-15T19:12:28Z"
             },
             {
-              "title": "HomeRun: În Ilfov construcția caselor pe structură metalică este printre cele mai solicitate servicii, iar în Cluj pentru mutările de mobilă",
-              "url": "https://www.economica.net/homerun-in-ilfov-constructia-caselor-pe-structura-metalica-este-printre-cele-mai-solicitate-servicii-iar-in-cluj-pentru-mutarile-de-mobila_986061.html",
-              "snippet": "HomeRun.ro, una dintre principalele platforme digitale de servicii din România, anunță atingerea pragului de 50 de milioane de solicitări de servicii la nivel internațional.",
-              "published": "2026-10-15T14:57:35Z"
+              "title": "Programul de guvernare. Pensiile vor fi indexate din 2027. Noua lege a salarizării în sectorul public va fi elaborată tot anul viitor",
+              "url": "https://www.economica.net/programul-de-guvernare-pensiile-vor-fi-indexate-din-2027-noua-lege-a-salarizarii-in-sectorul-public-va-fi-elaborata-tot-anul-viitor_986119.html",
+              "snippet": "Indexarea pensiilor începând din 2027 şi elaborarea, anul viitor, a proiectului noii legi a salarizării în sectorul public se numără printre măsurile prevăzute în Programul de…",
+              "published": "2026-10-15T19:09:41Z"
             },
             {
-              "title": "Un laborator de inteligență artificială a fost inaugurat la Universitatea Tehnică din Cluj-Napoca",
-              "url": "https://www.economica.net/un-laborator-de-inteligenta-artificiala-a-fost-inaugurat-la-universitatea-tehnica-din-cluj-napoca_986054.html",
-              "snippet": "GlobalLogic, o companie a Grupului Hitachi, a inaugurat joi la Universitatea Tehnică din Cluj-Napoca un laborator de inteligență artificială și prelucrarea semnalelor și un…",
-              "published": "2026-10-15T14:51:16Z"
+              "title": "Ambasadorul SUA a fost la ASF. Discuții despre temutul SEC, supraveghetorul burselor din New York și din SUA. Petrescu, președinte ASF: Am abordat și tema reglementării piețelor cripto",
+              "url": "https://www.economica.net/ambasadorul-sua-a-fost-la-asf-discutii-despre-temutul-sec-supraveghetorul-bursei-din-new-york-si-din-sua-petrescu-presedinte-asf-am-abordat-si-tema-reglementarii-pietelor-cripto_986114.html",
+              "snippet": "Darryl Nirenberg, Ambasadorul Statelor Unite ale Americii(SUA) la București, a fost, astăzi, în vizită la Autoritatea de Supraveghere Financiară(ASF). Potrivit președintelui…",
+              "published": "2026-10-15T19:00:20Z"
             },
             {
-              "title": "Fondul suveran al Norvegiei, cel mai mare din lume, ar putea să înceapă să investească în arme nucleare",
-              "url": "https://www.economica.net/fondul-suveran-al-norvegiei-cel-mai-mare-din-lume-ar-putea-sa-inceapa-sa-investeasca-in-arme-nucleare_986055.html",
-              "snippet": "Guvernul Norvegiei ia în considerare posibilitatea ca fondul său suveran, cel mai mare din lume, să investească în companii legate de fabricarea armelor nucleare, a avertizat joi…",
-              "published": "2026-10-15T14:48:49Z"
+              "title": "ING Bank România a lansat ING Invest. 15.000 dintre clienții săi și-au deschis într-o lună conturi pe platformă",
+              "url": "https://www.economica.net/ing-bank-romania-a-lansat-ing-invest-15-000-dintre-clientii-sai-si-au-deschis-intr-o-luna-conturi-pe-platforma_986108.html",
+              "snippet": "ING Bank România anunță că 15.000 de clienți și-au deschis deja un cont prin ING Invest, la mai puțin de o lună de când a devenit activă. Noua platformă de investiții este…",
+              "published": "2026-10-15T18:51:52Z"
             },
             {
-              "title": "Avansul pentru creditul ipotecar: cât trebuie să ai înainte să începi căutarea locuinței?",
-              "url": "https://www.economica.net/avansul-pentru-creditul-ipotecar-cat-trebuie-sa-ai-inainte-sa-incepi-cautarea-locuintei_986047.html",
-              "snippet": "Dacă vrei să cumperi o locuință prin BCR, răspunsul nu este pur și simplu „15%”. Pentru Casa Mea, ghidurile BCR indică minimum 15% pentru prima locuință și, de regulă, 25% dacă…",
-              "published": "2026-10-15T14:41:52Z"
+              "title": "Luca Niculescu: Restanțele salariale ale magistraților pun o presiune suplimentară pe buget. O să-i invit pe toți cei care sunt parte a acestei decizii la dialog, să vedem ce soluții găsim",
+              "url": "https://www.economica.net/luca-niculescu-restantele-salariale-ale-magistratilor-pun-o-presiune-suplimentara-pe-buget-o-sa-i-invit-pe-toti-cei-care-sunt-parte-a-acestei-decizii-la-dialog-sa-vedem-ce-solutii-gasim_986103.html",
+              "snippet": "Premierul desemnat, Luca Niculescu, a declarat joi că restanţele salariale ale magistraţilor, în valoare de 5 miliarde de lei, pun o presiune suplimentară asupra bugetului…",
+              "published": "2026-10-15T18:42:00Z"
             }
           ]
         }
@@ -424,6 +424,12 @@
           "name": "Go4IT",
           "items": [
             {
+              "title": "Fitbit Edge vs Fitbit Air: Asemănări și diferențe dincolo de ecran",
+              "url": "https://www.go4it.ro/content/accesorii/fitbit-edge-vs-fitbit-air-asemanari-si-diferente-dincolo-de-ecran-19287938/",
+              "snippet": "Google și-a relansat gama dedicată de dispozitive de monitorizare a activității fizice cu două opțiuni distincte și accesibile: modelul fără ecran Fitbit Air și noul Fitbit Edge…",
+              "published": null
+            },
+            {
               "title": "Ming și Massena Lab prezintă 57.09 Secret Honey: ceasul din titan al cărui cadran își dezvăluie secretul periodic",
               "url": "https://www.go4it.ro/content/accesorii/ming-si-massena-lab-prezinta-57-09-secret-honey-ceasul-din-titan-al-carui-cadran-isi-dezvaluie-secretul-periodic-19287941/",
               "snippet": "Ceasornicarul independent Ming și studioul de design Massena Lab au colaborat din nou pentru a lansa modelul 57.09 Secret Honey, o continuare a parteneriatului din 2021…",
@@ -446,12 +452,6 @@
               "url": "https://www.go4it.ro/content/business/bancile-globale-vor-sa-scape-de-datoriile-uriase-din-sectorul-ai-limitele-creditarii-usoare-lovesc-centrele-de-date-19287947/",
               "snippet": "Marile instituții de credit globale încearcă să transfere o parte din volumul uriaș de datorii din domeniul inteligenței artificiale pe care au contribuit la crearea lui, fapt ce…",
               "published": null
-            },
-            {
-              "title": "Rusia va interzice tranzacțiile cu criptomonede pentru persoanele fizice",
-              "url": "https://www.go4it.ro/content/fintech/rusia-va-interzice-tranzactiile-cu-criptomonede-pentru-persoanele-fizice-19287925/",
-              "snippet": "Federația Rusă se pregătește să aplice măsuri draconice împotriva pieței activelor digitale. Tranzacțiile cu criptomonede vor fi interzise în Rusia, cea mai mare țară din lume…",
-              "published": null
             }
           ]
         },
@@ -460,34 +460,34 @@
           "name": "The Verge",
           "items": [
             {
-              "title": "Shelly’s new presence sensor simultaneously detects up to ten people without a camera",
-              "url": "https://www.theverge.com/tech/1011967/shellys-new-presence-sensor-simultaneously-detects-up-to-ten-people-without-a-camera",
-              "snippet": "Following the launch of its $50 subscription-free security camera last month, Shelly announced another new accessory for smart home automation today that can keep track of…",
-              "published": "2026-10-15T15:00:59Z"
+              "title": "Google is making inline links more prominent in AI responses",
+              "url": "https://www.theverge.com/tech/1012206/google-ai-mode-overview-inline-links",
+              "snippet": "Google is updating its AI search results to make inline links appear \"higher up in responses more frequently,\" according to a blog post. The company's search results from AI…",
+              "published": "2026-10-15T19:02:15Z"
             },
             {
-              "title": "Microsoft’s new Photos app combines your PC, OneDrive, and iCloud galleries",
-              "url": "https://www.theverge.com/tech/1012003/microsoft-windows-11-new-photos-app-onedrive-icloud",
-              "snippet": "Microsoft has redesigned its Photos app for Windows 11, overhauling the editor and image viewer, and combining photos and videos from your PC, OneDrive, and iCloud into a single…",
-              "published": "2026-10-15T14:53:38Z"
+              "title": "Meta and Apple team up to make Muse AI models run better on Macs",
+              "url": "https://www.theverge.com/news/1012293/meta-apple-muse-spark-open-ai-model-mlx",
+              "snippet": "Meta announced the Muse Spark Open AI model today, claiming that it's the \"most capable US open-weight model to date.\" But the company also says that it's the \"the first model in…",
+              "published": "2026-10-15T18:15:36Z"
             },
             {
-              "title": "Trump calls off livestream of execution",
-              "url": "https://www.theverge.com/policy/1011991/trump-nidal-hasan-execution-not-livestreaming",
-              "snippet": "The execution of Fort Hood shooter Nidal Hasan will not be livestreamed as Secretary of Defense Pete Hegseth had previously announced. Donald Trump announced the plan was off in…",
-              "published": "2026-10-15T14:44:51Z"
+              "title": "The best reason to care about Nvidia’s RTX Spark: ‘everything’ will run on Arm",
+              "url": "https://www.theverge.com/tech/1011705/nvidia-rtx-spark-everything-runs-on-arm",
+              "snippet": "Fourteen years ago this month, Microsoft released an Nvidia-powered Windows PC that would become one of the greatest tech flops in modern history. The original Microsoft Surface…",
+              "published": "2026-10-15T17:51:21Z"
             },
             {
-              "title": "How Windows is being optimized for Nvidia’s RTX Spark laptops",
-              "url": "https://www.theverge.com/tech/1011996/microsoft-windows-rtx-spark-platform-changes-notepad",
-              "snippet": "Microsoft and Nvidia held a launch party for the first wave of RTX Spark laptops last week in San Francisco, where a new wave of AI PCs took center stage amid a packed crowd and…",
-              "published": "2026-10-15T14:29:28Z"
+              "title": "Sony made a $5,900 gold-plated Walkman MP3 player",
+              "url": "https://www.theverge.com/tech/1012200/sony-made-a-5900-gold-plated-walkman-mp3-player",
+              "snippet": "Sony has announced a trio of new Walkman portable media players that start at an already absurd $1,899.99 for the NW-ZX900 and climb all the way up to $5,899 for the gold-plated…",
+              "published": "2026-10-15T17:48:57Z"
             },
             {
-              "title": "An Israeli firm is sending spyware through online ads, researchers say",
-              "url": "https://www.theverge.com/tech/1011956/discover-tech-zero-click-ads-spyware",
-              "snippet": "An Israeli ad tech firm worked with spyware companies to infect devices, including at Al Jazeera, by simply showing users an online ad, according to a joint investigation by…",
-              "published": "2026-10-15T14:11:41Z"
+              "title": "Alienware’s latest 34-inch QD-OLED gaming monitor is $50 off",
+              "url": "https://www.theverge.com/gadgets/1012134/alienware-34-ultrawide-qd-oled-belkin-screen-skinz-deal-sale",
+              "snippet": "The Alienware AW3426DW is discounted to $742.22 at Amazon, just over $50 off its usual price of $799.99. It’s not quite the lowest price we’ve seen on this well-equipped gaming…",
+              "published": "2026-10-15T17:11:20Z"
             }
           ]
         }
@@ -502,34 +502,34 @@
           "name": "Gazeta Sporturilor",
           "items": [
             {
-              "title": "Universitatea Craiova - Getafe, debutul oltenilor în Conference League » Comentăm la GSP Live Special",
-              "url": "https://www.gsp.ro/gsp-special/media/universitatea-craiova-getafe-debutul-oltenilor-in-conference-league-comentam-la-gsp-live-special-988380.html",
-              "snippet": "GSP Live Special revine joi, 15 octombrie, ora 19:15, cu prilejul meciului dintre Universitatea Craiova și Getafe, reprezentând debutul oltenilor în grupa de Conference League…",
-              "published": "2026-10-15T14:42:51Z"
+              "title": "După egalul cu Craiova, antrenorul lui Getafe a ridicat în slăvi un român: „O legendă! Magnific!”",
+              "url": "https://www.gsp.ro/international/conference-league/universitatea-craiova-getafe-conference-league-jose-bordalas-988552.html",
+              "snippet": "După ce Craiova și Getafe au remizat cu scorul de 1-1, în prima rundă a grupei din Conference League, Jose Bordalas, antrenorul spaniolilor, a vorbit la superlativ la adresa lui…",
+              "published": "2026-10-15T19:16:42Z"
             },
             {
-              "title": "Pilot nou, brazilian, în Formula 1! » „Ne luăm angajamentul să cultivăm acest talent”",
-              "url": "https://www.gsp.ro/sporturi/formula-1/haas-rafael-camara-formula-1-988443.html",
-              "snippet": "Pilot nou în Formula 1 începând din 2027: Haas a anunțat cooptarea brazilianului Rafael Camara (21 de ani), cel care-l va înlocui pe Esteban Ocon (30). Haas, locul 7 din 11 în…",
-              "published": "2026-10-15T14:42:25Z"
+              "title": "Remarcatul lui Mutu, după Craiova - Getafe: „Cel mai bun de pe teren”",
+              "url": "https://www.gsp.ro/international/conference-league/cine-a-fost-remarcatul-lui-mutu-dupa-craiova-getafe-988554.html",
+              "snippet": "Adrian Mutu, 47 de ani, a analizat prestația Universității Craiova după remiza cu Getafe, scor 1-1, din runda inaugurală de Conference League. „Briliantul” a lăudat…",
+              "published": "2026-10-15T19:15:37Z"
             },
             {
-              "title": "Câte bilete s-au vândut până acum la Dinamo - FC Botoșani",
-              "url": "https://www.gsp.ro/fotbal/liga-1/dinamo-numar-bilete-fc-botosani-988436.html",
-              "snippet": "Pentru meciul cu FC Botoșani din etapa a 12-a, care are loc mâine, de la ora 21:00, pe Arena Națională, Dinamo a vândut un număr modest de bilete, aproape 10.000, tichete vândute…",
-              "published": "2026-10-15T14:19:09Z"
+              "title": "A „boxat” 3 jucători ai Craiovei după meci: „Bă băiatule, nu se poate așa ceva! L-a văzut și Hagi?!”",
+              "url": "https://www.gsp.ro/international/conference-league/claudiu-vaiscovici-universitatea-craiova-getafe-988542.html",
+              "snippet": "Claudiu Vaișcovici (64 de ani), fost atacant la Dinamo în finalul anilor '80, a criticat în mod deosebit 3 jucători ai campioanei României după remiza dintre Universitatea…",
+              "published": "2026-10-15T19:06:09Z"
             },
             {
-              "title": "Universitatea Craiova - Getafe, „leii” lui Coelho debutează în Conference League » Echipele probabile",
-              "url": "https://www.gsp.ro/international/conference-league/live-universitatea-craiova-getafe-filipe-coelho-conference-league-988067.html",
-              "snippet": "Universitatea Craiova, campioana României, primește în această seară vizita celor de la Getafe în prima etapă din faza principală a Conference League. Partida, programată de la…",
-              "published": "2026-10-15T14:05:14Z"
+              "title": "Spaniolii au rămas surprinși! Ce scriu Marca, AS și Mundo Deportivo după duelul din Bănie",
+              "url": "https://www.gsp.ro/international/conference-league/presa-din-spania-elogii-la-adresa-craiovei-988545.html",
+              "snippet": "Universitatea Craiova a remizat cu Getafe, scor 1-1, în prima etapă din Conference League, iar prestația oltenilor a atras atenția presei spaniole. AS, Marca și Mundo Deportivo…",
+              "published": "2026-10-15T19:02:21Z"
             },
             {
-              "title": "Vești bune pentru Hansi Flick: Raphinha și De Jong au revenit la antrenamente",
-              "url": "https://www.gsp.ro/international/campionate/raphinha-frenkie-de-jong-barcelona-antrenamente-988427.html",
-              "snippet": "Raphinha (29 de ani) și Frenkie de Jong (29 de ani) au revenit la antrenamentele Barcelonei. Atenția catalanilor este deja concentrată pe deplasarea de sâmbătă împotriva lui…",
-              "published": "2026-10-15T14:00:30Z"
+              "title": "„E un rezultat echitabil?” » Nicușor Bancu a răspuns sincer",
+              "url": "https://www.gsp.ro/international/conference-league/universitatea-craiova-getafe-conference-league-nicusor-bancu-988533.html",
+              "snippet": "Craiova - Getafe 1-1, un rezultat dătător de speranțe în prima etapă din Conference League. Nicușor Bancu (fundaș stânga), căpitanul oltenilor, a oferit o reacție rapidă imediat…",
+              "published": "2026-10-15T18:44:08Z"
             }
           ]
         },
@@ -538,34 +538,34 @@
           "name": "Digi Sport",
           "items": [
             {
-              "title": "Dorit de Anderlecht și FC Koln, Ianis Stoica a luat decizia: ”Asta e dorința lui”",
-              "url": "https://www.digisport.ro/fotbal/portugalia/dorit-de-anderlecht-si-fc-koln-ianis-stoica-a-luat-decizia-asta-e-dorinta-lui-4545437",
-              "snippet": "Dorit de Anderlecht și FC Koln, Ianis Stoica a luat decizia: ”Asta e dorința lui”",
-              "published": "2026-10-15T15:07:55Z"
+              "title": "Nota primită de Florin Tănase, după meciul cu trei goluri din Europa League",
+              "url": "https://www.digisport.ro/fotbal/nota-primita-de-florin-tanase-dupa-meciul-cu-trei-goluri-din-europa-league-4546153",
+              "snippet": "Nota primită de Florin Tănase, după meciul cu trei goluri din Europa League",
+              "published": "2026-10-15T19:18:06Z"
             },
             {
-              "title": "Averea lui Ion Țiriac a scăzut, iar americanii au aflat suma",
-              "url": "https://www.digisport.ro/special/averea-lui-ion-tiriac-a-scazut-iar-americanii-au-aflat-suma-4545585",
-              "snippet": "Averea lui Ion Țiriac a scăzut, iar americanii au aflat suma",
-              "published": "2026-10-15T15:02:04Z"
+              "title": "Atalanta - Pafos 1-0, Copenhaga - Braga 0-0, Brighton - Zalgirls 0-0, ACUM, digisport.ro. Programul din Conference League",
+              "url": "https://www.digisport.ro/fotbal/conference-league/cska-sofia-as-monaco-1945-atalanta-pafos-2200-etapa-1-conference-league-program-complet-4544831",
+              "snippet": "Atalanta - Pafos 1-0, Copenhaga - Braga 0-0, Brighton - Zalgirls 0-0, ACUM, digisport.ro. Programul din Conference League",
+              "published": "2026-10-15T19:14:49Z"
             },
             {
-              "title": "Universitatea Craiova - Getafe, LIVE VIDEO, ora 19:45, la Digi Sport 1! Oltenii încep aventura în Conference League",
-              "url": "https://www.digisport.ro/fotbal/conference-league/universitatea-craiova-getafe-live-video-joi-1945-la-digi-sport-1-oltenii-incep-aventura-in-conference-league-4542821",
-              "snippet": "Universitatea Craiova - Getafe, LIVE VIDEO, ora 19:45, la Digi Sport 1! Oltenii încep aventura în Conference League",
-              "published": "2026-10-15T15:00:30Z"
+              "title": "Celta Vigo - Juventus 0-0, DGS 2 / Benfica - Celtic 1-0, DGS 3 / Marseille - Olympiacos 0-0, DGS 4. Programul complet",
+              "url": "https://www.digisport.ro/fotbal/europa-league/salzburg-ac-milan-0-2-dgs-3-union-sg-real-sociedad-0-0-dgs-4-celta-juventus-2200-dgs-2-programul-complet-4544823",
+              "snippet": "Celta Vigo - Juventus 0-0, DGS 2 / Benfica - Celtic 1-0, DGS 3 / Marseille - Olympiacos 0-0, DGS 4. Programul complet",
+              "published": "2026-10-15T19:13:57Z"
             },
             {
-              "title": "Getafe a scris PATRU cuvinte despre Craiova, chiar înainte de meciul din Conference League",
-              "url": "https://www.digisport.ro/fotbal/conference-league/getafe-a-scris-patru-cuvinte-despre-craiova-chiar-inainte-de-meciul-din-conference-league-4545589",
-              "snippet": "Getafe a scris PATRU cuvinte despre Craiova, chiar înainte de meciul din Conference League",
-              "published": "2026-10-15T14:56:12Z"
+              "title": "Nota primită de Darius Olaru, după Union SG - Real Sociedad! Final dramatic de meci în Belgia",
+              "url": "https://www.digisport.ro/fotbal/europa-league/nota-primita-de-darius-olaru-dupa-union-sg-real-sociedad-final-dramatic-de-meci-in-belgia-4546233",
+              "snippet": "Nota primită de Darius Olaru, după Union SG - Real Sociedad! Final dramatic de meci în Belgia",
+              "published": "2026-10-15T19:12:14Z"
             },
             {
-              "title": "Daniel Pancu a fost reclamat la CNCD! Ce sancțiune uriașă riscă antrenorul Rapidului",
-              "url": "https://www.digisport.ro/fotbal/liga-1/daniel-pancu-a-fost-reclamat-la-cncd-ce-sanctiune-uriasa-risca-antrenorul-rapidului-4545541",
-              "snippet": "Daniel Pancu a fost reclamat la CNCD! Ce sancțiune uriașă riscă antrenorul Rapidului",
-              "published": "2026-10-15T14:47:06Z"
+              "title": "Assad Al-Hamlawi, mesaj categoric după Universitatea Craiova - Getafe 1-1: ”Trebuia să câștigăm”",
+              "url": "https://www.digisport.ro/fotbal/conference-league/assad-al-hamlawi-mesaj-categoric-dupa-universitatea-craiova-getafe-1-1-trebuia-sa-castigam-4546251",
+              "snippet": "Assad Al-Hamlawi, mesaj categoric după Universitatea Craiova - Getafe 1-1: ”Trebuia să câștigăm”",
+              "published": "2026-10-15T19:06:42Z"
             }
           ]
         },
@@ -574,34 +574,34 @@
           "name": "ProSport",
           "items": [
             {
-              "title": "Lovitură grea pentru Ianis Hagi. Olympique Marseille, echipa care îl vrea, riscă depunctarea!",
-              "url": "https://www.prosport.ro/fotbal-extern/stranieri/ianis-hagi-probleme-marseille-depunctare-ligue-1-20547985",
-              "snippet": "Olympique Marseille îl vrea pe Ianis Hagi (27 de ani), dar clubul din Hexagon riscă depunctarea din cauza nerespectării angajamentelor asumate față de DNCG. Presa franceză a…",
-              "published": "2026-10-15T15:14:01Z"
+              "title": "Umbre și lumini. Nota primită de Darius Olaru după Union SG – Real Sociedad 1-1, un meci în care a reușit 90% din pase, dar a câștigat doar 33% din dueluri",
+              "url": "https://www.prosport.ro/fotbal-extern/europa-league/darius-olaru-nota-union-sg-real-sociedad-20548205",
+              "snippet": "Darius Olaru a evoluat 70 de minute în Union SG – Real Sociedad 1-1 și a primit o notă sub media echipei pentru prestația din runda a 2-a din Europa League. Echipa lui Darius…",
+              "published": "2026-10-15T19:00:37Z"
             },
             {
-              "title": "Reghecampf i-a promis un transfer răsunător lui Gigi Becali. Fotbalistul era indezirabil: „Rezolv eu, patroane!”",
-              "url": "https://www.prosport.ro/fotbal-intern/superliga/fcsb-transfer-gigi-becali-dennis-politic-reghecampf-fotbalist-patron-indezirabil-20547968",
-              "snippet": "Revenirea lui Laurențiu Reghecampf i-a schimbat radical starea de spirit lui Gigi Becali, convins acum că echipa poate lupta din nou la titlu în Superligă. Mai multe decât atât…",
-              "published": "2026-10-15T15:04:38Z"
+              "title": "Gândul prezintă Best of Marius Tucă Show – vineri, 16 octombrie, de la ora 19.00",
+              "url": "https://www.prosport.ro/cross-promo/gandul/gandul-prezinta-best-of-marius-tuca-show-vineri-16-octombrie-de-la-ora-19-00-20548011",
+              "snippet": "Nu ratați o ediție explozivă din Best of Marius Tucă Show, invitați – Dan Dungaciu, Ion Cristoiu, Victor Ponta, Adrian Severin, Mirel Palada. Cele mai intense dezvăluiri, cele…",
+              "published": "2026-10-15T19:00:36Z"
             },
             {
-              "title": "Legenda Liță Dumitru, strigăt cutremurător: „Plâng singur în casă! Stoichiță, am râie? Ce-o să mă regretați, cu ode și postări, când o să mor!”. EXCLUSIV",
-              "url": "https://www.prosport.ro/fotbal-intern/superliga/legenda-lita-dumitru-strigat-cutremurator-plang-singur-in-casa-stoichita-am-raie-o-sa-ma-regretati-cand-o-sa-mor-20547102",
-              "snippet": "Liță Dumitru, 76 de ani, fostul mare fotbalist al României, a reacționat pentru ProSport pe fondul supărărilor pe care le are, într-un adevărat manifest, un strigăt cutremurător…",
-              "published": "2026-10-15T15:00:55Z"
+              "title": "Universitatea Craiova – Getafe 1-1. Oltenii la raport: două stele și trei belele la debut în grupa Conference League pentru Gabriel Berceanu",
+              "url": "https://www.prosport.ro/fotbal-extern/conference-league/universitatea-craiova-getafe-1-1-oltenii-la-raport-doua-stele-trei-belele-debut-grupa-conference-league-gabriel-berceanu-20547872",
+              "snippet": "Universitatea Craiova – Getafe 1-1 a însemnat, dincolo de evidența șansei de-a acumula puncte încă de la debut în grupa de Conference League, un test de nivel extrem de relevant…",
+              "published": "2026-10-15T18:47:17Z"
             },
             {
-              "title": "„Așa îmi imaginez că arată Femeia Fantastică”. Cea mai frumoasă jucătoare de rugby i-a cucerit pe fani",
-              "url": "https://www.prosport.ro/alte-sporturi/rugby/jamie-chapman-poze-rugby-20547880",
-              "snippet": "Jaime Chapman, una dintre cele mai cunoscute jucătoare de rugby din Australia, a devenit virală pe rețelele sociale după ce o fotografie mai veche cu ea a început să circule din…",
-              "published": "2026-10-15T14:51:54Z"
+              "title": "„Măcel” în Champions League: Dinamo, pulverizată de Barcelona, 22-36!",
+              "url": "https://www.prosport.ro/alte-sporturi/handbal/dinamo-barcelona-champions-league-ehf-20548187",
+              "snippet": "Barcelona nu a avut milă de Dinamo în EHF Liga Campionilor, scor 22-36, nici în partida retur, după ce meciul prcedent s-a încheiat 27-34, pe terenul catalanilor. Miercuri, 15…",
+              "published": "2026-10-15T18:41:58Z"
             },
             {
-              "title": "Universitatea Craiova – Getafe Live Text Online, de la ora 19.45. Campioana României începe aventura în faza grupei Conference League! Echipele probabile",
-              "url": "https://www.prosport.ro/fotbal-extern/conference-league/universitatea-craiova-getafe-faza-ligii-conference-league-echipe-probabile-live-text-online-campioana-romaniei-20547932",
-              "snippet": "Universitatea Craiova, campioana României, debutează acasă cu Getafe, pe arena „Ion Oblemenco”, în prima etapă din faza grupei Conference League. Disputa, programată să înceapă…",
-              "published": "2026-10-15T14:45:43Z"
+              "title": "Averea lui Ion Țiriac, scădere bruscă în octombrie: a pierdut 100 de milioane de dolari într-o singură lună!",
+              "url": "https://www.prosport.ro/diverse/ion-tiriac-avere-scadere-brusca-100-de-milioane-de-dolari-luna-octombrie-20548162",
+              "snippet": "Probleme pentru Ion Țiriac (87 de ani)! Averea magnatului român a cunoscut o scădere extrem de bruscă, și asta doar în ultima lună de zile. Potentul afacerist a pierdut 100 de…",
+              "published": "2026-10-15T18:25:49Z"
             }
           ]
         }
@@ -615,6 +615,12 @@
           "id": "descopera",
           "name": "Descoperă.ro",
           "items": [
+            {
+              "title": "Studiu: Femeile resimt mai multă durere decât bărbații",
+              "url": "https://www.descopera.ro/stiinta/21144371-studiu-femeile-resimt-mai-multa-durere-decat-barbatii",
+              "snippet": "Femeile raportează niveluri mai ridicate de durere decât bărbații în toate regiunile corpului analizate, inclusiv la nivelul capului, abdomenului, spatelui și articulațiilor…",
+              "published": "2026-10-15T17:00:05Z"
+            },
             {
               "title": "Oamenii de știință au făcut o descoperire uimitoare care ar putea ajuta la explicarea existenței vieții",
               "url": "https://www.descopera.ro/stiinta/21143838-oamenii-de-stiinta-au-facut-o-descoperire-uimitoare-care-ar-putea-ajuta-la-explicarea-existentei-vietii",
@@ -638,12 +644,6 @@
               "url": "https://www.descopera.ro/stiinta/21144417-de-ce-radem-oamenii-de-stiinta-inca-dezbat-raspunsul-dar-sunt-de-acord-asupra-unui-lucru",
               "snippet": "Râdem la glume, dar și fără glume. Cercetările arată că cele mai multe izbucniri în râs apar în conversațiile obișnuite. Râsul pare atât de firesc, încât aproape nimeni nu se…",
               "published": "2026-10-15T10:00:53Z"
-            },
-            {
-              "title": "Au voie agenții de pază să controleze geanta unui client? Ce poți face dacă ești oprit la ieșirea din magazin",
-              "url": "https://www.descopera.ro/cultura/21144398-au-voie-agentii-de-paza-sa-controleze-geanta-unui-client-ce-poti-face-daca-esti-oprit-la-iesirea-din-magazin",
-              "snippet": "Un agent de pază îți cere să deschizi geanta la ieșirea din magazin. Ești obligat să accepți? Legea îi permite să oprească o persoană suspectată de furt, dar nu îi acordă automat…",
-              "published": "2026-10-15T09:00:56Z"
             }
           ]
         },
@@ -728,34 +728,34 @@
       "name": "The Verge AI",
       "items": [
         {
+          "title": "How Windows is being optimized for Nvidia’s RTX Spark laptops",
+          "url": "https://www.theverge.com/tech/1011996/microsoft-windows-rtx-spark-platform-changes-notepad",
+          "snippet": "Microsoft and Nvidia held a launch party for the first wave of RTX Spark laptops last week in San Francisco, where a new wave of AI PCs took center stage amid a packed crowd and…",
+          "published": "2026-10-15T17:25:15Z"
+        },
+        {
+          "title": "Friends don’t let friends feed their data to AI agents",
+          "url": "https://www.theverge.com/tech/1011938/muse-ai-data-friends-consent",
+          "snippet": "There's a growing trend in the consumer tech world: gadgets designed to spy on everything and everyone around you, regardless of whether or not anyone else actually consented to…",
+          "published": "2026-10-15T16:21:45Z"
+        },
+        {
+          "title": "Benn Jordan on Flock, privacy, and the new surveillance backlash",
+          "url": "https://www.theverge.com/podcast/1011170/benn-jordan-flock-cameras-alpr-ai-surveillance-privacy",
+          "snippet": "Today, I’m talking with Benn Jordan, musician, YouTuber, researcher, and investigative journalist. You might know Benn from those first two titles — he’s got a prolific…",
+          "published": "2026-10-15T16:06:42Z"
+        },
+        {
           "title": "Your secrets aren’t safe with this cute robot toy — they’re on Chinese servers ready to be hacked",
           "url": "https://www.theverge.com/tech/1010727/eiliko-robot-hack-energize-lab",
           "snippet": "There's a new digital pet in town - a cute little marshmallow of a robot that can change its cartoony expressions to match your mood. But if you or your kids talk to \"Eiliko\"…",
-          "published": "2026-10-15T10:54:19Z"
+          "published": "2026-10-15T14:46:20Z"
         },
         {
-          "title": "The AI race is back on",
-          "url": "https://www.theverge.com/ai-artificial-intelligence/1011311/the-ai-race-is-back-on",
-          "snippet": "Last week, Anthropic and OpenAI looked like they had the AI race to themselves, pulling ahead with increasingly powerful models that left their rivals in the dust. Google seemed…",
-          "published": "2026-10-15T00:16:12Z"
-        },
-        {
-          "title": "McKinsey is making job applicants spar with a fake AI client",
-          "url": "https://www.theverge.com/news/1011654/mckinsey-ai-client-interview",
-          "snippet": "Consulting firm McKinsey & Company is going to ask some entry-level candidates to have a 10-minute conversation with an AI simulation of a client as part of the interview…",
-          "published": "2026-10-14T22:53:31Z"
-        },
-        {
-          "title": "Amazon’s always-listening Bee wearable can now help you buy stuff",
-          "url": "https://www.theverge.com/tech/1011475/amazon-bee-frontier-eclipse-price-specs",
-          "snippet": "Last year, Amazon bought Bee, a relatively unknown startup with a $50 always-listening AI wearable that summarized every conversation you had. Today, the e-commerce giant is…",
-          "published": "2026-10-14T22:33:52Z"
-        },
-        {
-          "title": "Eight states sue OpenAI, saying ChatGPT isn’t safe for kids",
-          "url": "https://www.theverge.com/ai-artificial-intelligence/1011500/openai-state-lawsuits-chatgpt-safety",
-          "snippet": "OpenAI is facing a new wave of lawsuits from eight US states that accuse the company of harming children and misleading customers about the safety of ChatGPT, as reported earlier…",
-          "published": "2026-10-14T21:17:29Z"
+          "title": "Nobody is safe from celebrity AI deepfakes",
+          "url": "https://www.theverge.com/report/1011927/instagram-celebrity-ai-slop-likeness-taylor-swift-mia-goth",
+          "snippet": "In hindsight, the post on Instagram should have raised more red flags. The image purported to show actress Mia Goth, just days after filing for divorce from actor and filmmaker…",
+          "published": "2026-10-15T14:03:42Z"
         }
       ]
     },
@@ -763,6 +763,24 @@
       "id": "techcrunch",
       "name": "TechCrunch AI",
       "items": [
+        {
+          "title": "Anthropic is letting METR researchers look under the hood with employee-level access",
+          "url": "https://techcrunch.com/2026/10/15/anthropic-is-letting-metr-researchers-look-under-the-hood-with-employee-level-access/",
+          "snippet": "METR will publish its own assessments of Anthropic’s risks, incidents, and practices, and the frontier AI model maker has given up the right to block them.",
+          "published": "2026-10-15T19:14:26Z"
+        },
+        {
+          "title": "Bluesky expands its AI-powered Attie app to let anyone build websites, games, and more",
+          "url": "https://techcrunch.com/2026/10/15/bluesky-expands-its-ai-powered-attie-app-to-let-anyone-build-websites-games-and-more/",
+          "snippet": "Bluesky is bringing “social vibe coding” to its experimental Attie platform, allowing users to create interactive experiences like games, quizzes, and websites that can tap into…",
+          "published": "2026-10-15T18:56:46Z"
+        },
+        {
+          "title": "Last chance to save up to $200 on your TechCrunch Founder Summit pass: Early booking ends October 16",
+          "url": "https://techcrunch.com/2026/10/15/last-chance-to-save-up-to-200-on-techcrunch-founder-summit-early-booking-ends-oct-16/",
+          "snippet": "Savings of up to $200 end October 16 for TechCrunch Founder Summit. These savings for Founder and Investor Passes vanish after Friday. Join 1,000 founders and investors on…",
+          "published": "2026-10-15T18:00:00Z"
+        },
         {
           "title": "AI agents are coming to Rivian’s cars",
           "url": "https://techcrunch.com/2026/10/15/ai-agents-are-coming-to-rivians-cars/",
@@ -774,24 +792,6 @@
           "url": "https://techcrunch.com/2026/10/15/googles-universal-cart-shopping-tool-launches-in-the-us/",
           "snippet": "The new shopping tool is available in the U.S. across Google Search and the Gemini app.",
           "published": "2026-10-15T14:29:33Z"
-        },
-        {
-          "title": "TechCrunch Disrupt 2026: Last day",
-          "url": "https://techcrunch.com/2026/10/15/techcrunch-disrupt-2026-last-day/",
-          "snippet": "Last day to join TechCrunch Disrupt 2026. Join 10,000+ tech leaders for a day of connections and insights. Save 75% on your pass now.",
-          "published": "2026-10-15T14:00:00Z"
-        },
-        {
-          "title": "Amazon’s Bee launches two new personal AI devices, starting at $75",
-          "url": "https://techcrunch.com/2026/10/15/amazons-bee-launches-two-new-personal-ai-devices-starting-at-75/",
-          "snippet": "Amazon-owned Bee has launched its first new AI devices since its acquisition, including an updated wearable and a credit-card-sized recorder that attaches to smartphones. The…",
-          "published": "2026-10-15T12:00:00Z"
-        },
-        {
-          "title": "Figma announces new features to define how agents work on its platform",
-          "url": "https://techcrunch.com/2026/10/14/figma-announces-new-features-to-define-how-agents-work-on-its-platform/",
-          "snippet": "Figma is also releasing its code layers feature in open beta.",
-          "published": "2026-10-15T04:30:00Z"
         }
       ]
     },
