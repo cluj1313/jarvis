@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="JARVIS">
-<meta name="jarvis-version" content="v50-jarvis-blank">
+<meta name="jarvis-version" content="v51-jarvis-blank">
 <script>window.JARVIS_BLANK=true</script>
 <title>JARVIS · Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -373,6 +373,11 @@ html.jv-notes body{overflow:hidden}
 #noteFab{position:fixed;right:calc(18px + env(safe-area-inset-right));bottom:calc(22px + env(safe-area-inset-bottom));width:56px;height:56px;border-radius:50%;z-index:9;display:none;align-items:center;justify-content:center;padding:0 0 3px;
  font-family:inherit;font-size:34px;font-weight:400;line-height:1;color:#04121f;background:var(--cyan);border:0;box-shadow:0 0 18px rgba(63,216,255,.6),0 6px 16px rgba(0,0,0,.45);cursor:pointer}
 html.jv-notes #noteFab{display:flex}#noteFull.show~#noteFab,html.jv-nfull #noteFab{display:none}
+
+#noteFab{background:rgba(10,30,50,.55)!important;color:var(--cyan)!important;border:1.5px solid rgba(63,216,255,.75)!important;box-shadow:0 0 12px rgba(63,216,255,.35),inset 0 0 10px rgba(63,216,255,.12)!important;font-weight:300!important}
+#nfRead{position:fixed;right:calc(14px + env(safe-area-inset-right));bottom:calc(14px + env(safe-area-inset-bottom));z-index:11;font-size:14px;padding:8px 16px}
+#nfRead.on{border-color:var(--cyan);color:var(--cyan);box-shadow:0 0 10px rgba(63,216,255,.4)}
+#nfText{padding-bottom:56px}
 </style>
 </head>
 <body>
@@ -485,7 +490,7 @@ html.jv-notes #noteFab{display:flex}#noteFull.show~#noteFab,html.jv-nfull #noteF
  <ul id="notesList"></ul></section></div></div>
 <button type="button" id="noteFab" aria-label="Notiță nouă">+</button>
 <div id="noteFull" aria-label="Notiță"><div class="nwrap"><div class="ntop"><button type="button" class="hb" id="nfBack" aria-label="Înapoi">‹</button><h2>NOTIȚĂ</h2></div>
- <section class="card nfcard"><textarea id="nfText" aria-label="Textul notiței"></textarea></section></div></div>
+ <section class="card nfcard"><textarea id="nfText" aria-label="Textul notiței"></textarea></section><button type="button" class="btn pill" id="nfRead">Citește</button></div></div>
 <div class="modal" id="cfModal"><div class="card jvdlg"><div class="cftxt">Sigur vrei să ștergi?</div><div class="mrow"><button type="button" class="btn" id="cfNo">Nu</button><button type="button" class="btn dngb" id="cfOk">Șterge</button></div></div></div>
 <div class="modal" id="prModal"><div class="card jvdlg"><div class="lbl"><span id="prTitle">Tab nou</span></div><div class="field"><input id="prIn" maxlength="40" autocomplete="off" enterkeyhint="done"></div><div class="mrow"><button type="button" class="btn" id="prNo">Anulează</button><button type="button" class="btn" id="prOk">Salvează</button></div></div></div>
 <div id="lpMenu"><div id="lpBox"></div></div>
@@ -1151,7 +1156,7 @@ window.addEventListener('blur',dndReset);document.addEventListener('visibilitych
 var speaking=false,listening=false,kGen=0,speakKey=null;
 function updEq(){$('eq').classList.toggle('on',speaking||listening);$('orb').classList.toggle('active',speaking||listening);
  document.querySelectorAll('.spk').forEach(function(b){b.classList.toggle('on',speaking&&b.dataset.read===speakKey)});
- $('bRead').classList.toggle('on',speaking&&speakKey==='all');$('bReadAll').classList.toggle('on',speaking&&speakKey==='below')}
+ $('bRead').classList.toggle('on',speaking&&speakKey==='all');if($('nfRead'))$('nfRead').classList.toggle('on',speaking&&speakKey==='note');$('bReadAll').classList.toggle('on',speaking&&speakKey==='below')}
 var actx=null,sources=[];
 function unlockAudio(){try{if(!actx){var AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;actx=new AC()}
  if(actx.state==='suspended')actx.resume();
@@ -1675,7 +1680,10 @@ function fullInput(){var n=fullId&&findN(fullId);if(!n){var v=$('nfText').value;
 function fullFlush(){if(!fullId)return;var n=findN(fullId);if(n){n.text=$('nfText').value;if(!n.text.trim())notes=notes.filter(function(x){return x!==n})}nFlush()}
 function fullNew(){var ta=$('nfText');ta.value='';fullId=null;$('noteFull').classList.add('show');document.documentElement.classList.add('jv-nfull');try{history.pushState({jvNote:1},'')}catch(_){}try{ta.focus()}catch(_){}}
 $('noteFab').addEventListener('click',fullNew);
-function fullClose(fromPop){if(!$('noteFull').classList.contains('show'))return;fullFlush();fullId=null;$('noteFull').classList.remove('show');document.documentElement.classList.remove('jv-nfull');try{$('nfText').blur()}catch(_){}renderNotes();
+function noteRead(){if(speaking&&speakKey==='note'){stopSpeaking();return}var t=$('nfText').value.trim();if(!t){toast('Notița e goală');return}
+ return speak(t.split(/\n+/).filter(function(x){return x.trim()}).map(function(x){return prepSeg(null,x)}),'note')}
+$('nfRead').addEventListener('click',function(e){e.preventDefault();noteRead()});
+function fullClose(fromPop){if(!$('noteFull').classList.contains('show'))return;if(speaking&&speakKey==='note')stopSpeaking();fullFlush();fullId=null;$('noteFull').classList.remove('show');document.documentElement.classList.remove('jv-nfull');try{$('nfText').blur()}catch(_){}renderNotes();
  if(!fromPop&&history.state&&history.state.jvNote)try{nIgnorePop=true;history.back()}catch(_){nIgnorePop=false}}
 var nIgnorePop=false;
 $('nfText').addEventListener('input',fullInput);$('nfText').addEventListener('blur',fullFlush);

@@ -510,7 +510,7 @@ window.addEventListener('blur',dndReset);document.addEventListener('visibilitych
 var speaking=false,listening=false,kGen=0,speakKey=null;
 function updEq(){$('eq').classList.toggle('on',speaking||listening);$('orb').classList.toggle('active',speaking||listening);
  document.querySelectorAll('.spk').forEach(function(b){b.classList.toggle('on',speaking&&b.dataset.read===speakKey)});
- $('bRead').classList.toggle('on',speaking&&speakKey==='all');$('bReadAll').classList.toggle('on',speaking&&speakKey==='below')}
+ $('bRead').classList.toggle('on',speaking&&speakKey==='all');if($('nfRead'))$('nfRead').classList.toggle('on',speaking&&speakKey==='note');$('bReadAll').classList.toggle('on',speaking&&speakKey==='below')}
 var actx=null,sources=[];
 function unlockAudio(){try{if(!actx){var AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;actx=new AC()}
  if(actx.state==='suspended')actx.resume();
@@ -1034,7 +1034,10 @@ function fullInput(){var n=fullId&&findN(fullId);if(!n){var v=$('nfText').value;
 function fullFlush(){if(!fullId)return;var n=findN(fullId);if(n){n.text=$('nfText').value;if(!n.text.trim())notes=notes.filter(function(x){return x!==n})}nFlush()}
 function fullNew(){var ta=$('nfText');ta.value='';fullId=null;$('noteFull').classList.add('show');document.documentElement.classList.add('jv-nfull');try{history.pushState({jvNote:1},'')}catch(_){}try{ta.focus()}catch(_){}}
 $('noteFab').addEventListener('click',fullNew);
-function fullClose(fromPop){if(!$('noteFull').classList.contains('show'))return;fullFlush();fullId=null;$('noteFull').classList.remove('show');document.documentElement.classList.remove('jv-nfull');try{$('nfText').blur()}catch(_){}renderNotes();
+function noteRead(){if(speaking&&speakKey==='note'){stopSpeaking();return}var t=$('nfText').value.trim();if(!t){toast('Notița e goală');return}
+ return speak(t.split(/\n+/).filter(function(x){return x.trim()}).map(function(x){return prepSeg(null,x)}),'note')}
+$('nfRead').addEventListener('click',function(e){e.preventDefault();noteRead()});
+function fullClose(fromPop){if(!$('noteFull').classList.contains('show'))return;if(speaking&&speakKey==='note')stopSpeaking();fullFlush();fullId=null;$('noteFull').classList.remove('show');document.documentElement.classList.remove('jv-nfull');try{$('nfText').blur()}catch(_){}renderNotes();
  if(!fromPop&&history.state&&history.state.jvNote)try{nIgnorePop=true;history.back()}catch(_){nIgnorePop=false}}
 var nIgnorePop=false;
 $('nfText').addEventListener('input',fullInput);$('nfText').addEventListener('blur',fullFlush);
