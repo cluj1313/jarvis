@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="JARVIS">
-<meta name="jarvis-version" content="v55-jarvis-blank">
+<meta name="jarvis-version" content="v56-jarvis-blank">
 <script>window.JARVIS_BLANK=true</script>
 <title>JARVIS · Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1629,7 +1629,7 @@ function alChips(){var box=$('alChips');box.innerHTML='';[[30,'30 min'],[60,'1 o
  var b=document.createElement('button');b.type='button';b.className='alc'+(alRep===c[0]?' on':'');b.textContent=c[1];b.onclick=function(){alRep=c[0];$('alMin').value='';alChips()};box.appendChild(b)})}
 function alType(rep){$('alT1').classList.toggle('on',!rep);$('alT2').classList.toggle('on',!!rep);$('alRepBox').style.display=rep?'':'none'}
 function alEndUI(){$('alUntilBox').style.display=$('alEnd').value==='until'?'':'none'}
-function openAlarm(r){var t=alGet(r);if(!t)return;var a=t.alarm||{};alId=r;$('alTask').textContent=t.lock?'Notiță blocată':t.text;
+function openAlarm(r){var t=alGet(r);if(!t)return;var a=t.alarm||{};alId=r;$('alTask').textContent=t.lock?(t.ltitle||'Notiță blocată'):t.text;
  var at=a.at||(Date.now()+3600000-Date.now()%60000),L=alLocal(at);$('alDate').value=L.d;$('alTime').value=L.t;
  alRep=a.rep||120;var pre=[30,60,120,240,360,480,720,1440].indexOf(alRep)>=0;$('alMin').value=pre?'':alRep;alChips();alType(!!a.rep);
  $('alEnd').value=a.until?'until':'none';var U=alLocal(a.until||at+86400000);$('alUDate').value=U.d;$('alUTime').value=U.t;alEndUI();
@@ -1651,7 +1651,7 @@ var alQueue=[],alCur=null,alBeepT=null;
 function alBeep(on){clearInterval(alBeepT);alBeepT=null;if(!on)return;var one=function(){try{unlockAudio();if(!actx)return;var t0=actx.currentTime;[0,.25,.5].forEach(function(o){var g=actx.createGain(),os=actx.createOscillator();os.type='square';os.frequency.value=880;g.gain.setValueAtTime(.0001,t0+o);g.gain.exponentialRampToValueAtTime(.25,t0+o+.02);g.gain.exponentialRampToValueAtTime(.0001,t0+o+.18);os.connect(g);g.connect(actx.destination);os.start(t0+o);os.stop(t0+o+.2)})}catch(_){}
  try{if(navigator.vibrate)navigator.vibrate([400,200,400])}catch(_){}};one();alBeepT=setInterval(one,1500)}
 function alShow(){if(alCur||!alQueue.length)return;alCur=alQueue.shift();$('alfTask').textContent=alCur.text;$('alFire').classList.add('show');alBeep(true)}
-function alFire(t,r){if(t.lock)t={id:t.id,text:'Notiță blocată'};alQueue.push({r:r,text:t.text});alShow();
+function alFire(t,r){if(t.lock)t={id:t.id,text:t.ltitle||'Notiță blocată'};alQueue.push({r:r,text:t.text});alShow();
  try{if(window.Notification&&Notification.permission==='granted'&&navigator.serviceWorker)navigator.serviceWorker.getRegistration().then(function(r){if(r)r.showNotification('⏰ JARVIS',{body:t.text,tag:'jv-al-'+t.id,renotify:true,requireInteraction:true,vibrate:[400,200,400],icon:'icons/icon-192.png'});else new Notification('⏰ JARVIS',{body:t.text})}).catch(function(){})}catch(_){}}
 function alStop(snooze){alBeep(false);$('alFire').classList.remove('show');var c=alCur;alCur=null;
  if(c&&snooze){var t=alGet(c.r);if(t){if(!t.alarm)t.alarm={at:Date.now()+600000,rep:0,until:null};t.alarm.snz=Date.now()+600000;alPersist(c.r);alSchedule(t);toast('Amânat 10 min')}}
@@ -1680,7 +1680,8 @@ $('cfModal').addEventListener('click',function(e){if(e.target===this)jvClose('cf
 /* ---------- v48: Notițe page with note tabs, one-line list, full-note editor, autosave ---------- */
 var notes=LS.get('jv_notes',[]);if(!Array.isArray(notes))notes=[];
 var noteTabs=LS.get('jv_notetabs',null),noteTab=LS.get('jv_notetab',null);
-function nFirst(n){if(n.lock)return '';return String(n.text||'').trim().split('\n')[0]}
+function nTitle0(n){if(n.type==='check'){var t=(n.title||'').trim();if(t)return t;var f=(n.items||[]).filter(function(x){return x.text.trim()})[0];return f?f.text.trim():''}return String(n.text||'').trim().split('\n')[0]}
+function nFirst(n){if(n.lock)return n.ltitle||'';return String(n.text||'').trim().split('\n')[0]}
 function nCmp(a,b){return nFirst(a).localeCompare(nFirst(b),'ro',{sensitivity:'base'})}
 function nInsertAlpha(n){var i=notes.indexOf(n);if(i>=0)notes.splice(i,1);var at=-1,last=-1;
  for(var j=0;j<notes.length;j++){if(notes[j].tab!==n.tab)continue;last=j;if(at<0&&nCmp(n,notes[j])<0)at=j}
@@ -1694,7 +1695,7 @@ function ntMigrate(){if(!Array.isArray(noteTabs)||!noteTabs.length)noteTabs=[{id
  if(!noteTabs.some(function(t){return t.id===noteTab}))noteTab=noteTabs[0].id;LS.set('jv_notes',notes);LS.set('jv_notetabs',noteTabs);LS.set('jv_notetab',noteTab)}
 ntMigrate();
 if(!LS.get('jv_notesort1',0)){notes.sort(nCmp);LS.set('jv_notes',notes);LS.set('jv_notesort1',1)} /* v52: one-time alphabetical sort */
-function nStore(n){if(!n.lock)return n;var o={};['id','tab','ts','createdAt','updatedAt','editedAt','alarm','lock'].forEach(function(k){if(n[k]!=null)o[k]=n[k]});o.text='';return o}
+function nStore(n){if(!n.lock)return n;var o={};['id','tab','ts','createdAt','updatedAt','editedAt','alarm','lock','ltitle'].forEach(function(k){if(n[k]!=null)o[k]=n[k]});o.text='';return o}
 function saveNotes(){LS.set('jv_notes',notes.map(nStore));LS.set('jv_notetabs',noteTabs);LS.set('jv_notetab',noteTab)}
 function findN(id){for(var i=0;i<notes.length;i++)if(notes[i].id===id)return notes[i];return null}
 function findNT(id){for(var i=0;i<noteTabs.length;i++)if(noteTabs[i].id===id)return noteTabs[i];return null}
@@ -1707,7 +1708,7 @@ function ntSortOf(id){var t=findNT(id||noteTab);return (t&&t.sort)||'manual'}
 function renderNotes(){renderNoteTabs();var ul=$('notesList');if(!ul)return;var list=notes.filter(function(n){return n.tab===noteTab&&(n.lock||n.text.trim())}),h='',m=ntSortOf();
  if(m==='alpha')list=list.slice().sort(nCmp);else if(m==='created'||m==='updated'){var k=m==='created'?'createdAt':'updatedAt';list=list.slice().sort(function(a,b){return String(b[k]||'').localeCompare(String(a[k]||''))})}
  list.forEach(function(n){var pr='';if(n.type==='check'){var it=(n.items||[]).filter(function(x){return x.text.trim()});pr='☑ '+it.filter(function(x){return x.done}).length+'/'+it.length+' · '}
-  if(n.lock)pr='';h+='<li class="note'+(n.lock?' nlocked':'')+'" data-id="'+esc(n.id)+'"><span class="t">'+(n.lock?'Notiță blocată':esc(n.text.trim().split('\n')[0]))+'</span><small class="nts">'+(alNext(n)?'⏰ ':'')+(n.lock?'🔒 ':'')+pr+nDate(n)+'</small></li>'});
+  if(n.lock)pr='';h+='<li class="note'+(n.lock&&!n.ltitle?' nlocked':'')+'" data-id="'+esc(n.id)+'"><span class="t">'+(n.lock?esc(n.ltitle||'Notiță blocată'):esc(n.text.trim().split('\n')[0]))+'</span><small class="nts">'+(alNext(n)?'⏰ ':'')+(n.lock?'🔒 ':'')+pr+nDate(n)+'</small></li>'});
  setHTML(ul,h||'<li class="empty">Nicio notiță.</li>')}
 var nSaveT=null;
 function nSaveSoon(){clearTimeout(nSaveT);nSaveT=setTimeout(nFlush,300)}
@@ -1737,7 +1738,7 @@ function lkEnc(key,salt,n){var iv=crypto.getRandomValues(new Uint8Array(12));ret
 function lkDec(key,lock){return crypto.subtle.decrypt({name:'AES-GCM',iv:b64d(lock.iv)},key,b64d(lock.ct)).then(function(b){return JSON.parse(new TextDecoder().decode(b))})}
 function lkApply(n,o){if(o.type)n.type=o.type;else delete n.type;n.text=o.text||'';if(o.title)n.title=o.title;else delete n.title;if(o.items)n.items=o.items;else delete n.items}
 function lkStrip(n){delete n._key;delete n.title;delete n.items;delete n.type;n.text='';renderNotes()}
-function lkReseal(n){var key=n._key;if(!key||!n.lock)return Promise.resolve();return lkEnc(key,b64d(n.lock.salt),n).then(function(l){n.lock=l;saveNotes()})}
+function lkReseal(n){var key=n._key;if(!key||!n.lock)return Promise.resolve();n.ltitle=nTitle0(n);return lkEnc(key,b64d(n.lock.salt),n).then(function(l){n.lock=l;saveNotes()})}
 var pinSt=null;
 function pinShow(o){pinSt=o;$('pinTitle').textContent=o.title;$('pinWarn').style.display=o.warn?'':'none';$('pinMsg').textContent=o.msg||'';var i=$('pinIn');i.value='';pinDots();$('pinModal').classList.add('show');setTimeout(function(){try{i.focus()}catch(_){}},50)}
 function pinDots(){var v=$('pinIn').value;[].forEach.call($('pinDots').children,function(d,k){d.classList.toggle('on',k<v.length)})}
@@ -1749,11 +1750,11 @@ $('pinCancel').addEventListener('click',pinHide);$('pinModal').addEventListener(
 function lkLock(id){var n=findN(id);if(!n||n.lock)return;if(!window.crypto||!crypto.subtle){toast('Criptarea nu e disponibilă aici');return}
  function step1(msg){pinShow({title:'Alege un PIN de 4 cifre',warn:true,msg:msg,done:function(p1){setTimeout(function(){step2(p1)},0);return true}})}
  function step2(p1){pinShow({title:'Confirmă PIN-ul',warn:true,done:function(p2){if(p2!==p1){setTimeout(function(){step1('PIN-urile nu se potrivesc')},0);return true}
-  var salt=crypto.getRandomValues(new Uint8Array(16));return lkDerive(p2,salt).then(function(k){return lkEnc(k,salt,n)}).then(function(l){n.lock=l;lkStrip(n);saveNotes();toast('Notiță blocată');return true})}})}
+  var salt=crypto.getRandomValues(new Uint8Array(16));var tt=nTitle0(n);return lkDerive(p2,salt).then(function(k){return lkEnc(k,salt,n)}).then(function(l){n.lock=l;n.ltitle=tt;lkStrip(n);saveNotes();toast('Notiță blocată');return true})}})}
  step1()}
 function lkTry(n,pin){return lkDerive(pin,b64d(n.lock.salt)).then(function(k){return lkDec(k,n.lock).then(function(o){return{k:k,o:o}})}).catch(function(){return null})}
 function lkOpen(id){var n=findN(id);if(!n||!n.lock)return;pinShow({title:'Introdu PIN-ul',done:function(pin){return lkTry(n,pin).then(function(r){if(!r)return 'PIN greșit';lkApply(n,r.o);n._key=r.k;setTimeout(function(){fullOpen(id)},0);return true})}})}
-function lkUnlock(id){var n=findN(id);if(!n||!n.lock)return;pinShow({title:'Introdu PIN-ul',done:function(pin){return lkTry(n,pin).then(function(r){if(!r)return 'PIN greșit';lkApply(n,r.o);delete n.lock;delete n._key;saveNotes();renderNotes();toast('Notiță deblocată');return true})}})}
+function lkUnlock(id){var n=findN(id);if(!n||!n.lock)return;pinShow({title:'Introdu PIN-ul',done:function(pin){return lkTry(n,pin).then(function(r){if(!r)return 'PIN greșit';lkApply(n,r.o);delete n.lock;delete n._key;delete n.ltitle;saveNotes();renderNotes();toast('Notiță deblocată');return true})}})}
 /* v54: checklist notes */
 function chkSync(n){n.text=[(n.title||'').trim()].concat((n.items||[]).map(function(x){return x.text.trim()})).filter(Boolean).join('\n')}
 function chkOrder(n){var a=n.items||[];return a.filter(function(x){return !x.done}).concat(a.filter(function(x){return x.done}))}
