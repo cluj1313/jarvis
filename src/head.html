@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="JARVIS">
-<meta name="jarvis-version" content="v49-jarvis">
+<meta name="jarvis-version" content="v50-jarvis">
 <title>JARVIS · Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Roboto+Condensed:wght@700&family=Orbitron:wght@700&family=Share+Tech+Mono&family=Rajdhani:wght@600;700&family=Audiowide&family=Teko:wght@500&family=Oxanium:wght@700&display=swap" rel="stylesheet">
@@ -367,6 +367,11 @@ html.jv-notes body{overflow:hidden}
 #lpBox .npal button{width:40px;height:40px;padding:0;border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid transparent}
 #lpBox .npal button i{width:26px;height:26px;border-radius:50%;background:var(--nc);display:block}
 #lpBox .npal button.cur{border-color:var(--nc)}
+
+#notesList{margin-top:0}
+#noteFab{position:fixed;right:calc(18px + env(safe-area-inset-right));bottom:calc(22px + env(safe-area-inset-bottom));width:56px;height:56px;border-radius:50%;z-index:9;display:none;align-items:center;justify-content:center;padding:0 0 3px;
+ font-family:inherit;font-size:34px;font-weight:400;line-height:1;color:#04121f;background:var(--cyan);border:0;box-shadow:0 0 18px rgba(63,216,255,.6),0 6px 16px rgba(0,0,0,.45);cursor:pointer}
+html.jv-notes #noteFab{display:flex}#noteFull.show~#noteFab,html.jv-nfull #noteFab{display:none}
 </style>
 </head>
 <body>
@@ -475,8 +480,9 @@ html.jv-notes body{overflow:hidden}
  <div class="mrow" style="justify-content:center"><button type="button" class="btn" id="alSnz">Amână 10 min</button><button type="button" class="btn" id="alOff">Oprit</button></div></div></div>
 <div id="notesPg" aria-label="Notițe"><div class="nwrap"><div class="ntop"><button type="button" class="hb" id="notesBack" aria-label="Înapoi">‹</button><h2>NOTIȚE</h2></div>
  <div class="ntabs" id="noteTabs"></div>
- <section class="card"><form class="add nadd" id="fNote"><textarea id="iNote" rows="1" placeholder="Scrie o notiță" autocomplete="off" enterkeyhint="done"></textarea></form>
+ <section class="card">
  <ul id="notesList"></ul></section></div></div>
+<button type="button" id="noteFab" aria-label="Notiță nouă">+</button>
 <div id="noteFull" aria-label="Notiță"><div class="nwrap"><div class="ntop"><button type="button" class="hb" id="nfBack" aria-label="Înapoi">‹</button><h2>NOTIȚĂ</h2></div>
  <section class="card nfcard"><textarea id="nfText" aria-label="Textul notiței"></textarea></section></div></div>
 <div class="modal" id="cfModal"><div class="card jvdlg"><div class="cftxt">Sigur vrei să ștergi?</div><div class="mrow"><button type="button" class="btn" id="cfNo">Nu</button><button type="button" class="btn dngb" id="cfOk">Șterge</button></div></div></div>

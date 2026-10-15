@@ -1024,19 +1024,19 @@ function draftInput(){var v=$('iNote').value,n=draftId&&findN(draftId);
  if(v.trim()){if(!n){n={id:ntUid(),text:v,ts:new Date().toISOString(),tab:noteTab};notes.push(n);draftId=n.id}else{n.text=v;n.editedAt=new Date().toISOString()}}
  else if(n){notes=notes.filter(function(x){return x!==n});draftId=null}
  nSaveSoon();renderNotes()}
-function draftFinish(){var n=draftId&&findN(draftId);if(n){n.text=n.text.replace(/\s+$/,'');if(!n.text.trim())notes=notes.filter(function(x){return x!==n})}
+function draftFinish(){if(!$('iNote')){draftId=null;return}var n=draftId&&findN(draftId);if(n){n.text=n.text.replace(/\s+$/,'');if(!n.text.trim())notes=notes.filter(function(x){return x!==n})}
  draftId=null;$('iNote').value='';noteGrow();nFlush();renderNotes()}
-function noteGrow(){var i=$('iNote');i.style.height='auto';i.style.height=i.scrollHeight+'px'}
-$('iNote').addEventListener('input',function(){noteGrow();draftInput()});
-$('iNote').addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.isComposing){e.preventDefault();draftFinish()}});
-$('iNote').addEventListener('blur',function(){draftFinish()});
-$('fNote').addEventListener('submit',function(e){e.preventDefault();draftFinish()});
+function noteGrow(){var i=$('iNote');if(!i)return;i.style.height='auto';i.style.height=i.scrollHeight+'px'}
+/* v50: top input removed; new notes start from the + button in the full editor */
 var fullId=null;
-function fullOpen(id){if(draftId)draftFinish();var n=findN(id);if(!n)return;fullId=id;var ta=$('nfText');ta.value=n.text;$('noteFull').classList.add('show');try{history.pushState({jvNote:1},'')}catch(_){}}
-function fullInput(){var n=fullId&&findN(fullId);if(!n)return;n.text=$('nfText').value;n.editedAt=new Date().toISOString();nSaveSoon()}
+function fullOpen(id){if(draftId)draftFinish();var n=findN(id);if(!n)return;fullId=id;var ta=$('nfText');ta.value=n.text;$('noteFull').classList.add('show');document.documentElement.classList.add('jv-nfull');try{history.pushState({jvNote:1},'')}catch(_){}}
+function fullInput(){var n=fullId&&findN(fullId);if(!n){var v=$('nfText').value;if(!v.trim())return;n={id:ntUid(),text:v,ts:new Date().toISOString(),tab:noteTab};notes.push(n);fullId=n.id;nSaveSoon();return}n.text=$('nfText').value;n.editedAt=new Date().toISOString();nSaveSoon()}
 function fullFlush(){if(!fullId)return;var n=findN(fullId);if(n){n.text=$('nfText').value;if(!n.text.trim())notes=notes.filter(function(x){return x!==n})}nFlush()}
-function fullClose(fromPop){if(!$('noteFull').classList.contains('show'))return;fullFlush();fullId=null;$('noteFull').classList.remove('show');try{$('nfText').blur()}catch(_){}renderNotes();
- if(!fromPop&&history.state&&history.state.jvNote)try{history.back()}catch(_){}}
+function fullNew(){var ta=$('nfText');ta.value='';fullId=null;$('noteFull').classList.add('show');document.documentElement.classList.add('jv-nfull');try{history.pushState({jvNote:1},'')}catch(_){}try{ta.focus()}catch(_){}}
+$('noteFab').addEventListener('click',fullNew);
+function fullClose(fromPop){if(!$('noteFull').classList.contains('show'))return;fullFlush();fullId=null;$('noteFull').classList.remove('show');document.documentElement.classList.remove('jv-nfull');try{$('nfText').blur()}catch(_){}renderNotes();
+ if(!fromPop&&history.state&&history.state.jvNote)try{nIgnorePop=true;history.back()}catch(_){nIgnorePop=false}}
+var nIgnorePop=false;
 $('nfText').addEventListener('input',fullInput);$('nfText').addEventListener('blur',fullFlush);
 $('nfBack').addEventListener('click',function(){fullClose()});
 function nFlushAll(){if(fullId)fullFlush();if(draftId){var n=findN(draftId);if(n)n.text=$('iNote').value}nFlush()}
@@ -1057,7 +1057,7 @@ function ntShift(id,d){var i=noteTabs.findIndex(function(t){return t.id===id}),j
 function notesOpen(){var pg=$('notesPg');if(pg.classList.contains('show'))return;renderNotes();pg.classList.add('show');document.documentElement.classList.add('jv-notes');try{history.pushState({jvNotes:1},'')}catch(_){}}
 function notesClose(fromPop){var pg=$('notesPg');if(!pg.classList.contains('show'))return;if(draftId)draftFinish();nFlushAll();pg.classList.remove('show');document.documentElement.classList.remove('jv-notes');
  if(!fromPop&&history.state&&history.state.jvNotes)try{history.back()}catch(_){}}
-window.addEventListener('popstate',function(){if($('noteFull').classList.contains('show'))fullClose(true);else notesClose(true)});
+window.addEventListener('popstate',function(){if(nIgnorePop){nIgnorePop=false;return}if($('noteFull').classList.contains('show'))fullClose(true);else notesClose(true)});
 $('notesBack').addEventListener('click',function(){notesClose()});
 var sw=null;
 document.addEventListener('touchstart',function(e){sw=null;if(e.touches.length!==1)return;var t=e.target;
