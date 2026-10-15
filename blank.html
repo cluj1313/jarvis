@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="JARVIS">
-<meta name="jarvis-version" content="v57-jarvis-blank">
+<meta name="jarvis-version" content="v58-jarvis-blank">
 <script>window.JARVIS_BLANK=true</script>
 <title>JARVIS · Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -410,7 +410,7 @@ html.jv-notes #noteFab{display:flex}#noteFull.show~#noteFab,html.jv-nfull #noteF
 html.jv-notes #nHistBar{display:flex}html.jv-nfull #nHistBar{display:none}#noteFull .nfhist{display:flex}
 #nHistBar{bottom:calc(30px + env(safe-area-inset-bottom))}
 .nhist .btn.pill.hist{width:38px;height:34px;font-size:16px;padding:0}
-#nfItems .ciadd{display:block;margin:6px 0 2px 30px;background:none;border:1px solid rgba(63,216,255,.45);color:var(--cyan2);border-radius:999px;padding:6px 14px;font:inherit;font-size:14px;cursor:pointer}
+#nfItems .ciadd{display:block;width:100%;height:44px;margin:0;padding:0;background:none;border:0;cursor:text;-webkit-tap-highlight-color:transparent}
 #nfItems .ci input[type=checkbox]{-webkit-appearance:none;appearance:none;width:20px;height:20px;border:1.5px solid rgba(63,216,255,.7);border-radius:6px;background:transparent;display:grid;place-items:center;cursor:pointer}
 #nfItems .ci input[type=checkbox]:checked{background:rgba(63,216,255,.14);border-color:var(--cyan)}
 #nfItems .ci input[type=checkbox]:checked::after{content:'';width:5px;height:10px;border:solid var(--cyan);border-width:0 2px 2px 0;transform:translateY(-1px) rotate(45deg)}
@@ -1787,7 +1787,7 @@ function chkTouch(n){n.updatedAt=n.editedAt=new Date().toISOString();chkSync(n);
 function chkNote(){return fullId&&findN(fullId)}
 function chkRow(x){return '<div class="ci'+(x.done?' done':'')+'" data-id="'+x.id+'"><input type="checkbox"'+(x.done?' checked':'')+' aria-label="Bifează"><input class="cit" value="'+esc(x.text).replace(/"/g,'&quot;')+'" enterkeyhint="next" autocomplete="off"><button type="button" class="cix" aria-label="Șterge rândul">×</button></div>'}
 function chkRender(focusId,atEnd){var n=chkNote();if(!n)return;$('nfTitle').value=n.title||'';var a=n.items||[],un=a.filter(function(x){return !x.done}),dn=a.filter(function(x){return x.done});
- $('nfItems').innerHTML=un.map(chkRow).join('')+'<button type="button" class="ciadd">+ Adaugă element</button>'+(dn.length?'<div class="cisep"></div>'+dn.map(chkRow).join(''):'');
+ $('nfItems').innerHTML=un.map(chkRow).join('')+'<button type="button" class="ciadd" aria-label="Adaugă element"></button>'+(dn.length?'<div class="cisep"></div>'+dn.map(chkRow).join(''):'');
  if(focusId){var el=document.querySelector('#nfItems .ci[data-id="'+focusId+'"] .cit');if(el){el.focus();var L=atEnd?el.value.length:0;try{el.setSelectionRange(L,L)}catch(_){}}}}
 function chkNew(){if(draftId)draftFinish();var now=new Date().toISOString(),it={id:ntUid(),text:'',done:false};
  var n={id:ntUid(),type:'check',title:'',items:[it],text:'',ts:now,createdAt:now,updatedAt:now,tab:noteTab};notes.push(n);fullId=n.id;fullIsNew=true;

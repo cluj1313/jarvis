@@ -1100,7 +1100,7 @@ function chkTouch(n){n.updatedAt=n.editedAt=new Date().toISOString();chkSync(n);
 function chkNote(){return fullId&&findN(fullId)}
 function chkRow(x){return '<div class="ci'+(x.done?' done':'')+'" data-id="'+x.id+'"><input type="checkbox"'+(x.done?' checked':'')+' aria-label="Bifează"><input class="cit" value="'+esc(x.text).replace(/"/g,'&quot;')+'" enterkeyhint="next" autocomplete="off"><button type="button" class="cix" aria-label="Șterge rândul">×</button></div>'}
 function chkRender(focusId,atEnd){var n=chkNote();if(!n)return;$('nfTitle').value=n.title||'';var a=n.items||[],un=a.filter(function(x){return !x.done}),dn=a.filter(function(x){return x.done});
- $('nfItems').innerHTML=un.map(chkRow).join('')+'<button type="button" class="ciadd">+ Adaugă element</button>'+(dn.length?'<div class="cisep"></div>'+dn.map(chkRow).join(''):'');
+ $('nfItems').innerHTML=un.map(chkRow).join('')+'<button type="button" class="ciadd" aria-label="Adaugă element"></button>'+(dn.length?'<div class="cisep"></div>'+dn.map(chkRow).join(''):'');
  if(focusId){var el=document.querySelector('#nfItems .ci[data-id="'+focusId+'"] .cit');if(el){el.focus();var L=atEnd?el.value.length:0;try{el.setSelectionRange(L,L)}catch(_){}}}}
 function chkNew(){if(draftId)draftFinish();var now=new Date().toISOString(),it={id:ntUid(),text:'',done:false};
  var n={id:ntUid(),type:'check',title:'',items:[it],text:'',ts:now,createdAt:now,updatedAt:now,tab:noteTab};notes.push(n);fullId=n.id;fullIsNew=true;
