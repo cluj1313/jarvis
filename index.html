@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="JARVIS">
-<meta name="jarvis-version" content="v52-jarvis">
+<meta name="jarvis-version" content="v53-jarvis">
 <title>JARVIS · Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Roboto+Condensed:wght@700&family=Orbitron:wght@700&family=Share+Tech+Mono&family=Rajdhani:wght@600;700&family=Audiowide&family=Teko:wght@500&family=Oxanium:wght@700&display=swap" rel="stylesheet">
@@ -380,6 +380,9 @@ html.jv-notes #noteFab{display:flex}#noteFull.show~#noteFab,html.jv-nfull #noteF
 
 @keyframes nfPulse{0%,100%{box-shadow:0 0 6px rgba(63,216,255,.35);opacity:1}50%{box-shadow:0 0 18px rgba(63,216,255,.85),0 0 4px rgba(63,216,255,.9) inset;opacity:.75}}
 #nfRead.on{animation:nfPulse 1.1s ease-in-out infinite;background:rgba(63,216,255,.14)}
+
+#notesList .note.ndrag{touch-action:none;position:relative;z-index:2;background:rgba(63,216,255,.12);border-radius:12px;box-shadow:0 0 0 1px rgba(63,216,255,.6),0 10px 24px rgba(0,0,0,.5);transform:scale(1.03);transition:transform .12s}
+#notesList .note.ndrag.ndon{transform:scale(1.05);box-shadow:0 0 0 1.5px var(--cyan),0 0 16px rgba(63,216,255,.45),0 14px 28px rgba(0,0,0,.55)}
 </style>
 </head>
 <body>
@@ -1105,7 +1108,7 @@ function lpUnsel(){try{var sl=window.getSelection();if(sl)sl.removeAllRanges()}c
 function lpNoSel(e){var t=e.target;if(t.nodeType!==1)t=t.parentNode;if(!t||!t.closest||t.closest('input,textarea,[contenteditable]'))return;if(t.closest('.task,.lbl,#lpMenu,.note'))e.preventDefault()}
 document.addEventListener('selectstart',lpNoSel);document.addEventListener('contextmenu',lpNoSel);
 function lpCancel(){if(lp){clearTimeout(lp.t);lp=null}}
-document.addEventListener('pointerdown',function(e){dndEatClick=false;lpJust=false;lpCancel();
+document.addEventListener('pointerdown',function(e){dndEatClick=false;lpJust=false;lpCancel();if(ndrag||Date.now()-ndragT<400)return;
  if(e.pointerType==='mouse'&&e.button!==0)return;
  var hd=e.target.closest&&e.target.closest('.ctab .lbl');if(hd&&!e.target.closest('.spk,.tcol')&&!document.querySelector('.modal.show')&&!$('lpMenu').classList.contains('show')){
   lp={id:e.pointerId,x:e.clientX,y:e.clientY,t:setTimeout(function(){lp=null;try{if(navigator.vibrate)navigator.vibrate(20)}catch(_){}lpJust=true;lpUnsel();lpTabOpen(hd)},LP_MS)};return}
@@ -1137,7 +1140,7 @@ function lpMoveMenu(){var c=lpCur,o=dndObj(c.S,c.id),box=$('lpBox'),h='<div clas
  h+='<button data-a="urg">'+(o.urgent?'● Normal':'● Urgent')+'</button>';box.innerHTML=h;lpPos()}
 function lpTabOpen(hd){lpCur={li:hd,tabHd:true};$('lpBox').innerHTML='<button data-a="ren">✎ Redenumește</button><button data-a="tdel" class="dng">🗑 Șterge tabul</button>';$('lpMenu').classList.add('show');hd.classList.add('jv-lpon');lpPos()}
 function lpNTOpen(b){lpCur={li:b,nt:b.dataset.id};$('lpBox').innerHTML='<button data-a="ntren">✎ Redenumește</button><button data-a="ntmv">↔ Mută</button><button data-a="ntcol">🎨 Culoare</button><button data-a="ntdel" class="dng">🗑 Șterge tabul</button>';$('lpMenu').classList.add('show');b.classList.add('jv-lpon');lpPos()}
-function lpNoteOpen(li){lpCur={li:li,note:true};$('lpBox').innerHTML='<button data-a="nal">⏰ Alarmă</button><button data-a="ned">✎ Editează</button><button data-a="nup">↑ Mută mai sus</button><button data-a="ndn">↓ Mută mai jos</button><button data-a="nmv">↕ Mută</button><button data-a="ndel" class="dng">× Șterge</button>';$('lpMenu').classList.add('show');li.classList.add('jv-lpon');lpPos()}
+function lpNoteOpen(li){lpCur={li:li,note:true};$('lpBox').innerHTML='<button data-a="nal">⏰ Alarmă</button><button data-a="ned">✎ Editează</button><button data-a="ndrag">✥ Mută (drag &amp; drop)</button><button data-a="nmv">↕ Mută în alt tab</button><button data-a="ndel" class="dng">× Șterge</button>';$('lpMenu').classList.add('show');li.classList.add('jv-lpon');lpPos()}
 function lpClose(){$('lpMenu').classList.remove('show');if(lpCur&&lpCur.li)lpCur.li.classList.remove('jv-lpon');lpCur=null}
 $('lpMenu').addEventListener('click',function(e){if(lpJust){lpJust=false;return}var c=lpCur;if(!c){lpClose();return}var b=e.target.closest('button');if(!b){lpClose();return}
  if(b.dataset.mv!=null){var T=lpLists()[+b.dataset.mv];if(T.key===c.S.key){lpClose();return}lpMove(T);return}
@@ -1145,7 +1148,7 @@ $('lpMenu').addEventListener('click',function(e){if(lpJust){lpJust=false;return}
  if(b.dataset.ntc!=null){var tt=findNT(c.nt);lpClose();if(tt){tt.color=b.dataset.ntc==='#3fd8ff'?null:b.dataset.ntc;if(!tt.color)delete tt.color;saveNotes();renderNotes()}return}
  if(b.dataset.nt!=null){var nn=findN(c.li.dataset.id);lpClose();if(nn&&nn.tab!==b.dataset.nt){nn.tab=b.dataset.nt;nInsertAlpha(nn);saveNotes();renderNotes();toast('Mutat în '+findNT(b.dataset.nt).name)}return}
  if(a==='nmv'){var cur=(findN(c.li.dataset.id)||{}).tab,h='<div class="lph">Mută în</div>';noteTabs.forEach(function(t){h+='<button data-nt="'+t.id+'"'+(t.id===cur?' class="cur"':'')+'>'+esc(t.name)+(t.id===cur?' ✓':'')+'</button>'});$('lpBox').innerHTML=h;lpPos();return}
- if(a==='nup'||a==='ndn'){var id1=c.li.dataset.id;lpClose();nShift(id1,a==='nup'?-1:1);return}
+ if(a==='ndrag'){var li2=c.li;lpClose();ndArm(li2);return}
  if(a==='nal'){var id0=c.li.dataset.id;lpClose();openAlarm({k:'n',id:id0});return}
  if(a==='ntcol'){var ct=findNT(c.nt)||{},hh='<div class="lph">Culoare</div><div class="npal">';NT_COLORS.forEach(function(k){hh+='<button data-ntc="'+k[0]+'" class="'+((ct.color||'#3fd8ff')===k[0]?'cur':'')+'" style="--nc:'+k[0]+'" aria-label="'+k[1]+'"><i></i></button>'});$('lpBox').innerHTML=hh+'</div>';lpPos();return}
  if(a==='ntmv'){$('lpBox').innerHTML='<button data-a="ntl">← Mută la stânga</button><button data-a="ntr">Mută la dreapta →</button>';lpPos();return}
@@ -1692,6 +1695,27 @@ function fullFlush(){if(!fullId)return;var n=findN(fullId);if(n){n.text=$('nfTex
 var fullIsNew=false;
 function fullNew(){var ta=$('nfText');ta.value='';fullId=null;fullIsNew=false;$('noteFull').classList.add('show');document.documentElement.classList.add('jv-nfull');try{history.pushState({jvNote:1},'')}catch(_){}try{ta.focus()}catch(_){}}
 $('noteFab').addEventListener('click',fullNew);
+/* v53: note drag & drop (armed from the long-press menu) */
+var ndrag=null,ndragT=0;
+function ndArm(li){li=document.querySelector('#notesList .note[data-id="'+li.dataset.id+'"]')||li;ndrag={li:li,id:li.dataset.id,on:false,pid:null,y:0,raf:0};li.classList.add('ndrag');try{if(navigator.vibrate)navigator.vibrate(15)}catch(_){}toast('Trage notița unde vrei')}
+function ndEnd(save){var d=ndrag;if(!d)return;ndrag=null;ndragT=Date.now();cancelAnimationFrame(d.raf);d.li.classList.remove('ndrag','ndon');
+ if(save){var ids=[].map.call($('notesList').querySelectorAll('.note'),function(x){return x.dataset.id}),slots=[];
+  notes.forEach(function(n,i){if(ids.indexOf(n.id)>=0)slots.push(i)});var sorted=ids.map(findN).filter(Boolean);
+  if(sorted.length===slots.length){slots.forEach(function(si,k){notes[si]=sorted[k]});saveNotes()}lpJust=true}
+ renderNotes()}
+function ndPlace(y){var d=ndrag,ul=$('notesList'),items=[].filter.call(ul.querySelectorAll('.note'),function(x){return x!==d.li});
+ var before=null;for(var i=0;i<items.length;i++){var r=items[i].getBoundingClientRect();if(y<r.top+r.height/2){before=items[i];break}}
+ if(before){if(d.li.nextSibling!==before)ul.insertBefore(d.li,before)}else if(ul.lastElementChild!==d.li)ul.appendChild(d.li)}
+function ndTick(){var d=ndrag;if(!d||!d.on)return;var pg=$('notesPg'),h=window.innerHeight,v=0;if(d.y<90)v=-Math.ceil((90-d.y)/6);else if(d.y>h-90)v=Math.ceil((d.y-(h-90))/6);
+ if(v){var t0=pg.scrollTop;pg.scrollTop+=v;if(pg.scrollTop!==t0)ndPlace(d.y)}d.raf=requestAnimationFrame(ndTick)}
+document.addEventListener('pointerdown',function(e){var d=ndrag;if(!d)return;var li=e.target.closest&&e.target.closest('.note');
+ if(li!==d.li){e.preventDefault();e.stopPropagation();ndEnd(false);return}
+ e.preventDefault();d.on=true;d.pid=e.pointerId;d.y=e.clientY;d.li.classList.add('ndon');try{d.li.setPointerCapture&&d.li.setPointerCapture(e.pointerId)}catch(_){}d.raf=requestAnimationFrame(ndTick)},true);
+document.addEventListener('pointermove',function(e){var d=ndrag;if(!d||!d.on||e.pointerId!==d.pid)return;e.preventDefault();d.y=e.clientY;ndPlace(e.clientY)},{capture:true,passive:false});
+document.addEventListener('pointerup',function(e){var d=ndrag;if(!d||!d.on||e.pointerId!==d.pid)return;ndEnd(true)},true);
+document.addEventListener('pointercancel',function(e){var d=ndrag;if(d&&d.on&&e.pointerId===d.pid)ndEnd(true)},true);
+document.addEventListener('touchmove',function(e){if(ndrag&&ndrag.on&&e.cancelable)e.preventDefault()},{passive:false});
+document.addEventListener('click',function(e){if(Date.now()-ndragT<400&&e.target.closest&&e.target.closest('#notesPg')){e.stopPropagation();e.preventDefault()}},true);
 function noteRead(){if(speaking&&speakKey==='note'){stopSpeaking();return}var t=$('nfText').value.trim();if(!t){toast('Notița e goală');return}
  return speak(t.split(/\n+/).filter(function(x){return x.trim()}).map(function(x){return prepSeg(null,x)}),'note')}
 $('nfRead').addEventListener('click',function(e){e.preventDefault();noteRead()});
@@ -1724,7 +1748,7 @@ var sw=null;
 document.addEventListener('touchstart',function(e){sw=null;if(e.touches.length!==1)return;var t=e.target;
  if(t.closest&&t.closest('input,textarea,select,.modal.show,#lpMenu,.news-search,#noteTabs'))return;if(document.querySelector('.modal.show')||$('lpMenu').classList.contains('show'))return;
  sw={x:e.touches[0].clientX,y:e.touches[0].clientY,t:Date.now()}},{passive:true});
-document.addEventListener('touchend',function(e){var d=sw;sw=null;if(!d||lpJust||lpCur)return;var c=e.changedTouches[0],dx=c.clientX-d.x,dy=c.clientY-d.y;
+document.addEventListener('touchend',function(e){var d=sw;sw=null;if(!d||lpJust||lpCur||ndrag||Date.now()-ndragT<600)return;var c=e.changedTouches[0],dx=c.clientX-d.x,dy=c.clientY-d.y;
  if(Math.abs(dx)<60||Math.abs(dx)<Math.abs(dy)*1.6)return;var open=$('notesPg').classList.contains('show');
  if(dx>0&&$('noteFull').classList.contains('show')){fullClose();return}
  if(dx<0&&!open)notesOpen();else if(dx>0&&open)notesClose()},{passive:true});
