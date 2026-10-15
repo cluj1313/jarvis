@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="JARVIS">
-<meta name="jarvis-version" content="v56-jarvis">
+<meta name="jarvis-version" content="v57-jarvis">
 <title>JARVIS · Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Roboto+Condensed:wght@700&family=Orbitron:wght@700&family=Share+Tech+Mono&family=Rajdhani:wght@600;700&family=Audiowide&family=Teko:wght@500&family=Oxanium:wght@700&display=swap" rel="stylesheet">
@@ -404,6 +404,15 @@ html.jv-notes #noteFab{display:flex}#noteFull.show~#noteFab,html.jv-nfull #noteF
 @keyframes pinShake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-10px)}40%,80%{transform:translateX(10px)}}.shake{animation:pinShake .35s}
 #pinModal .card{position:relative}
 #notesList .note.nlocked .t{color:var(--mut);font-style:italic}
+
+.nhist{position:fixed;left:calc(14px + env(safe-area-inset-left));bottom:calc(14px + env(safe-area-inset-bottom));z-index:11;display:none;gap:8px}
+html.jv-notes #nHistBar{display:flex}html.jv-nfull #nHistBar{display:none}#noteFull .nfhist{display:flex}
+#nHistBar{bottom:calc(30px + env(safe-area-inset-bottom))}
+.nhist .btn.pill.hist{width:38px;height:34px;font-size:16px;padding:0}
+#nfItems .ciadd{display:block;margin:6px 0 2px 30px;background:none;border:1px solid rgba(63,216,255,.45);color:var(--cyan2);border-radius:999px;padding:6px 14px;font:inherit;font-size:14px;cursor:pointer}
+#nfItems .ci input[type=checkbox]{-webkit-appearance:none;appearance:none;width:20px;height:20px;border:1.5px solid rgba(63,216,255,.7);border-radius:6px;background:transparent;display:grid;place-items:center;cursor:pointer}
+#nfItems .ci input[type=checkbox]:checked{background:rgba(63,216,255,.14);border-color:var(--cyan)}
+#nfItems .ci input[type=checkbox]:checked::after{content:'';width:5px;height:10px;border:solid var(--cyan);border-width:0 2px 2px 0;transform:translateY(-1px) rotate(45deg)}
 </style>
 </head>
 <body>
@@ -514,9 +523,10 @@ html.jv-notes #noteFab{display:flex}#noteFull.show~#noteFab,html.jv-nfull #noteF
  <div class="ntabs" id="noteTabs"></div>
  <section class="card">
  <ul id="notesList"></ul></section></div></div>
+<div class="nhist" id="nHistBar"><button type="button" class="btn pill hist" id="nUndo" aria-label="Anulează" title="Anulează" disabled>↶</button><button type="button" class="btn pill hist" id="nRedo" aria-label="Refă" title="Refă" disabled>↷</button></div>
 <button type="button" id="noteFab" aria-label="Notiță nouă">+</button>
 <div id="noteFull" aria-label="Notiță"><div class="nwrap"><div class="ntop"><button type="button" class="hb" id="nfBack" aria-label="Înapoi">‹</button><h2>NOTIȚĂ</h2></div>
- <section class="card nfcard"><textarea id="nfText" aria-label="Textul notiței"></textarea><div id="nfChk"><input id="nfTitle" placeholder="Titlu" autocomplete="off" enterkeyhint="next"><div id="nfItems"></div></div></section><button type="button" class="btn pill" id="nfRead">Citește</button></div></div>
+ <section class="card nfcard"><textarea id="nfText" aria-label="Textul notiței"></textarea><div id="nfChk"><input id="nfTitle" placeholder="Titlu" autocomplete="off" enterkeyhint="next"><div id="nfItems"></div></div></section><div class="nhist nfhist"><button type="button" class="btn pill hist" id="nfUndo" aria-label="Anulează" title="Anulează" disabled>↶</button><button type="button" class="btn pill hist" id="nfRedo" aria-label="Refă" title="Refă" disabled>↷</button></div><button type="button" class="btn pill" id="nfRead">Citește</button></div></div>
 <div class="modal" id="cfModal"><div class="card jvdlg"><div class="cftxt">Sigur vrei să ștergi?</div><div class="mrow"><button type="button" class="btn" id="cfNo">Nu</button><button type="button" class="btn dngb" id="cfOk">Șterge</button></div></div></div>
 <div class="modal" id="prModal"><div class="card jvdlg"><div class="lbl"><span id="prTitle">Tab nou</span></div><div class="field"><input id="prIn" maxlength="40" autocomplete="off" enterkeyhint="done"></div><div class="mrow"><button type="button" class="btn" id="prNo">Anulează</button><button type="button" class="btn" id="prOk">Salvează</button></div></div></div>
 <div class="modal" id="pinModal"><div class="card jvdlg" id="pinBox"><div class="lbl"><span id="pinTitle">PIN</span></div>

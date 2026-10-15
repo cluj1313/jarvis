@@ -1019,7 +1019,7 @@ function ntMigrate(){if(!Array.isArray(noteTabs)||!noteTabs.length)noteTabs=[{id
 ntMigrate();
 if(!LS.get('jv_notesort1',0)){notes.sort(nCmp);LS.set('jv_notes',notes);LS.set('jv_notesort1',1)} /* v52: one-time alphabetical sort */
 function nStore(n){if(!n.lock)return n;var o={};['id','tab','ts','createdAt','updatedAt','editedAt','alarm','lock','ltitle'].forEach(function(k){if(n[k]!=null)o[k]=n[k]});o.text='';return o}
-function saveNotes(){LS.set('jv_notes',notes.map(nStore));LS.set('jv_notetabs',noteTabs);LS.set('jv_notetab',noteTab)}
+function saveNotes(soft){LS.set('jv_notes',notes.map(nStore));if(!soft&&typeof nHistPush==='function')nHistPush();LS.set('jv_notetabs',noteTabs);LS.set('jv_notetab',noteTab)}
 function findN(id){for(var i=0;i<notes.length;i++)if(notes[i].id===id)return notes[i];return null}
 function findNT(id){for(var i=0;i<noteTabs.length;i++)if(noteTabs[i].id===id)return noteTabs[i];return null}
 function nDate(n){var d=new Date(n.ts);return d.getDate()+' '+LUNI_S[d.getMonth()]}
@@ -1034,7 +1034,7 @@ function renderNotes(){renderNoteTabs();var ul=$('notesList');if(!ul)return;var 
   if(n.lock)pr='';h+='<li class="note'+(n.lock&&!n.ltitle?' nlocked':'')+'" data-id="'+esc(n.id)+'"><span class="t">'+(n.lock?esc(n.ltitle||'Notiță blocată'):esc(n.text.trim().split('\n')[0]))+'</span><small class="nts">'+(alNext(n)?'⏰ ':'')+(n.lock?'🔒 ':'')+pr+nDate(n)+'</small></li>'});
  setHTML(ul,h||'<li class="empty">Nicio notiță.</li>')}
 var nSaveT=null;
-function nSaveSoon(){clearTimeout(nSaveT);nSaveT=setTimeout(nFlush,300)}
+function nSaveSoon(){clearTimeout(nSaveT);nSaveT=setTimeout(function(){nSaveT=null;saveNotes(true);var on=fullId&&findN(fullId);if(on&&on.lock&&on._key)lkReseal(on)},300)}
 function nFlush(){clearTimeout(nSaveT);nSaveT=null;saveNotes();var on=fullId&&findN(fullId);if(on&&on.lock&&on._key)lkReseal(on)}
 var draftId=null;
 function draftInput(){var v=$('iNote').value,n=draftId&&findN(draftId);
@@ -1052,6 +1052,21 @@ function fullFlush(){if(!fullId)return;var n=findN(fullId);if(n){if(n.type==='ch
 var fullIsNew=false;
 function fullNew(){var ta=$('nfText');ta.value='';fullId=null;fullIsNew=false;$('noteFull').classList.remove('chk');$('noteFull').classList.add('show');document.documentElement.classList.add('jv-nfull');try{history.pushState({jvNote:1},'')}catch(_){}try{ta.focus()}catch(_){}}
 $('noteFab').addEventListener('click',fullNew);
+/* v57: separate undo/redo for Notițe (snapshots never hold more plaintext than storage; ciphertext comes from a cache) */
+var nLockCache={},nH={u:[],r:[],cur:null},NH_MAX=60;
+function nSnap(){notes.forEach(function(n){if(n.lock)nLockCache[n.id]=n.lock});return JSON.stringify({notes:notes.map(nStore),tabs:noteTabs,tab:noteTab},function(k,v){return k==='iv'||k==='ct'||k==='salt'?undefined:v})}
+function nHistPush(){if(nH.cur===null)return;var s=nSnap();if(s===nH.cur)return;nH.u.push(nH.cur);if(nH.u.length>NH_MAX)nH.u.shift();nH.r=[];nH.cur=s;nHistBtns()}
+function nHistReset(){nH.u=[];nH.r=[];nH.cur=nSnap();nHistBtns()}
+function nHistBtns(){['nUndo','nfUndo'].forEach(function(i){var b=$(i);if(b)b.disabled=!nH.u.length});['nRedo','nfRedo'].forEach(function(i){var b=$(i);if(b)b.disabled=!nH.r.length})}
+function nHistApply(s){var d=JSON.parse(s);d.notes.forEach(function(n){if(n.lock){var live=findN(n.id);n.lock=(live&&live.lock)||nLockCache[n.id];if(!n.lock){delete n.lock}}});
+ var openId=fullId;notes=d.notes;noteTabs=d.tabs;noteTab=d.tab;LS.set('jv_notes',notes.map(nStore));LS.set('jv_notetabs',noteTabs);LS.set('jv_notetab',noteTab);
+ if(openId){var n=findN(openId);if(!n){fullId=null;fullIsNew=false;$('noteFull').classList.remove('show');document.documentElement.classList.remove('jv-nfull');if(history.state&&history.state.jvNote)try{nIgnorePop=true;history.back()}catch(_){nIgnorePop=false}}
+  else if(n.type==='check')chkRender();else $('nfText').value=n.text}
+ renderNotes();nHistBtns()}
+function nStep(dir){var on=fullId&&findN(fullId);if(on&&on.lock){toast('Nu se poate într-o notiță blocată');return}
+ if(nSaveT){clearTimeout(nSaveT);nSaveT=null}if(on){if(on.type==='check')chkSync(on);else on.text=$('nfText').value}saveNotes();
+ var from=dir<0?nH.u:nH.r,to=dir<0?nH.r:nH.u;if(!from.length)return;to.push(nH.cur);nH.cur=from.pop();nHistApply(nH.cur);toast(dir<0?'Anulat':'Refăcut')}
+['nUndo','nfUndo'].forEach(function(i){$(i).addEventListener('click',function(){nStep(-1)})});['nRedo','nfRedo'].forEach(function(i){$(i).addEventListener('click',function(){nStep(1)})});
 /* v55: per-note PIN lock (PBKDF2-SHA256 150k -> AES-GCM); plaintext never stored for locked notes */
 function b64e(u){var s='';u=new Uint8Array(u);for(var i=0;i<u.length;i++)s+=String.fromCharCode(u[i]);return btoa(s)}
 function b64d(s){var b=atob(s),u=new Uint8Array(b.length);for(var i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return u}
@@ -1061,7 +1076,7 @@ function lkEnc(key,salt,n){var iv=crypto.getRandomValues(new Uint8Array(12));ret
 function lkDec(key,lock){return crypto.subtle.decrypt({name:'AES-GCM',iv:b64d(lock.iv)},key,b64d(lock.ct)).then(function(b){return JSON.parse(new TextDecoder().decode(b))})}
 function lkApply(n,o){if(o.type)n.type=o.type;else delete n.type;n.text=o.text||'';if(o.title)n.title=o.title;else delete n.title;if(o.items)n.items=o.items;else delete n.items}
 function lkStrip(n){delete n._key;delete n.title;delete n.items;delete n.type;n.text='';renderNotes()}
-function lkReseal(n){var key=n._key;if(!key||!n.lock)return Promise.resolve();n.ltitle=nTitle0(n);return lkEnc(key,b64d(n.lock.salt),n).then(function(l){n.lock=l;saveNotes()})}
+function lkReseal(n){var key=n._key;if(!key||!n.lock)return Promise.resolve();n.ltitle=nTitle0(n);return lkEnc(key,b64d(n.lock.salt),n).then(function(l){n.lock=l;saveNotes(true);nLockCache[n.id]=l})}
 var pinSt=null;
 function pinShow(o){pinSt=o;$('pinTitle').textContent=o.title;$('pinWarn').style.display=o.warn?'':'none';$('pinMsg').textContent=o.msg||'';var i=$('pinIn');i.value='';pinDots();$('pinModal').classList.add('show');setTimeout(function(){try{i.focus()}catch(_){}},50)}
 function pinDots(){var v=$('pinIn').value;[].forEach.call($('pinDots').children,function(d,k){d.classList.toggle('on',k<v.length)})}
@@ -1073,11 +1088,11 @@ $('pinCancel').addEventListener('click',pinHide);$('pinModal').addEventListener(
 function lkLock(id){var n=findN(id);if(!n||n.lock)return;if(!window.crypto||!crypto.subtle){toast('Criptarea nu e disponibilă aici');return}
  function step1(msg){pinShow({title:'Alege un PIN de 4 cifre',warn:true,msg:msg,done:function(p1){setTimeout(function(){step2(p1)},0);return true}})}
  function step2(p1){pinShow({title:'Confirmă PIN-ul',warn:true,done:function(p2){if(p2!==p1){setTimeout(function(){step1('PIN-urile nu se potrivesc')},0);return true}
-  var salt=crypto.getRandomValues(new Uint8Array(16));var tt=nTitle0(n);return lkDerive(p2,salt).then(function(k){return lkEnc(k,salt,n)}).then(function(l){n.lock=l;n.ltitle=tt;lkStrip(n);saveNotes();toast('Notiță blocată');return true})}})}
+  var salt=crypto.getRandomValues(new Uint8Array(16));var tt=nTitle0(n);return lkDerive(p2,salt).then(function(k){return lkEnc(k,salt,n)}).then(function(l){n.lock=l;n.ltitle=tt;nHistReset();lkStrip(n);saveNotes();toast('Notiță blocată');return true})}})}
  step1()}
 function lkTry(n,pin){return lkDerive(pin,b64d(n.lock.salt)).then(function(k){return lkDec(k,n.lock).then(function(o){return{k:k,o:o}})}).catch(function(){return null})}
 function lkOpen(id){var n=findN(id);if(!n||!n.lock)return;pinShow({title:'Introdu PIN-ul',done:function(pin){return lkTry(n,pin).then(function(r){if(!r)return 'PIN greșit';lkApply(n,r.o);n._key=r.k;setTimeout(function(){fullOpen(id)},0);return true})}})}
-function lkUnlock(id){var n=findN(id);if(!n||!n.lock)return;pinShow({title:'Introdu PIN-ul',done:function(pin){return lkTry(n,pin).then(function(r){if(!r)return 'PIN greșit';lkApply(n,r.o);delete n.lock;delete n._key;delete n.ltitle;saveNotes();renderNotes();toast('Notiță deblocată');return true})}})}
+function lkUnlock(id){var n=findN(id);if(!n||!n.lock)return;pinShow({title:'Introdu PIN-ul',done:function(pin){return lkTry(n,pin).then(function(r){if(!r)return 'PIN greșit';lkApply(n,r.o);delete n.lock;delete n._key;delete n.ltitle;nHistReset();saveNotes();renderNotes();toast('Notiță deblocată');return true})}})}
 /* v54: checklist notes */
 function chkSync(n){n.text=[(n.title||'').trim()].concat((n.items||[]).map(function(x){return x.text.trim()})).filter(Boolean).join('\n')}
 function chkOrder(n){var a=n.items||[];return a.filter(function(x){return !x.done}).concat(a.filter(function(x){return x.done}))}
@@ -1085,7 +1100,7 @@ function chkTouch(n){n.updatedAt=n.editedAt=new Date().toISOString();chkSync(n);
 function chkNote(){return fullId&&findN(fullId)}
 function chkRow(x){return '<div class="ci'+(x.done?' done':'')+'" data-id="'+x.id+'"><input type="checkbox"'+(x.done?' checked':'')+' aria-label="Bifează"><input class="cit" value="'+esc(x.text).replace(/"/g,'&quot;')+'" enterkeyhint="next" autocomplete="off"><button type="button" class="cix" aria-label="Șterge rândul">×</button></div>'}
 function chkRender(focusId,atEnd){var n=chkNote();if(!n)return;$('nfTitle').value=n.title||'';var a=n.items||[],un=a.filter(function(x){return !x.done}),dn=a.filter(function(x){return x.done});
- $('nfItems').innerHTML=un.map(chkRow).join('')+(dn.length?'<div class="cisep"></div>'+dn.map(chkRow).join(''):'');
+ $('nfItems').innerHTML=un.map(chkRow).join('')+'<button type="button" class="ciadd">+ Adaugă element</button>'+(dn.length?'<div class="cisep"></div>'+dn.map(chkRow).join(''):'');
  if(focusId){var el=document.querySelector('#nfItems .ci[data-id="'+focusId+'"] .cit');if(el){el.focus();var L=atEnd?el.value.length:0;try{el.setSelectionRange(L,L)}catch(_){}}}}
 function chkNew(){if(draftId)draftFinish();var now=new Date().toISOString(),it={id:ntUid(),text:'',done:false};
  var n={id:ntUid(),type:'check',title:'',items:[it],text:'',ts:now,createdAt:now,updatedAt:now,tab:noteTab};notes.push(n);fullId=n.id;fullIsNew=true;
@@ -1095,11 +1110,17 @@ $('nfTitle').addEventListener('input',function(){var n=chkNote();if(!n)return;n.
 $('nfTitle').addEventListener('keydown',function(e){if(e.key!=='Enter')return;e.preventDefault();var n=chkNote();if(!n)return;var f=chkOrder(n)[0];if(!f){f={id:ntUid(),text:'',done:false};n.items.push(f);chkRender()}chkRender(f.id,true)});
 function chkItem(el){var n=chkNote(),row=el.closest('.ci');if(!n||!row)return{};for(var i=0;i<n.items.length;i++)if(n.items[i].id===row.dataset.id)return{n:n,x:n.items[i],i:i};return{n:n}}
 $('nfItems').addEventListener('input',function(e){if(!e.target.classList.contains('cit'))return;var r=chkItem(e.target);if(!r.x)return;r.x.text=e.target.value;chkTouch(r.n)});
-$('nfItems').addEventListener('change',function(e){if(e.target.type!=='checkbox')return;var r=chkItem(e.target);if(!r.x)return;r.x.done=e.target.checked;chkTouch(r.n);chkRender()});
-$('nfItems').addEventListener('click',function(e){if(!e.target.classList.contains('cix'))return;var r=chkItem(e.target);if(!r.x)return;r.n.items.splice(r.i,1);chkTouch(r.n);chkRender()});
+$('nfItems').addEventListener('change',function(e){if(e.target.type!=='checkbox')return;var r=chkItem(e.target);if(!r.x)return;chkPre(r.n);r.x.done=e.target.checked;chkTouch(r.n);nFlush();chkRender()});
+function chkPre(n){if(nSaveT){clearTimeout(nSaveT);nSaveT=null}chkSync(n);saveNotes()}
+function chkAdd(){var n=chkNote();if(!n)return;chkPre(n);n.items=n.items||[];var un=n.items.filter(function(x){return !x.done}),last=un[un.length-1];
+ if(last&&!last.text.trim()){chkRender(last.id,true);return}var it={id:ntUid(),text:'',done:false},at=last?n.items.indexOf(last)+1:0;n.items.splice(at,0,it);chkTouch(n);nFlush();chkRender(it.id)}
+$('nfChk').addEventListener('click',function(e){if(e.target.closest('.ciadd')){e.preventDefault();chkAdd();return}if(e.target===this||e.target.id==='nfItems')chkAdd()});
+$('noteFull').addEventListener('click',function(e){if($('noteFull').classList.contains('chk')&&e.target.classList&&e.target.classList.contains('nfcard'))chkAdd()});
+$('nfItems').addEventListener('click',function(e){if(!e.target.classList.contains('cix'))return;var r=chkItem(e.target);if(!r.x)return;chkPre(r.n);r.n.items.splice(r.i,1);chkTouch(r.n);nFlush();chkRender()});
 $('nfItems').addEventListener('keydown',function(e){if(!e.target.classList.contains('cit'))return;var r=chkItem(e.target);if(!r.x)return;
- if(e.key==='Enter'){e.preventDefault();var it={id:ntUid(),text:'',done:r.x.done};r.n.items.splice(r.i+1,0,it);chkTouch(r.n);chkRender(it.id);return}
- if(e.key==='Backspace'&&!e.target.value){e.preventDefault();var ord=chkOrder(r.n),k=ord.indexOf(r.x),prev=ord[k-1];r.n.items.splice(r.i,1);chkTouch(r.n);chkRender(prev&&prev.id,true);if(!prev)try{$('nfTitle').focus()}catch(_){}}});
+ if(e.key==='Enter'||(e.key==='Backspace'&&!e.target.value))chkPre(r.n);
+ if(e.key==='Enter'){e.preventDefault();var it={id:ntUid(),text:'',done:r.x.done};r.n.items.splice(r.i+1,0,it);chkTouch(r.n);nFlush();chkRender(it.id);return}
+ if(e.key==='Backspace'&&!e.target.value){e.preventDefault();var ord=chkOrder(r.n),k=ord.indexOf(r.x),prev=ord[k-1];r.n.items.splice(r.i,1);chkTouch(r.n);nFlush();chkRender(prev&&prev.id,true);if(!prev)try{$('nfTitle').focus()}catch(_){}}});
 /* v54: per-tab sort */
 var NT_SORTS=[['alpha','Alfabetic'],['manual','Manual'],['created','Data creării'],['updated','Data modificării']];
 $('nSort').addEventListener('click',function(){var b=this,cur=ntSortOf(),h='<div class="lph">Sortare</div>';NT_SORTS.forEach(function(k){h+='<button data-srt="'+k[0]+'"'+(k[0]===cur?' class="cur"':'')+'>'+k[1]+(k[0]===cur?' ✓':'')+'</button>'});
@@ -1129,7 +1150,7 @@ function noteRead(){if(speaking&&speakKey==='note'){stopSpeaking();return}var cn
  var t=$('nfText').value.trim();if(!t){toast('Notița e goală');return}
  return speak(t.split(/\n+/).filter(function(x){return x.trim()}).map(function(x){return prepSeg(null,x)}),'note')}
 $('nfRead').addEventListener('click',function(e){e.preventDefault();noteRead()});
-function fullClose(fromPop){if(!$('noteFull').classList.contains('show'))return;if(speaking&&speakKey==='note')stopSpeaking();fullFlush();if(fullIsNew){var nn=findN(fullId);if(nn){nInsertAlpha(nn);nFlush()}fullIsNew=false}var ln=fullId&&findN(fullId);if(ln&&ln.lock&&ln._key){var kk=ln._key;lkReseal(ln).then(function(){lkStrip(ln)});lkStrip(ln)}fullId=null;$('noteFull').classList.remove('show');document.documentElement.classList.remove('jv-nfull');try{$('nfText').blur()}catch(_){}renderNotes();
+function fullClose(fromPop){if(!$('noteFull').classList.contains('show'))return;var cq=fullId&&findN(fullId);if(cq&&cq.type==='check'&&cq.items){cq.items=cq.items.filter(function(x){return x.text.trim()});chkSync(cq)}if(speaking&&speakKey==='note')stopSpeaking();fullFlush();if(fullIsNew){var nn=findN(fullId);if(nn){nInsertAlpha(nn);nFlush()}fullIsNew=false}var ln=fullId&&findN(fullId);if(ln&&ln.lock&&ln._key){var kk=ln._key;lkReseal(ln).then(function(){lkStrip(ln)});lkStrip(ln)}fullId=null;$('noteFull').classList.remove('show');document.documentElement.classList.remove('jv-nfull');try{$('nfText').blur()}catch(_){}renderNotes();
  if(!fromPop&&history.state&&history.state.jvNote)try{nIgnorePop=true;history.back()}catch(_){nIgnorePop=false}}
 var nIgnorePop=false;
 $('nfText').addEventListener('input',fullInput);$('nfText').addEventListener('blur',fullFlush);
@@ -1163,5 +1184,6 @@ document.addEventListener('touchend',function(e){var d=sw;sw=null;if(!d||lpJust|
  if(dx>0&&$('noteFull').classList.contains('show')){fullClose();return}
  if(dx<0&&!open)notesOpen();else if(dx>0&&open)notesClose()},{passive:true});
 renderNotes();
+nH.cur=nSnap();nHistBtns();
 alCheck(); /* notes are loaded after alInit: run the alarm catch-up again so note alarms fire on open */
 })();
