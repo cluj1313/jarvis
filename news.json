@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-17T19:39:59.164165Z",
+  "updated": "2026-10-17T22:03:47.065022Z",
   "categories": [
     {
       "id": "ai",
@@ -46,7 +46,19 @@
           "name": "TechCrunch AI",
           "items": [
             {
-              "title": "Replit is no longer working with Anthropic, CEO says",
+              "title": "Meta removes language that raised scraping and AI training concerns",
+              "url": "https://techcrunch.com/2026/10/17/meta-removes-language-that-raised-scraping-and-ai-training-concerns/",
+              "snippet": "A Meta spokesperson insisted that the updated terms did not reflect a change in the way Meta crawls the web.",
+              "published": "2026-10-17T21:31:32Z"
+            },
+            {
+              "title": "Anthropic says its workforce has become less junior and is spending more time in meetings",
+              "url": "https://techcrunch.com/2026/10/17/anthropic-says-its-workforce-has-become-less-junior-and-is-spending-more-time-in-meetings/",
+              "snippet": "The composition of Anthropic’s workforce and the type of work getting done have changed significantly in the past year.",
+              "published": "2026-10-17T20:21:19Z"
+            },
+            {
+              "title": "Replit makes OpenAI its default over Anthropic, CEO says",
               "url": "https://techcrunch.com/2026/10/17/replit-is-no-longer-working-with-anthropic-ceo-says/",
               "snippet": "Over the weekend, Masad clarified that OpenAI would replace Anthropic as its default model provider. Claude will still be available to customers on the platform.",
               "published": "2026-10-17T18:48:08Z"
@@ -62,18 +74,6 @@
               "url": "https://techcrunch.com/video/a-nvidia-insider-turned-vc-on-why-robotics-hasnt-hit-its-chatgpt-moment-yet/",
               "snippet": "Amulya Vishwanath, who spent seven years leading product marketing for NVIDIA’s robotics platforms, says robotics is currently in its “Lego era,” with the basic building blocks…",
               "published": "2026-10-16T16:30:00Z"
-            },
-            {
-              "title": "Physical AI is more than robots, says the Nvidia veteran now investing in it",
-              "url": "https://techcrunch.com/podcast/physical-ai-is-more-than-robots-says-the-nvidia-veteran-now-investing-in-it/",
-              "snippet": "Amulya Vishwanath, who spent seven years leading product marketing for NVIDIA’s robotics platforms, says robotics is currently in its “Lego era,” with the basic building blocks…",
-              "published": "2026-10-16T16:30:00Z"
-            },
-            {
-              "title": "Elorian’s first AI model wants to reason with images, not just about them",
-              "url": "https://techcrunch.com/2026/10/16/elorians-first-ai-model-wants-to-reason-with-images-not-just-about-them/",
-              "snippet": "According to Elorian's evaluations, Glimpse outperforms even GPT-6 Astra on scientific chart reasoning and short-form video captioning, with competitive results on other visual…",
-              "published": "2026-10-16T16:01:37Z"
             }
           ]
         },
@@ -160,6 +160,24 @@
           "name": "Digi24",
           "items": [
             {
+              "title": "Coloniști israelieni au atacat diplomați europeni în Cisiordania. Un primar francez și un arhiepiscop, printre cei vizați",
+              "url": "https://www.digi24.ro/stiri/externe/mapamond/colonisti-israelieni-au-atacat-diplomati-europeni-in-cisiordania-un-primar-francez-si-un-arhiepiscop-printre-cei-vizati-3997147",
+              "snippet": "Coloniști israelieni au atacat o delegație europeană în localitatea Taybeh, din Cisiordania ocupată, în timpul unei vizite legate de recoltarea măslinelor. Printre cei vizați…",
+              "published": "2026-10-17T20:42:16Z"
+            },
+            {
+              "title": "Zelenski acuză o „operațiune planificată” după restricțiile impuse Starlink în Ucraina: „Ne va costa viețile multora dintre noi”",
+              "url": "https://www.digi24.ro/stiri/externe/ue/zelenski-acuza-o-operatiune-planificata-dupa-restrictiile-impuse-starlink-in-ucraina-ne-va-costa-vietile-multora-dintre-noi-3997137",
+              "snippet": "Președintele ucrainean Volodimir Zelenski acuză că restricțiile impuse serviciului Starlink în Ucraina fac parte dintr-o „operațiune planificată”. Potrivit liderului de la Kiev…",
+              "published": "2026-10-17T20:19:08Z"
+            },
+            {
+              "title": "Manifestaţii violente în Italia: Confruntări între poliţie şi protestatari la Milano şi Bologna",
+              "url": "https://www.digi24.ro/stiri/externe/manifestatii-violente-in-italia-confruntari-intre-politie-si-protestatari-la-milano-si-bologna-3997125",
+              "snippet": "Poliţia a recurs la gaze lacrimogene sâmbătă, după ce a fost atacată de protestatari care aruncau cu pietre în piaţa din faţa catedralei gotice din Milano, a relatat presa…",
+              "published": "2026-10-17T19:51:44Z"
+            },
+            {
               "title": "Congresmeni republicani critică suspendarea noilor sancţiuni împotriva Rusiei de către Trump: „Este complet iresponsabil, o eroare”",
               "url": "https://www.digi24.ro/stiri/externe/sua/congresmeni-republicani-critica-suspendarea-noilor-sanctiuni-impotriva-rusiei-de-catre-trump-este-complet-iresponsabil-o-eroare-3997095",
               "snippet": "Personalităţi republicane, şi nu doar democrate, au criticat sâmbătă decizia lui Donald Trump de a scuti Rusia de noile sancţiuni adoptate de Congres în septembrie pentru a…",
@@ -170,24 +188,6 @@
               "url": "https://www.digi24.ro/stiri/actualitate/politica/adrian-vestea-atac-la-conducerea-pnl-dupa-decizia-de-a-sustine-guvernul-niculescu-psd-nu-mai-reprezinta-raul-absolut-3997099",
               "snippet": "Adrian Veștea critică decizia conducerii PNL de a susține Guvernul condus de Luca Niculescu, deși liberalii nu vor avea reprezentanți în Executiv. Fostul premier desemnat acuză…",
               "published": "2026-10-17T19:16:13Z"
-            },
-            {
-              "title": "Rezultate „catastrofale” în Cehia pentru partidul premierului Andrej Babiš. Ce se întâmplă cu coaliția euroscepticilor, la putere",
-              "url": "https://www.digi24.ro/stiri/externe/ue/rezultate-catastrofale-in-cehia-pentru-partidul-premierului-andrej-babis-ce-se-intampla-cu-coalitia-euroscepticilor-la-putere-3997109",
-              "snippet": "Principalele partide de opoziţie din Cehia au obţinut cele mai multe voturi la alegerile pentru Senat sâmbătă, în timp ce partidul prim-ministrului Andrej Babis nu a reuşit să…",
-              "published": "2026-10-17T19:14:52Z"
-            },
-            {
-              "title": "Haos pe străzile Franței: primării atacate, incendii și lupte între protestatari și forțele de ordine. 800.000 de oameni în stradă",
-              "url": "https://www.digi24.ro/stiri/externe/haos-si-tensiune-maxima-peste-100-000-de-mii-de-oameni-asteptati-in-strada-intr-o-zi-a-protestelor-in-franta-3996655",
-              "snippet": "Sute de mii de persoane au participat sâmbătă la manifestații în întreaga Franță, într-o mobilizare care reunește elevi, studenți, sindicaliști și membri ai mișcării „Vestele…",
-              "published": "2026-10-17T18:42:48Z"
-            },
-            {
-              "title": "Incendiu la CET Iași. Oraşul rămâne fără apă caldă şi căldură: „Centrala este pe zero, pagubele sunt însemnate”",
-              "url": "https://www.digi24.ro/stiri/actualitate/incendiu-la-cet-iasi-pompierii-recomanda-cetatenilor-sa-evite-zona-interventiei-3996963",
-              "snippet": "Pompierii ieşeni au intervenit, sâmbătă după-amiază, la un incendiu izbucnit la un transformator electric din incinta CET Iaşi. Potrivit Inspectoratului pentru Situaţii de…",
-              "published": "2026-10-17T18:39:32Z"
             }
           ]
         },
@@ -195,6 +195,24 @@
           "id": "hotnews",
           "name": "HotNews",
           "items": [
+            {
+              "title": "„Este complet iresponsabil”. Oameni din tabăra lui Trump atacă decizia care scutește Rusia de sancțiuni",
+              "url": "https://hotnews.ro/este-complet-iresponsabil-oameni-din-tabara-lui-trump-ataca-decizia-care-scuteste-rusia-de-sanctiuni-2378918",
+              "snippet": "Personalități republicane, și nu doar democrate, au criticat sâmbătă decizia lui Donald Trump de a scuti Rusia de noile sancțiuni adoptate de Congres în septembrie pentru a…",
+              "published": "2026-10-17T20:24:00Z"
+            },
+            {
+              "title": "„PNL riscă să repete destinul politic al PNŢCD”. Adrian Veștea critică decizia de a vota Guvernul Niculescu",
+              "url": "https://hotnews.ro/pnl-risca-sa-repete-destinul-politic-al-pntcd-adrian-vestea-critica-decizia-de-a-vota-guvernul-niculescu-2378910",
+              "snippet": "Liberalul Adrian Veştea, al cărui guvern a picat la vot, l-a criticat sâmbătă seară pe liderul PNL, Ilie Bolojan, după ce conducerea partidului a decis să voteze Cabinetul…",
+              "published": "2026-10-17T19:58:10Z"
+            },
+            {
+              "title": "Cum răspunde Alexandru Rogobete după ce Ilie Bolojan a spus că unele spitale au rămas fără bani din cauza modului în care a fost făcut bugetul",
+              "url": "https://hotnews.ro/cum-raspunde-alexandru-rogobete-dupa-ce-ilie-boloajan-a-spus-ca-unele-spitale-a-ramas-fara-bani-din-cauza-modului-in-care-a-fost-facut-bugetul-2378898",
+              "snippet": "Ministrul desemnat pentru Sănătate, Alexandru Rogobete, a declarat că atunci când a fost realizat bugetul pentru 2026 a solicitat pentru zona de urgenţă 650 de milioane de lei…",
+              "published": "2026-10-17T19:40:41Z"
+            },
             {
               "title": "Scene de gherilă urbană lângă Palatul Élysée, la Paris",
               "url": "https://hotnews.ro/scene-de-gherila-urbana-langa-palatul-elysee-la-paris-2378895",
@@ -206,24 +224,6 @@
               "url": "https://hotnews.ro/momentul-exploziei-de-la-cet-iasi-orasul-ramane-fara-apa-calda-si-caldura-2378890",
               "snippet": "Imagini publicate de publicația locală Ziarul de Iași arată momentul exploziei de la Centrală Electrică de Termoficare (CET) Iași din această după-amiază. Explozia a avut loc la…",
               "published": "2026-10-17T19:06:31Z"
-            },
-            {
-              "title": "Stojilkovic dezvăluie secretul Rapidului: „Dacă nu ai asta, nu poți câștiga”",
-              "url": "https://hotnews.ro/stojilkovic-dezvaluie-secretul-rapidului-daca-nu-ai-asta-nu-poti-castiga-2378884",
-              "snippet": "Rapid ocupă locul secund în clasamentul Superligii, iar Filip Stojilkovic spune că forța echipei vine din unitatea vestiarului. Atacantul elvețian în vârstă de 26 de ani, autor a…",
-              "published": "2026-10-17T18:45:58Z"
-            },
-            {
-              "title": "Anunțul triumfător făcut de șeful armatei ruse a stârnit o reacție vehementă la Kiev",
-              "url": "https://hotnews.ro/anuntul-triumfator-facut-de-seful-armatei-ruse-a-starnit-o-reactie-vehementa-la-kiev-2378880",
-              "snippet": "Ucraina a respins sâmbătă afirmațiile Rusiei că ar fi capturat de la 1 septembrie peste 1.800 de km² de teritoriu și aproape 100 de așezări, inclusiv orașul Dobropilia din estul…",
-              "published": "2026-10-17T18:36:12Z"
-            },
-            {
-              "title": "Un serial antologic HBO premiat cu Emmy aduce două nume mari în noul sezon",
-              "url": "https://hotnews.ro/true-detective-hbo-sezonul-5-antonio-banderas-nicolas-cage-2378870",
-              "snippet": "Antonio Banderas va juca alături de Nicolas Cage în sezonul al cincilea al serialului „True Detective”, produs de HBO, relatează Variety și Deadline. Filmările sunt programate să…",
-              "published": "2026-10-17T18:09:12Z"
             }
           ]
         },
@@ -231,6 +231,12 @@
           "id": "g4media",
           "name": "G4Media",
           "items": [
+            {
+              "title": "Adrian Veștea, care a negociat cu liderul extremist George Simion postul de premier peste capul partidului, susține că PNL riscă să dispară din politică precum PNȚCD",
+              "url": "https://www.g4media.ro/adrian-vestea-care-a-negociat-cu-liderul-extremist-george-simion-postul-de-premier-peste-capul-partidului-sustine-ca-pnl-risca-sa-dispara-din-politica-precum-pntcd.html",
+              "snippet": "Adrian Veștea, fostul premier desemnat de președintele Nicușor Dan peste capul partidului, a criticat sâmbătă decizia conducerii PNL de a le cere parlamentarilor să voteze…",
+              "published": "2026-10-17T20:00:53Z"
+            },
             {
               "title": "Congresmeni din tabăra lui Trump critică suspendarea noilor sancţiuni împotriva Rusiei de către președintele SUA",
               "url": "https://www.g4media.ro/congresmeni-din-tabara-lui-trump-critica-suspendarea-noilor-sanctiuni-impotriva-rusiei-de-catre-presedintele-sua.html",
@@ -254,12 +260,6 @@
               "url": "https://www.g4media.ro/raluca-turcan-pnl-acest-guvern-al-rusinii-nationale-trebuie-devoalat-vor-primi-voturile-necesare-ca-sa-si-poata-arata-adevarata-valoare.html",
               "snippet": "Raluca Turcan, vicepreședinte PNL, a declarat sâmbătă că guvernul Nicușor Dan – PSD condus de Luca Niculescu este un ”guvern al rușinii naționale” și a explicat motivul pentru…",
               "published": "2026-10-17T17:47:38Z"
-            },
-            {
-              "title": "UPDATE Piloții români au doborât sâmbătă două drone de tip rusesc Geran deasupra Mării Negre, anunță Ministerul Apărării",
-              "url": "https://www.g4media.ro/breaking-pilotii-romani-au-doborat-sambata-doua-drone-deasupra-marii-negre-anunta-ministerul-apararii.html",
-              "snippet": "Piloții români de avioane F-16 au doborât sâmbătă două drone deasupra Mării Negre, anunță Ministerul Apărării. E vorba despre drone care au intrat în spațiul aerian al României…",
-              "published": "2026-10-17T17:39:00Z"
             }
           ]
         }
@@ -273,6 +273,12 @@
           "id": "zf",
           "name": "Ziarul Financiar",
           "items": [
+            {
+              "title": "ZF Index Imobiliar. Centrul Capitalei a urcat cu 20.000 de euro în trei luni, în timp ce Dristor, Berceni şi Iancului, care creşteau în vară, acum scad",
+              "url": "https://www.zf.ro/companii/zf-index-imobiliar-centrul-capitalei-a-urcat-cu-20-000-de-euro-in-trei-luni-in-timp-ce-dristor-berceni-si-iancului-care-cresteau-in-vara-acum-scad-23259414",
+              "snippet": "Preţul mediu cerut pentru un apartament vechi cu trei camere din Bucureşti a fost în septembrie de 144.692 de euro, similar cu nivelul din august şi cu 9% peste septembrie 2025…",
+              "published": "2026-10-17T20:33:00Z"
+            },
             {
               "title": "Protestele uriaşe din Franţa au degenerat. Violenţe, sute de arestări şi 800.000 de oameni în stradă. La Paris, amploarea distrugerilor este considerabilă, după ce străgi întregi au fost devastate",
               "url": "https://www.zf.ro/eveniment/protestele-uriase-din-franta-au-degenerat-violente-sute-de-arestari-si-800-000-de-oameni-in-strada-la-paris-amploarea-distrugerilor-este-considerabila-dupa-ce-stragi-intregi-au-fost-devastate-23262114",
@@ -296,12 +302,6 @@
               "url": "https://www.zf.ro/eveniment/breaking-doua-drone-care-au-intrat-in-spatiul-aerian-al-romaniei-au-fost-doborate-de-avioane-f-16-ale-fortelor-aeriene-romane-deasupra-marii-negre-23262189",
               "snippet": "",
               "published": "2026-10-17T15:47:12Z"
-            },
-            {
-              "title": "Cât costă să ai Mediterana la picioare? Un penthouse de aproape 17 milioane de euro, cu şase dormitoare şi zece băi, a fost scos la vânzare în Cipru, într-un turn de lux de pe malul Mediteranei",
-              "url": "https://www.zf.ro/constructii-imobiliare/cat-costa-sa-ai-mediterana-la-picioare-un-penthouse-de-aproape-17-milioane-de-euro-cu-sase-dormitoare-si-zece-bai-a-fost-scos-la-vanzare-in-cipru-intr-un-turn-de-lux-de-pe-malul-mediteranei-23262186",
-              "snippet": "",
-              "published": "2026-10-17T15:34:00Z"
             }
           ]
         },
@@ -309,6 +309,12 @@
           "id": "profit",
           "name": "Profit.ro",
           "items": [
+            {
+              "title": "VIDEO Poliția atacată, magazinele și-au tras obloanele, turiștii au părăsit zona centrală. Lupte de stradă în fața catedralei din Milano",
+              "url": "https://www.profit.ro/stiri/social/video-politia-atacata-magazinele-si-au-tras-obloanele-turistii-au-parasit-zona-centrala-lupte-de-strada-in-fata-catedralei-din-milano-22852124?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
+              "snippet": "Proteste violente în Italia, unde poliția a fost atacată de manifestanți, ripostând cu gaze lacrimogene.",
+              "published": "2026-10-17T19:46:00Z"
+            },
             {
               "title": "VIDEO Explozie și incendiu puternic la CET Iași",
               "url": "https://www.profit.ro/stiri/social/video-explozie-si-incendiu-puternic-la-cet-iasi-22851707?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
@@ -332,12 +338,6 @@
               "url": "https://www.profit.ro/stiri/social/ultima-ora-drone-doborate-deasupra-marii-negre-de-pilotii-romani-22850863?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
               "snippet": "Două drone au fost doborâte deasupra Mării Negre, decizia fiind luată după ce au intrat pe teritoriul românesc.",
               "published": "2026-10-17T15:40:00Z"
-            },
-            {
-              "title": "Flagrant de camătă: Dobândă de 10% PE LUNĂ",
-              "url": "https://www.profit.ro/stiri/social/flagrant-de-camata-dobanda-de-10-pe-luna-22850484?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
-              "snippet": "Polițiștii din Capitală au prins în flagrant un bărbat pentru comiterea infracțiunii de camată.",
-              "published": "2026-10-17T15:38:00Z"
             }
           ]
         },
@@ -502,34 +502,34 @@
           "name": "Gazeta Sporturilor",
           "items": [
             {
-              "title": "Denis Alibec a devenit tată: „Un nou capitol a fost deblocat”",
-              "url": "https://www.gsp.ro/fotbal/liga-1/denis-alibec-anca-surdu-copil-989295.html",
-              "snippet": "Denis Alibec (35 de ani), atacantul Farului, a devenit tată. Soția lui, Anca, tocmai a născut o fetița. Denis Alibec și Anca Surdu s-au căsătorit în luna iunie, la Constanța, iar…",
-              "published": "2026-10-17T19:10:53Z"
+              "title": "Cum a desfăcut-o Pancu pe Corvinul: „Mutarea câștigătoare!” + explică „fuga” către vestiare",
+              "url": "https://www.gsp.ro/fotbal/liga-1/daniel-pancu-reactie-victorie-rapid-corvinul-hunedoara-989336.html",
+              "snippet": "Daniel Pancu (49 de ani), antrenorul lui Rapid, a reacționat după ce a bifat cel de-al cincilea succes consecutiv în Superliga, 2-0 contra Corvinului Hunedoara, sub privirile a…",
+              "published": "2026-10-17T21:24:26Z"
             },
             {
-              "title": "Chivu n-a venit la conferință, după Bologna - Inter!",
-              "url": "https://www.gsp.ro/international/campionate/chivu-n-a-venit-la-conferinta-dupa-bologna-inter-989288.html",
-              "snippet": "Cristi Chivu (45 de ani) și-a pierdut vocea și nu a mai venit la conferința de presă de după „remontada” reușită de Inter în deplasare cu Bologna, scor 3-1, în cadrul etapei cu…",
-              "published": "2026-10-17T19:02:02Z"
+              "title": "Dobre a marcat o „dublă” în Rapid - Corvinul și i-a pus gând rău rivalei FCSB",
+              "url": "https://www.gsp.ro/fotbal/liga-1/dobre-a-marcat-o-dubla-si-i-a-pus-gand-rau-lui-fcsb-989335.html",
+              "snippet": "Alexandru Dobre (28 de ani), mijlocașul celor de la Rapid, a tras primele concluzii la flash-interviu, după ce echipa lui a luat toate punctele puse în joc la duelul cu Corvinul…",
+              "published": "2026-10-17T21:05:07Z"
             },
             {
-              "title": "Rapid - Corvinul, reîntâlnire în Superliga după 34 de ani » GOL anulat din camera VAR",
+              "title": "Florin Maxim, după Rapid - Corvinul: „Am un fotbalist de națională în echipă”",
+              "url": "https://www.gsp.ro/fotbal/liga-1/rapid-corvinul-hunedoara-superliga-florin-maxim-989325.html",
+              "snippet": "Rapid - Corvinul 2-0, în runda 12 din Superliga. Florin Maxim, antrenorul oaspeților, a tras concluziile la finalul partidei. Florin Maxim consideră că echipa lui ar fi putut…",
+              "published": "2026-10-17T20:52:27Z"
+            },
+            {
+              "title": "Rapid ține aproape de Dinamo! Dobre și Onea aduc a CINCEA victorie consecutivă » Noul CLASAMENT",
               "url": "https://www.gsp.ro/fotbal/liga-1/live-rapid-corvinul-etapa-12-superliga-989011.html",
-              "snippet": "Rapid și Corvinul Hunedoara se întâlnesc ACUM, pe stadionul din Giulești, într-o partidă din etapa a 12-a a Superligii. Cele două formații se duelează din nou într-un meci…",
-              "published": "2026-10-17T18:40:49Z"
+              "snippet": "Rapid a tranșat după pauză soarta partidei cu Corvinul Hunedoara, primul meci oficial direct după o pauză de peste 34 de ani. Giuleștenii s-au impus cu scorul de 2-0 pe teren…",
+              "published": "2026-10-17T20:46:01Z"
             },
             {
-              "title": "ȘAPTE goluri în Betis - Barcelona » Lamine Yamal a marcat un eurogol, apoi a provocat un „ROȘU” și i-a scos din sărite pe adversari",
-              "url": "https://www.gsp.ro/international/campionate/live-betis-barcelona-meci-in-etapa-9-din-la-liga-989053.html",
-              "snippet": "Cei de la Barcelona s-au impus cu scorul de 5-2 în fața lui Betis, în runda cu numărul 9 din La Liga și s-au distanțat la 5 puncte de Atletico Madrid. Meci de toată frumusețea pe…",
-              "published": "2026-10-17T18:40:07Z"
-            },
-            {
-              "title": "Cu ce i-a dat gata Chivu pe italieni: „Excepțional!”",
-              "url": "https://www.gsp.ro/international/campionate/cristi-chivu-inter-milano-bologna-serie-a-989276.html",
-              "snippet": "Presa din Italia a evaluat modul în care antrenorul român a condus-o pe Inter Milano în victoria obținută pe terenul celor de la Bologna, scor 3-1, în runda cu numărul 7 din…",
-              "published": "2026-10-17T18:24:43Z"
+              "title": "Note GSP la Rapid - Corvinul » Cine „așteaptă telefonul lui Hagi” și ce jucător al giuleștenilor a fost „fantomă”, după ce a atins mingea de doar 6 ori",
+              "url": "https://www.gsp.ro/fotbal/liga-1/note-gsp-la-rapid-corvinul-989277.html",
+              "snippet": "RAPID - CORVINUL 2-0. „Doppietta” lui Alex Dobre a rezolvat partida din Giulești, iar trupa lui Pancu se menține aproape de liderul Dinamo. Cine a ieșit la rampă și cine a…",
+              "published": "2026-10-17T20:37:24Z"
             }
           ]
         },
@@ -538,34 +538,34 @@
           "name": "Digi Sport",
           "items": [
             {
-              "title": "Săpunaru, fără dubii la pauza meciului Rapid - Corvinul",
-              "url": "https://www.digisport.ro/fotbal/liga-1/sapunaru-fara-dubii-la-pauza-meciului-rapid-corvinul-4549825",
-              "snippet": "Săpunaru, fără dubii la pauza meciului Rapid - Corvinul",
-              "published": "2026-10-17T19:39:09Z"
+              "title": "Lovitură uriașă pentru FCSB: Denis Drăguș! Anunțul a fost făcut la miezul nopții",
+              "url": "https://www.digisport.ro/fotbal/liga-1/lovitura-uriasa-pentru-fcsb-denis-dragus-anuntul-a-fost-facut-la-miezul-noptii-4550025",
+              "snippet": "Lovitură uriașă pentru FCSB: Denis Drăguș! Anunțul a fost făcut la miezul nopții",
+              "published": "2026-10-17T21:58:47Z"
             },
             {
-              "title": "Barcelona, performanță istorică după 5-2 cu Betis! Record vechi de 58 de ani, egalat de catalani",
-              "url": "https://www.digisport.ro/fotbal/la-liga/barcelona-performanta-istorica-dupa-5-2-cu-betis-record-vechi-de-58-de-ani-egalat-de-catalani-4549769",
-              "snippet": "Barcelona, performanță istorică după 5-2 cu Betis! Record vechi de 58 de ani, egalat de catalani",
-              "published": "2026-10-17T19:32:10Z"
+              "title": "Revenire la Real Madrid: pentru prima dată în lot, după 6 luni de pauză",
+              "url": "https://www.digisport.ro/fotbal/la-liga/revenire-la-real-madrid-pentru-prima-data-in-lot-dupa-6-luni-de-pauza-4549043",
+              "snippet": "Revenire la Real Madrid: pentru prima dată în lot, după 6 luni de pauză",
+              "published": "2026-10-17T21:36:09Z"
             },
             {
-              "title": "Daniel Pîrvulescu a marcat superb cu Rapid, dar golul a fost anulat: ce au arătat reluările. Același lucru și la Kamara",
-              "url": "https://www.digisport.ro/fotbal/liga-1/daniel-pirvulescu-a-marcat-superb-cu-rapid-dar-golul-a-fost-anulat-ce-au-aratat-reluarile-acelasi-lucru-si-la-kamara-4549789",
-              "snippet": "Daniel Pîrvulescu a marcat superb cu Rapid, dar golul a fost anulat: ce au arătat reluările. Același lucru și la Kamara",
-              "published": "2026-10-17T19:25:50Z"
+              "title": "Florin Prunea nu s-a mai abținut și l-a ”mitraliat”: ”Ia 30.000€ pe lună! E inadmisibil”",
+              "url": "https://www.digisport.ro/fotbal/echipa-nationala/florin-prunea-nu-s-a-mai-abtinut-si-l-a-mitraliat-ia-30-000e-pe-luna-e-inadmisibil-4549347",
+              "snippet": "Florin Prunea nu s-a mai abținut și l-a ”mitraliat”: ”Ia 30.000€ pe lună! E inadmisibil”",
+              "published": "2026-10-17T21:35:05Z"
             },
             {
-              "title": "Reacția lui Hansi Flick, după ce Barcelona a marcat din nou 5 goluri în La Liga. Urmează Real Madrid!",
-              "url": "https://www.digisport.ro/fotbal/la-liga/reactia-lui-hansi-flick-dupa-ce-barcelona-a-marcat-din-nou-5-goluri-in-la-liga-urmeaza-real-madrid-4549791",
-              "snippet": "Reacția lui Hansi Flick, după ce Barcelona a marcat din nou 5 goluri în La Liga. Urmează Real Madrid!",
-              "published": "2026-10-17T19:23:29Z"
+              "title": "Răzvan Onea și Olimpiu Moruțan au un singur gând cu FCSB: au spus-o după meciul cu Corvinul",
+              "url": "https://www.digisport.ro/fotbal/liga-1/razvan-onea-si-olimpiu-morutan-au-un-singur-gand-cu-fcsb-au-spus-o-dupa-meciul-cu-corvinul-4549947",
+              "snippet": "Răzvan Onea și Olimpiu Moruțan au un singur gând cu FCSB: au spus-o după meciul cu Corvinul",
+              "published": "2026-10-17T21:31:57Z"
             },
             {
-              "title": "Rapid - Corvinul 0-0, ACUM, pe Digi Sport 1. Kamara a avut un gol anulat!",
-              "url": "https://www.digisport.ro/fotbal/liga-1/rapid-corvinul-live-video-2130-digi-sport-1-un-punct-castigat-in-istorie-de-hunedoreni-in-giulesti-4547149",
-              "snippet": "Rapid - Corvinul 0-0, ACUM, pe Digi Sport 1. Kamara a avut un gol anulat!",
-              "published": "2026-10-17T19:17:54Z"
+              "title": "Pancu a spus cum l-a bătut pe Maxim, după Rapid - Corvinul 2-0: \"Exact jocul la care mă așteptam\"",
+              "url": "https://www.digisport.ro/fotbal/liga-1/pancu-a-spus-cum-l-a-batut-pe-maxim-dupa-rapid-corvinul-2-0-exact-jocul-la-care-ma-asteptam-4550005",
+              "snippet": "Pancu a spus cum l-a bătut pe Maxim, după Rapid - Corvinul 2-0: \"Exact jocul la care mă așteptam\"",
+              "published": "2026-10-17T21:23:25Z"
             }
           ]
         },
@@ -574,34 +574,34 @@
           "name": "ProSport",
           "items": [
             {
-              "title": "Ce are de ascuns Gabriela Ruse după ce a devenit iubita unui jucător portughez: „Nu puneți microfoane. Iertați-mi cuvintele”",
-              "url": "https://www.prosport.ro/diverse/gabriela-ruse-iubita-jucator-de-tenis-portughez-microfoane-cuvinte-20549773",
-              "snippet": "Gabriela Ruse (28 de ani), aflată pe locul 57 în clasamentul WTA, a devenit iubita unui jucător portughez și în unele momente își cenzurează afirmațiile. Sportiva născută în…",
-              "published": "2026-10-17T19:35:38Z"
+              "title": "DECLARAȚII Daniel Pancu: „E minunat meciul cu FCSB pentru toată lumea! Cel mai așteptat joc”",
+              "url": "https://www.prosport.ro/fotbal-intern/superliga/daniel-pancu-minunat-meci-fcsb-derby-superliga-etapa-13-20549872",
+              "snippet": "Rapid a învins nou-promovata Corvinul cu 2-0 și rămâne la două puncte de liderul Dinamo. Următorul meci este cu FCSB, așteptat de toată lumea, după cum spune Pancu (49 de ani)…",
+              "published": "2026-10-17T21:56:45Z"
             },
             {
-              "title": "Chivu nu a mai venit la declarații după Bologna – Inter 1-3: ce a pățit antrenorul român!",
-              "url": "https://www.prosport.ro/fotbal-extern/campionate-externe/italia/chivu-nu-a-mai-venit-la-declaratii-dupa-bologna-inter-1-3-ce-a-patit-antrenorul-roman-20549730",
-              "snippet": "Antrenorul Cristi Chivu (45 de ani) nu s-a prezentat în fața jurnaliștilor după succesul pe care Inter Milano l-a bifat la Bologna, scor 3-1, sâmbătă, în etapa a șaptea din Serie…",
-              "published": "2026-10-17T19:15:47Z"
+              "title": "DECLARAȚII Florin Maxim, atac neașteptat la căpitanul Iacob: „Dacă joacă așa cu teamă nu are loc nici la noi, darămite la națională”",
+              "url": "https://www.prosport.ro/fotbal-intern/superliga/florin-maxim-atac-flavius-iacob-20549852",
+              "snippet": "Florin Maxim (45 de ani) și-a taxat propriul căpitan după evoluția ștearsă din Rapid – Corvinul 2-0. Corvinul Hunedoara a făcut deplasarea în Giulești pentru meciul din etapa a…",
+              "published": "2026-10-17T21:30:38Z"
             },
             {
-              "title": "Grecii îl distrug pe Charalambous după ce a dus echipa lui Tavi Popescu în prăpastie: „A scris istoria neagră!”",
-              "url": "https://www.prosport.ro/fotbal-extern/reactie-greci-record-negativ-elias-charalambous-levadiakos-20549727",
-              "snippet": "Elias Charalambous (46 de ani) fost făcut praf de presa greacă după ce cipriotul a rescris un record negativ după mai bine de 24 de ani. Levadiakos nu sperie pe nimeni în noul…",
-              "published": "2026-10-17T19:08:26Z"
+              "title": "Ce notă a primit Ianis Hagi după ce echipa lui a fost călcată în picioare de Fenerbache",
+              "url": "https://www.prosport.ro/fotbal-extern/stranieri/nota-ianis-hagi-fenerbahce-alanyaspor-20549821",
+              "snippet": "Ianis Hagi (27 de ani) a evoluat 30 de minute în meciul Fenerbahce – Alanyaspor, încheiat cu eșecul umilitor al echipei mijlocașului român. Alanyaspor a fost „victimă” sigură în…",
+              "published": "2026-10-17T21:12:37Z"
             },
             {
-              "title": "Gazzetta dello Sport a lăudat alegerile lui Chivu din Bologna – Inter 1-3: „Schimbări decisive!”",
-              "url": "https://www.prosport.ro/fotbal-extern/campionate-externe/italia/gazzetta-dello-sport-laude-alegeri-cristi-chivu-bologna-inter-schimbari-decisive-20549735",
-              "snippet": "Echipa antrenată de Cristi Chivu a respectat obiceiul din acest sezon, să revină pe tabelă după ce este condusă, iar Gazzetta dello Sport a lăudat alegerile antrenorului român…",
-              "published": "2026-10-17T19:06:32Z"
+              "title": "Fernando Alonso, surprins la volanul unei Dacia!",
+              "url": "https://www.prosport.ro/alte-sporturi/auto-moto/fernando-alonso-sofer-dacia-sandriders-volan-dakar-20549785",
+              "snippet": "Spaniolul Fernando Alonso (45 de ani), care a debutat în Formula 1 în 2001 și continuă să fie în activitate, a fost surprins la volanul unei Dacia. Dublu campion mondial în…",
+              "published": "2026-10-17T21:02:26Z"
             },
             {
-              "title": "Gata! Ciucu s-a săturat: pune 1,3 milioane de euro la bătaie ca să scape de rușinea de la Arena Națională",
-              "url": "https://www.prosport.ro/fotbal-intern/13-milioane-de-euro-pentru-a-scapa-de-rusinea-de-la-arena-nationala-20549646",
-              "snippet": "Arena Națională se primenește. Primăria Municipiului București a lansat o licitație deschisă, de 1,3 milioane de euro, pentru achiziționarea unei noi tabele electronice…",
-              "published": "2026-10-17T18:54:45Z"
+              "title": "Fostul fotbalist din naționala Ucrainei a fost ucis în războiul cu Rusia: era dispărut de 20 de luni!",
+              "url": "https://www.prosport.ro/diverse/roman-maksymyuk-deces-razboi-ucraina-20549792",
+              "snippet": "Roman Maksymyuk a dispărut pe frontul de luptă din Ucraina, iar trupul neînsuflețit al fostului fotbalist a fost găsit după 20 de luni. Fostul fotbalist din naționala Ucrainei a…",
+              "published": "2026-10-17T20:35:11Z"
             }
           ]
         }
@@ -764,7 +764,19 @@
       "name": "TechCrunch AI",
       "items": [
         {
-          "title": "Replit is no longer working with Anthropic, CEO says",
+          "title": "Meta removes language that raised scraping and AI training concerns",
+          "url": "https://techcrunch.com/2026/10/17/meta-removes-language-that-raised-scraping-and-ai-training-concerns/",
+          "snippet": "A Meta spokesperson insisted that the updated terms did not reflect a change in the way Meta crawls the web.",
+          "published": "2026-10-17T21:31:32Z"
+        },
+        {
+          "title": "Anthropic says its workforce has become less junior and is spending more time in meetings",
+          "url": "https://techcrunch.com/2026/10/17/anthropic-says-its-workforce-has-become-less-junior-and-is-spending-more-time-in-meetings/",
+          "snippet": "The composition of Anthropic’s workforce and the type of work getting done have changed significantly in the past year.",
+          "published": "2026-10-17T20:21:19Z"
+        },
+        {
+          "title": "Replit makes OpenAI its default over Anthropic, CEO says",
           "url": "https://techcrunch.com/2026/10/17/replit-is-no-longer-working-with-anthropic-ceo-says/",
           "snippet": "Over the weekend, Masad clarified that OpenAI would replace Anthropic as its default model provider. Claude will still be available to customers on the platform.",
           "published": "2026-10-17T18:48:08Z"
@@ -780,18 +792,6 @@
           "url": "https://techcrunch.com/video/a-nvidia-insider-turned-vc-on-why-robotics-hasnt-hit-its-chatgpt-moment-yet/",
           "snippet": "Amulya Vishwanath, who spent seven years leading product marketing for NVIDIA’s robotics platforms, says robotics is currently in its “Lego era,” with the basic building blocks…",
           "published": "2026-10-16T16:30:00Z"
-        },
-        {
-          "title": "Physical AI is more than robots, says the Nvidia veteran now investing in it",
-          "url": "https://techcrunch.com/podcast/physical-ai-is-more-than-robots-says-the-nvidia-veteran-now-investing-in-it/",
-          "snippet": "Amulya Vishwanath, who spent seven years leading product marketing for NVIDIA’s robotics platforms, says robotics is currently in its “Lego era,” with the basic building blocks…",
-          "published": "2026-10-16T16:30:00Z"
-        },
-        {
-          "title": "Elorian’s first AI model wants to reason with images, not just about them",
-          "url": "https://techcrunch.com/2026/10/16/elorians-first-ai-model-wants-to-reason-with-images-not-just-about-them/",
-          "snippet": "According to Elorian's evaluations, Glimpse outperforms even GPT-6 Astra on scientific chart reasoning and short-form video captioning, with competitive results on other visual…",
-          "published": "2026-10-16T16:01:37Z"
         }
       ]
     },
