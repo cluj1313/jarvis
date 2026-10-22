@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="JARVIS">
-<meta name="jarvis-version" content="v59-jarvis-blank">
+<meta name="jarvis-version" content="v60-jarvis-blank">
 <script>window.JARVIS_BLANK=true</script>
 <title>JARVIS · Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -924,7 +924,7 @@ function renderTasks(){
   var ul=$(p[0]),list=listFor(p[1]);
   fillList(ul,list,'Niciun task.',function(t){return renderItem(t,'',true)})});updCardCount('azi');updCardCount('maine')}
 function findT(id){for(var i=0;i<tasks.length;i++)if(tasks[i].id===id)return i;return -1}
-function delTask(id){var i=findT(id);if(i<0)return;jvConfirm(function(){tasks[i].deleted=new Date().toISOString();save();renderTasks()})}
+function delTask(id){var i=findT(id);if(i<0)return;jvConfirm(function(){tasks[i].deleted=new Date().toISOString();alPrune();save();renderTasks()})}
 function addTask(txt,which){txt=(txt||'').trim();if(!txt)return false;txt=txt.charAt(0).toUpperCase()+txt.slice(1);
  tasks.push({id:Date.now()+'_'+Math.random().toString(36).slice(2,6),text:txt,date:dkey(),dueDay:which==='maine'?dayOff(1):dkey(),done:false,doneDate:null,urgent:false,created:new Date().toISOString()});save();renderTasks();return true}
 ['lAzi','lMaine'].forEach(function(id){var ul=$(id);
@@ -967,7 +967,7 @@ function renderShop0(){var ul=$('lShop'),list=shopList();
  fillList(ul,list,'Lista e goală.',function(s){var li=document.createElement('li');li.className='task'+(s.bought?' done':'')+(s.urgent?' urgent':'');li.dataset.id=s.id;
   li.innerHTML='<span class="dot"></span><span class="t kw">'+esc(s.text)+'</span>'+alBtn(s)+'<button class="ed" aria-label="Editează">✎</button><button class="x" aria-label="Ascunde">×</button>';return li})}
 function findS(id){for(var i=0;i<shop.length;i++)if(shop[i].id===id)return shop[i];return null}
-function hideShop(id){var s=findS(id);if(!s)return;jvConfirm(function(){s.hidden=new Date().toISOString();saveShop();renderShop()})}
+function hideShop(id){var s=findS(id);if(!s)return;jvConfirm(function(){s.hidden=new Date().toISOString();alPrune();saveShop();renderShop()})}
 function addShop(txt){txt=(txt||'').trim();if(!txt)return false;txt=txt.charAt(0).toUpperCase()+txt.slice(1);
  shop.push({id:Date.now()+'_'+Math.random().toString(36).slice(2,6),text:txt,date:dkey(),bought:false,boughtDate:null,urgent:false,created:new Date().toISOString()});saveShop();renderShop();return true}
 (function(){var ul=$('lShop');
@@ -1010,11 +1010,11 @@ function renderTabs(){var box=$('customCards');if(!box)return;box.innerHTML='';
    '<form class="add"><input placeholder="Scrie un element" autocomplete="off" aria-label="Element nou"><button type="button" class="btn mic tmic" title="Scrie sau dictează cu tastatura" aria-label="Deschide tastatura">'+MIC_SVG+'</button><button class="btn" type="submit">Adaugă</button></form>';
   box.appendChild(c);renderTabItems(tab)});
  if(typeof updEq==='function')updEq()}
-function hideTI(tab,id){var s=findTI(tab,id);if(!s)return;jvConfirm(function(){s.hidden=new Date().toISOString();saveTabs();renderTabItems(tab)})}
+function hideTI(tab,id){var s=findTI(tab,id);if(!s)return;jvConfirm(function(){s.hidden=new Date().toISOString();alPrune();saveTabs();renderTabItems(tab)})}
 function addTI(tab,txt){txt=(txt||'').trim();if(!txt)return false;txt=txt.charAt(0).toUpperCase()+txt.slice(1);
  tab.items.push({id:uid(),text:txt,date:dkey(),done:false,doneDate:null,urgent:false,created:new Date().toISOString()});saveTabs();renderTabItems(tab);return true}
 function delTab(tab){jvConfirm(function(){
- if(speaking&&speakKey==='tab:'+tab.id)stopSpeaking();tab.hidden=new Date().toISOString();saveTabs();renderTabs();toast('Tab șters')})}
+ if(speaking&&speakKey==='tab:'+tab.id)stopSpeaking();tab.hidden=new Date().toISOString();alPrune();saveTabs();renderTabs();toast('Tab șters')})}
 (function(){var box=$('customCards');
  function ctx(e){var c=e.target.closest('.ctab');return c?findTab(c.dataset.tab):null}
  box.addEventListener('click',function(e){var tab=ctx(e);if(!tab)return;
@@ -1636,7 +1636,7 @@ function alGet(r){if(!r)return null;if(r.k==='t'){var i=findT(r.id);return i<0?n
 function alPersist(r,quiet){if(r.k==='t'){quiet?LS.set('jv_tasks',tasks):save();renderTasks()}else if(r.k==='s'){quiet?LS.set('jv_shop',shop):saveShop();renderShop()}else if(r.k==='n'){saveNotes();renderNotes()}else{quiet?LS.set('jv_tabs',tabs):saveTabs();var tb=findTab(r.tab);if(tb)renderTabItems(tb)}}
 function alAll(){var a=[];tasks.forEach(function(t){if(!t.deleted)a.push({r:{k:'t',id:t.id},o:t,off:t.done})});
  shop.forEach(function(s){if(!s.hidden)a.push({r:{k:'s',id:s.id},o:s,off:s.bought})});
- tabs.forEach(function(tb){(tb.items||[]).forEach(function(s){if(!s.hidden)a.push({r:{k:'b',tab:tb.id,id:s.id},o:s,off:s.done})})});
+ tabs.forEach(function(tb){if(tb.hidden)return;(tb.items||[]).forEach(function(s){if(!s.hidden)a.push({r:{k:'b',tab:tb.id,id:s.id},o:s,off:s.done})})});
  if(typeof notes!=='undefined'&&notes)notes.forEach(function(n){a.push({r:{k:'n',id:n.id},o:n,off:false})});return a}
 function alChips(){var box=$('alChips');box.innerHTML='';[[30,'30 min'],[60,'1 oră'],[120,'2 ore'],[240,'4 ore'],[360,'6 ore'],[480,'8 ore'],[720,'12 ore'],[1440,'24 ore']].forEach(function(c){
  var b=document.createElement('button');b.type='button';b.className='alc'+(alRep===c[0]?' on':'');b.textContent=c[1];b.onclick=function(){alRep=c[0];$('alMin').value='';alChips()};box.appendChild(b)})}
@@ -1659,17 +1659,26 @@ function alPerm(){try{if(window.Notification&&Notification.permission==='default
 function alSchedule(t){ /* Notification Triggers where supported (feature-detected) */
  try{if(!('showTrigger' in Notification.prototype)||typeof TimestampTrigger==='undefined'||Notification.permission!=='granted'||!navigator.serviceWorker)return;
   navigator.serviceWorker.ready.then(function(r){var nx=alNext(t);if(nx>Date.now())r.showNotification('⏰ JARVIS',{body:t.text,tag:'jv-al-'+t.id,showTrigger:new TimestampTrigger(nx),requireInteraction:true})})}catch(_){}}
-function alDelete(){var t=alGet(alId);if(t){delete t.alarm;alPersist(alId);toast('Alarmă ștearsă')}closeAlarm()}
+function alCancel(id){ /* v60: close any shown/scheduled system notification for this item */
+ try{if(navigator.serviceWorker)navigator.serviceWorker.getRegistration().then(function(r){if(r&&r.getNotifications)r.getNotifications({tag:'jv-al-'+id,includeTriggered:true}).then(function(ns){ns.forEach(function(n){n.close()})}).catch(function(){})}).catch(function(){})}catch(_){}}
+function alDelete(){var t=alGet(alId);if(t){delete t.alarm;alPersist(alId);alCancel(t.id);alDrop(t.id);toast('Alarmă ștearsă')}closeAlarm()}
+function alDrop(id){alQueue=alQueue.filter(function(c){return c.r.id!==id});if(alCur&&alCur.r.id===id){alBeep(false);$('alFire').classList.remove('show');alCur=null;setTimeout(alShow,300)}}
+/* v60: deleted items (deleted task, hidden shop/tab item, items of a deleted tab) lose their alarm state — the item itself stays in storage untouched */
+function alPrune(){var ch={t:0,s:0,b:0};
+ tasks.forEach(function(t){if(t.deleted&&t.alarm){delete t.alarm;alCancel(t.id);alDrop(t.id);ch.t=1}});
+ shop.forEach(function(s){if(s.hidden&&s.alarm){delete s.alarm;alCancel(s.id);alDrop(s.id);ch.s=1}});
+ tabs.forEach(function(tb){(tb.items||[]).forEach(function(s){if((tb.hidden||s.hidden)&&s.alarm){delete s.alarm;alCancel(s.id);alDrop(s.id);ch.b=1}})});
+ if(ch.t)LS.set('jv_tasks',tasks);if(ch.s)LS.set('jv_shop',shop);if(ch.b)LS.set('jv_tabs',tabs)}
 var alQueue=[],alCur=null,alBeepT=null;
 function alBeep(on){clearInterval(alBeepT);alBeepT=null;if(!on)return;var one=function(){try{unlockAudio();if(!actx)return;var t0=actx.currentTime;[0,.25,.5].forEach(function(o){var g=actx.createGain(),os=actx.createOscillator();os.type='square';os.frequency.value=880;g.gain.setValueAtTime(.0001,t0+o);g.gain.exponentialRampToValueAtTime(.25,t0+o+.02);g.gain.exponentialRampToValueAtTime(.0001,t0+o+.18);os.connect(g);g.connect(actx.destination);os.start(t0+o);os.stop(t0+o+.2)})}catch(_){}
  try{if(navigator.vibrate)navigator.vibrate([400,200,400])}catch(_){}};one();alBeepT=setInterval(one,1500)}
-function alShow(){if(alCur||!alQueue.length)return;alCur=alQueue.shift();$('alfTask').textContent=alCur.text;$('alFire').classList.add('show');alBeep(true)}
+function alShow(){if(alCur)return;while(alQueue.length&&!alGet(alQueue[0].r))alQueue.shift();if(!alQueue.length)return;alCur=alQueue.shift();$('alfTask').textContent=alCur.text;$('alFire').classList.add('show');alBeep(true)}
 function alFire(t,r){if(t.lock)t={id:t.id,text:t.ltitle||'Notiță blocată'};alQueue.push({r:r,text:t.text});alShow();
  try{if(window.Notification&&Notification.permission==='granted'&&navigator.serviceWorker)navigator.serviceWorker.getRegistration().then(function(r){if(r)r.showNotification('⏰ JARVIS',{body:t.text,tag:'jv-al-'+t.id,renotify:true,requireInteraction:true,vibrate:[400,200,400],icon:'icons/icon-192.png'});else new Notification('⏰ JARVIS',{body:t.text})}).catch(function(){})}catch(_){}}
 function alStop(snooze){alBeep(false);$('alFire').classList.remove('show');var c=alCur;alCur=null;
  if(c&&snooze){var t=alGet(c.r);if(t){if(!t.alarm)t.alarm={at:Date.now()+600000,rep:0,until:null};t.alarm.snz=Date.now()+600000;alPersist(c.r);alSchedule(t);toast('Amânat 10 min')}}
  setTimeout(alShow,300)}
-function alCheck(){var now=Date.now(),chg=[];alAll().forEach(function(e){var t=e.o,a=t.alarm;if(!a||!a.at)return;
+function alCheck(){alPrune();var now=Date.now(),chg=[];alAll().forEach(function(e){var t=e.o,a=t.alarm;if(!a||!a.at)return;
  var nx=alNext(t);if(nx>now)return;
  if(!e.off)alFire(t,e.r);chg.push(e.r);
  if(a.snz&&a.snz<=now){a.snz=null;if(a.at>now)return}
@@ -1862,7 +1871,7 @@ $('notesList').addEventListener('click',function(e){if(lpJust)return;var li=e.ta
 $('noteTabs').addEventListener('click',function(e){var b=e.target.closest('.ntab');if(!b)return;if(draftId)draftFinish();
  if(b.classList.contains('nadd1')){jvPrompt('Tab nou','',function(nm){var t={id:ntUid(),name:nm};noteTabs.push(t);noteTab=t.id;saveNotes();renderNotes()});return}
  noteTab=b.dataset.id;saveNotes();renderNotes()});
-function noteDel(id){var n=findN(id);if(!n)return;jvConfirm(function(){notes=notes.filter(function(x){return x.id!==id});saveNotes();renderNotes();toast('Notiță ștearsă')})}
+function noteDel(id){var n=findN(id);if(!n)return;jvConfirm(function(){alCancel(id);alDrop(id);notes=notes.filter(function(x){return x.id!==id});saveNotes();renderNotes();toast('Notiță ștearsă')})}
 function noteEdit(li){fullOpen(li.dataset.id)}
 function ntRename(id){var t=findNT(id);if(!t)return;jvPrompt('Redenumește tabul',t.name,function(nm){t.name=nm;saveNotes();renderNotes()})}
 function ntDelete(id){var t=findNT(id);if(!t)return;var cnt=notes.filter(function(n){return n.tab===id}).length;
