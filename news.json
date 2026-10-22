@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-21T21:54:52.736065Z",
+  "updated": "2026-10-22T00:30:38.018063Z",
   "categories": [
     {
       "id": "ai",
@@ -9,6 +9,12 @@
           "id": "verge",
           "name": "The Verge AI",
           "items": [
+            {
+              "title": "Data centers could erase decades of air quality gains",
+              "url": "https://www.theverge.com/ai-artificial-intelligence/1015958/data-center-pollution-rising-report",
+              "snippet": "A rush of new data centers could bring air pollution roaring back to levels not seen since the 2000s in Texas, which has become ground zero for the physical infrastructure behind…",
+              "published": "2026-10-21T22:33:44Z"
+            },
             {
               "title": "Walmart is inviting AI agents to shop for you",
               "url": "https://www.theverge.com/ai-artificial-intelligence/1015715/walmart-ai-shopping-agents",
@@ -32,12 +38,6 @@
               "url": "https://www.theverge.com/ai-artificial-intelligence/1015316/openai-ai-agent-disabling-monitoring-systems",
               "snippet": "OpenAI disclosed a pair of safety incidents that involved AI agents weakening their safety monitoring systems during internal coding tasks. In one incident, OpenAI says its GPT-6…",
               "published": "2026-10-21T13:57:43Z"
-            },
-            {
-              "title": "Conversational Gemini navigation comes to Apple CarPlay",
-              "url": "https://www.theverge.com/transportation/1015281/gemini-ai-apple-carplay-voice-google-maps",
-              "snippet": "After introducing its Gemini AI assistant to Android Auto last year, Google is now bringing it to Apple CarPlay users. The conversational Gemini in navigation is available today…",
-              "published": "2026-10-21T13:01:28Z"
             }
           ]
         },
@@ -45,6 +45,12 @@
           "id": "techcrunch",
           "name": "TechCrunch AI",
           "items": [
+            {
+              "title": "Blackstone’s Jas Khaira says fears over AI-buildout debt are overblown",
+              "url": "https://techcrunch.com/2026/10/21/blackstones-jas-khaira-says-fears-over-ai-buildout-debt-are-overblown/",
+              "snippet": "Blackstone’s AI head on why the PE giant isn't panicked by market jitters.",
+              "published": "2026-10-21T22:51:22Z"
+            },
             {
               "title": "TechCrunch Founder Summit 2026: Everything you need to know",
               "url": "https://techcrunch.com/2026/10/21/techcrunch-founder-summit-2026-everything-you-need-to-know/",
@@ -68,12 +74,6 @@
               "url": "https://techcrunch.com/2026/10/21/while-amazon-blocks-ai-agents-walmart-rolls-out-the-welcome-mat/",
               "snippet": "As Amazon blocks AI agents from shopping on its site, Walmart is taking the opposite approach, introducing new technology that lets AI agents make purchases on customers' behalf…",
               "published": "2026-10-21T19:30:00Z"
-            },
-            {
-              "title": "AI promises productivity, but for managers, it’s mostly a headache for now",
-              "url": "https://techcrunch.com/2026/10/21/ai-promises-productivity-but-for-managers-its-mostly-a-headache-for-now-says-new-survey/",
-              "snippet": "More than 50% of managers say they're finding it harder to evaluate employees' work after adopting AI, according to a new survey.",
-              "published": "2026-10-21T14:00:00Z"
             }
           ]
         },
@@ -274,6 +274,18 @@
           "name": "Ziarul Financiar",
           "items": [
             {
+              "title": "Argeş, de la pol industrial la centru de afaceri. A lucrat în industria hotelieră şi a ajuns să îşi deschidă propriul atelier de floristică. „Am făcut aproape toate joburile. Iniţial, am lucrat ca recepţioneră, iar apoi am tot crescut“",
+              "url": "https://www.zf.ro/te-inspira/arges-de-la-pol-industrial-la-centru-de-afaceri/arges-pol-industrial-centru-afaceri-lucrat-industria-hoteliera-ajuns-isi-deschida-propriul-atelier-floristica-facut-aproape-toate-joburile-initial-lucrat-receptionera-iar-apoi-tot-crescut-23265316",
+              "snippet": "Înainte de a intra în antreprenoriat, Ana Maria Deaconescu, fondatoarea Blu Concept Atelier, a lucrat pentru un hotel de brand internaţional. Ultima sa poziţie a fost aceea de…",
+              "published": "2026-10-21T22:04:00Z"
+            },
+            {
+              "title": "ZF Agropower. Pariu pe procesare. Familia Kiss din Timiş a pornit o livadă de cireşi şi pruni de circa 1 mil. euro, gândită de la început cu hală de procesare şi depozitare",
+              "url": "https://www.zf.ro/zf-agropower/zf-agropower-pariu-pe-procesare-familia-kiss-din-timis-a-pornit-o-livada-de-ciresi-si-pruni-de-circa-1-mil-euro-gandita-de-la-inceput-cu-hala-de-procesare-si-depozitare-23265314",
+              "snippet": "Livada Kiss, o afacere de familie din judeţul Timiş, a investit circa 1 mil. euro într-o livadă de cireşi şi pruni, cu hală de procesare şi depozitare, printr-un proiect pe…",
+              "published": "2026-10-21T21:57:00Z"
+            },
+            {
               "title": "Ediţie specială Afaceri de la Zero susţinută de 5 to go. Monica Todor a renunţat la jobul său într-o companie de contabilitate pentru a deschide o cafenea 5 to go, iar astăzi a ajuns la două unităţi. „Nu cred că aş fi pornit pe acest drum dacă nu aş fi avut un brand în spate“",
               "url": "https://www.zf.ro/afaceri-de-la-zero/editie-speciala-afaceri-zero-sustinuta-5-to-go-monica-todor-renuntat-jobul-intr-companie-contabilitate-deschide-cafenea-5-to-go-iar-astazi-ajuns-doua-unitati-cred-as-pornit-acest-drum-as-avut-brand-23265296",
               "snippet": "",
@@ -290,18 +302,6 @@
               "url": "https://www.zf.ro/companii/karan-khurana-ceo-metro-romania-aniversarea-30-ani-companiei-romania-ajuns-treia-cea-importanta-piata-grup-strategia-locala-e-sursa-inspiratie-strategia-globala-ne-oprim-aici-23265194",
               "snippet": "Businessul din România a ajuns al treilea cel mai mare din grupul german METRO, un comerciant cu afaceri anuale de peste 30 mld. euro.",
               "published": "2026-10-21T21:08:00Z"
-            },
-            {
-              "title": "ZF Tech Day. Mihnea Dumitru, Orange Business: Putem crea reţele 5G virtuale dedicate unei companii, pe infrastructura existentă. Într-un proiect din industria auto, un client a cerut o reţea privată 5G pentru a reorganiza utilajele în fabrică",
-              "url": "https://www.zf.ro/techday/zf-tech-day-mihnea-dumitru-orange-business-putem-crea-retele-5g-virtuale-dedicate-unei-companii-infrastructura-existenta-intr-proiect-industria-auto-client-cerut-retea-privata-5g-reorganiza-23263236",
-              "snippet": "O companie poate avea o reţea mobilă virtuală dedicată propriilor operaţiuni, configurată pe infrastructura Orange - liderul pieţei locale de telecom după venituri - pentru…",
-              "published": "2026-10-21T21:07:00Z"
-            },
-            {
-              "title": "Ce faci cu banii tăi? Antreprenoriat, investiţii şi o poveste de business începută la 20 de ani de doi prieteni, care astăzi s-a transformat într-o companie listată la bursă. Victor Căpitanu, One United Properties: Pentru un antreprenor, cheia succesului nu sunt neapărat banii. Ideile bune şi dorinţa de a face vor bate capitalul",
-              "url": "https://www.zf.ro/ce-faci-cu-banii-tai/faci-banii-tai-antreprenoriat-investitii-poveste-business-inceputa-20-ani-doi-prieteni-astazi-s-transformat-intr-companie-listata-bursa-victor-capitanu-one-united-properties-antreprenor-cheia-23264963",
-              "snippet": "O afacere începută cu ceva bani economisiţi şi împrumutaţi de la familie şi prieteni s-a transformat, treptat, într-o companie listată la bursă, cu un activ net de 1,2 miliarde…",
-              "published": "2026-10-21T21:07:00Z"
             }
           ]
         },
@@ -460,34 +460,34 @@
           "name": "The Verge",
           "items": [
             {
+              "title": "YouTube says it isn’t testing hiding the dislike button",
+              "url": "https://www.theverge.com/streaming/1016206/youtube-dislike-button-videos",
+              "snippet": "On Tuesday, I published a story about how YouTube appeared to be testing hiding the dislike button on videos, with at least two users on X sharing screenshots of the dislike…",
+              "published": "2026-10-21T23:46:45Z"
+            },
+            {
+              "title": "Tesla says customers can add their own vehicles to the robotaxi fleet next year — will it happen?",
+              "url": "https://www.theverge.com/transportation/1016118/tesla-robotaxi-customer-owned-vehicle-fleet-network-q3-2026-earnings",
+              "snippet": "For years, Elon Musk has been making big promises to Tesla owners about unsupervised autonomous driving and the ability to add their own vehicles to the company's robotaxi fleet…",
+              "published": "2026-10-21T23:36:31Z"
+            },
+            {
               "title": "Flying Roadsters can’t lift Tesla’s flat Q3 revenues",
               "url": "https://www.theverge.com/transportation/1015790/tesla-q3-2026-earnings-revenue-profit-roadster-spacex-merger",
               "snippet": "As the smoke clears from its outrageous Roadster demo, Tesla reported Q3 earnings on Wednesday - and the cold reality is that revenue has flatlined. Tesla said it earned $1.7…",
-              "published": "2026-10-21T21:50:39Z"
+              "published": "2026-10-21T23:20:33Z"
             },
             {
-              "title": "Walmart is inviting AI agents to shop for you",
-              "url": "https://www.theverge.com/ai-artificial-intelligence/1015715/walmart-ai-shopping-agents",
-              "snippet": "Walmart will soon let AI agents shop on its website for you. Next month, the retail giant will allow you to use an AI agent on the site, with systems in place to let you approve…",
-              "published": "2026-10-21T21:36:21Z"
+              "title": "Data centers could erase decades of air quality gains",
+              "url": "https://www.theverge.com/ai-artificial-intelligence/1015958/data-center-pollution-rising-report",
+              "snippet": "A rush of new data centers could bring air pollution roaring back to levels not seen since the 2000s in Texas, which has become ground zero for the physical infrastructure behind…",
+              "published": "2026-10-21T22:33:44Z"
             },
             {
               "title": "Meta to create a new class of shares to fund AI push",
               "url": "https://www.theverge.com/tech/1015799/meta-shares-class-ai-q3-2026-earnings",
               "snippet": "Meta says it's issuing a new class of shares to fund its AI initiatives. As part of its third-quarter earnings report released on Wednesday, the company says the non-voting stock…",
               "published": "2026-10-21T21:30:02Z"
-            },
-            {
-              "title": "Meta says it would’ve made over $22 billion if it didn’t have to pay a child safety settlement",
-              "url": "https://www.theverge.com/tech/1015877/meta-q3-2026-earnings-child-safety-settlement",
-              "snippet": "Meta had to shell out $9.89 billion to pay for a chunk of the child safety settlement it reached with US attorneys general. That's according to the company's third-quarter…",
-              "published": "2026-10-21T20:50:42Z"
-            },
-            {
-              "title": "New York’s first microdrama film festival searches for its audience",
-              "url": "https://www.theverge.com/entertainment/1014494/alza-vertical-film-festival-bill-block-salvador-paskowitz-microdramas-verticals",
-              "snippet": "It remains to be seen if people really want to watch vertical content on horizontal TV screens, but many filmmakers and creators were confident that their latest projects would…",
-              "published": "2026-10-21T20:49:07Z"
             }
           ]
         }
@@ -538,34 +538,34 @@
           "name": "Digi Sport",
           "items": [
             {
-              "title": "Aston Villa - Viking 3-1. Parcurs perfect pentru londonezi în Champions League",
-              "url": "https://www.digisport.ro/fotbal/champions-league/aston-villa-viking-3-1-parcurs-perfect-pentru-londonezi-in-champions-league-4557847",
-              "snippet": "Aston Villa - Viking 3-1. Parcurs perfect pentru londonezi în Champions League",
-              "published": "2026-10-21T21:53:24Z"
-            },
-            {
-              "title": "Bayern - Arsenal 2-2 | Real- Leipzig 4-1 | Inter - Șahtior 1-0 | Villa - Viking 3-1. Toate rezultatele din etapa 3 a UCL",
-              "url": "https://www.digisport.ro/fotbal/champions-league/bayern-arsenal-2-2-real-leipzig-4-1-inter-sahtior-1-0-villa-viking-3-1-toate-rezultatele-din-etapa-3-a-ucl-4552495",
-              "snippet": "Bayern - Arsenal 2-2 | Real- Leipzig 4-1 | Inter - Șahtior 1-0 | Villa - Viking 3-1. Toate rezultatele din etapa 3 a UCL",
-              "published": "2026-10-21T21:51:08Z"
-            },
-            {
-              "title": "Scandal de proporții: Carrick a venit cu replica, după ce Bruno i-a făcut praf tactica la interviu!",
-              "url": "https://www.digisport.ro/fotbal/champions-league/scandal-urias-la-united-carrick-a-venit-cu-replica-dupa-ce-bruno-i-a-facut-praf-tactica-la-interviu-4557773",
-              "snippet": "Scandal de proporții: Carrick a venit cu replica, după ce Bruno i-a făcut praf tactica la interviu!",
-              "published": "2026-10-21T21:42:33Z"
+              "title": "Ilie Dumitrescu: ”Cea mai bună echipă din lume”. Gică Craioveanu n-a fost de acord: ”Indiferent de ce-mi spuneți voi”",
+              "url": "https://www.digisport.ro/fotbal/champions-league/ilie-dumitrescu-cea-mai-buna-echipa-din-lume-gica-craioveanu-n-a-fost-de-acord-indiferent-de-ce-mi-spuneti-voi-4557211",
+              "snippet": "Ilie Dumitrescu: ”Cea mai bună echipă din lume”. Gică Craioveanu n-a fost de acord: ”Indiferent de ce-mi spuneți voi”",
+              "published": "2026-10-21T22:46:06Z"
             },
             {
               "title": "Nota primită de Cristi Chivu, după ce Inter a obținut prima victorie în Champions League, în 10 oameni! Italienii: ”S-a văzut”",
               "url": "https://www.digisport.ro/fotbal/champions-league/nota-primita-de-cristi-chivu-dupa-ce-inter-a-obtinut-prima-victorie-in-champions-league-in-10-oameni-italienii-s-a-vazut-4557781",
               "snippet": "Nota primită de Cristi Chivu, după ce Inter a obținut prima victorie în Champions League, în 10 oameni! Italienii: ”S-a văzut”",
-              "published": "2026-10-21T21:36:42Z"
+              "published": "2026-10-21T22:41:55Z"
             },
             {
-              "title": "Spaniolii, fără dubii despre Istvan Kovacs, după Real Madrid - RB Leipzig: numai cuvinte de laudă pentru român",
-              "url": "https://www.digisport.ro/fotbal/champions-league/spaniolii-fara-dubii-despre-istvan-kovacs-dupa-real-madrid-rb-leipzig-numai-cuvinte-de-lauda-pentru-roman-4557809",
-              "snippet": "Spaniolii, fără dubii despre Istvan Kovacs, după Real Madrid - RB Leipzig: numai cuvinte de laudă pentru român",
-              "published": "2026-10-21T21:34:50Z"
+              "title": "Betis - Feyenoord 1-0. Spaniolii merg \"ceas\" în Liga Campionilor și au ajuns la nouă puncte",
+              "url": "https://www.digisport.ro/fotbal/champions-league/betis-feyenoord-1-0-spaniolii-merg-ceas-in-liga-campionilor-si-au-ajuns-la-noua-puncte-4557777",
+              "snippet": "Betis - Feyenoord 1-0. Spaniolii merg \"ceas\" în Liga Campionilor și au ajuns la nouă puncte",
+              "published": "2026-10-21T22:37:40Z"
+            },
+            {
+              "title": "Ce lovitură: i-a răspuns pe loc naționalei României! E în fața transferului la Bayern și a debutat în Champions League",
+              "url": "https://www.digisport.ro/fotbal/bundesliga/ce-lovitura-i-a-raspuns-pe-loc-nationalei-romaniei-e-in-fata-transferului-la-bayern-si-a-debutat-in-champions-league-4557601",
+              "snippet": "Ce lovitură: i-a răspuns pe loc naționalei României! E în fața transferului la Bayern și a debutat în Champions League",
+              "published": "2026-10-21T22:37:27Z"
+            },
+            {
+              "title": "Scandal de proporții: Carrick a venit cu replica, după ce Bruno i-a făcut ”praf” tactica la interviu!",
+              "url": "https://www.digisport.ro/fotbal/champions-league/scandal-urias-la-united-carrick-a-venit-cu-replica-dupa-ce-bruno-i-a-facut-praf-tactica-la-interviu-4557773",
+              "snippet": "Scandal de proporții: Carrick a venit cu replica, după ce Bruno i-a făcut ”praf” tactica la interviu!",
+              "published": "2026-10-21T22:33:37Z"
             }
           ]
         },
@@ -574,34 +574,34 @@
           "name": "ProSport",
           "items": [
             {
+              "title": "DECLARAȚII Reacția lui Chivu după Inter – Șahtior 1-0. A repetat o frază-cheie de două ori: „Doar asta conta azi!”",
+              "url": "https://www.prosport.ro/fotbal-extern/liga-campionilor/reactie-cristi-chivu-inter-sahtior-repetare-fraza-cheie-doua-ori-20553041",
+              "snippet": "Entuziasmat după Inter – Șahtior 1-0, victorie obținută în inferioritate după eliminarea lui Bastoni la 0-0, Chivu (45 de ani) a repetat două ori care este cel mai important…",
+              "published": "2026-10-21T22:38:36Z"
+            },
+            {
+              "title": "Ce nu s-a văzut la TV: Kylian Mbappe s-a dus glonț la Istvan Kovacs la pauza meciului Real Madrid – RB Leipzig! În Superliga i-ar fi dat cartonaș roșu!",
+              "url": "https://www.prosport.ro/fotbal-extern/liga-campionilor/mbappe-vs-kovacs-ucl-20553030",
+              "snippet": "Kylian Mbappe (27 de ani) a fost protagonistul unui moment tensionat la pauza meciului dintre Real Madrid și RB Leipzig, câștigat de spanioli cu 4-1, în etapa a treia din…",
+              "published": "2026-10-21T22:25:09Z"
+            },
+            {
+              "title": "Verdictul spaniolilor despre Istvan Kovacs după Real Madrid – Leipzig! Ce a scris „AS” despre românul lăudat de Mourinho",
+              "url": "https://www.prosport.ro/fotbal-extern/liga-campionilor/verdict-spanioli-istvan-kovacs-real-madrid-leipzig-as-laude-jose-mourinho-20552996",
+              "snippet": "Meciul Real Madrid – Leipzig din etapa 3 a Ligii Campionilor a fost arbitrat la centru de românul Istvan Kovacs, iar verdictul spaniolilor a venit imediat. Istvan Kovacs a avut…",
+              "published": "2026-10-21T22:18:34Z"
+            },
+            {
+              "title": "Calhanoglu, scandalizat pentru că a fost schimbat de Chivu în Inter – Șahtior! Reacția turcului când s-a așezat pe bancă: „I-a spus ceva secundului Kolarov!”",
+              "url": "https://www.prosport.ro/fotbal-extern/liga-campionilor/calhanoglu-schimbat-inter-sahtior-20553017",
+              "snippet": "Hakan Calhanoglu (32 de ani) nu a primit deloc bine decizia lui Cristian Chivu (45 de ani) de a-l înlocui în minutul 60, iar reacția internaționalului turc a atras imediat…",
+              "published": "2026-10-21T22:00:30Z"
+            },
+            {
               "title": "Fără comentarii! Nota primită de Cristi Chivu după Inter – Şahtior, un meci de infarct",
               "url": "https://www.prosport.ro/fotbal-extern/liga-campionilor/cristi-chivu-nota-inter-sahtior-20553001",
               "snippet": "Cristi Chivu a obținut prima victorie din actuala ediție a Ligii Campionilor, după ce Inter Milano a învins-o pe Șahtior Donețk cu 1-0, într-un meci în care italienii au fost…",
               "published": "2026-10-21T21:32:18Z"
-            },
-            {
-              "title": "Gazzetta dello Sport s-a convins de Chivu după Inter – Șahtior 1-0! Cum l-a numit pe român pentru „alegerea lui tactică”",
-              "url": "https://www.prosport.ro/fotbal-extern/liga-campionilor/gazzetta-dello-sport-s-a-convins-de-chivu-dupa-inter-sahtior-1-0-cum-l-a-numit-pe-roman-pentru-alegerea-lui-tactica-20552997",
-              "snippet": "Gazzetta dello Sport a vorbit în termeni laudativi despre Cristi Chivu, după Inter – Șahtior 1-0. Miercuri seară, Inter s-a impus pe teren propriu în fața celor de la Șahtior…",
-              "published": "2026-10-21T21:29:56Z"
-            },
-            {
-              "title": "CS Gloria Bistrița l-a dat afară pe Nicolae Grigore: ”Colaborarea s-a încheiat!” Principalul favorit să preia echipa",
-              "url": "https://www.prosport.ro/fotbal-intern/liga-2/cs-gloria-bistrita-l-a-dat-afara-pe-nicolae-grigore-colaborarea-s-a-incheiat-principalul-favorit-sa-preia-echipa-20553005",
-              "snippet": "CS Gloria Bistrița l-a dat afară pe Nicolae Grigore: ”Colaborarea s-a încheiat!” Principalul favorit să preia echipa The post CS Gloria Bistrița l-a dat afară pe Nicolae Grigore…",
-              "published": "2026-10-21T21:28:18Z"
-            },
-            {
-              "title": "Nebunie în Champions League! Cristi Chivu a rămas în zece oameni, dar Inter a dat lovitura: victorie dramatică după eliminarea lui Bastoni! Real Madrid și-a zdrobit adversara, Bayern și Arsenal au făcut egal",
-              "url": "https://www.prosport.ro/fotbal-extern/liga-campionilor/chivu-rezultate-champions-league-inter-sahtior-real-madrid-bayern-arsenal-20552755",
-              "snippet": "Liga Campionilor a plecat la drum în același format ca în ultimele două sezoane, cu toate echipele în aceeași grupă. Fiecare formație joacă 8 partide și se face un clasament…",
-              "published": "2026-10-21T21:02:41Z"
-            },
-            {
-              "title": "Victor Pițurcă, mesaj pentru Universitatea Craiova",
-              "url": "https://www.prosport.ro/fotbal-extern/conference-league/victor-piturca-avertisment-craiova-conference-league-20552967",
-              "snippet": "Universitatea Craiova se pregătește pentru meciul din Europa League, iar Victor Pițurcă (70 de ani) i-a avertizat pe olteni să fie vigilenți chiar dacă întâlnesc un adversar…",
-              "published": "2026-10-21T20:56:05Z"
             }
           ]
         }
@@ -616,6 +616,24 @@
           "name": "Descoperă.ro",
           "items": [
             {
+              "title": "Ce trebuie să facă omenirea până în 2030 pentru a evita efectele grave ale schimbărilor climatice?",
+              "url": "https://www.descopera.ro/dnews/21146053-ce-trebuie-sa-faca-omenirea-pana-in-2030-pentru-a-evita-efectele-grave-ale-schimbarilor-climatice",
+              "snippet": "Omenirea trebuie să reducă emisiile de gaze cu efect de seră cu 18% până în 2030 pentru a evita agravarea schimbărilor climatice, avertizează Organizația Națiunilor Unite. Un nou…",
+              "published": "2026-10-22T00:00:53Z"
+            },
+            {
+              "title": "Polonia acuză rețelele sociale că sunt „aliatul tăcut” al Rusiei",
+              "url": "https://www.descopera.ro/dnews/21146009-polonia-acuza-retelele-sociale-ca-sunt-aliatul-tacut-al-rusiei",
+              "snippet": "Polonia a lansat acuzații dure la adresa marilor platforme de socializare, pe care le consideră un „aliat tăcut” al Rusiei în răspândirea dezinformării. Autoritățile avertizează…",
+              "published": "2026-10-21T23:00:26Z"
+            },
+            {
+              "title": "Trenuri de mare viteză și bilete mai ieftine. Ce recomandări a adoptat Parlamentul European?",
+              "url": "https://www.descopera.ro/dnews/21145981-trenuri-de-mare-viteza-si-bilete-mai-ieftine-ce-recomandari-a-adoptat-parlamentul-european",
+              "snippet": "Parlamentul European susține dezvoltarea unei rețele de trenuri de mare viteză care să lege marile orașe și regiunile UE. Eurodeputații cer investiții pe termen lung și bilete…",
+              "published": "2026-10-21T22:00:34Z"
+            },
+            {
               "title": "„Risc semnificativ de sabotaj”: Armata Germaniei a ridicat nivelul de alertă",
               "url": "https://www.descopera.ro/dnews/21145934-risc-semnificativ-de-sabotaj-armata-germaniei-a-ridicat-nivelul-de-alerta",
               "snippet": "Armata germană a ridicat nivelul amenințării de sabotaj rusesc după descoperirea unei drone cu explozibili lângă o bază militară. Serviciile de informații avertizează asupra unor…",
@@ -626,24 +644,6 @@
               "url": "https://www.descopera.ro/stiinta/21145312-astronomii-ar-fi-detectat-semnale-de-la-prima-coliziune-cunoscuta-de-stele-neutronice-din-galaxia-noastra",
               "snippet": "Coliziunile dintre stelele neutronice reprezintă unele dintre cele mai violente evenimente din univers, fiind responsabile pentru formarea majorității elementelor grele, cum ar…",
               "published": "2026-10-21T17:00:14Z"
-            },
-            {
-              "title": "Enigmele unui complot care a schimbat lumea: cine a decis asasinarea lui Franz Ferdinand?",
-              "url": "https://www.descopera.ro/istorie/21145716-enigmele-unui-complot-care-a-schimbat-lumea-cine-a-decis-asasinarea-lui-franz-ferdinand",
-              "snippet": "La 28 iunie 1914, gloanțele trase de un tânăr naționalist sârb la Sarajevo au declanșat un lanț de evenimente care avea să conducă, câteva săptămâni mai târziu, la izbucnirea…",
-              "published": "2026-10-21T16:00:09Z"
-            },
-            {
-              "title": "Cristian Tauru: „Nu mă opresc până nu ajung la Drift Masters”. Cel mai tânăr campion național de drift, invitat la „Podcast cu Prioritate” #115 by ProMotor",
-              "url": "https://www.descopera.ro/dnews/21145961-cristian-tauru-nu-ma-opresc-pana-nu-ajung-la-drift-masters-cel-mai-tanar-campion-national-de-drift-invitat-la-podcast-cu-prioritate-115-by-promotor",
-              "snippet": "ProMotor aduce în fața publicului povestea unuia dintre cei mai promițători tineri piloți din motorsportul românesc. Luni, 26 octombrie 2026, de la ora 12:00, pe canalul de…",
-              "published": "2026-10-21T15:22:18Z"
-            },
-            {
-              "title": "Astronomii au descoperit o stea care strălucește într-o nuanță bizară de verde. Care este explicația?",
-              "url": "https://www.descopera.ro/stiinta/21145318-astronomii-au-descoperit-o-stea-care-straluceste-intr-o-nuanta-bizara-de-verde-care-este-explicatia",
-              "snippet": "Culoarea unei stele reflectă, în mod obișnuit, temperatura sa de la suprafață, însă piticele albe pot încălca această regulă fundamentală. O cercetare derulată de astronomii de…",
-              "published": "2026-10-21T15:00:58Z"
             }
           ]
         },
@@ -728,6 +728,12 @@
       "name": "The Verge AI",
       "items": [
         {
+          "title": "Data centers could erase decades of air quality gains",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1015958/data-center-pollution-rising-report",
+          "snippet": "A rush of new data centers could bring air pollution roaring back to levels not seen since the 2000s in Texas, which has become ground zero for the physical infrastructure behind…",
+          "published": "2026-10-21T22:33:44Z"
+        },
+        {
           "title": "Walmart is inviting AI agents to shop for you",
           "url": "https://www.theverge.com/ai-artificial-intelligence/1015715/walmart-ai-shopping-agents",
           "snippet": "Walmart will soon let AI agents shop on its website for you. Next month, the retail giant will allow you to use an AI agent on the site, with systems in place to let you approve…",
@@ -750,12 +756,6 @@
           "url": "https://www.theverge.com/ai-artificial-intelligence/1015316/openai-ai-agent-disabling-monitoring-systems",
           "snippet": "OpenAI disclosed a pair of safety incidents that involved AI agents weakening their safety monitoring systems during internal coding tasks. In one incident, OpenAI says its GPT-6…",
           "published": "2026-10-21T13:57:43Z"
-        },
-        {
-          "title": "Conversational Gemini navigation comes to Apple CarPlay",
-          "url": "https://www.theverge.com/transportation/1015281/gemini-ai-apple-carplay-voice-google-maps",
-          "snippet": "After introducing its Gemini AI assistant to Android Auto last year, Google is now bringing it to Apple CarPlay users. The conversational Gemini in navigation is available today…",
-          "published": "2026-10-21T13:01:28Z"
         }
       ]
     },
@@ -763,6 +763,12 @@
       "id": "techcrunch",
       "name": "TechCrunch AI",
       "items": [
+        {
+          "title": "Blackstone’s Jas Khaira says fears over AI-buildout debt are overblown",
+          "url": "https://techcrunch.com/2026/10/21/blackstones-jas-khaira-says-fears-over-ai-buildout-debt-are-overblown/",
+          "snippet": "Blackstone’s AI head on why the PE giant isn't panicked by market jitters.",
+          "published": "2026-10-21T22:51:22Z"
+        },
         {
           "title": "TechCrunch Founder Summit 2026: Everything you need to know",
           "url": "https://techcrunch.com/2026/10/21/techcrunch-founder-summit-2026-everything-you-need-to-know/",
@@ -786,12 +792,6 @@
           "url": "https://techcrunch.com/2026/10/21/while-amazon-blocks-ai-agents-walmart-rolls-out-the-welcome-mat/",
           "snippet": "As Amazon blocks AI agents from shopping on its site, Walmart is taking the opposite approach, introducing new technology that lets AI agents make purchases on customers' behalf…",
           "published": "2026-10-21T19:30:00Z"
-        },
-        {
-          "title": "AI promises productivity, but for managers, it’s mostly a headache for now",
-          "url": "https://techcrunch.com/2026/10/21/ai-promises-productivity-but-for-managers-its-mostly-a-headache-for-now-says-new-survey/",
-          "snippet": "More than 50% of managers say they're finding it harder to evaluate employees' work after adopting AI, according to a new survey.",
-          "published": "2026-10-21T14:00:00Z"
         }
       ]
     },
