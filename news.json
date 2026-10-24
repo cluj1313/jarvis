@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-24T17:16:37.267340Z",
+  "updated": "2026-10-24T19:41:11.604302Z",
   "categories": [
     {
       "id": "ai",
@@ -9,6 +9,12 @@
           "id": "verge",
           "name": "The Verge AI",
           "items": [
+            {
+              "title": "Pennsylvania will require labels on AI-generated ads",
+              "url": "https://www.theverge.com/ai-artificial-intelligence/1018187/pennsylvania-ai-deceptive-advertising-act",
+              "snippet": "On Thursday, Pennsylvania Governor Josh Shapiro signed the Artificial Intelligence Deceptive Advertising Act into law, requiring disclosures on AI-generated ads. The law requires…",
+              "published": "2026-10-24T18:32:44Z"
+            },
             {
               "title": "OpenAI now trains its frontier AI models with no internet access",
               "url": "https://www.theverge.com/ai-artificial-intelligence/1018021/openai-training-top-ai-models-no-internet",
@@ -32,12 +38,6 @@
               "url": "https://www.theverge.com/tech/1017600/google-personal-intelligence-privacy-policy-ads-update",
               "snippet": "Google has updated its privacy policy in a way that could mean you'll start seeing targeted ads based on your personal data if you're using personalized AI features. The update…",
               "published": "2026-10-23T16:52:55Z"
-            },
-            {
-              "title": "Meta delays new business terms after publisher pushback on AI scraping",
-              "url": "https://www.theverge.com/tech/1017450/meta-business-terms-delayed-ai-scraping",
-              "snippet": "Meta is delaying the enforcement of its new business terms after publishers raised concerns that they could allow the company to scrape news sites for AI training, as reported…",
-              "published": "2026-10-23T14:47:41Z"
             }
           ]
         },
@@ -45,6 +45,12 @@
           "id": "techcrunch",
           "name": "TechCrunch AI",
           "items": [
+            {
+              "title": "The AI graveyard: a running list of projects and startups that didn’t make it",
+              "url": "https://techcrunch.com/2026/10/24/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/",
+              "snippet": "From Apple's repeatedly delayed Siri AI to OpenAI's messy \"super app\" launch, here's a look at the AI projects that shut down or missed expectations.",
+              "published": "2026-10-24T19:00:00Z"
+            },
             {
               "title": "Block’s new voice model sounds eerily human",
               "url": "https://techcrunch.com/2026/10/24/blocks-new-voice-model-sounds-eerily-human/",
@@ -68,12 +74,6 @@
               "url": "https://techcrunch.com/2026/10/23/openai-says-it-will-no-longer-train-its-ai-models-on-the-live-internet-citing-significant-risks/",
               "snippet": "OpenAI will cut frontier models off from the internet weeks after one of its engineers said that solution wouldn't work.",
               "published": "2026-10-23T23:05:49Z"
-            },
-            {
-              "title": "Hottest toy for Christmas? Nvidia CEO plays with adorable Microduck robots, 20,000 sell",
-              "url": "https://techcrunch.com/2026/10/23/hottest-toy-for-christmas-nvidia-ceo-plays-with-adorable-microduck-robots-20000-sell/",
-              "snippet": "The robots, stomping their little feet and making tiny R2-D2 noises, sat, fell down dead for a \"nap,\" and summersaulted on voice command.",
-              "published": "2026-10-23T21:59:19Z"
             }
           ]
         },
@@ -160,6 +160,24 @@
           "name": "Digi24",
           "items": [
             {
+              "title": "Ministrul Muncii anunță că pregătește indexarea pensiilor: „După doi ani, pensionarii nu mai pot suporta”",
+              "url": "https://www.digi24.ro/stiri/actualitate/politica/ministrul-muncii-anunta-ca-pregateste-indexarea-pensiilor-dupa-doi-ani-pensionarii-nu-mai-pot-suporta-4007533",
+              "snippet": "Ministrul Muncii, Florin Manole, anunţă că pregăteşte indexarea pensiilor „conform legii” şi va înainta Ministerului de Finanţe şi premierului propunerea de a respecta legea…",
+              "published": "2026-10-24T19:07:08Z"
+            },
+            {
+              "title": "Florin Manole: Călin Georgescu este un pericol pentru România, nu doar pentru PSD",
+              "url": "https://www.digi24.ro/stiri/actualitate/politica/florin-manole-calin-georgescu-este-un-pericol-pentru-romania-nu-doar-pentru-psd-4007521",
+              "snippet": "Ministrul Muncii, Florin Manole, a declarat sâmbătă, în emisiunea „În fața ta” de la Digi24, că fostul candidat la prezidențiale Călin Georgescu este „un pericol” pentru România…",
+              "published": "2026-10-24T18:20:17Z"
+            },
+            {
+              "title": "Proteste violente în Europa: Ciocniri cu poliția în Italia, Franța și Albania, mii de oameni în stradă în mai multe orașe",
+              "url": "https://www.digi24.ro/stiri/externe/proteste-violente-in-europa-ciocniri-cu-politia-in-italia-franta-si-albania-mii-de-oameni-in-strada-in-mai-multe-orase-4007481",
+              "snippet": "Proteste de amploare, unele marcate de violențe și ciocniri cu forțele de ordine, au avut loc sâmbătă în mai multe țări europene, printre care Italia, Franța, Albania, Spania și…",
+              "published": "2026-10-24T18:02:24Z"
+            },
+            {
               "title": "Proteste violente în Albania: Poliția a folosit gaze lacrimogene, tunuri cu apă și gloanțe de cauciuc la Tirana",
               "url": "https://www.digi24.ro/stiri/externe/proteste-violente-in-albania-politia-a-folosit-gaze-lacrimogene-tunuri-cu-apa-si-gloante-de-cauciuc-la-tirana-4007391",
               "snippet": "Mii de persoane au protestat sâmbătă la Tirana, cerând demisia premierului albanez Edi Rama și denunțând corupția și problemele din sistemul de educație. Manifestația a degenerat…",
@@ -170,24 +188,6 @@
               "url": "https://www.digi24.ro/stiri/economie/transporturi/capul-cartitei-care-va-sapa-tunelul-poiana-de-pe-autostrada-sibiu-pitesti-a-ajuns-la-destinatie-drumul-nu-a-fost-deloc-usor-4007397",
               "snippet": "Direcţia Regională de Drumuri şi Poduri Craiova anunţă, sâmbătă, că a ajuns capul de foraj al utilajului care va realiza tunelul Poiana, pe Autostrada Sibiu – Piteşti, parte din…",
               "published": "2026-10-24T17:00:45Z"
-            },
-            {
-              "title": "Un avion francez de patrulare maritimă a fost mobilizat pentru a contribui la securitate în Marea Neagră",
-              "url": "https://www.digi24.ro/stiri/externe/un-avion-francez-de-patrulare-maritima-a-fost-mobilizat-pentru-a-contribui-la-securitate-in-marea-neagra-4007389",
-              "snippet": "Un avion francez de patrulare maritimă a participat la operaţiunile de salvare a navelor atacate în ultimele zile în Marea Neagră, a declarat sâmbătă ministrul francez de…",
-              "published": "2026-10-24T16:50:21Z"
-            },
-            {
-              "title": "Campania de imunizare a oilor și caprelor începe mai devreme în două județe. Ultimele tranșe de vaccin au sosit în țară",
-              "url": "https://www.digi24.ro/stiri/economie/agricultura/campania-de-imunizare-a-oilor-si-caprelor-incepe-mai-devreme-in-doua-judete-ultimele-transe-de-vaccin-au-sosit-in-tara-4007383",
-              "snippet": "Campania de imunizare de urgenţă a ovinelor şi caprinelor va demara duminică dimineaţă în judeţele Constanţa şi Tulcea, după ce ultimele tranşe din stocurile strategice ale…",
-              "published": "2026-10-24T16:37:10Z"
-            },
-            {
-              "title": "Maria Zaharova îi cere Giorgiei Meloni „să-l asculte pe Al Bano” privind relația Italiei cu Rusia",
-              "url": "https://www.digi24.ro/stiri/externe/maria-zaharova-ii-cere-giorgiei-meloni-sa-l-asculte-pe-al-bano-privind-relatia-italiei-cu-rusia-4007375",
-              "snippet": "„Giorgia Meloni să-l asculte pe Al Bano, care cere redeschiderea porţilor Italiei pentru Rusia.” Afirmaţia îi aparţine Mariei Zaharova, purtătoarea de cuvânt a Ministerului rus…",
-              "published": "2026-10-24T16:20:29Z"
             }
           ]
         },
@@ -196,34 +196,34 @@
           "name": "HotNews",
           "items": [
             {
-              "title": "INTERVIU Guvernul Niculescu e pe cale să facă o mare greșeală, avertizează un expert în energie. Soluția propusă pentru a evita „o risipă de bani publici”",
-              "url": "https://hotnews.ro/interviu-guvernul-niculescu-e-pe-cale-sa-faca-o-mare-greseala-avertizeaza-un-expert-in-energie-solutia-propusa-pentru-a-evita-o-risipa-de-bani-publici-2384576",
-              "snippet": "Acordarea ajutoarelor pentru plata energiei exclusiv în funcție de venituri, așa cum spune programul de guvernare, riscă să lase fără sprijin tocmai gospodăriile cele mai…",
-              "published": "2026-10-24T17:14:02Z"
+              "title": "O rută neașteptată pentru exporturile de cereale ale Moscovei. În septembrie, două treimi au trecut printr-o țară considerată o adversară a Rusiei",
+              "url": "https://hotnews.ro/o-ruta-neasteptata-pentru-exporturile-de-cereale-ale-moscovei-in-septembrie-doua-treimi-au-trecut-printr-o-tara-considerata-o-adversara-a-rusiei-2385759",
+              "snippet": "Letonia, stat membru al Uniunii Europene şi NATO, s-a numărat printre primele cinci ţări prin care au fost transportate cereale ruseşti în actualul sezon de comercializare, în…",
+              "published": "2026-10-24T19:34:03Z"
             },
             {
-              "title": "Jordan Bardella, reales cu 99% la conducerea RN, cu o zi înainte de lansarea candidaturii la prezidențiale a lui Marine Le Pen",
-              "url": "https://hotnews.ro/jordan-bardella-reales-cu-99-la-conducerea-rn-cu-o-zi-inainte-de-lansarea-candidaturii-la-prezidentiale-a-lui-marine-le-pen-2385648",
-              "snippet": "Jordan Bardella a fost reales sâmbătă la conducerea Rassemblement National (RN), partid francez clasificat de regulă la extrema dreaptă, cu aproape 99% din voturile exprimate, în…",
-              "published": "2026-10-24T16:52:00Z"
+              "title": "Bogdan Andone, reacție dură după FC Argeș – UTA 0-1: „Cea mai slabă repriză din mandatul meu”",
+              "url": "https://hotnews.ro/bogdan-andone-reactie-dura-dupa-fc-arges-uta-0-1-cea-mai-slaba-repriza-din-mandatul-meu-2385750",
+              "snippet": "Bogdan Andone, antrenorul echipei FC Argeș, s-a declarat profund dezamăgit de evoluția elevilor săi în meciul pierdut cu UTA Arad, scor 0-1, în etapa a 13-a din SuperLiga…",
+              "published": "2026-10-24T19:04:34Z"
             },
             {
-              "title": "„Noi suntem vacile viitorului”, spune Yuval Noah Harari. Comparația, explicată",
-              "url": "https://hotnews.ro/yuval-noah-harari-noi-suntem-vacile-viitorului-2385649",
-              "snippet": "Istoricul avertizează asupra unei lumi în care inteligența artificială va crea regulile – iar oamenii nu vor putea să le înțeleagă. „O vacă poate vedea persoana care o hrănește…",
-              "published": "2026-10-24T16:35:13Z"
+              "title": "Ministrul Sănătății promite un nou mecanism de plată a gărzilor făcute de medici. Vor fi plătiți și rezidenții",
+              "url": "https://hotnews.ro/ministrul-sanatatii-promite-un-nou-mecanism-de-plata-a-garzilor-facute-de-medici-vor-fi-platiti-si-rezidentii-2385744",
+              "snippet": "Ministrul Sănătăţii, Alexandru Rogobete, a declarat sâmbătă, la Iaşi, că una dintre priorităţile mandatului său vizează gărzile medicilor şi rezidenţilor şi plata acestora…",
+              "published": "2026-10-24T18:52:44Z"
             },
             {
-              "title": "Proteste de amploare la Tirana. Clădirea unui minister a fost atacată cu pietre",
-              "url": "https://hotnews.ro/proteste-de-amploare-la-tirana-cladirea-unui-minister-a-fost-atacata-cu-pietre-2385647",
-              "snippet": "Mii de persoane au manifestat sâmbătă la Tirana, cerând demisia premierului albanez Edi Rama şi denunţând corupţia şi condiţiile precare din sistemul de învăţământ, informează…",
-              "published": "2026-10-24T16:33:53Z"
+              "title": "Preşedintele Iranului, o nouă întâlnire cu Putin, la Moscova. „Cooperarea nu a mai fost niciodată atât de strânsă”",
+              "url": "https://hotnews.ro/presedintele-iranului-o-noua-intalnire-cu-putin-la-moscova-cooperarea-nu-a-mai-fost-niciodata-atat-de-stransa-2385739",
+              "snippet": "Preşedintele iranian Masoud Pezeshkian urmează să se întâlnească marţi cu omologul său rus Vladimir Putin la Moscova, unde va merge pentru a participa la o reuniune a ţărilor…",
+              "published": "2026-10-24T18:44:34Z"
             },
             {
-              "title": "Când pot ajunge primii pacienți la Spitalul Regional din Iași. Ministrul Rogobete a vizitat șantierul",
-              "url": "https://hotnews.ro/cand-va-primi-primii-pacienti-spitalul-regional-din-iasi-ministrul-rogobete-a-vizitat-santierul-2385625",
-              "snippet": "Ministrul Sănătăţii, Alexandru Rogobete a declarat, sâmbătă, că lucrările la Spitalul Regional de Urgenţe (SRU) Iaşi ar urma să ajungă la nivelul zero la începutul anului viitor…",
-              "published": "2026-10-24T16:10:36Z"
+              "title": "Asigurările ministrul Muncii pentru pensionarii cu venituri mici: „Nu există niciun motiv de îngrijorare”",
+              "url": "https://hotnews.ro/asigurarile-ministrul-muncii-pentru-pensionarii-cu-venituri-mici-nu-exista-niciun-motiv-de-ingrijorare-2385727",
+              "snippet": "Florin Manole, ministrul Muncii, a afirmat că nu se pune problema lipsei de fonduri pentru acordarea celei de-a doua tranşe a ajutorului financiar cuprins între 300 şi 500 de lei…",
+              "published": "2026-10-24T18:19:46Z"
             }
           ]
         },
@@ -232,34 +232,34 @@
           "name": "G4Media",
           "items": [
             {
-              "title": "Gen Z, în fruntea protestelor din Europa: locuințele scumpe, problemele din educație și nesiguranța locurilor de muncă îi scot pe tineri în stradă",
-              "url": "https://www.g4media.ro/proteste-gen-z-europa-locuinte-educatie-locuri-de-munca.html",
-              "snippet": "Tinerii se află în centrul unui val de proteste în Europa, alimentat de nemulțumiri privind finanțarea educației, costurile locuințelor și perspectivele de angajare. Deși…",
-              "published": "2026-10-24T17:10:12Z"
+              "title": "UAIC anunță că arestarea lectorului universitar Alexandru Toader atrage automat suspendarea contractului său de muncă / Universitatea continuă ancheta de etică și ia în calcul revizuirea mecanismelor de prevenire și sesizare a hărțuirii",
+              "url": "https://www.g4media.ro/uaic-alexandru-toader-arestare-suspendare-contract-ancheta-etica.html",
+              "snippet": "Universitatea „Alexandru Ioan Cuza” din Iași (UAIC) a anunțat, sâmbătă seara, că arestarea preventivă a lectorului Alexandru Toader atrage automat suspendarea contractului său de…",
+              "published": "2026-10-24T19:31:41Z"
             },
             {
-              "title": "Bulgaria își alege duminică președintele: Iliana Iotova conduce în sondaje, urmată de Andrei Gyurov / Războiul din Ucraina și securitatea la Marea Neagră, teme ale campaniei",
-              "url": "https://www.g4media.ro/alegeri-prezidentiale-bulgaria-2026-iotova-gyurov.html",
-              "snippet": "Bulgarii sunt chemați duminică, 25 octombrie, la urne pentru alegerea președintelui, într-un scrutin în care principalii competitori sunt actuala șefă a statului, Iliana Iotova…",
-              "published": "2026-10-24T16:14:42Z"
+              "title": "Căutările celor trei membri ai echipajului navei KHORYV, dispăruți în Marea Neagră, suspendate din cauza vizibilității reduse",
+              "url": "https://www.g4media.ro/cautari-marinari-disparuti-khoryv-suspendate-vizibilitate-redusa.html",
+              "snippet": "Operațiunile de căutare a trei membri dispăruți ai echipajului navei KHORYV, sub pavilionul Comorelor, au fost suspendate sâmbătă, la ora 18:04, din cauza reducerii…",
+              "published": "2026-10-24T18:30:47Z"
             },
             {
-              "title": "Dan Neculăescu, discuții cu omologul francez despre securitatea la Marea Neagră și parteneriatul strategic bilateral",
-              "url": "https://www.g4media.ro/dan-neculaescu-jean-noel-barrot-securitate-marea-neagra.html",
-              "snippet": "Ministrul Afacerilor Externe, Dan Neculăescu, a discutat sâmbătă cu omologul francez, Jean-Noël Barrot, despre parteneriatul strategic româno-francez și evoluția mediului…",
-              "published": "2026-10-24T15:57:47Z"
+              "title": "Mii de persoane au cerut demisia lui Edi Rama la Tirana / Poliția a intervenit cu gaze lacrimogene, tunuri cu apă și gloanțe de cauciuc",
+              "url": "https://www.g4media.ro/proteste-tirana-demisia-edi-rama-coruptie-studenti.html",
+              "snippet": "Mii de persoane au protestat sâmbătă la Tirana, cerând demisia premierului albanez Edi Rama și denunțând corupția și condițiile precare din sistemul de învățământ, transmite…",
+              "published": "2026-10-24T18:00:17Z"
             },
             {
-              "title": "Tineri atrași prin conturi false și canalul „ProtestMD” pentru proteste violente, anunță Poliția Republicii Moldova / Percheziții în Chișinău și în alte regiuni",
-              "url": "https://www.g4media.ro/perchezitii-republica-moldova-tineri-telegram-proteste-violente.html",
-              "snippet": "Un grup suspectat că ar fi pregătit proteste violente și distrugeri de bunuri în Republica Moldova ar fi folosit profiluri false pe TikTok și Facebook, precum și canale Telegram…",
-              "published": "2026-10-24T15:44:03Z"
+              "title": "Rogobete propune tarife mai mari pentru a doua și a treia gardă pe lună și plata gărzilor rezidenților din anul I / Ministrul vrea măsurile în primele trei luni de mandat",
+              "url": "https://www.g4media.ro/rogobete-tarife-garzi-medici-plata-rezidenti-anul-1.html",
+              "snippet": "Ministrul Sănătății, Alexandru Rogobete, a declarat sâmbătă, la Iași, că printre prioritățile mandatului său se numără creșterea progresivă a tarifelor pentru gărzile medicilor…",
+              "published": "2026-10-24T17:45:21Z"
             },
             {
-              "title": "Mădălina Florea câștigă pentru al doilea an consecutiv Golden Trail World Series, circuitul mondial de alergare montană / Cinci curse, cinci clasări pe podium",
-              "url": "https://www.g4media.ro/madalina-florea-campioana-golden-trail-world-series-2026.html",
-              "snippet": "Atleta română Mădălina Florea a câștigat clasamentul general feminin al Golden Trail World Series 2026, pentru al doilea an consecutiv, încheind sezonul cu 1.164 de puncte…",
-              "published": "2026-10-24T15:29:47Z"
+              "title": "Mii de tineri au protestat în Italia față de scumpirea vieții și chiriile ridicate / Confruntări cu poliția la Bologna",
+              "url": "https://www.g4media.ro/proteste-italia-tineri-scumpiri-chirii-guvernul-meloni.html",
+              "snippet": "Mii de persoane, majoritatea tineri, au participat sâmbătă la manifestații în mai multe orașe din Italia împotriva creșterii costului vieții, a chiriilor ridicate și a…",
+              "published": "2026-10-24T17:37:23Z"
             }
           ]
         }
@@ -273,6 +273,12 @@
           "id": "zf",
           "name": "Ziarul Financiar",
           "items": [
+            {
+              "title": "Cât mai costă o casă într-unul dintre cele mai exclusiviste cartiere ale Bucureştiului? O vilă în stil neo-românesc din Dorobanţi, scoasă la vânzare cu 6,5 milioane de euro. Are 928 mp, piscină interioară şi grădină de 1.500 mp",
+              "url": "https://www.zf.ro/constructii-imobiliare/cat-costa-casa-intr-unul-dintre-cele-exclusiviste-cartiere-bucurestiului-vila-stil-neo-romanesc-dorobanti-scoasa-vanzare-6-5-milioane-euro-928-piscina-interioara-gradina-1-500-23267234",
+              "snippet": "",
+              "published": "2026-10-24T19:01:00Z"
+            },
             {
               "title": "Cum arată antreprenorul corporatist de astăzi: De la 9 la 5 este la corporaţie, angajat, iar după ora 5 este antreprenor. Pentru că nu ştiu cum va merge businessul pe care l-au început, corporatiştii nu vor să renunţe din prima la salariul companiei",
               "url": "https://www.zf.ro/profesii/arata-antreprenorul-corporatist-astazi-9-5-corporatie-angajat-iar-dupa-ora-5-antreprenor-stiu-merge-businessul-l-au-inceput-corporatistii-vor-renunte-prima-salariul-companiei-23267248",
@@ -296,12 +302,6 @@
               "url": "https://www.zf.ro/business-international/ministrul-de-externe-discutie-cu-omologul-francez-despre-sprijinul-frantei-la-marea-neagra-23267240",
               "snippet": "Ministrul de Externe, Dan Neculăescu, a discutat cu omologul francez despre colaborarea dintre România şi Franţa pentru securitatea Europei.",
               "published": "2026-10-24T16:27:10Z"
-            },
-            {
-              "title": "Cât mai costă casele de pe Kiseleff: O reşedinţă de colecţie moştenire arhitecturală Burcuş & Marcu are un preţ de 3,5 milioane EUR",
-              "url": "https://www.zf.ro/constructii-imobiliare/cat-mai-costa-casele-de-pe-kiseleff-o-resedinta-de-colectie-mostenire-arhitecturala-burcus-marcu-are-un-pret-de-3-5-milioane-eur-23267226",
-              "snippet": "",
-              "published": "2026-10-24T15:59:00Z"
             }
           ]
         },
@@ -346,6 +346,12 @@
           "name": "Economica.net",
           "items": [
             {
+              "title": "Un nou lanț de magazine cu haine vine în România: fondatorul Answear aduce Medicine în Mega Mall din București",
+              "url": "https://www.economica.net/magazine-medicine-mega-mall_988925.html",
+              "snippet": "Un nou lanț polonez de magazine cu haine își face intrarea pe piața din România. Dacă până acum hainele brandului Medicine puteau fi achiziționate online de pe platforma Answear…",
+              "published": "2026-10-24T18:34:04Z"
+            },
+            {
               "title": "Interzis pe OLX. Platforma de anunțuri scoate câteva produse de larg interes de la vânzare",
               "url": "https://www.economica.net/interzis-pe-olx-platforma-de-anunturi-schimba-regulile-jocului-pentru-unii-vanzatori_988608.html",
               "snippet": "OLX, cel mai mare site de anunțuri din România, cu peste 5,2 milioane de vizitatori unici în luna iulie, face noi schimbări legate de produsele ce pot fi comercializate prin…",
@@ -368,12 +374,6 @@
               "url": "https://www.economica.net/ilie-bolojan-daca-nu-mentinem-echilibrele-tarii-atunci-o-criza-bugetara-degenereaza-intr-o-criza-economica_988963.html",
               "snippet": "Fostul premier Ilie Bolojan a declarat sâmbătă, la Sfântu Gheorghe, că problemele legate de deficite şi cheltuieli vor continua să reprezinte o provocare şi pentru actualul sau…",
               "published": "2026-10-24T14:51:46Z"
-            },
-            {
-              "title": "Se vor interzice tigăile antiaderente în Europa? Producătorul Tefal riscă un nou proces în Franța, iar UE pregătește noi reguli din 2027",
-              "url": "https://www.economica.net/se-vor-interzice-tigaile-antiaderente-in-europa-producatorul-tefal-risca-un-nou-proces-in-franta-iar-ue-pregateste-noi-reguli-din-2027_988665.html",
-              "snippet": "Grupul francez SEB, proprietarul mărcii Tefal, riscă un nou proces în Franța din cauza utilizării substanțelor chimice PFAS în unele dintre tigăile sale antiaderente. Trei…",
-              "published": "2026-10-24T14:45:45Z"
             }
           ]
         }
@@ -424,6 +424,12 @@
           "name": "Go4IT",
           "items": [
             {
+              "title": "Cartonașele Pokémon revin: Cum a evoluat nostalgia anilor 2000 într-o comunitate offline dedicată tuturor generațiilor",
+              "url": "https://www.go4it.ro/content/cartonasele-pokemon-revin-cum-a-evoluat-nostalgia-anilor-2000-intr-o-comunitate-offline-dedicata-tuturor-generatiilor-19288635/",
+              "snippet": "Cartonașele Pokémon, care făceau furori în curțile școlilor acum 20 de ani, au revenit în atenția pasionaților, iar joaca de altădată s-a transformat într-un adevărat fenomen…",
+              "published": null
+            },
+            {
               "title": "Xiaomi 18T și 18T Pro pregătesc o schimbare importantă. Ce se știe despre noile telefoane",
               "url": "https://www.go4it.ro/content/telefoane-mobile/xiaomi-18t-si-18t-pro-pregatesc-o-schimbare-importanta-ce-se-stie-despre-noile-telefoane-19288611/",
               "snippet": "Xiaomi lucrează la modelele 18T și 18T Pro, iar primele informații apărute despre cele două telefoane indică o posibilă schimbare importantă la capitolul foto. Potrivit unor…",
@@ -446,12 +452,6 @@
               "url": "https://www.go4it.ro/content/telefoane-mobile/samsung-pregateste-baterii-mai-mari-pentru-galaxy-s27-pro-si-ultra-ce-capacitati-vor-avea-cele-doua-telefoane-19288601/",
               "snippet": "Samsung pregătește baterii mai mari pentru viitoarele Galaxy S27 Pro și Galaxy S27 Ultra, iar documentele apărute pe site-ul organismului de certificare TÜV Rheinland confirmă…",
               "published": null
-            },
-            {
-              "title": "Huawei lansează trei noi telefoane, căști în culori inedite și un router Wi-Fi. Ce pregătește compania pentru 28 octombrie",
-              "url": "https://www.go4it.ro/content/telefoane-mobile/huawei-lanseaza-trei-noi-telefoane-casti-in-culori-inedite-si-un-router-wi-fi-ce-pregateste-compania-pentru-28-octombrie-19288594/",
-              "snippet": "Huawei va prezenta o nouă serie de dispozitive pe 28 octombrie, în cadrul unui eveniment dedicat campaniei comerciale din perioada Singles’ Day. Pe listă se află telefoanele Pura…",
-              "published": null
             }
           ]
         },
@@ -459,6 +459,12 @@
           "id": "vergeall",
           "name": "The Verge",
           "items": [
+            {
+              "title": "Pennsylvania will require labels on AI-generated ads",
+              "url": "https://www.theverge.com/ai-artificial-intelligence/1018187/pennsylvania-ai-deceptive-advertising-act",
+              "snippet": "On Thursday, Pennsylvania Governor Josh Shapiro signed the Artificial Intelligence Deceptive Advertising Act into law, requiring disclosures on AI-generated ads. The law requires…",
+              "published": "2026-10-24T18:32:44Z"
+            },
             {
               "title": "I hope Apple’s touchscreen MacBook takes some lessons from this Lenovo laptop",
               "url": "https://www.theverge.com/report/1018131/apple-macbook-touchscreen-stylus-pencil-lenovo-laptop-analysis",
@@ -482,12 +488,6 @@
               "url": "https://www.theverge.com/tech/1018121/cod-4-claude-duet-wildwood-installer",
               "snippet": "Hi, friends! Welcome to Installer No. 149, your guide to the best and Verge-iest stuff in the world. (If you're new here, welcome, happy It Actually Feels Like Fall Now At Least…",
               "published": "2026-10-24T01:16:47Z"
-            },
-            {
-              "title": "LG’s brilliant C6 OLED TV is already $400 off ahead of Black Friday",
-              "url": "https://www.theverge.com/gadgets/1017768/lg-c6-oled-tv-early-black-friday-2026-deal-sale",
-              "snippet": "Black Friday is still over a month away, but if you’re hoping to upgrade your TV, you don’t need to wait until November. LG has already kicked off its early Black Friday sale…",
-              "published": "2026-10-23T22:00:51Z"
             }
           ]
         }
@@ -502,34 +502,34 @@
           "name": "Gazeta Sporturilor",
           "items": [
             {
-              "title": "FCSB - Rapid, derby-ul toamnei pe Arena Națională » Echipele de START + Toate informațiile de la stadion",
+              "title": "Spectacol cu 6 goluri în Napoli - AS Roma: unul a fost din „foarfecă”",
+              "url": "https://www.gsp.ro/international/campionate/napoli-as-roma-serie-a-991834.html",
+              "snippet": "Napoli și Roma au remizat spectaculos în etapa #8 din Serie A, scor 3-3. Napoletanii au irosit avantajul de două ori, în timp ce gruparea din capitala Italiei a marcat golul…",
+              "published": "2026-10-24T19:28:01Z"
+            },
+            {
+              "title": "Incidente pe Arena Națională la FCSB - Rapid! Fanii giuleșteni au vrut să meargă peste roș-albaștri, Jandarmeria i-a scos din stadion!",
+              "url": "https://www.gsp.ro/fotbal/liga-1/incidente-pe-arena-nationala-la-fcsb-rapid-991866.html",
+              "snippet": "Derby-ul FCSB - Rapid de pe Arena Națională, capul de afiș al rundei cu numărul 13 din Superligă, nu a fost lipsit de incidente în incinta celui mai mare stadion al țării. În…",
+              "published": "2026-10-24T19:05:12Z"
+            },
+            {
+              "title": "Arnold Garita, schimbat în minutul 42 în FCSB - Rapid",
+              "url": "https://www.gsp.ro/fotbal/liga-1/arnold-garita-schimbare-fcsb-rapid-superliga-991863.html",
+              "snippet": "Arnold Garita (31 de ani), atacantul celor de la FCSB, a fost schimbat cu trei minute înainte de pauză în meciul roș-albaștrilor cu Rapid, partidă din etapa #13 din Superliga…",
+              "published": "2026-10-24T19:03:15Z"
+            },
+            {
+              "title": "FCSB - Rapid, derby pe Arena Națională » Răsturnare de situație",
               "url": "https://www.gsp.ro/fotbal/liga-1/fcsb-rapid-live-superliga-etapa-13-991517.html",
-              "snippet": "Etapa a 13-a din Superligă programează pe Arena Națională derby-ul dintre FCSB și Rapid. Meciul este astăzi, de la ora 21:00. Va fi transmis în format liveTEXT pe GSP.ro și în…",
-              "published": "2026-10-24T17:02:05Z"
+              "snippet": "Etapa a 13-a din Superligă programează pe Arena Națională derby-ul dintre FCSB și Rapid. Cel mai așteptat meci al rundei a început la ora 21:00, este transmis în format liveTEXT…",
+              "published": "2026-10-24T18:53:23Z"
             },
             {
-              "title": "FC Argeș - UTA 0-1 » Învinși de coșmarul lor! „Bătrâna Doamnă” câștigă la Mioveni și adâncește criza lui Bogdan Andone",
-              "url": "https://www.gsp.ro/fotbal/liga-1/live-fc-arges-superliga-991141.html",
-              "snippet": "UTA s-a impus la limită la Mioveni, 1-0 în fața lui FC Argeș, iar „Bătrâna Doamnă” se infiltrează în lupta pentru locurile de play-off după a doua victorie consecutivă în…",
-              "published": "2026-10-24T16:56:00Z"
-            },
-            {
-              "title": "Imagini fabuloase de pe străzile Capitalei! Show al suporterilor giuleșteni, în drum spre Arena Națională",
-              "url": "https://www.gsp.ro/fotbal/liga-1/imagini-fabuloase-de-pe-strazi-rapid-fcsb-991808.html",
-              "snippet": "Suporterii celor de la Rapid s-au deplasat în corteo spre Arena Națională, înaintea derby-ului cu FCSB, programat în această seară, de la ora 21:00. Suporterii giuleșteni au…",
-              "published": "2026-10-24T16:48:45Z"
-            },
-            {
-              "title": "Direct de la stadion, Andrei Cristea a spus cine ar vrea să marcheze în FCSB - Rapid: „Mi-aș dori foarte mult”",
-              "url": "https://www.gsp.ro/fotbal/liga-1/reactia-lui-andrei-cristea-inainte-de-derby-ul-fcsb-rapid-991802.html",
-              "snippet": "Andrei Cristea (42 de ani), fostul atacant al roș-albaștrilor, a analizat derby-ul etapei a 13-a din Superliga, FCSB - Rapid, partidă care va avea loc în această seară, pe Arena…",
-              "published": "2026-10-24T16:43:11Z"
-            },
-            {
-              "title": "FCSB - Rapid, în etapa #13 din Superliga » Comentăm la GSP Live Special",
-              "url": "https://www.gsp.ro/gsp-special/media/fcsb-rapid-in-etapa-13-din-superliga-comentam-la-gsp-live-special-991804.html",
-              "snippet": "GSP Live Special revine sâmbătă, 24 octombrie, ora 20:30, cu prilejul meciului dintre FCSB și Rapid, contând pentru etapa cu numărul 13 din Superliga. Emisiunea poate fi urmărită…",
-              "published": "2026-10-24T16:41:58Z"
+              "title": "Toate mesajele galeriilor din FCSB - Rapid: „Iar n-au geacă scriitorii” versus „Mioare de culoare”",
+              "url": "https://www.gsp.ro/fotbal/liga-1/razboiul-peluzelor-la-fcsb-rapid-991861.html",
+              "snippet": "Pe lângă atmosfera senzațională din tribunele celui mai mare stadion al țării, unde peste 35.000 de spectatori au asistat la derby-ul FCSB - Rapid, cele două galerii au afișat…",
+              "published": "2026-10-24T18:51:35Z"
             }
           ]
         },
@@ -538,34 +538,34 @@
           "name": "Digi Sport",
           "items": [
             {
-              "title": "Napoli - AS Roma 2-0, ACUM pe Digi Sport 2. Derby în Italia! Programul etapei",
-              "url": "https://www.digisport.ro/fotbal/serie-a/napoli-as-roma-live-video-1900-digi-sport-2-derby-in-italia-programul-etapei-4562077",
-              "snippet": "Napoli - AS Roma 2-0, ACUM pe Digi Sport 2. Derby în Italia! Programul etapei",
-              "published": "2026-10-24T17:15:52Z"
+              "title": "Atletico Madrid - Deportivo 0-0, ACUM, pe Digi Sport 2 | Trupa lui Diego Simeone se poate apropia de Barcelona",
+              "url": "https://www.digisport.ro/fotbal/la-liga/atletico-madrid-deportivo-live-video-2200-digi-sport-2-diego-simeone-se-poate-apropia-de-barcelona-4562141",
+              "snippet": "Atletico Madrid - Deportivo 0-0, ACUM, pe Digi Sport 2 | Trupa lui Diego Simeone se poate apropia de Barcelona",
+              "published": "2026-10-24T19:36:56Z"
             },
             {
-              "title": "Borussia Dortmund - Eintracht Frankfurt 0-0, ACUM, la Digi Sport 4. Meci tare în Germania! Programul zilei",
-              "url": "https://www.digisport.ro/fotbal/bundesliga/borussia-dortmund-eintracht-frankfurt-0-0-acum-la-digi-sport-4-meci-tare-in-germania-programul-zilei-4562157",
-              "snippet": "Borussia Dortmund - Eintracht Frankfurt 0-0, ACUM, la Digi Sport 4. Meci tare în Germania! Programul zilei",
-              "published": "2026-10-24T17:12:15Z"
+              "title": "FCSB - Rapid 2-1, ACUM, Digi Sport 1. GOOL! Boutoutaou și-a dus echipa în avantaj",
+              "url": "https://www.digisport.ro/fotbal/liga-1/fcsb-rapid-sambata-live-video-2100-pe-digi-sport-1-derby-ul-etapei-cu-numarul-13-echipele-probabile-4560107",
+              "snippet": "FCSB - Rapid 2-1, ACUM, Digi Sport 1. GOOL! Boutoutaou și-a dus echipa în avantaj",
+              "published": "2026-10-24T19:33:29Z"
             },
             {
-              "title": "Ștefan Târnovanu a fost aproape de transferul în Serie A! Giovanni Becali: ”Lui Gigi nici nu i-am spus!”",
-              "url": "https://www.digisport.ro/fotbal/serie-a/stefan-tarnovanu-a-fost-aproape-de-transferul-in-serie-a-giovanni-becali-lui-gigi-nici-nu-i-am-spus-4562543",
-              "snippet": "Ștefan Târnovanu a fost aproape de transferul în Serie A! Giovanni Becali: ”Lui Gigi nici nu i-am spus!”",
-              "published": "2026-10-24T17:11:22Z"
+              "title": "”Explozie” de bucurie la FCSB, după golul egalizator al lui Karlo Muhar cu Rapid: Denis Drăguș, în prim-plan",
+              "url": "https://www.digisport.ro/fotbal/liga-1/explozie-de-bucurie-la-fcsb-dupa-golul-egalizator-al-lui-karlo-muhar-cu-rapid-denis-dragus-in-prim-plan-4563393",
+              "snippet": "”Explozie” de bucurie la FCSB, după golul egalizator al lui Karlo Muhar cu Rapid: Denis Drăguș, în prim-plan",
+              "published": "2026-10-24T19:31:34Z"
             },
             {
-              "title": "Jose Mourinho n-a rezistat înainte de Barcelona - Real Madrid: ”Ești deștept, dar eu nu sunt prost!”",
-              "url": "https://www.digisport.ro/fotbal/la-liga/jose-mourinho-n-a-rezistat-inainte-de-barcelona-real-madrid-esti-destept-dar-eu-nu-sunt-prost-4562587",
-              "snippet": "Jose Mourinho n-a rezistat înainte de Barcelona - Real Madrid: ”Ești deștept, dar eu nu sunt prost!”",
-              "published": "2026-10-24T17:10:58Z"
+              "title": "Record în SuperLigă! Câți spectatori au fost la FCSB - Rapid",
+              "url": "https://www.digisport.ro/fotbal/liga-1/record-in-superliga-cati-spectatori-au-fost-la-fcsb-rapid-4563369",
+              "snippet": "Record în SuperLigă! Câți spectatori au fost la FCSB - Rapid",
+              "published": "2026-10-24T19:30:14Z"
             },
             {
-              "title": "Dan Alexa: ”E `cancer`!”. A refuzat 500.000 € fără să stea pe gânduri",
-              "url": "https://www.digisport.ro/fotbal/dan-alexa-e-cancer-a-refuzat-500-000-e-fara-sa-stea-pe-ganduri-4563005",
-              "snippet": "Dan Alexa: ”E `cancer`!”. A refuzat 500.000 € fără să stea pe gânduri",
-              "published": "2026-10-24T17:10:25Z"
+              "title": "Nota primită de Octavian Popescu, titular la Levadiakos într-un meci ”istoric”",
+              "url": "https://www.digisport.ro/fotbal/nota-primita-de-octavian-popescu-titular-la-levadiakos-intr-un-nou-meci-istoric-4563195",
+              "snippet": "Nota primită de Octavian Popescu, titular la Levadiakos într-un meci ”istoric”",
+              "published": "2026-10-24T19:12:41Z"
             }
           ]
         },
@@ -574,34 +574,34 @@
           "name": "ProSport",
           "items": [
             {
-              "title": "MERCATO Ofertă de 2.000.000 de euro pentru Târnovanu. Giovanni Becali: „Vorbesc cu domnul Vagheggi”",
-              "url": "https://www.prosport.ro/fotbal-intern/superliga/oferta-de-2-000-000-de-euro-pentru-tarnovanu-giovanni-becali-vorbesc-cu-domnul-vagheggi-20554836",
-              "snippet": "Impresarul Giovanni Becali (74 de ani) a vorbit despre faptul că un club din Italia a făcut o ofertă de 2.000.000 de euro pentru titularul din poarta echipei FCSB, Ștefan…",
-              "published": "2026-10-24T17:06:40Z"
+              "title": "Gigi Becali s-a săturat după 45 de minute! David Miculescu, OUT din echipa FCSB la pauza meciului FCSB – Rapid",
+              "url": "https://www.prosport.ro/fotbal-intern/superliga/david-miculescu-out-pauza-fcsb-rapid-45-de-minute-schimbat-gigi-becali-20555028",
+              "snippet": "David Miculescu l-a scos din sărite pe Gigi Becali și a fost schimbat la pauza derby-ului FCSB – Rapid, când tabela de marcaj arăta 1-0 pentru oaspeți. Criticat după meciul cu FC…",
+              "published": "2026-10-24T19:34:49Z"
             },
             {
-              "title": "Nuno Campos nu s-a ferit de cuvinte. Cum a numit echipa lui Șumudică înainte de CFR Cluj – Dinamo",
-              "url": "https://www.prosport.ro/fotbal-intern/superliga/nuno-campos-marius-sumudica-cfr-cluj-dinamo-echipa-20554840",
-              "snippet": "Nuno Campos (51 de ani), antrenorul lui Dinamo, a prefațat meciul din deplasare cu CFR Cluj, programat duminică seară, de la ora 19.00, în etapa a 13-a din Superligă. Portughezul…",
-              "published": "2026-10-24T17:02:19Z"
+              "title": "Radu Drăgușin, susținut cu putere de italieni înaintea duelului cu Cristi Chivu! Verdictul suporterilor Fiorentinei după criticile dure",
+              "url": "https://www.prosport.ro/fotbal-extern/stranieri/radu-dragusin-sustinut-cu-putere-de-italieni-inaintea-duelului-cu-cristi-chivu-verdictul-suporterilor-fiorentinei-dupa-criticile-dure-20554975",
+              "snippet": "Radu Drăgușin continuă să beneficieze de încrederea suporterilor celor de la Fiorentina, în ciuda criticilor pe care le-a primit după înfrângerea cu Como, scor 1-3. Fundașul…",
+              "published": "2026-10-24T19:33:16Z"
             },
             {
-              "title": "Etapa 10 Liga 3 | Dintre lideri, doar CSM Vaslui s-a împiedicat. Corona Brașov ”bate” Sporting Lieşti la scorul rundei, obținut în chiar ultimul meci al etapei. Flacăra Moreni, Axiopolis Cernavodă și FCSB 2 au bifat și ele rezultate ”clare”",
-              "url": "https://www.prosport.ro/fotbal-intern/liga-3/etapa-10-liga-3-dintre-lideri-doar-csm-vaslui-s-a-impiedicat-sporting-liesti-a-reusit-rezultatul-rundei-dar-si-flacara-moreni-axiopolis-cernavoda-si-fcsb-2-au-bifat-scoruri-de-tenis-20554733",
-              "snippet": "Etapa 10 Liga 3 | Dintre lideri, doar CSM Vaslui s-a împiedicat. Sporting Lieşti a reușit rezultatul rundei, dar și Flacăra Moreni, Axiopolis Cernavodă și FCSB 2 au bifat scoruri…",
-              "published": "2026-10-24T16:59:02Z"
+              "title": "Accidentare sau supărare? Garita, scos înainte de pauză de Reghecampf în FCSB – Rapid",
+              "url": "https://www.prosport.ro/fotbal-intern/superliga/accidentare-sau-suparare-garita-scos-inainte-de-pauza-de-reghecampf-in-fcsb-rapid-20555017",
+              "snippet": "Arnold Garita, atacantul celor de la FCSB, a fost scos din teren în timpul meciului cu Rapid București cu doar câteva minute înainte de pauză, în locul lui fiind introdus în…",
+              "published": "2026-10-24T19:18:08Z"
             },
             {
-              "title": "Nebunia Pokemon a ajuns în București! CANCAN a fost în locul unde se adună sute de pasionați",
-              "url": "https://www.prosport.ro/comunicate/nebunia-pokemon-a-ajuns-in-bucuresti-cancan-a-fost-in-locul-unde-se-aduna-sute-de-pasionati-20554847",
-              "snippet": "Cartonașele Pokémon, care făceau furori în curțile școlilor acum 20 de ani, au revenit în atenția pasionaților, iar joaca de altădată s-a transformat într-un adevărat fenomen…",
-              "published": "2026-10-24T16:53:53Z"
+              "title": "Guti și Jordi Alba s-au contrat înainte de Barcelona – Real Madrid! Fostul star al catalanilor a spus-o fără menajamente: „A fost și este cel mai bun!”",
+              "url": "https://www.prosport.ro/fotbal-extern/campionate-externe/spania/el-clasic-barcelona-real-20554832",
+              "snippet": "Guti (49 de ani) și Jordi Alba (37 de ani), două nume importante din istoria lui Real Madrid și, respectiv, a Barcelonei, s-au întâlnit în Spania și au avut un schimb de replici…",
+              "published": "2026-10-24T19:16:53Z"
             },
             {
-              "title": "Știința Poli Timișoara a urcat pe primul loc în Liga 2, dar Dan Alexa a fost un car de nervi. Ce a spus despre eliminarea din partida cu FC Bacău",
-              "url": "https://www.prosport.ro/fotbal-intern/liga-2/stiinta-poli-timisoara-a-urcat-pe-primul-loc-in-liga-2-dar-dan-alexa-a-fost-un-car-de-nervi-ce-a-spus-despre-eliminarea-din-partida-cu-fc-bacau-20554868",
-              "snippet": "Știința Poli a urcat pe primul loc în Liga 2, dar Dan Alexa a fost un car de nervi. Ce a spus despre eliminarea din partida cu FC Bacău The post Știința Poli Timișoara a urcat pe…",
-              "published": "2026-10-24T16:52:52Z"
+              "title": "Dezastru pentru echipa lui Andrei Rațiu în Spania! Rayo, umilită cu 3-0 pe teren propriu fără român: a ajuns pe locul 17",
+              "url": "https://www.prosport.ro/fotbal-extern/campionate-externe/spania/andrei-ratiu-umilinta-spania-rayo-vallecano-3-0-teren-propriu-roman-locul-17-20555005",
+              "snippet": "Rayo Vallecano, fără Andrei Rațiu (28 de ani), accidentat, a fost subordonată pe teren propriu de Elche, scor 0-3, în etapa a 10-a din La Liga. Echipa internaționalului român a…",
+              "published": "2026-10-24T19:12:55Z"
             }
           ]
         }
@@ -728,6 +728,12 @@
       "name": "The Verge AI",
       "items": [
         {
+          "title": "Pennsylvania will require labels on AI-generated ads",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1018187/pennsylvania-ai-deceptive-advertising-act",
+          "snippet": "On Thursday, Pennsylvania Governor Josh Shapiro signed the Artificial Intelligence Deceptive Advertising Act into law, requiring disclosures on AI-generated ads. The law requires…",
+          "published": "2026-10-24T18:32:44Z"
+        },
+        {
           "title": "OpenAI now trains its frontier AI models with no internet access",
           "url": "https://www.theverge.com/ai-artificial-intelligence/1018021/openai-training-top-ai-models-no-internet",
           "snippet": "OpenAI is now training its most advanced AI models without internet access following a string of rogue hacking incidents. In a blog post on Friday, OpenAI says it built an…",
@@ -750,12 +756,6 @@
           "url": "https://www.theverge.com/tech/1017600/google-personal-intelligence-privacy-policy-ads-update",
           "snippet": "Google has updated its privacy policy in a way that could mean you'll start seeing targeted ads based on your personal data if you're using personalized AI features. The update…",
           "published": "2026-10-23T16:52:55Z"
-        },
-        {
-          "title": "Meta delays new business terms after publisher pushback on AI scraping",
-          "url": "https://www.theverge.com/tech/1017450/meta-business-terms-delayed-ai-scraping",
-          "snippet": "Meta is delaying the enforcement of its new business terms after publishers raised concerns that they could allow the company to scrape news sites for AI training, as reported…",
-          "published": "2026-10-23T14:47:41Z"
         }
       ]
     },
@@ -763,6 +763,12 @@
       "id": "techcrunch",
       "name": "TechCrunch AI",
       "items": [
+        {
+          "title": "The AI graveyard: a running list of projects and startups that didn’t make it",
+          "url": "https://techcrunch.com/2026/10/24/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/",
+          "snippet": "From Apple's repeatedly delayed Siri AI to OpenAI's messy \"super app\" launch, here's a look at the AI projects that shut down or missed expectations.",
+          "published": "2026-10-24T19:00:00Z"
+        },
         {
           "title": "Block’s new voice model sounds eerily human",
           "url": "https://techcrunch.com/2026/10/24/blocks-new-voice-model-sounds-eerily-human/",
@@ -786,12 +792,6 @@
           "url": "https://techcrunch.com/2026/10/23/openai-says-it-will-no-longer-train-its-ai-models-on-the-live-internet-citing-significant-risks/",
           "snippet": "OpenAI will cut frontier models off from the internet weeks after one of its engineers said that solution wouldn't work.",
           "published": "2026-10-23T23:05:49Z"
-        },
-        {
-          "title": "Hottest toy for Christmas? Nvidia CEO plays with adorable Microduck robots, 20,000 sell",
-          "url": "https://techcrunch.com/2026/10/23/hottest-toy-for-christmas-nvidia-ceo-plays-with-adorable-microduck-robots-20000-sell/",
-          "snippet": "The robots, stomping their little feet and making tiny R2-D2 noises, sat, fell down dead for a \"nap,\" and summersaulted on voice command.",
-          "published": "2026-10-23T21:59:19Z"
         }
       ]
     },
