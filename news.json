@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-29T21:40:16.962498Z",
+  "updated": "2026-10-30T01:44:21.569261Z",
   "categories": [
     {
       "id": "ai",
@@ -9,6 +9,12 @@
           "id": "verge",
           "name": "The Verge AI",
           "items": [
+            {
+              "title": "AI has come for Arizona’s water",
+              "url": "https://www.theverge.com/cs/features/1016650/arizona-water-data-center-tsmc",
+              "snippet": "A hulking gray giant rises from the desert. Inside, engineers create the force behind our phones and computers and appliances, our streaming services and search engines and…",
+              "published": "2026-10-29T23:03:22Z"
+            },
             {
               "title": "You can generate and edit Google Docs files directly in Gemini chats now",
               "url": "https://www.theverge.com/ai-artificial-intelligence/1022519/google-gemini-file-editing-documents-pdfs",
@@ -20,12 +26,6 @@
               "url": "https://www.theverge.com/tech/1022023/microsoft-exit-offer-layoffs-notepad",
               "snippet": "To anyone listening closely to what Microsoft CEO Satya Nadella has been saying over the past couple of years, this week felt like the clearest sign yet that AI is about to…",
               "published": "2026-10-29T16:48:16Z"
-            },
-            {
-              "title": "AI has come for Arizona’s water",
-              "url": "https://www.theverge.com/cs/features/1016650/arizona-water-data-center-tsmc",
-              "snippet": "A hulking gray giant rises from the desert. Inside, engineers create the force behind our phones and computers and appliances, our streaming services and search engines and…",
-              "published": "2026-10-29T16:47:27Z"
             },
             {
               "title": "The NYT Cooking app is testing AI recipe modifications",
@@ -46,6 +46,18 @@
           "name": "TechCrunch AI",
           "items": [
             {
+              "title": "You don’t need to believe in a god to get a religious exemption from using AI at work",
+              "url": "https://techcrunch.com/2026/10/29/you-dont-need-to-believe-in-a-god-to-get-a-religious-exemption-from-using-ai-at-work/",
+              "snippet": "David Durman, a University of Kentucky administrator, recently earned a religious exemption from using AI in the workplace.",
+              "published": "2026-10-30T01:20:48Z"
+            },
+            {
+              "title": "AWS will be a $1T business, Jassy says. But first, it will spend big.",
+              "url": "https://techcrunch.com/2026/10/29/aws-will-be-a-1t-business-jassy-says-but-first-it-will-spend-big/",
+              "snippet": "Amazon wants to be the king of AI cloud computing and become the first $1 trillion revenue business. But to do that it will have to continue on its capex spending spree, its CEO…",
+              "published": "2026-10-29T23:42:22Z"
+            },
+            {
               "title": "As search traffic dries up, Reddit announces it’s shifting to a logged-in experience",
               "url": "https://techcrunch.com/2026/10/29/as-search-traffic-dries-up-reddit-announces-its-shifting-to-a-logged-in-experience/",
               "snippet": "As AI transforms how people find information online, Reddit is rethinking its open-web roots to protect its audience and business.",
@@ -62,18 +74,6 @@
               "url": "https://techcrunch.com/2026/10/29/openai-backed-thrive-holdings-acquires-adt/",
               "snippet": "OpenAI-backed Thrive Holdings is buying ADT in a $15.3 billion deal, with plans to bring AI to the home security business.",
               "published": "2026-10-29T19:56:19Z"
-            },
-            {
-              "title": "Meta quietly launches an AI fashion app called Style Sketch",
-              "url": "https://techcrunch.com/2026/10/29/meta-quietly-launches-an-ai-fashion-app-called-style-sketch/",
-              "snippet": "The app connects to Instagram to build a virtual closet from photos you’ve already shared, or lets you add items manually by snapping a photo, recording a quick video, or…",
-              "published": "2026-10-29T19:14:36Z"
-            },
-            {
-              "title": "Granola crunches up a dictation feature to compete with Wispr",
-              "url": "https://techcrunch.com/2026/10/29/granola-crunches-up-a-dictation-feature-to-compete-with-wispr/",
-              "snippet": "Uno reverse! After Wispr added meeting notes to its dictation app, Granola is adding dictation to its meeting notetaker. The voice AI wars are getting interesting.",
-              "published": "2026-10-29T17:54:38Z"
             }
           ]
         },
@@ -160,34 +160,34 @@
           "name": "Digi24",
           "items": [
             {
+              "title": "Patrick Stewart a murit. Actorul faimos pentru rolul căpitanului Jean Luc Picard din „Star Trek - Generația următoare” avea 86 de ani",
+              "url": "https://www.digi24.ro/stiri/externe/mapamond/patrick-stewart-a-murit-actorul-faimos-pentru-rolul-capitanului-picard-din-star-trek-avea-86-de-ani-4014495",
+              "snippet": "Actorul Patrick Stewart a murit miercuri la reședința sa din Los Angeles, la vârsta de 86 de ani. Decesul, cauzat de boala Alzheimer și de demența cu corpi Lewy, a fost anunțat…",
+              "published": "2026-10-29T22:14:14Z"
+            },
+            {
+              "title": "Patrick Stewart, omagiat de președintele Marvel Studios. Actorul l-a interpretat pe Charles Xavier în seria „X-Men”",
+              "url": "https://www.digi24.ro/magazin/timp-liber/divertisment/patrick-stewart-omagiat-de-presedintele-marvel-studios-actorul-l-a-interpretat-pe-chrales-xavier-in-seria-x-men-4014625",
+              "snippet": "Kevin Feige, directorul Marvel Studios, i-a adus un omagiu regretatului Patrick Stewart, care a interpretat rolul profesorului Charles Xavier încă din filmul „X-Men” din 2000.",
+              "published": "2026-10-29T21:59:16Z"
+            },
+            {
+              "title": "Gabriel-Ciprian Ene, magistrat-asistent la Înalta Curte de Casaţie şi Justiţie, a fost numit secretar general al Guvernului",
+              "url": "https://www.digi24.ro/stiri/actualitate/politica/gabriel-ciprian-ene-magistrat-asistent-la-inalta-curte-de-casatie-si-justitie-a-fost-numit-secretar-general-al-guvernului-4014607",
+              "snippet": "Gabriel-Ciprian Ene, magistrat-asistent la Înalta Curte de Casaţoe şi Justiţie, a fost numit secretar general al Guvernului, printr-o decizie a premierului Luca Niculescu…",
+              "published": "2026-10-29T21:48:54Z"
+            },
+            {
+              "title": "Ministrul Apărării a trimis Corpul de Control la Direcţia care se ocupă cu achiziția de echipamente pentru a verifica contractele SAFE",
+              "url": "https://www.digi24.ro/stiri/actualitate/politica/ministrul-apararii-a-trimis-corpul-de-control-la-directia-care-se-ocupa-cu-achizitia-de-echipamente-pentru-a-verifica-contractele-safe-4014603",
+              "snippet": "Ministrul Apărării Naţionale, Radu Oprea, a anunţat, joi, că a trimis Corpul de Control la DGARM, structura specializată din cadrul Ministerului Apărării care se ocupă cu…",
+              "published": "2026-10-29T21:42:02Z"
+            },
+            {
               "title": "„Winter is coming\". Jaime Lannister a ales iar tabăra care luptă pentru viață. Nikolaj Coster-Waldau, vizită surpriză în Kiev",
               "url": "https://www.digi24.ro/stiri/externe/ue/winter-is-coming-jaime-lannister-a-ales-iar-tabara-care-lupta-pentru-viata-nikolaj-coster-waldau-vizita-surpriza-in-kiev-4014583",
               "snippet": "Actorul danez Nikolaj Coster-Waldau, care l-a interpretat pe Jaime Lannister în serialul „Game of Thrones”, a mers la Kiev. În seara zilei de 28 octombrie, acesta a fost văzut…",
               "published": "2026-10-29T21:03:08Z"
-            },
-            {
-              "title": "Elveţia ia în calcul reducerea vitezei maxime pe autostrăzile sale la 80 km/h. Motivul pentru care s-ar putea lua această decizie",
-              "url": "https://www.digi24.ro/stiri/externe/ue/elvetia-ia-in-calcul-reducerea-vitezei-maxime-pe-autostrazile-sale-la-80-km-h-motivul-pentru-care-s-ar-putea-lua-aceasta-decizie-4014579",
-              "snippet": "Elveţia ia în calcul o reducere temporară a vitezei pe autostrăzi, o măsură care ar veni să „completeze măsurile luate deja pentru economisirea de combustibil, potrivit Oficiului…",
-              "published": "2026-10-29T20:54:10Z"
-            },
-            {
-              "title": "Cum l-a ajutat Trump pe Flavio Bolsonaro să fugă din Brazilia după înfrângerea în alegeri. Dezvăluirile unor oficiali americani (NYT)",
-              "url": "https://www.digi24.ro/stiri/externe/cum-l-a-ajutat-trump-pe-flavio-bolsonaro-sa-fuga-din-brazilia-dupa-infrangerea-in-alegeri-dezvaluirile-unor-oficiali-americani-nyt-4014571",
-              "snippet": "Președintele american Donald Trump și membri ai administrației sale l-au ajutat pe Flavio Bolsonaro să ajungă în Statele Unite, după ce acesta a pierdut alegerile prezidențiale…",
-              "published": "2026-10-29T20:52:47Z"
-            },
-            {
-              "title": "Putin susține că Rusia este „pregătită” pentru un război cu Europa: „Dacă se va merge prea departe, nu vor mai exista câștigători”",
-              "url": "https://www.digi24.ro/stiri/externe/rusia/putin-sustine-ca-rusia-este-pregatita-pentru-un-razboi-cu-europa-daca-se-va-merge-prea-departe-nu-vor-mai-exista-castigatori-4014461",
-              "snippet": "Rusia este „pregătită” pentru un război cu Europa, deși nu îl dorește, a declarat joi președintele Vladimir Putin în cadrul conferinței de presă organizate la finalul summitului…",
-              "published": "2026-10-29T20:50:23Z"
-            },
-            {
-              "title": "Cum ar vota românii dacă duminică ar avea loc alegeri parlamentare: primul sondaj după instalarea guvernului PSD - Niculescu",
-              "url": "https://www.digi24.ro/stiri/actualitate/politica/cum-ar-vota-romanii-daca-duminica-ar-avea-loc-alegeri-parlamentare-primul-sondaj-dupa-instalarea-guvernului-psd-niculescu-4014209",
-              "snippet": "Dacă duminica viitoare ar avea loc alegeri parlamentare, AUR ar obține 34% din voturi, fiind urmat de PSD cu 26%, PNL cu 16%, USR cu 8%, iar UDMR cu 5%, potrivit unui sondaj CURS…",
-              "published": "2026-10-29T20:49:50Z"
             }
           ]
         },
@@ -196,34 +196,34 @@
           "name": "HotNews",
           "items": [
             {
+              "title": "Rar anunț comun făcut de Rusia și Ucraina",
+              "url": "https://hotnews.ro/rusia-si-ucraina-anunta-finalizarea-operatiunilor-de-deminare-din-orasul-oleski-din-herson-pe-fondul-unei-misiuni-umanitare-2390337",
+              "snippet": "Moscova și Kievul au anunțat joi că operațiunile de deminare din jurul orașului Oleșki, aflat sub controlul forțelor ruse și afectat de conflict, din sudul Ucrainei, au fost…",
+              "published": "2026-10-29T22:46:00Z"
+            },
+            {
+              "title": "Elveţia vrea să reducă viteza maximă pe autostrăzi la 80 km/h pentru a combate penuria de combustibil",
+              "url": "https://hotnews.ro/elvetia-vrea-sa-reduca-viteza-maxima-pe-autostrazi-la-80-km-h-pentru-a-combate-penuria-de-combustibil-2390323",
+              "snippet": "Elveţia ia în calcul o reducere temporară a vitezei pe autostrăzi, o măsură care ar veni să completeze măsurile luate deja pentru economisirea de combustibil, potrivit Oficiului…",
+              "published": "2026-10-29T22:19:38Z"
+            },
+            {
+              "title": "Cine sunt oamenii care l-au ajutat pe Flavio Bolsonaro să fugă din Brazilia în SUA. „Ordinele” venite de la cel mai înalt nivel",
+              "url": "https://hotnews.ro/donald-trump-si-consilierii-sai-l-au-ajutat-pe-flavio-bolsonaro-sa-fuga-din-brazilia-in-sua-scrie-nyt-2390321",
+              "snippet": "Președintele american Donald Trump și consilierii săi l-au ajutat pe senatorul de extremă-dreapta brazilian Flavio Bolsonaro să fugă în Statele Unite și este de așteptat ca…",
+              "published": "2026-10-29T22:04:36Z"
+            },
+            {
+              "title": "Noul ministru al Apărării anunță că a trimis Corpul de Control să verifice contractele din programul SAFE",
+              "url": "https://hotnews.ro/noul-ministru-al-apararii-anunta-ca-a-trimis-corpul-de-control-sa-verifice-contractele-din-programul-safe-2390308",
+              "snippet": "Ministrul Apărării Naţionale, Ştefan Radu Oprea, a anunţat, joi seară, că a trimis Corpul de Control la Direcţia Generală pentru Armamente (DGARM), structura specializată din…",
+              "published": "2026-10-29T21:50:44Z"
+            },
+            {
               "title": "Putin afirmă că Rusia este „pregătită” de război cu Europa și transmite un avertisment: „Să nu uite nimeni acest lucru”",
               "url": "https://hotnews.ro/putin-afirma-ca-rusia-este-pregatita-de-razboi-cu-europa-si-transmite-un-avertisment-sa-nu-uite-nimeni-acest-lucru-2390302",
               "snippet": "Președintele Vladimir Putin a făcut joi noi declarații despre relațiile Moscovei cu țările europene, într-o conferință de presă care a urmat summitului Rusia-Africa, în care…",
               "published": "2026-10-29T21:24:07Z"
-            },
-            {
-              "title": "Ministrul pentru Digitalizare: Îmi doresc ca toate imprimantele din minister să dispară",
-              "url": "https://hotnews.ro/ministrul-delegat-pentru-digitalizare-imi-doresc-ca-toate-imprimantele-din-minister-sa-dispara-2390294",
-              "snippet": "Ministrul delegat pentru Digitalizare şi Inteligenţă Artificială (AI), Bogdan Dumitru, susţine că doreşte ca toate imprimantele din minister să dispară, după ce, într-o săptămână…",
-              "published": "2026-10-29T21:13:00Z"
-            },
-            {
-              "title": "România discută cu SUA despre suportarea costurilor prezenței militare americane. „Suntem în dialog, nu avem decizii finale”, spune ministrul de Externe",
-              "url": "https://hotnews.ro/romania-discuta-cu-sua-despre-suportarea-costurilor-prezentei-militare-americane-suntem-in-dialog-nu-avem-decizii-finale-spune-ministrul-de-externe-2390285",
-              "snippet": "Ministrul de Externe, Dan Neculăescu, a precizat, la TVR Info, că România este în dialog cu SUA privind costurile pe care ţara noastră le-ar putea asigura pentru a securiza…",
-              "published": "2026-10-29T20:56:49Z"
-            },
-            {
-              "title": "Rezultatele surprinzătoare ale unui studiu efectuat în Coreea de Sud. „Sunt chiar mai dăunătoare pentru mediu”",
-              "url": "https://hotnews.ro/rezultatele-surprinzatoare-ale-unui-studiu-efectuat-in-coreea-de-sud-sunt-chiar-mai-daunatoare-pentru-mediu-2390276",
-              "snippet": "Un studiu comandat recent de guvernul din Coreea de Sud a constatat că paiele de hârtie pot fi mai dăunătoare pentru mediu decât cele din plastic, ceea ce a dus la critici la…",
-              "published": "2026-10-29T20:47:55Z"
-            },
-            {
-              "title": "Dreapta din Brazilia ia distanță de Flavio Bolsonaro, după fuga acestuia în SUA",
-              "url": "https://hotnews.ro/dreapta-din-brazilia-ia-distanta-de-flavio-bolsonaro-dupa-fuga-acestuia-in-sua-2390265",
-              "snippet": "Principalele partide de dreapta şi centru-dreapta din Brazilia, inclusiv Partidul Liberal (PL) al lui Jair Bolsonaro, şi-au reafirmat joi încrederea în sistemul electoral şi au…",
-              "published": "2026-10-29T20:26:39Z"
             }
           ]
         },
@@ -274,34 +274,34 @@
           "name": "Ziarul Financiar",
           "items": [
             {
-              "title": "Acţiunile Intel se prăbuşesc cu 17% în tranzacţiile after-hours, după ce producătorul american de cipuri a anunţat pentru trimestrul al patrulea venituri sub aşteptările analiştilor de pe Wall Street",
-              "url": "https://www.zf.ro/burse-fonduri-mutuale/actiunile-intel-se-prabusesc-cu-17-in-tranzactiile-after-hours-dupa-ce-producatorul-american-de-cipuri-a-anuntat-pentru-trimestrul-al-patrulea-venituri-sub-asteptarile-analistilor-de-pe-wall-street-23270682",
-              "snippet": "",
-              "published": "2026-10-29T21:31:07Z"
+              "title": "Surprize în energie. Gigantul american Carlyle a decis să vândă exploatarea de gaz din Marea Neagră unei firme olandeze, Mazarine Energy, care este asociată cu Gazprom în producţia de gaze. Carlyle a investit 400 mil. dolari şi a obţinut profituri nete de 500 mil. dolari până acum",
+              "url": "https://www.zf.ro/companii/energie/surprize-energie-gigantul-american-carlyle-decis-vanda-exploatarea-gaz-marea-neagra-unei-firme-olandeze-mazarine-energy-asociata-gazprom-productia-gaze-carlyle-investit-400-mil-dolari-obtinut-23270654",
+              "snippet": "„Compania globală de investiţii Carlyle (NASDAQ: CG) şi Banca Europeană pentru Reconstrucţie şi Dezvoltare (BERD) anunţă că au ajuns la un acord pentru vânzarea Black Sea Oil &…",
+              "published": "2026-10-29T22:08:00Z"
             },
             {
-              "title": "Celebrul actor britanic Sir Patrick Stewart, \"capitanul Picard\" din Star Trek, a murit la vârsta de 86 de ani",
-              "url": "https://www.zf.ro/eveniment/celebrul-actor-britanic-sir-patrick-stewart-capitanul-picard-din-star-trek-a-murit-la-varsta-de-86-de-ani-23270668",
-              "snippet": "",
-              "published": "2026-10-29T20:09:00Z"
+              "title": "PwC, 35 de ani. Care sunt cele mai importante lucruri pe care trebuie să le cunoască un expert în M&A? George Ureche, partener: „Nu poţi să fii un bun profesionist şi să faci lucrurile la întâmplare“",
+              "url": "https://www.zf.ro/pwc-35-de-ani-in-romania/pwc-35-de-ani-care-sunt-cele-mai-importante-lucruri-pe-care-trebuie-sa-le-cunoasca-un-expert-in-m-a-george-ureche-partener-nu-poti-sa-fii-un-bun-profesionist-si-sa-faci-lucrurile-la-intamplare-23270525",
+              "snippet": "George Ureche, partener, PwC şi lider al practicii de M&A pe plan local a companiei de consultanţă şi audit, a venit în PricewaterhouseCoopers în urmă cu 26 de ani.",
+              "published": "2026-10-29T22:07:00Z"
             },
             {
-              "title": "Ediţia 30 octombrie 2026 epaper",
-              "url": "https://www.zf.ro/auxiliar/editia-30-octombrie-2026-epaper-23270656",
-              "snippet": "",
-              "published": "2026-10-29T19:57:05Z"
+              "title": "GrECo şi ZF Risk Day HORIZON. Oamenii devin cea mai importantă investiţie a companiilor. De la sănătate şi beneficii personalizate la flexibilitate şi prevenţie, angajatorii trebuie să găsească noi soluţii pentru a-şi păstra angajaţii şi a susţine productivitatea",
+              "url": "https://www.zf.ro/companii/greco-zf-risk-day-horizon-oamenii-devin-cea-importanta-investitie-companiilor-sanatate-beneficii-personalizate-flexibilitate-preventie-angajatorii-gaseasca-solutii-pastra-angajatii-sustine-23270574",
+              "snippet": "Deficitul de forţă de muncă, îmbătrânirea populaţiei, schimbarea aşteptărilor noilor generaţii şi problemele de sănătate ale angajaţilor devin provocări tot mai importante pentru…",
+              "published": "2026-10-29T22:07:00Z"
             },
             {
-              "title": "Emma Delaney, noua şefă a OMV, acţionarul majoritar al Petrom: O parte din gazele din Neptun Deep rămân în România, restul merg în Europa. „Ce este bun pentru România este bun pentru UE în privinţa gazelor”. Despre contracte: Nu voi intra în detalii",
-              "url": "https://www.zf.ro/companii/energie/emma-delaney-sefa-omv-actionarul-majoritar-petrom-parte-gazele-neptun-deep-raman-romania-restul-merg-europa-bun-romania-bun-ue-privinta-gazelor-contracte-intra-detalii-23270634",
-              "snippet": "",
-              "published": "2026-10-29T19:07:06Z"
+              "title": "Inteligenţa artificială poate deveni cel mai mare pariu economic din istoria SUA. Dacă americanii îl pierd, şocul va fi simţit de întreaga lume",
+              "url": "https://www.zf.ro/business-international/inteligenta-artificiala-poate-deveni-cel-mai-mare-pariu-economic-din-istoria-sua-daca-americanii-il-pierd-socul-va-fi-simtit-de-intreaga-lume-23270581",
+              "snippet": "În SUA, inteligenţa artificială este pe cale să devină cel mai mare pariu economic din istoria ţării. Cheltuielile pentru centrele de date sunt mai mari decât cele pentru…",
+              "published": "2026-10-29T22:07:00Z"
             },
             {
-              "title": "Ce spune ministrul Finanţelor, Alexandru Nazare, despre rectificarea bugetară. „Aceste alocări au fost posibile prin prioritizare, nu prin cheltuieli suplimentare”",
-              "url": "https://www.zf.ro/eveniment/ce-spune-ministrul-finantelor-alexandru-nazare-despre-rectificarea-bugetara-aceste-alocari-au-fost-posibile-prin-prioritizare-nu-prin-cheltuieli-suplimentare-23270623",
-              "snippet": "Ministrul Finanţelor, Alexandru Nazare, spune că prima rectificare bugetară din 2026 a fost construită pe baza unei evaluări a veniturilor şi obligaţiilor de plată, cu prioritate…",
-              "published": "2026-10-29T18:36:47Z"
+              "title": "Business sportiv. Cum se împarte sportul organizat în România? Peste 11.800 de cluburi sportive sunt la nivel naţional, din care o treime se împart în cinci judeţe. Distribuţia cluburilor sportive arată cât de mari sunt discrepanţele între judeţele ţării",
+              "url": "https://www.zf.ro/business-sportiv/business-sportiv-imparte-sportul-organizat-romania-peste-11-800-cluburi-sportive-nivel-national-treime-impart-cinci-judete-distributia-cluburilor-sportive-arata-cat-mari-discrepantele-intre-judetele-23270594",
+              "snippet": "Sportul organizat din România se joacă, în mare parte, în marile oraşe, unde se găsesc cele mai multe cluburi, de la cele dedicate copiilor şi juniorilor până la structurile care…",
+              "published": "2026-10-29T22:07:00Z"
             }
           ]
         },
@@ -310,34 +310,34 @@
           "name": "Profit.ro",
           "items": [
             {
-              "title": "VIDEO Premieră după 50 de ani. Umbrărescu pune acoperișul la noul laminor de la Oțelu Roșu",
-              "url": "https://www.profit.ro/povesti-cu-profit/energie/video-premiera-dupa-50-de-ani-umbrarescu-pune-acoperisul-la-noul-laminor-de-la-otelu-rosu-22905367?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
-              "snippet": "Umbrărescu a început să monteze acoperișul pentru noul laminor la combinatul Oțelu Roșu.",
-              "published": "2026-10-29T20:29:00Z"
+              "title": "EXCLUSIV Control pe șantiere. ANAF a declanșat o acțiune amplă la firme din construcții. Inspectorii Antifraudă fac verificări și pe șantiere",
+              "url": "https://www.profit.ro/taxe-si-consultanta/exclusiv-control-pe-santiere-anaf-a-declansat-o-actiune-ampla-la-firme-din-constructii-inspectorii-antifrauda-fac-verificari-si-pe-santiere-22905803?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
+              "snippet": "ANAF a declanșat o acțiune amplă de controale pe șantiere, potrivit informațiilor Profit.ro, fiind vizate firme de construcții care folosesc forță de muncă pentru care nu achită…",
+              "published": "2026-10-29T22:52:00Z"
             },
             {
-              "title": "ULTIMA ORĂ Digi amenință că poate părăsi Portugalia. Cerere imperativă direct adresată autorității de reglementare. Autoritatea de concurență îi dă dreptate la reînnoirea licențelor pentru alte companii",
-              "url": "https://www.profit.ro/povesti-cu-profit/it-c/ultima-ora-digi-ameninta-parasi-portugalia-cerere-imperativa-direct-adresata-autoritatii-reglementare-autoritatea-concurenta-ii-da-dreptate-reinnoirea-licentelor-companii-22905127?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
-              "snippet": "Operatorul român de telecomunicații Digi a cerut autorității portugheze de reglementare să își reconsidere decizia de a reînnoi licențele de spectru pentru operatorii rivali Meo…",
-              "published": "2026-10-29T20:23:00Z"
+              "title": "EXCLUSIV Tranzacție majoră cu proprietarul PRO TV. EY România discută mutarea celor peste 600 de angajați din sediul central într-o clădire a PPF. Una dintre cele mai mari tranzacții de preînchiriere",
+              "url": "https://www.profit.ro/povesti-cu-profit/real-estate-constructii/exclusiv-tranzactie-majora-cu-proprietarul-pro-tv-ey-romania-discuta-mutarea-celor-peste-600-de-angajati-din-sediul-central-intr-o-cladire-a-ppf-una-dintre-cele-mai-mari-tranzactii-de-preinchiriere-22903544?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
+              "snippet": "EY România, una dintre cele mai mari companii de audit și consultanță, negociază cu grupul ceh PPF închirierea unui nou sediu central în care să își mute cei peste 600 de…",
+              "published": "2026-10-29T22:08:00Z"
             },
             {
-              "title": "GRAFIC Bursa câștigă jumătate de procent. Mișcări de 15% pentru 3 acțiuni din Top 10 tranzacționare",
-              "url": "https://www.profit.ro/povesti-cu-profit/financiar/piata-de-capital/grafic-bursa-castiga-jumatate-de-procent-miscari-de-15-pentru-3-actiuni-din-top-10-tranzactionare-22905125?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
-              "snippet": "Indicele BET a avut o ședință de apreciere în care, însă, cele mai importante acțiuni au subperformat dinamicii pieței.",
-              "published": "2026-10-29T20:00:00Z"
+              "title": "ULTIMA ORĂ Tichetul de masă va fi majorat de noii guvernanți, pentru un an, cu 5 lei, la cel mult 50 lei. O masă de prânz costa în medie anul trecut 55 lei",
+              "url": "https://www.profit.ro/perspective/schimbari-legislative-pentru-firme/ultima-ora-tichetul-de-masa-va-fi-majorat-de-noii-guvernanti-pentru-un-an-cu-5-lei-la-cel-mult-50-lei-o-masa-de-pranz-costa-in-medie-anul-trecut-55-lei-22904133?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
+              "snippet": "Valorea nominală maximă a tichetului de masă va crește cu 5 lei, de la 45 la 50 de lei, nivel valabil până în septembrie 2027, conform unui proiect legislativ inițiat de PSD și…",
+              "published": "2026-10-29T22:06:00Z"
             },
             {
-              "title": "ANAF va vinde și prin eMAG, OLX, agenții imobiliare, case de licitație și firme de brokeraj bunuri online. Prețul va putea coborî și cu 75%",
-              "url": "https://www.profit.ro/taxe-si-consultanta/anaf-va-vinde-si-prin-emag-olx-agentii-imobiliare-case-de-licitatie-si-firme-de-brokeraj-bunuri-online-pretul-va-putea-cobori-si-cu-75-22904824?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
-              "snippet": "ANAF va putea vinde bunurile preluate de stat de la datornici prin noi metode, cum ar fi site-uri specializate, inclusiv magazine online precum eMAG și OLX, prin agenții…",
-              "published": "2026-10-29T19:52:00Z"
+              "title": "EXCLUSIV Bancă vândută în România: BNR și-a dat OK-ul pentru preluarea Garanti Bank România de către Raiffeisen. La începutul săptămânii viitoare vor intra banii",
+              "url": "https://www.profit.ro/povesti-cu-profit/financiar/exclusiv-banca-vanduta-in-romania-bnr-si-a-dat-ok-ul-pentru-preluarea-garanti-bank-romania-de-catre-raiffeisen-la-inceputul-saptamanii-viitoare-vor-intra-banii-22904709?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
+              "snippet": "Tranzacția prin care Raiffeisen Bank preia Garanti Bank România a primit undă verde și din partea Băncii Naționale a României, iar la începutul săptămânii viitoare urmează să fie…",
+              "published": "2026-10-29T22:04:00Z"
             },
             {
-              "title": "Google lansează Gemini 4 Carbon",
-              "url": "https://www.profit.ro/romania-conectata/google-lanseaza-gemini-4-carbon-22900825?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
-              "snippet": "Cel mai noul model de AI Google, Gemini 4 Carbon, este specializat în programare, sarcini pentru agenți și securitate cibernetică.",
-              "published": "2026-10-29T19:37:00Z"
+              "title": "ULTIMA ORĂ Istorica RomâniaFilm, în faliment - DOCUMENTE",
+              "url": "https://www.profit.ro/stiri/life/ultima-ora-istorica-romaniafilm-in-faliment-documente-22902363?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
+              "snippet": "Regia Autonomă a Distribuției și Exploatării Filmelor (RADEF) RomâniaFilm, înființată la începutul anilor ’50 ai secolului trecut, după naționalizarea cinematografiei românești…",
+              "published": "2026-10-29T22:02:00Z"
             }
           ]
         },
@@ -460,6 +460,24 @@
           "name": "The Verge",
           "items": [
             {
+              "title": "The director of Obsession put a new horror short on YouTube",
+              "url": "https://www.theverge.com/streaming/1022934/curry-barker-obsession-horror-short-youtube-mama-bear",
+              "snippet": "Curry Barker, the director behind the hit horror film Obsession, just published a new horror short on YouTube. The short, titled \"Mama Bear,\" is nearly five minutes long. The…",
+              "published": "2026-10-29T23:57:18Z"
+            },
+            {
+              "title": "Intel says it’s selling every affordable laptop chip it can make",
+              "url": "https://www.theverge.com/tech/1022911/intel-wildcat-lake-sold-out-ram-shortage",
+              "snippet": "During Intel's latest earnings call, CEO Lip-Bu Tan said that demand for its budget-focused Wildcat Lake chips \"is outstripping supply.\" According to CFO David Zinsner, the chips…",
+              "published": "2026-10-29T23:48:25Z"
+            },
+            {
+              "title": "Reddit’s CEO says Google’s AI Mode ‘does not drive traffic’",
+              "url": "https://www.theverge.com/tech/1022848/reddit-ceo-google-ai-mode-traffic",
+              "snippet": "Reddit CEO Steve Huffman said in an earnings call today that Google's AI-powered search modes do not help with traffic to the platform, echoing problems facing other websites and…",
+              "published": "2026-10-29T22:25:10Z"
+            },
+            {
               "title": "Apple’s new laptop supports one of the coolest features for color pros",
               "url": "https://www.theverge.com/1022347/apple-macbook-supports-new-cmf",
               "snippet": "The new MacBook Pro brings with it a bunch of firsts for Apple laptops, the two flashiest being an OLED display and touchscreen functionality. But as an image-accuracy…",
@@ -470,24 +488,6 @@
               "url": "https://www.theverge.com/transportation/1022555/gm-data-privacy-attorneys-general-lawsuit",
               "snippet": "General Motors has agreed to pay $220 million to settle claims that it illegally sold driver and location information to data brokers, as reported earlier by Reuters. The…",
               "published": "2026-10-29T20:40:46Z"
-            },
-            {
-              "title": "Patrick Stewart has died at age 86",
-              "url": "https://www.theverge.com/news/1022626/patrick-stewart-star-trek-death",
-              "snippet": "Patrick Stewart, best known for his roles in Star Trek and X-Men, has died at age 86. A message posted to Stewart's Instagram account says the actor died in his Los Angeles home…",
-              "published": "2026-10-29T20:19:04Z"
-            },
-            {
-              "title": "Reddit will force everyone to log in",
-              "url": "https://www.theverge.com/tech/1022571/reddit-login-requirement-q3-2026-earnings",
-              "snippet": "Reddit is announcing a huge shift: It's going to start requiring users to log in. Right now, you can browse Reddit without having an account, and the site is generally a great…",
-              "published": "2026-10-29T20:13:28Z"
-            },
-            {
-              "title": "This open-source project lets you sync Withings data to other apps without a subscription",
-              "url": "https://www.theverge.com/tech/1022214/yourownweigh-sync-withings-smart-scale-data-wireless-web-app-free",
-              "snippet": "When it was revealed earlier this month that Withings would require new users to subscribe to a Withings Plus subscription to sync heath data from the company's devices to…",
-              "published": "2026-10-29T19:23:06Z"
             }
           ]
         }
@@ -502,34 +502,34 @@
           "name": "Gazeta Sporturilor",
           "items": [
             {
-              "title": "Final în etapa a doua a Cupei României Betano! » FCSB și Craiova au comis-o cu Gloria Bistrița și FC Voluntari",
-              "url": "https://www.gsp.ro/fotbal/cupa-romaniei/live-etapa-2-grupe-cupa-romaniei-992752.html",
-              "snippet": "Etapa a doua a grupelor Cupei României Betano s-a încheiat joi, cu ultimele trei meciuri. Duelul dintre Concordia Chiajna și Sepsi, 1-1, a deschis seara. A urmat Voluntari -…",
-              "published": "2026-10-29T21:30:42Z"
+              "title": "Cristiano Ronaldo a marcat o „triplă” în 15 minute și e tot mai aproape de borna 1000",
+              "url": "https://www.gsp.ro/international/campionate/cristiano-ronaldo-tripla-al-nassr-985-goluri-cariera-993781.html",
+              "snippet": "Cristiano Ronaldo (41 de ani) a marcat o „triplă” în victoria reușită de Al Nassr în fața celor de la Al Kholood, scor 5-3, în etapa a 12-a din Arabia Saudită. Grație acestei…",
+              "published": "2026-10-29T22:37:28Z"
             },
             {
-              "title": "Dinamo, prestație FABULOASĂ cu Montpellier! Ajutată și de rezultate, trece mai departe în Liga Campionilor",
-              "url": "https://www.gsp.ro/sporturi/handbal/montpellier-dinamo-etapa-6-liga-campionilor-handbal-993540.html",
-              "snippet": "Dinamo s-a impus în deplasarea cu Montpellier, scor 36-26, în ultimul meci din faza grupelor preliminare din Liga Campionilor. Datorită jocului rezultatelor, „dulăii” s-au…",
-              "published": "2026-10-29T21:26:55Z"
+              "title": "Novak Djokovic a fost eliminat prematur la Basel",
+              "url": "https://www.gsp.ro/sporturi/tenis/novak-djokovic-eliminat-in-optimi-la-basel-2026-993791.html",
+              "snippet": "După ce a câștigat primul set la tie-break, Novak Djokovic (12 ATP) a fost învins de germanul Jan-Lennard Struff (47 ATP), care avansează în sferturile de finală ale turneului…",
+              "published": "2026-10-29T22:25:00Z"
             },
             {
-              "title": "Daniel Birligea, după primele goluri în Serie A: „Plătesc cina de două ori! Nu ne înjură, dar ne omoară!”",
-              "url": "https://www.gsp.ro/international/stranieri/daniel-birligea-frosinone-serie-a-993787.html",
-              "snippet": "Daniel Bîrligea a oferit declarații la finalul partidei Frosinone - Lecce, scor 5-1, în care atacantul român a reușit să marcheze de două ori. Daniel Bîrligea a intrat în minutul…",
-              "published": "2026-10-29T21:20:44Z"
+              "title": "Revenire cu ghinion în „primul 11” la FCSB: „Pentru mine e un start rău”",
+              "url": "https://www.gsp.ro/fotbal/cupa-romaniei/mihai-popescu-revenire-fcsb-infrangere-gloria-bistrita-993798.html",
+              "snippet": "Mihai Popescu (33 de ani) a revenit pe teren după aproape 5 luni de absență și a fost trimis titular de Laurențiu Reghecampf (51 de ani) în meciul pierdut de FCSB în deplasare cu…",
+              "published": "2026-10-29T22:21:13Z"
             },
             {
-              "title": "Eddy Gnahore „s-a rupt” la Bistrița și e criticat dur: „Un mare bravo lui Nicolescu că a scăpat de el”",
-              "url": "https://www.gsp.ro/fotbal/cupa-romaniei/ioan-andone-critici-eddy-gnahore-fcsb-dinamo-993784.html",
-              "snippet": "Ioan Andone (66 de ani), fost mare jucător și antrenor al lui Dinamo, consideră că președintele Andrei Nicolescu (50 de ani) a fost inspirat când a decis să nu-i ofere lui Eddy…",
-              "published": "2026-10-29T21:16:52Z"
+              "title": "Gigi Becali a făcut „la cald” calculele de calificare în Cupa României: „Nu poate să câștige acolo”",
+              "url": "https://www.gsp.ro/fotbal/cupa-romaniei/gigi-becali-fcsb-gloria-bistrita-cupa-romaniei-993812.html",
+              "snippet": "După ce FCSB a fost învinsă de Gloria Bistrița, scor 0-1, în grupele Cupei României Betano, Gigi Becali a fost în direct la televizor și a făcut calculele calificării. Ultima…",
+              "published": "2026-10-29T22:13:24Z"
             },
             {
-              "title": "Înapoi la realitate! Gloria Bistrița i-a încheiat lui Reghecampf luna de miere la FCSB. Prestație ca în era Baciu",
-              "url": "https://www.gsp.ro/fotbal/cupa-romaniei/live-gloria-bistrita-fcsb-grupe-cupa-romaniei-993524.html",
-              "snippet": "FCSB a fost învinsă de Gloria Bistrița, scor 0-1, în ultimul meci al rundei cu numărul doi din grupele Cupei României Betano. A fost primul eșec din noul mandat al lui Laurențiu…",
-              "published": "2026-10-29T20:55:46Z"
+              "title": "L-au luat peste picior înainte să devină erou cu FCSB: „Mă întrebau «ce aveți, bă, ce ați fumat?»”",
+              "url": "https://www.gsp.ro/fotbal/cupa-romaniei/gloria-bistrita-fcsb-cupa-romaniei-sebastian-moga-993739.html",
+              "snippet": "Sebastian Moga, antrenorul celor de la Gloria Bistrița, a răpus-o pe FCSB, 1-0, în al doilea său meci al noului mandat pe banca divizionarei secunde, apoi a oferit declarații…",
+              "published": "2026-10-29T22:00:33Z"
             }
           ]
         },
@@ -538,34 +538,34 @@
           "name": "Digi Sport",
           "items": [
             {
-              "title": "Everton - Newcastle 3-1. Rezultatele din optimile Cupei Ligii Angliei și tabloul sferturilor",
-              "url": "https://www.digisport.ro/fotbal/cupa-ligii/everton-newcastle-3-1-rezultatele-din-optimile-cupei-ligii-angliei-si-tabloul-sferturilor-4572625",
-              "snippet": "Everton - Newcastle 3-1. Rezultatele din optimile Cupei Ligii Angliei și tabloul sferturilor",
-              "published": "2026-10-29T21:37:54Z"
+              "title": "După ce a ”răpus-o” pe FCSB, autorul unicului gol de la Bistrița a spus-o direct: ”Au demonstrat-o”",
+              "url": "https://www.digisport.ro/fotbal/cupa-romaniei/4574239-4574239",
+              "snippet": "După ce a ”răpus-o” pe FCSB, autorul unicului gol de la Bistrița a spus-o direct: ”Au demonstrat-o”",
+              "published": "2026-10-29T23:31:54Z"
             },
             {
-              "title": "Fiorentina - Atalanta 2-2, ACUM, DGS 2. Oaspeții au restabilit egalitatea. Frosinone - Lecce 5-1",
-              "url": "https://www.digisport.ro/fotbal/serie-a/frosinone-lecce-1930-dgs-2-fiorentina-atalanta-2145-dgs-2-dragusin-este-anuntat-titular-la-gruparea-viola-4572483",
-              "snippet": "Fiorentina - Atalanta 2-2, ACUM, DGS 2. Oaspeții au restabilit egalitatea. Frosinone - Lecce 5-1",
-              "published": "2026-10-29T21:36:26Z"
+              "title": "David Miculescu n-a mai rezistat, după Gloria Bistrița - FCSB 1-0",
+              "url": "https://www.digisport.ro/fotbal/cupa-romaniei/david-miculescu-n-a-mai-rezistat-dupa-gloria-bistrita-fcsb-1-0-4574141",
+              "snippet": "David Miculescu n-a mai rezistat, după Gloria Bistrița - FCSB 1-0",
+              "published": "2026-10-29T23:31:33Z"
             },
             {
-              "title": "Gloria Bistrița - FCSB 1-0. Ce surpriză în Cupa României! Echipa din Liga 2 i-a stricat seria lui Reghecampf",
-              "url": "https://www.digisport.ro/fotbal/cupa-romaniei/gloria-bistrita-fcsb-1-0-ce-surpriza-in-cupa-romaniei-echipa-din-liga-2-i-a-stricat-seria-lui-reghecampf-4573911",
-              "snippet": "Gloria Bistrița - FCSB 1-0. Ce surpriză în Cupa României! Echipa din Liga 2 i-a stricat seria lui Reghecampf",
-              "published": "2026-10-29T21:34:12Z"
+              "title": "Jackpot! Prima încasată de jucătorii Gloriei Bistrița, după victoria 1-0 cu FCSB",
+              "url": "https://www.digisport.ro/fotbal/cupa-romaniei/jackpot-prima-incasata-de-jucatorii-gloriei-bistrita-dupa-victoria-1-0-cu-fcsb-4574245",
+              "snippet": "Jackpot! Prima încasată de jucătorii Gloriei Bistrița, după victoria 1-0 cu FCSB",
+              "published": "2026-10-29T23:30:59Z"
             },
             {
-              "title": "S-a mai întâmplat O SINGURĂ dată în 97 de ani! Exact când avea nevoie Gigi Becali pentru a da lovitura",
-              "url": "https://www.digisport.ro/fotbal/serie-a/s-a-mai-intamplat-o-singura-data-in-97-de-ani-exact-cand-avea-nevoie-gigi-becali-pentru-a-da-lovitura-4574003",
-              "snippet": "S-a mai întâmplat O SINGURĂ dată în 97 de ani! Exact când avea nevoie Gigi Becali pentru a da lovitura",
-              "published": "2026-10-29T21:33:25Z"
+              "title": "Anamaria Prodan s-a retras! Surpriză uriașă, după decizia definitivă a instanței în procesul cu ”Reghe”: ”Sunt banii lui”",
+              "url": "https://www.digisport.ro/special/anamaria-prodan-s-a-retras-surpriza-uriasa-dupa-decizia-definitiva-a-instantei-in-procesul-cu-reghe-sunt-banii-lui-4573817",
+              "snippet": "Anamaria Prodan s-a retras! Surpriză uriașă, după decizia definitivă a instanței în procesul cu ”Reghe”: ”Sunt banii lui”",
+              "published": "2026-10-29T23:30:35Z"
             },
             {
-              "title": "Gloria Bistrița - FCSB 1-0 / Voluntari-Craiova 1-1. Surprize în Cupa României! Rezultatele din etapa a doua",
-              "url": "https://www.digisport.ro/fotbal/cupa-romaniei/gloria-bistrita-fcsb-1-0-voluntari-craiova-1-1-surprize-in-cupa-romaniei-rezultatele-din-etapa-a-doua-4568281",
-              "snippet": "Gloria Bistrița - FCSB 1-0 / Voluntari-Craiova 1-1. Surprize în Cupa României! Rezultatele din etapa a doua",
-              "published": "2026-10-29T21:32:47Z"
+              "title": "Gigi Becali a ”distrus” doi jucători, după Gloria Bistrița - FCSB 1-0: ”ZERO valoare! Le-aș da bani să plece”",
+              "url": "https://www.digisport.ro/fotbal/cupa-romaniei/gigi-becali-a-distrus-doi-jucatori-dupa-gloria-bistrita-fcsb-1-0-zero-valoare-le-as-da-bani-sa-plece-4574181",
+              "snippet": "Gigi Becali a ”distrus” doi jucători, după Gloria Bistrița - FCSB 1-0: ”ZERO valoare! Le-aș da bani să plece”",
+              "published": "2026-10-29T23:29:33Z"
             }
           ]
         },
@@ -574,34 +574,34 @@
           "name": "ProSport",
           "items": [
             {
-              "title": "Gloria Bistrița – FCSB. „Reghe”, înfrângere cu locul 11 din „B”. Cronică de Cătălin Mureșanu",
-              "url": "https://www.prosport.ro/cupa-romaniei/gloria-bistrita-fcsb-locul-11-b-catalin-muresanu-cronica-20558511",
-              "snippet": "FCSB a pierdut, 1-0, în fața Gloriei Bistrița, după un meci în care a atacat non-stop, însă nu a avut orizont în jumătatea adversă. Laurențiu Reghecampf suferă prima înfrângere…",
-              "published": "2026-10-29T21:28:35Z"
+              "title": "„Cum, că tu ești un cancer, cum îți permiți să ceri o mărire de salariu?”. Dialog incredibil între Gică Craioveanu și Aurel Țicleanu",
+              "url": "https://www.prosport.ro/fotbal-intern/cancer-marire-de-salariu-dialog-incredibil-gica-craioveanu-aurel-ticleanu-20558738",
+              "snippet": "Fostul atacant român Gică Craioveanu (58 de ani) a relatat un dialog halucinant pe care l-a avut cu Aurel Țicleanu (67 de ani), care i-a reproșat că vrea o mărire de salariu…",
+              "published": "2026-10-29T23:38:18Z"
             },
             {
-              "title": "Ce gafă! Popa și Batubinsika au comis-o la golul Bistriței cu FCSB",
-              "url": "https://www.prosport.ro/cupa-romaniei/gafa-popa-batubinsika-gol-bistrita-fcsb-20558639",
-              "snippet": "Doi jucători ai roș-albaștrilor, portarul Matei Popa (19 ani) și fundașul central Dylan Batubinsika (30), au comis-o în partida Gloria Bistrița – FCSB. Ei au greșit la golul…",
-              "published": "2026-10-29T21:23:51Z"
+              "title": "DECLARAȚII S-A TERMINAT și pentru el! Gigi Becali a mai pus un nume greu pe lista neagră: „Nu îmi explic”",
+              "url": "https://www.prosport.ro/cupa-romaniei/joao-paulo-pe-lista-neagra-a-lui-gigi-becali-20558729",
+              "snippet": "Eșecul cu Gloria Bistrița din Cupa României, primul sub comanda lui Laurențiu Reghecampf (51 de ani), scor 0-1 a mai făcut o „victimă” la FCSB. Joao Paulo (28 de ani) a intrat pe…",
+              "published": "2026-10-29T23:32:11Z"
             },
             {
-              "title": "Italienii s-au convins! Nota lui Bîrligea după dubla din Frosinone – Lecce: „A impresionat!”",
-              "url": "https://www.prosport.ro/fotbal-extern/campionate-externe/italia/italieni-nota-birligea-dubla-frosinone-lecce-impresionare-20558631",
-              "snippet": "Autor a unei „duble” în Frosinone – Lecce, Daniel Bîrligea (26 de ani) i-a impresionat pe pretențioșii italieni, primind cea mai mare notă dintre cei 32 de jucători care au…",
-              "published": "2026-10-29T21:13:16Z"
+              "title": "Secretul care a dus-o pe Dinamo printre granzii Europei: „O calificare fantastică, el le-a transmis spiritul de învingători!”. EXCLUSIV",
+              "url": "https://www.prosport.ro/alte-sporturi/handbal/dinamo-ionut-popa-liga-campionilor-adversare-20558676",
+              "snippet": "Dinamo a făcut spectacol cu Montpellier și este gata acum de o calificare fantastică în sferturile Ligii Campionilor! Imediat după finalul partidei din Franța, președintele CS…",
+              "published": "2026-10-29T22:58:23Z"
             },
             {
-              "title": "Nicolae Păun: „Domnul Becali nu știe ce înseamnă o afirmație rasială. Dacă ar fi scandat lozinci la adresa etniei sale, ar fi sărit în sus până la lună”",
-              "url": "https://www.prosport.ro/fotbal-intern/superliga/gigi-becali-nicolae-paun-rasism-20558600",
-              "snippet": "Derapajele lui Gici Becali (68 de ani) cu privire la scandările rasiste din timpul derby-ului FCSB – Rapid nu au rămas fără ecou. Nicolae Păun, fondatorul Partidei Romilor…",
-              "published": "2026-10-29T21:07:10Z"
+              "title": "DECLARAȚII Gigi Becali, MEGA-JACKPOT! Se umple de bani din transferul de la FCSB: „Iau 5.000.000 de euro!”",
+              "url": "https://www.prosport.ro/fotbal-extern/campionate-externe/italia/gigi-becali-mega-jackpot-transfer-fcsb-5-000-000-de-euro-daniel-birligea-20558724",
+              "snippet": "Patronul de la FCSB, Gigi Becali (68 de ani), a anunțat că dă o nouă lovitură, în valoare de 5.000.000 de euro, din transferul jucătorului. FCSB a suferit o rușine imensă în Cupa…",
+              "published": "2026-10-29T22:58:12Z"
             },
             {
-              "title": "MERCATO Porumboiu a dat verdictul după ce a aflat cu cine ar semna Stanciu",
-              "url": "https://www.prosport.ro/fotbal-extern/stranieri/porumboiu-a-dat-verdictul-dupa-ce-a-aflat-cu-cine-ar-semna-stanciu-20558609",
-              "snippet": "Fostul arbitru Adrian Porumboiu (76 de ani) a aflat cu cine ar putea semna „veteranul” Nicolae Stanciu (33) și a expus punctul său de vedere. În prezent, mijlocașul cu profil…",
-              "published": "2026-10-29T21:02:37Z"
+              "title": "DECLARAȚII Gigi Becali le-a terminat carierele celor doi fotbaliști la FCSB, în direct, la TV: „ZERO! Le dau bani să plece”",
+              "url": "https://www.prosport.ro/fotbal-intern/superliga/gigi-becali-cariere-terminate-fotbalisti-fcsb-20558693",
+              "snippet": "Gigi Becali (68 de ani) a distrus doi fotbaliști de la FCSB după rușinea trăită de către roș-albaștri în Cupa României. Joi, 29 octombrie, Gloria Bistrița a răpus ex-campioana…",
+              "published": "2026-10-29T22:58:06Z"
             }
           ]
         }
@@ -616,34 +616,34 @@
           "name": "Descoperă.ro",
           "items": [
             {
+              "title": "Cât a câștigat FIFA din Cupa Mondială 2026?",
+              "url": "https://www.descopera.ro/dnews/21150870-cat-a-castigat-fifa-din-cupa-mondiala-2026",
+              "snippet": "Veniturile FIFA din bilete și pachete hospitality la Cupa Mondială 2026 au ajuns la aproximativ 4,5 miliarde de euro, de peste cinci ori mai mult decât la turneul din Qatar, din…",
+              "published": "2026-10-30T01:00:10Z"
+            },
+            {
+              "title": "Limită de viteză redusă pe autostrăzi la 80 km/h. Țara în care autoritățile analizează măsura",
+              "url": "https://www.descopera.ro/dnews/21150854-limita-de-viteza-redusa-pe-autostrazi-la-80-km-h-tara-in-care-autoritatile-analizeaza-masura",
+              "snippet": "Autoritățile din Elveția analizează posibilitatea reducerii limitei maxime de viteză pe autostrăzi de la 120 la 80 km/h, în cazul unei penurii grave de carburanți. Măsura ar…",
+              "published": "2026-10-30T00:00:58Z"
+            },
+            {
+              "title": "Chitara lui George Michael din videoclipul piesei „Faith”, vândută la licitație",
+              "url": "https://www.descopera.ro/dnews/21150833-chitara-lui-george-michael-din-videoclipul-piesei-faith-vanduta-la-licitatie",
+              "snippet": "Chitara cu care George Michael a făcut furori la sfârșitul anilor ’80 în piesa „Faith” a fost vândută la licitație pentru o sumă ce a depășit așteptările – 180.000 de lire…",
+              "published": "2026-10-29T23:00:32Z"
+            },
+            {
+              "title": "Care sunt orașele din România cu cele mai scumpe locuințe în 2026?",
+              "url": "https://www.descopera.ro/dnews/21150816-care-sunt-orasele-din-romania-cu-cele-mai-scumpe-locuinte-in-2026",
+              "snippet": "Prețurile locuințelor continuă să crească în România, iar diferențele dintre orașe sunt considerabile. Cluj-Napoca rămâne cel mai scump oraș, urmat de București și Brașov. În…",
+              "published": "2026-10-29T22:00:08Z"
+            },
+            {
               "title": "A murit Patrick Stewart, legendarul căpitan Picard din „Star Trek”, la 86 de ani. Viața actorului care a găsit în teatru refugiul dintr-o copilărie violentă",
               "url": "https://www.descopera.ro/cultura/21150759-a-murit-patrick-stewart-legendarul-capitan-picard-din-star-trek-la-86-de-ani-viata-actorului-care-a-gasit-in-teatru-refugiul-dintr-o-copilarie-violenta",
               "snippet": "Actorul britanic Patrick Stewart, cunoscut publicului din întreaga lume pentru rolurile căpitanului Jean-Luc Picard din „Star Trek” și profesorului Charles Xavier din seria…",
               "published": "2026-10-29T21:18:07Z"
-            },
-            {
-              "title": "Astronomii au descoperit primul satelit natural dincolo de Sistemul Solar",
-              "url": "https://www.descopera.ro/stiinta/21148485-astronomii-au-descoperit-primul-satelit-natural-dincolo-de-sistemul-solar",
-              "snippet": "Astronomii ar fi găsit primul satelit natural dincolo de Sistemul Solar, dar obiectul misterios este diferit de orice cunoaștem până acum. Observațiile de la Telescopul Very…",
-              "published": "2026-10-29T16:00:08Z"
-            },
-            {
-              "title": "Fizicienii propun o nouă stare bizară a materiei: ce este cristalul temporal?",
-              "url": "https://www.descopera.ro/stiinta/21149221-fizicienii-propun-o-noua-stare-bizara-a-materiei-ce-este-cristalul-temporal",
-              "snippet": "Fizicienii propun o nouă stare bizară a materiei. Un cub de gheață este un cristal în care moleculele de apă sunt organizate într-o structură hexagonală ordonată. Atunci când…",
-              "published": "2026-10-29T15:00:35Z"
-            },
-            {
-              "title": "Ulise a făcut 10 ani până acasă! Cât te-ar costa să-i refaci călătoria în 2026? De la 3.000 de euro cu avionul și feribotul până la 40.000 de euro pe un iaht de lux (P)",
-              "url": "https://www.descopera.ro/advertoriale/21150672-ulise-a-facut-10-ani-pana-acasa-cat-te-ar-costa-sa-i-refaci-calatoria-in-2026-de-la-3-000-de-euro-cu-avionul-si-feribotul-pana-la-40-000-de-euro-pe-un-iaht-de-lux-p",
-              "snippet": "Ulise a avut nevoie de 10 ani pentru a se întoarce din războiul troian în Itaca. A traversat Mediterana, a întâlnit ciclopi, sirene și monștri marini, a pierdut 12 corăbii și a…",
-              "published": "2026-10-29T14:03:46Z"
-            },
-            {
-              "title": "De ce milioane de anghile s-au adunat în jurul unui munte submarin?",
-              "url": "https://www.descopera.ro/natura/21149139-de-ce-milioane-de-anghile-s-au-adunat-in-jurul-unui-munte-submarin",
-              "snippet": "De ce milioane de anghile s-au adunat în jurul unui munte submarin? În fiecare an, la sute de metri adâncime, în apele reci și întunecate din sud-estul Australiei, milioane de…",
-              "published": "2026-10-29T14:00:27Z"
             }
           ]
         },
@@ -728,6 +728,12 @@
       "name": "The Verge AI",
       "items": [
         {
+          "title": "AI has come for Arizona’s water",
+          "url": "https://www.theverge.com/cs/features/1016650/arizona-water-data-center-tsmc",
+          "snippet": "A hulking gray giant rises from the desert. Inside, engineers create the force behind our phones and computers and appliances, our streaming services and search engines and…",
+          "published": "2026-10-29T23:03:22Z"
+        },
+        {
           "title": "You can generate and edit Google Docs files directly in Gemini chats now",
           "url": "https://www.theverge.com/ai-artificial-intelligence/1022519/google-gemini-file-editing-documents-pdfs",
           "snippet": "Now you can generate, preview, and edit PDFs, Google Docs, Google Sheets, slide decks, Markdown files, TXT files, and code directly within Google Gemini. The new file editing…",
@@ -738,12 +744,6 @@
           "url": "https://www.theverge.com/tech/1022023/microsoft-exit-offer-layoffs-notepad",
           "snippet": "To anyone listening closely to what Microsoft CEO Satya Nadella has been saying over the past couple of years, this week felt like the clearest sign yet that AI is about to…",
           "published": "2026-10-29T16:48:16Z"
-        },
-        {
-          "title": "AI has come for Arizona’s water",
-          "url": "https://www.theverge.com/cs/features/1016650/arizona-water-data-center-tsmc",
-          "snippet": "A hulking gray giant rises from the desert. Inside, engineers create the force behind our phones and computers and appliances, our streaming services and search engines and…",
-          "published": "2026-10-29T16:47:27Z"
         },
         {
           "title": "The NYT Cooking app is testing AI recipe modifications",
@@ -764,6 +764,18 @@
       "name": "TechCrunch AI",
       "items": [
         {
+          "title": "You don’t need to believe in a god to get a religious exemption from using AI at work",
+          "url": "https://techcrunch.com/2026/10/29/you-dont-need-to-believe-in-a-god-to-get-a-religious-exemption-from-using-ai-at-work/",
+          "snippet": "David Durman, a University of Kentucky administrator, recently earned a religious exemption from using AI in the workplace.",
+          "published": "2026-10-30T01:20:48Z"
+        },
+        {
+          "title": "AWS will be a $1T business, Jassy says. But first, it will spend big.",
+          "url": "https://techcrunch.com/2026/10/29/aws-will-be-a-1t-business-jassy-says-but-first-it-will-spend-big/",
+          "snippet": "Amazon wants to be the king of AI cloud computing and become the first $1 trillion revenue business. But to do that it will have to continue on its capex spending spree, its CEO…",
+          "published": "2026-10-29T23:42:22Z"
+        },
+        {
           "title": "As search traffic dries up, Reddit announces it’s shifting to a logged-in experience",
           "url": "https://techcrunch.com/2026/10/29/as-search-traffic-dries-up-reddit-announces-its-shifting-to-a-logged-in-experience/",
           "snippet": "As AI transforms how people find information online, Reddit is rethinking its open-web roots to protect its audience and business.",
@@ -780,18 +792,6 @@
           "url": "https://techcrunch.com/2026/10/29/openai-backed-thrive-holdings-acquires-adt/",
           "snippet": "OpenAI-backed Thrive Holdings is buying ADT in a $15.3 billion deal, with plans to bring AI to the home security business.",
           "published": "2026-10-29T19:56:19Z"
-        },
-        {
-          "title": "Meta quietly launches an AI fashion app called Style Sketch",
-          "url": "https://techcrunch.com/2026/10/29/meta-quietly-launches-an-ai-fashion-app-called-style-sketch/",
-          "snippet": "The app connects to Instagram to build a virtual closet from photos you’ve already shared, or lets you add items manually by snapping a photo, recording a quick video, or…",
-          "published": "2026-10-29T19:14:36Z"
-        },
-        {
-          "title": "Granola crunches up a dictation feature to compete with Wispr",
-          "url": "https://techcrunch.com/2026/10/29/granola-crunches-up-a-dictation-feature-to-compete-with-wispr/",
-          "snippet": "Uno reverse! After Wispr added meeting notes to its dictation app, Granola is adding dictation to its meeting notetaker. The voice AI wars are getting interesting.",
-          "published": "2026-10-29T17:54:38Z"
         }
       ]
     },
