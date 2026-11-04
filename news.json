@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-03T22:14:49.813642Z",
+  "updated": "2026-11-04T02:35:53.497346Z",
   "categories": [
     {
       "id": "ai",
@@ -9,6 +9,24 @@
           "id": "verge",
           "name": "The Verge AI",
           "items": [
+            {
+              "title": "Midterm elections 2026: all the news",
+              "url": "https://www.theverge.com/policy/1020640/midterm-elections-2026-all-the-news",
+              "snippet": "The 2026 midterm elections will determine the scope of President Donald Trump’s power in his final two years in office, and signal what voters care about going into the 2028…",
+              "published": "2026-11-04T02:29:16Z"
+            },
+            {
+              "title": "The biggest modding site in PC gaming is taking a stance on AI",
+              "url": "https://www.theverge.com/games/1026085/nexus-mods-ai-disclosures",
+              "snippet": "The PC gaming mods repository Nexus Mods is making disclosures about AI mandatory for uploads of new mods, meaning that mod authors will have to declare \"whether AI has been used…",
+              "published": "2026-11-04T00:42:54Z"
+            },
+            {
+              "title": "Please stop asking me when the AI bubble will pop",
+              "url": "https://www.theverge.com/ai-artificial-intelligence/1025826/ai-bubble-pimco-apollo-bonds",
+              "snippet": "People, including on this staff, keep asking me with varying degrees of excitement or trepidation when the AI bubble will burst. I'll tell you what I tell them: If I knew that, I…",
+              "published": "2026-11-03T23:37:45Z"
+            },
             {
               "title": "Indie games are missing launch dates because Steam is backed up",
               "url": "https://www.theverge.com/games/1025596/valve-steam-indie-games-missing-launch-dates",
@@ -20,24 +38,6 @@
               "url": "https://www.theverge.com/tech/1025745/fake-jeff-bezos-hair-replacement-photos-debunk",
               "snippet": "Amazon founder Jeff Bezos and actor Jason Statham have a distinctive feature in common: They're both famously bald, and that definitely hasn't changed in the last few days…",
               "published": "2026-11-03T21:09:00Z"
-            },
-            {
-              "title": "Google is entirely disabling Search in schools that don’t want AI",
-              "url": "https://www.theverge.com/tech/1025411/google-turn-off-search-ai-features",
-              "snippet": "Google is completely turning off Search in schools that reject its AI features, the company told The New York Times. The decision was also shared in a broader education-related…",
-              "published": "2026-11-03T20:54:30Z"
-            },
-            {
-              "title": "Midterm elections 2026: all the news",
-              "url": "https://www.theverge.com/policy/1020640/midterm-elections-2026-all-the-news",
-              "snippet": "The 2026 midterm elections will determine the scope of President Donald Trump’s power in his final two years in office, and signal what voters care about going into the 2028…",
-              "published": "2026-11-03T20:36:28Z"
-            },
-            {
-              "title": "Apple starts giving Siri AI access to third-party apps",
-              "url": "https://www.theverge.com/tech/1025694/apple-siri-ai-third-party-apps",
-              "snippet": "Apple will now let Siri AI perform actions across third-party apps. As part of the iOS 27.3 update rolling out on Tuesday, Apple announced developers can now integrate Siri AI's…",
-              "published": "2026-11-03T20:19:55Z"
             }
           ]
         },
@@ -46,9 +46,21 @@
           "name": "TechCrunch AI",
           "items": [
             {
+              "title": "Anthropic is working on a system to prove AI models’ identity",
+              "url": "https://techcrunch.com/2026/11/03/anthropic-is-working-on-a-system-to-prove-ai-models-identity/",
+              "snippet": "Called FlashProve, the system would let anyone check that an AI response really came from the model it claims to be from.",
+              "published": "2026-11-03T22:41:03Z"
+            },
+            {
+              "title": "Data centers are turning to old jet engines as the wait for power grows",
+              "url": "https://techcrunch.com/2026/11/03/data-centers-are-turning-to-old-jet-engines-as-the-wait-for-power-grows/",
+              "snippet": "The years-long wait for access to the grid and new turbines is causing data center builders to turn to an unusual, less-efficient and less environmentally friendly solution…",
+              "published": "2026-11-03T22:19:53Z"
+            },
+            {
               "title": "Ted Schlein’s Ballistic Ventures seeks $490M for new funds amid AI-driven cybersecurity boom",
               "url": "https://techcrunch.com/2026/11/03/ted-schleins-ballistic-ventures-seeks-490m-for-new-funds-amid-ai-driven-cybersecurity-boom/",
-              "snippet": "Cybersecurity focused Ballistic Ventures is seeking to raise $360 million for a new flagship fund and another $130 million for a separate investment vehicle.",
+              "snippet": "Cybersecurity-focused Ballistic Ventures is seeking to raise $360 million for a new flagship fund and another $130 million for a separate investment vehicle.",
               "published": "2026-11-03T21:43:08Z"
             },
             {
@@ -62,18 +74,6 @@
               "url": "https://techcrunch.com/2026/11/03/ai-inference-startup-fal-doubles-its-valuation-to-16b-as-demand-surges/",
               "snippet": "The five-year-old startup raised a $1.3 billion round led by Bessemer.",
               "published": "2026-11-03T19:34:43Z"
-            },
-            {
-              "title": "Netflix’s new AI Discover tab helps you find something to watch based on your mood",
-              "url": "https://techcrunch.com/2026/11/03/netflixs-new-ai-discover-tab-helps-you-find-something-to-watch-based-on-your-mood/",
-              "snippet": "The first experimental feature under the tab will allow users to get recommendations based on what they're currently in the mood for.",
-              "published": "2026-11-03T18:42:16Z"
-            },
-            {
-              "title": "Anthropic is still grappling with the economics of compute",
-              "url": "https://techcrunch.com/2026/11/03/anthropic-is-still-grappling-with-the-economics-of-compute/",
-              "snippet": "At a moment when Anthropic's compute margins should be getting better, they’re getting worse.",
-              "published": "2026-11-03T17:07:01Z"
             }
           ]
         },
@@ -160,6 +160,24 @@
           "name": "Digi24",
           "items": [
             {
+              "title": "Alegeri SUA 2026: Americanii votează pentru Congres, într-un test crucial pentru Trump. Au început să apară primele rezultate",
+              "url": "https://www.digi24.ro/stiri/externe/alegeri-cruciale-in-sua-scrutinul-de-la-jumatatea-mandatului-reprezinta-un-test-major-pentru-donald-trump-4019093",
+              "snippet": "Americanii votează marți în alegerile de la jumătatea mandatului, un scrutin crucial pentru ultimii doi ani ai președinției lui Donald Trump. Sunt în joc toate cele 435 de…",
+              "published": "2026-11-04T02:28:13Z"
+            },
+            {
+              "title": "Liderii opoziției israeliene îl recomandă pe Eisenkot pentru funcția de premier și promit să formeze un „guvern național de urgență”",
+              "url": "https://www.digi24.ro/stiri/externe/liderii-opozitiei-israeliene-il-recomanda-pe-eisenkot-pentru-functia-de-premier-si-promit-sa-formeze-un-guvern-national-de-urgenta-4020691",
+              "snippet": "Liderii partidelor de opoziție din Israel au convenit să depună eforturi în vederea formării cât mai curând posibil a unui „guvern național de urgență”, afirmând într-o…",
+              "published": "2026-11-04T02:02:39Z"
+            },
+            {
+              "title": "Trupele britanice vor avea dreptul să riposteze în cazul în care Rusia va ataca misiunea din Ucraina (Sky News)",
+              "url": "https://www.digi24.ro/stiri/externe/trupele-britanice-vor-avea-dreptul-sa-riposteze-in-cazul-in-care-rusia-va-ataca-misiunea-din-ucraina-sky-news-4020609",
+              "snippet": "Trupele britanice vor avea dreptul să riposteze împotriva forțelor ruse în cazul unui atac, în cadrul unei misiuni multinaționale menite să asigure o eventuală pace viitoare în…",
+              "published": "2026-11-03T22:23:49Z"
+            },
+            {
               "title": "Un miliardar american pregătește un schimb de titluri de valoare pentru achiziționarea activelor internaționale ale Lukoil (Reuters)",
               "url": "https://www.digi24.ro/stiri/externe/un-miliardar-american-pregateste-un-schimb-de-titluri-de-valoare-pentru-achizitionarea-activelor-internationale-ale-lukoil-reuters-4020587",
               "snippet": "Un consorțiu condus de miliardarul american Todd Boehly pregătește un schimb de titluri de valoare pentru a achiziționa activele internaționale ale gigantului petrolier rus…",
@@ -170,24 +188,6 @@
               "url": "https://www.digi24.ro/stiri/externe/o-tanara-de-24-de-ani-a-murit-la-maratonul-din-new-york-in-timpul-cursei-ii-scria-mesaje-tatalui-sau-4020553",
               "snippet": "O femeie în vârstă de 24 de ani a decedat după ce s-a prăbuşit în etapele finale ale maratonului din New York, duminică, a anunţat tatăl ei, potrivit The Guardian.",
               "published": "2026-11-03T21:37:15Z"
-            },
-            {
-              "title": "Alegeri SUA 2026: Americanii votează pentru Congres, într-un test crucial pentru Trump. La Casa Albă, pregătiri pentru toate scenariile",
-              "url": "https://www.digi24.ro/stiri/externe/alegeri-cruciale-in-sua-scrutinul-de-la-jumatatea-mandatului-reprezinta-un-test-major-pentru-donald-trump-4019093",
-              "snippet": "Americanii votează marți în alegerile de la jumătatea mandatului, un scrutin crucial pentru ultimii doi ani ai președinției lui Donald Trump. Sunt în joc toate cele 435 de…",
-              "published": "2026-11-03T21:29:55Z"
-            },
-            {
-              "title": "Ministrul spaniol al Transporturilor şi-a anunţat demisia, la aproape o săptămână după tragedia feroviară",
-              "url": "https://www.digi24.ro/stiri/externe/ministrul-spaniol-al-transporturilor-si-a-anuntat-demisia-la-aproape-o-saptamana-dupa-tragedia-feroviara-4020483",
-              "snippet": "Ministrul spaniol al Transporturilor Oscar Puente şi-a anunţat marţi demisia, la aproape o săptămână după catastrofa feroviară soldată cu moartea a cel puţin 69 de persoane, al…",
-              "published": "2026-11-03T21:27:30Z"
-            },
-            {
-              "title": "Patriarhul Daniel: Orice încercare de a dobândi putere prin practici magice e o abatere de la dreapta credinţă",
-              "url": "https://www.digi24.ro/stiri/actualitate/social/patriarhul-daniel-orice-incercare-de-a-dobandi-putere-prin-practici-magice-e-o-abatere-de-la-dreapta-credinta-4020555",
-              "snippet": "Orice încercare de a afla viitorul prin mijloace oculte sau de a dobândi putere prin practici magice reprezintă o abatere de la dreapta credinţă şi o îndepărtare de adevărata…",
-              "published": "2026-11-03T21:17:16Z"
             }
           ]
         },
@@ -196,34 +196,34 @@
           "name": "HotNews",
           "items": [
             {
-              "title": "Șumudică a vorbit despre plecarea de la CFR Cluj",
-              "url": "https://hotnews.ro/sumudica-a-vorbit-despre-plecarea-de-la-cfr-cluj-2393995",
-              "snippet": "Marius Șumudică (55 de ani), tehnicianul celor de la CFR Cluj, a vorbit despre posibila plecare din Superliga. Antrenorul ar fi dorit de Gaziantep, formație pe care a mai…",
-              "published": "2026-11-03T21:50:44Z"
+              "title": "La scurt timp după ce a spus presei că l-a votat pe candidatul „greșit”, un locuitor din Alaska s-a trezit că agenții FBI îi sună la ușă",
+              "url": "https://hotnews.ro/la-scurt-timp-dupa-ce-a-spus-presei-ca-l-a-votat-pe-candidatul-gresit-un-locuitor-din-alaska-s-a-trezit-ca-agentii-fbi-ii-suna-la-usa-2394207",
+              "snippet": "La scurt timp după ce un rezident din statul american Alaska a declarat unui reporter că s-ar putea să fi votat pentru „greșitul” Dan Sullivan, acesta spune că agenții FBI i-au…",
+              "published": "2026-11-04T02:34:52Z"
             },
             {
-              "title": "Alegeri SUA: În curând, primele estimări ale rezultatelor. Două mișcări surpriză făcute de Trump chiar în ziua scrutinului",
-              "url": "https://hotnews.ro/alegeri-sua-in-curind-primele-estimari-ale-rezultatelor-doua-miscari-surpriza-facute-de-trump-in-chiar-ziua-scrutinului-2393970",
-              "snippet": "Primele urne se închid, în funcție de fusul orar, în scurt timp și urmează apoi primele estimări ale posturilor TV. Va fi o noapte lungă și HotNews va transmite aceste rezultate…",
-              "published": "2026-11-03T21:38:24Z"
+              "title": "„Taxa de ieşire”: impozitul de 26% pentru bogătaşii care părăsesc Italia – cum funcționează și cine riscă să fie taxat",
+              "url": "https://hotnews.ro/taxa-de-iesire-impozitul-de-26-pentru-bogatasii-care-parasesc-italia-cum-functioneaza-si-cine-risca-sa-fie-taxat-2394182",
+              "snippet": "O taxă pe câștigurile financiare acumulate în Italia – chiar și a celor nerealizate încă – reprezintă noua „taxă de ieșire” (exit tax), introdusă prin Legea bugetului pentru anul…",
+              "published": "2026-11-04T01:50:57Z"
             },
             {
-              "title": "„FBI-ul să salveze SUA”. Sute de scrisori de amenințare, cu drojdie sau faină în ele, trimise oficialilor americani",
-              "url": "https://hotnews.ro/fbi-ul-sa-salveze-sua-sute-de-scrisori-de-amenintare-cu-drojdie-sau-faina-in-ele-trimise-oficialilor-americani-2393973",
-              "snippet": "Un bărbat din Oklahoma City a fost pus sub acuzare, marți, că a trimis sute de scrisori de amenințare, care conțineau pudră albă, către oficiali electorali de stat, parlamentari…",
-              "published": "2026-11-03T21:22:22Z"
+              "title": "Cine este Jon Ossoff, steaua în ascensiune a Partidului Democrat, așteptat să aducă o victorie majoră într-un stat-cheie",
+              "url": "https://hotnews.ro/alegeri-sua-jon-ossoff-steaua-in-ascensiune-a-partidului-democrat-a-fost-reales-senator-o-victorie-majora-in-georgia-2394179",
+              "snippet": "Jon Ossoff, steaua în ascensiune a Partidului Democrat, a fost reales senator în statul Georgia, din sud-estul SUA, potrivit estimărilor presei americane. Considerat un potenţial…",
+              "published": "2026-11-04T01:48:02Z"
             },
             {
-              "title": "Demisie după tragedia feroviară din Spania. „Un ministru al Transporturilor nu poate rămâne în funcție după două accidente produse în mai puțin de un an”",
-              "url": "https://hotnews.ro/demisie-dupa-tragedia-feroviara-din-spania-un-ministru-al-transporturilor-nu-poate-ramane-in-functie-dupa-doua-accidente-produse-in-mai-putin-de-un-an-2393951",
-              "snippet": "Ministrul spaniol al Transporturilor, Oscar Puente, şi-a anunţat marţi demisia, la aproape o săptămână după catastrofa feroviară soldată cu cel puțin 69 de morți, al doilea…",
-              "published": "2026-11-03T21:00:51Z"
+              "title": "„Mâncăm bine într-o zi importantă”. Cina simbolică pe care a comandat-o Casa Albă în noaptea alegerilor",
+              "url": "https://hotnews.ro/mancam-bine-intr-o-zi-importanta-cina-simbolica-pe-care-a-comandat-o-casa-alba-in-noaptea-alegerilor-cheesecake-factory-2394148",
+              "snippet": "Angajații Casei Albe care monitorizează în cursul nopții rezultatele alegerilor de la birou au comandat o mâncare simbolică la pachet: Cheesecake Factory. Kaelan Dorr, șeful…",
+              "published": "2026-11-04T01:20:07Z"
             },
             {
-              "title": "Ilie Bolojan ripostează după declarația liderei AfD privind românii din Germania. Liberalii cer o reacție din partea AUR",
-              "url": "https://hotnews.ro/ilie-bolojan-riposteaza-dupa-declaratia-liderei-afd-privind-romanii-din-germania-liberalii-cer-o-reactie-din-partea-aur-2393941",
-              "snippet": "Președintele PNL Ilie Bolojan, a afirmat, într-o postare pe Facebook, că declarația liderei AfD, Alice Weidel, legată de românii din Germania este „inacceptabilă”. Totodată…",
-              "published": "2026-11-03T21:00:00Z"
+              "title": "Ziar preferat al președintelui: „Un procent devastator de 61% dintre alegători au afirmat că prioritățile lui Trump au fost interesele sale personale”",
+              "url": "https://hotnews.ro/ziar-preferat-al-presedintelui-un-procent-devastator-de-61-dintre-alegatori-au-afirmat-ca-prioritatile-lui-trump-au-fost-interesele-sale-personale-2394150",
+              "snippet": "New York Post, probabil ziarul preferat al președintelui Trump, citează un exit poll și comentează ce afirmă votanții că le-a determinat opțiunea în seara alegerilor…",
+              "published": "2026-11-04T00:59:17Z"
             }
           ]
         },
@@ -231,6 +231,12 @@
           "id": "g4media",
           "name": "G4Media",
           "items": [
+            {
+              "title": "Barcelona, victorie fără emoții cu Aston Villa în Liga Campionilor / Interul lui Chivu, gură de aer proaspăt la Rotterdam / Bayern se impune la Madrid",
+              "url": "https://www.g4media.ro/barcelona-victorie-fara-emotii-cu-aston-villa-in-liga-campionilor-interul-lui-chivu-gura-de-aer-proaspat-la-rotterdam-bayern-se-impune-la-madrid.html",
+              "snippet": "Ploaia din România a fost resimțită și în prima jumătate din etapa a 4-a din faza ligii din grupa extinsă a Ligii Campionilor, dar ca o ploaie de goluri – Barcelona a câștigat…",
+              "published": "2026-11-03T22:23:48Z"
+            },
             {
               "title": "Ministrul Transporturilor din Spania şi-a anunţat demisia după recentul accident feroviar / „E o chestiune de demnitate politică, de coerenţă şi de empatie faţă de victime”",
               "url": "https://www.g4media.ro/ministrul-transporturilor-din-spania-si-a-anuntat-demisia-dupa-recentul-accident-feroviar-e-o-chestiune-de-demnitate-politica-de-coerenta-si-de-empatie-fata-de-victime.html",
@@ -254,12 +260,6 @@
               "url": "https://www.g4media.ro/ungaria-deschide-dosarele-fostei-securitati-comuniste-viktor-orban-publica-documente-prin-care-sustine-ca-a-refuzat-sa-fie-informator.html",
               "snippet": "Fostul premier ungar Viktor Orbán a declarat că serviciile secrete ale regimului comunist au încercat să îl recruteze ca informator în perioada serviciului militar obligatoriu…",
               "published": "2026-11-03T20:51:14Z"
-            },
-            {
-              "title": "Alegeri intermediare în SUA: Pierde Trump controlul Congresului? / Trei scenarii posibile / Cele 6 state-cheie unde au loc curse electorale decisive / Primele rezultate din Guam",
-              "url": "https://www.g4media.ro/alegeri-partiale-in-sua-pierde-trump-controlul-congresului-s-au-deschis-urnele-de-vot.html",
-              "snippet": "Americanii votează marți, 3 noiembrie, în alegerile intermediare care vor stabili dacă republicanii își păstrează controlul asupra Congresului sau dacă democrații reușesc să…",
-              "published": "2026-11-03T20:00:34Z"
             }
           ]
         }
@@ -274,8 +274,8 @@
           "name": "Ziarul Financiar",
           "items": [
             {
-              "title": "Ministrul Finanţelor, Alexandru Nazare: „Plecăm de la un scenariu de 5% deficit bugetar în 2027 în construcţia bugetului. Putem miza pe o îmbunătăţire a perspectivei de rating anul viitor dacă suntem credibili“",
-              "url": "https://www.zf.ro/eveniment/ministrul-finantelor-alexandru-nazare-plecam-scenariu-5-deficit-bugetar-2027-constructia-bugetului-putem-miza-imbunatatire-perspectivei-rating-anul-viitor-credibili-23273819",
+              "title": "„Nu vrem să ne amintim cum era acum 15 ani când venea Troica. Nu mai vreau, nu îmi doresc ca ţara mea să mai treacă prin aşa ceva“. Ministrul Finanţelor, Alexandru Nazare: „Plecăm de la un scenariu de 5% deficit bugetar în 2027 în construcţia bugetului. Putem miza pe o îmbunătăţire a perspectivei de rating anul viitor dacă suntem credibili“",
+              "url": "https://www.zf.ro/eveniment/vrem-ne-amintim-era-acum-15-ani-venea-troica-vreau-imi-doresc-tara-mea-treaca-ceva-ministrul-finantelor-alexandru-nazare-plecam-scenariu-5-deficit-bugetar-2027-constructia-bugetului-putem-miza-23273819",
               "snippet": "Ministrul Finanţelor Alexandru Nazare a spus ieri la o dezbatere despre sentimentul antreprenorilor faţă de viitor organizată de revista de business NewMoney că guvernul pleacă…",
               "published": "2026-11-03T22:08:00Z"
             },
@@ -292,15 +292,15 @@
               "published": "2026-11-03T22:07:00Z"
             },
             {
-              "title": "ZF Live Special. Ce înseamnă Via Transilvanica Business Fest? Mai mult decât o reuniune a liderilor de business, un loc care ajută la crearea de punţi în societatea românească. „Aducem împreună segmente ale societăţii care nu sunt în mod natural într-o legătură suficient de strânsă, într-o comunicare suficient de bună“",
-              "url": "https://www.zf.ro/companii/zf-live-special-inseamna-via-transilvanica-business-fest-mult-reuniune-liderilor-business-loc-ajuta-crearea-punti-societatea-romaneasca-aducem-impreuna-segmente-societatii-mod-natural-intr-legatura-23273739",
-              "snippet": "În urmă cu 26 de ani, când Alin Uşeriu, fondatorul Asociaţiei Tăşuleasa Social, a pornit la drum, considera că problemele economice sunt singurele care trebuie rezolvate. Însă…",
+              "title": "Ediţie specială Gen Z Student/Banca Transilvania. Generaţia Z nu se teme să încerce, dar se teme de un viitor pe care încă nu îl poate anticipa. Tinerii caută mai mult decât o diplomă, vor să experimenteze, să construiască businessuri în care cred şi se adaptează unei lumi în continuă schimbare.",
+              "url": "https://www.zf.ro/zf-gen-z/editie-speciala-gen-z-student-banca-transilvania-generatia-z-teme-incerce-teme-viitor-il-anticipa-tinerii-cauta-mult-diploma-vor-experimenteze-construiasca-businessuri-cred-adapteaza-unei-lumi-23273732",
+              "snippet": "Mai contează o diplomă astăzi? Cum se va schimba meseria de economist în era AI? Mai este România un loc în care tinerii îşi pot construi un viitor? Sunt câteva dintre…",
               "published": "2026-11-03T22:07:00Z"
             },
             {
-              "title": "Achiziţie finalizată. Garanti România devine parte din grupul Raiffeisen. Urmează fuziunea şi integrarea estimată pentru S2/2027. Raiffeisen urcă spre podiumul bancar. Garanti pleacă după trei decenii.",
-              "url": "https://www.zf.ro/banci-si-asigurari/achizitie-finalizata-garanti-romania-devine-parte-din-grupul-raiffeisen-urmeaza-fuziunea-si-integrarea-estimata-pentru-s2-2027-raiffeisen-urca-spre-podiumul-bancar-garanti-pleaca-dupa-trei-decenii-23273783",
-              "snippet": "România devine tot mai importantă pentru austrieci, fiind văzută ca „o piaţă prioritară”, „cu un potenţial solid de creştere pe termen lung” şi cu un rol important în regiune”…",
+              "title": "ZF Live Special. Ce înseamnă Via Transilvanica Business Fest? Mai mult decât o reuniune a liderilor de business, un loc care ajută la crearea de punţi în societatea românească. „Aducem împreună segmente ale societăţii care nu sunt în mod natural într-o legătură suficient de strânsă, într-o comunicare suficient de bună“",
+              "url": "https://www.zf.ro/companii/zf-live-special-inseamna-via-transilvanica-business-fest-mult-reuniune-liderilor-business-loc-ajuta-crearea-punti-societatea-romaneasca-aducem-impreuna-segmente-societatii-mod-natural-intr-legatura-23273739",
+              "snippet": "În urmă cu 26 de ani, când Alin Uşeriu, fondatorul Asociaţiei Tăşuleasa Social, a pornit la drum, considera că problemele economice sunt singurele care trebuie rezolvate. Însă…",
               "published": "2026-11-03T22:07:00Z"
             }
           ]
@@ -309,6 +309,24 @@
           "id": "profit",
           "name": "Profit.ro",
           "items": [
+            {
+              "title": "Americanii care au luat Foresta falimentată de Hayssam și vor să vândă biomasă Paroșeniului spun că sunt susținuți de Ambasada SUA. Discuții cu ministrul Energiei",
+              "url": "https://www.profit.ro/povesti-cu-profit/energie/americanii-care-au-luat-foresta-falimentata-de-hayssam-si-vor-sa-vanda-biomasa-paroseniului-spun-ca-sunt-sustinuti-de-ambasada-sua-discutii-cu-ministrul-energiei-22933245?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
+              "snippet": "Americanii care au preluat în urmă cu peste 16 ani ce mai rămăsese din fosta mare fabrică de cherestea Foresta Nehoiu și care s-au înțeles de principiu, prin memorandum, acum 3…",
+              "published": "2026-11-03T22:10:00Z"
+            },
+            {
+              "title": "Tranzacție-gigant cu impact în România. Miliardarul american Todd Boehly, fost patron la Chelsea, este aproape de preluarea activelor Lukoil, inclusiv în România",
+              "url": "https://www.profit.ro/povesti-cu-profit/energie/tranzactie-gigant-cu-impact-in-romania-miliardarul-american-todd-boehly-fost-patron-la-chelsea-este-aproape-de-preluarea-activelor-lukoil-inclusiv-in-romania-22932804?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
+              "snippet": "Un consorțiu condus de miliardarul american Todd Boehly pregătește un schimb de titluri financiare pentru a prelua activele internaționale ale gigantului petrolier rus Lukoil…",
+              "published": "2026-11-03T22:08:00Z"
+            },
+            {
+              "title": "EXCLUSIV FOTO După 10 ani de blocaj, „Circul Foamei“ va fi transformat de milionarul sibian Aurel Muntean în clădire de birouri cu spații comerciale. Proiectul este acum reactivat în centrul Bucureștiului",
+              "url": "https://www.profit.ro/povesti-cu-profit/real-estate-constructii/exclusiv-foto-dupa-10-ani-blocaj-circul-foamei-transformat-milionarul-sibian-aurel-muntean-cladire-birouri-spatii-comerciale-proiectul-acum-reactivat-centrul-bucurestiului-22876446?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
+              "snippet": "Milionarul sibian Aurel Eugen Muntean (71 de ani), proprietarul lanțului hotelier Împăratul Romanilor și al magazinului Victoria din centrul capitalei, a reactivat proiectul de…",
+              "published": "2026-11-03T22:06:00Z"
+            },
             {
               "title": "Tranzacție surpriză în România, pe litoral: Grupul australian WebBeds cumpără Tale Travel, printre principalii furnizori B2B de cazare din Europa de Est",
               "url": "https://www.profit.ro/povesti-cu-profit/tranzactie-surpriza-in-romania-pe-litoral-grupul-australian-webbeds-cumpara-tale-travel-printre-principalii-furnizori-b2b-de-cazare-din-europa-de-est-22930644?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
@@ -320,24 +338,6 @@
               "url": "https://www.profit.ro/povesti-cu-profit/energie/ministrul-energiei-ambasadorul-sua-au-vorbit-coridorul-vertical-gaze-traderul-grec-vrea-vanda-lng-american-romaniei-formarea-unui-guvern-creeaza-premisele-continuarea-contactelor-relevante-22933524?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
               "snippet": "Ministrul Energiei, Dumitru Chisăliță, a avut o întrevedere cu ambasadorul Statelor Unite ale Americii în România, Darryl Nirenberg.",
               "published": "2026-11-03T20:32:00Z"
-            },
-            {
-              "title": "ULTIMA ORĂ Repornirea Centralei Nucleare de la Cernavodă poate fi \"o chestiune de zile\", anunță Luca Niculescu",
-              "url": "https://www.profit.ro/povesti-cu-profit/energie/ultima-ora-repornirea-centralei-nucleare-de-la-cernavoda-poate-fi-o-chestiune-de-zile-anunta-luca-niculescu-22933903?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
-              "snippet": "Repornirea Centralei Nucleare de la Cernavodă poate fi \"o chestiune de zile\", fiind observat un debit îmbunătățit al Dunării, ca efect al ploilor din ultima perioadă, anunță…",
-              "published": "2026-11-03T20:30:00Z"
-            },
-            {
-              "title": "Mișu Negrițoiu a fost revocat din conducerea Credex Bank",
-              "url": "https://www.profit.ro/povesti-cu-profit/financiar/misu-negritoiu-a-fost-revocat-din-conducerea-credex-bank-22933843?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
-              "snippet": "Mișu Negrițoiu, fostul președinte al Autorității de Supraveghere Financiară, a fost revocat din conducerea Credex Bank (fosta Porsche Bank, preluată de omul de afaceri Dan…",
-              "published": "2026-11-03T20:19:00Z"
-            },
-            {
-              "title": "Deși dă semne de revenire în Japonia cu ajutorul kei-car, Nissan mai bifează o lună de declin",
-              "url": "https://www.profit.ro/povesti-cu-profit/auto-transporturi/desi-da-semne-de-revenire-in-japonia-cu-ajutorul-kei-car-nissan-mai-bifeaza-o-luna-de-declin-22932285?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
-              "snippet": "Nissan Motor a anunțat noi cifre de vânzări, producție și export pentru luna septembrie care îngrijorează și mai mult, chiar dacă explicațiile arată o posibilă revenire pe unele…",
-              "published": "2026-11-03T20:00:00Z"
             }
           ]
         },
@@ -460,34 +460,34 @@
           "name": "The Verge",
           "items": [
             {
+              "title": "AMD rides data center riches to ‘largest and most profitable’ quarter in history",
+              "url": "https://www.theverge.com/tech/1026148/amd-earnings-q3-2026-data-center-pc",
+              "snippet": "AMD CEO Lisa Su said in the company's quarterly earnings call on Tuesday that Q3 2026 was \"was the largest and most profitable in our history.\" AMD reported a record $13.4…",
+              "published": "2026-11-04T01:17:17Z"
+            },
+            {
+              "title": "All the news about The Legend of Zelda: Ocarina of Time remake",
+              "url": "https://www.theverge.com/games/1026112/the-legend-of-zelda-ocarina-of-time-remake-nintendo-switch-2-news",
+              "snippet": "Ahead of the release of Rockstar Games’ Grand Theft Auto VI, Nintendo is launching its own fall juggernaut: a Switch 2 remake of The Legend of Zelda: Ocarina of Time. The remake…",
+              "published": "2026-11-04T01:05:31Z"
+            },
+            {
+              "title": "The biggest modding site in PC gaming is taking a stance on AI",
+              "url": "https://www.theverge.com/games/1026085/nexus-mods-ai-disclosures",
+              "snippet": "The PC gaming mods repository Nexus Mods is making disclosures about AI mandatory for uploads of new mods, meaning that mod authors will have to declare \"whether AI has been used…",
+              "published": "2026-11-04T00:42:54Z"
+            },
+            {
+              "title": "Please stop asking me when the AI bubble will pop",
+              "url": "https://www.theverge.com/ai-artificial-intelligence/1025826/ai-bubble-pimco-apollo-bonds",
+              "snippet": "People, including on this staff, keep asking me with varying degrees of excitement or trepidation when the AI bubble will burst. I'll tell you what I tell them: If I knew that, I…",
+              "published": "2026-11-03T23:37:45Z"
+            },
+            {
               "title": "Binance says hackers used fake job interviews and an internal AI tool to pull off the $6.3 billion heist",
               "url": "https://www.theverge.com/news/1025576/binance-cyrpto-theft-explained",
               "snippet": "The largest crypto theft to date was pulled off by combining some well-known hacking techniques over the course of a few months, according to Binance. A postmortem from the…",
-              "published": "2026-11-03T22:05:10Z"
-            },
-            {
-              "title": "Here’s what it’s like to use Audio Intelligence on the Apple Watch",
-              "url": "https://www.theverge.com/tech/1025835/audio-intelligence-live-rewind-siri-recap-apple-watch",
-              "snippet": "It's impossible to paint a full picture of what Audio Intelligence on the Apple Watch Series 12 and Ultra 4 will be right now. The watchOS 27.3 developer beta just dropped…",
-              "published": "2026-11-03T21:25:24Z"
-            },
-            {
-              "title": "You can’t hit a wrong note when playing along with songs on Casio’s new keyboard",
-              "url": "https://www.theverge.com/tech/1025673/casio-digital-piano-keyboard-ct-fs1-feel-sync-technology",
-              "snippet": "Casio announced a new addition to its Casiotone line of portable electronic keyboards with a feature that could help aspiring musicians master skills like rhythm and timing…",
-              "published": "2026-11-03T21:17:03Z"
-            },
-            {
-              "title": "Those Jeff Bezos hair transplant photos are very fake",
-              "url": "https://www.theverge.com/tech/1025745/fake-jeff-bezos-hair-replacement-photos-debunk",
-              "snippet": "Amazon founder Jeff Bezos and actor Jason Statham have a distinctive feature in common: They're both famously bald, and that definitely hasn't changed in the last few days…",
-              "published": "2026-11-03T21:09:00Z"
-            },
-            {
-              "title": "The Pixel Buds Pro 2 have returned to their lowest price to date",
-              "url": "https://www.theverge.com/gadgets/1025466/google-pixel-buds-pro-2-borderlands-goty-nintendo-switch-deal-sale",
-              "snippet": "Android owners looking for an earbud upgrade are in luck. The Google Pixel Buds Pro 2 are back down to $169 at Amazon, Best Buy, and the Google Store, matching the lowest price…",
-              "published": "2026-11-03T20:29:26Z"
+              "published": "2026-11-03T23:02:47Z"
             }
           ]
         }
@@ -501,6 +501,18 @@
           "id": "gsp",
           "name": "Gazeta Sporturilor",
           "items": [
+            {
+              "title": "Chivu a explicat transformarea lui Inter, la 3 zile după derby-ul pierdut cu Milan: „Cea mai bună!”",
+              "url": "https://www.gsp.ro/international/liga-campionilor/cristi-chivu-reactie-inter-feyenoord-liga-campionilor-995643.html",
+              "snippet": "Cristi Chivu (46 de ani), antrenorul celor de la Inter Milano, a reacționat după victoria categorică obținută în deplasare cu Feyenoord, scor 3-0, în etapa a 4-a din Liga…",
+              "published": "2026-11-03T22:50:24Z"
+            },
+            {
+              "title": "Cristi Chivu, elogiat în Italia, după succesul cu Feyenoord: „La perfecție!” » Notele primite de român",
+              "url": "https://www.gsp.ro/international/liga-campionilor/cristi-chivu-elogiat-in-italia-dupa-succesul-cu-feyenoord-la-perfectie-notele-primite-de-roman-995639.html",
+              "snippet": "Inter, formația pregătită de Cristi Chivu, a avut cea mai bună prestație din actuala ediție a Ligii Campionilor, impunându-se cu 3-0 pe „De Kuip”, terenul celor de la Feyenoord…",
+              "published": "2026-11-03T22:30:19Z"
+            },
             {
               "title": "Toate rezultatele serii de Liga Campionilor: „Remontada” senzațională a lui Manchester United, PSG câștigă cu 6-0 în Spania",
               "url": "https://www.gsp.ro/international/liga-campionilor/live-etapa-4-din-liga-campionilor-995359.html",
@@ -518,18 +530,6 @@
               "url": "https://www.gsp.ro/international/campionate/inter-dennis-seimen-stuttgart-995617.html",
               "snippet": "Inter, formația condusă de pe bancă de Cristi Chivu, este în căutare de portar, după ce în sezonul acesta Josep Martinez nu a dat randamentul scontat, iar lui Ivan Provedel nu i…",
               "published": "2026-11-03T21:46:30Z"
-            },
-            {
-              "title": "Incredibil cu cine a semnat Gabi Iancu! Va putea debuta abia în 2027",
-              "url": "https://www.gsp.ro/international/campionate/gabi-iancu-transfer-terrassa-spania-995615.html",
-              "snippet": "Gabi Iancu (32 de ani), fostul atacant al celor de la FCSB și Farul Constanța, și-a găsit o nouă echipă. Fotbalistul român a semnat cu Terrassa FC, formație care evoluează în…",
-              "published": "2026-11-03T21:39:30Z"
-            },
-            {
-              "title": "S-au săturat! Fanii lui Manchester United au aruncat cu mingi de tenis pe teren, în semn de protest",
-              "url": "https://www.gsp.ro/international/liga-campionilor/s-au-saturat-fanii-lui-manchester-united-995614.html",
-              "snippet": "Forma groaznică a celor de la Manchester United continuă, iar fanii de pe Old Trafford au protestat împotriva conducerii, în timpul partidei de Liga Campionilor cu Roma…",
-              "published": "2026-11-03T21:27:11Z"
             }
           ]
         },
@@ -538,34 +538,34 @@
           "name": "Digi Sport",
           "items": [
             {
-              "title": "Barcelona - Aston Villa 3-0. Lamine Yamal și Raphinha i-au ”răpus” pe englezi",
-              "url": "https://www.digisport.ro/fotbal/champions-league/barcelona-aston-villa-3-0-lamine-yamal-si-raphinha-i-au-rapus-pe-englezi-4584083",
-              "snippet": "Barcelona - Aston Villa 3-0. Lamine Yamal și Raphinha i-au ”răpus” pe englezi",
-              "published": "2026-11-03T22:12:15Z"
+              "title": "La 21 de ani, a ”explodat” în Champions League! ”Ar putea fi un candidat la Balonul de Aur”",
+              "url": "https://www.digisport.ro/fotbal/champions-league/la-21-de-ani-a-explodat-in-champions-league-ar-putea-fi-un-candidat-la-balonul-de-aur-4583769",
+              "snippet": "La 21 de ani, a ”explodat” în Champions League! ”Ar putea fi un candidat la Balonul de Aur”",
+              "published": "2026-11-03T23:52:42Z"
             },
             {
-              "title": "Atletico - Bayern 0-2. Fără Kompany, nemții au bătut cu ajutorul lui Karl și Leimer",
-              "url": "https://www.digisport.ro/fotbal/champions-league/atletico-bayern-0-2-fara-kompany-nemtii-au-batut-cu-ajutorul-lui-karl-si-leimer-4583955",
-              "snippet": "Atletico - Bayern 0-2. Fără Kompany, nemții au bătut cu ajutorul lui Karl și Leimer",
-              "published": "2026-11-03T22:12:09Z"
+              "title": "Nota primită de Chivu și concluzia categorică trasă de italieni despre român, după Feyenoord - Inter",
+              "url": "https://www.digisport.ro/fotbal/champions-league/nota-primita-de-chivu-si-concluzia-categorica-trasa-de-italieni-despre-roman-dupa-feyenoord-inter-4584159",
+              "snippet": "Nota primită de Chivu și concluzia categorică trasă de italieni despre român, după Feyenoord - Inter",
+              "published": "2026-11-03T23:51:16Z"
             },
             {
-              "title": "Barcelona - Aston Villa 3-0, Villarreal – PSG 0-6, Man. United - Roma 3-2, Feyenoord - Inter 0-3. Rezultatele și programul",
-              "url": "https://www.digisport.ro/fotbal/champions-league/barcelona-aston-villa-3-0-atletico-bayern-0-2-man-united-roma-3-2-feyenoord-inter-0-3-rezultatele-si-programul-4580693",
-              "snippet": "Barcelona - Aston Villa 3-0, Villarreal – PSG 0-6, Man. United - Roma 3-2, Feyenoord - Inter 0-3. Rezultatele și programul",
-              "published": "2026-11-03T22:05:53Z"
+              "title": "Ilie Dumitrescu a văzut ce a făcut Hansi Flick în Barcelona - Aston Villa și a reacționat: ”Domn`e, dar pe el nu?”",
+              "url": "https://www.digisport.ro/fotbal/champions-league/ilie-dumitrescu-a-vazut-ce-a-facut-hansi-flick-in-barcelona-aston-villa-si-a-reactionat-domne-dar-pe-el-nu-4584211",
+              "snippet": "Ilie Dumitrescu a văzut ce a făcut Hansi Flick în Barcelona - Aston Villa și a reacționat: ”Domn`e, dar pe el nu?”",
+              "published": "2026-11-03T23:48:21Z"
             },
             {
-              "title": "Feyenoord - Inter 0-3. Trupa lui Cristi Chivu s-a impus la scor de neprezentare și a legat victoriile în UCL",
-              "url": "https://www.digisport.ro/fotbal/champions-league/feyenoord-inter-0-3-trupa-lui-cristi-chivu-s-a-impus-la-scor-de-neprezentare-si-a-legat-victoriile-in-ucl-4584019",
-              "snippet": "Feyenoord - Inter 0-3. Trupa lui Cristi Chivu s-a impus la scor de neprezentare și a legat victoriile în UCL",
-              "published": "2026-11-03T22:04:33Z"
+              "title": "Surpriză de proporții: Gabi Iancu a semnat în plin campionat! Va sta pe tușă până în 2027",
+              "url": "https://www.digisport.ro/fotbal/surpriza-de-proportii-gabi-iancu-a-semnat-in-plin-campionat-va-sta-pe-tusa-pana-in-2027-4584275",
+              "snippet": "Surpriză de proporții: Gabi Iancu a semnat în plin campionat! Va sta pe tușă până în 2027",
+              "published": "2026-11-03T23:39:47Z"
             },
             {
-              "title": "0/12: cea mai slabă echipă din UEFA Champions League!",
-              "url": "https://www.digisport.ro/fotbal/champions-league/0-12-cea-mai-slaba-echipa-din-uefa-champions-league-4583949",
-              "snippet": "0/12: cea mai slabă echipă din UEFA Champions League!",
-              "published": "2026-11-03T21:57:30Z"
+              "title": "Scene neverosimile: Cunha a \"explodat\" de nervi în fața lui Carrick, imediat după United - Roma 3-2!",
+              "url": "https://www.digisport.ro/fotbal/champions-league/scene-neverosimile-cunha-a-explodat-de-nervi-in-fata-lui-carrick-imediat-dupa-united-roma-3-2-4584187",
+              "snippet": "Scene neverosimile: Cunha a \"explodat\" de nervi în fața lui Carrick, imediat după United - Roma 3-2!",
+              "published": "2026-11-03T23:35:12Z"
             }
           ]
         },
@@ -574,34 +574,34 @@
           "name": "ProSport",
           "items": [
             {
-              "title": "La superlativ! NOTA lui Chivu după ce Inter a zdrobit-o pe Feyenoord în Champions League",
-              "url": "https://www.prosport.ro/fotbal-extern/nota-cristi-chivu-feyenoord-inter-20562421",
-              "snippet": "Cristi Chivu a fost în formă de zile mari în Champions League, iar Inter a obținut prima victorie categorică din acest sezon cu Feyenoord. După ce în ultima perioadă echipa lui…",
-              "published": "2026-11-03T22:11:41Z"
+              "title": "DECLARAȚII Marele Fabio Capello a dat verdictul despre Interul lui Chivu după victoria cu Feyenoord: „Bellissima! N-a mai fost adormită”",
+              "url": "https://www.prosport.ro/fotbal-extern/liga-campionilor/fabio-capello-verdict-inter-cristi-chivu-victorie-feyenoord-20562479",
+              "snippet": "Interul lui Chivu a învins Feyenoord, la Rotterdam, în Liga Campionilor, iar marele Fabio Capello (80 de ani) a dat verdictul despre campioana Italiei. Formația pregătită de…",
+              "published": "2026-11-03T23:31:32Z"
             },
             {
-              "title": "„Eu cu ce moral mai intru pe teren”. A răbufnit după criticile lui Gigi Becali",
-              "url": "https://www.prosport.ro/fotbal-intern/superliga/moral-teren-rabufnire-critici-gigi-becali-aymen-boutoutaou-giani-kirita-20562404",
-              "snippet": "Patronul de la FCSB și-a intensificat criticile după ce echipa a fost învinsă de U Cluj, iar concluzia este că jucătorul intră pe teren cu moralul la pământ. Gigi Becali l-a luat…",
-              "published": "2026-11-03T22:05:32Z"
+              "title": "DECLARAȚII Cristi Chivu l-a făcut pe Giovanni van Bronckhorst să recunoască totul după 3-0 în Champions League: „Nu mai aveam cum să câștigăm!”",
+              "url": "https://www.prosport.ro/fotbal-extern/liga-campionilor/giovanni-van-bronckhorst-reactie-chivu-inter-feyenoord-20562467",
+              "snippet": "Antrenorul lui Feyenoord, Giovanni van Bronckhorst, a recunoscut superioritatea elevilor lui Cristi Chivu în duelul din Liga Campionilor. Inter a arătat poftă de joc în etapa a…",
+              "published": "2026-11-03T23:05:59Z"
             },
             {
-              "title": "„De ce nu e titular Stoian?”. Gigi Becali a recunoscut adevărul",
-              "url": "https://www.prosport.ro/fotbal-intern/superliga/alex-stoian-fcsb-gigi-becali-reactie-titularizare-20562393",
-              "snippet": "Alexandru Stoian (18 ani) e puștiul-minune din atacul roș-albaștrilor, dar Gigi Becali a spus când va fi pregătit să fie titular la FCSB. În noul sezon, unul dintre puținii…",
-              "published": "2026-11-03T21:38:17Z"
+              "title": "DECLARAȚII Cristi Chivu a spus totul după Feyenoord – Inter 0-3! Ce a descoperit antrenorul român: „Am înțeles anumite lucruri”",
+              "url": "https://www.prosport.ro/fotbal-extern/liga-campionilor/cristi-chivu-declaratii-feyenoord-inter-antrenor-roman-20562464",
+              "snippet": "Campioana Italiei respiră ceva mai bine după Feyenoord – Inter 0-3, iar la finele meciului Cristi Chivu (46 de ani) a dezvăluit descoperirea făcută la Rotterdam. Două eșecuri…",
+              "published": "2026-11-03T22:55:19Z"
             },
             {
-              "title": "Milionarul care e în anturajul lui Ilie Bolojan a răbufnit: „Va primi leafa ca un pensionar obosit”",
-              "url": "https://www.prosport.ro/fotbal-intern/superliga/valeriu-iftime-ilie-bolojan-pensionar-salariu-markovic-20562338",
-              "snippet": "Valeriu Iftime, patronul celor de la FC Botoșani, nu mai are răbdare cu Jovan Marcovic (25 de ani). El a spus că atacantul nu va mai juca la echipă și speră să se ajungă la un…",
-              "published": "2026-11-03T21:09:38Z"
+              "title": "A dat un gol senzațional în Feyenoord – Inter și a făcut un gest controversat! Cum l-a explicat eroul lui Chivu",
+              "url": "https://www.prosport.ro/fotbal-extern/yann-bisseck-reactie-feyenoord-inter-20562452",
+              "snippet": "Yann Bisseck (25 de ani) a explicat gestul făcut către fani imediat ce a marcat un gol senzațional în Feyenoord – Inter, în Liga Campionilor. Interul lui Cristi Chivu a defilat…",
+              "published": "2026-11-03T22:50:22Z"
             },
             {
-              "title": "Un nou complex sportiv spectaculos, proiectat în România! Piscine, cinci terenuri de tenis acoperite și sală multifuncțională",
-              "url": "https://www.prosport.ro/diverse/complex-sportiv-spectaculos-proiect-romania-piscina-terenuri-de-tenis-acoperite-sala-multifunctionala-20562347",
-              "snippet": "Încet, dar sigur, în România se pune la punct infrastructura sportivă pentru sporturile de sală, lucru valabil și pentru orașul care va avea un complex sportiv spectaculos…",
-              "published": "2026-11-03T21:06:22Z"
+              "title": "Lamine Yamal a scris istorie în Champions League! L-a depășit pe Kylian Mbappe",
+              "url": "https://www.prosport.ro/fotbal-extern/liga-campionilor/lamine-yamal-record-20562446",
+              "snippet": "Lamine Yamal (19 ani) a devenit cel mai tânăr jucător care ajunge la 14 goluri în Liga Campionilor. Starul Barcelonei a stabilit recordul în partida cu Aston Villa, din etapa a…",
+              "published": "2026-11-03T22:46:24Z"
             }
           ]
         }
@@ -616,34 +616,34 @@
           "name": "Descoperă.ro",
           "items": [
             {
+              "title": "Arheologii au descoperit noi dovezi despre viața oamenilor din Mesopotamia antică",
+              "url": "https://www.descopera.ro/dnews/21151983-arheologii-au-descoperit-noi-dovezi-despre-viata-oamenilor-din-mesopotamia-antica",
+              "snippet": "Arheologii care lucrează la Tell Muhammad, în Bagdad, au scos la iveală noi dovezi privind viața cotidiană din Mesopotamia antică, inclusiv posibile instalații pentru producerea…",
+              "published": "2026-11-04T01:00:15Z"
+            },
+            {
+              "title": "Cum va încerca România să atragă mai mulți turiști din Germania?",
+              "url": "https://www.descopera.ro/dnews/21151985-cum-va-incerca-romania-sa-atraga-mai-multi-turisti-din-germania",
+              "snippet": "România își intensifică eforturile de promovare pe piața turistică germană, printr-un nou acord de cooperare semnat cu Asociația Germană de Turism. Aproximativ 60 de…",
+              "published": "2026-11-04T00:00:35Z"
+            },
+            {
+              "title": "Originile omului, sub semnul întrebării după o descoperire recentă în Egipt",
+              "url": "https://www.descopera.ro/dnews/21151987-originile-omului-sub-semnul-intrebarii-dupa-o-descoperire-recenta-in-egipt",
+              "snippet": "O fosilă descoperită în Egipt ar putea modifica teoriile privind evoluția primatelor și originile îndepărtate ale omului. Cercetătorii au identificat o specie necunoscută până…",
+              "published": "2026-11-03T23:00:49Z"
+            },
+            {
+              "title": "Capitala, un castel de cărți de joc. Cât de sigure sunt noile clădiri construite în București?",
+              "url": "https://www.descopera.ro/dnews/21151989-capitala-un-castel-de-carti-de-joc-cat-de-sigure-sunt-noile-cladiri-construite-in-bucuresti",
+              "snippet": "În lumea în care totul se face pe repede înainte, nici construcțiile nu fac excepție. Visul îmbogățirii rapide cu muncă făcută de mântuială ajunge și pe șantierele din București…",
+              "published": "2026-11-03T22:00:05Z"
+            },
+            {
               "title": "Un nou studiu sugerează că, până la urmă, cometele probabil nu au adus viața pe Pământ",
               "url": "https://www.descopera.ro/stiinta/21151457-un-nou-studiu-sugereaza-ca-pana-la-urma-cometele-probabil-nu-au-adus-viata-pe-pamant",
               "snippet": "Cometele probabil nu au adus viața pe Pământ, sugerează un nou studiu care ar putea răsturna o ipoteză veche de aproape un secol. Deși aceste corpuri cerești conțin molecule…",
               "published": "2026-11-03T18:00:55Z"
-            },
-            {
-              "title": "Astronomii s-ar fi înșelat! O etapă majoră din evoluția cosmică ar fi fost greșit înțeleasă",
-              "url": "https://www.descopera.ro/stiinta/21151680-astronomii-s-ar-fi-inselat-o-etapa-majora-din-evolutia-cosmica-ar-fi-fost-gresit-inteleasa",
-              "snippet": "Un nou studiu dezvăluie că astronomii ar putea avea nevoie să regândească un aspect major al evoluției cosmologice, care a dus la Universul pe care îl vedem astăzi. La…",
-              "published": "2026-11-03T16:00:30Z"
-            },
-            {
-              "title": "Timp de 89 de ani, oamenii au raportat că văd faruri care nu există. Acum știm de ce",
-              "url": "https://www.descopera.ro/stiinta/21151730-timp-de-89-de-ani-oamenii-au-raportat-ca-vad-faruri-care-nu-exista-acum-stim-de-ce",
-              "snippet": "Timp de 89 de ani, oamenii au raportat că văd faruri care nu există. Persoanele care trec prin apropierea unor faruri au uneori impresia că sursa luminii se află în largul mării…",
-              "published": "2026-11-03T15:00:31Z"
-            },
-            {
-              "title": "Un studiu dezvăluie modul în care bacteriile asociate coralilor îi ajută pe aceștia să supraviețuiască în căldură extremă",
-              "url": "https://www.descopera.ro/natura/21151651-un-studiu-dezvaluie-modul-in-care-bacteriile-asociate-coralilor-ii-ajuta-pe-acestia-sa-supravietuiasca-in-caldura-extrema",
-              "snippet": "Un studiu realizat de NYU Abu Dhabi (Emiratele Arabe Unite) arată cum bacteriile asociate coralilor îi ajută pe aceștia să le reziste temperaturilor extreme, producând hormoni…",
-              "published": "2026-11-03T14:00:33Z"
-            },
-            {
-              "title": "Nu radiațiile au creat câinii de la Cernobîl, ci un lucru mult mai simplu, sugerează un nou studiu",
-              "url": "https://www.descopera.ro/natura/21151829-nu-radiatiile-au-creat-cainii-de-la-cernobil-ci-un-lucru-mult-mai-simplu-sugereaza-un-nou-studiu",
-              "snippet": "Nu radiațiile au creat câinii de la Cernobîl. Câinii care trăiesc în apropierea fostei centrale nucleare de la Cernobîl sunt diferiți genetic de cei din orașul abandonat aflat în…",
-              "published": "2026-11-03T12:30:02Z"
             }
           ]
         },
@@ -728,6 +728,24 @@
       "name": "The Verge AI",
       "items": [
         {
+          "title": "Midterm elections 2026: all the news",
+          "url": "https://www.theverge.com/policy/1020640/midterm-elections-2026-all-the-news",
+          "snippet": "The 2026 midterm elections will determine the scope of President Donald Trump’s power in his final two years in office, and signal what voters care about going into the 2028…",
+          "published": "2026-11-04T02:29:16Z"
+        },
+        {
+          "title": "The biggest modding site in PC gaming is taking a stance on AI",
+          "url": "https://www.theverge.com/games/1026085/nexus-mods-ai-disclosures",
+          "snippet": "The PC gaming mods repository Nexus Mods is making disclosures about AI mandatory for uploads of new mods, meaning that mod authors will have to declare \"whether AI has been used…",
+          "published": "2026-11-04T00:42:54Z"
+        },
+        {
+          "title": "Please stop asking me when the AI bubble will pop",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1025826/ai-bubble-pimco-apollo-bonds",
+          "snippet": "People, including on this staff, keep asking me with varying degrees of excitement or trepidation when the AI bubble will burst. I'll tell you what I tell them: If I knew that, I…",
+          "published": "2026-11-03T23:37:45Z"
+        },
+        {
           "title": "Indie games are missing launch dates because Steam is backed up",
           "url": "https://www.theverge.com/games/1025596/valve-steam-indie-games-missing-launch-dates",
           "snippet": "Many indie game developers have recently posted on social media about unexpectedly long approval wait times for their game submissions on Steam, with some of the approvals…",
@@ -738,24 +756,6 @@
           "url": "https://www.theverge.com/tech/1025745/fake-jeff-bezos-hair-replacement-photos-debunk",
           "snippet": "Amazon founder Jeff Bezos and actor Jason Statham have a distinctive feature in common: They're both famously bald, and that definitely hasn't changed in the last few days…",
           "published": "2026-11-03T21:09:00Z"
-        },
-        {
-          "title": "Google is entirely disabling Search in schools that don’t want AI",
-          "url": "https://www.theverge.com/tech/1025411/google-turn-off-search-ai-features",
-          "snippet": "Google is completely turning off Search in schools that reject its AI features, the company told The New York Times. The decision was also shared in a broader education-related…",
-          "published": "2026-11-03T20:54:30Z"
-        },
-        {
-          "title": "Midterm elections 2026: all the news",
-          "url": "https://www.theverge.com/policy/1020640/midterm-elections-2026-all-the-news",
-          "snippet": "The 2026 midterm elections will determine the scope of President Donald Trump’s power in his final two years in office, and signal what voters care about going into the 2028…",
-          "published": "2026-11-03T20:36:28Z"
-        },
-        {
-          "title": "Apple starts giving Siri AI access to third-party apps",
-          "url": "https://www.theverge.com/tech/1025694/apple-siri-ai-third-party-apps",
-          "snippet": "Apple will now let Siri AI perform actions across third-party apps. As part of the iOS 27.3 update rolling out on Tuesday, Apple announced developers can now integrate Siri AI's…",
-          "published": "2026-11-03T20:19:55Z"
         }
       ]
     },
@@ -764,9 +764,21 @@
       "name": "TechCrunch AI",
       "items": [
         {
+          "title": "Anthropic is working on a system to prove AI models’ identity",
+          "url": "https://techcrunch.com/2026/11/03/anthropic-is-working-on-a-system-to-prove-ai-models-identity/",
+          "snippet": "Called FlashProve, the system would let anyone check that an AI response really came from the model it claims to be from.",
+          "published": "2026-11-03T22:41:03Z"
+        },
+        {
+          "title": "Data centers are turning to old jet engines as the wait for power grows",
+          "url": "https://techcrunch.com/2026/11/03/data-centers-are-turning-to-old-jet-engines-as-the-wait-for-power-grows/",
+          "snippet": "The years-long wait for access to the grid and new turbines is causing data center builders to turn to an unusual, less-efficient and less environmentally friendly solution…",
+          "published": "2026-11-03T22:19:53Z"
+        },
+        {
           "title": "Ted Schlein’s Ballistic Ventures seeks $490M for new funds amid AI-driven cybersecurity boom",
           "url": "https://techcrunch.com/2026/11/03/ted-schleins-ballistic-ventures-seeks-490m-for-new-funds-amid-ai-driven-cybersecurity-boom/",
-          "snippet": "Cybersecurity focused Ballistic Ventures is seeking to raise $360 million for a new flagship fund and another $130 million for a separate investment vehicle.",
+          "snippet": "Cybersecurity-focused Ballistic Ventures is seeking to raise $360 million for a new flagship fund and another $130 million for a separate investment vehicle.",
           "published": "2026-11-03T21:43:08Z"
         },
         {
@@ -780,18 +792,6 @@
           "url": "https://techcrunch.com/2026/11/03/ai-inference-startup-fal-doubles-its-valuation-to-16b-as-demand-surges/",
           "snippet": "The five-year-old startup raised a $1.3 billion round led by Bessemer.",
           "published": "2026-11-03T19:34:43Z"
-        },
-        {
-          "title": "Netflix’s new AI Discover tab helps you find something to watch based on your mood",
-          "url": "https://techcrunch.com/2026/11/03/netflixs-new-ai-discover-tab-helps-you-find-something-to-watch-based-on-your-mood/",
-          "snippet": "The first experimental feature under the tab will allow users to get recommendations based on what they're currently in the mood for.",
-          "published": "2026-11-03T18:42:16Z"
-        },
-        {
-          "title": "Anthropic is still grappling with the economics of compute",
-          "url": "https://techcrunch.com/2026/11/03/anthropic-is-still-grappling-with-the-economics-of-compute/",
-          "snippet": "At a moment when Anthropic's compute margins should be getting better, they’re getting worse.",
-          "published": "2026-11-03T17:07:01Z"
         }
       ]
     },
