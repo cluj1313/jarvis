@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-05T21:50:34.197305Z",
+  "updated": "2026-11-06T02:06:03.697480Z",
   "categories": [
     {
       "id": "ai",
@@ -10,34 +10,34 @@
           "name": "The Verge AI",
           "items": [
             {
+              "title": "OpenAI is stepping back from NDAs for data center projects",
+              "url": "https://www.theverge.com/ai-artificial-intelligence/1028454/openai-data-center-nda",
+              "snippet": "Following this week's midterms where voters resoundingly voiced their opposition to data center expansion, OpenAI today announced new commitments to communities where it is…",
+              "published": "2026-11-06T00:37:56Z"
+            },
+            {
+              "title": "Airbnb is working on an AI travel agent",
+              "url": "https://www.theverge.com/tech/1028412/airbnb-ai-travel-agent-q3-2026-earnings",
+              "snippet": "Airbnb plans to roll out an AI agent in the first half of 2027 that will help users plan and book travel, the company said in its Q3 2026 earnings shareholder letter released…",
+              "published": "2026-11-06T00:06:12Z"
+            },
+            {
               "title": "Muse has a voice mode now",
               "url": "https://www.theverge.com/tech/1028015/meta-muse-ai-voice-mode-expressive-avatar",
               "snippet": "Meta now lets you have voice conversations with your Muse AI agent in real time, CEO Mark Zuckerberg announced today. The feature has been rolled out to me, and I gave it a spin…",
-              "published": "2026-11-05T19:07:13Z"
+              "published": "2026-11-05T22:45:04Z"
+            },
+            {
+              "title": "Perplexity launches its own take on AI agents for work",
+              "url": "https://www.theverge.com/ai-artificial-intelligence/1028302/perplexity-teammates-ai-agents-work",
+              "snippet": "Perplexity is taking on OpenAI and Anthropic with its own work-focused AI agents. The startup's new always-on \"Teammates\" can take on multiple roles within a workspace, while…",
+              "published": "2026-11-05T22:26:50Z"
             },
             {
               "title": "‘Total repudiation’: The blue wave is about to hit AI",
               "url": "https://www.theverge.com/ai-artificial-intelligence/1026927/total-repudiation-the-blue-wave-is-about-to-hit-ai",
               "snippet": "On Tuesday night, Democrats made history as they took control of the House and the Senate, and a blue wave swept through traditionally red and swing states - with the nation's…",
               "published": "2026-11-05T17:51:52Z"
-            },
-            {
-              "title": "Claude AI can plug directly into your bank account",
-              "url": "https://www.theverge.com/ai-artificial-intelligence/1027652/anthropic-claude-plaid-personal-finance",
-              "snippet": "Anthropic has a new pitch for managing your personal finances: let Claude do it instead, with a new Personal Finance feature that connects it to your bank and card accounts via…",
-              "published": "2026-11-05T17:49:25Z"
-            },
-            {
-              "title": "OpenAI says its new cybersecurity model is better at not hacking other companies",
-              "url": "https://www.theverge.com/ai-artificial-intelligence/1027599/openai-gpt-6-cyber-launch",
-              "snippet": "OpenAI is launching GPT-6 Cyber, the latest version of its cybersecurity AI model, which it says is better at finding vulnerabilities and less likely to go rogue and hack other…",
-              "published": "2026-11-05T17:10:19Z"
-            },
-            {
-              "title": "You can post AI music straight to SoundCloud from ElevenLabs",
-              "url": "https://www.theverge.com/ai-artificial-intelligence/1027427/ai-music-soundcloud-elevenlabs",
-              "snippet": "After partnering with Moises earlier this year, SoundCloud is now adding integration with another AI music platform, ElevenLabs. Now, rather than having to export and download…",
-              "published": "2026-11-05T14:47:10Z"
             }
           ]
         },
@@ -45,6 +45,12 @@
           "id": "techcrunch",
           "name": "TechCrunch AI",
           "items": [
+            {
+              "title": "Airbnb says it’s launching an AI travel agent in the first half of 2027",
+              "url": "https://techcrunch.com/2026/11/05/airbnb-says-its-launching-an-ai-travel-agent-in-the-first-half-of-2027/",
+              "snippet": "Airbnb says its upcoming AI agent will help travelers plan trips, compare options, manage bookings, and get assistance throughout their stay.",
+              "published": "2026-11-05T22:40:55Z"
+            },
             {
               "title": "Meta says US users can now video chat with their Muse AI avatar",
               "url": "https://techcrunch.com/2026/11/05/meta-says-us-users-can-now-video-chat-with-their-muse-ai-avatar/",
@@ -66,14 +72,8 @@
             {
               "title": "OpenAI president Greg Brockman says company could be IPO ready in 2027",
               "url": "https://techcrunch.com/2026/11/05/openai-president-greg-brockman-says-company-could-be-ipo-ready-in-2027/",
-              "snippet": "OpenAI president Greg Brockman says the company could be ready to go public in 2027, pointing to accelerating enterprise revenue and a turnaround in its business.",
+              "snippet": "Speaking at a Wall Street Journal tech conference on Wednesday, the executive touted how the company had been gaining ground in the enterprise market, where rival Anthropic had…",
               "published": "2026-11-05T18:02:27Z"
-            },
-            {
-              "title": "Claude can now analyze your spending with its new Personal Finance tool",
-              "url": "https://techcrunch.com/2026/11/05/claude-can-now-analyze-your-spending-with-its-new-personal-finance-tool/",
-              "snippet": "With Personal Finance in Claude, users can connect their bank and card accounts through Plaid and ask questions about their finances.",
-              "published": "2026-11-05T18:00:00Z"
             }
           ]
         },
@@ -160,34 +160,34 @@
           "name": "Digi24",
           "items": [
             {
-              "title": "25 de zboruri, perturbate de alerte cu bombă, dintre care patru în România. UE activează un mecanism critic pentru securitatea aviației",
+              "title": "Trump anunță că s-a întâlnit la Casa Albă cu trimisul lui Putin. Și spune că lucrează „la un acord care ar putea include toată Europa”",
+              "url": "https://www.digi24.ro/stiri/externe/trump-anunta-ca-s-a-intalnit-la-casa-alba-cu-trimisul-lui-putin-si-spune-ca-lucreaza-la-un-acord-care-ar-putea-include-toata-europa-4024065",
+              "snippet": "Președintele Donald Trump a declarat, într-o conferință de presă, că s-a întâlnit joi la Casa Albă cu trimisul lui Vladimir Putin, Kirill Dmitriev dar nu s-a întâlnit și cu…",
+              "published": "2026-11-05T22:47:15Z"
+            },
+            {
+              "title": "Conference League: Universitatea Craiova a învins Egnatia şi este pe locul 8 în grupă. Programul oltenilor în continuare",
+              "url": "https://www.digi24.ro/stiri/sport/fotbal/conference-league-universitatea-craiova-a-invins-egnatia-si-este-pe-locul-8-in-grupa-programul-oltenilor-in-continuare-4024059",
+              "snippet": "Universitatea Craiova a învins joi seara, pe teren propriu, scor 2-0, formaţia albaneză Egnatia, în etapa a treia din Conference League, relatează News.ro.",
+              "published": "2026-11-05T22:09:08Z"
+            },
+            {
+              "title": "Alte două amenințări cu bombă la bordul unor avioane, la Otopeni. UE activează un mecanism critic pentru securitatea aviației",
               "url": "https://www.digi24.ro/stiri/externe/alerta-cu-bomba-la-bordul-unui-airbus-a320-pe-ruta-dublin-roma-avionul-a-aterizat-de-urgenta-la-evreux-in-franta-4022797",
               "snippet": "Mai multe zboruri din Europa au fost deviate sau au aterizat sub escortă militară, joi, în urma unor amenințări cu bombă sau de securitate. Primul caz semnalat a fost cel al unui…",
-              "published": "2026-11-05T21:48:05Z"
+              "published": "2026-11-05T21:58:42Z"
             },
             {
-              "title": "Secretarul de Stat Marco Rubio ia în considerare demisia. El ar fi discutat chestiunea cu oficiali de la Casa Albă (Bloomberg)",
-              "url": "https://www.digi24.ro/stiri/externe/secretarul-de-stat-marco-rubio-ia-in-considerare-demisia-el-ar-fi-discutat-chestiunea-cu-oficiali-de-la-casa-alba-bloomberg-4024013",
-              "snippet": "Secretarul de Stat Marco Rubio ia în considerare demisia din administrația Trump după înfrângerea zdrobitoare suferită de republicani în alegerile de la jumătatea mandatului de…",
-              "published": "2026-11-05T21:35:08Z"
+              "title": "Statele Unite impun noi sancţiuni Cubei",
+              "url": "https://www.digi24.ro/stiri/externe/sua/statele-unite-impun-noi-sanctiuni-cubei-4024029",
+              "snippet": "Statele Unite au impus joi o nouă serie de sancţiuni Cubei, prin care ţintesc sectorul electronic şi pe fiica preşedintei conglomeratului economic-militar Gaesa, relatează AFP.",
+              "published": "2026-11-05T21:54:24Z"
             },
             {
-              "title": "Preşedintele Paraguayului și-a dat demisia în urma unui scandal bancar, care a degenerat într-o criză politică",
-              "url": "https://www.digi24.ro/stiri/externe/mapamond/presedintele-paraguayului-si-a-dat-demisia-in-urma-unui-scandal-bancar-care-a-degenerat-intr-o-criza-politica-4023987",
-              "snippet": "Preşedintele Paraguayului, Santiago Peña, şi-a anunţat joi demisia, în urma unui scandal bancar care a degenerat în criză politică, în momentul în care deputaţii dezbăteau o…",
-              "published": "2026-11-05T21:17:22Z"
-            },
-            {
-              "title": "Aproape 600.000 de oameni au ieșit în stradă în Franța: cea mai mare participare de la începutul valului de proteste",
-              "url": "https://www.digi24.ro/stiri/externe/aproape-600-000-de-oameni-au-iesit-in-strada-in-franta-cea-mai-mare-participare-de-la-inceputul-valului-de-proteste-4023951",
-              "snippet": "Aproape 600.000 de protestatari se află astăzi pe străzile Franței, potrivit estimărilor recente ale Ministerului de Interne, ceea ce face din ziua de joi cea mai mare zi de…",
-              "published": "2026-11-05T21:07:13Z"
-            },
-            {
-              "title": "Gianni Infantino, noi acuzații de abuz de putere. Ce resurse a utilizat FIFA pentru călătoriile soției și fiicei sale",
-              "url": "https://www.digi24.ro/stiri/sport/fotbal/gianni-infantino-noi-acuzatii-de-abuz-de-putere-ce-resurse-a-utilizat-fifa-pentru-calatoriile-sotiei-si-fiicei-sale-4023993",
-              "snippet": "Preşedintele FIFA, Gianni Infantino, este acuzat că le-a oferit soţiei şi fiicelor sale un tratament VIP la aeroportul din Miami, inclusiv atunci când acestea călătoreau fără el…",
-              "published": "2026-11-05T21:06:15Z"
+              "title": "Liderul Suprem iranian i-a transmis un mesaj secret lui Putin. Întâlnire la nivel înalt iraniano-rusă la Kremlin",
+              "url": "https://www.digi24.ro/stiri/externe/liderul-suprem-iranian-i-a-transmis-un-mesaj-secret-lui-putin-intalnire-la-nivel-inalt-iraniano-rusa-la-kremlin-4023825",
+              "snippet": "Președintele rus Vladimir Putin l-a primit joi la Kremlin pe Mohsen Rezaei, secretarul Consiliului Suprem de Securitate Națională al Iranului. La întâlnire au participat, de…",
+              "published": "2026-11-05T21:49:47Z"
             }
           ]
         },
@@ -196,15 +196,27 @@
           "name": "HotNews",
           "items": [
             {
-              "title": "Băsescu spune ce procuror ar trebui la conducerea DNA, după ce a văzut imaginile cu luxul afișat de liderii PSD. „Știu ce reacții vor fi”",
+              "title": "Piețele bursiere: De la petrecere la corecții masive în 24 de ore: Nasdaq scade cu 5%, pierderi de 1,9 trilioane de dolari",
+              "url": "https://hotnews.ro/pietele-bursiere-de-la-petrecere-la-corectii-masive-in-24-de-ore-nasdaq-scade-cu-5-pierderi-de-19-trilioane-de-dolari-2396390",
+              "snippet": "De la euforie la panică, de la câștiguri istorice la lichidări masive, a fost nevoie de doar 24 de ore pentru ca petrecerea post-electorală de pe Wall Street să se transforme…",
+              "published": "2026-11-06T01:57:03Z"
+            },
+            {
+              "title": "Președintele din Paraguay demisionează, în criza care a culminat cu înghețarea a milioane de depozite bancare din țară",
+              "url": "https://hotnews.ro/presedintele-din-paraguay-demisioneaza-in-criza-care-a-culminat-cu-inghetarea-a-milioane-de-depozite-bancare-din-tara-2396356",
+              "snippet": "Președintele Paraguayului, Santiago Peña, și-a depus demisia, joi, după prăbușirea unei instituții digitale de creditare cu care în trecut avusese legături de afaceri, potrivit…",
+              "published": "2026-11-05T22:05:50Z"
+            },
+            {
+              "title": "Băsescu indică numele procurorului care ar trebui la șefia DNA, după ce a văzut imaginile cu luxul afișat de liderii PSD. „Știu ce reacții vor fi”",
               "url": "https://hotnews.ro/traian-basescu-despre-petrecerea-de-botez-organizata-de-simonis-la-care-au-luat-parte-liderii-psd-ne-arata-ca-avem-nevoie-de-kovesi-la-dna-2396351",
-              "snippet": "Traian Băsescu a comentat petrecerea de botez din weekendul trecut, la care au luat parte liderii PSD în Timișoara și care a fost pe larg criticat din cauza luxului afișat…",
+              "snippet": "Traian Băsescu a comentat petrecerea de botez din weekendul trecut, la care au luat parte liderii PSD în Timișoara și care a fost pe larg criticată din cauza luxului afișat…",
               "published": "2026-11-05T21:46:32Z"
             },
             {
-              "title": "SRI confirmă două noi situații de amenințări cu bombă, pe Aeroportul Otopeni. Avion cu destinația Tel Aviv, inspectat de pirotehniști",
+              "title": "Cum s-a derulat a treia alertă cu bombă de pe Aeroportul Otopeni. Detalii despre situația zborului KLM cu destinația Tel Aviv",
               "url": "https://hotnews.ro/sri-confirma-doua-noi-situatii-de-amenintari-cu-bomba-pe-aeroportul-otopeni-ce-au-solicitat-pilotii-unui-avion-cu-destinatia-tel-aviv-2396341",
-              "snippet": "Serviciul Român de Informații (SRI) a anunțat joi seară două situații noi de amenințări cu bombă privind aeronave pe Aeroportul Otopeni. Instituția a oferit detalii doar despre…",
+              "snippet": "O aeronavă a companiei aeriene olandeze KLM, cu destinația Tel Aviv, a fost vizată de o alertă cu bombă și a fost supusă unui control pirotehnic pe Aeroportul Otopeni, unde avea…",
               "published": "2026-11-05T21:22:19Z"
             },
             {
@@ -212,18 +224,6 @@
               "url": "https://hotnews.ro/ordinul-emis-de-ministrul-dezvoltarii-in-cazul-balcoanelor-inchise-fara-autorizatie-in-ce-cazuri-statul-nu-mai-poate-da-amenzi-2396333",
               "snippet": "Alexandru Stoica a declarat că a emis joi un ordin de ministru pentru a clarifica situația balcoanelor închise fără autorizație, pentru a elimina „speculațiile despre impozit…",
               "published": "2026-11-05T21:01:57Z"
-            },
-            {
-              "title": "„Vă simțiți prizonierul PSD?”. Răspunsul dat de premierul Luca Niculescu",
-              "url": "https://hotnews.ro/va-simtiti-prizonierul-psd-raspunsul-dat-de-premierul-luca-niculescu-2396318",
-              "snippet": "Prim-ministrul Luca Niculescu a vorbit despre relația pe care o are cu PSD, singurul partid „care și-a asumat această guvernare”, șeful Executivului precizând că îl ajută faptul…",
-              "published": "2026-11-05T20:38:00Z"
-            },
-            {
-              "title": "Decizie fără precedent în istoria modernă a SUA: Guvernatorul Californiei a anulat toate cele 548 de condamnări la moarte",
-              "url": "https://hotnews.ro/guvernatorul-californiei-a-anulat-toate-cele-548-de-condamnari-la-moarte-din-stat-ce-se-va-intampla-cu-detinutii-2396312",
-              "snippet": "Gavin Newsom a declarat că a luat această decizie deoarece consideră pedeapsa capitală inacceptabilă din punct de vedere moral, potrivit New York Times. Guvernatorul Californiei…",
-              "published": "2026-11-05T20:23:23Z"
             }
           ]
         },
@@ -231,6 +231,12 @@
           "id": "g4media",
           "name": "G4Media",
           "items": [
+            {
+              "title": "Niculescu, despre întâlnirea cu oficialul american Elbridge Colby: Ne dorim ca trupele americane să rămână aici, ca aceste capabilități americane să fie prezente. Destul de des primesc mesaje noaptea privitor la dronele care vin în România",
+              "url": "https://www.g4media.ro/niculescu-despre-intalnirea-cu-oficialul-american-elbridge-colby-ne-dorim-ca-trupele-americane-sa-ramana-aici-ca-aceste-capabilitati-americane-sa-fie-prezente-destul-de-des-primesc-mesaje-noaptea.html",
+              "snippet": "Premierul Luca Niculescu a precizat în emisiune la Antena3-CNN că în cadrul întâlnirii cu oficialul american Elbridge Colby s-a discutat despre retragerea trupelor americane, în…",
+              "published": "2026-11-05T21:51:09Z"
+            },
             {
               "title": "Luca Niculescu: În funcție de rezultatele controlului privind SAFE, vom vedea ce măsuri vom lua",
               "url": "https://www.g4media.ro/luca-niculescu-in-functie-de-rezultatele-controlului-privind-safe-vom-vedea-ce-masuri-vom-lua.html",
@@ -254,12 +260,6 @@
               "url": "https://www.g4media.ro/kaja-kallas-e-de-acord-cu-giorgia-meloni-ue-trebuie-sa-vorbeasca-pe-o-singura-voce-despre-negocierile-privind-ucraina.html",
               "snippet": "Şefa diplomaţiei UE Kaja Kallas a declarat joi că este de acord cu premierul italian Giorgia Meloni că UE nu trebuie să vorbească pe voci diferite în ceea ce priveşte negocierile…",
               "published": "2026-11-05T20:46:29Z"
-            },
-            {
-              "title": "Premierul Niculescu, despre situația financiară a României: Avem o diferență mare între ce încasează statul și ce ar trebui să încaseze. Nu ne gândim să impunem alte taxe. Se păstrează reglementarea tarifelor la gaze până la 31 martie",
-              "url": "https://www.g4media.ro/premierul-niculescu-despre-situatia-financiara-a-romaniei-avem-o-diferenta-mare-intre-ce-incaseaza-statul-si-ce-ar-trebui-sa-incaseze-nu-ne-gandim-sa-impunem-alte-taxe-se-pastreaza-reglementarea-t.html",
-              "snippet": "Premierul Luca Niculescu a oferit mai multe răspunsuri în emisiune la Antena3-CNN privind situația financiară și planul Guvernului în privința bugetului din 2027. „Peste două…",
-              "published": "2026-11-05T20:41:11Z"
             }
           ]
         }
@@ -274,34 +274,34 @@
           "name": "Ziarul Financiar",
           "items": [
             {
-              "title": "Procesatorul de plăţi NETOPIA spune că pasagerii afectaţi de anularea zborurilor Dan Air trebuie să solicite banii direct la bancă prin chargeback. „Sumele reţinute de NETOPIA cu titlu de garanţie nu sunt folosite în niciun alt scop. Sunt păstrate separat, în conturi de protejare”",
-              "url": "https://www.zf.ro/eveniment/procesatorul-plati-netopia-spune-pasagerii-afectati-anularea-zborurilor-dan-air-solicite-banii-direct-banca-chargeback-sumele-retinute-netopia-titlu-garantie-folosite-niciun-scop-pastrate-separat-23275635",
-              "snippet": "",
-              "published": "2026-11-05T20:36:44Z"
+              "title": "ZF HR Conference 2026: Ce înseamnă un angajat AI ready? Cum se pregătesc companiile pentru 2027? Piaţa muncii rămâne stabilă. Companiile se uită tot mai mult la cum pot folosi tehnologia pentru a-şi eficientiza activitatea. Angajaţii nu vor fi înlocuiţi de AI, însă vor avea nevoie de mai multe competenţe",
+              "url": "https://www.zf.ro/profesii/zf-hr-conference-2026-inseamna-angajat-ready-pregatesc-companiile-2027-piata-muncii-ramane-stabila-companiile-uita-tot-mult-pot-folosi-tehnologia-eficientiza-activitatea-angajatii-vor-inlocuiti-insa-23275518",
+              "snippet": "România traversează o perioadă dificilă din punct de vedere economic, cumulat cu crizele externe şi problemele geopolitice, însă piaţa muncii din România nu resimte atât de…",
+              "published": "2026-11-05T22:07:00Z"
             },
             {
-              "title": "Ediţia 06 noiembrie 2026 epaper",
-              "url": "https://www.zf.ro/auxiliar/editia-06-noiembrie-2026-epaper-23275626",
-              "snippet": "",
-              "published": "2026-11-05T20:16:09Z"
+              "title": "Business sportiv. Cluj şi Oradea, pe harta europeană a handbalului feminin. Cele două oraşe vor fi gazde ale unor meciuri din Campionatul European de Handbal Feminin şi hotelurile încep deja să se ocupe. Ce impact are organizarea unui astfel de eveniment în România?",
+              "url": "https://www.zf.ro/business-sportiv/business-sportiv-cluj-oradea-harta-europeana-handbalului-feminin-cele-doua-orase-vor-gazde-unor-meciuri-campionatul-european-handbal-feminin-hotelurile-incep-ocupe-impact-organizarea-unui-astfel-23275533",
+              "snippet": "Campionatul European de Handbal Feminin 2026 va avea loc în perioada 3-20 decembrie, iar România este una dintre ţările gazdă, alături de Slovacia, Turcia, Cehia şi Polonia. În…",
+              "published": "2026-11-05T22:07:00Z"
             },
             {
-              "title": "La ce oră începe eMAG campania de vânzări de Black Friday 2026, prin care ţinteşte vânzări de 1 miliard de lei?",
-              "url": "https://www.zf.ro/business-hi-tech/la-ce-ora-incepe-emag-campania-de-vanzari-de-black-friday-2026-prin-care-tinteste-vanzari-de-1-miliard-de-lei-23275577",
-              "snippet": "Campania de Black Friday a eMAG, pentru care compania ţinteşte vânzări de 1,04 miliarde de lei, ar putea porni vineri, 6 noiembrie, înainte de ora 8:00. CEO-ul companiei nu a…",
-              "published": "2026-11-05T19:23:00Z"
+              "title": "Frans Muller, CEO-ul global al Ahold Delhaize, proprietarul Mega Image şi Profi: Portofoliul nostru complementar de branduri ne oferă o platformă solidă în România. Am deschis 64 de magazine în acest an şi continuăm. Credem în această regiune!",
+              "url": "https://www.zf.ro/companii/retail-agrobusiness/frans-muller-ceo-ul-global-ahold-delhaize-proprietarul-mega-image-profi-portofoliul-nostru-complementar-branduri-ne-ofera-platforma-solida-romania-deschis-64-magazine-acest-an-continuam-credem-23275548",
+              "snippet": "Grupul Ahold Delhaize, unul dintre cei mai puternici actori din comerţul alimentar autohton, a reluat expansiunea după mai mulţi ani de pauză, ani în care gigantul s-a ocupat…",
+              "published": "2026-11-05T22:07:00Z"
             },
             {
-              "title": "Top 5 cele mai citite ştiri din ZF în ultimele 24 de ore",
-              "url": "https://www.zf.ro/business-hi-tech/top-5-cele-mai-citite-stiri-din-zf-in-ultimele-24-de-ore-23275596",
-              "snippet": "",
-              "published": "2026-11-05T19:07:32Z"
+              "title": "ZF LIVE. Vladimir Cohn, industriaşul care construieşte o fabrică de hârtie de 80 mil. euro la Giurgiu, spune că planul ar putea să fie dat peste cap de preţul gazului şi al energiei electrice. Companiile ar trebui să aibă acces la un gaz mai ieftin exploatat terestru de Romgaz şi OMV",
+              "url": "https://www.zf.ro/zf-live/zf-live-vladimir-cohn-industriasul-construieste-fabrica-hartie-80-mil-euro-giurgiu-spune-planul-ar-putea-fie-dat-peste-cap-pretul-gazului-energiei-electrice-companiile-ar-trebui-aiba-acces-gaz-23275564",
+              "snippet": "Sorin Pâslaru: În această ediţie specială îl am alături pe Vladimir Cohn, unul din cei mai mari industriaşi ai României, care tocmai a anunţat o investiţie de 80 de mil. de euro…",
+              "published": "2026-11-05T22:07:00Z"
             },
             {
-              "title": "ZF DESCHIDEREA DE ASTĂZI. Cum va merge bursa. Urmăriţi o discuţie vineri, 6 noiembrie 2026, ora 09.30 cu Stere Farmache, preşedintele consiliului de administraţie, Fondul de Compensare al Investitorilor, fost CEO al Bursei de Valori Bucureşti",
-              "url": "https://www.zf.ro/burse-fonduri-mutuale/zf-deschiderea-astazi-merge-bursa-urmariti-discutie-vineri-6-noiembrie-2026-ora-09-30-stere-farmache-presedintele-consiliului-administratie-fondul-compensare-investitorilor-ceo-bursei-valori-23275515",
-              "snippet": "",
-              "published": "2026-11-05T17:55:09Z"
+              "title": "Cum rămâne cu ROBOR? Dosarul ROBOR revine în prim-plan. Încep să apară decizii în instanţă în speţa bănci vs Consiliul Concurenţei. Curtea de Apel respinge cererea CEC Bank de suspendare a executării deciziei CC, dar banca poate face recurs. Iar BNR reafirmă că „nu consideră că există vreun motiv de revizuire a cadrului normativ” privind ROBOR",
+              "url": "https://www.zf.ro/banci-si-asigurari/ramane-robor-dosarul-robor-revine-prim-plan-incep-apara-decizii-instanta-speta-banci-vs-consiliul-concurentei-curtea-apel-respinge-cererea-cec-bank-suspendare-executarii-deciziei-cc-banca-face-23275566",
+              "snippet": "Dosarul ROBOR a revenit în prim-plan, odată ce băncile sancţionate de Consiliul Concurenţei (CC) au mers în instanţă şi au iniţiat demersuri de contestare a deciziei autorităţii…",
+              "published": "2026-11-05T22:07:00Z"
             }
           ]
         },
@@ -310,34 +310,34 @@
           "name": "Profit.ro",
           "items": [
             {
-              "title": "ULTIMA ORĂ Veste din Guvern pentru factura la gaze. Reglementarea privind tarifele pentru consumul populației va fi păstrată până la 31 martie, vor fi scheme de sprijin pentru cei vulnerabili, anunță Luca Niculescu. Scheme și pentru companii",
-              "url": "https://www.profit.ro/povesti-cu-profit/energie/ultima-ora-veste-guvern-factura-gaze-reglementarea-privind-tarifele-consumul-populatiei-pastrata-pana-31-martie-vor-scheme-sprijin-cei-vulnerabili-anunta-luca-niculescu-scheme-companii-22949884?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
-              "snippet": "Reglementarea privind tarifele la gaze pentru consumul populației va fi păstrată până la 31 martie, anunță premierul Luca Niculescu.",
-              "published": "2026-11-05T20:40:00Z"
+              "title": "SURPRIZĂ rară în benzinării. Ieftinire a ambelor tipuri de carburanți în aceeași zi. Benzina a coborât sub 10 lei/l în toate stațiile",
+              "url": "https://www.profit.ro/povesti-cu-profit/auto-transporturi/surpriza-rara-in-benzinarii-ieftinire-a-ambelor-tipuri-de-carburanti-in-aceeasi-zi-benzina-a-coborat-sub-10-lei-l-in-toate-statiile-22950763?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
+              "snippet": "Prețul benzinei a coborât sub pragul de 10 lei/l, iar motorina a revenit la cotația din urmă cu o lună, în urma deciziei tuturor companiilor distribuitoare de carburanți de a…",
+              "published": "2026-11-06T01:26:00Z"
             },
             {
-              "title": "SURPRIZĂ Bolt în România. Lansează Bolt Taxi. Proiect-pilot cu Meridian Taxi de pe aeroportul Otopeni",
-              "url": "https://www.profit.ro/povesti-cu-profit/auto-transporturi/surpriza-bolt-in-romania-lanseaza-bolt-taxi-proiect-pilot-cu-meridian-taxi-de-pe-aeroportul-otopeni-22949823?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
-              "snippet": "Bolt lansează în România o nouă funcție, respectiv categoria Bolt Taxi.",
-              "published": "2026-11-05T20:34:00Z"
+              "title": "FOTO Fabrică nouă în România de la zero: Compania chineză Autolink ridică o fabrică de la zero lângă București",
+              "url": "https://www.profit.ro/povesti-cu-profit/foto-fabrica-noua-in-romania-de-la-zero-compania-chineza-autolink-ridica-o-fabrica-de-la-zero-langa-bucuresti-22947823?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
+              "snippet": "Compania chineză Wuxi Autolink Intelligence Tech, furnizor de tehnologie pentru arhitectura E/E (electrică/electronică) în domeniul auto, a deschis un centru de cercetare și…",
+              "published": "2026-11-05T22:16:00Z"
             },
             {
-              "title": "“Regele Pantofilor” aduce în România un nou mare brand de magazine",
-              "url": "https://www.profit.ro/povesti-cu-profit/retail/oficial-foto-regele-pantofilor-aduce-in-romania-un-nou-mare-brand-de-magazine-modivo-lanseaza-shockprice-vrem-sa-fim-regele-comertului-cu-amanuntul-off-price-22949765?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
-              "snippet": "Retailerul polonez de încălțăminte CCC Group, proprietar al lanțului de magazine CCC din România, lansează acum și pe piața locală, prin compania de modă Modivo, lanțul de…",
-              "published": "2026-11-05T20:27:00Z"
+              "title": "Jumbo, succes în România cu decizia \"NU punem în preț majorarea TVA\", consumatorii au reacționat pozitiv: A ajuns la 21 hipermarketuri pe piața locală și a revenit pe creștere, după scăderi în aproape fiecare lună de la începutul anului",
+              "url": "https://www.profit.ro/povesti-cu-profit/retail/jumbo-succes-romania-decizia-punem-pret-majorarea-tva-consumatorii-au-reactionat-pozitiv-ajuns-21-hipermarketuri-piata-locala-revenit-crestere-dupa-scaderi-aproape-luna-inceputul-anului-22946123?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
+              "snippet": "Retailerul grec de jucării și decorațiuni Jumbo, care a deschis recent la Baia Mare hipermarketul cu numărul 21 din România, și-a majorat vânzările pe piața locală în octombrie…",
+              "published": "2026-11-05T22:14:00Z"
             },
             {
-              "title": "Guvernul sare în ajutorul clienților casnici Hidroelectrica. Obligație eliminată prin OUG",
-              "url": "https://www.profit.ro/perspective/schimbari-legislative-pentru-firme/guvernul-sare-in-ajutorul-clientilor-casnici-hidroelectrica-obligatie-eliminata-prin-oug-22949723?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
-              "snippet": "Guvernul îi va introduce pe lista celor scutiți de obligația de a-și tranzacționa cel puțin 50% din producția anuală prin contracte încheiate pe piețele organizate la termen…",
-              "published": "2026-11-05T20:19:00Z"
+              "title": "FOTO Dracula Park, reluat. A primit OK de la Primăria Miercurea Ciuc. Scandalul din perioada Guvernului Năstase cu un alt proiect",
+              "url": "https://www.profit.ro/povesti-cu-profit/foto-dracula-park-reluat-a-primit-ok-de-la-primaria-miercurea-ciuc-scandalul-din-perioada-guvernului-nastase-cu-un-alt-proiect-22948863?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
+              "snippet": "Proiectul Dracula Park Transylvania a fost autorizat de Primăria Miercurea Ciuc.",
+              "published": "2026-11-05T22:12:00Z"
             },
             {
-              "title": "Indicele BET pierde un procent. Volatilitate redusă la BVB într-un context de oscilații puternice pe bursele mari ale lumii",
-              "url": "https://www.profit.ro/povesti-cu-profit/financiar/piata-de-capital/indicele-bet-pierde-un-procent-volatilitate-redusa-la-bvb-intr-un-context-de-oscilatii-puternice-pe-bursele-mari-ale-lumii-22949468?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
-              "snippet": "După un comportament al anului 2026 în care corelațiile cu piețele externe au funcționat destul de slab de la o zi la alta, bursa de la București a fost mai puțin afectată de…",
-              "published": "2026-11-05T19:50:00Z"
+              "title": "EXCLUSIV Tranzacție majoră în România, ratată în ultimul moment. Gigantul ungar Adventum a vrut să cumpere America House de la Morgan Stanley",
+              "url": "https://www.profit.ro/povesti-cu-profit/real-estate-constructii/exclusiv-tranzactie-majora-in-romania-ratata-in-ultimul-moment-gigantul-ungar-adventum-a-vrut-sa-cumpere-america-house-de-la-morgan-stanley-22909083?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
+              "snippet": "Fondul ungar de investiții Adventum, care gestionează un portofoliu imobiliar de peste 1,6 miliarde de euro, a renunțat în ultimul moment la achiziția clădirii de birouri America…",
+              "published": "2026-11-05T22:10:00Z"
             }
           ]
         },
@@ -460,34 +460,34 @@
           "name": "The Verge",
           "items": [
             {
-              "title": "EA is bringing 25 classic PC games to Steam",
-              "url": "https://www.theverge.com/games/1023553/ea-classic-pc-games-steam-anniversary-edition",
-              "snippet": "Electronic Arts is launching 25 classic games on Steam, including \"Anniversary Editions\" of the motorcycle racer Road Rash and six Wing Commander titles. These Anniversary…",
-              "published": "2026-11-05T21:40:27Z"
+              "title": "OpenAI is stepping back from NDAs for data center projects",
+              "url": "https://www.theverge.com/ai-artificial-intelligence/1028454/openai-data-center-nda",
+              "snippet": "Following this week's midterms where voters resoundingly voiced their opposition to data center expansion, OpenAI today announced new commitments to communities where it is…",
+              "published": "2026-11-06T00:37:56Z"
             },
             {
-              "title": "Blue Origin’s next launch now won’t happen until 2027",
-              "url": "https://www.theverge.com/science/1028178/blue-origins-next-launch-now-wont-happen-until-2027",
-              "snippet": "Blue Origin plans to do its next New Glenn rocket launch in January 2027, according to CNBC and the Financial Times, which cite a memo from CEO Dave Limp sent to staff. The new…",
-              "published": "2026-11-05T20:47:14Z"
+              "title": "Airbnb is working on an AI travel agent",
+              "url": "https://www.theverge.com/tech/1028412/airbnb-ai-travel-agent-q3-2026-earnings",
+              "snippet": "Airbnb plans to roll out an AI agent in the first half of 2027 that will help users plan and book travel, the company said in its Q3 2026 earnings shareholder letter released…",
+              "published": "2026-11-06T00:06:12Z"
             },
             {
-              "title": "Samsung’s Galaxy Z Fold 8 is $300 off ahead of Black Friday",
-              "url": "https://www.theverge.com/gadgets/1027659/samsung-galaxy-z-fold-8-beats-pill-deal-sale",
-              "snippet": "Android fans with a bit of iPhone Duo envy, take note: The Samsung Galaxy Z Fold 8 is discounted to $1,599.99 at both Amazon and Best Buy, a hefty $300 markdown from its usual…",
-              "published": "2026-11-05T19:27:06Z"
+              "title": "The New York Times is in talks to buy Letterboxd for around $330 million",
+              "url": "https://www.theverge.com/news/1028375/the-new-york-times-letterboxd-acquisition-report",
+              "snippet": "The New York Times Company is in talks\"exclusive negotations\" to acquire Letterboxd, the social network for film lovers, for around $330 million, The New York Times reports. The…",
+              "published": "2026-11-05T23:45:10Z"
+            },
+            {
+              "title": "T-Mobile owner on Elon Musk launching a wireless carrier: ‘Welcome to the party’",
+              "url": "https://www.theverge.com/tech/1028346/t-mobile-deutsche-telecom-spacex-starlink-mobile",
+              "snippet": "The head of T-Mobile's parent company is casting doubt on SpaceX's plans to make Starlink Mobile a \"major\" carrier in the US. During an earnings call on Thursday, Deutsche…",
+              "published": "2026-11-05T23:17:10Z"
             },
             {
               "title": "Muse has a voice mode now",
               "url": "https://www.theverge.com/tech/1028015/meta-muse-ai-voice-mode-expressive-avatar",
               "snippet": "Meta now lets you have voice conversations with your Muse AI agent in real time, CEO Mark Zuckerberg announced today. The feature has been rolled out to me, and I gave it a spin…",
-              "published": "2026-11-05T19:07:13Z"
-            },
-            {
-              "title": "‘Total repudiation’: The blue wave is about to hit AI",
-              "url": "https://www.theverge.com/ai-artificial-intelligence/1026927/total-repudiation-the-blue-wave-is-about-to-hit-ai",
-              "snippet": "On Tuesday night, Democrats made history as they took control of the House and the Senate, and a blue wave swept through traditionally red and swing states - with the nation's…",
-              "published": "2026-11-05T17:51:52Z"
+              "published": "2026-11-05T22:45:04Z"
             }
           ]
         }
@@ -502,34 +502,34 @@
           "name": "Gazeta Sporturilor",
           "items": [
             {
-              "title": "Antrenorul lui Marius Corbu, recital după ce a bătut-o pe AC Milan pe San Siro: „Perfect, i-am surclasat!”",
-              "url": "https://www.gsp.ro/international/europa-league/balasz-borbely-reactie-ac-milan-ferencvaros-marius-corbu-996367.html",
-              "snippet": "Balazs Borbely, antrenorul celor de la Ferencvaros, a reacționat după ce echipa lui a câștigat pe terenul celor de la AC Milan, scor 2-0, în etapa a patra din faza ligii Europa…",
-              "published": "2026-11-05T21:33:32Z"
+              "title": "Craioveanu îl sfătuiește să o refuze pe Olympiakos: „Nu ar fi un pas înainte”",
+              "url": "https://www.gsp.ro/international/conference-league/gica-craioveanu-reactie-victorie-craiova-egnatia-alexandru-cicaldau-996393.html",
+              "snippet": "Fostul internațional Gică Craioveanu (58 de ani) a urmărit din lojile de pe „Ion Oblemenco” victoria obținută de Universitatea Craiova, 2-0 cu Egnatia, și este convins că echipa…",
+              "published": "2026-11-05T22:51:40Z"
             },
             {
-              "title": "6 echipaje de poliție în urmărirea starului din Premier League, prins asupra lui cu un arc și săgeți!",
-              "url": "https://www.gsp.ro/international/campionate/amar-dedic-newcastle-interventie-politie-incident-arc-sageti-996364.html",
-              "snippet": "Amar Dedic (24 de ani), internaționalul bosniac al lui Newcastle United, a fost implicat într-un incident neobișnuit în zona rurală din Northumberland, fiind surprins având…",
-              "published": "2026-11-05T21:16:14Z"
+              "title": "Gabi Balint a avut un „client” după Craiova - Egnatia: „Așteptam mai mult de la el”",
+              "url": "https://www.gsp.ro/international/conference-league/gabi-balint-stefan-baiaram-universitatea-craiova-egnatia-nicusor-bancu-996394.html",
+              "snippet": "Gabi Balint, fost antrenor la Universitatea Craiova și actual analist TV, a analizat jocul oltenilor în victoria contra albanezilor de la Egnatia, scor 2-0, într-un meci din…",
+              "published": "2026-11-05T22:43:49Z"
             },
             {
-              "title": "Emil Săndoi face predicții: „Dacă nu primele 8, primele 12 sigur”",
-              "url": "https://www.gsp.ro/international/conference-league/emil-sandoi-face-predictii-primavara-europeana-daca-nu-primele-8-primele-12-sigur-996359.html",
-              "snippet": "Fostul fundaș și antrenor al Băniei, Emil Săndoi, a oferit pronosticuri generoase în privința Universității Craiova: vede formația în primăvara europeană, apoi din nou campioană…",
-              "published": "2026-11-05T20:54:19Z"
+              "title": "Filipe Coelho îi recunoaște meritele: „Foarte valoros, foarte important!”",
+              "url": "https://www.gsp.ro/international/conference-league/filipe-coelho-universitatea-craiova-egnatia-conference-league-996382.html",
+              "snippet": "Craiova - Egnatia 2-0, în runda a treia din Conference League. Filipe Coelho s-a declarat foarte mulțumit de jocul echipei sale. Imediat după fluierul final, jucătorii Craiovei…",
+              "published": "2026-11-05T22:36:28Z"
             },
             {
-              "title": "Lăsat în afara lotului de Coelho, „obligat” să vadă meciul din tribună: „Nu prea aș fi vrut să mă uit, că e frustrant”",
-              "url": "https://www.gsp.ro/international/conference-league/mihnea-radulescu-reactie-lasat-in-afara-lotului-craiova-egnatia-996354.html",
-              "snippet": "Mihnea Rădulescu (21 de ani), jucător lăsat în afara lotului de Filipe Coelho (46 de ani) pentru meciul dintre Universitatea Craiova și Egnatia, a urmărit din lojile de pe „Ion…",
-              "published": "2026-11-05T20:52:32Z"
+              "title": "Marcatorii Craiovei cu Egnatia: „Poate lumea zice că am jucat cu echipe slabe”",
+              "url": "https://www.gsp.ro/international/conference-league/nicusor-bancu-alexandru-cicaldau-universitatea-craiova-egnatia-996388.html",
+              "snippet": "Nicușor Bancu și Alexandru Cicâldău, marcatorii Universității Craiova în victoria cu Egnatia, scor 2-0, au oferit o primă reacție după partida câștigată de olteni pe „Ion…",
+              "published": "2026-11-05T22:33:09Z"
             },
             {
-              "title": "30 de minute am fost TOP! România n-a mai avut ce să facă la reluare pe terenul colosului Franța în preliminariile Euro",
-              "url": "https://www.gsp.ro/sporturi/handbal/live-franta-romania-preliminarii-euro-2028-handbal-996153.html",
-              "snippet": "România a pierdut previzibil pe arena „Aix Country” în fața Franței, scor 34-27, în primul etapă din preliminariile Campionatului European 2028. Dacă 30 de minute am jucat un…",
-              "published": "2026-11-05T20:46:09Z"
+              "title": "Îl propune titular la națională: „Este peste Ianis Hagi în acest moment”",
+              "url": "https://www.gsp.ro/international/conference-league/pavel-badea-gsp-live-special-univeristatea-craiova-egnatia-alexandru-cicaldau-996378.html",
+              "snippet": "Pavel Badea (59 de ani), președintele Clubului Sportiv Universitatea Craiova, a avut o intervenție la emisiunea GSP Live Special imediat după victoria reușită de olteni în etapa…",
+              "published": "2026-11-05T22:32:37Z"
             }
           ]
         },
@@ -538,34 +538,34 @@
           "name": "Digi Sport",
           "items": [
             {
-              "title": "Celta Vigo - Union St. Gilloise 1-2, DGS 2 / Alkmaar - Juventus 1-2, DGS 3 / Celtic - Beșiktaș 3-2, DGS 4. Programul etapei a patra din Europa League",
-              "url": "https://www.digisport.ro/fotbal/europa-league/celta-vigo-union-st-gilloise-1-0-dgs-2-alkmaar-juventus-0-0-dgs-3-celtic-besiktas-0-0-dgs-4-programul-etapei-a-patra-din-europa-league-4586835",
-              "snippet": "Celta Vigo - Union St. Gilloise 1-2, DGS 2 / Alkmaar - Juventus 1-2, DGS 3 / Celtic - Beșiktaș 3-2, DGS 4. Programul etapei a patra din Europa League",
-              "published": "2026-11-05T21:49:19Z"
-            },
-            {
-              "title": "Universitatea Craiova - Egnatia 2-0, ACUM, Digi Sport 1. Bancu a dublat avantajul. ROȘU pentru albanezi",
-              "url": "https://www.digisport.ro/fotbal/conference-league/universitatea-craiova-egnatia-live-video-joi-2200-digi-sport-1-in-conference-league-primul-meci-direct-din-istorie-4584883",
-              "snippet": "Universitatea Craiova - Egnatia 2-0, ACUM, Digi Sport 1. Bancu a dublat avantajul. ROȘU pentru albanezi",
-              "published": "2026-11-05T21:47:19Z"
-            },
-            {
-              "title": "Getafe - Brighton 0-1 / Copenhaga - Iberia 2-1 / Twente - Pafos 3-1. Programul etapei a treia din Conference League",
-              "url": "https://www.digisport.ro/fotbal/conference-league/getafe-brighton-0-0-copenhaga-iberia-0-0-twente-pafos-0-0-programul-etapei-a-treia-din-conference-league-4586773",
-              "snippet": "Getafe - Brighton 0-1 / Copenhaga - Iberia 2-1 / Twente - Pafos 3-1. Programul etapei a treia din Conference League",
-              "published": "2026-11-05T21:43:47Z"
-            },
-            {
-              "title": "Georgina Rodriguez, mesaj emoționant după ce Cristiano Ronaldo a spus adio naționalei Portugaliei",
-              "url": "https://www.digisport.ro/fotbal/georgina-rodriguez-mesaj-emotionant-dupa-ce-cristiano-ronaldo-a-spus-adio-nationalei-portugaliei-4588145",
-              "snippet": "Georgina Rodriguez, mesaj emoționant după ce Cristiano Ronaldo a spus adio naționalei Portugaliei",
-              "published": "2026-11-05T21:35:48Z"
-            },
-            {
               "title": "A atras toate privirile la Universitatea Craiova - Egnatia: Miss 1995",
               "url": "https://www.digisport.ro/fotbal/conference-league/a-atras-toate-privirile-la-universitatea-craiova-egnatia-miss-1995-4588133",
               "snippet": "A atras toate privirile la Universitatea Craiova - Egnatia: Miss 1995",
-              "published": "2026-11-05T21:22:28Z"
+              "published": "2026-11-05T23:50:19Z"
+            },
+            {
+              "title": "Ionuț Radu a apărat un penalty, dar a fost cel mai slab de pe teren în Celta - Union SG! Nota primită",
+              "url": "https://www.digisport.ro/fotbal/europa-league/ionut-radu-a-aparat-un-penalty-dar-a-fost-cel-mai-slab-de-pe-teren-in-celta-union-sg-nota-primita-4588231",
+              "snippet": "Ionuț Radu a apărat un penalty, dar a fost cel mai slab de pe teren în Celta - Union SG! Nota primită",
+              "published": "2026-11-05T23:49:16Z"
+            },
+            {
+              "title": "Nota 9! Cine a fost omul meciului, dar și cel mai slab în Universitatea Craiova - Egnatia 2-0",
+              "url": "https://www.digisport.ro/fotbal/conference-league/nota-9-cine-a-fost-omul-meciului-dar-si-cel-mai-slab-in-universitatea-craiova-egnatia-2-0-4588407",
+              "snippet": "Nota 9! Cine a fost omul meciului, dar și cel mai slab în Universitatea Craiova - Egnatia 2-0",
+              "published": "2026-11-05T23:48:49Z"
+            },
+            {
+              "title": "Filipe Coelho, mulțumit după Universitatea Craiova - Egnatia 2-0: ”Am reprezentat fotbalul românesc”",
+              "url": "https://www.digisport.ro/fotbal/conference-league/filipe-coelho-multumit-dupa-universitatea-craiova-egnatia-2-0-am-reprezentat-fotbalul-romanesc-4588485",
+              "snippet": "Filipe Coelho, mulțumit după Universitatea Craiova - Egnatia 2-0: ”Am reprezentat fotbalul românesc”",
+              "published": "2026-11-05T23:47:13Z"
+            },
+            {
+              "title": "4.100.000 € pentru Universitatea Craiova, după victoria cu Egnatia din Conference League!",
+              "url": "https://www.digisport.ro/fotbal/conference-league/4-100-000-e-pentru-universitatea-craiova-dupa-victoria-cu-egnatia-din-conference-league-4588263",
+              "snippet": "4.100.000 € pentru Universitatea Craiova, după victoria cu Egnatia din Conference League!",
+              "published": "2026-11-05T23:46:33Z"
             }
           ]
         },
@@ -574,34 +574,34 @@
           "name": "ProSport",
           "items": [
             {
-              "title": "FCSB, Dinamo și Rapid, în oferta de Black Friday 2026! Ce magazin are reduceri de până la 45% la echipamentele oficiale ale rivalelor",
-              "url": "https://www.prosport.ro/diverse/echipamente-oficiale-oferte-rivale-fcsb-dinamo-rapid-emag-magazin-reduceri-45-black-friday-2026-20563705",
-              "snippet": "Românii așteaptă cu mare interes startul Black Friday 2026! Mai ales fanii rivalelor FCSB, Dinamo și Rapid, deoarece ofertele la echipamentele oficiale sunt unele de nerefuzat…",
-              "published": "2026-11-05T21:46:34Z"
+              "title": "Curg banii pentru Mihai Rotaru în Conference League. Câte milioane de euro și-a asigurat deja Universitatea Craiova",
+              "url": "https://www.prosport.ro/fotbal-extern/conference-league/bani-mihai-rotaru-conference-league-milioane-de-euro-asigurare-universitatea-craiova-egnatia-20563779",
+              "snippet": "Campioana României are două victorii și o remiză după primele 3 meciuri din grupa unică de Conference League, iar Mihai Rotaru (53 de ani) și-a asigurat, deja, câteva milioane de…",
+              "published": "2026-11-05T23:08:13Z"
             },
             {
-              "title": "Gică Popescu a stabilit prețurile de Revelion la hotelul său din Predeal! Cât costă 3 nopți de cazare în complexul fostului căpitan al Barcelonei",
-              "url": "https://www.prosport.ro/diverse/gica-popescu-a-stabilit-preturile-de-revelion-la-hotelul-sau-din-predeal-cat-costa-3-nopti-de-cazare-in-complexul-fostului-capitan-al-barcelonei-20563686",
-              "snippet": "Gică Popescu (59 de ani) se pregătește pentru un Revelion aglomerat la Hotelul Rozmarin din Predeal și a publicat deja tarifele pentru noaptea dintre ani. Oferta pregătită de…",
-              "published": "2026-11-05T21:40:48Z"
+              "title": "Notele lui Ionuț Radu și Darius Olaru după Celta – Union SG",
+              "url": "https://www.prosport.ro/fotbal-extern/europa-league/notele-lui-ionut-radu-si-darius-olaru-dupa-celta-union-sg-20563788",
+              "snippet": "Celta Vigo și Royale Union SG s-au întâlnit joi, 5 noiembrie 2026, în etapa a patra a fazei principale din UEFA Europa League, într-o partidă pe care oaspeții au câștigat-o cu…",
+              "published": "2026-11-05T23:05:04Z"
             },
             {
-              "title": "Răzvan Marin, lăsat pe bancă la meciul cu Real Madrid! Grecii au explicat decizia surprinzătoare: „L-a surprins pe Mourinho”",
-              "url": "https://www.prosport.ro/fotbal-extern/liga-campionilor/razvan-marin-rezerva-ucl-20563601",
-              "snippet": "Răzvan Marin (30 de ani) a început pe banca de rezerve partida dintre AEK Atena și Real Madrid, încheiată cu victoria spaniolilor, scor 3-2, în Liga Campionilor. Decizia…",
-              "published": "2026-11-05T21:40:20Z"
+              "title": "DECLARAȚII Nicușor Bancu, discurs de lider adevărat după Craiova – Egnatia: „Chiar dacă unii spun că am jucat cu echipe mai slabe!”",
+              "url": "https://www.prosport.ro/fotbal-extern/conference-league/nicusor-bancu-discurs-lider-craiova-egnatia-conference-league-20563782",
+              "snippet": "Nicușor Bancu (34 de ani), căpitanul Universității Craiova, a avut un discurs de lider adevărat după succesul de acasă cu Egnatia, scor 2-0, în Conference League. Fundașul stânga…",
+              "published": "2026-11-05T22:56:05Z"
             },
             {
-              "title": "Ce eșec! Nota lui Florin Tănase după ce a jucat în Europa League în NEC – Omonia",
-              "url": "https://www.prosport.ro/fotbal-extern/europa-league/florin-tanase-nota-nec-omonia-europa-league-20563672",
-              "snippet": "Titular în meciul NEC – Omonia din cea de-a patra etapă a fazei principale Europa League, Florin Tănase (31 de ani) nu a reușit să impresioneze, dar nici nu a dezamăgit…",
-              "published": "2026-11-05T21:24:19Z"
+              "title": "DECLARAȚII Filipe Coelho, reacție de antrenor mare după Craiova – Egnatia. A lăudat un singur fotbalist individual: „E foarte important”",
+              "url": "https://www.prosport.ro/fotbal-extern/conference-league/reactie-filipe-coelho-craiova-egnatia-20563781",
+              "snippet": "Filipe Coelho (46 de ani) a oferit o primă reacție după victoria pe care Universitatea Craiova a obținut-o în fața celor de la Egnatia, scor 2-0, în etapa a patra a fazei…",
+              "published": "2026-11-05T22:52:42Z"
             },
             {
-              "title": "„E perfect”. Florin Prunea a numit fotbalistul cel mai bun din Superliga",
-              "url": "https://www.prosport.ro/fotbal-intern/superliga/florin-prunea-cel-mai-bun-fotbalist-superliga-perfect-alaa-bellaarouch-portar-dinamo-20563679",
-              "snippet": "Florin Prunea (58 de ani), fostul portar al Generației de Aur, a numit cel mai bun fotbalistul la ora actuală din Superliga României. Este vorba despre Alaa Bellaarouch (24 de…",
-              "published": "2026-11-05T21:12:19Z"
+              "title": "Gică Craioveanu a strigat catalogul: a lăudat 3 fotbaliști și a critica 2 jucători după Craiova – Egnatia! „E unic, e cel mai bun din campionat” versus „Lumini și umbre”",
+              "url": "https://www.prosport.ro/fotbal-extern/conference-league/reactie-gica-craioveanu-craiova-egnatia-20563772",
+              "snippet": "Gică Craioveanu a tras cele mai importante concluzii după ce a stat cu ochii pe meciul pe care Universitatea Craiova l-a câștigat în fața celor de la Egnatia, scor 2-0, în etapa…",
+              "published": "2026-11-05T22:40:51Z"
             }
           ]
         }
@@ -728,34 +728,34 @@
       "name": "The Verge AI",
       "items": [
         {
+          "title": "OpenAI is stepping back from NDAs for data center projects",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1028454/openai-data-center-nda",
+          "snippet": "Following this week's midterms where voters resoundingly voiced their opposition to data center expansion, OpenAI today announced new commitments to communities where it is…",
+          "published": "2026-11-06T00:37:56Z"
+        },
+        {
+          "title": "Airbnb is working on an AI travel agent",
+          "url": "https://www.theverge.com/tech/1028412/airbnb-ai-travel-agent-q3-2026-earnings",
+          "snippet": "Airbnb plans to roll out an AI agent in the first half of 2027 that will help users plan and book travel, the company said in its Q3 2026 earnings shareholder letter released…",
+          "published": "2026-11-06T00:06:12Z"
+        },
+        {
           "title": "Muse has a voice mode now",
           "url": "https://www.theverge.com/tech/1028015/meta-muse-ai-voice-mode-expressive-avatar",
           "snippet": "Meta now lets you have voice conversations with your Muse AI agent in real time, CEO Mark Zuckerberg announced today. The feature has been rolled out to me, and I gave it a spin…",
-          "published": "2026-11-05T19:07:13Z"
+          "published": "2026-11-05T22:45:04Z"
+        },
+        {
+          "title": "Perplexity launches its own take on AI agents for work",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1028302/perplexity-teammates-ai-agents-work",
+          "snippet": "Perplexity is taking on OpenAI and Anthropic with its own work-focused AI agents. The startup's new always-on \"Teammates\" can take on multiple roles within a workspace, while…",
+          "published": "2026-11-05T22:26:50Z"
         },
         {
           "title": "‘Total repudiation’: The blue wave is about to hit AI",
           "url": "https://www.theverge.com/ai-artificial-intelligence/1026927/total-repudiation-the-blue-wave-is-about-to-hit-ai",
           "snippet": "On Tuesday night, Democrats made history as they took control of the House and the Senate, and a blue wave swept through traditionally red and swing states - with the nation's…",
           "published": "2026-11-05T17:51:52Z"
-        },
-        {
-          "title": "Claude AI can plug directly into your bank account",
-          "url": "https://www.theverge.com/ai-artificial-intelligence/1027652/anthropic-claude-plaid-personal-finance",
-          "snippet": "Anthropic has a new pitch for managing your personal finances: let Claude do it instead, with a new Personal Finance feature that connects it to your bank and card accounts via…",
-          "published": "2026-11-05T17:49:25Z"
-        },
-        {
-          "title": "OpenAI says its new cybersecurity model is better at not hacking other companies",
-          "url": "https://www.theverge.com/ai-artificial-intelligence/1027599/openai-gpt-6-cyber-launch",
-          "snippet": "OpenAI is launching GPT-6 Cyber, the latest version of its cybersecurity AI model, which it says is better at finding vulnerabilities and less likely to go rogue and hack other…",
-          "published": "2026-11-05T17:10:19Z"
-        },
-        {
-          "title": "You can post AI music straight to SoundCloud from ElevenLabs",
-          "url": "https://www.theverge.com/ai-artificial-intelligence/1027427/ai-music-soundcloud-elevenlabs",
-          "snippet": "After partnering with Moises earlier this year, SoundCloud is now adding integration with another AI music platform, ElevenLabs. Now, rather than having to export and download…",
-          "published": "2026-11-05T14:47:10Z"
         }
       ]
     },
@@ -763,6 +763,12 @@
       "id": "techcrunch",
       "name": "TechCrunch AI",
       "items": [
+        {
+          "title": "Airbnb says it’s launching an AI travel agent in the first half of 2027",
+          "url": "https://techcrunch.com/2026/11/05/airbnb-says-its-launching-an-ai-travel-agent-in-the-first-half-of-2027/",
+          "snippet": "Airbnb says its upcoming AI agent will help travelers plan trips, compare options, manage bookings, and get assistance throughout their stay.",
+          "published": "2026-11-05T22:40:55Z"
+        },
         {
           "title": "Meta says US users can now video chat with their Muse AI avatar",
           "url": "https://techcrunch.com/2026/11/05/meta-says-us-users-can-now-video-chat-with-their-muse-ai-avatar/",
@@ -784,14 +790,8 @@
         {
           "title": "OpenAI president Greg Brockman says company could be IPO ready in 2027",
           "url": "https://techcrunch.com/2026/11/05/openai-president-greg-brockman-says-company-could-be-ipo-ready-in-2027/",
-          "snippet": "OpenAI president Greg Brockman says the company could be ready to go public in 2027, pointing to accelerating enterprise revenue and a turnaround in its business.",
+          "snippet": "Speaking at a Wall Street Journal tech conference on Wednesday, the executive touted how the company had been gaining ground in the enterprise market, where rival Anthropic had…",
           "published": "2026-11-05T18:02:27Z"
-        },
-        {
-          "title": "Claude can now analyze your spending with its new Personal Finance tool",
-          "url": "https://techcrunch.com/2026/11/05/claude-can-now-analyze-your-spending-with-its-new-personal-finance-tool/",
-          "snippet": "With Personal Finance in Claude, users can connect their bank and card accounts through Plaid and ask questions about their finances.",
-          "published": "2026-11-05T18:00:00Z"
         }
       ]
     },
