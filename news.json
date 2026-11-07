@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-06T22:16:45.517411Z",
+  "updated": "2026-11-07T02:13:50.114002Z",
   "categories": [
     {
       "id": "ai",
@@ -9,6 +9,18 @@
           "id": "verge",
           "name": "The Verge AI",
           "items": [
+            {
+              "title": "OpenAI valued at $1.25 trillion, as rival Anthropic nears its IPO",
+              "url": "https://www.theverge.com/ai-artificial-intelligence/1029380/openai-1-25-trillion-investment-valuation",
+              "snippet": "OpenAI is now valued at $1.25 trillion in a new round of funding that has raised another $11 billion, according to Bloomberg. That would make it one of the world's most valuable…",
+              "published": "2026-11-06T23:46:18Z"
+            },
+            {
+              "title": "China reportedly recruited AI exec to spy on Jensen Huang",
+              "url": "https://www.theverge.com/tech/1029338/nvidia-ceo-jensen-huang-china-spy",
+              "snippet": "China's intelligence agency recruited Megaspeed executive Alice Huang to spy on Nvidia CEO Jensen Huang, according to The New York Times. The Ministry of State Security (MSS)…",
+              "published": "2026-11-06T23:00:44Z"
+            },
             {
               "title": "AI is the new dating dealbreaker",
               "url": "https://www.theverge.com/ai-artificial-intelligence/1028609/ai-dating-feelings-doomers-singularity",
@@ -26,18 +38,6 @@
               "url": "https://www.theverge.com/tech/1028871/meta-muse-ai-spaces",
               "snippet": "Meta will now allow you to build customized, app-like experiences within Muse. The new feature, called \"spaces,\" allows its AI assistant to build things like a shopping hub…",
               "published": "2026-11-06T20:00:43Z"
-            },
-            {
-              "title": "Big Tech lost big in the 2026 election",
-              "url": "https://www.theverge.com/podcast/1028731/2026-midterms-tech-ai-vergecast",
-              "snippet": "On Tuesday, millions of American voters went to the polls and voted overwhelmingly for Democrats and against AI. The fight against Big Tech is about to come roaring back, and the…",
-              "published": "2026-11-06T17:09:01Z"
-            },
-            {
-              "title": "How Akai and Moog are embracing vibe-coded mods",
-              "url": "https://www.theverge.com/tech/1028720/vibe-coding-open-source-inmusic-akai",
-              "snippet": "inMusic, the parent company of Akai, Moog, Native Instruments, and more, has decided to embrace the modding community. In an interview with The Verge, inMusic CEO Jack O'Donnell…",
-              "published": "2026-11-06T16:34:39Z"
             }
           ]
         },
@@ -45,6 +45,18 @@
           "id": "techcrunch",
           "name": "TechCrunch AI",
           "items": [
+            {
+              "title": "Crusoe sells troubled Wyoming data center project to Google",
+              "url": "https://techcrunch.com/2026/11/06/crusoe-sells-troubled-wyoming-data-center-project-to-google/",
+              "snippet": "The deal highlights the challenges of developing massive AI data centers.",
+              "published": "2026-11-07T01:40:28Z"
+            },
+            {
+              "title": "OpenAI reportedly raises an additional $11 billion at a $1.25 trillion valuation",
+              "url": "https://techcrunch.com/2026/11/06/openai-reportedly-raises-an-additional-11-billion-at-a-1-25-trillion-valuation/",
+              "snippet": "OpenAI has reportedly raised an additional $11 billion as part of a funding round that hasn't closed yet but is expected to in the coming weeks.",
+              "published": "2026-11-06T22:53:46Z"
+            },
             {
               "title": "Hundreds of Artex AI hacking tools found publicly exposed to the web",
               "url": "https://techcrunch.com/2026/11/06/hundreds-of-artex-ai-hacking-tools-found-publicly-exposed-to-the-web/",
@@ -62,18 +74,6 @@
               "url": "https://techcrunch.com/podcast/how-a-blue-wave-midterm-might-reshape-the-ai-industry/",
               "snippet": "Democrats’ historic victories in this week’s U.S. midterm elections could also transform the tech industry. The public voted on 41 data center-related ballot measures on Tuesday…",
               "published": "2026-11-06T18:00:00Z"
-            },
-            {
-              "title": "After the midterms, is the AI industry in for a rough two years?",
-              "url": "https://techcrunch.com/video/after-the-midterms-is-the-ai-industry-in-for-a-rough-two-years/",
-              "snippet": "Democrats’ historic victories in this week’s U.S. midterm elections could also transform the tech industry. The public voted on 41 data center-related ballot measures on Tuesday…",
-              "published": "2026-11-06T17:23:52Z"
-            },
-            {
-              "title": "Ramp data shows AI spending stalling just as Anthropic nears its IPO",
-              "url": "https://techcrunch.com/2026/11/06/ramp-data-shows-ai-spending-stalling-just-as-anthropic-nears-its-ipo/",
-              "snippet": "AI usage keeps climbing, but spending has stalled. Price cuts and smarter cost controls among the biggest spenders could challenge investor assumptions about AI hypergrowth.",
-              "published": "2026-11-06T15:54:47Z"
             }
           ]
         },
@@ -460,10 +460,22 @@
           "name": "The Verge",
           "items": [
             {
-              "title": "AI is the new dating dealbreaker",
-              "url": "https://www.theverge.com/ai-artificial-intelligence/1028609/ai-dating-feelings-doomers-singularity",
-              "snippet": "When Irene moved to San Francisco last year, she started using dating apps as a way to meet new people, get to know her new city, and connect with others who care about the…",
-              "published": "2026-11-06T21:51:59Z"
+              "title": "OpenAI valued at $1.25 trillion, as rival Anthropic nears its IPO",
+              "url": "https://www.theverge.com/ai-artificial-intelligence/1029380/openai-1-25-trillion-investment-valuation",
+              "snippet": "OpenAI is now valued at $1.25 trillion in a new round of funding that has raised another $11 billion, according to Bloomberg. That would make it one of the world's most valuable…",
+              "published": "2026-11-06T23:46:18Z"
+            },
+            {
+              "title": "China reportedly recruited AI exec to spy on Jensen Huang",
+              "url": "https://www.theverge.com/tech/1029338/nvidia-ceo-jensen-huang-china-spy",
+              "snippet": "China's intelligence agency recruited Megaspeed executive Alice Huang to spy on Nvidia CEO Jensen Huang, according to The New York Times. The Ministry of State Security (MSS)…",
+              "published": "2026-11-06T23:00:44Z"
+            },
+            {
+              "title": "Starlink Mobile: All the news on SpaceX’s major mobile carrier ambitions",
+              "url": "https://www.theverge.com/science/1029162/spacex-starlink-mobile-elon-musk-news",
+              "snippet": "SpaceX has declared that it’s going to make Starlink Mobile a “major” mobile carrier. The Elon Musk-owned company has already deployed thousands of direct-to-cell satellites, but…",
+              "published": "2026-11-06T22:45:43Z"
             },
             {
               "title": "KPop Demon Hunters on 4K Blu-ray costs less than a month of Netflix Premium",
@@ -476,18 +488,6 @@
               "url": "https://www.theverge.com/ai-artificial-intelligence/902546/data-centers-ai-energy-power-grids-controversy",
               "snippet": "Massive new data centers are the physical foundation for tech companies’ hopes and dreams for AI. But the rush to expand warehouses full of energy-hungry servers has also kicked…",
               "published": "2026-11-06T20:03:32Z"
-            },
-            {
-              "title": "Meta’s Muse AI can create custom ‘spaces’ for the version of the app you need right now",
-              "url": "https://www.theverge.com/tech/1028871/meta-muse-ai-spaces",
-              "snippet": "Meta will now allow you to build customized, app-like experiences within Muse. The new feature, called \"spaces,\" allows its AI assistant to build things like a shopping hub…",
-              "published": "2026-11-06T20:00:43Z"
-            },
-            {
-              "title": "Shure’s popular podcasting and streaming mic is almost $50 off",
-              "url": "https://www.theverge.com/gadgets/1028846/shure-mv7-plus-podcasting-streaming-mic-deal-sale",
-              "snippet": "While the Shure Mv7 Plus is popular with streamers and podcasters, it’s equally good at impressing your friends and coworkers on meetings and Discord calls. It’s currently marked…",
-              "published": "2026-11-06T19:47:02Z"
             }
           ]
         }
@@ -574,6 +574,24 @@
           "name": "ProSport",
           "items": [
             {
+              "title": "Iasmin Latovlevici, instalat antrenor la o echipă din subsolul Ligii 3. Va fi la prima experiență ca ”principal” la seniori",
+              "url": "https://www.prosport.ro/fotbal-intern/liga-3/iasmin-latovlevici-instalat-antrenor-la-o-echipa-din-subsolul-ligii-3-va-fi-la-prima-experienta-ca-principal-la-seniori-20564528",
+              "snippet": "Iasmin Latovlevici îi ia locul lui Alin Paleacu la Știința Poli 2, după ce ”satelitul” timișorenilor a pierdut din nou și a ajuns penultimul în Liga 3. ”Este o rocadă care ne…",
+              "published": "2026-11-06T23:36:38Z"
+            },
+            {
+              "title": "DECLARAȚII Dani Coman, reacție surprinzătoare despre Dinamo după victoria Argeșului: „Rar am văzut așa ceva în România!”",
+              "url": "https://www.prosport.ro/fotbal-intern/superliga/dani-coman-reactie-surprinzatoare-dinamo-victorie-fc-arges-20564502",
+              "snippet": "Președintele grupării din Trivale a avut o reacție surprinzătoare despre Dinamo, învinsă de FC Argeș în al doilea meci din etapa 15 a Superligii. Fără victorie din luna august…",
+              "published": "2026-11-06T22:32:05Z"
+            },
+            {
+              "title": "Marele dinamovist l-a pus la zid pe Stoinov după gafa cu Argeș: „N-ai voie să faci asemenea greșeli!”",
+              "url": "https://www.prosport.ro/fotbal-intern/superliga/nikita-stoinov-gafa-fc-arges-dinamo-claudiu-vaiscovici-atac-dur-20564473",
+              "snippet": "Nikita Stoinov (21 de ani) nu a scăpat „neșifonat” după gafa de cascadorii râsului pe care a comis-o în meciul cu FC Argeș din etapa a 15-a. Legenda lui Dinamo, Claudiu…",
+              "published": "2026-11-06T22:26:49Z"
+            },
+            {
               "title": "Radu Drăgușin, mesaj pentru cei care l-au făcut praf înainte de meciul Fiorentinei cu Juventus: „Sunt mândru de parcursul meu”",
               "url": "https://www.prosport.ro/fotbal-extern/campionate-externe/italia/radu-dragusin-mesaj-meci-fiorentina-juventus-serie-a-mandru-parcurs-20564490",
               "snippet": "Radu Drăgușin (24 de ani), fundașul Fiorentinei, a ținut să le transmită un mesaj celor care l-au distrus înaintea meciului cu Juventus din Serie A. Internaționalul român spune…",
@@ -584,24 +602,6 @@
               "url": "https://www.prosport.ro/fotbal-intern/superliga/bogdan-andone-anunt-arges-dinamo-oferta-fcsb-20564444",
               "snippet": "Entuziasmat după cele 3 puncte câștigate în Argeș – Dinamo, Bogdan Andone (51 de ani) a recunoscut public că a avut o ofertă de la FCSB. Tehnicianul lui FC Argeș s-a descătușat…",
               "published": "2026-11-06T22:03:13Z"
-            },
-            {
-              "title": "Gafă de cascadorii râsului! Stoinov a îngropat-o pe Dinamo în prelungiri cu FC Argeș",
-              "url": "https://www.prosport.ro/fotbal-intern/superliga/nikita-stoinov-gafa-fc-arges-dinamo-20564454",
-              "snippet": "Dinamo a suferit cea de-a doua înfrângere a sezonului, chiar la finalul turului, în fața lui FC Argeș, scor 1-2. Golul decisiv a venit în minutele de prelungiri, după o eroare de…",
-              "published": "2026-11-06T21:43:23Z"
-            },
-            {
-              "title": "DECLARAȚII Nuno Campos a dat cărțile pe față după eșecul din Argeș – Dinamo: „Asta mă îngrijorează”",
-              "url": "https://www.prosport.ro/fotbal-intern/superliga/nuno-campos-esec-fc-arges-dinamo-20564462",
-              "snippet": "Nuno Campos (51 de ani), antrenorul lui Dinamo, a analizat înfrângerea din prelungiri cu FC Argeș, scor 1-2, al doilea eșec din acest sezon. Tehnicianul portughez nu este…",
-              "published": "2026-11-06T21:36:18Z"
-            },
-            {
-              "title": "DECLARAȚII Karamoko a explodat după Argeş – Dinamo: „A fost de rahat!”. Anunț despre plecare",
-              "url": "https://www.prosport.ro/fotbal-intern/superliga/karamoko-arges-dinamo-rahat-plecare-anunt-20564455",
-              "snippet": "Mamoudou Karamoko (27 de ani), atacantul lui Dinamo, a vorbit în termeni duri despre prima repriză a meciului pierdut de Dinamo la Mioveni cu FC Argeș. Vârful francez consideră…",
-              "published": "2026-11-06T21:16:18Z"
             }
           ]
         }
@@ -728,6 +728,18 @@
       "name": "The Verge AI",
       "items": [
         {
+          "title": "OpenAI valued at $1.25 trillion, as rival Anthropic nears its IPO",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1029380/openai-1-25-trillion-investment-valuation",
+          "snippet": "OpenAI is now valued at $1.25 trillion in a new round of funding that has raised another $11 billion, according to Bloomberg. That would make it one of the world's most valuable…",
+          "published": "2026-11-06T23:46:18Z"
+        },
+        {
+          "title": "China reportedly recruited AI exec to spy on Jensen Huang",
+          "url": "https://www.theverge.com/tech/1029338/nvidia-ceo-jensen-huang-china-spy",
+          "snippet": "China's intelligence agency recruited Megaspeed executive Alice Huang to spy on Nvidia CEO Jensen Huang, according to The New York Times. The Ministry of State Security (MSS)…",
+          "published": "2026-11-06T23:00:44Z"
+        },
+        {
           "title": "AI is the new dating dealbreaker",
           "url": "https://www.theverge.com/ai-artificial-intelligence/1028609/ai-dating-feelings-doomers-singularity",
           "snippet": "When Irene moved to San Francisco last year, she started using dating apps as a way to meet new people, get to know her new city, and connect with others who care about the…",
@@ -744,18 +756,6 @@
           "url": "https://www.theverge.com/tech/1028871/meta-muse-ai-spaces",
           "snippet": "Meta will now allow you to build customized, app-like experiences within Muse. The new feature, called \"spaces,\" allows its AI assistant to build things like a shopping hub…",
           "published": "2026-11-06T20:00:43Z"
-        },
-        {
-          "title": "Big Tech lost big in the 2026 election",
-          "url": "https://www.theverge.com/podcast/1028731/2026-midterms-tech-ai-vergecast",
-          "snippet": "On Tuesday, millions of American voters went to the polls and voted overwhelmingly for Democrats and against AI. The fight against Big Tech is about to come roaring back, and the…",
-          "published": "2026-11-06T17:09:01Z"
-        },
-        {
-          "title": "How Akai and Moog are embracing vibe-coded mods",
-          "url": "https://www.theverge.com/tech/1028720/vibe-coding-open-source-inmusic-akai",
-          "snippet": "inMusic, the parent company of Akai, Moog, Native Instruments, and more, has decided to embrace the modding community. In an interview with The Verge, inMusic CEO Jack O'Donnell…",
-          "published": "2026-11-06T16:34:39Z"
         }
       ]
     },
@@ -763,6 +763,18 @@
       "id": "techcrunch",
       "name": "TechCrunch AI",
       "items": [
+        {
+          "title": "Crusoe sells troubled Wyoming data center project to Google",
+          "url": "https://techcrunch.com/2026/11/06/crusoe-sells-troubled-wyoming-data-center-project-to-google/",
+          "snippet": "The deal highlights the challenges of developing massive AI data centers.",
+          "published": "2026-11-07T01:40:28Z"
+        },
+        {
+          "title": "OpenAI reportedly raises an additional $11 billion at a $1.25 trillion valuation",
+          "url": "https://techcrunch.com/2026/11/06/openai-reportedly-raises-an-additional-11-billion-at-a-1-25-trillion-valuation/",
+          "snippet": "OpenAI has reportedly raised an additional $11 billion as part of a funding round that hasn't closed yet but is expected to in the coming weeks.",
+          "published": "2026-11-06T22:53:46Z"
+        },
         {
           "title": "Hundreds of Artex AI hacking tools found publicly exposed to the web",
           "url": "https://techcrunch.com/2026/11/06/hundreds-of-artex-ai-hacking-tools-found-publicly-exposed-to-the-web/",
@@ -780,18 +792,6 @@
           "url": "https://techcrunch.com/podcast/how-a-blue-wave-midterm-might-reshape-the-ai-industry/",
           "snippet": "Democrats’ historic victories in this week’s U.S. midterm elections could also transform the tech industry. The public voted on 41 data center-related ballot measures on Tuesday…",
           "published": "2026-11-06T18:00:00Z"
-        },
-        {
-          "title": "After the midterms, is the AI industry in for a rough two years?",
-          "url": "https://techcrunch.com/video/after-the-midterms-is-the-ai-industry-in-for-a-rough-two-years/",
-          "snippet": "Democrats’ historic victories in this week’s U.S. midterm elections could also transform the tech industry. The public voted on 41 data center-related ballot measures on Tuesday…",
-          "published": "2026-11-06T17:23:52Z"
-        },
-        {
-          "title": "Ramp data shows AI spending stalling just as Anthropic nears its IPO",
-          "url": "https://techcrunch.com/2026/11/06/ramp-data-shows-ai-spending-stalling-just-as-anthropic-nears-its-ipo/",
-          "snippet": "AI usage keeps climbing, but spending has stalled. Price cuts and smarter cost controls among the biggest spenders could challenge investor assumptions about AI hypergrowth.",
-          "published": "2026-11-06T15:54:47Z"
         }
       ]
     },
