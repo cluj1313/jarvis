@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-13T14:50:51.604748Z",
+  "updated": "2026-11-13T21:18:09.426790Z",
   "categories": [
     {
       "id": "ai",
@@ -10,34 +10,34 @@
           "name": "The Verge AI",
           "items": [
             {
-              "title": "Nvidia CEO Jensen Huang has resigned. What happens next?",
-              "url": "https://www.theverge.com/ai-artificial-intelligence/1030422/nvidia-jensen-huang-ai-china-alice-huang",
-              "snippet": "After the leather-jacketed CEO, president, and co-founder of Nvidia, Jensen Huang, acknowledged an affair with Megaspeed exec Alice Huang, his company initially announced an…",
-              "published": "2026-11-13T10:08:29Z"
+              "title": "ChatGPT Wallet lets OpenAI’s Dots agents make purchases for you",
+              "url": "https://www.theverge.com/ai-artificial-intelligence/1033425/openai-chatgpt-wallet",
+              "snippet": "After launching its Dots AI agents platform earlier this year, OpenAI is launching a wallet for the agents. ChatGPT Wallet is rolling out starting today for ChatGPT Pro…",
+              "published": "2026-11-13T20:45:10Z"
+            },
+            {
+              "title": "What’s really at stake in the Jensen Huang saga",
+              "url": "https://www.theverge.com/podcast/1032866/jensen-huang-nvidia-china-trump-vergecast",
+              "snippet": "One part of the saga surrounding Nvidia CEO Jensen Huang ended on Thursday, when Huang resigned from his position at the top of AI's most important company. But in the coming…",
+              "published": "2026-11-13T19:17:15Z"
             },
             {
               "title": "Let’s talk about Jensen Huang’s many affairs!",
               "url": "https://www.theverge.com/ai-artificial-intelligence/1032339/lets-talk-about-the-nvidia-shitshow",
               "snippet": "Usually, we'd be offering to answer your questions about a news event, but honestly we don't really have any answers about what the hell is going on over at Nvidia. I can't speak…",
-              "published": "2026-11-12T22:23:27Z"
+              "published": "2026-11-13T19:07:12Z"
+            },
+            {
+              "title": "Claude’s Duet agent is a little neurotic and surprisingly helpful",
+              "url": "https://www.theverge.com/ai-artificial-intelligence/1032518/claude-duet-ai-agent-hands-on",
+              "snippet": "Normally, the products I test don't offer to help me write up my experience with them. Duet is different. Claude Duet is Anthropic's AI agent for consumers, the latest attempt by…",
+              "published": "2026-11-13T00:23:32Z"
             },
             {
               "title": "Google’s new Gemini model is better at understanding complicated questions",
               "url": "https://www.theverge.com/ai-artificial-intelligence/1032505/google-search-ai-mode-gemini-4-hydrogen",
               "snippet": "Google says its new Gemini 4 Hydrogen model can give more helpful answers to complex questions, including \"questions with multiple parts, hard-to-understand typos, or highly…",
               "published": "2026-11-12T21:55:32Z"
-            },
-            {
-              "title": "No, AI agents did not discover a previously unknown Maya site",
-              "url": "https://www.theverge.com/ai-artificial-intelligence/1032125/ai-agents-maya-site-archeology-discovery",
-              "snippet": "Armed with a team of AI agents, Google researcher Pietro Miotti claimed earlier this week to have discovered a potentially unmapped Maya site in Mexico. There was just one…",
-              "published": "2026-11-12T19:42:40Z"
-            },
-            {
-              "title": "The Jensen Huang scandal is hardly over",
-              "url": "https://www.theverge.com/ai-artificial-intelligence/1032069/jensen-huang-resignation-affair-chips-smuggling",
-              "snippet": "I was certain, until the story of Jensen Huang's second affair hit, that Huang was bulletproof. After all, why wouldn't he be? He's placed himself indispensably at the center of…",
-              "published": "2026-11-12T19:16:51Z"
             }
           ]
         },
@@ -46,34 +46,34 @@
           "name": "TechCrunch AI",
           "items": [
             {
+              "title": "AI agent startup LangChain hits $3B valuation",
+              "url": "https://techcrunch.com/2026/11/13/ai-agent-startup-langchain-hits-3b-valuation/",
+              "snippet": "LangChain now claims 7,000 customers of its model and platform agnostic agent management tool LangSmith.",
+              "published": "2026-11-13T19:37:57Z"
+            },
+            {
+              "title": "Export-banned Nvidia chips are behind China’s most powerful AI models — uh oh, Jensen!",
+              "url": "https://techcrunch.com/2026/11/13/export-banned-nvidia-chips-are-behind-chinas-most-powerful-ai-models-uh-oh-jensen/",
+              "snippet": "New research shows the most advanced AI models from China were trained on banned Nvidia chips.",
+              "published": "2026-11-13T18:40:30Z"
+            },
+            {
+              "title": "ChatGPT’s new Wallet lets AI agents shop and check out for you",
+              "url": "https://techcrunch.com/2026/11/13/chatgpts-new-wallet-lets-ai-agents-shop-and-check-out-for-you/",
+              "snippet": "ChatGPT Wallet lets AI agents shop and check out on users' behalf, starting with a limited rollout to U.S. Pro subscribers.",
+              "published": "2026-11-13T16:00:12Z"
+            },
+            {
+              "title": "The unfolding Jensen Huang scandal: a timeline",
+              "url": "https://techcrunch.com/2026/11/13/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/",
+              "snippet": "Jensen Huang has resigned from Nvidia following an affair, which could have ramifications for national security as the U.S. and China race to develop the most advanced AI…",
+              "published": "2026-11-13T15:58:00Z"
+            },
+            {
               "title": "ElevenLabs’ new app combines meeting note-taking and dictation for teams",
               "url": "https://techcrunch.com/2026/11/13/elevenlabs-new-app-combines-meeting-note-taking-and-dictation-for-teams/",
               "snippet": "ElevenAI is a new meeting notetaker and dictation app aimed at teams and enterprises.",
               "published": "2026-11-13T14:44:48Z"
-            },
-            {
-              "title": "Israel’s VCs see opportunity for challengers in Nvidia’s turmoil",
-              "url": "https://techcrunch.com/2026/11/13/israels-vcs-see-opportunity-for-challengers-in-nvidias-turmoil/",
-              "snippet": "Given Nvidia’s stronghold on AI and its importance in Israel, many in the country's startup ecosystem are worried about the impact of his departure.",
-              "published": "2026-11-13T12:52:19Z"
-            },
-            {
-              "title": "Jensen Huang didn’t show confidence in his successor, report says",
-              "url": "https://techcrunch.com/2026/11/13/jensen-huang-didnt-show-confidence-in-his-successor-report-says/",
-              "snippet": "Huang described Kress as a \"deer in the headlights\" during a meeting in summer.",
-              "published": "2026-11-13T12:28:23Z"
-            },
-            {
-              "title": "Democrats launch Nvidia investigation, write scathing letter on Huang’s ‘scheme’ with Trump",
-              "url": "https://techcrunch.com/2026/11/12/democrats-launch-nvidia-investigation-write-scathing-letter-on-huangs-scheme-with-trump/",
-              "snippet": "This Congressional investigation into Nvidia's China sales and its dealings with Trump is the second one, so far, since news of the alleged spy affair broke.",
-              "published": "2026-11-12T22:42:51Z"
-            },
-            {
-              "title": "Muse can now place calls to US businesses — if you pay",
-              "url": "https://techcrunch.com/2026/11/12/muse-can-now-place-calls-to-u-s-businesses-if-you-pay/",
-              "snippet": "Muse's AI can now place outbound calls to U.S. businesses — but it's not free.",
-              "published": "2026-11-12T22:22:28Z"
             }
           ]
         },
@@ -160,34 +160,34 @@
           "name": "Digi24",
           "items": [
             {
-              "title": "STB a acumulat 484 de ani de concedii medicale într-un an. Borza: „Vom sesiza și Parchetul, și Casa Națională de Asigurări de Sănătate”",
-              "url": "https://www.digi24.ro/stiri/economie/stb-a-acumulat-484-de-ani-de-concedii-medicale-intr-un-an-borza-vom-sesiza-si-parchetul-si-casa-nationala-de-asigurari-de-sanatate-4035431",
-              "snippet": "Angajații STB au acumulat în 2025 aproximativ 176.000 de zile de concediu medical, echivalentul a 484 de ani, a declarat administratorul judiciar Remus Borza, vineri, la Digi24…",
-              "published": "2026-11-13T14:48:36Z"
+              "title": "Incident naval grav în SUA. Momentul în care un petrolier lovește o navă de croazieră cu 129 de pasageri la bord și o răstoarnă",
+              "url": "https://www.digi24.ro/stiri/externe/sua/incident-naval-grav-in-sua-momentul-in-care-un-petrolier-loveste-o-nava-de-croaziera-cu-129-de-pasageri-la-bord-si-o-rastoarna-4036037",
+              "snippet": "Un grav accident naval s-a produs vineri, 13 noiembrie, pe fluviul Mississippi, în apropierea portului New Orleans, din Statele Unite. O navă de croazieră fluvială, la bordul…",
+              "published": "2026-11-13T21:14:14Z"
             },
             {
-              "title": "Un deputat PSD îşi anunţă demisia din partid, din cauza reformei administrativ-teritoriale vizate de social-democrați",
-              "url": "https://www.digi24.ro/stiri/actualitate/politica/un-deputat-psd-isi-anunta-demisia-din-partid-din-cauza-reformei-administrativ-teritoriale-vizate-de-social-democrati-4035399",
-              "snippet": "Deputatul PSD Lucian Morar și-a anuțat, vineri, demisia din partid, din cauza reformei administrativ-teritoriale la care lucrează PSD, el precizând că, începând de astăzi, se…",
-              "published": "2026-11-13T14:46:40Z"
+              "title": "Forţele Aeriene ale SUA au intervenit în urma apariţiei unor „drone suspecte” deasupra unei baze din Marea Britanie",
+              "url": "https://www.digi24.ro/stiri/externe/fortele-aeriene-ale-sua-au-intervenit-in-urma-aparitiei-unor-drone-suspecte-deasupra-unei-baze-din-marea-britanie-4036051",
+              "snippet": "Forţele Aeriene ale SUA au declarat că au intervenit vineri seară în urma „unei activităţi suspecte a unor drone neautorizate” deasupra bazei RAF Lakenheath din Suffolk, Marea…",
+              "published": "2026-11-13T21:11:55Z"
             },
             {
-              "title": "„STB este o societate de familie”. Aproape jumătate dintre angajați ar fi rude între ei. Ce prevedea vechiul contract colectiv de muncă",
-              "url": "https://www.digi24.ro/stiri/economie/stb-este-o-societate-de-familie-aproape-jumatate-dintre-angajati-ar-fi-rude-intre-ei-ce-prevedea-vechiul-contract-colectiv-de-munca-4034979",
-              "snippet": "Aproape jumătate dintre cei aproximativ 10.000 de angajați ai STB ar avea cel puțin o rudă în companie, potrivit datelor prezentate vineri de administratorul judiciar Remus…",
-              "published": "2026-11-13T14:33:16Z"
+              "title": "Țintă aeriană detectată la sud-est de Insula Șerpilor: mesaj Ro-Alert în zona de nord a județului Tulcea, două avioane F-16 ridicate",
+              "url": "https://www.digi24.ro/stiri/actualitate/tinta-aeriana-detectata-la-sud-est-de-insula-serpilor-mesaj-ro-alert-in-zona-de-nord-a-judetului-tulcea-doua-avioane-f-16-ridicate-4036035",
+              "snippet": "Un mesaj Ro-Alert a fost emis vineri seară pentru zona de nord a județului Tulcea, după ce o țintă aeriană a fost detectată la sud-est de Insula Șerpilor, în spațiul aerian…",
+              "published": "2026-11-13T21:07:50Z"
             },
             {
-              "title": "România, a doua cea mai mare creștere economică din UE în trimestrul al treilea, după Irlanda. Ce arată datele Eurostat",
-              "url": "https://www.digi24.ro/stiri/economie/finante-economie/romania-a-doua-cea-mai-mare-crestere-economica-din-ue-in-trimestrul-al-treilea-dupa-irlanda-ce-arata-datele-eurostat-4035379",
-              "snippet": "România a înregistrat a doua cea mai mare creștere economică din Uniunea Europeană în trimestrul al treilea din 2026, după Irlanda, cu un avans de 2,1% față de trimestrul…",
-              "published": "2026-11-13T14:31:12Z"
+              "title": "Emil Hurezeanu: „Nu suntem spectaculoși în coregrafia noastră diplomatică, dar nu suntem nici obstrucționiști, nu creăm probleme”",
+              "url": "https://www.digi24.ro/stiri/actualitate/politica/emil-hurezeanu-nu-suntem-spectaculosi-in-coregrafia-noastra-diplomatica-dar-nu-suntem-nici-obstructionisti-nu-cream-probleme-4035751",
+              "snippet": "Emil Hurezeanu a făcut o scurtă analiză a negocierilor pentru pace cu privire la războiul din Ucraina, la care este posibil ca Europa să fie reprezentată, lucru foarte important…",
+              "published": "2026-11-13T21:03:26Z"
             },
             {
-              "title": "Mesajul cancelarului Merz către Donald Trump înainte de întâlnirea președintelui american cu Putin: „Vă rog, fără surprize”",
-              "url": "https://www.digi24.ro/stiri/externe/mesajul-cancelarului-merz-catre-donald-trump-inainte-de-intalnirea-presedintelui-american-cu-putin-va-rog-fara-surprize-4035367",
-              "snippet": "Cancelarul german Friedrich Merz i-a cerut vineri preşedintelui american Donald Trump să nu creeze „surprize” la întâlnirea sa prevăzută în China, săptămâna viitoare, cu omologul…",
-              "published": "2026-11-13T14:22:48Z"
+              "title": "Alexandru Rogobete: Tariful pentru hrana pacienților din spitale ar putea crește de anul viitor. „Cei 22 de lei sunt depășiți”",
+              "url": "https://www.digi24.ro/stiri/actualitate/sanatate/alexandru-rogobete-tariful-pentru-hrana-pacientilor-din-spitale-ar-putea-creste-de-anul-viitor-cei-22-de-lei-sunt-depasiti-4036023",
+              "snippet": "Ministrul Sănătății, Alexandru Rogobete, anunță că încearcă să găsească soluții pentru majorarea tarifului alocat hranei pacienților din spitale. Suma de 22 de lei pe zi nu a mai…",
+              "published": "2026-11-13T20:54:52Z"
             }
           ]
         },
@@ -196,34 +196,34 @@
           "name": "HotNews",
           "items": [
             {
-              "title": "Sorin Cârțu pune frână entuziasmului din jurul unui jucător de la FCSB: „Ca el au mai fost mulți”",
-              "url": "https://hotnews.ro/sorin-cartu-pune-frana-entuziasmului-din-jurul-unui-jucator-de-la-fcsb-ca-el-au-mai-fost-multi-2403676",
-              "snippet": "Sorin Cârțu, președintele de onoare al Universității Craiova, refuză să îl considere pe tânărul Ricardo Pădurariu o certitudine și privește cu mult scepticism elanul lui Gigi…",
-              "published": "2026-11-13T14:50:20Z"
+              "title": "Cine poate să-i ia locul lui Jensen Huang la conducerea Nvidia",
+              "url": "https://hotnews.ro/cine-poate-sa-i-ia-locul-lui-jensen-huang-la-conducerea-nvidia-2403977",
+              "snippet": "Board-ul Nvidia face demersuri pentru a găsi un potențial succesor al lui Jensen Huang și l-a abordat pe șeful Arm Holdings, Rene Haas, a anunțat vineri Financial Times (FT)…",
+              "published": "2026-11-13T21:02:00Z"
             },
             {
-              "title": "Astăzi trebuia să vină sfârșitul lumii, potrivit unui studiu științific. Cum a calculat un fizician că omenirea va dispărea vineri, 13 noiembrie 2026",
-              "url": "https://hotnews.ro/astazi-trebuia-sa-vina-sfarsitul-lumii-potrivit-unui-studiu-stiintific-cum-a-calculat-un-fizician-ca-omenirea-va-disparea-vineri-13-noiembrie-2026-2403660",
-              "snippet": "Un studiu publicat în 1960 în prestigioasa revistă științifică Science estima că omenirea va ajunge la un punct critic din cauza suprapopulării pe 13 noiembrie 2026, în probabil…",
-              "published": "2026-11-13T14:47:31Z"
+              "title": "RO-Alert în județul Tulcea, din cauza unei ținte aeriene detectate la sud-est de Insula Șerpilor. Avioane F-16 au decolat de la Fetești",
+              "url": "https://hotnews.ro/ro-alert-in-judetul-tulcea-din-cauza-unei-tinte-aeriene-detectate-la-sud-est-de-insula-serpilor-avioane-f-16-au-decolat-de-la-fetesti-2403968",
+              "snippet": "O țintă aeriană a fost detectată de sistemul de supraveghere radar al Ministerului Apărării Naționale (MApN) la sud-est de Insula Șerpilor, în spațiul aerian al Ucrainei…",
+              "published": "2026-11-13T20:43:41Z"
             },
             {
-              "title": "Ce poți face cu 5.000 de lei: cum devii acționar la o instituție nebancară și câte vieți poți schimba. Angela Achiței explică modelul AFIN",
-              "url": "https://hotnews.ro/ce-poti-face-cu-5-000-de-lei-cum-devii-actionar-la-o-institutie-nebancara-si-cate-vieti-poti-schimba-angela-achitei-explica-modelul-afin-2403581",
-              "snippet": "AFIN, instituția financiară nebancară dedicată economiei sociale, urmărește să atragă 1,2 milioane de lei printr-o campanie de majorare a capitalului care se încheie pe 16…",
-              "published": "2026-11-13T14:35:14Z"
+              "title": "Mihai Stoica, asaltat cu oferte după plecarea de la FCSB: „Mi-a zis că în vară mă convinge”",
+              "url": "https://hotnews.ro/mihai-stoica-asaltat-cu-oferte-dupa-plecarea-de-la-fcsb-mi-a-zis-ca-in-vara-ma-convinge-2403971",
+              "snippet": "Mihai Stoica a refuzat deja două oferte din Superliga, sosite după ce și-a anunțat plecarea de la FCSB. A dezvăluit că propunerile nu au venit din partea rivalelor istorice…",
+              "published": "2026-11-13T20:40:16Z"
             },
             {
-              "title": "Amendă de 11 milioane de euro pentru proprietarul Tinder, din cauza unui instrument de pe aplicația de dating",
-              "url": "https://hotnews.ro/amenda-de-11-milioane-de-euro-pentru-proprietarul-tinder-din-cauza-unui-instrument-de-pe-aplicatia-de-dating-2403621",
-              "snippet": "Match Group, proprietarul Tinder, a primit o amendă de 11 milioane de euro din partea autorității irlandeze pentru protecția datelor, pentru nerespectarea normelor GDPR. Comisia…",
-              "published": "2026-11-13T14:32:01Z"
+              "title": "Pacienții vor primi notificări la fiecare serviciu medical înregistrat pe CNP-ul lor, anunță ministrul Sănătății",
+              "url": "https://hotnews.ro/pacientii-vor-primi-notificari-la-fiecare-serviciu-medical-inregistrat-pe-cnp-ul-lor-anunta-ministrul-sanatatii-unde-au-loc-cel-mai-des-decontari-fictive-2403959",
+              "snippet": "Ministrul Sănătății, Alexandru Rogobete, a anunțat că își dorește implementarea unui sistem prin care pacienții să fie notificați de fiecare dată când este înregistrat un…",
+              "published": "2026-11-13T20:25:01Z"
             },
             {
-              "title": "Șapte trucuri psihologice care îi fac pe cei din jur să te îndrăgească și cum te ajută acest lucru inclusiv la locul de muncă",
-              "url": "https://hotnews.ro/sapte-trucuri-psihologice-care-ii-fac-pe-cei-din-jur-sa-te-indrageasca-si-cum-te-ajuta-acest-lucru-inclusiv-la-locul-de-munca-2403613",
-              "snippet": "Persoanele care le arată celorlalți că îi apreciază, care pun întrebări personale sau care cer sfaturi se fac mai ușor plăcute, potrivit mai multor studii de psihologie. Simpatia…",
-              "published": "2026-11-13T14:25:34Z"
+              "title": "Zelenski spune că restricțiile privind Starshield sunt încă în vigoare și afectează operațiunile militare din Ucraina",
+              "url": "https://hotnews.ro/zelenski-spune-ca-restrictiile-privind-starshield-sunt-inca-in-vigoare-si-afecteaza-operatiunile-militare-din-ucraina-2403955",
+              "snippet": "Președintele ucrainean Volodimir Zelenski a declarat vineri că restricțiile de viteză impuse sistemului american Starshield, versiunea militară a serviciului de internet prin…",
+              "published": "2026-11-13T20:03:58Z"
             }
           ]
         },
@@ -232,34 +232,34 @@
           "name": "G4Media",
           "items": [
             {
-              "title": "ISE: Primăria Constanța a respins singura ofertă pentru Târgul de Crăciun / Primăria nu dă detalii despre ”soluțiile” pe care spune că le caută cu o lună înainte de sărbători",
-              "url": "https://www.g4media.ro/ise-primaria-constanta-a-respins-singura-oferta-pentru-targul-de-craciun-primaria-nu-da-detalii-despre-solutiile-pe-care-spune-ca-le-cauta-cu-o-luna-inainte-de-sarbatori.html",
-              "snippet": "Primăria Constanța a respins singura ofertă depusă până în prezent pentru organizarea unui târg de Crăciun, cu mai puțin de o lună înainte de Moș Nicolae, transmite Info Sud-Est…",
-              "published": "2026-11-13T14:41:08Z"
+              "title": "Un general al Serviciului de Securitate al Ucrainei, suspectat într-un grav caz de corupţie, a fost eliberat după plata unei cauțiuni de 1,2 milioane euro",
+              "url": "https://www.g4media.ro/un-general-al-serviciului-de-securitate-al-ucrainei-suspectat-intr-un-grav-caz-de-coruptie-a-fost-eliberat-dupa-plata-unei-cautiuni-de-12-milioane-euro.html",
+              "snippet": "Un general al Serviciului de Securitate al Ucrainei (SBU), suspectat într-un grav caz de corupţie, a fost eliberat vineri din arest preventiv la Kiev, după plata unei cauţiuni de…",
+              "published": "2026-11-13T20:54:43Z"
             },
             {
-              "title": "Jurnalist britanic, suspendat pentru restul sezonului din F1: Șeful Ferrari l-a „pârât” și l-a descris ca fiind un „nimeni grăsuț”",
-              "url": "https://www.g4media.ro/jurnalist-britanic-suspendat-pentru-restul-sezonului-din-f1-seful-ferrari-l-a-parat-si-l-a-descris-ca-fiind-un-nimeni-grasut.html",
-              "snippet": "FIA a anunțat că l-a suspendat pentru restul sezonului din Formula 1 pe jurnalistul Jonathan McEvoy, transmite GPblog. Gazetarul britanic a spus despre Charles Leclerc că este…",
-              "published": "2026-11-13T14:34:55Z"
+              "title": "Rise Project: Căutat prin rețeaua Interpol de 14 ani, un afacerist moldovean a început să vâneze companii strategice în România",
+              "url": "https://www.g4media.ro/rise-project-cautat-prin-reteaua-interpol-de-14-ani-un-afacerist-moldovean-a-inceput-sa-vaneze-companii-strategice-in-romania.html",
+              "snippet": "Fugarul moldovean Anatolie Tripăduș (69 de ani) a început să vâneze companii strategice în România. La București a obținut o nouă identitate. A făcut promisiuni de investiții și…",
+              "published": "2026-11-13T20:19:53Z"
             },
             {
-              "title": "Ce îmbunătățiri aduce noul model AI Gemini 4 Hydrogen / Google susține că Hydrogen egalează sau chiar depășește Claude Sonnet 5.5 și GPT 6.1",
-              "url": "https://www.g4media.ro/ce-imbunatatiri-aduce-noul-model-ai-gemini-4-hydrogen-google-sustine-ca-hydrogen-egaleaza-sau-chiar-depaseste-claude-sonnet-5-5-si-gpt-6-1.html",
-              "snippet": "Google anunță că noul său model Gemini 4 Hydrogen poate oferi răspunsuri mai utile la întrebări complexe, inclusiv la „întrebări alcătuite din mai multe părți, care conțin…",
-              "published": "2026-11-13T14:34:32Z"
+              "title": "Tramvaiul revine în Piața Unirii din București, după aproape 40 de ani. Lucrările sunt estimate să înceapă în 2028",
+              "url": "https://www.g4media.ro/tramvaiul-revine-in-piata-unirii-din-bucuresti-dupa-aproape-40-de-ani-lucrarile-sunt-estimate-sa-inceapa-in-2028.html",
+              "snippet": "Noua linie de tramvai care va traversa Piața Unirii din București și va conecta traseele 21 și 32 ar putea intra în execuție în 2028, potrivit calendarului estimat de primarul…",
+              "published": "2026-11-13T19:07:20Z"
             },
             {
-              "title": "Marcus Aurelius față în față cu Putin, Trump și Xi Jinping. Ce au în comun patru conducători despărțiți de aproape 2.000 de ani? (P)",
-              "url": "https://www.g4media.ro/marcus-aurelius-fata-in-fata-cu-putin-trump-si-xi-jinping-ce-au-in-comun-patru-conducatori-despartiti-de-aproape-2-000-de-ani-p.html",
-              "snippet": "Un împărat roman care își scria gândurile despre autocontrol, un președinte rus implicat într-un război de lungă durată, un lider american cunoscut pentru stilul său politic…",
-              "published": "2026-11-13T14:29:27Z"
+              "title": "VIDEO | S-a deschis Târgul de Crăciun Craiova. Tema din acest an este „Tărâmul Elfilor”",
+              "url": "https://www.g4media.ro/video-s-a-deschis-targul-de-craciun-craiova-tema-din-acest-an-este-taramul-elfilor.html",
+              "snippet": "Târgul de Crăciun Craiova s-a deschis, vineri, 13 noiembrie și se va încheia în 3 ianuarie 2027. Tema din acest an, „Tărâmul Elfilor”, aduce în centrul Craiovei numeroși elfi…",
+              "published": "2026-11-13T19:04:07Z"
             },
             {
-              "title": "VIDEO | Daniel Zamfir îi acuză pe Mihai Jurca și Ilie Bolojan că l-au mințit pe președinte în privința contractului cu Rheinmetall / Fostul șef al cancelariei premierului: Sunt minciuni. Domnul Zamfir nu a participat la nicio discuție și vorbește din instrucțiunile primite",
-              "url": "https://www.g4media.ro/video-daniel-zamfir-ii-acuza-pe-mihai-jurca-si-ilie-bolojan-ca-l-au-mintit-pe-presedinte-in-privinta-contractului-cu-rheinmetall-fostul-sef-al-cancelariei-premierului-sunt-minciuni-domnul-zamfir.html",
-              "snippet": "Ministrul Economiei, Daniel Zamfir (PSD), a făcut mai multe acuzații la adresa vechii administrații, într-o emisiune la Gândul. Zamfir susține că președintele Nicușor Dan a fost…",
-              "published": "2026-11-13T14:23:15Z"
+              "title": "Doi români aflați în Yemen, repatriați de urgență. Avertismentul MAE: „Părăsiți țara imediat”",
+              "url": "https://www.g4media.ro/doi-romani-aflati-in-yemen-repatriati-de-urgenta-avertismentul-mae-parasiti-tara-imediat.html",
+              "snippet": "Ministerul Afacerilor Externe a anunțat vineri că doi români aflați în Yemen au fost aduși în țară, în siguranță. Yemen se află sub alertă, în urma conflictului dintre rebelii…",
+              "published": "2026-11-13T18:38:35Z"
             }
           ]
         }
@@ -274,34 +274,34 @@
           "name": "Ziarul Financiar",
           "items": [
             {
-              "title": "Ce au in comun gigantii tech Apple, Google şi mai nou Nvidia? După 33 de ani cu Jensen Huang la conducere, Nvidia intră în cel mai dificil test de succesiune din Big Tech",
-              "url": "https://www.zf.ro/business-international/ce-au-in-comun-gigantii-tech-apple-google-si-mai-nou-nvidia-dupa-33-de-ani-cu-jensen-huang-la-conducere-nvidia-intra-in-cel-mai-dificil-test-de-succesiune-din-big-tech-23281511",
+              "title": "Nvidia, în căutare de succesor pentru Jensen Huang, cel care şi-a dat demisia după 33 de ani la conducerea gigantului tehnologic american. Şeful Arm, Rene Haas, este pe lista favoriţilor",
+              "url": "https://www.zf.ro/business-international/nvidia-in-cautare-de-succesor-pentru-jensen-huang-cel-care-si-a-dat-demisia-dupa-33-de-ani-la-conducerea-gigantului-tehnologic-american-seful-arm-rene-haas-este-pe-lista-favoritilor-23281577",
               "snippet": "",
-              "published": "2026-11-13T14:44:22Z"
+              "published": "2026-11-13T17:45:14Z"
             },
             {
-              "title": "Ce poţi să faci în weekend în Bucureşti? De la târguri de design şi expoziţii până la ateliere creative şi filme de văzut la cinema",
-              "url": "https://www.zf.ro/zf-gen-z/ce-poti-sa-faci-in-weekend-in-bucuresti-de-la-targuri-de-design-si-expozitii-pana-la-ateliere-creative-si-filme-de-vazut-la-cinema-23281496",
+              "title": "Ar putea urma scăderi la pompă. Pentru prima dată de la începutul războiului din Iran, există mai mult petrol pe piaţa internaţională decât cerere. „Semne timide de reechilibrare”",
+              "url": "https://www.zf.ro/business-international/ar-putea-urma-scaderi-la-pompa-pentru-prima-data-de-la-inceputul-razboiului-din-iran-exista-mai-mult-petrol-pe-piata-internationala-decat-cerere-semne-timide-de-reechilibrare-23281574",
               "snippet": "",
-              "published": "2026-11-13T14:18:46Z"
+              "published": "2026-11-13T17:13:15Z"
             },
             {
-              "title": "Ionuţ Daniel Coleaşă, COO, CITR: Insolvenţa este un indicator întârziat. Anul acesta s-au văzut dificultăţile financiare din ultimii trei-patru ani. Astăzi, 40 de companii din 100 din agricultură au probleme financiare",
-              "url": "https://www.zf.ro/companii/retail-agrobusiness/ionut-daniel-coleasa-coo-citr-insolventa-indicator-intarziat-anul-acesta-s-au-vazut-dificultatile-financiare-ultimii-trei-patru-ani-astazi-40-companii-100-agricultura-au-probleme-financiare-23280654",
-              "snippet": "Circa 1.700 dintre cele 4.000 de companii de impact din agricultura românească, care cumulează peste 60% din datoriile totale ale sectorului, se află astăzi în zona de…",
-              "published": "2026-11-13T14:00:00Z"
+              "title": "Topul Celor mai admiraţi CEO din România ţine mai mult de brandul companiei, de percepţie şi de marketingul fiecăruia",
+              "url": "https://www.zf.ro/opinii/topul-celor-mai-admirati-ceo-din-romania-tine-mai-mult-de-brandul-companiei-de-perceptie-si-de-marketingul-fiecaruia-23281494",
+              "snippet": "",
+              "published": "2026-11-13T17:00:00Z"
             },
             {
-              "title": "Biletele STB s-ar putea scumpi de la 3 la 5 lei. Remus Borza, administratorul judiciar STB: Unii pot băga mâna în buzunar să scoată 3-5 lei. La Cluj, 7 lei biletul de călătorie valabil 60 de minute",
-              "url": "https://www.zf.ro/eveniment/biletele-stb-s-ar-putea-scumpi-de-la-3-la-5-lei-remus-borza-administratorul-judiciar-stb-unii-pot-baga-mana-in-buzunar-sa-scoata-3-5-lei-la-cluj-7-lei-biletul-de-calatorie-valabil-60-de-minute-23281458",
+              "title": "Brokerul de asigurări Millenium Insurance Broker a raportat la nouă luni un profit net de 2,5 mil. lei, cu 68,2% mai mare, pe fondul avansului de 29,8% al primelor intermediate",
+              "url": "https://www.zf.ro/burse-fonduri-mutuale/brokerul-de-asigurari-millenium-insurance-broker-a-raportat-la-noua-luni-un-profit-net-de-2-5-mil-lei-cu-68-2-mai-mare-pe-fondul-avansului-de-29-8-al-primelor-intermediate-23281566",
               "snippet": "",
-              "published": "2026-11-13T13:16:25Z"
+              "published": "2026-11-13T16:23:40Z"
             },
             {
-              "title": "Cum arată situaţia de la STB: Jumătate dintre cei 10.000 de angajaţi au legături de rudenie. O familie are 20 de membri în companie, iar unii şoferi au câştigat 18.000 de lei net pe lună",
-              "url": "https://www.zf.ro/eveniment/cum-arata-situatia-de-la-stb-jumatate-dintre-cei-10-000-de-angajati-au-legaturi-de-rudenie-o-familie-are-20-de-membri-in-companie-iar-unii-soferi-au-castigat-18-000-de-lei-net-pe-luna-23281456",
+              "title": "Transilvania Investments şi-a schimbat portofoliul în trimestrul al treilea: a cumpărat acţiuni Digi, Banca Transilvania şi ETF-uri, a vândut BRD şi OMV Petrom şi a răscumpărat 159 mil. de acţiuni proprii",
+              "url": "https://www.zf.ro/burse-fonduri-mutuale/transilvania-investments-schimbat-portofoliul-trimestrul-treilea-cumparat-actiuni-digi-banca-transilvania-etf-uri-vandut-brd-omv-petrom-rascumparat-159-mil-actiuni-proprii-23281564",
               "snippet": "",
-              "published": "2026-11-13T13:13:00Z"
+              "published": "2026-11-13T16:19:17Z"
             }
           ]
         },
@@ -310,34 +310,34 @@
           "name": "Profit.ro",
           "items": [
             {
-              "title": "Pe Autostrada Moldovei se fură până și vase de WC",
-              "url": "https://www.profit.ro/povesti-cu-profit/auto-transporturi/pe-autostrada-moldovei-se-fura-pana-si-vase-de-wc-22985435?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
-              "snippet": "Autostrada Moldovei a devenit ținta hoților, care fură zilnic obiecte din spațiile de servicii de pe A7.",
-              "published": "2026-11-13T14:42:00Z"
+              "title": "Google anunță modelul Gemini 4 Hydrogen",
+              "url": "https://www.profit.ro/romania-conectata/google-anunta-modelul-gemini-4-hydrogen-22984604?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
+              "snippet": "La doar câteva zile după lansarea vârfului de gamă Carbon, Google anunță modelul Hydrogen din aceeași serie Gemini 4, care promite „inteligență de vârf pentru toată lumea”.",
+              "published": "2026-11-13T18:45:00Z"
             },
             {
-              "title": "Mari probleme cu biletele și programul trenurilor. Pana de amploare a Microsoft afectează mai multe companii feroviare și din Europa",
-              "url": "https://www.profit.ro/insider/companii/mari-probleme-cu-biletele-si-programul-trenurilor-pana-de-amploare-a-microsoft-afecteaza-mai-multe-companii-feroviare-si-din-europa-22985264?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
-              "snippet": "Serviciul de mesagerie Outlook, dezvoltat de Microsoft, este afectat de o pană de proporții care afectează și companiile feroviare.",
-              "published": "2026-11-13T14:17:00Z"
+              "title": "Deficitul bugetar al SUA atinge un nivel record",
+              "url": "https://www.profit.ro/stiri/economie/deficitul-bugetar-al-sua-atinge-un-nivel-record-22985030?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
+              "snippet": "Departamentul Trezoreriei a anunțat că Guvernul Statelor Unite a înregistrat în octombrie un deficit bugetar de 404 miliarde de dolari, cel mai ridicat nivel consemnat vreodată…",
+              "published": "2026-11-13T18:21:00Z"
             },
             {
-              "title": "Românii își vor recupera banii din urmă cu panouri solare. Ordinul pentru prosumatori, publicat în Monitor",
-              "url": "https://www.profit.ro/perspective/schimbari-legislative-pentru-firme/romanii-isi-vor-recupera-banii-din-urma-cu-panouri-solare-ordinul-pentru-prosumatori-publicat-in-monitor-22985276?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
-              "snippet": "Ordinul ANRE care le aduce beneficii prosumatorilor a fost publicat în Monitorul Oficial.",
-              "published": "2026-11-13T13:49:00Z"
+              "title": "Ce înseamnă RPG, roguelike, soulslike și MOBA în descrierile jocurilor",
+              "url": "https://www.profit.ro/povesti-cu-profit/it-c/ce-inseamna-rpg-roguelike-soulslike-si-moba-in-descrierile-jocurilor-22984556?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
+              "snippet": "Termeni precum RPG, roguelike, soulslike sau MOBA apar frecvent în lansări de jocuri sau în descrieri pe Steam, PlayStation Store ori Xbox Store, iar pentru gamerii pasionați…",
+              "published": "2026-11-13T17:58:00Z"
             },
             {
-              "title": "Super, în „Liga Campionilor” a industriei de tehnologie și divertisment: În 2025, membrii EGBA au plătit taxe de 4,5 mld. EUR în Europa",
-              "url": "https://www.profit.ro/povesti-cu-profit/super-in-liga-campionilor-a-industriei-de-tehnologie-si-divertisment-in-2025-membrii-egba-au-platit-taxe-de-4-5-mld-eur-in-europa-22985423?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
-              "snippet": "Taxe de 4,5 mld. EUR plătite în statele europene, investiții de 768 mil. EUR în sport și 16,5 milioane de utilizatori care au ales voluntar instrumente de joc responsabil…",
-              "published": "2026-11-13T13:36:35Z"
+              "title": "Piața smartphone-urilor pliabile a scăzut în al treilea trimestru",
+              "url": "https://www.profit.ro/povesti-cu-profit/it-c/piata-smartphone-urilor-pliabile-a-scazut-in-al-treilea-trimestru-22984607?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
+              "snippet": "În al treilea trimestru al anului au fost livrate 7,5 milioane de smartphone-uri pliabile, în scădere cu 2% față de aceeași perioadă a anului trecut, arată un studiu realizat de…",
+              "published": "2026-11-13T17:24:00Z"
             },
             {
-              "title": "FOTO INEDIT ''Mașină de fumat'' pentru analiza țigaretelor suspecte sau confiscate folosită la Vamă",
-              "url": "https://www.profit.ro/must-read/foto-inedit-masina-de-fumat-pentru-analiza-tigaretelor-suspecte-sau-confiscate-folosita-la-vama-22985403?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
-              "snippet": "Autoritatea Vamală utilizează o ''mașină de fumat'' pentru analiza țigaretelor suspecte sau confiscate.",
-              "published": "2026-11-13T13:32:21Z"
+              "title": "Toate balcoanele unui bloc din București, demolate. Recent, un balcon din bloc s-a prăbușit peste o mașină FOTO&VIDEO",
+              "url": "https://www.profit.ro/stiri/social/toate-balcoanele-unui-bloc-din-bucuresti-demolate-recent-un-balcon-din-bloc-s-a-prabusit-peste-o-masina-foto-video-22985366?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
+              "snippet": "După un incident recent, toate balcoanele unui bloc din Capitală vor fi demolate.",
+              "published": "2026-11-13T17:00:00Z"
             }
           ]
         },
@@ -346,34 +346,34 @@
           "name": "Economica.net",
           "items": [
             {
-              "title": "Valea Oltului scapă de restricții. Lucrările de protecție a versanților pe DN7, finalizate cu nouă luni înainte de termen",
-              "url": "https://www.economica.net/valea-oltului-scapa-de-restrictii-lucrarile-de-protectie-a-versantilor-finalizate-cu-noua-luni-inainte-de-termen_995203.html",
-              "snippet": "Lucrările de protecție a versanților pe DN7 – Valea Oltului au fost finalizate înainte de termen, anunță vineri Direcția Regională de Drumuri și Poduri (DRDP) Craiova.",
-              "published": "2026-11-13T14:40:23Z"
+              "title": "Rogobete promite să deblocheze angajările din Sănătate, din 2027: „ încă câteva mii de posturi”",
+              "url": "https://www.economica.net/rogobete-promite-sa-deblocheze-angajarile-din-sanatate-din-2027-inca-cateva-mii-de-posturi_995289.html",
+              "snippet": "Alexandru Rogobete, ministrul Sănătății, a anunțat că va debloca posturi din Sănătate, începând cu 1 ianuarie 2027. Oficialul a mai dezvăluit că angajările vor fi de ordinul…",
+              "published": "2026-11-13T20:36:55Z"
             },
             {
-              "title": "Ciucu: Voi fi de acord cu majorarea tarifului STB doar după restructurare. Ce preţ propune administratorul judiciar şi ce spune despre datoria de un miliard de lei către Electroputere VFU Paşcani",
-              "url": "https://www.economica.net/ciucu-voi-fi-de-acord-cu-majorarea-tarifului-stb-doar-dupa-restructurare-ce-pret-propune-administratorul-judiciar_995179.html",
-              "snippet": "Primarul general al Capitalei, Ciprian Ciucu, a declarat vineri că va fi de acord cu o creştere a tarifului STB doar după ce va începe o restructurare semnificativă a societăţii.",
-              "published": "2026-11-13T14:02:22Z"
+              "title": "VIDEO Turcii de la Ozaltin se pregătesc să înceapă lucrările pe Autostrada Unirii A8",
+              "url": "https://www.economica.net/ozaltin-autostrada-unirii-a8_995261.html",
+              "snippet": "Constructorul turc Ozaltin a demarat lucrările pregătitoare pe lotul Miercurea Nirajului - Sărățeni din Autostrada A8 Tg Mureș - Tg Neamț, potrivit celor mai recente imagini…",
+              "published": "2026-11-13T20:27:04Z"
             },
             {
-              "title": "Harta noilor fabrici care se construiesc în România: 348 de proiecte de peste 20 de miliarde de lei. Județele care atrag cei mai mulți investitori",
-              "url": "https://www.economica.net/harta-fabrici-romania_995171.html",
-              "snippet": "De la industria de apărare și producția de medicamente până la procesarea alimentară, o analiză IBC Focus identifică 348 de proiecte de fabrici în România, aflate în diferite…",
-              "published": "2026-11-13T13:58:19Z"
+              "title": "Victor Căpitanu, One United Properties: Cererea de locuințe este cu 15-20% mai mică. Cumpărătorii negociază mai mult, mai ales la apartamentele scumpe",
+              "url": "https://www.economica.net/cerere-locuinte-one-united-properties_995115.html",
+              "snippet": "Cererea din piața imobiliară a scăzut cu până la 20% în acest an, iar cumpărătorii de apartamente scumpe au început să negocieze tot mai intens prețurile, avertizează Victor…",
+              "published": "2026-11-13T20:26:44Z"
             },
             {
-              "title": "Germania – Guvernul Merz pregăteşte cel mai mare buget din istoria ţării",
-              "url": "https://www.economica.net/germania-guvernul-merz-pregateste-cel-mai-mare-buget-din-istoria-tarii_995168.html",
-              "snippet": "Guvernul Germaniei plănuieşte să aloce 560,9 miliarde de euro pentru cheltuielile statului în bugetul pe anul 2027, cea mai mare sumă din istoria sa, conform proiectului aprobat…",
-              "published": "2026-11-13T13:54:21Z"
+              "title": "Primăria Bucureşti anunţă primele măsuri de eficientizare după ”dezastrul găsit la STB” – Digitalizare şi controlul consumurilor, reducerea cheltuielilor de personal, renegocierea contractului colectiv de muncă şi folosirea eficientă a atelierelor proprii",
+              "url": "https://www.economica.net/primaria-bucuresti-anunta-primele-masuri-de-eficientizare-dupa-dezastrul-gasit-la-stb-digitalizare-si-controlul-consumurilor-reducerea-cheltuielilor-de-personal-renegocierea-cont_995286.html",
+              "snippet": "Primăria Bucureşti anunţă, vineri seară, primele măsuri de eficientizare după ”dezastrul găsit la STB”. Este vorba despre digitalizare şi controlul consumurilor, reducerea…",
+              "published": "2026-11-13T19:52:52Z"
             },
             {
-              "title": "Obligaţiuni verzi E.ON – Două emisiuni în valoare de 1,8 miliarde de euro. „Am început din timp să ne acoperim nevoile de finanţare pentru 2027”",
-              "url": "https://www.economica.net/obligatiuni-verzi-e-on-doua-emisiuni-in-valoare-de-18-miliarde-de-euro-am-inceput-din-timp-sa-ne-acoperim-nevoile-de-finantare-pentru-2027_995150.html",
-              "snippet": "E.ON a emis cu succes două tranşe de obligaţiuni, cu un volum cumulat de 1,8 miliarde de euro, respectiv obligaţiuni verzi în valoare de 800 de milioane de euro, cu scadenţa la 7…",
-              "published": "2026-11-13T13:14:46Z"
+              "title": "FOTO Cine îi va lua locul lui Jensen Huang la conducerea Nvidia. Financial Times: Sunt deja discuții cu Rene Haas",
+              "url": "https://www.economica.net/foto-cine-ii-va-lua-locul-lui-jensen-huang-la-conducerea-nvidia-financial-times-sunt-deja-discutii-cu-rene-haas_995275.html",
+              "snippet": "oard-ul Nvidia face demersuri pentru a găsi un potenţial succesor al lui Jensen Huang şi l-a abordat pe şeful Arm Holdings, Rene Haas, a anunţat vineri Financial Times (FT)…",
+              "published": "2026-11-13T19:15:24Z"
             }
           ]
         }
@@ -387,6 +387,12 @@
           "id": "startup",
           "name": "Start-up.ro",
           "items": [
+            {
+              "title": "Black Friday 2026: Vânzările de vineri au scăzut cu 16,5% în 162 de magazine online din România",
+              "url": "https://start-up.ro/black-friday-2026-vanzarile-de-vineri-au-scazut-cu-16-5-in-162-de-magazine-online-din-romania/",
+              "snippet": "Magazinele online din România au înregistrat o schimbare a distribuției vânzărilor de Black Friday în 2026. Zilele de luni până joi au generat 42,2% din veniturile săptămânii…",
+              "published": "2026-11-13T15:40:46Z"
+            },
             {
               "title": "Gurmand Apetit: ce înseamnă produse ecologice din carne şi de ce merită cumpărate",
               "url": "https://start-up.ro/produse-ecologice-din-carne-ce-inseamna-ecologic-si-de-ce-merita-cumparate/",
@@ -410,12 +416,6 @@
               "url": "https://start-up.ro/xiaomi-18-pro-ecran-pe-spatele-telefonului-camere-leica-si-lansare-globala/",
               "snippet": "Xiaomi va introduce tehnologia Back Display pe piețele globale odată cu lansarea seriei Xiaomi 18 Pro.",
               "published": "2026-11-13T10:53:46Z"
-            },
-            {
-              "title": "FIORA5, deschisă la finanțare pe Growceanu. Investițiile pornesc de la 200 de euro",
-              "url": "https://start-up.ro/fiora5-deschisa-la-finantare-pe-growceanu-investitiile-pornesc-de-la-200-de-euro/",
-              "snippet": "FIORA5, companie originară din Oradea cu o creștere accelerată, aflată într-o etapă timpurie de dezvoltare, care dezvoltă o arhitectură de procesor RISC-V pentru edge computing…",
-              "published": "2026-11-13T10:04:43Z"
             }
           ]
         },
@@ -424,33 +424,33 @@
           "name": "Go4IT",
           "items": [
             {
-              "title": "Consumul regulat de cafea modifică flora intestinală și fiziologia digestivă: ce a relevat o capsulă electronică ingerată de voluntari",
-              "url": "https://www.go4it.ro/content/stiinta/consumul-regulat-de-cafea-modifica-flora-intestinala-si-fiziologia-digestiva-ce-a-relevat-o-capsula-electronica-ingerata-de-voluntari-19289503/",
-              "snippet": "Consumul regulat de cafea pare să modifice atât flora intestinală, cât și funcționarea fizică a tractului digestiv, potrivit unui studiu realizat de Universitatea din Copenhaga…",
+              "title": "Conferința mondială „e-Parliament” revine la Parlamentul European din Bruxelles după 18 ani",
+              "url": "https://www.go4it.ro/content/business/conferinta-mondiala-e-parliament-revine-la-parlamentul-european-din-bruxelles-dupa-18-ani-19289514/",
+              "snippet": "Conferința mondială privind parlamentul electronic revine la sediul Parlamentului European din Bruxelles între 17 și 18 noiembrie 2026 și marchează prima ediție găzduită aici din…",
               "published": null
             },
             {
-              "title": "VIDEO: Cărui produs îi dedică Apple reclama sa anuală de sărbători",
-              "url": "https://www.go4it.ro/content/laptopuri/video-carui-produs-ii-dedica-apple-reclama-sa-anuala-de-sarbatori-19289506/",
-              "snippet": "Apple a lansat tradiționala sa reclamă dedicată sărbătorilor de iarnă, o producție emoționantă în care un tânăr își redescoperă latura creativă după ce primește cadou din partea…",
+              "title": "Cum sunt păcăliți utilizatorii de Mac să își infecteze singuri dispozitivele prin browser. Raport Bitdefender privind amenințările macOS",
+              "url": "https://www.go4it.ro/securitate-informatica/cum-sunt-pacaliti-utilizatorii-de-mac-sa-isi-infecteze-singuri-dispozitivele-prin-browser-raport-bitdefender-privind-amenintarile-macos-19289511/",
+              "snippet": "Atacatorii cibernetici vizează utilizatorii de sisteme macOS prin manipulare psihologică și îi determină să execute singuri ultimul pas al compromiterii dispozitivului prin…",
               "published": null
             },
             {
-              "title": "Încă o femeie apare în scandalul care a zguduit NVIDIA. Acțiunile companiei sunt în declin",
-              "url": "https://www.go4it.ro/content/business/inca-o-femeie-apare-in-scandalul-care-a-zguduit-nvidia-actiunile-companiei-sunt-in-declin-19289497/",
-              "snippet": "Scandalul de la vârful gigantului tehnologic NVIDIA ia din nou amploare, după ce o investigație Reuters dezvăluie că fostul CEO al companiei, Jensen Huang, ar fi avut o relație…",
+              "title": "Lidl aduce în ofertă două gadgeturi pentru curățenia casei. Aspirator vertical și robot de aspirare Silvercrest, la prețuri reduse",
+              "url": "https://www.go4it.ro/diverse/lidl-aduce-in-oferta-doua-gadgeturi-pentru-curatenia-casei-aspirator-vertical-si-robot-de-aspirare-silvercrest-la-preturi-reduse-19289526/",
+              "snippet": "Curățenia locuinței poate deveni mai simplă cu ajutorul aparatelor care aspiră, spală podelele sau reduc timpul petrecut cu întreținerea casei. Începând de joi, 19 noiembrie…",
               "published": null
             },
             {
-              "title": "Marile companii din domeniul AI, date în judecată. Organizațiile civice cer oprirea dezvoltării sistemelor avansate de inteligență artificială",
-              "url": "https://www.go4it.ro/content/inteligenta-artificiala/marile-companii-din-domeniul-ai-date-in-judecata-organizatiile-civice-cer-oprirea-dezvoltarii-sistemelor-avansate-de-inteligenta-artificiala-19289495/",
-              "snippet": "Cinci dintre cei mai mari giganți tehnologici din lume, inclusiv OpenAI, Google și Meta, au fost acționați în instanță în Statele Unite, într-un proces fără precedent prin care…",
+              "title": "Xiaomi 18 Pro ajunge pe piețele globale cu un ecran secundar pe spate. Lansarea oficială are loc pe 17 noiembrie",
+              "url": "https://www.go4it.ro/content/telefoane-mobile/xiaomi-18-pro-ajunge-pe-pietele-globale-cu-un-ecran-secundar-pe-spate-lansarea-oficiala-are-loc-pe-17-noiembrie-19289523/",
+              "snippet": "Xiaomi pregătește lansarea internațională a seriei Xiaomi 18 Pro, care va introduce o nouă generație a tehnologiei Back Display, un ecran secundar integrat pe spatele…",
               "published": null
             },
             {
-              "title": "Work Sharp a lansat un cuțit EDC cu mâner din titan în ediție limitată",
-              "url": "https://www.go4it.ro/content/accesorii/work-sharp-a-lansat-un-cutit-edc-cu-maner-din-titan-in-editie-limitata-19289471/",
-              "snippet": "Producătorul american Work Sharp a lansat o nouă versiune a cunoscutului său model de cuțit pliabil Madrone, dezvoltată în parteneriat cu specialiștii în echipamente EDC din…",
+              "title": "Un ceas din anii 1920 revine într-o formă modernă. Horologically Unique HU-02 nu are ace tradiționale",
+              "url": "https://www.go4it.ro/content/accesorii/un-ceas-din-anii-1920-revine-intr-o-forma-moderna-horologically-unique-hu-02-nu-are-ace-traditionale-19289517/",
+              "snippet": "Un producător independent de ceasuri din Singapore readuce în atenție un mecanism de afișare a timpului utilizat în urmă cu aproape 100 de ani. Horologically Unique a prezentat…",
               "published": null
             }
           ]
@@ -460,34 +460,34 @@
           "name": "The Verge",
           "items": [
             {
-              "title": "Meta discussed attacking Jonathan Haidt — now even his haters are annoyed",
-              "url": "https://www.theverge.com/policy/1032645/jonathan-haidt-critics-response-meta",
-              "snippet": "Three years ago, Meta apparently considered a plan to turn public opinion against one of its most influential opponents, Jonathan Haidt. But since the proposal was revealed in…",
-              "published": "2026-11-13T14:19:33Z"
+              "title": "CMF’s milk carton-shaped Bluetooth speaker is down to a new low price",
+              "url": "https://www.theverge.com/gadgets/1033185/nothing-cmf-speaker-s-m-black-friday-deal-sale",
+              "snippet": "Bluetooth speakers are often boring boxes in plain colors, but not this one! As part of Nothing’s ongoing early Black Friday promo, you can grab its unique, milk carton-shaped…",
+              "published": "2026-11-13T21:13:20Z"
             },
             {
-              "title": "Let’s talk about Jensen Huang’s many affairs!",
-              "url": "https://www.theverge.com/ai-artificial-intelligence/1032339/lets-talk-about-the-nvidia-shitshow",
-              "snippet": "Usually, we'd be offering to answer your questions about a news event, but honestly we don't really have any answers about what the hell is going on over at Nvidia. I can't speak…",
-              "published": "2026-11-13T14:02:40Z"
+              "title": "ChatGPT Wallet lets OpenAI’s Dots agents make purchases for you",
+              "url": "https://www.theverge.com/ai-artificial-intelligence/1033425/openai-chatgpt-wallet",
+              "snippet": "After launching its Dots AI agents platform earlier this year, OpenAI is launching a wallet for the agents. ChatGPT Wallet is rolling out starting today for ChatGPT Pro…",
+              "published": "2026-11-13T20:45:10Z"
             },
             {
-              "title": "Microsoft’s massive Outlook outage continues",
+              "title": "The smallest version of Camp Snap’s retro digital camcorder fits on your keychain",
+              "url": "https://www.theverge.com/tech/1033026/camp-snap-retro-digital-video-campcorder-cs-8-micro-keychain",
+              "snippet": "Last week, Camp Snap launched a miniaturized version of its screen-free CS-8 video camera that was half the size of the original with a smaller grip designed to be easier for…",
+              "published": "2026-11-13T19:23:43Z"
+            },
+            {
+              "title": "Microsoft’s massive Outlook outage might be over",
               "url": "https://www.theverge.com/tech/1032862/microsoft-outlook-down-outage",
-              "snippet": "Service is gradually starting to recover for Microsoft Outlook and 365 after an almost two-day outage impacting millions of users around the world. While some apps and features…",
-              "published": "2026-11-13T13:59:42Z"
+              "snippet": "Service is recovering for Microsoft Outlook and 365 after an almost two-day outage impacting millions of users around the world. While some apps and features are still running in…",
+              "published": "2026-11-13T19:18:54Z"
             },
             {
-              "title": "Microsoft Outlook is still down",
-              "url": "https://www.theverge.com/tech/1032226/microsoft-outlook-is-down",
-              "snippet": "Microsoft Outlook continues to be unavailable for people, businesses, and public services across the globe, leaving people unable to access their email, either through the web or…",
-              "published": "2026-11-13T13:06:12Z"
-            },
-            {
-              "title": "Donald Trump really wants Tim Cook to run Nvidia",
-              "url": "https://www.theverge.com/tech/1032774/president-donald-trump-tim-cook-nvidia-jensen-huang",
-              "snippet": "Jensen Huang resigned this morning as Nvidia's CEO following reports of affairs, including one with an alleged Chinese spy. Right now, the company is being led by its CFO on an…",
-              "published": "2026-11-13T00:51:25Z"
+              "title": "Here’s how you can save on your GTA VI preorder ahead of launch",
+              "url": "https://www.theverge.com/gadgets/1033046/playstation-xbox-gift-card-gta-vi-6-preorder-deal-sale",
+              "snippet": "The long-awaited launch of GTA VI is around the corner, happening next Friday, November 19th. While discounts on the game itself will be rare for some time, there’s a clever…",
+              "published": "2026-11-13T19:17:41Z"
             }
           ]
         }
@@ -502,34 +502,34 @@
           "name": "Gazeta Sporturilor",
           "items": [
             {
-              "title": "Michael Carrick și-a luat rămas-bun de la Manchester United: „A fost o onoare uriașă”",
-              "url": "https://www.gsp.ro/international/campionate/michael-carrick-ramas-bun-manchester-united-mesaj-999024.html",
-              "snippet": "Michael Carrick a transmis un mesaj oficial după ce a fost demis din funcția de antrenor al echipei Manchester United. Fostul mijlocaș al „diavolilor roșii” a subliniat că a fost…",
-              "published": "2026-11-13T14:29:26Z"
+              "title": "Jaf violent la locuința unui jucător din LaLiga: „Minute de teroare pură. Băieții mei au început să plângă”",
+              "url": "https://www.gsp.ro/international/campionate/jaf-matias-dituro-elche-la-liga-999091.html",
+              "snippet": "Matias Dituro (39 de ani), portarul și căpitanul celor de la Elche, a povestit pe pagina sa de Instagram momentele de groază prin care a trecut în seara zilei de 12 noiembrie…",
+              "published": "2026-11-13T20:43:57Z"
             },
             {
-              "title": "Condamnări după bătaia din Abu Dhabi: șase luni de închisoare pentru Nurmagomedov, Dvalishvili a fost pus în libertate",
-              "url": "https://www.gsp.ro/sporturi/altele/condamnari-bataie-abu-dhabi-sase-luni-de-inchisoare-999016.html",
-              "snippet": "Opt persoane au fost condamnate la închisoare în Abu Dhabi (Emiratele Arabe Unite) în urma unui incidentului în care au fost implicați luptătorii Usman Nurmagomedov, și Merab…",
-              "published": "2026-11-13T14:14:19Z"
+              "title": "Universitatea Craiova forțează transferul lui Boutoutaou! Ce ofertă pregătesc oltenii",
+              "url": "https://www.gsp.ro/fotbal/liga-1/craiova-gigi-becali-boutoutaou-fcsb-nsimba-transfer-999131.html",
+              "snippet": "Aymen Boutoutaou (25 de ani) nu mai intră în planurile lui Gigi Becali, iar Universitatea Craiova l-a trecut pe lista de transferuri. Oltenii vor să-l aducă în iarnă pe…",
+              "published": "2026-11-13T20:30:52Z"
             },
             {
-              "title": "Și-a anunțat venirea la FCSB?! Îi dă luni răspunsul lui Becali, dar a furat startul: „Oricâte schimbări ar aduce viața...”",
-              "url": "https://www.gsp.ro/fotbal/liga-1/si-a-anuntat-venirea-la-fcsb-mesaj-bogdan-apostu-999015.html",
-              "snippet": "Agentul de jucători Bogdan Apostu (44 de ani), apropiat al celor de la Corvinul Hunedoara, este alesul lui Gigi Becali pentru a-l înlocui pe MM Stoica la FCSB, după acesta a luat…",
-              "published": "2026-11-13T14:03:17Z"
+              "title": "Karolina Muchova s-a retras de la Turneul Campioanelor cu câteva ore înaintea meciului: „Nu așa aș fi vrut să închei”",
+              "url": "https://www.gsp.ro/sporturi/tenis/karolina-muchova-retragere-turneul-campioanelor-tenis-999127.html",
+              "snippet": "Karolina Muchova (30 de ani, locul 7 WTA) s-a retras de la Turneul Campioanelor. O problemă medicală a forțat-o pe cehoaică să abandoneze După două înfrângeri suferite în primele…",
+              "published": "2026-11-13T20:20:18Z"
             },
             {
-              "title": "După 10 ani de așteptare, se reiau lucrările la noul patinoar din București: cum va arăta",
-              "url": "https://www.gsp.ro/sporturi/altele/noul-patinoar-bucuresti-se-construieste-lucrarile-se-reiau-mihai-flamaropol-999020.html",
-              "snippet": "Șantierul de la Patinoarul „Mihai Flamaropol” a trecut în administrarea Primăriei Sectorului 2, a anunțat primarul Rareș Hopincă. În urma acestei preluări, dar și după…",
-              "published": "2026-11-13T13:54:29Z"
+              "title": "Mihai Gergely, campion național la 100 m liber după o schimbare importantă în viață: „A trebuit să mă regăsesc”",
+              "url": "https://www.gsp.ro/sporturi/altele/mihai-gergely-campion-national-la-100-m-liber-dupa-o-schimbare-importanta-in-viata-999129.html",
+              "snippet": "Mihai Gergely (24 de ani) a devenit campion național la 100 m liber, în bazin scurt, la Otopeni, deși în ultimul an a trecut printr-o schimbare importantă de parcurs. Vicecampion…",
+              "published": "2026-11-13T20:10:30Z"
             },
             {
-              "title": "Probleme fără sfârșit pentru Denis Drăguș » A plecat la „vraciul” Marijana după ultima accidentare",
-              "url": "https://www.gsp.ro/fotbal/liga-1/denis-dragus-a-plecat-la-belgrad-la-vraciul-marijana-999007.html",
-              "snippet": "Denis Drăguș (27 de ani), căpitanul de la FCSB, traversează un nou moment complicat din punct de vedere medical. Atacantul, adus cu mari speranțe la echipă, a acuzat dureri în…",
-              "published": "2026-11-13T13:40:17Z"
+              "title": "Românul care a fost căpitan la un club de tradiție din Polonia știe ce trebuie să facă „tricolorii”: „Asta nu este negociabilă”",
+              "url": "https://www.gsp.ro/fotbal/nationala/sergiu-hanca-romania-polonia-liga-natiunilor-999122.html",
+              "snippet": "Sergiu Hanca (34 de ani), jucătorul celor de la Petrolul Ploiești și fost căpitan la Cracovia, a prefațat duelul dintre România și Polonia din Liga Națiunilor, programat pe 14…",
+              "published": "2026-11-13T19:56:14Z"
             }
           ]
         },
@@ -538,34 +538,34 @@
           "name": "Digi Sport",
           "items": [
             {
-              "title": "Vlad Dragomir, mesaj ”războinic” înainte de România - Polonia! Promisiunea făcută de ”Tricolor”",
-              "url": "https://www.digisport.ro/fotbal/echipa-nationala/vlad-dragomir-mesaj-razboinic-inainte-de-romania-polonia-promisiunea-facuta-de-tricolor-4601993",
-              "snippet": "Vlad Dragomir, mesaj ”războinic” înainte de România - Polonia! Promisiunea făcută de ”Tricolor”",
-              "published": "2026-11-13T14:33:48Z"
+              "title": "Sabalenka - Svitolina, 23:30, pe Digi Sport 2, la Turneul Campioanelor / Andreeva - Shnaider 6-2, 6-1",
+              "url": "https://www.digisport.ro/tenis/sabalenka-svitolina-2330-pe-digi-sport-2-la-turneul-campioanelor-andreeva-shnaider-6-2-6-1-4601777",
+              "snippet": "Sabalenka - Svitolina, 23:30, pe Digi Sport 2, la Turneul Campioanelor / Andreeva - Shnaider 6-2, 6-1",
+              "published": "2026-11-13T21:16:13Z"
             },
             {
-              "title": "Imediat după plecarea de la FCSB, Mihai Stoica a primit oferta din SuperLigă și a dat răspunsul fără să stea pe gânduri",
-              "url": "https://www.digisport.ro/fotbal/liga-1/imediat-dupa-plecarea-de-la-fcsb-mihai-stoica-a-primit-oferta-din-superliga-si-a-dat-raspunsul-fara-sa-stea-pe-ganduri-4602007",
-              "snippet": "Imediat după plecarea de la FCSB, Mihai Stoica a primit oferta din SuperLigă și a dat răspunsul fără să stea pe gânduri",
-              "published": "2026-11-13T14:30:53Z"
+              "title": "Olanda - Grecia 7-0, ACUM, DGS 1 / Serbia - Germania 1-3, DGS 2 / Scoția - Macedonia 1-1. Programul complet",
+              "url": "https://www.digisport.ro/fotbal/liga-natiunilor/olanda-grecia-7-0-acum-dgs-1-serbia-germania-1-3-dgs-2-scotia-macedonia-1-1-programul-complet-4599501",
+              "snippet": "Olanda - Grecia 7-0, ACUM, DGS 1 / Serbia - Germania 1-3, DGS 2 / Scoția - Macedonia 1-1. Programul complet",
+              "published": "2026-11-13T21:15:53Z"
             },
             {
-              "title": "Lamine Yamal s-a întors",
-              "url": "https://www.digisport.ro/fotbal/liga-natiunilor/lamine-yamal-s-a-intors-4601983",
-              "snippet": "Lamine Yamal s-a întors",
-              "published": "2026-11-13T14:27:19Z"
+              "title": "Franța - Africa de Sud, ACUM, pe Digi Sport 3, în Nations Championship",
+              "url": "https://www.digisport.ro/rugby/franta-africa-de-sud-live-video-2210-pe-digi-sport-3-in-nations-championship-4601933",
+              "snippet": "Franța - Africa de Sud, ACUM, pe Digi Sport 3, în Nations Championship",
+              "published": "2026-11-13T21:11:02Z"
             },
             {
-              "title": "Bancu vs. Pădurariu! De ce Sorin Cârțu nu vede încă un star la FCSB, în ciuda entuziasmului lui Gigi Becali",
-              "url": "https://www.digisport.ro/fotbal/liga-1/bancu-vs-padurariu-de-ce-sorin-cartu-nu-vede-inca-un-star-la-fcsb-in-ciuda-entuziasmului-lui-gigi-becali-4600129",
-              "snippet": "Bancu vs. Pădurariu! De ce Sorin Cârțu nu vede încă un star la FCSB, în ciuda entuziasmului lui Gigi Becali",
-              "published": "2026-11-13T14:07:24Z"
+              "title": "Ratare monumentală în Nations League. Și-a pus mâinile în cap",
+              "url": "https://www.digisport.ro/fotbal/liga-natiunilor/ratare-monumentala-in-nations-league-si-a-pus-mainile-in-cap-4602535",
+              "snippet": "Ratare monumentală în Nations League. Și-a pus mâinile în cap",
+              "published": "2026-11-13T21:10:15Z"
             },
             {
-              "title": "Mihai Stoica a spus cu subiect și predicat de ce a plecat de la FCSB: ”Cum aș fi putut să rămân?”",
-              "url": "https://www.digisport.ro/fotbal/liga-1/mihai-stoica-a-spus-cu-subiect-si-predicat-de-ce-a-plecat-de-la-fcsb-cum-as-fi-putut-sa-raman-4601785",
-              "snippet": "Mihai Stoica a spus cu subiect și predicat de ce a plecat de la FCSB: ”Cum aș fi putut să rămân?”",
-              "published": "2026-11-13T13:57:28Z"
+              "title": "Gata! A venit decizia în cazul portarului care a provocat moartea lui Jesus de Miguel",
+              "url": "https://www.digisport.ro/fotbal/gata-a-venit-decizia-in-cazul-portarului-care-a-provocat-moartea-lui-jesus-de-miguel-4602675",
+              "snippet": "Gata! A venit decizia în cazul portarului care a provocat moartea lui Jesus de Miguel",
+              "published": "2026-11-13T20:58:26Z"
             }
           ]
         },
@@ -574,34 +574,34 @@
           "name": "ProSport",
           "items": [
             {
-              "title": "Mihai Stoica îl acuză pe Andrei Nicolescu că minte cu nerușinare în cazul lui Boutoutaou: „M-a deranjat foarte tare!”",
-              "url": "https://www.prosport.ro/fotbal-intern/superliga/mihai-stoica-andrei-nicolescu-acuzatii-cazul-boutoutaou-20568783",
-              "snippet": "Fără să vrea Aymen Boutoutaou (25 de ani) a stârnit o nouă polemică în spațiul public. Mihai Stoica (51 de ani) l-a contrazis pe Andrei Nicolescu (50 de ani), lăsând de înțeles…",
-              "published": "2026-11-13T14:45:29Z"
+              "title": "Ilie Dumitrescu știe de ce a plecat Mihai Stoica și cum va lucra Gigi Becali cu viitorul subaltern",
+              "url": "https://www.prosport.ro/fotbal-intern/superliga/ilie-dumitrescu-mihai-stoica-plecat-fcsb-gigi-becali-subaltern-20569060",
+              "snippet": "Fostul internațional Ilie Dumitrescu (57 de ani) era convins că Mihai Stoica (61 de ani) nu va fi de acord să aibă un rol doar de decor la FCSB și va alege să plece de la echipă…",
+              "published": "2026-11-13T21:06:43Z"
             },
             {
-              "title": "MERCATO Gigi Becali începe în forță transferurile la FCSB: „Semnăm de acum cu ei, să nu-i ia alții!”",
-              "url": "https://www.prosport.ro/fotbal-intern/superliga/gigi-becali-mercato-iarna-20568791",
-              "snippet": "Gigi Becali se pregătește de o nouă campanie de mercato și anunță transferuri de top la FCSB. Lucrurile nu se mișcă așa cum își dorește latifundiarul din Pipera la echipa sa…",
-              "published": "2026-11-13T14:44:27Z"
+              "title": "Boutoutaou i-a dat telefon lui Mihai Stoica după ce a demisionat! Ce i-a promis fotbalistul FCSB",
+              "url": "https://www.prosport.ro/fotbal-intern/superliga/boutoutaou-promisiune-mihai-stoica-20569047",
+              "snippet": "Aymen Boutoutaou s-a simțit vinovat de plecarea lui Mihai Stoica și l-a sunat pe omul care l-a adus la FCSB. Gigi Becali l-a făcut praf pe fostul manager general al…",
+              "published": "2026-11-13T20:43:09Z"
             },
             {
-              "title": "Bănel Nicoliță: „Meme Stoica e inima FCSB. Sunt șocat”",
-              "url": "https://www.prosport.ro/fotbal-intern/superliga/banel-nicolita-meme-stoica-fcsb-socat-plecare-inima-20568792",
-              "snippet": "Meme Stoica (61 de ani) a luat decizia de a pleca de la FCSB, după peste două decenii petrecuți în conducerea fostei campioane a României. Bănel Nicoliță, fotbalistul adus chiar…",
-              "published": "2026-11-13T14:32:19Z"
+              "title": "„Dacă știam, nu mai vorbeam cu Gigi Becali!”. Andrei Nicolescu a rupt tăcerea după plecarea lui MM Stoica de la FCSB",
+              "url": "https://www.prosport.ro/fotbal-intern/superliga/gigi-becali-andrei-nicolescu-plecare-mm-stoica-fcsb-transfer-aymen-boutoutaou-20569031",
+              "snippet": "Gigi Becali (68 de ani) i-a pus în „cârcă” lui Mihai Stoica (61 de ani) transferul lui Aymen Boutoutaou (25 de ani), jucător pentru care a plătit 1.350.000 de euro, plus un…",
+              "published": "2026-11-13T20:12:12Z"
             },
             {
-              "title": "Etapa 13 din Liga 3 | Leo Strizu a debutat cu eșec la Cetatea chiar în curtea FCSB. Înainte Modelu a ”Recoltat” scorul zilei, Minaur s-a distrat în derby-ul local cu Recea",
-              "url": "https://www.prosport.ro/fotbal-intern/liga-3/etapa-13-din-liga-3-primul-meci-al-zilei-s-a-incheiat-altele-20-se-disputa-acum-doar-trei-echipe-mai-sunt-neinvinse-in-acest-sezon-20568735",
-              "snippet": "Etapa 13 din Liga 3 | Primul meci al zilei s-a încheiat. Altele 20 se dispută ACUM. Doar trei echipe mai sunt neînvinse în acest sezon The post Etapa 13 din Liga 3 | Leo Strizu a…",
-              "published": "2026-11-13T14:10:52Z"
+              "title": "„Vine tati!”. Văduva a dezvăluit mesajul bărbatului care la 32 de ani s-a aruncat în fața trenului",
+              "url": "https://www.prosport.ro/diverse/vaduva-robert-enke-dezvaluire-socanta-20569028",
+              "snippet": "Văduva fostului portar de la Barcelona și Fenerbahce a dezvăluit ultimul mesaj al bărbatului înainte să se arunce în fața trenului. Depresia este o boală ascunsă ce face…",
+              "published": "2026-11-13T20:07:22Z"
             },
             {
-              "title": "Louis Munteanu trăiește în Las Vegas visul american departe de coșmarul tricolorilor în Liga Națiunilor: „Era cap de listă!”. EXCLUSIV",
-              "url": "https://www.prosport.ro/fotbal-intern/nationala/louis-munteanu-traieste-visul-american-las-vegas-20568524",
-              "snippet": "La ultima acțiune a echipei naționale, atacantul Louis Munteanu, 24 ani, a suferit o accidentare. Entorsă de gleznă, la antrenamentul tricolorilor lui Gică Hagi, după meciul 2-4…",
-              "published": "2026-11-13T14:02:26Z"
+              "title": "Teodora Stoica a primit o sumă imensă: „E cadoul lui Gigi Becali pentru tine!”",
+              "url": "https://www.prosport.ro/diverse/teodora-stoica-suma-imensa-cadou-gigi-becali-20569020",
+              "snippet": "În cea mai grea perioadă din viața ei, Teodora Stoica (32 de ani) a avut parte de sprijinul necondiționat al lui Gigi Becali. Acesta nu doar că a îmbărbătat-o în permanență, dar…",
+              "published": "2026-11-13T20:07:14Z"
             }
           ]
         }
@@ -615,6 +615,18 @@
           "id": "descopera",
           "name": "Descoperă.ro",
           "items": [
+            {
+              "title": "O exoplanetă îndepărtată a dispărut din observații în mod misterios",
+              "url": "https://www.descopera.ro/stiinta/21154862-o-exoplaneta-indepartata-a-disparut-din-observatii-in-mod-misterios",
+              "snippet": "O exoplanetă îndepărtată a dispărut din observații. Astronomii au rezolvat misterul unei exoplanete care a „dispărut” după șapte ani de observații. Potrivit unui nou studiu…",
+              "published": "2026-11-13T16:00:55Z"
+            },
+            {
+              "title": "Gravitația ar putea proteja Universul de paradoxurile călătoriei în timp, însă există o problemă",
+              "url": "https://www.descopera.ro/stiinta/21155133-gravitatia-ar-putea-proteja-universul-de-paradoxurile-calatoriei-in-timp-insa-exista-o-problema",
+              "snippet": "Gravitația ar putea proteja Universul de paradoxurile călătoriei în timp. Cu toții cunoaștem regula: dacă, printr-un mijloc sau altul, călătorești înapoi în timp, nu trebuie sub…",
+              "published": "2026-11-13T15:00:38Z"
+            },
             {
               "title": "O vastă colecție de gravuri din era glaciară, descoperită sub graffiti modern într-o peșteră din Spania",
               "url": "https://www.descopera.ro/istorie/21154685-o-vasta-colectie-de-gravuri-din-era-glaciara-descoperita-sub-graffiti-modern-intr-o-pestera-din-spania",
@@ -632,18 +644,6 @@
               "url": "https://www.descopera.ro/stiinta/21154898-un-studiu-arata-ca-o-singura-explozie-nucleara-ar-putea-scoate-din-functiune-99-dintre-sateliti-in-doar-cateva-zile",
               "snippet": "O explozie nucleară ar putea scoate din funcțiune aproape toți sateliții. Spațiul de deasupra Pământului devine tot mai aglomerat. În prezent, peste 13.000 de sateliți orbitează…",
               "published": "2026-11-13T11:00:25Z"
-            },
-            {
-              "title": "Ecuațiile lui Einstein dezvăluie că gravitația se poate rupe și reconecta așa cum o fac câmpurile magnetice",
-              "url": "https://www.descopera.ro/stiinta/21155190-ecuatiile-lui-einstein-dezvaluie-ca-gravitatia-se-poate-rupe-si-reconecta-asa-cum-o-fac-campurile-magnetice",
-              "snippet": "Gravitația se poate rupe și reconecta. Gravitația există peste tot în Univers. Este o componentă fundamentală a acestuia, responsabilă de formarea stelelor și planetelor și de…",
-              "published": "2026-11-13T10:00:59Z"
-            },
-            {
-              "title": "Test de cultură generală. Din ce este făcută planeta Uranus?",
-              "url": "https://www.descopera.ro/stiinta/21155229-test-de-cultura-generala-din-ce-este-facuta-planeta-uranus",
-              "snippet": "Din ce este făcută planeta Uranus? Uranus, a șaptea planetă de la Soare și a treia ca diametru din Sistemul Solar, este un gigant de gheață alcătuit în principal din hidrogen…",
-              "published": "2026-11-13T09:00:16Z"
             }
           ]
         },
@@ -728,34 +728,34 @@
       "name": "The Verge AI",
       "items": [
         {
-          "title": "Nvidia CEO Jensen Huang has resigned. What happens next?",
-          "url": "https://www.theverge.com/ai-artificial-intelligence/1030422/nvidia-jensen-huang-ai-china-alice-huang",
-          "snippet": "After the leather-jacketed CEO, president, and co-founder of Nvidia, Jensen Huang, acknowledged an affair with Megaspeed exec Alice Huang, his company initially announced an…",
-          "published": "2026-11-13T10:08:29Z"
+          "title": "ChatGPT Wallet lets OpenAI’s Dots agents make purchases for you",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1033425/openai-chatgpt-wallet",
+          "snippet": "After launching its Dots AI agents platform earlier this year, OpenAI is launching a wallet for the agents. ChatGPT Wallet is rolling out starting today for ChatGPT Pro…",
+          "published": "2026-11-13T20:45:10Z"
+        },
+        {
+          "title": "What’s really at stake in the Jensen Huang saga",
+          "url": "https://www.theverge.com/podcast/1032866/jensen-huang-nvidia-china-trump-vergecast",
+          "snippet": "One part of the saga surrounding Nvidia CEO Jensen Huang ended on Thursday, when Huang resigned from his position at the top of AI's most important company. But in the coming…",
+          "published": "2026-11-13T19:17:15Z"
         },
         {
           "title": "Let’s talk about Jensen Huang’s many affairs!",
           "url": "https://www.theverge.com/ai-artificial-intelligence/1032339/lets-talk-about-the-nvidia-shitshow",
           "snippet": "Usually, we'd be offering to answer your questions about a news event, but honestly we don't really have any answers about what the hell is going on over at Nvidia. I can't speak…",
-          "published": "2026-11-12T22:23:27Z"
+          "published": "2026-11-13T19:07:12Z"
+        },
+        {
+          "title": "Claude’s Duet agent is a little neurotic and surprisingly helpful",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1032518/claude-duet-ai-agent-hands-on",
+          "snippet": "Normally, the products I test don't offer to help me write up my experience with them. Duet is different. Claude Duet is Anthropic's AI agent for consumers, the latest attempt by…",
+          "published": "2026-11-13T00:23:32Z"
         },
         {
           "title": "Google’s new Gemini model is better at understanding complicated questions",
           "url": "https://www.theverge.com/ai-artificial-intelligence/1032505/google-search-ai-mode-gemini-4-hydrogen",
           "snippet": "Google says its new Gemini 4 Hydrogen model can give more helpful answers to complex questions, including \"questions with multiple parts, hard-to-understand typos, or highly…",
           "published": "2026-11-12T21:55:32Z"
-        },
-        {
-          "title": "No, AI agents did not discover a previously unknown Maya site",
-          "url": "https://www.theverge.com/ai-artificial-intelligence/1032125/ai-agents-maya-site-archeology-discovery",
-          "snippet": "Armed with a team of AI agents, Google researcher Pietro Miotti claimed earlier this week to have discovered a potentially unmapped Maya site in Mexico. There was just one…",
-          "published": "2026-11-12T19:42:40Z"
-        },
-        {
-          "title": "The Jensen Huang scandal is hardly over",
-          "url": "https://www.theverge.com/ai-artificial-intelligence/1032069/jensen-huang-resignation-affair-chips-smuggling",
-          "snippet": "I was certain, until the story of Jensen Huang's second affair hit, that Huang was bulletproof. After all, why wouldn't he be? He's placed himself indispensably at the center of…",
-          "published": "2026-11-12T19:16:51Z"
         }
       ]
     },
@@ -764,34 +764,34 @@
       "name": "TechCrunch AI",
       "items": [
         {
+          "title": "AI agent startup LangChain hits $3B valuation",
+          "url": "https://techcrunch.com/2026/11/13/ai-agent-startup-langchain-hits-3b-valuation/",
+          "snippet": "LangChain now claims 7,000 customers of its model and platform agnostic agent management tool LangSmith.",
+          "published": "2026-11-13T19:37:57Z"
+        },
+        {
+          "title": "Export-banned Nvidia chips are behind China’s most powerful AI models — uh oh, Jensen!",
+          "url": "https://techcrunch.com/2026/11/13/export-banned-nvidia-chips-are-behind-chinas-most-powerful-ai-models-uh-oh-jensen/",
+          "snippet": "New research shows the most advanced AI models from China were trained on banned Nvidia chips.",
+          "published": "2026-11-13T18:40:30Z"
+        },
+        {
+          "title": "ChatGPT’s new Wallet lets AI agents shop and check out for you",
+          "url": "https://techcrunch.com/2026/11/13/chatgpts-new-wallet-lets-ai-agents-shop-and-check-out-for-you/",
+          "snippet": "ChatGPT Wallet lets AI agents shop and check out on users' behalf, starting with a limited rollout to U.S. Pro subscribers.",
+          "published": "2026-11-13T16:00:12Z"
+        },
+        {
+          "title": "The unfolding Jensen Huang scandal: a timeline",
+          "url": "https://techcrunch.com/2026/11/13/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/",
+          "snippet": "Jensen Huang has resigned from Nvidia following an affair, which could have ramifications for national security as the U.S. and China race to develop the most advanced AI…",
+          "published": "2026-11-13T15:58:00Z"
+        },
+        {
           "title": "ElevenLabs’ new app combines meeting note-taking and dictation for teams",
           "url": "https://techcrunch.com/2026/11/13/elevenlabs-new-app-combines-meeting-note-taking-and-dictation-for-teams/",
           "snippet": "ElevenAI is a new meeting notetaker and dictation app aimed at teams and enterprises.",
           "published": "2026-11-13T14:44:48Z"
-        },
-        {
-          "title": "Israel’s VCs see opportunity for challengers in Nvidia’s turmoil",
-          "url": "https://techcrunch.com/2026/11/13/israels-vcs-see-opportunity-for-challengers-in-nvidias-turmoil/",
-          "snippet": "Given Nvidia’s stronghold on AI and its importance in Israel, many in the country's startup ecosystem are worried about the impact of his departure.",
-          "published": "2026-11-13T12:52:19Z"
-        },
-        {
-          "title": "Jensen Huang didn’t show confidence in his successor, report says",
-          "url": "https://techcrunch.com/2026/11/13/jensen-huang-didnt-show-confidence-in-his-successor-report-says/",
-          "snippet": "Huang described Kress as a \"deer in the headlights\" during a meeting in summer.",
-          "published": "2026-11-13T12:28:23Z"
-        },
-        {
-          "title": "Democrats launch Nvidia investigation, write scathing letter on Huang’s ‘scheme’ with Trump",
-          "url": "https://techcrunch.com/2026/11/12/democrats-launch-nvidia-investigation-write-scathing-letter-on-huangs-scheme-with-trump/",
-          "snippet": "This Congressional investigation into Nvidia's China sales and its dealings with Trump is the second one, so far, since news of the alleged spy affair broke.",
-          "published": "2026-11-12T22:42:51Z"
-        },
-        {
-          "title": "Muse can now place calls to US businesses — if you pay",
-          "url": "https://techcrunch.com/2026/11/12/muse-can-now-place-calls-to-u-s-businesses-if-you-pay/",
-          "snippet": "Muse's AI can now place outbound calls to U.S. businesses — but it's not free.",
-          "published": "2026-11-12T22:22:28Z"
         }
       ]
     },
