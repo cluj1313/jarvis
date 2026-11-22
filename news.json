@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-21T20:50:02.548129Z",
+  "updated": "2026-11-22T01:03:53.854821Z",
   "categories": [
     {
       "id": "ai",
@@ -46,6 +46,18 @@
           "name": "TechCrunch AI",
           "items": [
             {
+              "title": "Signal restricts mobile screenshots as it confronts ‘existential threat’ of AI surveillance",
+              "url": "https://techcrunch.com/2026/11/21/signal-restricts-mobile-screenshots-as-it-confronts-existential-threat-of-ai-surveillance/",
+              "snippet": "Signal is limiting users' ability to take screenshots in both its Android and iOS apps.",
+              "published": "2026-11-21T21:37:10Z"
+            },
+            {
+              "title": "A tale of two Nvidias",
+              "url": "https://techcrunch.com/2026/11/21/a-tale-of-two-nvidias/",
+              "snippet": "We got two very different pictures of Nvidia — the company’s latest earnings report vs. the tech executives loudly calling for Jensen Huang’s return.",
+              "published": "2026-11-21T21:07:42Z"
+            },
+            {
               "title": "Here are the top AI agents that can live in your text messages",
               "url": "https://techcrunch.com/2026/11/21/all-the-ai-agents-that-can-live-in-your-text-messages/",
               "snippet": "We created a list of the most notable AI agents that can live in your text messages, from general assistants to agents designed for families, travel, and work.",
@@ -62,18 +74,6 @@
               "url": "https://techcrunch.com/2026/11/20/daniel-ek-backs-ai-researchers-fusion-power-startup-heres-what-theyre-building/",
               "snippet": "Spotify founder Daniel Ek is backing Europa Fusion, a fusion power startup founded by an AI researcher. Here's what the startup is building.",
               "published": "2026-11-20T19:53:41Z"
-            },
-            {
-              "title": "AI claimed a solution to the 167-year-old Riemann hypothesis — and a human did, too",
-              "url": "https://techcrunch.com/2026/11/20/ai-claimed-a-solution-to-the-167-year-old-riemann-hypothesis-and-a-human-did-too/",
-              "snippet": "Mathematicians are having their minds blown by the latest AI-driven result — and there's a competing human solution, too.",
-              "published": "2026-11-20T19:32:08Z"
-            },
-            {
-              "title": "Chips can survive the space environment — can their financing?",
-              "url": "https://techcrunch.com/2026/11/20/chips-can-survive-the-space-environment-can-their-financing/",
-              "snippet": "Lenders don't want SpaceX shooting their collateral into orbit. What does that mean for space data centers writ large?",
-              "published": "2026-11-20T17:40:01Z"
             }
           ]
         },
@@ -160,34 +160,34 @@
           "name": "Digi24",
           "items": [
             {
+              "title": "Nicoleta Pauliuc contestă demiterea din funcția de președintă a Organizației Femeilor Liberale: „Eu nu consider că am greşit”",
+              "url": "https://www.digi24.ro/stiri/actualitate/politica/nicoleta-pauliuc-contesta-demiterea-din-functia-de-presedinta-a-organizatiei-femeilor-liberale-eu-nu-consider-ca-am-gresit-4047347",
+              "snippet": "Senatoarea PNL Nicoleta Pauliuc susţine că doar Congresul partidului o poate demite de la conducerea Organizației Femeilor Liberale, după ce forul a decis înlocuirea ei din…",
+              "published": "2026-11-21T21:45:09Z"
+            },
+            {
+              "title": "Claudiu Târziu susţine că a fost ţinut şi interogat timp de 40 de minute la controlul de pe aeroportul din Chişinău. Ce spune IGPF",
+              "url": "https://www.digi24.ro/stiri/actualitate/politica/claudiu-tarziu-sustine-ca-a-fost-tinut-si-interogat-timp-de-40-de-minute-la-controlul-de-pe-aeroportul-din-chisinau-ce-spune-igpf-4047517",
+              "snippet": "Europarlamentarul Claudiu Târziu, preşedinte al partidului Acţiunea Conservatoare, susţine că a fost ţinut şi interogat, timp de 40 de minute, la controlul de frontieră de la…",
+              "published": "2026-11-21T21:28:21Z"
+            },
+            {
+              "title": "Alexandru Rogobete spune care este cel mai ciudat neadevăr vehiculat în spațiul public despre el: „Că nu am şcoală”",
+              "url": "https://www.digi24.ro/stiri/actualitate/alexandru-rogobete-spune-care-este-cel-mai-ciudat-neadevar-vehiculat-in-spatiul-public-despre-el-ca-nu-am-scoala-4047511",
+              "snippet": "Ministrul Sănătăţii, Alexandru Rogobete, afirmă că neadevărul cel mai ciudat care s-a vehiculat despre el în spaţiul public este că nu şi-ar fi finalizat studiile. Absolvent de…",
+              "published": "2026-11-21T21:26:07Z"
+            },
+            {
+              "title": "„Nu-mi place”. Ce informații speră Donald Trump să dezvăluie hackerii care au atacat cibernetic FBI",
+              "url": "https://www.digi24.ro/stiri/externe/nu-mi-place-ce-informatii-spera-donald-trump-sa-dezvaluie-hackerii-care-au-atacat-cibernetic-fbi-4047501",
+              "snippet": "Departamentul Agriculturii şi Biroul Federal de Investigaţii din Statele Unite au fost ţinta unor atacuri informatice, au relatat vineri mai multe publicaţii americane, la câteva…",
+              "published": "2026-11-21T20:52:52Z"
+            },
+            {
               "title": "Explozii și alerte de raid aerian în Kaliningrad. O bază strategică a Flotei ruse ar fi fost vizată de un atac cu drone",
               "url": "https://www.digi24.ro/stiri/externe/explozii-si-alerte-de-raid-aerian-in-kaliningrad-o-baza-strategica-a-flotei-ruse-ar-fi-fost-vizata-de-un-atac-cu-drone-4047445",
               "snippet": "Explozii și o posibilă activitate a dronelor au fost semnalate în apropierea bazei navale a Flotei ruse din Marea Baltică, în orașul Baltiisk, din regiunea Kaliningrad. Sirenele…",
               "published": "2026-11-21T20:15:26Z"
-            },
-            {
-              "title": "„Putin se află sub presiune”. Ce spune șeful spionajului militar britanic despre atacurile rusești în Marea Neagră",
-              "url": "https://www.digi24.ro/stiri/externe/putin-se-afla-sub-presiune-seful-spionajului-militar-britanic-avertizeaza-asupra-riscului-unui-conflict-cu-nato-4047171",
-              "snippet": "Comportamentul tot mai agresiv al Rusiei față de Occident ar putea provoca o eroare de calcul cu urmări extrem de grave, avertizează șeful serviciilor britanice de informații din…",
-              "published": "2026-11-21T20:13:56Z"
-            },
-            {
-              "title": "Un șofer care nu a oprit la filtru și-a abandonat mașina în timpul urmăririi și a fugit. Ulterior, s-a prezentat singur la poliție",
-              "url": "https://www.digi24.ro/stiri/actualitate/un-sofer-care-nu-a-oprit-la-filtru-si-a-abandonat-masina-in-timpul-urmaririi-si-a-fugit-ulterior-s-a-prezentat-singur-la-politie-4047449",
-              "snippet": "Un şofer a fost urmărit în trafic de poliţişti, sâmbătă, în localitatea Găneasa, judeţul Ilfiov, după ce a refuzat să oprească la semnalele agenţilor. La un moment dat, maşina a…",
-              "published": "2026-11-21T20:05:36Z"
-            },
-            {
-              "title": "Grevă generală în Belgia. Cele mai multe zboruri de pe aeroportul din Bruxelles vor fi anulate luni",
-              "url": "https://www.digi24.ro/stiri/externe/greva-generala-in-belgia-cele-mai-multe-zboruri-de-pe-aeroportul-din-bruxelles-vor-fi-anulate-luni-4047447",
-              "snippet": "Majoritatea zborurilor cu plecare şi sosire pe aeroportul din Bruxelles urmează să fie anulate luni, după ce o parte dintre controlorii de trafic aerian au anunţat că se vor…",
-              "published": "2026-11-21T20:01:09Z"
-            },
-            {
-              "title": "Fostul preşedinte brazilian Jair Bolsonaro a fost internat la terapie intensivă: „Nu l-am văzut niciodată aşa”",
-              "url": "https://www.digi24.ro/stiri/externe/fostul-presedinte-brazilian-jair-bolsonaro-a-fost-internat-la-terapie-intensiva-nu-l-am-vazut-niciodata-asa-4047433",
-              "snippet": "Fostul preşedinte brazilian Jair Bolsonaro a fost internat la terapie intensivă din cauza unei ocluzii intestinale, a anunţat sâmbătă spitalul DF Star din Brasilia, unde acesta a…",
-              "published": "2026-11-21T19:50:47Z"
             }
           ]
         },
@@ -195,6 +195,12 @@
           "id": "hotnews",
           "name": "HotNews",
           "items": [
+            {
+              "title": "FBI a fost vizat de un al doilea atac cibernetic la interval de câteva luni",
+              "url": "https://hotnews.ro/fbi-a-fost-vizat-de-un-al-doilea-atac-cibernetic-la-interval-de-cateva-luni-2410727",
+              "snippet": "Departamentul Agriculturii şi Biroul Federal de Investigaţii (FBI) din Statele Unite au fost ţinta unor atacuri informatice, au relatat vineri mai multe publicaţii americane, la…",
+              "published": "2026-11-21T20:55:19Z"
+            },
             {
               "title": "Reacție furibundă a conducerii Oțelului după eșecul cu CFR Cluj. Ce i-ar fi spus Miguel Silva lui Istvan Kovacs înainte să fie eliminat",
               "url": "https://hotnews.ro/reactie-furibunda-a-conducerii-otelului-dupa-esecul-cu-cfr-cluj-ce-i-ar-fi-spus-miguel-silva-lui-istvan-kovacs-inainte-sa-fie-eliminat-2410723",
@@ -218,12 +224,6 @@
               "url": "https://hotnews.ro/se-coace-ceva-la-cotroceni-comentariile-prim-vicepresedintelui-aur-legate-de-temerile-lui-nicusor-dan-legate-de-anul-2028-2410702",
               "snippet": "Președintele Nicușor Dan a afirmat că se teme de alegerile parlamentare din 2028, fără să intre în detalii, în cursul unor declarații făcute joi. Prim-vicepreședintele AUR Dan…",
               "published": "2026-11-21T19:06:58Z"
-            },
-            {
-              "title": "Un mare aeroport al Europei va fi paralizat luni de o grevă generală. Aproape toate zborurile, anulate",
-              "url": "https://hotnews.ro/un-mare-aeroport-al-europei-va-fi-paralizat-luni-de-o-greva-generala-controlorii-de-trafic-inceteaza-lucrul-2410691",
-              "snippet": "Traficul aerian va fi complet paralizat, luni, pe aeroporturile din Bruxelles, precum și pe celelate aeroporturi din Belgia, în urma un greve la nivel național, inițiată de…",
-              "published": "2026-11-21T18:34:37Z"
             }
           ]
         },
@@ -231,6 +231,12 @@
           "id": "g4media",
           "name": "G4Media",
           "items": [
+            {
+              "title": "Ministrul Agriculturii, Florin Barbu, propune prelungirea plafonării adaosului comercial la alimente până la 31 decembrie 2027: „Mecanismul și-a produs efectele”",
+              "url": "https://www.g4media.ro/ministrul-agriculturii-florin-barbu-propune-prelungirea-plafonarii-adaosului-comercial-la-alimente-pana-la-31-decembrie-2027-mecanismul-si-a-produs-efectele.html",
+              "snippet": "Ministrul Agriculturii, Florin Barbu, a propus prelungirea plafonării adaosului comercial la alimentele de bază până la 31 decembrie 2027, scrie G4Food. Măsura a fost inclusă în…",
+              "published": "2026-11-21T22:04:27Z"
+            },
             {
               "title": "VIDEO Alexandru Rogobete la Digi24: „Nici nu știam unde e ministerul Sănătății, l-am găsit între timp. Sistemului sanitar românesc i-aș da acum nota 8”",
               "url": "https://www.g4media.ro/video-alexandru-rogobete-la-digi24-nici-nu-stiam-unde-e-ministerul-sanatatii-l-am-gasit-intre-timp-sistemului-sanitar-romanesc-i-as-da-acum-nota-8.html",
@@ -254,12 +260,6 @@
               "url": "https://www.g4media.ro/ancheta-in-franta-dupa-acuzatii-de-violente-si-agresiune-sexuala-comise-de-politisti-asupra-unor-manifestanti.html",
               "snippet": "Parchetul francez a deschis o anchetă care vizează mai mulţi poliţişti, acuzaţi de violenţe asupra a doi tineri participanţi la o manifestaţie desfăşurată la Paris la 31…",
               "published": "2026-11-21T19:23:18Z"
-            },
-            {
-              "title": "Majoritatea zborurilor de pe aeroportul din Bruxelles vor fi anulate luni, din cauza unei greve naţionale",
-              "url": "https://www.g4media.ro/majoritatea-zborurilor-de-pe-aeroportul-din-bruxelles-vor-fi-anulate-luni-din-cauza-unei-greve-nationale.html",
-              "snippet": "Majoritatea zborurilor cu plecare şi sosire pe aeroportul din Bruxelles urmează să fie anulate luni, după ce o parte dintre controlorii de trafic aerian au anunţat că se vor…",
-              "published": "2026-11-21T19:20:24Z"
             }
           ]
         }
@@ -310,34 +310,34 @@
           "name": "Profit.ro",
           "items": [
             {
-              "title": "Britanicii vor înapoi în UE. 4 din 5 colegii electorale susțin revenirea în UE. Schimbare semnificativă a opiniei publice britanice, la 10 ani de la Brexit",
-              "url": "https://www.profit.ro/stiri/politic/britanicii-vor-inapoi-in-ue-4-din-5-colegii-electorale-sustin-revenirea-in-ue-schimbare-semnificativa-a-opiniei-publice-britanice-la-10-ani-de-la-brexit-23002843?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
-              "snippet": "Un număr de 4 din 5 colegii electorale din Marea Britanie susțin revenirea în Uniunea Europeană.",
-              "published": "2026-11-21T20:20:00Z"
+              "title": "Exclusivitățile săptămânii: Unde Ion Țiriac voia reprezentanță Mercedes va fi un parc de retail. Hidroelectrica va vinde mai scump. Motoarele diesel s-au prăbușit pur și simplu. SURPRIZĂ Cabana Babele, vândută",
+              "url": "https://www.profit.ro/povesti-cu-profit/exclusivitatile-saptamanii-unde-ion-tiriac-voia-reprezentanta-mercedes-parc-retail-hidroelectrica-vinde-scump-motoarele-diesel-s-au-prabusit-pur-simplu-surpriza-cabana-babele-vanduta-23003103?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
+              "snippet": "Profit.ro vă prezintă principalele informații exclusive din săptămâna care tocmai se încheie. 1) Antreprenorul Iulian Botta vrea să dezvolte o rețea națională de parcuri de…",
+              "published": "2026-11-21T23:26:00Z"
             },
             {
-              "title": "Act secret semnat la Guvern. Salarii majorate la Transelectrica și Transgaz. Creșterea va fi acoperită din fondurile proprii ale companiilor",
-              "url": "https://www.profit.ro/stiri/politic/act-secret-semnat-la-guvern-salarii-majorate-la-transelectrica-si-transgaz-cresterea-va-fi-acoperita-din-fondurile-proprii-ale-companiilor-23002787?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
-              "snippet": "Salariile de la Transelectrica și Transgaz au fost indexate cu 6,5%, printr-un memorandul secret avizat de Guvern.",
-              "published": "2026-11-21T19:56:00Z"
+              "title": "Veste bună pentru factura la gaze. Perioada în care prețul la gaze este plafonat, pregătită să fie extinsă până la final de 2027",
+              "url": "https://www.profit.ro/povesti-cu-profit/energie/veste-buna-pentru-factura-la-gaze-perioada-in-care-pretul-la-gaze-este-plafonat-pregatita-sa-fie-extinsa-pana-la-final-de-2027-23003083?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
+              "snippet": "Ministrul Energiei, Dumitru Chisăliță, anunță că vrea să obțină în Guvern prelungirea până la finalul anului viitor a perioadei în care prețul la gaze este plafonat.",
+              "published": "2026-11-21T22:46:00Z"
             },
             {
-              "title": "Românii sunt mai fericiți decât germanii, italienii și spaniolii și egali cu angajații din Franța și Suedia la serviciu. Salariul ocupă abia locul al cincilea printre motive - Studiu",
-              "url": "https://www.profit.ro/stiri/social/romanii-sunt-mai-fericiti-decat-germanii-italienii-si-spaniolii-si-egali-cu-angajatii-din-franta-si-suedia-la-serviciu-salariul-ocupa-abia-locul-al-cincilea-printre-motive-studiu-23002766?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
-              "snippet": "Românii sunt mai fericiți decât germanii, italienii și spaniolii la serviciu, concluzia rezultând dintr-un studiu internațional care a măsurat bucuria la locul de muncă în 27 de…",
-              "published": "2026-11-21T19:45:00Z"
+              "title": "VIDEO INEDIT Tudor Chirilă și-a cumpărat casă veche de 100 ani și povestește o întâmplare: \"Fosta proprietară a venit să culeagă merele deși vânduse casa.\"",
+              "url": "https://www.profit.ro/stiri/life/video-inedit-tudor-chirila-si-a-cumparat-casa-veche-de-100-ani-si-povesteste-o-intamplare-fosta-proprietara-a-venit-sa-culeaga-merele-desi-vanduse-casa-23003045?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
+              "snippet": "Artistul Tudor Chirilă a cumpărat o casă veche de 100 de ani în Porumbacu de Sus (județul Sibiu), unde a descoperit o tradiție rurală, și anume că ultima recoltă agricolă încă…",
+              "published": "2026-11-21T22:22:00Z"
             },
             {
-              "title": "Participare în premieră. Mai mulți furnizori Dacia și reprezentanți ACAROM, prezenți la conferința BYD din Paris",
-              "url": "https://www.profit.ro/povesti-cu-profit/auto-transporturi/participare-in-premiera-mai-multi-furnizori-dacia-si-reprezentanti-acarom-prezenti-la-conferinta-byd-din-paris-23002151?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
-              "snippet": "Un număr de 12 companii din România, specializate în producția de componente auto, au participat în premieră la un eveniment BYD dedicat furnizorilor. Stella Li, vicepreședinta…",
-              "published": "2026-11-21T17:00:00Z"
+              "title": "ULTIMA ORĂ Dacia Sandero, de neoprit în Europa. Revine pe primul loc. Vânzările mărcii Dacia, trase în jos de scăderea neașteptată a lui Bigster. Cel mai mare pericol va fi pentru Sandero în decembrie",
+              "url": "https://www.profit.ro/povesti-cu-profit/auto-transporturi/ultima-ora-dacia-sandero-de-neoprit-in-europa-revine-pe-primul-loc-vanzarile-marcii-dacia-trase-in-jos-de-scaderea-neasteptata-a-lui-bigster-cel-mai-mare-pericol-va-fi-pentru-sandero-in-decembrie-23002113?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
+              "snippet": "Cu doar două luni înainte de finalul anului, Dacia Sandero reușește să revină pe prima poziție în clasamentul celor mai vândute mașini din Europa, în pofida unei scăderi față de…",
+              "published": "2026-11-21T22:04:00Z"
             },
             {
-              "title": "Cezar Ouatu a fost jefuit. „Văd un geam larg deschis în living…\". Hoții i-au intrat în casă și i-au luat mai multe ceasuri de colecție și bijuterii",
-              "url": "https://www.profit.ro/stiri/social/cezar-ouatu-a-fost-jefuit-vad-un-geam-larg-deschis-in-living-hotii-i-au-intrat-in-casa-si-i-au-luat-mai-multe-ceasuri-de-colectie-si-bijuterii-23002513?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
-              "snippet": "Interpretul de operă Cezar Ouatu a fost victima unui jaf. Hoții au intrat în locuința sa din Ilfov și i-au luat mai multe ceasuri de colecție și bijuterii din aur.",
-              "published": "2026-11-21T16:54:00Z"
+              "title": "Cartea electronică de identitate și călătoria cu buletinul vechi. Termen-limită anunțat de autorități până la care mai pot românii să călătorească în UE cu vechiul act: Din 3 august 2031 nu va mai putea fi folosit",
+              "url": "https://www.profit.ro/stiri/social/cartea-electronica-identitate-calatoria-buletinul-vechi-termen-limita-anuntat-autoritati-pana-pot-romanii-calatoreasca-ue-vechiul-act-3-august-2031-putea-folosit-22719804?utm_source=Rss&utm_medium=Referral&utm_campaign=Cross",
+              "snippet": "Cetățenii români care au încă buletinul vechi, model din 1997, nu sunt obligați să îl schimbe imediat, au anunțat autoritățile.",
+              "published": "2026-11-21T22:02:00Z"
             }
           ]
         },
@@ -460,18 +460,6 @@
           "name": "The Verge",
           "items": [
             {
-              "title": "The UN fails to agree on rules regulating ‘killer robots’",
-              "url": "https://www.theverge.com/tech/1039554/un-regulations-killer-robots",
-              "snippet": "One of the items on the agenda for UN diplomats meeting in Geneva this week was working towards rules regarding the use of autonomous weapons, or so-called \"killer robots.\"…",
-              "published": "2026-11-21T20:03:37Z"
-            },
-            {
-              "title": "The FBI and USDA were reportedly hacked",
-              "url": "https://www.theverge.com/tech/1039543/fbi-usda-hacked",
-              "snippet": "Friday, it was reported that both the US Department of Agriculture (USDA) and the FBI were hacked. In reporting on the FBI hack, CNN noted that this is the second such attack on…",
-              "published": "2026-11-21T17:51:21Z"
-            },
-            {
               "title": "Amazon’s first digital photo frame is up to 50 percent off for Black Friday",
               "url": "https://www.theverge.com/gadgets/1038762/amazon-alexa-photo-frame-black-friday-2026-deal-sale",
               "snippet": "Amazon only announced its first digital photo frame less than a month ago, but it’s already getting a sizable discount for Black Friday. You can currently grab the Alexa Photo…",
@@ -488,6 +476,18 @@
               "url": "https://www.theverge.com/podcast/1038701/anthropic-ipo-ai-safety-openai-nvidia-structure",
               "snippet": "Today, I’m talking with Hayden Field, The Verge’s senior AI reporter, about the Anthropic IPO for the third and final episode in our series about AI in real life. The AI lab…",
               "published": "2026-11-21T13:29:45Z"
+            },
+            {
+              "title": "The game of the year is finally here",
+              "url": "https://www.theverge.com/tech/1039433/gta-vi-alfred-6-clockwisetv-installer",
+              "snippet": "Hi, friends! Welcome to Installer No. 153, your guide to the best and Verge-iest stuff in the world. (If you're new here, welcome, thank you for tearing yourself away from GTA to…",
+              "published": "2026-11-21T02:53:15Z"
+            },
+            {
+              "title": "YouTube is reportedly preparing to settle social media addiction claims for $3 billion",
+              "url": "https://www.theverge.com/streaming/1039096/youtube-social-media-addiction-school-districts-settlement",
+              "snippet": "YouTube is preparing to pay $3 billion to thousands of school districts to settle claims that its \"addictive design\" harmed kids, according to Bloomberg. Sources tell the…",
+              "published": "2026-11-20T22:51:40Z"
             }
           ]
         }
@@ -502,34 +502,34 @@
           "name": "Gazeta Sporturilor",
           "items": [
             {
-              "title": "Mirra Andreeva, despre eticheta de „divă”: „Înțeleg de ce oamenii mă consideră așa”",
-              "url": "https://www.gsp.ro/sporturi/tenis/mirra-andreeva-despre-eticheta-de-diva-1001622.html",
-              "snippet": "Mirra Andreeva (19 ani, 2 WTA), campioana de la Roland Garros și Turneul Campioanelor, a acordat un interviu pentru cotidianul britanic The Times, în care a oferit noi detalii…",
-              "published": "2026-11-21T20:45:40Z"
+              "title": "Note GSP la Dinamo - Petrolul: „El a fost veriga slabă, Campos n-a mai răbdat!”. Cine a luat 4 și 5 din echipa „câinilor”",
+              "url": "https://www.gsp.ro/fotbal/liga-1/note-gsp-la-dinamo-petrolul-el-a-fost-veriga-slaba-1001388.html",
+              "snippet": "DINAMO - PETROLUL 0-1. „Câinii” lui Nuno Campos au pierdut din nou în fața prahovenilor, scor 0-1, în prima etapă a returului Superligii. Este cea de-a doua înfrângere…",
+              "published": "2026-11-21T23:04:00Z"
             },
             {
-              "title": "L-au taxat pe Răducioiu! Mesajul afișat de fanii lui Dinamo la meciul cu Petrolul",
-              "url": "https://www.gsp.ro/fotbal/liga-1/suporteri-dinamo-mesaj-anti-florin-raducioiu-petrolul-1001616.html",
-              "snippet": "Suporterii lui Dinamo au continuat protestele la adresa lui Florin Răducioiu (56 de ani), revenit în conducerea clubului la începutul lunii noiembrie. În timpul partidei cu…",
-              "published": "2026-11-21T20:34:48Z"
+              "title": "Pot apărea surprize în negocierile Stanciu - U Cluj? „Săptămâna viitoare!” + Câți bani mai are de încasat din China și ce salariu fabulos a refuzat",
+              "url": "https://www.gsp.ro/fotbal/liga-1/negocieri-contract-stanciu-u-cluj-radu-constantea-salariu-dalian-1001500.html",
+              "snippet": "Nicolae Stanciu, 33 ani, și-a anunțat zilele trecute despărțirea oficială de Dalian, toate pistele îl leagă de Universitatea Cluj, dar situația nu e complet tranșată…",
+              "published": "2026-11-21T22:12:16Z"
             },
             {
-              "title": "Luis Enrique, după accidentarea gravă a lui Doue: „Va reveni de două ori mai puternic”",
-              "url": "https://www.gsp.ro/international/campionate/luis-enrique-dupa-accidentarea-grava-a-lui-doue-psg-ligue-1-1001590.html",
-              "snippet": "Luis Enrique (56 de ani), antrenorul celor de la PSG, a vorbit despre accidentarea suferită de Désiré Doué, recunoscând gravitatea situației medicale a tânărului jucător, dar…",
-              "published": "2026-11-21T20:19:41Z"
+              "title": "S-a stabilit finala din Nations Championship: a fost dramatism până în ultima zi",
+              "url": "https://www.gsp.ro/sporturi/rugby/finala-nations-championship-franta-1001646.html",
+              "snippet": "Franța a câștigat în fața Argentinei pe Stade de France, scor 45-17, în ultimul meci din faza grupelor Nations Championship. Selecționata din Hexagon și-a asigurat astfel biletul…",
+              "published": "2026-11-21T22:08:49Z"
             },
             {
-              "title": "Prima reacție din tabăra României, după debutul la Campionatul Mondial U17",
-              "url": "https://www.gsp.ro/fotbal/nationala/eduardo-corlat-mexic-u17-romania-u17-1001611.html",
-              "snippet": "Eduardo Corlat, fundașul central al lui Real Madrid U18 și internațional român U17, a reacționat după ce selecționata de juniori tricoloră a pierdut la debutul la Campionatul…",
-              "published": "2026-11-21T20:19:20Z"
+              "title": "Real Madrid - Celta Vigo 2-1 » Mbappe a ratat penalty din fața lui Ionuț Radu, dar finalul a fost trist pentru român",
+              "url": "https://www.gsp.ro/international/campionate/real-madrid-celta-vigo-ionut-radu-la-liga-1001321.html",
+              "snippet": "Celta Vigo, echipa portarului român Ionuț Radu, a pierdut sâmbătă seara pe terenul granzilor de la Real Madrid, în runda cu numărul 13 din La Liga, scor 1-2, deși a condus din…",
+              "published": "2026-11-21T22:07:37Z"
             },
             {
-              "title": "Arsenal, pas greșit în Premier League! „Tunarii” l-au pierdut pe Raya",
-              "url": "https://www.gsp.ro/international/campionate/arsenal-pas-gresit-newcastle-premier-league-1001596.html",
-              "snippet": "Arsenal a remizat în deplasare cu Newcastle, scor 2-2, după ce a condus, a fost întoarsă pe tabelă și a reușit să egaleze pe final. Formația pregătită de Mikel Arteta a ratat…",
-              "published": "2026-11-21T20:17:44Z"
+              "title": "Raul Opruț avertizează: „Acele două meciuri pot defini un sezon!”",
+              "url": "https://www.gsp.ro/fotbal/liga-1/raul-oprut-reactie-dinamo-petrolul-1001640.html",
+              "snippet": "Raul Opruț (28 de ani), fundașul stânga al lui Dinamo, a reacționat după înfrângerea cu Petrolul, scor 0-1, în etapa a 16-a din Superliga. Fotbalistul s-a arătat dezamăgit de…",
+              "published": "2026-11-21T21:55:57Z"
             }
           ]
         },
@@ -538,34 +538,34 @@
           "name": "Digi Sport",
           "items": [
             {
-              "title": "Zverev - Medvedev, ACUM, DGS 4 / Alcaraz - Shelton 3-6, 6-3, 7-6 (7-1). Semifinalele de la Turneul Campionilor",
-              "url": "https://www.digisport.ro/tenis/zverev-medvedev-2130-dgs-4-alcaraz-shelton-3-6-6-3-7-6-7-1-semifinalele-de-la-turneul-campionilor-4617025",
-              "snippet": "Zverev - Medvedev, ACUM, DGS 4 / Alcaraz - Shelton 3-6, 6-3, 7-6 (7-1). Semifinalele de la Turneul Campionilor",
-              "published": "2026-11-21T20:46:38Z"
+              "title": "Andre Matos, antrenorul secund al Petrolului, după victoria 1-0 cu Dinamo: \"Am luptat ca o adevărată familie\"",
+              "url": "https://www.digisport.ro/fotbal/liga-1/andre-matos-antrenorul-secund-al-petrolului-dupa-victoria-1-0-cu-dinamo-am-luptat-ca-o-adevarata-familie-4618365",
+              "snippet": "Andre Matos, antrenorul secund al Petrolului, după victoria 1-0 cu Dinamo: \"Am luptat ca o adevărată familie\"",
+              "published": "2026-11-21T22:35:54Z"
             },
             {
-              "title": "Franța - Argentina, ACUM, Digi Sport 3, în Rugby Nations Championship / Irlanda - Africa de Sud 20-17 / Anglia - Noua Zeelandă 37-12",
-              "url": "https://www.digisport.ro/rugby/franta-argentina-2200-digi-sport-3-in-rugby-nations-championship-irlanda-africa-de-sud-20-17-anglia-noua-zeelanda-37-12-4617159",
-              "snippet": "Franța - Argentina, ACUM, Digi Sport 3, în Rugby Nations Championship / Irlanda - Africa de Sud 20-17 / Anglia - Noua Zeelandă 37-12",
-              "published": "2026-11-21T20:46:28Z"
+              "title": "Zverev - Medvedev 7-6 (0), 6-4 / Alcaraz - Shelton 3-6, 6-3, 7-6 (1). S-a stabilit finala de la Turneul Campionilor",
+              "url": "https://www.digisport.ro/tenis/zverev-medvedev-7-6-0-6-4-alcaraz-shelton-3-6-6-3-7-6-1-s-a-stabilit-finala-de-la-turneul-campionilor-4617025",
+              "snippet": "Zverev - Medvedev 7-6 (0), 6-4 / Alcaraz - Shelton 3-6, 6-3, 7-6 (1). S-a stabilit finala de la Turneul Campionilor",
+              "published": "2026-11-21T22:33:09Z"
             },
             {
-              "title": "Marius Avram a dat verdictul, după haosul de la Dinamo - Petrolul! Întrerupere de 24 de minute la Slobozia",
-              "url": "https://www.digisport.ro/fotbal/liga-1/marius-avram-a-dat-verdictul-dupa-haosul-de-la-dinamo-petrolul-intrerupere-de-24-de-minute-la-slobozia-4618155",
-              "snippet": "Marius Avram a dat verdictul, după haosul de la Dinamo - Petrolul! Întrerupere de 24 de minute la Slobozia",
-              "published": "2026-11-21T20:33:51Z"
+              "title": "Dramatic: Ionuț Radu a luat GOL în minutul 85 și Real - Celta s-a terminat 2-1! Nota românului",
+              "url": "https://www.digisport.ro/fotbal/la-liga/dramatic-ionut-radu-a-luat-gol-in-minutul-85-si-real-celta-s-a-terminat-2-1-nota-romanului-4618363",
+              "snippet": "Dramatic: Ionuț Radu a luat GOL în minutul 85 și Real - Celta s-a terminat 2-1! Nota românului",
+              "published": "2026-11-21T22:30:21Z"
             },
             {
-              "title": "Real Madrid - Celta Vigo 0-1, pe Digi Sport 2. Oaspeții au deschis scorul după doar 6 minute",
-              "url": "https://www.digisport.ro/fotbal/la-liga/real-madrid-celta-vigo-live-video-22-00-digi-sport-2-ionut-radu-anuntat-titular-pe-bernabeu-4616997",
-              "snippet": "Real Madrid - Celta Vigo 0-1, pe Digi Sport 2. Oaspeții au deschis scorul după doar 6 minute",
-              "published": "2026-11-21T20:32:56Z"
+              "title": "Dezastru la PSG! Scos pe targă, în lacrimi: starul de 120.000.000 € și-ar fi rupt și el ligamentele încrucișate!",
+              "url": "https://www.digisport.ro/fotbal/dezastru-la-psg-scos-pe-targa-in-lacrimi-starul-de-120-000-000-e-si-ar-fi-rupt-si-el-ligamentele-incrucisate-4618081",
+              "snippet": "Dezastru la PSG! Scos pe targă, în lacrimi: starul de 120.000.000 € și-ar fi rupt și el ligamentele încrucișate!",
+              "published": "2026-11-21T22:29:38Z"
             },
             {
-              "title": "Dinamo - Petrolul 0-1, ACUM, DGS 1. ”Câinii” au ratat mari ocazii prin Opruț și Karamoko!",
-              "url": "https://www.digisport.ro/fotbal/liga-1/dinamo-petrolul-live-video-2030-dgs-1-meciul-a-fost-exilat-la-slobozia-4615693",
-              "snippet": "Dinamo - Petrolul 0-1, ACUM, DGS 1. ”Câinii” au ratat mari ocazii prin Opruț și Karamoko!",
-              "published": "2026-11-21T20:23:18Z"
+              "title": "Marius Șumudică a ajuns la microfon și a surprins pe toată lumea, după ce ar fi decis să-și dea demisia",
+              "url": "https://www.digisport.ro/fotbal/liga-1/marius-sumudica-a-ajuns-la-microfon-si-a-surprins-pe-toata-lumea-dupa-ce-ar-fi-decis-sa-si-dea-demisia-4618001",
+              "snippet": "Marius Șumudică a ajuns la microfon și a surprins pe toată lumea, după ce ar fi decis să-și dea demisia",
+              "published": "2026-11-21T22:29:29Z"
             }
           ]
         },
@@ -574,34 +574,34 @@
           "name": "ProSport",
           "items": [
             {
-              "title": "Marius Avram lămurește controversa de la Dinamo – Petrolul, care a dus la cea mai lungă repriză din Superliga!",
-              "url": "https://www.prosport.ro/fotbal-intern/superliga/marius-avram-faza-controversata-dinamo-petrolul-20574787",
-              "snippet": "Dinamo – Petrolul a oferit un moment demn de cascadorii râsului, iar Marius Avram a lămurit lucrurile legat de faza pe care arbitrul a analizat-o la camera VAR. „Câinii” sunt…",
-              "published": "2026-11-21T20:45:47Z"
+              "title": "DECLARAȚII Primul verdict al selecționerului după ce România U17 a pierdut cu Mexic la Campionatul Mondial",
+              "url": "https://www.prosport.ro/fotbal-intern/nationala/verdict-selectioner-romania-u17-mexic-campionatul-mondial-20574874",
+              "snippet": "Selecționerul Mircea Diaconescu (49 de ani) a oferit o reacție după eșecul suferit de România U17, scor 0-1, în fața Mexicului, în debutul la Campionatul Mondial din Qatar…",
+              "published": "2026-11-21T22:12:34Z"
             },
             {
-              "title": "Sponsorul de la Steaua, lovitură cu o fabrică de fructe de mare și un restaurant de pește: „Lumea vede luxul de pe geam şi nu intră, fuge”",
-              "url": "https://www.prosport.ro/diverse/sponsorul-steaua-lovitura-fabrica-fructe-de-mare-restaurant-peste-dumitru-dragomir-paul-nicolau-pescobar-20574771",
-              "snippet": "Oamenii fug de restaurantul de pește al omului care este sponsor la Steaua, din cauza luxului care se vede prin geam, spune prietenul acestuia. În actuala stagiune…",
-              "published": "2026-11-21T20:43:57Z"
+              "title": "DECLARAȚII Nuno Campos a răbufnit după Dinamo – Petrolul: „Cine e de vină să vorbească!”",
+              "url": "https://www.prosport.ro/fotbal-intern/superliga/nuno-campos-rabufnire-dinamo-petrolul-vinovat-20574824",
+              "snippet": "Tehnicianul portughez Nuno Campos (51 de ani) a fost un car de nervi după Dinamo – Petrolul, cerând ca persoanele vinovate să aibă curaj să iasă și să vorbască. Din cauza…",
+              "published": "2026-11-21T22:11:12Z"
             },
             {
-              "title": "MERCATO Pițurcă l-a învățat pe Gigi Becali cum să dea lovitura cu transferul fotbalistului de 50.000.000 de euro",
-              "url": "https://www.prosport.ro/fotbal-intern/superliga/piturca-gigi-becali-lovitura-transfer-fotbalist-50-000-000-euro-20574774",
-              "snippet": "Victor Pițurcă (70 de ani) a exprimat un punct de vedere despre jucătorul căruia Gigi Becali (68) i-a setat o clauză de reziliere de 50.000.000 de euro. Este vorba despre…",
-              "published": "2026-11-21T20:43:31Z"
+              "title": "DECLARAȚII Cîrjan, discurs de căpitan: și-a „tocat” colegii după eșecul din Dinamo – Petrolul! Verdict dur despre jocul „câinilor”",
+              "url": "https://www.prosport.ro/fotbal-intern/superliga/catalin-cirjan-reactie-dinamo-petrolul-20574872",
+              "snippet": "Cătălin Cîrjan a avut o reacție dură după ce Dinamo a înregistrat al doilea eșec la rând în Superliga. Mutarea la Slobozia nu a fost de bun augur pentru „câini”. Pe micuța arenă…",
+              "published": "2026-11-21T21:56:12Z"
             },
             {
-              "title": "(P) De ce ne este frică să spunem ce gândim? Psihologia autocenzurii și mecanismul care ne face să tăcem chiar și atunci când avem dreptate",
-              "url": "https://www.prosport.ro/advertorial/p-de-ce-ne-este-frica-sa-spunem-ce-gandim-psihologia-autocenzurii-si-mecanismul-care-ne-face-sa-tacem-chiar-si-atunci-cand-avem-dreptate-20574798",
-              "snippet": "Ai fost vreodată într-o ședință în care toată lumea părea de acord cu o idee pe care tu o considerai greșită? Ai preferat să taci pentru a evita o ceartă, o reacție ironică sau…",
-              "published": "2026-11-21T20:39:03Z"
+              "title": "Nemaivăzut! Ce au putut face fanii lui Dinamo cu cablul de la VAR din cauza căruia s-a întrerupt meciul cu Petrolul",
+              "url": "https://www.prosport.ro/fotbal-intern/superliga/fani-dinamo-cablu-monitor-var-20574842",
+              "snippet": "Meciul Dinamo – Petrolul a fost întrerupt mai bine de zece minute după ce fanii lui Dinamo au făcut tot posibilul ca arbitrul să nu revadă la monitorul VAR o fază controversată…",
+              "published": "2026-11-21T21:37:08Z"
             },
             {
-              "title": "Marele Cesare Prandelli pune la îndoială decizia lui Cristi Chivu: „E paradoxal!”",
-              "url": "https://www.prosport.ro/fotbal-extern/marele-cesare-prandelli-reactie-pio-esposito-chivu-inter-20574641",
-              "snippet": "Cesare Prandelli nu înțelege de ce titularul din atacul naționalei Italiei nu e titular incontestabil și sub comanda lui Cristi Chivu (46 de ani). Pio Esposito (21 de ani)…",
-              "published": "2026-11-21T20:14:29Z"
+              "title": "DECLARAȚII Sergiu Hanca, reacția serii după scandalul de la VAR din Dinamo – Petrolul: „E 2026, nu poți să…”",
+              "url": "https://www.prosport.ro/fotbal-intern/superliga/sergiu-hanca-reactia-serii-dupa-scandalul-de-la-var-din-dinamo-petrolul-20574850",
+              "snippet": "Sergiu Hanca (34 de ani) a oferit o reacție interesantă după scandalul din meciul Dinamo – Petrolul, legat de sistemul VAR. Fanii „câinilor” au tras de un cablu conectat la…",
+              "published": "2026-11-21T21:34:47Z"
             }
           ]
         }
@@ -616,34 +616,34 @@
           "name": "Descoperă.ro",
           "items": [
             {
+              "title": "Acord între Marea Britanie și Uniunea Europeană pentru restabilirea relațiilor după Brexit",
+              "url": "https://www.descopera.ro/dnews/21159892-acord-intre-marea-britanie-si-uniunea-europeana-pentru-restabilirea-relatiilor-dupa-brexit",
+              "snippet": "Uniunea Europeană și Marea Britanie au ajuns la un acord privind trei domenii de cooperare, într-un demers considerat începutul resetării relațiilor dintre cele două părți, la…",
+              "published": "2026-11-22T01:00:07Z"
+            },
+            {
+              "title": "Apple vrea să lanseze agent AI capabil să folosească un computer în numele utilizatorilor",
+              "url": "https://www.descopera.ro/dnews/21159865-apple-vrea-sa-lanseze-agent-ai-capabil-sa-foloseasca-un-computer-in-numele-utilizatorilor",
+              "snippet": "Apple lucrează la dezvoltarea unui agent de inteligență artificială capabil să folosească un computer în numele utilizatorilor, inclusiv să acceseze aplicații și site-uri web, să…",
+              "published": "2026-11-22T00:00:12Z"
+            },
+            {
+              "title": "Industria petrolieră, criticată dur la summitul climatic COP31 din Turcia. „Lumea este ținută ostatică de mafia petrolului”",
+              "url": "https://www.descopera.ro/dnews/21159813-industria-petroliera-criticata-dur-la-summitul-climatic-cop31-din-turcia-lumea-este-tinuta-ostatica-de-mafia-petrolului",
+              "snippet": "Un scandal a izbucnit la summitul climatic COP31 din Turcia, după ce referirile la combustibilii fosili au fost eliminate din proiectul acordului final. O țară mică amenință să…",
+              "published": "2026-11-21T23:00:01Z"
+            },
+            {
+              "title": "Primul caz de holeră descoperit în ultimul deceniu în Coreea de Sud",
+              "url": "https://www.descopera.ro/dnews/21159749-primul-caz-de-holera-descoperit-in-ultimul-deceniu-in-coreea-de-sud",
+              "snippet": "Coreea de Sud a raportat primul caz de holeră din ultimul deceniu, determinând autoritățile să îndemne populația să ia măsuri de precauție. Țara a înregistrat primul caz de…",
+              "published": "2026-11-21T22:00:03Z"
+            },
+            {
               "title": "Fizicienii propun un tabel periodic al materiei întunecate",
               "url": "https://www.descopera.ro/stiinta/21159482-fizicienii-propun-un-tabel-periodic-al-materiei-intunecate",
               "snippet": "Fizicienii propun un tabel periodic al materiei întunecate. Cea mai mare parte a materiei din Univers este complet invizibilă pentru telescoapele noastre. Galaxiile se rotesc…",
               "published": "2026-11-21T18:00:39Z"
-            },
-            {
-              "title": "Un rege antic din Epoca Fierului ar fi fost, de fapt, o femeie",
-              "url": "https://www.descopera.ro/istorie/21158820-un-rege-antic-din-epoca-fierului-ar-fi-fost-de-fapt-o-femeie",
-              "snippet": "Un conducător al cărui exil a ajutat la declanșarea invaziei Romei în Marea Britanie ar fi putut fi o femeie. Teoria pune sub semnul întrebării secole de presupuneri despre o…",
-              "published": "2026-11-21T17:00:17Z"
-            },
-            {
-              "title": "Ce înseamnă cu adevărat să fii „un om asumat” și de ce reacțiile te dau de gol înaintea vorbelor",
-              "url": "https://www.descopera.ro/stiinta/21160218-ce-inseamna-cu-adevarat-sa-fii-un-om-asumat-si-de-ce-reactiile-te-dau-de-gol-inaintea-vorbelor",
-              "snippet": "Atunci când cineva se descrie ca fiind „un om asumat”, afirmația pare, la suprafață, un semn al maturității emoționale. Termenul a intrat atât de des în vocabularul cotidian…",
-              "published": "2026-11-21T16:00:27Z"
-            },
-            {
-              "title": "Cartofii crescuți pe Lună ar putea fi la fel de buni ca cei de pe Pământ, dezvăluie noi experimente",
-              "url": "https://www.descopera.ro/stiinta/21159510-cartofii-crescuti-pe-luna-ar-putea-fi-la-fel-de-buni-ca-cei-de-pe-pamant-dezvaluie-noi-experimente",
-              "snippet": "Cartofii crescuți în sol lunar sunt siguri de mâncat și pot obține o creștere și randamente comparabile cu cele produse pe Pământ. „Cartofii își pot completa întregul ciclu de…",
-              "published": "2026-11-21T15:00:55Z"
-            },
-            {
-              "title": "Bacteriile arctice folosesc lumina Soarelui și dioxidul de carbon într-un mod neașteptat",
-              "url": "https://www.descopera.ro/natura/21158851-bacteriile-arctice-folosesc-lumina-soarelui-si-dioxidul-de-carbon-intr-un-mod-neasteptat",
-              "snippet": "O bacterie care trăiește în Oceanul Arctic posedă o combinație neobișnuită de gene care ar putea dezvălui o strategie surprinzătoare de supraviețuire. Bacteria, cunoscută sub…",
-              "published": "2026-11-21T14:00:45Z"
             }
           ]
         },
@@ -764,6 +764,18 @@
       "name": "TechCrunch AI",
       "items": [
         {
+          "title": "Signal restricts mobile screenshots as it confronts ‘existential threat’ of AI surveillance",
+          "url": "https://techcrunch.com/2026/11/21/signal-restricts-mobile-screenshots-as-it-confronts-existential-threat-of-ai-surveillance/",
+          "snippet": "Signal is limiting users' ability to take screenshots in both its Android and iOS apps.",
+          "published": "2026-11-21T21:37:10Z"
+        },
+        {
+          "title": "A tale of two Nvidias",
+          "url": "https://techcrunch.com/2026/11/21/a-tale-of-two-nvidias/",
+          "snippet": "We got two very different pictures of Nvidia — the company’s latest earnings report vs. the tech executives loudly calling for Jensen Huang’s return.",
+          "published": "2026-11-21T21:07:42Z"
+        },
+        {
           "title": "Here are the top AI agents that can live in your text messages",
           "url": "https://techcrunch.com/2026/11/21/all-the-ai-agents-that-can-live-in-your-text-messages/",
           "snippet": "We created a list of the most notable AI agents that can live in your text messages, from general assistants to agents designed for families, travel, and work.",
@@ -780,18 +792,6 @@
           "url": "https://techcrunch.com/2026/11/20/daniel-ek-backs-ai-researchers-fusion-power-startup-heres-what-theyre-building/",
           "snippet": "Spotify founder Daniel Ek is backing Europa Fusion, a fusion power startup founded by an AI researcher. Here's what the startup is building.",
           "published": "2026-11-20T19:53:41Z"
-        },
-        {
-          "title": "AI claimed a solution to the 167-year-old Riemann hypothesis — and a human did, too",
-          "url": "https://techcrunch.com/2026/11/20/ai-claimed-a-solution-to-the-167-year-old-riemann-hypothesis-and-a-human-did-too/",
-          "snippet": "Mathematicians are having their minds blown by the latest AI-driven result — and there's a competing human solution, too.",
-          "published": "2026-11-20T19:32:08Z"
-        },
-        {
-          "title": "Chips can survive the space environment — can their financing?",
-          "url": "https://techcrunch.com/2026/11/20/chips-can-survive-the-space-environment-can-their-financing/",
-          "snippet": "Lenders don't want SpaceX shooting their collateral into orbit. What does that mean for space data centers writ large?",
-          "published": "2026-11-20T17:40:01Z"
         }
       ]
     },
